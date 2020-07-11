@@ -3,13 +3,15 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"start": "react-scripts start",
+		"dev": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"build:tailwind": "postcss src/scss/base.scss -o src/scss/tailwind.scss"
+		"build:tailwind": "postcss src/scss/base.scss -o src/scss/tailwind.scss",
+		"storybook": "start-storybook -p 4000"
 	},
 	"dependencies": {
+		"@craco/craco": "^5.6.4",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.3.2",
 		"@testing-library/user-event": "^7.1.2",
@@ -38,9 +40,19 @@
 		]
 	},
 	"devDependencies": {
+		"@storybook/addon-actions": "^5.3.19",
+		"@storybook/addon-info": "^5.3.19",
+		"@storybook/addon-knobs": "^5.3.19",
+		"@storybook/addon-links": "^5.3.19",
+		"@storybook/addon-notes": "^5.3.19",
+		"@storybook/addons": "^5.3.19",
+		"@storybook/preset-create-react-app": "^3.1.4",
+		"@storybook/react": "^5.3.19",
 		"autoprefixer": "^9.8.4",
+		"babel-loader": "^8.1.0",
 		"node-sass": "^4.14.1",
 		"postcss-cli": "^7.1.1",
+		"react-docgen-typescript-loader": "^3.7.2",
 		"tailwindcss": "^1.4.6"
 	}
 }
