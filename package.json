@@ -3,22 +3,18 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"dev": "craco start",
+		"build": "craco build",
+		"test": "craco test",
 		"eject": "react-scripts eject",
 		"build:tailwind": "postcss src/scss/base.scss -o src/scss/tailwind.scss",
-		"storybook": "start-storybook -p 4000"
+		"storybook": "start-storybook -p 4000 public"
 	},
 	"dependencies": {
 		"@craco/craco": "^5.6.4",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.3.2",
 		"@testing-library/user-event": "^7.1.2",
-		"@types/jest": "^24.0.0",
-		"@types/node": "^12.0.0",
-		"@types/react": "^16.9.0",
-		"@types/react-dom": "^16.9.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-scripts": "3.4.1",
@@ -48,11 +44,20 @@
 		"@storybook/addons": "^5.3.19",
 		"@storybook/preset-create-react-app": "^3.1.4",
 		"@storybook/react": "^5.3.19",
+		"@types/jest": "^24.0.0",
+		"@types/node": "^12.0.0",
+		"@types/react": "^16.9.0",
+		"@types/react-dom": "^16.9.0",
 		"autoprefixer": "^9.8.4",
 		"babel-loader": "^8.1.0",
+		"css-loader": "^3.6.0",
 		"node-sass": "^4.14.1",
 		"postcss-cli": "^7.1.1",
+		"postcss-import": "^12.0.1",
+		"postcss-loader": "^3.0.0",
 		"react-docgen-typescript-loader": "^3.7.2",
+		"sass-loader": "^9.0.2",
+		"style-loader": "^1.2.1",
 		"tailwindcss": "^1.4.6"
 	}
 }
