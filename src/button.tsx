@@ -26,7 +26,7 @@ const OUTLINED_BUTTON = 'border border-teal-400 text-teal-400 ll';
 
 const Button: FC<ButtonTypes> = ({
   onClick,
-  label,
+  label = 'See more',
   outlined,
   className = '',
   type = 'button',
