@@ -1,0 +1,47 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-comments",
+    "jest",
+    "promise",
+    "unicorn",
+    "import"
+  ],
+  "extends": [
+    "airbnb-typescript",
+    "airbnb",
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard",
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:jest/recommended",
+    "plugin:promise/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "unicorn/filename-case": 0,
+    "react/jsx-filename-extension": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "react/button-has-type": 0
+  }
+}
