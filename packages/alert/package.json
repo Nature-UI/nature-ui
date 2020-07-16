@@ -1,0 +1,43 @@
+{
+  "name": "@nature-ui/alert",
+  "version": "1.0.0",
+  "description": "A React component used to alert users of a particular screen area that needs user action",
+  "keywords": [
+    "alert",
+    "notice",
+    "notification",
+    "react",
+    "nature ui",
+    "ui"
+  ],
+  "private": true,
+  "license": "MIT",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "start": "nodemon --watch src --exec yarn build -e ts,tsx",
+    "build": "yarn build",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationMap --declarationDir dist/types"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "@nature-ui/utils": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": "16.x",
+    "@nature-ui/utils": "1.x"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ]
+}

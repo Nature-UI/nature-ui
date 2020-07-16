@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import PropTypes from 'prop-types';
+
+export const clsx = (...classNames: any[]): string =>
+  classNames.filter(Boolean).join(' ');
 
 type ButtonTypes = {
   /**

@@ -1,13 +1,10 @@
 {
-  "name": "nature.design",
+  "name": "nature-ui",
   "version": "0.1.0",
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*",
-      "examples/*",
-      "tooling/*",
-      "website"
+      "packages/*"
     ]
   },
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
@@ -35,6 +32,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
     "typescript": "~3.7.2"
   },
   "eslintConfig": {
@@ -84,6 +82,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-unicorn": "^20.1.0",
     "husky": "^4.2.5",
+    "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
     "node-sass": "^4.14.1",
     "postcss-cli": "^7.1.1",
