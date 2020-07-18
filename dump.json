@@ -1,0 +1,7 @@
+{
+  "nohoist": [
+    "packages/apps/**/webpack-dev-server",
+    "**/babel-loader",
+    "**/babel-jest"
+  ]
+}

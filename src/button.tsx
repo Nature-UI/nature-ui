@@ -1,9 +1,7 @@
-import React, { FC } from 'react';
-// import clsx from 'clsx';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 
-export const clsx = (...classNames: any[]): string =>
-  classNames.filter(Boolean).join(' ');
+import clx from './clx';
 
 type ButtonTypes = {
   /**
@@ -27,21 +25,21 @@ const BASE_BUTTON =
 const CONTAINED_BUTTON = 'bg-teal-400 border border-teal-400 text-white';
 const OUTLINED_BUTTON = 'border border-teal-400 text-teal-400 ll';
 
-const Button: FC<ButtonTypes> = ({
-  onClick,
-  label = 'See more',
-  outlined,
+const Button: React.FC<ButtonTypes> = ({
   className = '',
+  outlined,
+  onClick,
   type = 'button',
+  label = 'See more',
 }) => {
   return (
     <button
-      onClick={onClick}
-      className={clsx(BASE_BUTTON, {
+      className={clx(BASE_BUTTON, {
+        [className]: className,
         [CONTAINED_BUTTON]: !outlined,
         [OUTLINED_BUTTON]: outlined,
-        [className]: className,
       })}
+      onClick={onClick}
       type={type}
     >
       <span>{label}</span>
@@ -50,9 +48,9 @@ const Button: FC<ButtonTypes> = ({
 };
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
   className: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
   outlined: PropTypes.bool,
   type: PropTypes.oneOf(['submit', 'button', 'reset', undefined]),
 };
@@ -63,4 +61,4 @@ Button.defaultProps = {
   type: 'button',
 };
 
-export default Button;
+export { Button, clx };

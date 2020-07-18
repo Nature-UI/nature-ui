@@ -9,7 +9,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jest": true
+    "jest": true,
+    "node": true
   },
   "plugins": [
     "@typescript-eslint",
@@ -34,7 +35,8 @@
     "plugin:unicorn/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "get-off-my-lawn"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -42,6 +44,7 @@
     "react/jsx-filename-extension": 0,
     "import/extensions": 0,
     "import/prefer-default-export": 0,
-    "react/button-has-type": 0
+    "react/button-has-type": 0,
+    "react/jsx-no-literals": 0
   }
 }

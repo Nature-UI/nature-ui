@@ -5,8 +5,8 @@ import Layout from './Layout';
 
 addDecorator((storyFn) => <Layout>{storyFn()}</Layout>);
 addDecorator(
-	withInfo({
-		inline: true,
-		propTablesExclude: [Layout],
-	})
+  withInfo({
+    inline: true,
+    propTablesExclude: [Layout],
+  })
 );
