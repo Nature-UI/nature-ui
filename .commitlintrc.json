@@ -4,7 +4,20 @@
     "type-enum": [
       1,
       "always",
-      ["feat", "fix", "docs", "style", "refactor", "test", "revert"]
+      [
+        "bug",
+        "build",
+        "ci",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "revert",
+        "style",
+        "test",
+        "docs"
+      ]
     ]
   }
 }
