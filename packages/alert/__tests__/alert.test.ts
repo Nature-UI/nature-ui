@@ -1,5 +1,3 @@
-'use strict';
-
 const alert = require('..');
 
 describe('@nature-ui/alert', () => {
