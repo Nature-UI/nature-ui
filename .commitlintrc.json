@@ -1,6 +1,6 @@
 {
   "extends": ["@commitlint/config-conventional"],
   "rules": {
-    "type-enum": [0, "always"]
+    "type-enum": [1, "always"]
   }
 }
