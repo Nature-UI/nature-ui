@@ -14,7 +14,8 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
-    "rootDir": "src",
+    // "rootDir": "src",
+    "rootDirs": ["packages"],
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true,
     "noImplicitAny": true,
@@ -38,5 +39,5 @@
     "webpack",
     "jest"
   ],
-  "include": ["src/**/*", "packages/**/*", "craco.config.js"]
+  "include": ["src/**/*", "packages/**/*", "*.config.js"]
 }

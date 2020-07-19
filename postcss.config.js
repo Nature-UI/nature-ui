@@ -1,3 +1,8 @@
+const postcss = import('postcss-import');
+const tailwind = import('tailwindcss');
+const autoprefixer = import('autoprefixer');
+const sass = import('node-sass');
+
 module.exports = {
-  plugins: [require('tailwindcss'), require('autoprefixer')],
+  plugins: [postcss, tailwind, autoprefixer, sass],
 };

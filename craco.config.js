@@ -7,11 +7,13 @@ module.exports = {
   style: {
     postcss: {
       plugins: [postcss, tailwind, autoprefixer, sass],
-      // env: {
-      //   autoprefixer: {
-      //     env: 'production',
-      //   },
-      // },
+      /*
+       * env: {
+       *   autoprefixer: {
+       *     env: 'production',
+       *   },
+       * },
+       */
     },
   },
 };

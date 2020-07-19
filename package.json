@@ -5,6 +5,12 @@
   "workspaces": {
     "packages": [
       "packages/*"
+    ],
+    "nohoist": [
+      "packages/apps/**/webpack-dev-server",
+      "**/babel-loader",
+      "**/babel-jest",
+      "**/babel-core"
     ]
   },
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
@@ -27,13 +33,16 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "babel-preset-react-app": "^9.1.2",
     "classnames": "^2.2.6",
     "clsx": "^1.1.1",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2",
+    "sass-loader": "^9.0.2",
     "typescript": "~3.7.2"
   },
   "eslintConfig": {
@@ -94,7 +103,6 @@
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
-    "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
     "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
