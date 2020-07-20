@@ -99,7 +99,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
-    "eslint-plugin-unicorn": "^20.1.0",
+    "eslint-plugin-unicorn": "^21.0.0",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
