@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    // "baseUrl": "./",
     "jsx": "react",
     "esModuleInterop": true,
     "strict": true,
@@ -14,8 +14,8 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
+    "declarationMap": true,
     // "rootDir": "src",
-    "rootDirs": ["packages"],
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true,
     "noImplicitAny": true,
