@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import Alert from './lib/alert';
+import Alert from '../src';
 
 export default {
   decorators: [withKnobs],

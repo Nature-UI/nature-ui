@@ -46,6 +46,7 @@
     "import/prefer-default-export": 0,
     "react/button-has-type": 0,
     "react/jsx-no-literals": 0,
-    "@typescript-eslint/ban-ts-comment": 0
+    "@typescript-eslint/ban-ts-comment": 0,
+    "import/exports-last": 0
   }
 }
