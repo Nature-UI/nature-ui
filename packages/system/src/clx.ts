@@ -6,7 +6,6 @@ interface ClassDict {
 }
 export type ClassArray = Array<ClassValue>;
 
-const clx = (...classNames: ClassValue[]): string =>
-  classNames.filter(Boolean).join(' ');
+const clx = (...classNames: ClassValue[]): string => classNames.filter(Boolean).join(' ');
 
 export default clx;

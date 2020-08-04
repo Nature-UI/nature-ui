@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const fallbackIcon = {
+export const fallbackIcon = {
   path: (
     <g fillRule='evenodd'>
       <circle cx='12' cy='12' fill='currentColor' r='10' />
@@ -13,3 +13,13 @@ const fallbackIcon = {
   ),
   viewBox: '0 0 24 24',
 };
+
+const I = ({ ...properties }, reference: React.Ref<any>) => {
+  return (
+    <div {...properties} {...reference}>
+      {properties.children}
+    </div>
+  );
+};
+
+export const Icon = React.forwardRef(I);
