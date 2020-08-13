@@ -42,6 +42,7 @@
     "@typescript-eslint/ban-ts-comment": 0,
     "import/exports-last": 0,
     "@typescript-eslint/indent": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "unicorn/prevent-abbreviations": 0
   }
 }

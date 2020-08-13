@@ -22,7 +22,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "build:tailwind": "postcss src/scss/base.scss -o src/scss/tailwind.scss",
-    "storybook": "start-storybook -p 4000 public",
+    "storybook": "start-storybook -p 4000",
     "lint": "eslint --fix --ext=jsx,ts,tsx './**/*.{ts,tsx}'",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\""
@@ -46,6 +46,7 @@
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^9.0.2",
+    "storybook": "^6.0.2",
     "typescript": "~3.7.2"
   },
   "eslintConfig": {

@@ -24,17 +24,19 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^5.3.19",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "@storybook/addon-knobs": "^5.3.19"
+    "@nature-ui/utils": "^1.0.0",
+    "react-dom": "^16.13.1"
   },
   "peerDependencies": {
+    "@storybook/addon-knobs": "^5.x",
     "react": "^16.x",
-    "react-dom": "^16.x",
-    "@storybook/addon-knobs": "^5.x"
+    "react-dom": "^16.x"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
-  "homepage": "https://github.com/DNature/nature-ui#readme"
+  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "devDependencies": {}
 }

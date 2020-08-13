@@ -27,16 +27,20 @@
     "build": "rimraf ./dist && tsc"
   },
   "dependencies": {
+    "@nature-ui/utils": "^1.0.0",
     "react": "16.13.1",
-    "@nature-ui/utils": "^1.0.0"
+    "utils": "^0.3.1"
   },
   "peerDependencies": {
+    "react": "^16.x",
     "rimraf": "^3.x",
-    "typescript": "^3.x",
-    "react": "^16.x"
+    "typescript": "^3.x"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
-  "homepage": "https://github.com/DNature/nature-ui#readme"
+  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "devDependencies": {
+    "@nature-ui/utils": "^1.0.0"
+  }
 }
