@@ -1,21 +1,26 @@
 import * as React from 'react';
-import { clx } from '@nature-ui/utils';
+// import { clx } from '@nature-ui/utils';
+import clx from 'clsx';
 
 export const ALERT_STATUSES = {
   error: {
-    colorScheme: 'red',
+    bg: 'bg-red-200',
+    iconColor: 'text-red-500',
     icon: '',
   },
   info: {
-    colorScheme: 'blue',
+    bg: 'bg-blue-200',
+    iconColor: 'text-blue-500',
     icon: '',
   },
   success: {
-    colorScheme: 'green',
+    bg: 'bg-green-200',
+    iconColor: 'text-green-500',
     icon: '',
   },
   warning: {
-    colorScheme: 'orange',
+    bg: 'bg-orange-200',
+    iconColor: 'text-orange-500',
     icon: '',
   },
 };
@@ -39,7 +44,6 @@ interface AlertOptions {
 export type AlertProps = AlertOptions;
 
 const DEFAULT_CLASSES = 'px-4 py-3';
-const DANGER_CLASS = 'bg-red-300';
 
 /*
  *clx(BASE_BUTTON, {
@@ -51,12 +55,12 @@ const DANGER_CLASS = 'bg-red-300';
  */
 
 const alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
-  (properties: AlertProps, ref: React.Ref<any>) => {
-    const { className = 'ml-12' } = properties;
+  (props: AlertProps, ref: React.Ref<any>) => {
+    const { className = 'ml-12', status = 'success' } = props;
 
     const classes = clx(DEFAULT_CLASSES, {
       [className]: className,
-      [DANGER_CLASS]: 'danger',
+      [ALERT_STATUSES[status].bg]: status,
     });
 
     return (

@@ -24,13 +24,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^5.3.19",
-    "react": "^16.13.1",
     "@nature-ui/utils": "^1.0.0",
+    "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "peerDependencies": {
-    "@storybook/addon-knobs": "^5.x",
     "react": "^16.x",
     "react-dom": "^16.x"
   },
