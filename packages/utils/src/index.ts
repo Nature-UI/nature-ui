@@ -1,1 +1,1 @@
-export * from './clx';
+export * from './types';

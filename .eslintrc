@@ -44,6 +44,7 @@
     "@typescript-eslint/indent": 0,
     "react/jsx-props-no-spreading": 0,
     "unicorn/prevent-abbreviations": 0,
-    "sort-keys": 0
+    "sort-keys": 0,
+    "@typescript-eslint/ban-types": 0
   }
 }
