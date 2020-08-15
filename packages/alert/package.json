@@ -24,14 +24,15 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@nature-ui/utils": "^1.0.0",
     "clsx": "^1.1.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0"
   },
   "peerDependencies": {
     "react": "^16.x",
-    "react-dom": "^16.x"
+    "react-dom": "^16.x",
+    "react-icons": "^3.10.0"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

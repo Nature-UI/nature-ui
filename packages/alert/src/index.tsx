@@ -1,28 +1,46 @@
 import * as React from 'react';
-// import { clx } from '@nature-ui/utils';
 import clx from 'clsx';
+import { FiInfo, FiAlertCircle, FiAlertTriangle, FiCheckCircle } from 'react-icons/fi';
+
+const SUBTLE_TEXT = 'text-gray-800';
 
 export const ALERT_STATUSES = {
   error: {
     bg: 'bg-red-200',
-    iconColor: 'text-red-500',
-    icon: '',
+    iconColor: 'text-red-600 mr-3',
+    icon: FiAlertCircle,
+    variant: {
+      solid: 'bg-red-600 text-white',
+      subtle: SUBTLE_TEXT
+    }
   },
   info: {
     bg: 'bg-blue-200',
-    iconColor: 'text-blue-500',
-    icon: '',
+    iconColor: 'text-blue-600 mr-3',
+    icon: FiInfo,
+    variant: {
+      solid: 'bg-blue-600',
+      subtle: SUBTLE_TEXT
+    }
   },
   success: {
     bg: 'bg-green-200',
-    iconColor: 'text-green-500',
-    icon: '',
+    iconColor: 'text-green-600 mr-3',
+    icon: FiCheckCircle,
+    variant: {
+      solid: 'bg-green-600 text-white',
+      subtle: SUBTLE_TEXT
+    }
   },
   warning: {
     bg: 'bg-orange-200',
-    iconColor: 'text-orange-500',
-    icon: '',
-  },
+    iconColor: 'text-orange-600 mr-3',
+    icon: FiAlertTriangle,
+    variant: {
+      solid: 'bg-orange-600 text-white',
+      subtle: SUBTLE_TEXT
+    }
+  }
 };
 
 interface AlertOptions {
@@ -33,30 +51,43 @@ interface AlertOptions {
   /**
    * The variant of the alert style to use
    */
-  variant?: string;
+  variant?: 'solid' | 'subtle';
 
   /**
    * Other tailwind utility classes or custom classnames you wish to include
    */
   className?: string;
+
+  children?: React.ReactNode;
 }
 
 export type AlertProps = AlertOptions;
 
-const DEFAULT_CLASSES = 'px-4 py-3';
+const DEFAULT_CLASSES = 'px-4 py-3 flex items-center';
 
 const alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
   (props: AlertProps, ref: React.Ref<any>) => {
-    const { className = 'ml-12', status = 'success' } = props;
+    const { className = '', status = 'success', children, variant = 'subtle' } = props;
 
-    const classes = clx(DEFAULT_CLASSES, {
+    const VARIANT: string = ALERT_STATUSES[status].variant[variant];
+
+    const componentClass = clx(DEFAULT_CLASSES, {
       [className]: className,
       [ALERT_STATUSES[status].bg]: status,
+      [VARIANT]: variant
+    });
+
+    const Icon = ALERT_STATUSES[status];
+    const iconClasses = clx({
+      [VARIANT]: variant,
+      ['mr-3']: variant,
+      [Icon.iconColor]: variant !== 'solid'
     });
 
     return (
-      <div ref={ref} className={classes}>
-        Your browser is outdated! Your Nature experience may be degraded.
+      <div ref={ref} className={componentClass}>
+        {status && <Icon.icon size={20} className={iconClasses} />}
+        <span>{children ? children : 'This is an alert 🙂'}</span>
       </div>
     );
   }
