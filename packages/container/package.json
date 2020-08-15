@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/container",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Container, nature-ui, component, Nature-UI container",
   "keywords": [
     "Container",
@@ -22,7 +22,8 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://localhost:9000"
   },
   "repository": {
     "type": "git",

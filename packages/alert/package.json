@@ -25,12 +25,14 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@nature-ui/container": "0.1.0",
     "clsx": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0"
   },
   "peerDependencies": {
+    "@storybook/addon-knobs": "^6.0.10",
     "react": "^16.x",
     "react-dom": "^16.x",
     "react-icons": "^3.10.0"

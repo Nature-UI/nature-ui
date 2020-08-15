@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@craco/craco": "^5.6.4",
+    "@nature-ui/container": "0.1.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-knobs": "^6.0.6",

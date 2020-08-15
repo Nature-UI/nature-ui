@@ -1,11 +1,29 @@
-# `@nature-ui/alert`
+# Alert `@nature-ui/alert`
 
-> TODO: description
+> # Alert
+
+A react component used to alert users of a particular screen area that needs user action
+
+## Installation
+
+```sh
+npm i @chakra-ui/alert
+
+# or
+
+yarn add @chakra-ui/alert
+```
 
 ## Usage
 
-```
-const alert = require('@nature-ui/alert');
+```js
+import Alert from '@nature-ui/alert';
 
-// TODO: DEMONSTRATE API
+() => {
+  return (
+    <Alert status='success' variant='subtle'>
+      This is a success alert — check it out!
+    </Alert>
+  );
+};
 ```

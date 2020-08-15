@@ -11,13 +11,13 @@ export default {
 export const Success: React.FC = () => {
   return (
     <Alert className='' status='success'>
-      I love Nature
+      This is a success alert — check it out!
     </Alert>
   );
 };
 
 export const Error: React.FC = () => {
-  return <Alert status='error' />;
+  return <Alert status='error'>This is an Error Alert 😖</Alert>;
 };
 
 export const Info: React.FC = () => {
@@ -34,4 +34,8 @@ export const Solid: React.FC = () => {
       This is a solid variant!
     </Alert>
   );
+};
+
+export const NoIcon: React.FC = () => {
+  return <Alert>This is an alert without an Icon!</Alert>;
 };
