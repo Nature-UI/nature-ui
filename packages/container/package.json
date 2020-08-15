@@ -1,0 +1,37 @@
+{
+  "name": "@nature-ui/container",
+  "version": "1.0.0",
+  "description": "Container, nature-ui, component, Nature-UI container",
+  "keywords": [
+    "Container",
+    "nature-ui",
+    "component",
+    "Nature-UI",
+    "container"
+  ],
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNature/nature-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/DNature/nature-ui/issues"
+  }
+}
