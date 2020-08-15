@@ -45,15 +45,6 @@ export type AlertProps = AlertOptions;
 
 const DEFAULT_CLASSES = 'px-4 py-3';
 
-/*
- *clx(BASE_BUTTON, {
- *    [className]: className,
- *    [CONTAINED_BUTTON]: !outlined,
- *    [OUTLINED_BUTTON]: outlined,
- *  })
- *
- */
-
 const alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
   (props: AlertProps, ref: React.Ref<any>) => {
     const { className = 'ml-12', status = 'success' } = props;
