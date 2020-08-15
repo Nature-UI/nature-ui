@@ -35,6 +35,13 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^6.0.10",
+    "clsx": "^1.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "peerDependencies": {
+    "@storybook/addon-knobs": "^6.0.10",
     "clsx": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

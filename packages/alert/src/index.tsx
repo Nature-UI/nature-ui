@@ -11,8 +11,8 @@ export const ALERT_STATUSES = {
     icon: FiAlertCircle,
     variant: {
       solid: 'bg-red-600 text-white',
-      subtle: SUBTLE_TEXT,
-    },
+      subtle: SUBTLE_TEXT
+    }
   },
   info: {
     bg: 'bg-blue-200',
@@ -20,8 +20,8 @@ export const ALERT_STATUSES = {
     icon: FiInfo,
     variant: {
       solid: 'bg-blue-600',
-      subtle: SUBTLE_TEXT,
-    },
+      subtle: SUBTLE_TEXT
+    }
   },
   success: {
     bg: 'bg-green-200',
@@ -29,8 +29,8 @@ export const ALERT_STATUSES = {
     icon: FiCheckCircle,
     variant: {
       solid: 'bg-green-600 text-white',
-      subtle: SUBTLE_TEXT,
-    },
+      subtle: SUBTLE_TEXT
+    }
   },
   warning: {
     bg: 'bg-orange-200',
@@ -38,9 +38,9 @@ export const ALERT_STATUSES = {
     icon: FiAlertTriangle,
     variant: {
       solid: 'bg-orange-600 text-white',
-      subtle: SUBTLE_TEXT,
-    },
-  },
+      subtle: SUBTLE_TEXT
+    }
+  }
 };
 
 interface AlertOptions {
@@ -68,33 +68,33 @@ interface AlertOptions {
 
 export type AlertProps = AlertOptions;
 
-const DEFAULT_CLASSES = 'px-4 py-3 flex items-center';
+const BASE_STYLE = 'px-4 py-3 flex items-center';
 
-const alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
+const Alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
   (props: AlertProps, ref: React.Ref<any>) => {
     const {
       className = '',
       status = 'success',
       children,
       variant = 'subtle',
-      component: Component = 'div',
+      component: Component = 'div'
     } = props;
 
     // const Component = 'div';
 
     const VARIANT: string = ALERT_STATUSES[status].variant[variant];
 
-    const componentClass = clx(DEFAULT_CLASSES, {
+    const componentClass = clx(BASE_STYLE, {
       [className]: className,
       [ALERT_STATUSES[status].bg]: status,
-      [VARIANT]: variant,
+      [VARIANT]: variant
     });
 
     const Icon = ALERT_STATUSES[status];
     const iconClasses = clx({
       [VARIANT]: variant,
       'mr-3': variant,
-      [Icon.iconColor]: variant !== 'solid',
+      [Icon.iconColor]: variant !== 'solid'
     });
 
     const IconComponent = Icon.icon;
@@ -108,4 +108,6 @@ const alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
   }
 );
 
-export default alert;
+Alert.displayName = 'Alert';
+
+export default Alert;
