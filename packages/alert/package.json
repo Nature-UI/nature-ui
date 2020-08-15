@@ -4,14 +4,15 @@
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/index.js",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "src",
+    "dist"
   ],
   "publishConfig": {
     "access": "public"

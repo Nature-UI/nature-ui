@@ -5,12 +5,12 @@ import Alert from '../src';
 
 export default {
   decorators: [withKnobs],
-  title: 'Alert'
+  title: 'Alert',
 };
 
 export const Success: React.FC = () => {
   return (
-    <Alert status='success' className=''>
+    <Alert className='' status='success'>
       I love Nature
     </Alert>
   );

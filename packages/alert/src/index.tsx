@@ -11,8 +11,8 @@ export const ALERT_STATUSES = {
     icon: FiAlertCircle,
     variant: {
       solid: 'bg-red-600 text-white',
-      subtle: SUBTLE_TEXT
-    }
+      subtle: SUBTLE_TEXT,
+    },
   },
   info: {
     bg: 'bg-blue-200',
@@ -20,8 +20,8 @@ export const ALERT_STATUSES = {
     icon: FiInfo,
     variant: {
       solid: 'bg-blue-600',
-      subtle: SUBTLE_TEXT
-    }
+      subtle: SUBTLE_TEXT,
+    },
   },
   success: {
     bg: 'bg-green-200',
@@ -29,8 +29,8 @@ export const ALERT_STATUSES = {
     icon: FiCheckCircle,
     variant: {
       solid: 'bg-green-600 text-white',
-      subtle: SUBTLE_TEXT
-    }
+      subtle: SUBTLE_TEXT,
+    },
   },
   warning: {
     bg: 'bg-orange-200',
@@ -38,9 +38,9 @@ export const ALERT_STATUSES = {
     icon: FiAlertTriangle,
     variant: {
       solid: 'bg-orange-600 text-white',
-      subtle: SUBTLE_TEXT
-    }
-  }
+      subtle: SUBTLE_TEXT,
+    },
+  },
 };
 
 interface AlertOptions {
@@ -59,6 +59,11 @@ interface AlertOptions {
   className?: string;
 
   children?: React.ReactNode;
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component?: React.ComponentType;
 }
 
 export type AlertProps = AlertOptions;
@@ -67,28 +72,38 @@ const DEFAULT_CLASSES = 'px-4 py-3 flex items-center';
 
 const alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
   (props: AlertProps, ref: React.Ref<any>) => {
-    const { className = '', status = 'success', children, variant = 'subtle' } = props;
+    const {
+      className = '',
+      status = 'success',
+      children,
+      variant = 'subtle',
+      component: Component = 'div',
+    } = props;
+
+    // const Component = 'div';
 
     const VARIANT: string = ALERT_STATUSES[status].variant[variant];
 
     const componentClass = clx(DEFAULT_CLASSES, {
       [className]: className,
       [ALERT_STATUSES[status].bg]: status,
-      [VARIANT]: variant
+      [VARIANT]: variant,
     });
 
     const Icon = ALERT_STATUSES[status];
     const iconClasses = clx({
       [VARIANT]: variant,
-      ['mr-3']: variant,
-      [Icon.iconColor]: variant !== 'solid'
+      'mr-3': variant,
+      [Icon.iconColor]: variant !== 'solid',
     });
 
+    const IconComponent = Icon.icon;
+
     return (
-      <div ref={ref} className={componentClass}>
-        {status && <Icon.icon size={20} className={iconClasses} />}
+      <Component className={componentClass} ref={ref}>
+        {status && <IconComponent className={iconClasses} size={20} />}
         <span>{children ? children : 'This is an alert 🙂'}</span>
-      </div>
+      </Component>
     );
   }
 );
