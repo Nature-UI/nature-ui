@@ -81,7 +81,7 @@ const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<any>) => {
     children,
     ...rest
   } = props;
-  const DEFAULT_CLASS = 'block focus:shadow-outline focus:outline-none rounded font-semibold';
+  const DEFAULT_CLASS = 'block focus:shadow-outline focus:outline-none rounded font-semibold flex';
   const STYLES = {
     solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
     outline: `bg-transparent hover:bg-${lighten(
