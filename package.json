@@ -94,7 +94,7 @@
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
     "eslint": "^7.4.0",
-    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-get-off-my-lawn": "^5.0.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
