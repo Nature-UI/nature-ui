@@ -5,7 +5,7 @@ import Container from '@nature-ui/container';
 
 const Layout = ({ children }) => {
   return (
-    <Container size='xs' className='px-12 mt-6'>
+    <Container size='lg' className='mt-6'>
       {children}
     </Container>
   );
