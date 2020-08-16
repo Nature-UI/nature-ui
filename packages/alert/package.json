@@ -22,10 +22,11 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "@nature-ui/container": "0.1.0",
+    "@testing-library/react": "^10.4.8",
     "clsx": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

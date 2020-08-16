@@ -63,7 +63,7 @@ interface AlertOptions {
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component?: React.ComponentType;
+  component?: React.ElementType;
 }
 
 export type AlertProps = AlertOptions;
