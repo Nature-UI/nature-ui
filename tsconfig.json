@@ -31,13 +31,6 @@
     "noEmit": false,
     "types": ["jest", "node", "react", "react-dom"]
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest"
-  ],
+  "exclude": ["node_modules", "build", "scripts", "acceptance-tests", "webpack", "jest"],
   "include": ["src/**/*", "packages/**/*", "*.config.js"]
 }

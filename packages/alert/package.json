@@ -4,14 +4,15 @@
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
-  "license": "ISC",
+  "license": "MIT",
   "main": "dist/index.js",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src",
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,17 +22,21 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
-    "@nature-ui/utils": "^1.0.0",
+    "@nature-ui/container": "0.1.0",
+    "@testing-library/react": "^10.4.8",
     "clsx": "^1.1.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0"
   },
   "peerDependencies": {
+    "@storybook/addon-knobs": "^6.0.10",
     "react": "^16.x",
-    "react-dom": "^16.x"
+    "react-dom": "^16.x",
+    "react-icons": "^3.10.0"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
