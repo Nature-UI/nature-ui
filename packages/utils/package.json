@@ -21,12 +21,13 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "rimraf ./dist && tsc"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "rimraf": "^3.0.2"
   }
 }
