@@ -1,11 +1,25 @@
-# `@nature-ui/container`
+# Container `@nature-ui/container`
 
-> TODO: description
+## Installation
+
+```sh
+npm i @chakra-ui/container
+
+# or
+
+yarn add @chakra-ui/container
+```
 
 ## Usage
 
-```
-const container = require('@nature-ui/container');
+```js
+import Alert from '@nature-ui/container';
 
-// TODO: DEMONSTRATE API
+() => {
+  return (
+    <Container className='bg-gray-300' size='xl'>
+      I love Nature
+    </Container>
+  );
+};
 ```
