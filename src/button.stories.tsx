@@ -6,7 +6,7 @@ import { Button } from './button';
 
 export default {
   decorators: [withKnobs],
-  title: 'Button',
+  title: 'Button'
 };
 
 export const primary: React.FC = () => {

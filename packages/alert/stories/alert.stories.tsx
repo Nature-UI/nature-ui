@@ -5,7 +5,7 @@ import Alert from '../src';
 
 export default {
   decorators: [withKnobs],
-  title: 'Alert',
+  title: 'Alert'
 };
 
 export const Success: React.FC = () => {

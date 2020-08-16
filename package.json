@@ -48,8 +48,7 @@
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^9.0.2",
-    "storybook": "^6.0.2",
-    "typescript": "~3.7.2"
+    "storybook": "^6.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -91,7 +90,6 @@
     "@typescript-eslint/parser": "^3.6.1",
     "autoprefixer": "^9.8.4",
     "babel-core": "^6.26.3",
-    "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
@@ -108,6 +106,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-unicorn": "^20.1.0",
     "husky": "^4.2.5",
+    "jest": "^26.4.0",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4",
@@ -121,6 +120,8 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.6",
-    "webpack": "^4.43.0"
+    "webpack": "^4.43.0",
+    "typescript": "^3.9.7",
+    "ts-jest": "^26.2.0"
   }
 }

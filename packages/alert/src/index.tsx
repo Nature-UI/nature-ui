@@ -11,8 +11,8 @@ export const ALERT_STATUSES = {
     icon: FiAlertCircle,
     variant: {
       solid: 'bg-red-600 text-white',
-      subtle: SUBTLE_TEXT,
-    },
+      subtle: SUBTLE_TEXT
+    }
   },
   info: {
     bg: 'bg-blue-200',
@@ -20,8 +20,8 @@ export const ALERT_STATUSES = {
     icon: FiInfo,
     variant: {
       solid: 'bg-blue-600',
-      subtle: SUBTLE_TEXT,
-    },
+      subtle: SUBTLE_TEXT
+    }
   },
   success: {
     bg: 'bg-green-200',
@@ -29,8 +29,8 @@ export const ALERT_STATUSES = {
     icon: FiCheckCircle,
     variant: {
       solid: 'bg-green-600 text-white',
-      subtle: SUBTLE_TEXT,
-    },
+      subtle: SUBTLE_TEXT
+    }
   },
   warning: {
     bg: 'bg-orange-200',
@@ -38,10 +38,18 @@ export const ALERT_STATUSES = {
     icon: FiAlertTriangle,
     variant: {
       solid: 'bg-orange-600 text-white',
-      subtle: SUBTLE_TEXT,
-    },
-  },
+      subtle: SUBTLE_TEXT
+    }
+  }
 };
+
+type AlertContext = Required<Pick<AlertOptions, 'status' | 'variant'>>;
+
+/*
+ * const [AlertContextProvider, useAlertContext] = React.createContext<AlertContext>({
+ *   name: 'AlertContext',
+ * });
+ */
 
 interface AlertOptions {
   /**
@@ -77,7 +85,7 @@ const Alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
       status = 'success',
       children,
       variant = 'subtle',
-      component: Component = 'div',
+      component: Component = 'div'
     } = props;
 
     // const Component = 'div';
@@ -87,14 +95,14 @@ const Alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
     const componentClass = clx(BASE_STYLE, {
       [className]: className,
       [ALERT_STATUSES[status].bg]: status,
-      [VARIANT]: variant,
+      [VARIANT]: variant
     });
 
     const Icon = ALERT_STATUSES[status];
     const iconClasses = clx({
       [VARIANT]: variant,
       'mr-3': variant,
-      [Icon.iconColor]: variant !== 'solid',
+      [Icon.iconColor]: variant !== 'solid'
     });
 
     const IconComponent = Icon.icon;
@@ -102,7 +110,7 @@ const Alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
     return (
       <Component className={componentClass} ref={ref}>
         {status && <IconComponent className={iconClasses} size={20} />}
-        <span>{children ? children : 'This is an alert 🙂'}</span>
+        <Component>{children ? children : 'This is an alert 🙂'}</Component>
       </Component>
     );
   }

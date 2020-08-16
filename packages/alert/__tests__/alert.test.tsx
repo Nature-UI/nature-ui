@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import Alert from '../src';
 
 describe('Alert test: ', () => {
-  it('should be in the dom', () => {
-    render(
+  test('should be in the dom', () => {
+    const { getByText } = render(
       <Alert component='div' status='success'>
         Hi world
       </Alert>
     );
 
-    expect(screen.getByRole('div')).toHaveTextContent('Hi world');
+    expect(getByText('Hi world')).toBeInTheDocument();
   });
 });

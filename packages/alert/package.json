@@ -22,7 +22,7 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --env=jsdom --passWithNoTests"
   },
   "dependencies": {
     "@nature-ui/container": "0.1.0",

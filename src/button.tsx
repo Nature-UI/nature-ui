@@ -30,14 +30,14 @@ const Button: React.FC<ButtonTypes> = ({
   outlined,
   onClick,
   type = 'button',
-  label = 'See more',
+  label = 'See more'
 }) => {
   return (
     <button
       className={clx(BASE_BUTTON, {
         [className]: className,
         [CONTAINED_BUTTON]: !outlined,
-        [OUTLINED_BUTTON]: outlined,
+        [OUTLINED_BUTTON]: outlined
       })}
       onClick={onClick}
       type={type}
@@ -52,13 +52,13 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   outlined: PropTypes.bool,
-  type: PropTypes.oneOf(['submit', 'button', 'reset', undefined]),
+  type: PropTypes.oneOf(['submit', 'button', 'reset', undefined])
 };
 
 Button.defaultProps = {
   className: '',
   outlined: false,
-  type: 'button',
+  type: 'button'
 };
 
 export { Button, clx };
