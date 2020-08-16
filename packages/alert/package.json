@@ -25,7 +25,6 @@
     "test": "jest --env=jsdom --passWithNoTests"
   },
   "dependencies": {
-    "@nature-ui/container": "0.1.0",
     "@nature-ui/utils": "0.1.0",
     "@testing-library/react": "^10.4.8",
     "clsx": "^1.1.1",

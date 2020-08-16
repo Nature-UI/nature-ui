@@ -1,7 +1,7 @@
-src
-node_modules
-test
-.npmrc
-.npmignore
-__tests__
+/src
+/node_modules
+/test
+/.npmrc
+/.npmignore
+/__tests__
 
