@@ -12,10 +12,26 @@ export const Default = () => {
   return <Button>Button</Button>;
 };
 
-export const Green = () => {
+export const Outlined = () => {
   return (
-    <Button color='green-500' variant='solid'>
+    <Button text='teal-500' variant='outline'>
       Button
+    </Button>
+  );
+};
+
+export const Ghost = () => {
+  return (
+    <Button text='teal-500' variant='ghost'>
+      Button
+    </Button>
+  );
+};
+
+export const Link = () => {
+  return (
+    <Button text='teal-500' variant='link'>
+      A Link
     </Button>
   );
 };
@@ -31,14 +47,6 @@ export const Orange = () => {
 export const Red = () => {
   return (
     <Button color='red-500' variant='solid'>
-      Button
-    </Button>
-  );
-};
-
-export const Outlined = () => {
-  return (
-    <Button text='blue-500' variant='outline'>
       Button
     </Button>
   );

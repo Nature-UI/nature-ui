@@ -30,7 +30,7 @@ interface ButtonProps {
    * The label to show in the button when isLoading is true. If no text is passed, it only shows the spinner
    */
   loadingText?: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'none';
   /**
    * Other tailwind utility classes or custom classnames you wish to include
    */
@@ -75,7 +75,7 @@ const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<any>) => {
   const {
     component: Component = 'button',
     variant = 'solid',
-    color = 'blue-500',
+    color = 'teal-500',
     text = 'white',
     size = 'md',
     children,
@@ -87,6 +87,8 @@ const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<any>) => {
     outline: `bg-transparent hover:bg-${lighten(
       text
     )} text-${text} border border-${text} focus:border-transparent`,
+    ghost: `hover:bg-${lighten(text)} text-${text}`,
+    link: `hover:underline text-${text}`,
     md: 'px-4 py-2',
   };
 
@@ -96,8 +98,8 @@ const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<any>) => {
     BTNClass = '';
   } else {
     BTNClass = clx(DEFAULT_CLASS, {
+      [STYLES[size]]: size && variant !== 'link',
       [STYLES[variant]]: variant,
-      [STYLES[size]]: size,
     });
   }
 
@@ -107,7 +109,5 @@ const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<any>) => {
     </Component>
   );
 });
-
-Button.displayName = 'Button';
 
 export default Button;
