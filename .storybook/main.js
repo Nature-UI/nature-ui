@@ -9,9 +9,9 @@ module.exports = {
     {
       name: '@storybook/addon-docs',
       options: {
-        configureJSX: true
-      }
-    }
+        configureJSX: true,
+      },
+    },
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({
@@ -25,14 +25,14 @@ module.exports = {
             ident: 'postcss',
             sourceMap: true,
             config: {
-              path: './.storybook/'
-            }
-          }
+              path: './.storybook/',
+            },
+          },
         },
-        'sass-loader'
+        'sass-loader',
       ],
 
-      include: path.resolve(__dirname, '../')
+      include: path.resolve(__dirname, '../'),
     });
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -40,13 +40,13 @@ module.exports = {
         {
           loader: require.resolve('babel-loader'),
           options: {
-            presets: [require.resolve('babel-preset-react-app')]
-          }
+            presets: [require.resolve('babel-preset-react-app')],
+          },
         },
-        require.resolve('react-docgen-typescript-loader')
-      ]
+        require.resolve('react-docgen-typescript-loader'),
+      ],
     });
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
-  }
+  },
 };

@@ -8,7 +8,7 @@ export default {
   title: 'Alert',
 };
 
-export const Success: React.FC = () => {
+export const Success = () => {
   return (
     <Alert className='' status='success'>
       This is a success alert — check it out!
@@ -16,19 +16,19 @@ export const Success: React.FC = () => {
   );
 };
 
-export const Error: React.FC = () => {
+export const Error = () => {
   return <Alert status='error'>This is an Error Alert 😖</Alert>;
 };
 
-export const Info: React.FC = () => {
+export const Info = () => {
   return <Alert status='info' />;
 };
 
-export const Warning: React.FC = () => {
+export const Warning = () => {
   return <Alert status='warning' />;
 };
 
-export const Solid: React.FC = () => {
+export const Solid = () => {
   return (
     <Alert status='success' variant='solid'>
       This is a solid variant!
@@ -36,6 +36,6 @@ export const Solid: React.FC = () => {
   );
 };
 
-export const NoIcon: React.FC = () => {
+export const NoIcon = () => {
   return <Alert>This is an alert without an Icon!</Alert>;
 };

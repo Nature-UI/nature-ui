@@ -71,6 +71,7 @@ interface AlertOptions {
    * Either a string to use a HTML element or a component.
    */
   component?: React.ElementType;
+  id?: string;
 }
 
 export type AlertProps = AlertOptions;

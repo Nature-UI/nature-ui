@@ -43,6 +43,7 @@
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-docgen-typescript": "^1.20.2",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-scripts": "3.4.1",
@@ -120,8 +121,8 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.6",
-    "webpack": "^4.43.0",
+    "ts-jest": "^26.2.0",
     "typescript": "^3.9.7",
-    "ts-jest": "^26.2.0"
+    "webpack": "^4.43.0"
   }
 }
