@@ -1,7 +1,14 @@
 {
-  "name": "@nature-ui/utils",
+  "name": "@nature-ui/icon",
   "version": "0.1.0",
-  "description": "Utility functions",
+  "description": "A base React component for icons",
+  "keywords": [
+    "react",
+    "icon",
+    "svg",
+    "ui",
+    "nature-ui"
+  ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "license": "MIT",
@@ -22,13 +29,14 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
+    "clsx": "^1.1.1",
     "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "react-dom": "^16.13.1"
   }
 }
