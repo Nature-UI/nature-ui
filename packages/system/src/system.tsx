@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { As, runIfFn } from '@nature-ui/utils';
+import { As, runIfFn, isString } from '@nature-ui/utils';
 
 const createComponent = <T extends As>(component: T) => {
   return (...interpolations: any[]) => {
@@ -8,6 +8,10 @@ const createComponent = <T extends As>(component: T) => {
         interpolations.forEach((interpolation) => {
           runIfFn(interpolation, {});
         });
+
+        const element = as || component;
+
+        const isTag = isString(element);
       }
     );
 

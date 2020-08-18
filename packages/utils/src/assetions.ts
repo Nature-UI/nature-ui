@@ -36,6 +36,9 @@ export const isEmptyArray = (value: unknown): boolean =>
 export const isDefined = (value: unknown): boolean =>
   typeof value === 'undefined' || value === undefined;
 
+export const isUndefined = (value: any): value is undefined =>
+  typeof value === 'undefined' || value === undefined;
+
 export const isObject = (value: unknown): value is Dict => {
   const type = typeof value;
 
