@@ -12,7 +12,14 @@
     "jest": true,
     "node": true
   },
-  "plugins": ["@typescript-eslint", "eslint-comments", "jest", "promise", "unicorn", "import"],
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-comments",
+    "jest",
+    "promise",
+    "unicorn",
+    "import"
+  ],
   "extends": [
     "prettier/flowtype",
     "prettier/react",
@@ -48,6 +55,7 @@
     "@typescript-eslint/interface-name-prefix": 0,
     "unicorn/no-useless-undefined": 0,
     "jest/no-empty-title": 0,
-    "jest/require-tothrow-message": 0
+    "jest/require-tothrow-message": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0
   }
 }

@@ -1,7 +1,18 @@
 import * as React from 'react';
-import { As, runIfFn, isString } from '@nature-ui/utils';
+import {
+  As,
+  runIfFn,
+  isString,
+  Dict,
+  isEmptyObject,
+  isUndefined,
+} from '@nature-ui/utils';
 
-const createComponent = <T extends As>(component: T) => {
+import { jsx } from './jsx';
+import { getDisplayName } from './system-utils';
+import { NatureComponent, PropsOf } from './system-types';
+
+export const createComponent = <T extends As>(component: T) => {
   return (...interpolations: any[]) => {
     const Component = React.forwardRef(
       ({ as, ...props }: any, ref: React.Ref<any>) => {
@@ -12,14 +23,38 @@ const createComponent = <T extends As>(component: T) => {
         const element = as || component;
 
         const isTag = isString(element);
+
+        const computedProps: Dict = !isTag && { ...props };
+
+        if (
+          isEmptyObject(computedProps.css) ||
+          isUndefined(computedProps.css)
+        ) {
+          delete computedProps.css;
+        }
+
+        return jsx(element, {
+          ref,
+          ...props,
+        });
       }
     );
 
     Component.displayName = getDisplayName(component);
     Component.defaultProps = (component as any).defaultProps;
+
+    return Component as NatureComponent<T>;
   };
 };
 
-function styled<T extends As>(component: T) {
-  return;
-}
+export const nature = (createComponent as unknown) as typeof createComponent;
+
+const Elem = nature('button')();
+
+export type ValProps = PropsOf<typeof Elem>;
+
+const val = (p: ValProps) => {
+  const { as: type = 'a' } = p;
+
+  return <Elem as={type} />;
+};
