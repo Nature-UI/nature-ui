@@ -28,6 +28,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
+    "memoize-one": "^5.1.1",
     "react": "^16.13.1",
     "rimraf": "^3.0.2"
   }
