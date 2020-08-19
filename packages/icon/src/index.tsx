@@ -1,5 +1,5 @@
 import * as React from 'react';
-import nature from '@nature-ui/system';
+import { nature } from '@nature-ui/system';
 import clx from 'clsx';
 
 interface IconProps {
