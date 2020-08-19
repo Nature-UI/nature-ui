@@ -1,23 +1,13 @@
 import * as React from 'react';
+import nature from '@nature-ui/system';
 import clx from 'clsx';
 
-type MergeElementProps<T extends React.ElementType, P extends object = {}> = Omit<
-  React.ComponentPropsWithRef<T>,
-  keyof P
-> &
-  P;
-
-type IconProps<T extends React.ElementType = 'svg'> = {
+interface IconProps {
   className?: string;
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
   color?: string;
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component?: React.ElementType;
   /**
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    */
@@ -36,40 +26,44 @@ type IconProps<T extends React.ElementType = 'svg'> = {
    * https://www.w3.org/TR/SVG-access/#Equivalent
    */
   titleAccess: string;
-};
+}
 
-const Icon = React.forwardRef((props: MergeElementProps<'svg', IconProps>, ref: React.Ref<any>) => {
-  const {
-    children,
-    className = '',
-    // size = 'md',
-    component: Component = 'svg',
-    viewBox = '0 0 24 24',
-    titleAccess,
-    color = '',
-    ...rest
-  } = props;
+const SvgIcon = nature('svg');
 
-  const DEFAULT_CLASS = clx({
-    [className]: className,
-  });
+const Icon = React.forwardRef(
+  (props: MergeElementProps<'svg', IconProps>, ref: React.Ref<any>) => {
+    const {
+      children,
+      className = '',
+      // size = 'md',
+      component: Component = 'svg',
+      viewBox = '0 0 24 24',
+      titleAccess,
+      color = '',
+      ...rest
+    } = props;
 
-  return (
-    <Component
-      aria-hidden={!titleAccess && true}
-      className={DEFAULT_CLASS}
-      color={color}
-      focusable='false'
-      ref={ref}
-      role={titleAccess && 'img'}
-      viewBox={viewBox}
-      {...rest}
-    >
-      {children}
-      {titleAccess && <title>{titleAccess}</title>}
-    </Component>
-  );
-});
+    const DEFAULT_CLASS = clx({
+      [className]: className,
+    });
+
+    return (
+      <Component
+        aria-hidden={!titleAccess && true}
+        className={DEFAULT_CLASS}
+        color={color}
+        focusable='false'
+        ref={ref}
+        role={titleAccess && 'img'}
+        viewBox={viewBox}
+        {...rest}
+      >
+        {children}
+        {titleAccess && <title>{titleAccess}</title>}
+      </Component>
+    );
+  }
+);
 
 Icon.displayName = 'Icon';
 
