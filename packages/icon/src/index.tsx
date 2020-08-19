@@ -1,6 +1,21 @@
 import * as React from 'react';
 import { nature, PropsOf } from '@nature-ui/system';
 import clx from 'clsx';
+import { __DEV__ } from '@nature-ui/utils';
+
+const fallbackIcon = {
+  path: (
+    <g fillRule='evenodd'>
+      <circle cx='12' cy='12' fill='currentColor' r='10' />
+      <circle cx='12' cy='18' fill='inherit' r='1' />
+      <path
+        d='M15.89 9.05a3.975 3.975 0 0 0-2.957-2.942C10.321 5.514 8.017 7.446 8 9.95l.005.147a.992.992 0 0 0 .982.904c.552 0 1-.447 1.002-.998a2.004 2.004 0 0 1 4.007-.002c0 1.102-.898 2-2.003 2H12a1 1 0 0 0-1 .987v2.014a1.001 1.001 0 0 0 2.004 0v-.782c0-.217.145-.399.35-.472A3.99 3.99 0 0 0 15.89 9.05'
+        fill='inherit'
+      />
+    </g>
+  ),
+  viewBox: '0 0 24 24',
+};
 
 interface IconProps {
   /**
@@ -20,7 +35,6 @@ interface IconProps {
    */
   viewBox?: string;
   // children?: React.ReactNode;
-  titleAccess?: string;
 }
 
 const SvgIcon = nature('svg');
@@ -34,12 +48,10 @@ const Icon = React.forwardRef(
       className = '',
       size,
       role = 'presentation',
-      // boxSize = "1rem",
       viewBox = '0 0 24 24',
       color = 'currentColor',
       as: type,
       focusable = false,
-      titleAccess,
       ...rest
     } = props;
 
@@ -53,34 +65,26 @@ const Icon = React.forwardRef(
       focusable,
       ref,
       role,
-      viewBox,
       size,
     };
-
-    /*
-     *className={DEFAULT_CLASS}
-     *color={color}
-     *focusable='false'
-     *ref={ref}
-     *role="presentation"
-     *viewBox={viewBox}
-     *{...rest}
-     *as={Component}
-     */
 
     if (type && typeof type !== 'string') {
       return <SvgIcon as={type} {...sharedProps} {...rest} />;
     }
 
+    const _path = children ?? fallbackIcon.path;
+    const _viewBox = viewBox ?? fallbackIcon.viewBox;
+
     return (
-      <SvgIcon {...sharedProps} {...rest}>
-        {children}
-        {titleAccess && <title>{titleAccess}</title>}
+      <SvgIcon viewBox={_viewBox} {...sharedProps} {...rest}>
+        {_path}
       </SvgIcon>
     );
   }
 );
 
-Icon.displayName = 'Icon';
+if (__DEV__) {
+  Icon.displayName = 'Icon';
+}
 
 export default Icon;
