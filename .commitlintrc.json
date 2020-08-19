@@ -16,7 +16,10 @@
         "revert",
         "style",
         "test",
-        "docs"
+        "docs",
+        "merge",
+        "chore",
+        "sprint"
       ]
     ]
   }
