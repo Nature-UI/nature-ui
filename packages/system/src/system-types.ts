@@ -5,8 +5,6 @@ export interface NatureProps {
   children?: React.ReactNode;
 }
 
-type Attrs<T extends As> = PropsOf<T> | ((props: any) => PropsOf<T>);
-
 /**
  * Extract the props of a React element or component
  */
