@@ -45,4 +45,4 @@ export const createComponent = <T extends As>(component: T) => {
   // };
 };
 
-export const nature = (createComponent as unknown) as typeof createComponent;
+export default nature = (createComponent as unknown) as typeof createComponent;
