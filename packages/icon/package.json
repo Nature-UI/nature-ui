@@ -37,6 +37,7 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "@nature-ui/system": "^0.1.0"
   }
 }
