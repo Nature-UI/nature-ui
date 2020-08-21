@@ -14,8 +14,16 @@ const fallbackIcon = {
       />
     </g>
   ),
-  viewBox: '0 0 24 24',
+  viewBox: '0 0 10 10',
 };
+
+const sizes = {
+  xs: 10,
+  sm: 16,
+  md: 18,
+  lg: 22,
+  xl: 30
+}
 
 interface IconProps {
   /**
@@ -34,30 +42,36 @@ interface IconProps {
    * to bottom right (50,20) and each unit will be worth 10px.
    */
   viewBox?: string;
-  // children?: React.ReactNode;
+  boxSize?: string | 0 | number;
 }
 
 const SvgIcon = nature('svg');
 
-type SvgIconProps = PropsOf<typeof SvgIcon>;
+export type SvgIconProps = PropsOf<typeof SvgIcon>;
 
 const Icon = React.forwardRef(
   (props: IconProps & SvgIconProps, ref: React.Ref<any>) => {
     const {
       children,
       className = '',
-      size,
+      size = "sm",
       role = 'presentation',
       viewBox = '0 0 24 24',
       color = 'currentColor',
       as: type,
       focusable = false,
+      boxSize,
+      width,
+      height,
       ...rest
     } = props;
 
     const DEFAULT_CLASS = clx({
       [className]: className,
     });
+
+    const _width = width ?? sizes[size]
+    const _height = height ?? sizes[size]
 
     const sharedProps = {
       className: DEFAULT_CLASS,
@@ -66,6 +80,8 @@ const Icon = React.forwardRef(
       ref,
       role,
       size,
+      width: _width,
+      height: _height
     };
 
     if (type && typeof type !== 'string') {
