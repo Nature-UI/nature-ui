@@ -68,8 +68,8 @@ export const Icon = React.forwardRef(
       [className]: className,
     });
 
-    const _width = width ?? sizes[size];
-    const _height = height ?? sizes[size];
+    const _width = width ?? (sizes[size] || size);
+    const _height = height ?? (sizes[size] || size);
 
     const sharedProps = {
       className: DEFAULT_CLASS,
