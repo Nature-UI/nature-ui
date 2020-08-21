@@ -48,7 +48,7 @@ const SvgIcon = nature('svg');
 
 export type SvgIconProps = PropsOf<typeof SvgIcon>;
 
-const Icon = React.forwardRef(
+export const Icon = React.forwardRef(
   (props: IconProps & SvgIconProps, ref: React.Ref<any>) => {
     const {
       children,
@@ -100,5 +100,3 @@ const Icon = React.forwardRef(
 if (__DEV__) {
   Icon.displayName = 'Icon';
 }
-
-export default Icon;
