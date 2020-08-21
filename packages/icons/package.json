@@ -1,0 +1,44 @@
+{
+  "name": "@nature-ui/icons",
+  "version": "0.1.0",
+  "description": "A base React component for icons",
+  "keywords": [
+    "react",
+    "icons",
+    "svg",
+    "ui",
+    "nature-ui"
+  ],
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNature/nature-ui.git"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/DNature/nature-ui/issues"
+  },
+  "dependencies": {
+    "@nature-ui/icon": "^0.1.0",
+    "@storybook/addon-knobs": "^6.0.13",
+    "clsx": "^1.1.1",
+    "react": "^16.13.1",
+    "rimraf": "^3.0.2"
+  }
+}
