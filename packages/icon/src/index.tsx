@@ -33,7 +33,7 @@ export interface IconProps {
   /**
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    */
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xs';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xs' | string | number;
   /**
    * Allows you to redefine what the coordinates without units mean inside an SVG element.
    * For example, if the SVG element is 500 (width) by 200 (height),
@@ -59,7 +59,6 @@ const Icon = React.forwardRef(
       color = 'currentColor',
       as: type,
       focusable = false,
-      boxSize,
       width,
       height,
       ...rest
