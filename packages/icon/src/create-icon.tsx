@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Icon, SvgIconProps, IconProps } from './icon';
 import { __DEV__ } from '@nature-ui/utils';
 
-interface CreateIconOptions {
+interface CreateIconOptions extends IconProps {
   /**
    * The icon `svg` viewBox
    * @default "0 0 24 24"
