@@ -18,14 +18,14 @@ const fallbackIcon = {
 };
 
 const sizes = {
-  xs: 10,
-  sm: 16,
-  md: 18,
-  lg: 22,
-  xl: 30
-}
+  xs: 16,
+  sm: 20,
+  md: 28,
+  lg: 36,
+  xl: 48,
+};
 
-interface IconProps {
+export interface IconProps {
   /**
    * The color of the component. It supports those theme colors that make sense for this component.
    */
@@ -33,7 +33,7 @@ interface IconProps {
   /**
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    */
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'sx';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xs';
   /**
    * Allows you to redefine what the coordinates without units mean inside an SVG element.
    * For example, if the SVG element is 500 (width) by 200 (height),
@@ -42,7 +42,6 @@ interface IconProps {
    * to bottom right (50,20) and each unit will be worth 10px.
    */
   viewBox?: string;
-  boxSize?: string | 0 | number;
 }
 
 const SvgIcon = nature('svg');
@@ -54,7 +53,7 @@ const Icon = React.forwardRef(
     const {
       children,
       className = '',
-      size = "sm",
+      size = 'sm',
       role = 'presentation',
       viewBox = '0 0 24 24',
       color = 'currentColor',
@@ -70,8 +69,8 @@ const Icon = React.forwardRef(
       [className]: className,
     });
 
-    const _width = width ?? sizes[size]
-    const _height = height ?? sizes[size]
+    const _width = width ?? sizes[size];
+    const _height = height ?? sizes[size];
 
     const sharedProps = {
       className: DEFAULT_CLASS,
@@ -81,7 +80,7 @@ const Icon = React.forwardRef(
       role,
       size,
       width: _width,
-      height: _height
+      height: _height,
     };
 
     if (type && typeof type !== 'string') {
