@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon, { SvgIconProps, IconProps } from '.';
+import { Icon, SvgIconProps, IconProps } from './icon';
 import { __DEV__ } from '@nature-ui/utils';
 
 interface CreateIconOptions {
