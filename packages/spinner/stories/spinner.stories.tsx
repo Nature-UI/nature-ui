@@ -8,4 +8,4 @@ export default {
   title: 'Spinner',
 };
 
-export const Add = () => <Spinner color='blue' />;
+export const Add = () => <Spinner color='blue' size='md' />;
