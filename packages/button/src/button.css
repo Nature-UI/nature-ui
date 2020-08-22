@@ -8,7 +8,6 @@
   background: currentColor;
   border-radius: 50%;
   opacity: 0;
-  overflow: hidden;
 }
 .button--ripple:focus:not(:active)::after {
   animation: 0.5s ripple;

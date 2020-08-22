@@ -36,6 +36,25 @@ export const Link = () => {
   );
 };
 
+export const Sizes = () => {
+  return (
+    <div className=''>
+      <Button size='xs' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+      <Button size='sm' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+      <Button size='md' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+      <Button size='lg' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+    </div>
+  );
+};
+
 export const Orange = () => {
   return (
     <Button color='orange-500' variant='solid'>
