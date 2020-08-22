@@ -1,0 +1,29 @@
+.button--ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  overflow: hidden;
+}
+.button--ripple:focus:not(:active)::after {
+  animation: 0.5s ripple;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(10);
+  }
+}

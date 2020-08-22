@@ -1,6 +1,8 @@
 import * as React from 'react';
 import clx from 'clsx';
 
+import './button.css';
+
 interface ButtonProps {
   /**
    * The label of the button
@@ -65,49 +67,52 @@ const darken = (value: string): string => {
   return `${color}-${dept + 200}`;
 };
 
-const lighten = (value: string): string => {
+const lighten = (value: string, amount = 100): string => {
   const color = value.split('-')[0];
 
-  return `${color}-${100}`;
+  return `${color}-${amount}`;
 };
 
-const Button = React.forwardRef((props: ButtonProps, ref: React.Ref<any>) => {
-  const {
-    component: Component = 'button',
-    variant = 'solid',
-    color = 'teal-500',
-    text = 'white',
-    size = 'md',
-    children,
-    ...rest
-  } = props;
-  const DEFAULT_CLASS = 'block focus:shadow-outline focus:outline-none rounded font-semibold flex';
-  const STYLES = {
-    solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
-    outline: `bg-transparent hover:bg-${lighten(
-      text
-    )} text-${text} border border-${text} focus:border-transparent`,
-    ghost: `hover:bg-${lighten(text)} text-${text}`,
-    link: `hover:underline text-${text}`,
-    md: 'px-4 py-2',
-  };
+export const Button = React.forwardRef(
+  (props: ButtonProps, ref: React.Ref<any>) => {
+    const {
+      component: Component = 'button',
+      variant = 'solid',
+      color = 'teal-500',
+      text = 'white',
+      size = 'md',
+      children,
+      ...rest
+    } = props;
+    const DEFAULT_CLASS =
+      'block focus:shadow-outline focus:outline-none rounded font-semibold flex relative overflow-hidden';
+    const STYLES = {
+      solid: `bg-${color} text-${text} hover:bg-${darken(
+        color
+      )} button--ripple`,
+      outline: `bg-transparent button--ripple hover:bg-${lighten(
+        text
+      )} text-${text} border border-${text} focus:border-transparent`,
+      ghost: `hover:bg-${lighten(text)} text-${text} button--ripple`,
+      link: `hover:underline text-${text}`,
+      md: 'px-4 py-2',
+    };
 
-  let BTNClass: string;
+    let BTNClass: string;
 
-  if (variant === 'none') {
-    BTNClass = '';
-  } else {
-    BTNClass = clx(DEFAULT_CLASS, {
-      [STYLES[size]]: size && variant !== 'link',
-      [STYLES[variant]]: variant,
-    });
+    if (variant === 'none') {
+      BTNClass = '';
+    } else {
+      BTNClass = clx(DEFAULT_CLASS, {
+        [STYLES[size]]: size && variant !== 'link',
+        [STYLES[variant]]: variant,
+      });
+    }
+
+    return (
+      <Component className={BTNClass} ref={ref} {...rest}>
+        {children ? children : 'Button'}
+      </Component>
+    );
   }
-
-  return (
-    <Component className={BTNClass} ref={ref} {...rest}>
-      {children ? children : 'Button'}
-    </Component>
-  );
-});
-
-export default Button;
+);

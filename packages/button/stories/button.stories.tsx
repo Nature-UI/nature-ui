@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import Button from '../src';
+import { Button } from '../src';
 
 export default {
   decorators: [withKnobs],

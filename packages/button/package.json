@@ -37,10 +37,9 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^6.0.10",
+    "@nature-ui/system": "^0.1.0",
     "clsx": "^1.1.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "rimraf": "^3.0.2"
   }
 }
