@@ -65,9 +65,24 @@ export const IsDisabled = () => {
 
 export const IsLoading = () => {
   return (
-    <Button color='teal-500' variant='solid' isLoading>
-      Button
-    </Button>
+    <>
+      <Button
+        color='teal-500'
+        variant='solid'
+        isLoading
+        loadingText='loading...'
+        size='lg'
+      >
+        Button
+      </Button>
+      <Button
+        color='teal-500'
+        variant='solid'
+        isLoading
+        className='ml-4'
+        loadingText='load'
+      />
+    </>
   );
 };
 

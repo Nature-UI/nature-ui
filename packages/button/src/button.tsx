@@ -73,7 +73,7 @@ export const Button = React.forwardRef(
     } = props;
 
     const DEFAULT_CLASS =
-      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden';
+      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden py-auto';
     const STYLES = {
       solid: `bg-${color} text-${text} hover:bg-${darken(
         color
@@ -115,13 +115,34 @@ export const Button = React.forwardRef(
 
     return (
       <NatureButton {...defaults} {...rest}>
-        {isLoading && <Spinner className='mr-3' color='white' />}
-        {isLoading ? loadingText || <span>{children}</span> : children}
+        {isLoading && <ButtonSpinner label={loadingText} />}
+        {/* {isLoading ? loadingText || <span>{children}</span> : children} */}
       </NatureButton>
     );
   }
 );
 
+const ButtonSpinner = (
+  props: ButtonType & {
+    label?: string;
+  }
+) => {
+  const {
+    children = <Spinner size='xs' color='currentColor' />,
+    className = '',
+    label,
+    ...rest
+  } = props;
+
+  return (
+    <span className={className} {...rest}>
+      {children}
+      {label && <span className='ml-2'>{label}</span>}
+    </span>
+  );
+};
+
 if (__DEV__) {
   Button.displayName = 'Button';
+  ButtonSpinner.displayName = 'ButtonSpinner';
 }
