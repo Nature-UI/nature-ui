@@ -24,5 +24,5 @@ export const Default = (props: SvgIconProps) => {
 };
 
 export const UsingReactIcon = () => (
-  <Icon as={Md3DRotation} size='80' color='teal' />
+  <Icon as={Md3DRotation} color='teal' size='80' />
 );
