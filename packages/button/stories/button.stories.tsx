@@ -57,7 +57,7 @@ export const Sizes = () => {
 
 export const IsDisabled = () => {
   return (
-    <Button className='mr-4' color='teal-500' variant='solid' isDisabled>
+    <Button color='teal-500' variant='solid' isDisabled>
       Button
     </Button>
   );
@@ -65,7 +65,7 @@ export const IsDisabled = () => {
 
 export const IsLoading = () => {
   return (
-    <Button className='mr-4' color='teal-500' variant='solid' isLoading>
+    <Button color='teal-500' variant='solid' isLoading>
       Button
     </Button>
   );
