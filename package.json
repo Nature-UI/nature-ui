@@ -21,7 +21,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "build:tailwind": "postcss src/scss/base.scss -o src/scss/tailwind.scss",
+    "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
     "storybook": "start-storybook -p 4000",
     "lint": "eslint --fix --ext=jsx,ts,tsx './**/*.{ts,tsx}'",
     "bootstrap": "lerna bootstrap --use-workspaces",
@@ -48,7 +48,6 @@
     "react-icons": "^3.10.0",
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2",
-    "sass-loader": "^9.0.2",
     "storybook": "^6.0.2"
   },
   "eslintConfig": {
@@ -116,7 +115,6 @@
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-mixins": "^6.2.3",
-    "postcss-nested": "^4.2.3",
     "prettier": "^2.0.5",
     "react-docgen-typescript-loader": "^3.7.2",
     "style-loader": "^1.2.1",
