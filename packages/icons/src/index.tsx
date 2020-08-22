@@ -3,3 +3,8 @@ export * from './ArrowBack';
 export * from './ArrowDown';
 export * from './ArrowForward';
 export * from './ArrowLeft';
+export * from './ArrowRight';
+export * from './ArrowUp';
+export * from './ArrowUpDown';
+export * from './AtSign';
+export * from './Attachment';
