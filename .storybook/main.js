@@ -14,26 +14,25 @@ module.exports = {
     },
   ],
   webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            sourceMap: true,
-            config: {
-              path: './.storybook/',
-            },
-          },
-        },
-        'sass-loader',
-      ],
+    // config.module.rules.push({
+    //   test: /\.scss$/,
+    //   use: [
+    //     'style-loader',
+    //     'css-loader',
+    //     {
+    //       loader: 'postcss-loader',
+    //       options: {
+    //         ident: 'postcss',
+    //         sourceMap: true,
+    //         config: {
+    //           path: './.storybook/',
+    //         },
+    //       },
+    //     },
+    //   ],
 
-      include: path.resolve(__dirname, '../'),
-    });
+    //   include: path.resolve(__dirname, '../'),
+    // });
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [

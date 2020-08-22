@@ -18,27 +18,13 @@ module.exports = {
      */
     require('postcss-mixins'),
 
-    /* 
-      PostCSS plugin to reference any parent ancestor selector in nested CSS.
-
-      When writing modular nested CSS, & current parent selector is often not enough.
-
-      PostCSS Nested ancestors introduces ^& selector which let you reference any parent ancestor selector with an easy and customizable interface.
-     */
-    // require('postcss-nested-ancestors'),
-
-    /* 
-      PostCSS plugin to unwrap nested rules like how Sass does it.
-     */
-    require('postcss-nested'),
-
     /*
       PostCSS Preset Env lets you convert modern CSS into something most browsers can understand, determining the polyfills you need based on your targeted browsers or runtime environments.
 
       For more options read: https://github.com/csstools/postcss-preset-env#options
      */
     require('postcss-preset-env')({
-      stage: 1
+      stage: 1,
     }),
 
     /*
@@ -56,6 +42,6 @@ module.exports = {
 
       Write your CSS rules without vendor prefixes (in fact, forget about them entirely). Autoprefixer will use the data based on current browser popularity and property support to apply prefixes for you.
      */
-    require('autoprefixer')
-  ]
+    require('autoprefixer'),
+  ],
 };
