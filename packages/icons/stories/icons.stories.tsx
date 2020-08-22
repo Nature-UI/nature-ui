@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Icon } from '@nature-ui/icon';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import { AddIcon } from '../src';
 
 export default {
+  decorators: [withKnobs],
   title: 'Icons',
 };
 
