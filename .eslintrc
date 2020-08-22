@@ -58,6 +58,7 @@
     "jest/require-tothrow-message": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "import/no-extraneous-dependencies": 0,
-    "node/no-extraneous-import": 0
+    "node/no-extraneous-import": 0,
+    "react/jsx-sort-props": 0
   }
 }
