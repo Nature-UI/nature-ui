@@ -4,12 +4,9 @@ import { nature } from '@nature-ui/system';
 import { PropsOf } from '@nature-ui/system/src';
 import { __DEV__ } from '@nature-ui/utils';
 import './button.css';
+import { Spinner } from '@nature-ui/spinner';
 
 interface ButtonProps {
-  /**
-   * The label of the button
-   */
-  'aria-label'?: string;
   /**
    * The text color of the button. Use a color key passed in theme.colors.
    */
@@ -70,6 +67,8 @@ export const Button = React.forwardRef(
       children,
       className = '',
       isDisabled = false,
+      isLoading = false,
+      loadingText,
       ...rest
     } = props;
 
@@ -95,14 +94,14 @@ export const Button = React.forwardRef(
 
     if (variant === 'none') {
       BTNClass = clx(className, {
-        [STYLES['disabled']]: isDisabled,
+        [STYLES['disabled']]: isDisabled || isLoading,
       });
     } else {
       BTNClass = clx(DEFAULT_CLASS, {
         [STYLES[size]]: size && variant !== 'link',
         [STYLES[variant]]: variant,
         [className]: className,
-        [STYLES['disabled']]: isDisabled,
+        [STYLES['disabled']]: isDisabled || isLoading,
       });
     }
 
@@ -111,12 +110,13 @@ export const Button = React.forwardRef(
       ref,
       as,
       size,
-      disabled: isDisabled,
+      disabled: isDisabled || isLoading,
     };
 
     return (
       <NatureButton {...defaults} {...rest}>
-        {children ? children : 'Button'}
+        {isLoading && <Spinner className='mr-3' color='white' />}
+        {isLoading ? loadingText || <span>{children}</span> : children}
       </NatureButton>
     );
   }

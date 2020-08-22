@@ -38,7 +38,7 @@ export const Link = () => {
 
 export const Sizes = () => {
   return (
-    <div className=''>
+    <div>
       <Button size='xs' className='mr-4' color='blue-500' variant='solid'>
         Button
       </Button>
@@ -58,6 +58,14 @@ export const Sizes = () => {
 export const IsDisabled = () => {
   return (
     <Button className='mr-4' color='teal-500' variant='solid' isDisabled>
+      Button
+    </Button>
+  );
+};
+
+export const IsLoading = () => {
+  return (
+    <Button className='mr-4' color='teal-500' variant='solid' isLoading>
       Button
     </Button>
   );

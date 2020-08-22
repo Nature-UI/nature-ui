@@ -28,7 +28,7 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc && copyfiles -u 1 src/**/*.css dist"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
