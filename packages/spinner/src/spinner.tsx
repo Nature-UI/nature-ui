@@ -27,7 +27,7 @@ const SIZES = {
   lg: 12,
 };
 
-const SpinnerComp = nature('div');
+const SpinnerComp = nature('span');
 
 export type SpinnerType = PropsOf<typeof SpinnerComp>;
 
@@ -37,11 +37,11 @@ export const Spinner = React.forwardRef(
       className = '',
       thickness = '2px',
       color = 'teal',
-      size = 'md',
+      size = 'xs',
       ...rest
     } = props;
 
-    const DEFAULTS = `spinner border-2 border-transparent border-t-2 `;
+    const DEFAULTS = `inline-block overflow-hidden spinner border-2 border-transparent border-t-2 `;
     const _classNames = clsx(DEFAULTS, {
       [className]: className,
       [`w-${SIZES[size]} h-${SIZES[size]}`]: typeof size === 'string',
@@ -51,7 +51,10 @@ export const Spinner = React.forwardRef(
     return (
       <SpinnerComp
         className={_classNames}
-        style={{ borderTop: `${thickness} solid ${color}` }}
+        style={{
+          borderTop: `${thickness} solid ${color}`,
+          borderLeft: `${thickness} solid ${color}`,
+        }}
         ref={ref}
         {...rest}
       />

@@ -8,4 +8,11 @@ export default {
   title: 'Spinner',
 };
 
-export const Add = () => <Spinner color='blue' size='md' />;
+export const Default = () => (
+  <div className='overflow-hidden'>
+    <Spinner />
+    <Spinner size='sm' />
+    <Spinner size='md' />
+    <Spinner size='lg' />
+  </div>
+);
