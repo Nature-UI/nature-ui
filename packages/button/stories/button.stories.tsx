@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import Button from '../src';
+import { Button } from '../src';
 
 export default {
   decorators: [withKnobs],
@@ -36,9 +36,28 @@ export const Link = () => {
   );
 };
 
-export const Orange = () => {
+export const Sizes = () => {
   return (
-    <Button color='orange-500' variant='solid'>
+    <div className=''>
+      <Button size='xs' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+      <Button size='sm' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+      <Button size='md' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+      <Button size='lg' className='mr-4' color='blue-500' variant='solid'>
+        Button
+      </Button>
+    </div>
+  );
+};
+
+export const IsDisabled = () => {
+  return (
+    <Button className='mr-4' color='teal-500' variant='solid' isDisabled>
       Button
     </Button>
   );
