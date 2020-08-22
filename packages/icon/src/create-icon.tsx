@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Icon, SvgIconProps, IconProps } from './icon';
 import { __DEV__ } from '@nature-ui/utils';
+
+import { Icon, SvgIconProps, IconProps } from './icon';
 
 interface CreateIconOptions extends IconProps {
   /**
@@ -28,14 +29,14 @@ export const createIcon = (options: CreateIconOptions) => {
     d: pathDefinition,
     path,
     displayName,
+    size = 'md',
   } = options;
 
   const Comp = React.forwardRef(
     (props: SvgIconProps & IconProps, ref: React.Ref<any>) => {
-      const { size = 'sm', ...rest } = props;
       return (
-        <Icon ref={ref} as='svg' size={size} viewBox={viewBox} {...rest}>
-          {path ?? <path fill='currentColor' d={pathDefinition} />}
+        <Icon as='svg' ref={ref} size={size} viewBox={viewBox} {...props}>
+          {path ?? <path d={pathDefinition} fill='currentColor' />}
         </Icon>
       );
     }
