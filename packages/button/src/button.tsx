@@ -69,11 +69,12 @@ export const Button = React.forwardRef(
       isDisabled = false,
       isLoading = false,
       loadingText,
+
       ...rest
     } = props;
 
     const DEFAULT_CLASS =
-      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden py-auto';
+      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle';
     const STYLES = {
       solid: `bg-${color} text-${text} hover:bg-${darken(
         color
@@ -115,8 +116,7 @@ export const Button = React.forwardRef(
 
     return (
       <NatureButton {...defaults} {...rest}>
-        {isLoading && <ButtonSpinner label={loadingText} />}
-        {/* {isLoading ? loadingText || <span>{children}</span> : children} */}
+        {isLoading ? <ButtonSpinner label={loadingText} /> : children}
       </NatureButton>
     );
   }

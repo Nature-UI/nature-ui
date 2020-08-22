@@ -10,14 +10,14 @@
   opacity: 0;
 }
 .button--ripple:focus:not(:active)::after {
-  animation: 0.5s ripple;
+  animation: 0.3s ripple;
 }
 
 @keyframes ripple {
-  0% {
+  /* 0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
-  }
+  } */
   50% {
     opacity: 0.3;
   }

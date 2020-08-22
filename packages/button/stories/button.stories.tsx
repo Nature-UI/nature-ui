@@ -71,17 +71,11 @@ export const IsLoading = () => {
         variant='solid'
         isLoading
         loadingText='loading...'
-        size='lg'
+        size='md'
       >
         Button
       </Button>
-      <Button
-        color='teal-500'
-        variant='solid'
-        isLoading
-        className='ml-4'
-        loadingText='load'
-      />
+      <Button color='teal-500' variant='solid' isLoading className='ml-4' />
     </>
   );
 };

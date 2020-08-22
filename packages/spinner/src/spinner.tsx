@@ -41,7 +41,7 @@ export const Spinner = React.forwardRef(
       ...rest
     } = props;
 
-    const DEFAULTS = `inline-block overflow-hidden spinner border-2 border-transparent border-t-2 `;
+    const DEFAULTS = `inline-block overflow-hidden spinner border-2 border-transparent border-t-2 align-middle`;
     const _classNames = clsx(DEFAULTS, {
       [className]: className,
       [`w-${SIZES[size]} h-${SIZES[size]}`]: typeof size === 'string',
