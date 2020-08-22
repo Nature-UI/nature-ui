@@ -69,6 +69,7 @@ export const Button = React.forwardRef(
       size = 'md',
       children,
       className = '',
+      isDisabled = false,
       ...rest
     } = props;
 
@@ -87,17 +88,21 @@ export const Button = React.forwardRef(
       sm: 'px-2 py-2 text-sm',
       md: 'px-4 py-2 text-md',
       lg: 'px-6 py-3 text-lg',
+      disabled: 'opacity-50 cursor-not-allowed',
     };
 
     let BTNClass: string;
 
     if (variant === 'none') {
-      BTNClass = clx(className);
+      BTNClass = clx(className, {
+        [STYLES['disabled']]: isDisabled,
+      });
     } else {
       BTNClass = clx(DEFAULT_CLASS, {
         [STYLES[size]]: size && variant !== 'link',
         [STYLES[variant]]: variant,
         [className]: className,
+        [STYLES['disabled']]: isDisabled,
       });
     }
 
@@ -106,6 +111,7 @@ export const Button = React.forwardRef(
       ref,
       as,
       size,
+      disabled: isDisabled,
     };
 
     return (

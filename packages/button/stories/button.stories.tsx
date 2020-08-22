@@ -55,9 +55,9 @@ export const Sizes = () => {
   );
 };
 
-export const Orange = () => {
+export const IsDisabled = () => {
   return (
-    <Button color='orange-500' variant='solid'>
+    <Button className='mr-4' color='teal-500' variant='solid' isDisabled>
       Button
     </Button>
   );
