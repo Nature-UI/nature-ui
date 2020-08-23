@@ -21,10 +21,6 @@ export type SquareProps = BoxProps & {
    * If `true`, the content will be centered in the square
    */
   centerContent?: boolean;
-  /**
-   * If `true`, the component will be centered in the square
-   */
-  centered?: boolean;
 };
 
 const sizes = {
