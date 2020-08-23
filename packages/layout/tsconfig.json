@@ -4,8 +4,7 @@
     "outDir": "./dist",
     "noImplicitAny": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noEmit": true
+    "emitDecoratorMetadata": true
   },
   "include": ["src"]
 }
