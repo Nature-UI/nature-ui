@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { nature, PropsOf, forwardRef } from '@nature-ui/system';
+import clsx from 'clsx';
+import { __DEV__ } from '@nature-ui/utils';
 
 const BoxLayout = nature('div');
 
@@ -12,6 +14,7 @@ export type SquareProps = BoxProps & {
    * The size (width and height) of the square
    * It uses the range value in your tailwind.config.js file
    * i.e lg = w-2/3
+   * Also accept values like 100%, 20px, 40 ...
    */
   size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
@@ -19,10 +22,9 @@ export type SquareProps = BoxProps & {
    */
   centerContent?: boolean;
   /**
-   * If variant is set to circle then the @borderRadius will
-   * take the maximum borderRadius in your tailwind.config.js file.
+   * If `true`, the component will be centered in the square
    */
-  variant?: 'square' | 'circle';
+  centered?: boolean;
 };
 
 const sizes = {
@@ -34,15 +36,43 @@ const sizes = {
 };
 
 export const Box = forwardRef<SquareProps>((props, ref) => {
-  const { children, ...rest } = props;
+  const {
+    children,
+    className = '',
+    size = 'md',
+    centerContent = false,
+    ...rest
+  } = props;
+
+  const CENTER_CONTENT = `flex items-center justify-center`;
+
+  const DEFAULTS = ``;
+  let SIZE;
+
+  if (typeof size === 'number') {
+    SIZE = {
+      width: size,
+    };
+  }
+
+  const _classNames = clsx(DEFAULTS, {
+    [className]: className,
+    [sizes[size]]: typeof size !== 'number',
+    [CENTER_CONTENT]: centerContent,
+  });
 
   const values = {
     ref,
+    className: _classNames,
   };
 
   return (
-    <BoxLayout {...rest} {...values}>
+    <BoxLayout {...rest} {...values} style={{ ...SIZE }}>
       {children}
     </BoxLayout>
   );
 });
+
+if (__DEV__) {
+  Box.displayName = 'Box';
+}
