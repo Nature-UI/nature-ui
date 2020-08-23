@@ -24,11 +24,11 @@ export type SquareProps = BoxProps & {
 };
 
 const sizes = {
-  xs: 'w-1/6',
+  xs: 'w-1/4',
   sm: 'w-1/3',
-  md: 'w-2/4',
-  lg: 'w-2/3',
-  xl: 'w-11/12',
+  md: 'w-2/5',
+  lg: 'w-2/4',
+  xl: 'w-3/5',
 };
 
 export const Box = forwardRef<SquareProps>((props, ref) => {
