@@ -36,3 +36,17 @@ export const XS = () => (
     Hello world
   </Box>
 );
+
+export const Multiple = () => (
+  <span>
+    <Box className='bg-blue-300 inline-block m-4' size={'xs'}>
+      Hello world
+    </Box>
+    <Box className='bg-blue-300 inline-block m-4' size={'xs'}>
+      Hello world
+    </Box>
+    <Box className='bg-blue-300 inline-block m-4' size={'xs'}>
+      Hello world
+    </Box>
+  </span>
+);

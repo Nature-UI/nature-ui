@@ -35,7 +35,7 @@ export const Box = forwardRef<SquareProps>((props, ref) => {
   const {
     children,
     className = '',
-    size = 'md',
+    size = '',
     centerContent = false,
     ...rest
   } = props;
