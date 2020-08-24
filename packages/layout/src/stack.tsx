@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { forwardRef, nature, PropsOf } from '@nature-ui/system';
-import { getValidChildren } from '@nature-ui/utils';
+import { getValidChildren, __DEV__ } from '@nature-ui/utils';
 import clsx from 'clsx';
 
 import { Box } from './box';
@@ -56,3 +56,7 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
     </StackElem>
   );
 });
+
+if (__DEV__) {
+  Stack.displayName = 'Stack';
+}
