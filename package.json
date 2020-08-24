@@ -34,7 +34,7 @@
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-knobs": "^6.0.6",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^7.1.2",
     "babel-preset-react-app": "^9.1.2",
     "classnames": "^2.2.6",
