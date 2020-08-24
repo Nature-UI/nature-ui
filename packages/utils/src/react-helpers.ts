@@ -30,7 +30,7 @@ export const createContext = <ContextType>(
   const {
     strict = true,
     errorMessage = 'useContext must be inside a Provider with a value',
-    name
+    name,
   } = options;
 
   const Context = React.createContext<ContextType | undefined>(undefined);
@@ -45,5 +45,20 @@ export const createContext = <ContextType>(
     return context;
   };
 
-  return [Context.Provider, useContext, Context] as CreateContextReturn<ContextType>;
+  return [Context.Provider, useContext, Context] as CreateContextReturn<
+    ContextType
+  >;
+};
+
+/**
+ * Gets only the valid children of a component,
+ * and ignores any nullish or falsy child.
+ *
+ * @param children the children
+ */
+
+export const getValidChildren = (children: React.ReactNode) => {
+  return React.Children.toArray(children).filter((child) =>
+    React.isValidElement(child)
+  ) as React.ReactElement[];
 };
