@@ -38,10 +38,14 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
         [`mr-${spacing}`]: spacing && direction === 'row',
       });
 
-      return <Box className={_className}>{child}</Box>;
+      return (
+        <Box key={Number(index)} className={_className}>
+          {child}
+        </Box>
+      );
     }
 
-    return child;
+    return <Box key={Number(index)}>{child}</Box>;
   });
 
   const DEFAULT_CLASS = `flex`;

@@ -53,7 +53,7 @@ export const Box = forwardRef<SquareProps>((props, ref) => {
 
   const _classNames = clsx(DEFAULTS, {
     [className]: className,
-    [sizes[size]]: typeof size !== 'number',
+    [sizes[size]]: size && typeof size !== 'number',
     [CENTER_CONTENT]: centerContent,
   });
 
