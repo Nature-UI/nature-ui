@@ -13,7 +13,7 @@ export const Vertical = () => {
     <Stack direction='row'>
       <span>Part 1</span>
       <Divider orientation='vertical' />
-      <span>Part 1</span>
+      <span>Part 2</span>
     </Stack>
   );
 };
@@ -23,7 +23,7 @@ export const Horizontal = () => {
     <Stack direction='col'>
       <span>Part 1</span>
       <Divider color='red-500' />
-      <span>Part 1</span>
+      <span>Part 2</span>
     </Stack>
   );
 };
