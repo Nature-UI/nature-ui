@@ -9,7 +9,7 @@ export type BadgeProps = PropsOf<typeof BadgeLayout>;
 
 export type BadgeType = BadgeProps & {
   color?: string;
-  variant?: 'solid' | 'subtle' | ' outline';
+  variant?: 'solid' | 'subtle' | 'outline';
 };
 
 export const Badge = forwardRef<BadgeType>((props, ref) => {
@@ -25,7 +25,7 @@ export const Badge = forwardRef<BadgeType>((props, ref) => {
 
   const VARIANTS = {
     solid: `text-white bg-${color}`,
-    subtle: `text-${darken(color)} bg-${color}`,
+    subtle: `text-${darken(color, 500)} bg-${color}`,
     outline: `border border-${color} text-${color}`,
   };
 
