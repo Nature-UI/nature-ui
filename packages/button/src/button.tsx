@@ -2,7 +2,7 @@ import * as React from 'react';
 import clx from 'clsx';
 import { nature } from '@nature-ui/system';
 import { PropsOf } from '@nature-ui/system/src';
-import { __DEV__ } from '@nature-ui/utils';
+import { __DEV__, lighten, darken } from '@nature-ui/utils';
 import './button.css';
 import { Spinner } from '@nature-ui/spinner';
 
@@ -37,24 +37,6 @@ interface ButtonProps {
 const NatureButton = nature('button');
 
 export type ButtonType = PropsOf<typeof NatureButton>;
-
-const darken = (value: string): string => {
-  const splitStr = value.split('-');
-  const dept = Number(splitStr[1]);
-  const color = splitStr[0];
-
-  if (dept >= 800) {
-    return `${color}-${dept - 200}`;
-  }
-
-  return `${color}-${dept + 200}`;
-};
-
-const lighten = (value: string, amount = 100): string => {
-  const color = value.split('-')[0];
-
-  return `${color}-${amount}`;
-};
 
 export const Button = React.forwardRef(
   (props: ButtonProps & ButtonType, ref: React.Ref<any>) => {
