@@ -48,7 +48,7 @@ export const once = (fn?: Function | null): any => {
  * things like `bg-red-500`, `text-gray-100`... are invalid values.
  */
 
-export const darken = (value: string): string => {
+export const darken = (value: string, amount = 100): string => {
   const splitStr = value.split('-');
 
   if (splitStr.length > 2) {
@@ -59,10 +59,10 @@ export const darken = (value: string): string => {
   const color = splitStr[0];
 
   if (dept >= 800) {
-    return `${color}-${dept - 200}`;
+    return `${color}-${dept - amount ?? 200}`;
   }
 
-  return `${color}-${dept + 200}`;
+  return `${color}-${dept + amount ?? 200}`;
 };
 
 export const lighten = (value: string, amount = 100): string => {
