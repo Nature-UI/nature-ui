@@ -13,13 +13,13 @@ export const Default = () => <Badge>default</Badge>;
 export const WithColor = () => {
   return (
     <Stack spacing={4} direction='row'>
-      <Badge variant='solid' color='blue-500'>
+      <Badge variant='solid' color='teal-500'>
         default
       </Badge>
-      <Badge variant='subtle' color='blue-200'>
+      <Badge variant='subtle' color='teal-200'>
         default
       </Badge>
-      <Badge variant='outline' color='blue-400'>
+      <Badge variant='outline' color='teal-400'>
         default
       </Badge>
     </Stack>
