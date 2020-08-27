@@ -2,18 +2,17 @@ import { ChangeEvent } from 'react';
 
 import { Dict } from './types';
 
-export const isFunction = (value: unknown): value is Function => {
+export const isFunction = (value: any): value is Function => {
   return typeof value === 'function';
 };
 
-export const isNumber = (value: unknown): value is number => {
+export const isNumber = (value: any): value is number => {
   return typeof value === 'number';
 };
 
-export const isNotNumber = (value: unknown): boolean =>
+export const isNotNumber = (value: any): boolean =>
   typeof value !== 'number' || Number.isNaN(value) || !Number.isFinite(value);
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const toNumber = (value: any): number => {
   if (isNumber(value)) {
     return value;
@@ -22,24 +21,24 @@ export const toNumber = (value: any): number => {
   return Number.parseFloat(value);
 };
 
-export const isNumeric = (value: unknown): boolean => {
+export const isNumeric = (value: any): boolean => {
   return isNumber(value) && value !== null && value - value + 1 >= 0;
 };
 
-export const isArray = <T>(value: unknown): value is Array<T> => {
+export const isArray = <T>(value: any): value is Array<T> => {
   return Array.isArray(value);
 };
 
-export const isEmptyArray = (value: unknown): boolean =>
+export const isEmptyArray = (value: any): boolean =>
   isArray(value) && value.length === 0;
 
-export const isDefined = (value: unknown): boolean =>
+export const isDefined = (value: any): boolean =>
   typeof value === 'undefined' || value === undefined;
 
 export const isUndefined = (value: any): value is undefined =>
   typeof value === 'undefined' || value === undefined;
 
-export const isObject = (value: unknown): value is Dict => {
+export const isObject = (value: any): value is Dict => {
   const type = typeof value;
 
   return (
@@ -49,21 +48,20 @@ export const isObject = (value: unknown): value is Dict => {
   );
 };
 
-export const isEmptyObject = (value: unknown): boolean =>
+export const isEmptyObject = (value: any): boolean =>
   isObject(value) && !Object.keys(value).length;
 
-export const isNotEmptyObject = (value: unknown): value is object =>
+export const isNotEmptyObject = (value: any): value is object =>
   value && !isEmptyObject(value);
 
-export const isNull = (value: unknown): value is null => value === null;
+export const isNull = (value: any): value is null => value === null;
 
-export const isString = (value: unknown): value is string =>
+export const isString = (value: any): value is string =>
   Object.prototype.toString.call(value) === '[object String]';
 
-export const isInputEvent = (value: unknown): value is ChangeEvent =>
+export const isInputEvent = (value: any): value is ChangeEvent =>
   value && isObject(value) && isObject(value.target);
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const isEmpty = (value: any): boolean => {
   if (isArray(value)) return isEmptyArray(value);
 
