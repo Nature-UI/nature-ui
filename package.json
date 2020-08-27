@@ -22,7 +22,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
-    "storybook": "start-storybook -p 4000",
+    "storybook": "env NODE_ENV=development start-storybook -p 4000",
     "lint": "eslint --fix --ext=jsx,ts,tsx './**/*.{ts,tsx}'",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\""
