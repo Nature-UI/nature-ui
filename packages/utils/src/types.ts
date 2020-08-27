@@ -12,13 +12,21 @@ export type As<P = any> = React.ElementType<P>;
 
 export type AnyFunction<T = any> = (...args: T[]) => any;
 
-export type FunctionArguments<T extends Function> = T extends (...args: infer R) => any ? R : never;
+export type FunctionArguments<T extends Function> = T extends (
+  ...args: infer R
+) => any
+  ? R
+  : never;
 export type Dict<T = any> = Record<string, T>;
 
-export type ReactNodeOrRenderProp<P> = React.ReactNode | ((props: P) => React.ReactNode);
+export type ReactNodeOrRenderProp<P> =
+  | React.ReactNode
+  | ((props: P) => React.ReactNode);
 
 export type Booleanish = boolean | 'true' | 'false';
 
-export type ObjectOrArray<T, K extends keyof any = keyof any> = T[] | Record<K, T>;
+export type ObjectOrArray<T, K extends keyof any = keyof any> =
+  | T[]
+  | Record<K, T>;
 
 export type StringOrNumber = string | number;

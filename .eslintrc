@@ -59,6 +59,8 @@
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "import/no-extraneous-dependencies": 0,
     "node/no-extraneous-import": 0,
-    "react/jsx-sort-props": 0
+    "react/jsx-sort-props": 0,
+    "no-use-before-define": 0,
+    "unicorn/no-reduce": 0
   }
 }
