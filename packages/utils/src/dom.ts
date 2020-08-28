@@ -60,3 +60,5 @@ export const ariaAttr = (condition: boolean | undefined) =>
 
 export const getOwnerDocument = (node?: HTMLElement) =>
   node?.ownerDocument || document;
+
+export { _window };
