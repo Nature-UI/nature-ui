@@ -1,6 +1,6 @@
 import { isFocusable, isHTMLElement, isTabbable } from './tabbable';
 
-const selectors = [
+const SELECTORS = [
   'input',
   'select',
   'textarea',
@@ -13,10 +13,10 @@ const selectors = [
   '[contenteditable]:not([contenteditable=false])',
 ];
 
-const selector = selectors.join();
+const selector = SELECTORS.join();
 
 export const getAllFocusable = <T extends Element>(container: T) => {
-  const allFocusable = [...container.querySelectorAll<T>(selector)];
+  const allFocusable = Array.from(container.querySelectorAll<T>(selector));
 
   allFocusable.unshift(container);
 
@@ -33,25 +33,25 @@ export const getAllTabbable = <T extends Element>(
   container: T,
   fallbackToFocusable?: boolean
 ) => {
-  const allFocusable = [...container.querySelectorAll<T>(selector)];
-  const allTabbale = allFocusable.filter(isTabbable);
+  const allFocusable = Array.from(container.querySelectorAll<T>(selector));
+  const allTabbable = allFocusable.filter(isTabbable);
 
   if (isTabbable(container)) {
-    allTabbale.unshift(container);
+    allTabbable.unshift(container);
   }
 
-  if (!allTabbale.length && fallbackToFocusable) {
+  if (!allTabbable.length && fallbackToFocusable) {
     return allFocusable;
   }
 
-  return allTabbale;
+  return allTabbable;
 };
 
 export const getFirstTabbableIn = <T extends Element>(
   container: T,
-  falllbackToFocusable?: boolean
+  fallbackToFocusable?: boolean
 ): T | null => {
-  const [first] = getAllTabbable(container, falllbackToFocusable);
+  const [first] = getAllTabbable(container, fallbackToFocusable);
 
   return first || null;
 };
@@ -66,7 +66,7 @@ export const getLastTabbableIn = <T extends Element>(
 };
 
 export const getNextTabbable = <T extends Element>(
-  container: Text,
+  container: T,
   fallbackToFocusable?: boolean
 ): T | null => {
   const allFocusable = getAllFocusable(container);
@@ -98,7 +98,7 @@ export const getPreviousTabbable = <T extends Element>(
 export const focusNextTabbable = <T extends Element>(
   container: T,
   fallbackToFocusable?: boolean
-): T | null => {
+) => {
   const nextTabbable = getNextTabbable(container, fallbackToFocusable);
 
   if (nextTabbable && isHTMLElement(nextTabbable)) {
@@ -109,7 +109,7 @@ export const focusNextTabbable = <T extends Element>(
 export const focusPreviousTabbable = <T extends Element>(
   container: T,
   fallbackToFocusable?: boolean
-): T | null => {
+) => {
   const previousTabbable = getPreviousTabbable(container, fallbackToFocusable);
 
   if (previousTabbable && isHTMLElement(previousTabbable)) {
