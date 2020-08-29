@@ -1,4 +1,4 @@
-import * as merge from 'deepmerge';
+import merge from 'deepmerge';
 
 import { Omit, Dict } from './types';
 
