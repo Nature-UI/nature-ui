@@ -8,9 +8,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "outDir": "dist",
-    "target": "es6",
+    "target": "es5",
     "module": "esnext",
-    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    "lib": ["dom", "esnext", "esnext.asynciterable"],
     "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
@@ -31,6 +31,13 @@
     "noEmit": false,
     "types": ["jest", "node", "react", "react-dom"]
   },
-  "exclude": ["node_modules", "build", "scripts", "acceptance-tests", "webpack", "jest"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest"
+  ],
   "include": ["src/**/*", "packages/**/*", "*.config.js"]
 }

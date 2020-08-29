@@ -63,6 +63,13 @@
     "no-use-before-define": 0,
     // "unicorn/no-reduce": 0,
     "no-param-reassign": 0,
-    "no-console": 0
+    "no-console": 0,
+    "node/no-unsupported-features/es-builtins": [
+      "error",
+      {
+        "version": "^v12.18.2",
+        "ignores": []
+      }
+    ]
   }
 }
