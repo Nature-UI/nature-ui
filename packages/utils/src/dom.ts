@@ -16,6 +16,7 @@ try {
   // ! Do nothing
 }
 
+export { _window };
 /**
  * Helper to get the window object. The helper will make sure to use a cached variable
  * of "window", to avoid overhead and memory leaks in IE11.

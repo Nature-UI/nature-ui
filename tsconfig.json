@@ -26,7 +26,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true, // FIXME: => false
     "skipLibCheck": true,
     "noEmit": false,
     "types": ["jest", "node", "react", "react-dom"]
