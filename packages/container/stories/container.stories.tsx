@@ -5,7 +5,7 @@ import Container from '../src';
 
 export default {
   decorators: [withKnobs],
-  title: 'Container'
+  title: 'Container',
 };
 
 export const SizeXL: React.FC = () => {

@@ -6,19 +6,23 @@ import { Button } from './button';
 
 export default {
   decorators: [withKnobs],
-  title: 'Button'
+  title: 'Button',
 };
 
 export const primary: React.FC = () => {
   const label = text('Label', 'See now');
   const outlined = boolean('Oultined', false);
 
-  return <Button label={label} onClick={action('clicked')} outlined={outlined} />;
+  return (
+    <Button label={label} onClick={action('clicked')} outlined={outlined} />
+  );
 };
 
 export const secondary: React.FC = () => {
   const label = text('Label', 'See now');
   const outlined = boolean('Oultined', true);
 
-  return <Button label={label} onClick={action('clicked')} outlined={outlined} />;
+  return (
+    <Button label={label} onClick={action('clicked')} outlined={outlined} />
+  );
 };

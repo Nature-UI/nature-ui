@@ -24,14 +24,19 @@ const XS = 'px-64';
 
 const Container: React.ForwardRefExoticComponent<IContainer> = React.forwardRef(
   (props: IContainer, ref: React.Ref<any>) => {
-    const { component: Component = 'div', size = 'lg', children, className = '' } = props;
+    const {
+      component: Component = 'div',
+      size = 'lg',
+      children,
+      className = '',
+    } = props;
 
     const componentClass: string = clx(BASE_STYLE, {
       [LG]: size === 'lg',
       [MD]: size === 'md',
       [SM]: size === 'sm',
       [XL]: size === 'xl',
-      [XS]: size === 'xs'
+      [XS]: size === 'xs',
     });
 
     return (

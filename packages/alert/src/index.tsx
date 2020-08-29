@@ -1,6 +1,11 @@
 import * as React from 'react';
 import clx from 'clsx';
-import { FiInfo, FiAlertCircle, FiAlertTriangle, FiCheckCircle } from 'react-icons/fi';
+import {
+  FiInfo,
+  FiAlertCircle,
+  FiAlertTriangle,
+  FiCheckCircle,
+} from 'react-icons/fi';
 import { createContext } from '@nature-ui/utils';
 
 const SUBTLE_TEXT = 'text-gray-800';
@@ -90,7 +95,12 @@ const Alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
 
     // const Component = 'div';
 
-    const { iconColor, icon: IconComponent, variant: Variant, bg } = ALERT_STATUSES[status];
+    const {
+      iconColor,
+      icon: IconComponent,
+      variant: Variant,
+      bg,
+    } = ALERT_STATUSES[status];
     const VARIANT: string = Variant[variant];
 
     const componentClass = clx(BASE_STYLE, {
