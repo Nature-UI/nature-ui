@@ -1,5 +1,4 @@
 import { callAllHandler } from '@nature-ui/utils';
-import { boolean } from '@storybook/addon-knobs';
 import * as React from 'react';
 import { useControllableProp } from './use-controllable';
 import { useId } from './use-id';
