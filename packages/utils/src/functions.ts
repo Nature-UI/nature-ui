@@ -69,5 +69,3 @@ export const lighten = (value: string, amount = 100): string => {
 
   return `${color}-${amount}`;
 };
-
-export const noop = () => {};
