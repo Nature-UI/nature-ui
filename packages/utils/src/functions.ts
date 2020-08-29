@@ -1,7 +1,7 @@
 import memoizeOne from 'memoize-one';
 
 import { FunctionArguments } from './types';
-import { isFunction } from './assetions';
+import { isFunction } from './assertions';
 
 export const runIfFn = <T, U>(
   valueOrFn: T | ((...args: U[]) => T),
@@ -32,7 +32,6 @@ export const once = (fn?: Function | null): any => {
   return function (this: any, ...args: any[]) {
     if (fn) {
       result = fn.apply(this, args);
-      // eslint-disable-next-line no-param-reassign
       fn = null;
     }
 
@@ -70,3 +69,5 @@ export const lighten = (value: string, amount = 100): string => {
 
   return `${color}-${amount}`;
 };
+
+export const noop = () => {};
