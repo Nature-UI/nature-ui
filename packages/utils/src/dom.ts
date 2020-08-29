@@ -9,24 +9,26 @@ let _window: Window | undefined;
  * hits a memory leak, whereas aliasing it and calling "typeof _window" does not.
  * Caching the window value at the file scope lets us minimize the impact.
  */
+
 try {
   _window = window;
 } catch {
-  /* no-op */
+  // ! Do nothing
 }
 
 /**
  * Helper to get the window object. The helper will make sure to use a cached variable
  * of "window", to avoid overhead and memory leaks in IE11.
  */
-export const getWindow = (node?: HTMLElement | null) =>
+
+export const getWindow = (node?: HTMLElement | null): Window | undefined =>
   node?.ownerDocument?.defaultView ?? _window;
 
 /**
  * Check if we can use the DOM. Useful for SSR purposes
  */
 
-const checkIsBrowser = () => {
+const checkIsBrowser = (): boolean => {
   const _window = getWindow();
 
   return Boolean(
@@ -47,18 +49,15 @@ export const normalizeEventKey = (event: React.KeyboardEvent) => {
   const key = event.key || event.keyCode;
 
   const isArrowKey =
-    key >= 37 && key <= 50 && String(key).indexOf('Arrow') !== 0;
+    key >= 37 && key <= 40 && String(key).indexOf('Arrow') !== 0;
 
   return isArrowKey ? `Arrow${key}` : key;
 };
 
-export const dataAttr = (condition: boolean | undefined) =>
+export const dataAttr = (condition?: boolean) =>
   (condition ? '' : undefined) as Booleanish;
 
-export const ariaAttr = (condition: boolean | undefined) =>
-  condition ? true : undefined;
+export const ariaAttr = (condition?: boolean) => (condition ? true : undefined);
 
 export const getOwnerDocument = (node?: HTMLElement) =>
   node?.ownerDocument || document;
-
-export { _window };
