@@ -78,7 +78,7 @@ type ReactRef<T> =
  */
 
 export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
-  if (!ref || ref === null) return;
+  if (ref === null) return;
 
   if (isFunction(ref)) {
     ref(value);
