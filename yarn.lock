@@ -3362,15 +3362,15 @@
     ts-dedent "^1.1.1"
     util-deprecate "^1.0.2"
 
-"@storybook/cli@6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.0.6.tgz#e5d2168be50c6074a6cc0dcac06beed705637719"
-  integrity sha512-APBbiZ4UKSDusHI4TnGdjpDBC6wwv5cZnUuHxyvXWL6f3CZqUD+r+0gl/Lk6OJTfVD7XlzenWsoa9H6xMybMAA==
+"@storybook/cli@6.0.20":
+  version "6.0.20"
+  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.0.20.tgz#0e2a2d52f1e708d26ad4ba28f8ed6e3af9348cd1"
+  integrity sha512-p1YQ4z4wnPzchwlEUs6kVmbvEjysTd7IA2amj6m1qQnYGENv0tX+3U2yzoehL6XWrL+fLRrMBuB1czIGZutxCg==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/preset-env" "^7.9.6"
-    "@storybook/codemod" "6.0.6"
-    "@storybook/node-logger" "6.0.6"
+    "@storybook/codemod" "6.0.20"
+    "@storybook/node-logger" "6.0.20"
     "@storybook/semver" "^7.3.2"
     chalk "^4.0.0"
     commander "^5.0.0"
@@ -3514,20 +3514,20 @@
     core-js "^3.0.1"
     global "^4.3.2"
 
-"@storybook/codemod@6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.0.6.tgz#e7a59ab6bf14b6b3456dbc25b1b4a26d17f40cac"
-  integrity sha512-6wh6isJm0xjue83VieQQ92KUu4mngJ//wgUHK2c0u1RRgmnjG9TBWCegbi3kVXqfsL9UL/fyNhjUehbSvp6jbg==
+"@storybook/codemod@6.0.20":
+  version "6.0.20"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.0.20.tgz#2d719623cbca149ad708c582a257710835f8cdfb"
+  integrity sha512-B/B6xuqTcMg3zEotIPeZpzL836SPe/+r45vWexk1ZDMSglXAuji1vzRZ0mTB4NDG/5ekVWaezVurZJ9TM0ehgw==
   dependencies:
     "@mdx-js/mdx" "^1.5.1"
     "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "6.0.6"
+    "@storybook/node-logger" "6.0.20"
     core-js "^3.0.1"
     cross-spawn "^7.0.0"
     globby "^11.0.0"
     jscodeshift "^0.7.0"
     lodash "^4.17.15"
-    prettier "^2.0.5"
+    prettier "~2.0.5"
     recast "^0.19.0"
     regenerator-runtime "^0.13.3"
 
@@ -3768,10 +3768,10 @@
     pretty-hrtime "^1.0.3"
     regenerator-runtime "^0.13.3"
 
-"@storybook/node-logger@6.0.6":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.0.6.tgz#c77ed4e41e3cc8c8fe9768ad9806415ceca1ccd7"
-  integrity sha512-+ai5lGw+xoY7pfTaiy3DEA+8OQifdS1El32J4Cmq7KEbY4vuDjholqg4Un2lmsb2+fBIkdJMzYAzY1729zsTxw==
+"@storybook/node-logger@6.0.20":
+  version "6.0.20"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.0.20.tgz#d90c10a4d848b4395be0e16f1ad38f37eba7a792"
+  integrity sha512-7dQZgjk496/iTlmEoRMreIDG0iqu5WClL2LPvUeRC484H/IIpKCMmuAHSPkhnp/kj59fWZES6ruuKZr5c9f04A==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.0.0"
@@ -16423,7 +16423,7 @@ prettier@^1.16.4:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
-prettier@^2.0.5:
+prettier@^2.0.5, prettier@~2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
   integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
@@ -18901,12 +18901,12 @@ store2@^2.7.1:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook@^6.0.2:
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-6.0.6.tgz#27de499c4be3857ac4a5e3df6cee36e97525e892"
-  integrity sha512-RUDy7+NQNWfI2v8Yc1hJjdvEzW7FO2Z3uAqukORyfQMcLvhFOhJ9sNIPf9MrLrCeUTR6HQsJN1fvpvwzGKGpuw==
+storybook@^6.0.20:
+  version "6.0.20"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-6.0.20.tgz#26e70480b29e211d52957346c70c98b330b72df1"
+  integrity sha512-L/QAsoKl/oLQfc7kmtKXbmD+skwgijOwe+nv6nZTJdonUrFBWrHSLuoBZnskzLJW37f4dge+fiHU+cl4WUsXJA==
   dependencies:
-    "@storybook/cli" "6.0.6"
+    "@storybook/cli" "6.0.20"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
