@@ -1,5 +1,6 @@
 import { callAllHandler } from '@nature-ui/utils';
 import * as React from 'react';
+
 import { useControllableProp } from './use-controllable';
 import { useId } from './use-id';
 
@@ -28,6 +29,7 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
     if (!isControlled) {
       setIsOpen(false);
     }
+
     onCloseProp?.();
   }, [isControlled, onCloseProp]);
 
@@ -35,16 +37,18 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
     if (!isControlled) {
       setIsOpen(true);
     }
+
     onCloseProp?.();
-  }, [isControlled, onOpenProp]);
+  }, [isControlled, onCloseProp]);
 
   const onToggle = React.useCallback(() => {
     const action = isOpen ? onClose : onOpen;
+
     action();
   }, [isOpen, onOpen, onClose]);
 
   return {
-    isOpen: !!isOpen,
+    isOpen: Boolean(isOpen),
     onOpen,
     onClose,
     onToggle,
