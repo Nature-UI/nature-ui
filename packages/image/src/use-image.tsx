@@ -62,9 +62,9 @@ export const useImage = (props: UseImageProps) => {
     ignoreFallback,
   } = props;
 
-  const [status, setStatus] = React.useState<Status>(() =>
-    src ? 'loading' : 'pending'
-  );
+  const [status, setStatus] = React.useState<Status>(() => {
+    return src ? 'loading' : 'pending';
+  });
 
   React.useEffect(() => {
     setStatus(src ? 'loading' : 'pending');
@@ -72,15 +72,6 @@ export const useImage = (props: UseImageProps) => {
 
   const imageRef = React.useRef<HTMLImageElement | null>();
 
-  const flush = () => {
-    if (imageRef.current) {
-      // eslint-disable-next-line unicorn/prefer-add-event-listener
-      imageRef.current.onload = null;
-      // eslint-disable-next-line unicorn/prefer-add-event-listener
-      imageRef.current.onerror = null;
-      imageRef.current = null;
-    }
-  };
   const load = React.useCallback(() => {
     if (!src) return;
     flush();
@@ -105,15 +96,23 @@ export const useImage = (props: UseImageProps) => {
       setStatus('loaded');
       onLoad?.(event);
     });
-
     img.addEventListener('error', (error) => {
       flush();
       setStatus('failed');
       onError?.(error);
     });
-
     imageRef.current = img;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError]);
+
+  const flush = () => {
+    if (imageRef.current) {
+      // eslint-disable-next-line unicorn/prefer-add-event-listener
+      imageRef.current.onload = null;
+      // eslint-disable-next-line unicorn/prefer-add-event-listener
+      imageRef.current.onerror = null;
+      imageRef.current = null;
+    }
+  };
 
   useSafeLayoutEffect(() => {
     /**

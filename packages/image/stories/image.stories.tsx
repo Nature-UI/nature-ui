@@ -3,6 +3,9 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import { Image } from '../src';
 
+// @ts-ignore
+import * as localImg from './large.jpg';
+
 export default {
   decorators: [withKnobs],
   title: 'Image',
@@ -13,7 +16,7 @@ export const Basic = () => (
 );
 
 /**
- * Chakra has support for fallback images
+ * Nature has support for fallback images
  * so in event the image falls to load, or while
  * the image is loading, you can show a fallback.
  *
@@ -21,13 +24,23 @@ export const Basic = () => (
  */
 export const FallbackSrcExample = () => (
   <Image
-    src='https://bit.ly/dan-abramov'
-    fallbackSrc='https://via.placeholder.com/240'
+    src={'https://bit.ly/dan-abramov'}
+    loading='lazy'
+    fallbackSrc='https://via.placeholder.com/150'
+  />
+);
+
+export const NativeFallbackSrcExample = () => (
+  <Image
+    fallbackSrc={localImg}
+    src={'https://bit.ly/dan-abramov'}
+    width={'350px'}
+    height={'500px'}
   />
 );
 
 /**
- * NEW! You can also pass a fallback component
+ * You can also pass a fallback component
  * in case you need to show something custom
  */
 export const FallbackElementExample = () => (
