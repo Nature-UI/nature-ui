@@ -8,7 +8,7 @@ import {
 } from '@nature-ui/utils';
 
 import { jsx } from './jsx';
-import { getDisplayName } from './system-utils';
+import { DOMElements, getDisplayName } from './system-utils';
 import { NatureComponent } from './system-types';
 
 export const createComponent = <T extends As>(component: T) => {
@@ -45,4 +45,13 @@ export const createComponent = <T extends As>(component: T) => {
   // };
 };
 
-export const nature = (createComponent as unknown) as typeof createComponent;
+type NatureJSXElements = {
+  [Tag in DOMElements]: NatureComponent<Tag, {}>;
+};
+
+type CreateNatureComponent = {
+  <T extends As, P = {}>(component: T): NatureComponent<T, P>;
+};
+
+export const nature = (createComponent as unknown) as NatureJSXElements &
+  CreateNatureComponent;

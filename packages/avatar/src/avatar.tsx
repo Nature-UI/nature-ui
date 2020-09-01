@@ -1,0 +1,243 @@
+import * as React from 'react';
+import { forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { __DEV__ } from '@nature-ui/utils';
+import clsx from 'clsx';
+import { useImage } from '@nature-ui/image';
+
+interface AvatarOptions {
+  /**
+   * The name of the person in the avatar.
+   *
+   * - if `src` has loaded, the name will be used as the `alt` attribute of the `img`
+   * - If `src` is not loaded, the name will be used to create the initials
+   */
+  name?: string;
+  /**
+   * The size of the avatar.
+   */
+  size?: string;
+  /**
+   * If `true`, the `Avatar` will show a border around it.
+   *
+   * Best for a group of avatars
+   */
+  showBorder?: boolean;
+  /**
+   * The badge at the bottom right corner of the avatar.
+   */
+  children?: React.ReactNode;
+  /**
+   * The image url of the `Avatar`
+   */
+  src?: string;
+  /**
+   * List of sources to use for different screen resolutions
+   */
+  srcSet?: string;
+  /**
+   * The border color of the avatar
+   */
+  borderColor?: string;
+  /**
+   * Function called when image failed to load
+   */
+  onError?(): void;
+  /**
+   * The default avatar used as fallback when `name`, and `src`
+   * is not specified.
+   */
+  icon?: React.ReactElement;
+  /**
+   * Function to get the initials to display
+   */
+  getInitials?(name?: string): string;
+}
+
+const AvatarBadgeComp = nature('div');
+
+export const AvatarBadge = (
+  props: Omit<PropsOf<typeof AvatarBadgeComp>, 'children'> & { size?: string }
+) => {
+  const { size, className = '' } = props;
+
+  const DEFAULTS = `absolute flex items-center right-0 bottom-0 justify-center`;
+  const _className = clsx(DEFAULTS, {
+    [className]: className,
+  });
+
+  return (
+    <AvatarBadgeComp
+      style={{
+        width: size,
+        height: size,
+      }}
+      {...{
+        className: _className,
+        props,
+      }}
+    />
+  );
+};
+
+if (__DEV__) {
+  AvatarBadge.displayName = 'AvatarBadge';
+}
+
+export type AvatarBadgeProps = PropsOf<typeof AvatarBadge>;
+
+/**
+ * Gets the initials of a user based on the name
+ * @param name the name passed
+ */
+const initials = (name: string) => {
+  const [firstName, lastName] = name.split(' ');
+
+  if (firstName && lastName) {
+    return `${firstName[0]}${lastName[0]}`;
+  }
+
+  return firstName[0];
+};
+
+type InitialsAvatarProps = PropsOf<typeof nature.div> &
+  Pick<AvatarOptions, 'name' | 'getInitials'>;
+
+/**
+ * The avatar name container
+ */
+
+const InitialAvatar = (props: InitialsAvatarProps) => {
+  const { name, getInitials, ...rest } = props;
+
+  return (
+    <nature.div
+      aria-label={name}
+      {...{
+        rest,
+      }}
+    >
+      {name ? getInitials?.(name) : null}
+    </nature.div>
+  );
+};
+
+/**
+ * Fallback avatar react component.
+ * This should be a generic svg used to represent an avatar
+ */
+
+const DefaultIcon = (props: PropsOf<'svg'>) => (
+  <svg
+    viewBox='0 0 128 128'
+    color='#fff'
+    style={{ width: '100%', height: '100%' }}
+    {...props}
+  >
+    <path
+      fill='currentColor'
+      d='M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z'
+    />
+    <path
+      fill='currentColor'
+      d='M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24'
+    />
+  </svg>
+);
+
+const baseStyle = `items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0`;
+
+const AvatarComp = nature<'span', { name: string }>('span');
+
+export type AvatarProps = PropsOf<typeof AvatarComp> & AvatarOptions;
+
+/**
+ * Avatar
+ *
+ * React component that renders an user avatar with
+ * support for fallback avatar and name-only avatars
+ */
+
+export const Avatar = forwardRef<AvatarProps>((props, ref) => {
+  const {
+    name,
+    src,
+    showBorder,
+    onError,
+    getInitials = initials,
+    icon = <DefaultIcon />,
+    className = '',
+    ...rest
+  } = props;
+
+  const status = useImage({
+    src,
+    onError,
+  });
+
+  const hasLoaded = status === 'loaded';
+  const _className = clsx(`object-cover w-full h-full rounded-full`, {
+    [className]: className,
+    [`border-2`]: showBorder,
+  });
+
+  const getAvatar = (): JSX.Element | undefined => {
+    if (src && hasLoaded) {
+      return (
+        <nature.img
+          {...{
+            rest,
+            alt: name,
+            src,
+            className: _className,
+          }}
+        />
+      );
+    }
+
+    /**
+     * Fallback avatar applies under 2 conditions:
+     * - If `src` was passed and the image has not loaded or failed to load
+     * - If `src` wasn't passed
+     *
+     * In this case, we'll show either the name avatar or default avatar
+     */
+
+    const showFallback = !src || (src && !hasLoaded);
+
+    if (showFallback) {
+      return name ? (
+        <InitialAvatar
+          {...{
+            getInitials,
+            name,
+          }}
+        />
+      ) : (
+        React.cloneElement(icon, {
+          role: 'img',
+          className,
+        })
+      );
+    }
+
+    return undefined;
+  };
+
+  return (
+    <AvatarComp
+      {...{
+        name,
+        ref,
+        className,
+        rest,
+      }}
+    >
+      {getAvatar()}
+      {props.children}
+    </AvatarComp>
+  );
+});
+
+if (__DEV__) {
+  Avatar.displayName = 'Avatar';
+}
