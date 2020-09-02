@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__, omit } from '@nature-ui/utils';
-import clsx from 'clsx';
 
 import { useImage, UseImageProps } from './use-image';
 
@@ -51,7 +50,8 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
     ...rest
   } = props;
 
-  const shouldIgnore = loading !== null || ignoreFallback;
+  const shouldIgnore =
+    (loading !== undefined && loading !== null) || ignoreFallback;
 
   const status = useImage({
     ...props,
@@ -66,7 +66,14 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
   if (status !== 'loaded') {
     if (fallback) return fallback;
 
-    return <ImageComp src={fallbackSrc} {...shared} />;
+    return (
+      <ImageComp
+        {...{
+          src: fallbackSrc,
+          shared,
+        }}
+      />
+    );
   }
 
   return (
