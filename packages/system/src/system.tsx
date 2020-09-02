@@ -1,48 +1,11 @@
-import * as React from 'react';
-import {
-  As,
-  isString,
-  Dict,
-  isEmptyObject,
-  isUndefined,
-} from '@nature-ui/utils';
+import { As } from '@nature-ui/utils';
 
-import { jsx } from './jsx';
-import { DOMElements, getDisplayName } from './system-utils';
+import { DOMElements } from './system-utils';
 import { NatureComponent } from './system-types';
+import { createComponent } from './create-component';
 
-export const createComponent = <T extends As>(component: T) => {
-  // return (...interpolations: any[]) => {
-  const Component = React.forwardRef(
-    ({ as, ...props }: any, ref: React.Ref<any>) => {
-      /*
-       * interpolations.forEach((interpolation) => {
-       *   runIfFn(interpolation, {});
-       * });
-       */
-
-      const element = as || component;
-
-      const isTag = isString(element);
-
-      const computedProps: Dict = !isTag && { ...props };
-
-      if (isEmptyObject(computedProps.css) || isUndefined(computedProps.css)) {
-        delete computedProps.css;
-      }
-
-      return jsx(element, {
-        ref,
-        ...props,
-      });
-    }
-  );
-
-  Component.displayName = getDisplayName(component);
-  Component.defaultProps = (component as any).defaultProps;
-
-  return Component as NatureComponent<T>;
-  // };
+export const natureComp = <T extends As>(component: T) => {
+  return createComponent<T>(component);
 };
 
 type NatureJSXElements = {
@@ -53,5 +16,5 @@ type CreateNatureComponent = {
   <T extends As, P = {}>(component: T): NatureComponent<T, P>;
 };
 
-export const nature = (createComponent as unknown) as NatureJSXElements &
-  CreateNatureComponent;
+export const nature = (createComponent as unknown) as CreateNatureComponent &
+  NatureJSXElements;

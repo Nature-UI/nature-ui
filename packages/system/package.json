@@ -28,8 +28,12 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
+    "@nature-ui/utils": "^0.1.0",
+    "hoist-non-react-statics": "^3.3.2",
     "react": "^16.13.1",
-    "rimraf": "^3.0.2",
-    "@nature-ui/utils": "^0.1.0"
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/hoist-non-react-statics": "^3.3.1"
   }
 }
