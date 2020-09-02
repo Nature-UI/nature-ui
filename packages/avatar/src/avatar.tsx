@@ -130,7 +130,10 @@ const DefaultIcon = (props: PropsOf<'svg'>) => (
   <svg
     viewBox='0 0 128 128'
     color='#fff'
-    style={{ width: '100%', height: '100%' }}
+    style={{
+      width: '100%',
+      height: '100%',
+    }}
     {...props}
   >
     <path
@@ -180,7 +183,7 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     [`border-2`]: showBorder,
   });
 
-  const getAvatar = (): JSX.Element | undefined => {
+  const getAvatar = (): JSX.Element => {
     if (src && hasLoaded) {
       return (
         <nature.img
@@ -220,7 +223,7 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
       );
     }
 
-    return undefined;
+    return <span {...props}>{props.children}</span>;
   };
 
   return (
@@ -228,7 +231,9 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
       {...{
         name,
         ref,
-        className,
+        className: clsx(baseStyle, {
+          [className]: className,
+        }),
         rest,
       }}
     >
