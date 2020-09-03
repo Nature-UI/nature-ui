@@ -1,4 +1,4 @@
-/**@jsx jsx */
+/** @jsx jsx */
 import { nature, jsx } from '../src';
 
 export default {
@@ -17,8 +17,6 @@ export const withHeading = () => (
     </Btn>
   </div>
 );
-
-console.log({ type: <nature.div /> });
 
 export const Basic = () => (
   <nature.div className='text-2xl font-bold'>Hello world</nature.div>
