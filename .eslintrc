@@ -17,7 +17,6 @@
     "eslint-comments",
     "jest",
     "promise",
-    // "unicorn",
     "import"
   ],
   "extends": [
@@ -30,7 +29,6 @@
     "plugin:eslint-comments/recommended",
     "plugin:jest/recommended",
     "plugin:promise/recommended",
-    // "plugin:unicorn/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
@@ -38,7 +36,6 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    // "unicorn/filename-case": 0,
     "react/jsx-filename-extension": 0,
     "import/extensions": 0,
     "import/prefer-default-export": 0,
@@ -48,12 +45,10 @@
     "import/exports-last": 0,
     "@typescript-eslint/indent": 0,
     "react/jsx-props-no-spreading": 0,
-    // "unicorn/prevent-abbreviations": 0,
     "sort-keys": 0,
     "@typescript-eslint/ban-types": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/interface-name-prefix": 0,
-    // "unicorn/no-useless-undefined": 0,
     "jest/no-empty-title": 0,
     "jest/require-tothrow-message": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
@@ -61,7 +56,6 @@
     "node/no-extraneous-import": 0,
     "react/jsx-sort-props": 0,
     "no-use-before-define": 0,
-    // "unicorn/no-reduce": 0,
     "no-param-reassign": 0,
     "no-console": 0,
     "node/no-unsupported-features/es-builtins": [

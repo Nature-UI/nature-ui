@@ -106,18 +106,18 @@ type InitialsAvatarProps = PropsOf<typeof nature.div> &
  * The avatar name container
  */
 
-const InitialAvatar = (props: InitialsAvatarProps) => {
+export const InitialAvatar = (props: InitialsAvatarProps) => {
   const { name, getInitials, ...rest } = props;
 
   return (
-    <nature.div
+    <div
       aria-label={name}
       {...{
         rest,
       }}
     >
       {name ? getInitials?.(name) : null}
-    </nature.div>
+    </div>
   );
 };
 
@@ -126,7 +126,7 @@ const InitialAvatar = (props: InitialsAvatarProps) => {
  * This should be a generic svg used to represent an avatar
  */
 
-const DefaultIcon = (props: PropsOf<'svg'>) => (
+export const DefaultIcon = (props: PropsOf<'svg'>) => (
   <svg
     viewBox='0 0 128 128'
     color='#fff'
@@ -183,10 +183,10 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     [`border-2`]: showBorder,
   });
 
-  const getAvatar = (): JSX.Element => {
+  const getAvatar = () => {
     if (src && hasLoaded) {
       return (
-        <nature.img
+        <img
           {...{
             rest,
             alt: name,

@@ -8,7 +8,6 @@ export default {
   decorators: [withKnobs],
   title: 'Avatar',
 };
-
 export const Basic = () => (
   <Stack direction='row'>
     <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
