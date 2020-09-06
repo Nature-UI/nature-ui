@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { forwardRef, nature, PropsOf } from '@nature-ui/system';
+/** @jsx jsx */
+import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import clsx from 'clsx';
 import { useImage } from '@nature-ui/image';
@@ -110,14 +110,14 @@ export const InitialAvatar = (props: InitialsAvatarProps) => {
   const { name, getInitials, ...rest } = props;
 
   return (
-    <div
+    <nature.div
       aria-label={name}
       {...{
         rest,
       }}
     >
       {name ? getInitials?.(name) : null}
-    </div>
+    </nature.div>
   );
 };
 

@@ -16,5 +16,5 @@ type CreateNatureComponent = {
   <T extends As, P = {}>(component: T): NatureComponent<T, P>;
 };
 
-export const nature = (createComponent as unknown) as CreateNatureComponent &
+export const nature = (natureComp as unknown) as CreateNatureComponent &
   NatureJSXElements;

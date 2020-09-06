@@ -6,3 +6,16 @@ export const jsx = (
   props: Dict,
   ...children: React.ReactNode[]
 ) => React.createElement(type, props, ...children);
+
+declare module 'react' {
+  interface Attributes {}
+}
+
+declare global {
+  // eslint-disable-next-line
+  namespace JSX {
+    interface IntrinsicAttributes {}
+  }
+}
+
+export default jsx;
