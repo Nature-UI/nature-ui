@@ -34,10 +34,15 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
+    "@emotion/styled": "^10.0.27",
+    "@nature-ui/image": "^0.1.0",
     "@nature-ui/system": "^0.1.0",
     "@nature-ui/utils": "^0.1.0",
-    "@nature-ui/image": "^0.1.0",
     "clsx": "^1.1.1",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "tinycolor2": "^1.4.1"
   }
 }
