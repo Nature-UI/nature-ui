@@ -19,5 +19,12 @@ export const withHeading = () => (
 );
 
 export const Basic = () => (
-  <nature.h1 className='text-3xl font-bold'>Hello world</nature.h1>
+  <nature.h1
+    css={`
+      background-color: red;
+    `}
+    className='text-3xl font-bold'
+  >
+    Hello world
+  </nature.h1>
 );
