@@ -25,7 +25,7 @@ export const isLight = (color: string) => tone(color) === 'light';
 /**
  * Make a color transparent
  * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount white to add
+ * @param opacity - the amount white to add
  */
 export const transparentize = (color: string, opacity: number) =>
   Color(color).setAlpha(opacity).toRgbString();
@@ -140,7 +140,7 @@ export const randomColorFromString = (str: string): string => {
   let color = '#';
   for (let j = 0; j < 3; j++) {
     const value = (hash >> (j * 8)) & 255;
-    color += '00' + value.toString(16).substr(-1);
+    color += ('00' + value.toString(16)).substr(-2);
   }
   return color;
 };
