@@ -7,7 +7,6 @@ import React from 'react';
 import { css } from 'emotion';
 import tinyColor from 'tinycolor2';
 
-import './test.css';
 interface AvatarOptions {
   /**
    * The name of the person in the avatar.
