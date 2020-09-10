@@ -5,8 +5,7 @@ import clsx from 'clsx';
 import { useImage } from '@nature-ui/image';
 import React from 'react';
 import { css } from 'emotion';
-import tinyColor from 'tinycolor2';
-
+import {randomBgColors} from './randomBgColors'
 interface AvatarOptions {
   /**
    * The name of the person in the avatar.
@@ -147,6 +146,7 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     size = 'md',
     ...rest
   } = props;
+  const {bg, borderColor, color} = randomBgColors(name)
 
   const status = useImage({
     src,
@@ -187,6 +187,9 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
           {...{
             getInitials,
             name,
+            className: css`
+            color: ${color}
+            `
           }}
         />
       ) : (
@@ -198,10 +201,12 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     }
   };
 
-  const WIDTH = css`
+  const STYLES = css`
     width: ${SIZES[size]};
     height: ${SIZES[size]};
-    background-color: ${tinyColor.random().toHexString()};
+    background-color: ${bg};
+    border-color: ${borderColor}
+    color: ${color}
   `;
 
   return (
@@ -209,7 +214,7 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
       {...{
         ref,
         name,
-        className: clsx(`${baseStyle} ${WIDTH}`, {
+        className: clsx(`${baseStyle} ${STYLES}`, {
           [className]: className,
         }),
         ...rest,
