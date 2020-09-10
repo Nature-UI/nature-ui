@@ -1,5 +1,5 @@
 import Color from 'tinycolor2';
-import { get, Dict, isEmptyObject } from '@nature-ui/utils';
+import { isEmptyObject } from '@nature-ui/utils';
 
 /**
  * Determines if the tone of a given color is `light` or `dark`
