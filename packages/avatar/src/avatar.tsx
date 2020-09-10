@@ -3,7 +3,11 @@ import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import clsx from 'clsx';
 import { useImage } from '@nature-ui/image';
+import React from 'react';
+import { css } from 'emotion';
+import tinyColor from 'tinycolor2';
 
+import './test.css';
 interface AvatarOptions {
   /**
    * The name of the person in the avatar.
@@ -15,7 +19,7 @@ interface AvatarOptions {
   /**
    * The size of the avatar.
    */
-  size?: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   /**
    * If `true`, the `Avatar` will show a border around it.
    *
@@ -53,37 +57,14 @@ interface AvatarOptions {
   getInitials?(name?: string): string;
 }
 
-const AvatarBadgeComp = nature('div');
-
-export const AvatarBadge = (
-  props: Omit<PropsOf<typeof AvatarBadgeComp>, 'children'> & { size?: string }
-) => {
-  const { size, className = '' } = props;
-
-  const DEFAULTS = `absolute flex items-center right-0 bottom-0 justify-center`;
-  const _className = clsx(DEFAULTS, {
-    [className]: className,
-  });
-
-  return (
-    <AvatarBadgeComp
-      style={{
-        width: size,
-        height: size,
-      }}
-      {...{
-        className: _className,
-        props,
-      }}
-    />
-  );
+const SIZES = {
+  xs: '24px',
+  sm: '32px',
+  md: '48px',
+  lg: '64px',
+  xl: '96px',
+  '2xl': '128px',
 };
-
-if (__DEV__) {
-  AvatarBadge.displayName = 'AvatarBadge';
-}
-
-export type AvatarBadgeProps = PropsOf<typeof AvatarBadge>;
 
 /**
  * Gets the initials of a user based on the name
@@ -110,12 +91,7 @@ export const InitialAvatar = (props: InitialsAvatarProps) => {
   const { name, getInitials, ...rest } = props;
 
   return (
-    <nature.div
-      aria-label={name}
-      {...{
-        rest,
-      }}
-    >
+    <nature.div aria-label={name} {...rest}>
       {name ? getInitials?.(name) : null}
     </nature.div>
   );
@@ -147,7 +123,7 @@ export const DefaultIcon = (props: PropsOf<'svg'>) => (
   </svg>
 );
 
-const baseStyle = `items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0`;
+const baseStyle = `items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full`;
 
 const AvatarComp = nature<'span', { name: string }>('span');
 
@@ -169,6 +145,7 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     getInitials = initials,
     icon = <DefaultIcon />,
     className = '',
+    size = 'md',
     ...rest
   } = props;
 
@@ -179,7 +156,6 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
 
   const hasLoaded = status === 'loaded';
   const _className = clsx(`object-cover w-full h-full rounded-full`, {
-    [className]: className,
     [`border-2`]: showBorder,
   });
 
@@ -188,7 +164,6 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
       return (
         <img
           {...{
-            rest,
             alt: name,
             src,
             className: _className,
@@ -222,19 +197,23 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
         })
       );
     }
-
-    return <span {...props}>{props.children}</span>;
   };
+
+  const WIDTH = css`
+    width: ${SIZES[size]};
+    height: ${SIZES[size]};
+    background-color: ${tinyColor.random().toHexString()};
+  `;
 
   return (
     <AvatarComp
       {...{
-        name,
         ref,
-        className: clsx(baseStyle, {
+        name,
+        className: clsx(`${baseStyle} ${WIDTH}`, {
           [className]: className,
         }),
-        rest,
+        ...rest,
       }}
     >
       {getAvatar()}

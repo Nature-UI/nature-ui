@@ -15,3 +15,15 @@ export const Basic = () => (
     <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
   </Stack>
 );
+
+export const DifferentSizes = () => (
+  <Stack direction='row'>
+    <Avatar size='md' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
+    <Avatar
+      size='lg'
+      name='Christian Nwamba'
+      src='https://bit.ly/code-beasts'
+    />
+    <Avatar size='xl' name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+  </Stack>
+);
