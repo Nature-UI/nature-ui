@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { forwardRef, nature, PropsOf, clsx } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-import clsx from 'clsx';
 
 import { Box } from './box';
 
