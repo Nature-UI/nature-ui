@@ -1,6 +1,5 @@
 import * as React from 'react';
-import clx from 'clsx';
-import { nature } from '@nature-ui/system';
+import { nature, clx } from '@nature-ui/system';
 import { PropsOf } from '@nature-ui/system/src';
 import { __DEV__, lighten, darken } from '@nature-ui/utils';
 import './button.css';

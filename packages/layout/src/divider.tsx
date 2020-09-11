@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { forwardRef, nature, PropsOf } from '@nature-ui/system';
-import clsx from 'clsx';
+import { forwardRef, nature, PropsOf, clsx } from '@nature-ui/system';
 
 import './styles/divider.css';
 

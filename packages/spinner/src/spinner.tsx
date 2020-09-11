@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { nature, PropsOf } from '@nature-ui/system';
+import { nature, PropsOf, clsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import './spinner.css';
-import clsx from 'clsx';
 
 interface SpinnerOptions {
   /**
