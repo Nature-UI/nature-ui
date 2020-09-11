@@ -1,11 +1,13 @@
+import React from 'react';
 /** @jsx jsx */
 import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import clsx from 'clsx';
 import { useImage } from '@nature-ui/image';
-import React from 'react';
 import { css } from 'emotion';
-import {randomBgColors} from './randomBgColors'
+
+import { randomBgColors } from './randomBgColors';
+
 interface AvatarOptions {
   /**
    * The name of the person in the avatar.
@@ -63,6 +65,38 @@ const SIZES = {
   xl: '96px',
   '2xl': '128px',
 };
+
+export type AvatarBadgeComp = PropsOf<typeof nature.div> & {
+  size: string;
+};
+
+export const AvatarBadge = ({
+  size = '1em',
+  className = '',
+  ...rest
+}: AvatarBadgeComp) => {
+  const style = css`
+    width: ${size};
+    height: ${size};
+    border-width: 0.2em;
+  `;
+
+  return (
+    <nature.div
+      className={clsx(
+        `absolute flex items-center justify-center right-0 bottom-0 rounded-full border-solid ${style} border-white -mb-1 -mr-1`,
+        {
+          [className]: className,
+        }
+      )}
+      {...rest}
+    />
+  );
+};
+
+if (__DEV__) {
+  AvatarBadge.displayName = 'AvatarBadge';
+}
 
 /**
  * Gets the initials of a user based on the name
@@ -146,7 +180,7 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     size = 'md',
     ...rest
   } = props;
-  const {bg, borderColor, color} = randomBgColors(name)
+  const { bg, borderColor, color } = randomBgColors(name);
 
   const status = useImage({
     src,
@@ -188,8 +222,8 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
             getInitials,
             name,
             className: css`
-            color: ${color}
-            `
+              color: ${color};
+            `,
           }}
         />
       ) : (
@@ -199,6 +233,8 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
         })
       );
     }
+
+    return undefined;
   };
 
   const STYLES = css`
