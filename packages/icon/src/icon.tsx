@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { nature, PropsOf } from '@nature-ui/system';
-import clx from 'clsx';
+import { nature, PropsOf, clsx as clx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 
 const fallbackIcon = {
