@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { As } from '@nature-ui/utils';
+import clsx from 'clsx';
 
 import { DOMElements } from './system-utils';
 import { NatureComponent } from './system-types';
@@ -20,4 +20,4 @@ type CreateNatureComponent = {
 export const nature = (natureComp as unknown) as CreateNatureComponent &
   NatureJSXElements;
 
-export {clsx}
+export { clsx };

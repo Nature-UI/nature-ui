@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { nature, clx } from '@nature-ui/system';
+import { nature, clsx } from '@nature-ui/system';
 import { PropsOf } from '@nature-ui/system/src';
 import { __DEV__, lighten, darken } from '@nature-ui/utils';
 import './button.css';
@@ -75,11 +75,11 @@ export const Button = React.forwardRef(
     let BTNClass: string;
 
     if (variant === 'none') {
-      BTNClass = clx(className, {
+      BTNClass = clsx(className, {
         [STYLES['disabled']]: isDisabled || isLoading,
       });
     } else {
-      BTNClass = clx(DEFAULT_CLASS, {
+      BTNClass = clsx(DEFAULT_CLASS, {
         [STYLES[size]]: size && variant !== 'link',
         [STYLES[variant]]: variant,
         [className]: className,
