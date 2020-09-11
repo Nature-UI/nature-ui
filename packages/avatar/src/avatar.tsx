@@ -8,6 +8,7 @@ import { css } from 'emotion';
 
 import { randomBgColors } from './randomBgColors';
 
+export const baseStyle = `items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full`;
 interface AvatarOptions {
   /**
    * The name of the person in the avatar.
@@ -154,8 +155,6 @@ export const DefaultIcon = (props: PropsOf<'svg'>) => (
     />
   </svg>
 );
-
-const baseStyle = `items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full`;
 
 const AvatarComp = nature<'span', { name: string }>('span');
 
