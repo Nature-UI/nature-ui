@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@nature-ui/utils": "^0.1.0",
+    "clsx": "^1.1.1",
     "hoist-non-react-statics": "^3.3.2",
     "react": "^16.13.1",
     "rimraf": "^3.0.2"
