@@ -57,7 +57,7 @@ interface AvatarOptions {
   getInitials?(name?: string): string;
 }
 
-const SIZES = {
+export const SIZES = {
   xs: '24px',
   sm: '32px',
   md: '48px',

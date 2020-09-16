@@ -2,7 +2,7 @@ import * as React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { Stack } from '@nature-ui/layout';
 
-import { Avatar, AvatarBadge } from '../src';
+import { Avatar, AvatarBadge, AvatarGroup } from '../src';
 
 export default {
   decorators: [withKnobs],
@@ -79,4 +79,19 @@ export const WithBadge = () => (
       </Avatar>
     ))}
   </Stack>
+);
+
+export const avatarGroup = () => (
+  <AvatarGroup size='md' max={3}>
+    {Avatars.map(({ name, url }) => (
+      <Avatar
+        size='md'
+        {...{
+          name,
+          src: url,
+        }}
+        key={name + 1}
+      />
+    ))}
+  </AvatarGroup>
 );
