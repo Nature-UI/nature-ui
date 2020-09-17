@@ -1,23 +1,36 @@
 /** @jsx jsx */
 import { forwardRef, nature, PropsOf, jsx, clsx } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
+import { css } from 'emotion';
+import * as React from 'react';
 
-export type BreadcrumbSeparatorProps = PropsOf<typeof nature.div>;
+const Span = nature('span');
+const Link = nature('a');
+const ListItem = nature('li');
+const OrderedList = nature('ol');
+const Nav = nature('nav');
 
+export type BreadcrumbSeparatorProps = PropsOf<typeof Span> & {
+  spacing?: string | number;
+};
 /**
  * React component that separates each breadcrumb link
  */
 export const BreadcrumbSeparator = forwardRef<BreadcrumbSeparatorProps>(
   (props, ref) => {
-    const { className = '', ...rest } = props;
+    const { className = '', spacing, ...rest } = props;
 
-    const STYLES = clsx(`mx-1`, {
-      [className]: className,
-    });
-
-    return (
-      <nature.span className={STYLES} ref={ref} role='presentation' {...rest} />
+    const STYLES = clsx(
+      css`
+        margin-left: ${spacing};
+        margin-right: ${spacing};
+      `,
+      {
+        [className]: className,
+      }
     );
+
+    return <Span className={STYLES} ref={ref} role='presentation' {...rest} />;
   }
 );
 
@@ -29,10 +42,10 @@ interface LinkOptions {
   /**
    * Disables a link when its set to true
    */
-  isCurrentPage?: boolean;
+  isCurrent?: boolean;
 }
 
-export type BreadcrumbLinkProps = PropsOf<typeof nature.a> & LinkOptions;
+export type BreadcrumbLinkProps = PropsOf<typeof Link> & LinkOptions;
 
 /**
  * Breadcrumb link.
@@ -41,24 +54,88 @@ export type BreadcrumbLinkProps = PropsOf<typeof nature.a> & LinkOptions;
  * it renders an anchor tag.
  */
 export const BreadcrumbLink = forwardRef<BreadcrumbLinkProps>((props, ref) => {
-  const { isCurrentPage, as, className, ...rest } = props;
+  const { isCurrent, as, className = '', ...rest } = props;
 
   const sharedProps = {
     ref,
     as,
-    className,
     ...rest,
   };
 
-  if (isCurrentPage) {
-    return <nature.span aria-current='page' {...sharedProps} />;
+  if (isCurrent) {
+    return <Span className={className} aria-current='page' {...sharedProps} />;
   }
 
-  return <nature.a {...sharedProps} />;
+  const _className = clsx('hover:underline', {
+    [className]: { className },
+  });
+
+  return <Link className={_className} {...sharedProps} />;
 });
 
 if (__DEV__) {
   BreadcrumbLink.displayName = 'BreadcrumbLink';
+}
+
+type BreadcrumbItemOptions = BreadcrumbProps & {
+  isCurrent?: boolean;
+  /**
+   * this is only used within the `cloneElement`
+   * @private
+   */
+  isLastChild?: boolean;
+};
+
+export type BreadcrumbItemProps = BreadcrumbItemOptions &
+  PropsOf<typeof ListItem>;
+
+/**
+ * React component used to group a breadcrumb link
+ *
+ * It renders a `li` element to denote it belongs to an order list of links
+ */
+export const BreadcrumbItem = forwardRef<BreadcrumbItemProps>((props, ref) => {
+  const {
+    isCurrent,
+    separator,
+    isLastChild,
+    spacing,
+    children,
+    className = '',
+    ...rest
+  } = props;
+
+  const validChildren = getValidChildren(children);
+
+  const clones = validChildren.map((child) => {
+    if (child.type === BreadcrumbLink) {
+      return React.cloneElement(child as React.ReactElement<any>, {
+        isCurrent,
+      });
+    }
+
+    if (child.type === BreadcrumbSeparator) {
+      return React.cloneElement(child as React.ReactElement<any>, {
+        spacing,
+        children: child.props.children || separator,
+      });
+    }
+
+    return child;
+  });
+
+  return (
+    <ListItem ref={ref} {...rest} className={className}>
+      {clones}
+      {!isLastChild && (
+        <BreadcrumbSeparator spacing={spacing}>{separator}</BreadcrumbSeparator>
+      )}
+    </ListItem>
+  );
+});
+
+if (__DEV__) {
+  BreadcrumbItem.displayName = 'BreadcrumbItem';
 }
 
 export interface BreadcrumbOptions {
@@ -70,9 +147,10 @@ export interface BreadcrumbOptions {
   /**
    * The left and right margin applied to the separator
    */
+  spacing?: string | number;
 }
 
-export type BreadcrumbProps = PropsOf<typeof nature.nav> & BreadcrumbOptions;
+export type BreadcrumbProps = PropsOf<typeof Nav> & BreadcrumbOptions;
 
 /**
  * React component used to render a breadcrumb navigation landmark
@@ -81,12 +159,34 @@ export type BreadcrumbProps = PropsOf<typeof nature.nav> & BreadcrumbOptions;
  *
  */
 export const Breadcrumb = forwardRef<BreadcrumbProps>((props, ref) => {
-  const { children, separator = '/', className, ...rest } = props;
+  const {
+    children,
+    separator = '/',
+    className = '',
+    spacing = '0.5rem',
+    ...rest
+  } = props;
+
+  const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
   const validChildren = getValidChildren(children);
   const count = validChildren.length;
 
   const clones = validChildren.map((child, index) =>
-    React.cloneElement(child as React.ElementType<any>, {})
+    React.cloneElement(child as React.ReactElement<any>, {
+      separator,
+      isLastChild: count === index + 1,
+      spacing: SPACING,
+    })
+  );
+
+  return (
+    <Nav ref={ref} aria-label='breadcrumb' className={className} {...rest}>
+      <OrderedList className='flex'>{clones}</OrderedList>
+    </Nav>
   );
 });
+
+if (__DEV__) {
+  Breadcrumb.displayName = 'Breadcrumb';
+}

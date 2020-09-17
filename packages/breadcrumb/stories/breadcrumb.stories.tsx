@@ -1,97 +1,51 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { Stack } from '@nature-ui/layout';
+import { BrowserRouter, Link } from 'react-router-dom';
 
-import { Avatar, AvatarBadge, AvatarGroup } from '../src';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '../src';
 
 export default {
-  decorators: [withKnobs],
   title: 'Breadcrumb',
 };
 
-const Avatars = [
-  {
-    name: 'Dan Abrahmov',
-    url: 'https://bit.ly/dan-abramov',
-  },
-  {
-    name: 'Divine Nature',
-    url:
-      'https://avatars3.githubusercontent.com/u/49137104?s=460&u=146d5799f0d876dc8e13be73f032db782f0cd9d1&v=4',
-  },
-  {
-    name: 'Christian Nwamba',
-    url: 'https://bit.ly/code-beast',
-  },
-  {
-    name: 'Segun Adebayo',
-    url: 'https://bit.ly/sage-adebayo',
-  },
-  {
-    name: undefined,
-    url: undefined,
-  },
-];
+export const Default = () => (
+  <BrowserRouter>
+    <Breadcrumb spacing={8}>
+      <BreadcrumbItem>
+        <BreadcrumbLink as={Link} to='/' replace>
+          Home
+        </BreadcrumbLink>
+      </BreadcrumbItem>
 
-export const Basic = () => (
-  <Stack direction='row'>
-    {Avatars.map(({ name, url }) => (
-      <Avatar
-        key={name}
-        {...{
-          name,
-          src: url,
-        }}
-      />
-    ))}
-  </Stack>
+      <BreadcrumbItem>
+        <BreadcrumbLink href='https://www.github.com/dnature' target='_blank'>
+          About
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+
+      <BreadcrumbItem isCurrent>
+        <BreadcrumbLink
+          href='https://contact-divine.netlify.app/contact'
+          target='_blank'
+        >
+          Contact
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+    </Breadcrumb>
+  </BrowserRouter>
 );
 
-export const DifferentSizes = () => (
-  <Stack direction='row'>
-    <Avatar size='md' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
-    <Avatar
-      size='lg'
-      name='Christian Nwamba'
-      src='https://bit.ly/code-beasts'
-    />
-    <Avatar size='xl' name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
-    <Avatar
-      size='2xl'
-      name='Divine Nature'
-      src='https://avatars3.githubusercontent.com/u/49137104?s=460&u=146d5799f0d876dc8e13be73f032db782f0cd9d1&v=4'
-    />
-  </Stack>
-);
+export const Separator = () => (
+  <Breadcrumb separator='>'>
+    <BreadcrumbItem>
+      <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+    </BreadcrumbItem>
 
-export const WithBadge = () => (
-  <Stack direction='row'>
-    {Avatars.map(({ name, url }) => (
-      <Avatar
-        size='md'
-        {...{
-          name,
-          src: url,
-        }}
-        key={name + 1}
-      >
-        <AvatarBadge size='1.25em' className='bg-green-500' />
-      </Avatar>
-    ))}
-  </Stack>
-);
+    <BreadcrumbItem>
+      <BreadcrumbLink href='#'>About</BreadcrumbLink>
+    </BreadcrumbItem>
 
-export const avatarGroup = () => (
-  <AvatarGroup size='md' max={3}>
-    {Avatars.map(({ name, url }) => (
-      <Avatar
-        size='md'
-        {...{
-          name,
-          src: url,
-        }}
-        key={name + 1}
-      />
-    ))}
-  </AvatarGroup>
+    <BreadcrumbItem isCurrent>
+      <BreadcrumbLink href='#'>Current</BreadcrumbLink>
+    </BreadcrumbItem>
+  </Breadcrumb>
 );
