@@ -17,9 +17,10 @@ const StyledLabel = forwardRef<PropsOf<typeof nature.div>>((props, ref) => {
   return <nature.div className={_className} ref={ref} {...props} />;
 });
 
-const StyledWrapper = forwardRef<PropsOf<typeof nature.label>>((props, ref) => {
+const Label = nature("label")
+const StyledWrapper = forwardRef<PropsOf<typeof Label>>((props, ref) => {
   const _className = `cursor-pointer inline-flex items-center align-top relative ${transition}`;
-  return <nature.label className={_className} ref={ref} {...props} />;
+  return <Label className={_className} ref={ref} {...props} />;
 });
 
 type BaseControlProps = Omit<
