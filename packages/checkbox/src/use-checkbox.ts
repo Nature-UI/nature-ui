@@ -150,7 +150,7 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
       if (event.key === ' ') {
         setActive.off();
       }
-    }
+    },
     [setActive]
   );
 
@@ -166,8 +166,8 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
       isReadOnly,
       isRequired,
     },
-    getCheckboxProps: (props: CustomCheckboxProps = {}) => ({
-      ...props,
+    getCheckboxProps: (prop: CustomCheckboxProps = {}) => ({
+      ...prop,
       'data-active': dataAttr(isActive),
       'data-hover': dataAttr(isHovered),
       'data-checked': dataAttr(isChecked),
@@ -177,33 +177,36 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
       'data-invalid': dataAttr(isInvalid),
       'data-readonly': dataAttr(isReadOnly),
       'aria-hidden': true,
-      onMouseDown: callAllHandler(props.onMouseDown, setActive.on),
-      onMouseUp: callAllHandler(props.onMouseUp, setActive.off),
-      onMouseEnter: callAllHandler(props.onMouseEnter, setHovered.on),
-      onMouseLeave: callAllHandler(props.onMouseLeave, setHovered.off),
-      style: { touchAction: 'none', ...props.style },
+      onMouseDown: callAllHandler(prop.onMouseDown, setActive.on),
+      onMouseUp: callAllHandler(prop.onMouseUp, setActive.off),
+      onMouseEnter: callAllHandler(prop.onMouseEnter, setHovered.on),
+      onMouseLeave: callAllHandler(prop.onMouseLeave, setHovered.off),
+      style: {
+        touchAction: 'none',
+        ...prop.style,
+      },
     }),
-    getInputProps: (props: HiddenInputProps = {}) => ({
-      ...props,
-      ref: mergeRefs(ref, props.ref),
+    getInputProps: (prop: HiddenInputProps = {}) => ({
+      ...prop,
+      ref: mergeRefs(ref, prop.ref),
       type: 'checkbox',
       name,
       value,
       id,
-      onChange: callAllHandler(props.onChange, handleChange),
-      onBlur: callAllHandler(props.onBlur, setFocused.off),
-      onFocus: callAllHandler(props.onFocus, setFocused.on),
-      onKeyDown: callAllHandler(props.onKeyDown, handleKeyDown),
-      onKeyUp: callAllHandler(props.onKeyUp, handleKeyUp),
+      onChange: callAllHandler(prop.onChange, handleChange),
+      onBlur: callAllHandler(prop.onBlur, setFocused.off),
+      onFocus: callAllHandler(prop.onFocus, setFocused.on),
+      onKeyDown: callAllHandler(prop.onKeyDown, handleKeyDown),
+      onKeyUp: callAllHandler(prop.onKeyUp, handleKeyUp),
       required: isRequired,
       checked: isChecked,
       disabled: trulyDisabled,
       readOnly: isReadOnly,
       'aria-invalid': isInvalid,
       'aria-disabled': isDisabled,
-      style: visuallyHiddenStyle,
+      className: `${visuallyHiddenStyle}`,
     }),
-    getLabelProps: (props: Dict = {}) => {
+    getLabelProps: (prop: Dict = {}) => {
       /**
        * Prevent `onBlur` being fired when the checkbox label is touched
        */
@@ -213,9 +216,9 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
       };
 
       return {
-        ...props,
-        onMouseDown: callAllHandler(props.onMouseDown, stop),
-        onTouchStart: callAllHandler(props.onTouchState, stop),
+        ...prop,
+        onMouseDown: callAllHandler(prop.onMouseDown, stop),
+        onTouchStart: callAllHandler(prop.onTouchState, stop),
         'data-disabled': dataAttr(isDisabled),
         'data-checked': dataAttr(isChecked),
         'data-invalid': dataAttr(isInvalid),
