@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { Md3DRotation } from 'react-icons/md';
 
 import { Icon, SvgIconProps } from '../src';
 
 export default {
-  decorators: [withKnobs],
   title: 'Icon',
 };
 

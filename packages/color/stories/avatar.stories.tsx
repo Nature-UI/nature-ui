@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { Stack } from '@nature-ui/layout';
 
 import {
@@ -15,7 +14,6 @@ import {
 } from '../src';
 
 export default {
-  decorators: [withKnobs],
   title: 'Color',
 };
 const list = ['#145fd9', '#14d95c', '#9414d9', '#2e14d9', '#d2d914', '#d91452'];
@@ -125,6 +123,7 @@ export const RandomFromList = () => {
     </Stack>
   );
 };
+
 export const Transparentize = () => (
   <Stack direction='row'>
     <div
