@@ -2,7 +2,7 @@
 import { forwardRef, nature, PropsOf, jsx, clsx } from '@nature-ui/system';
 import { css } from 'emotion';
 import { IconProps } from '@nature-ui/icon';
-import { __DEV__ } from '@nature-ui/utils';
+import { darken, __DEV__ } from '@nature-ui/utils';
 
 import { useCheckbox, UseCheckboxProps } from './use-checkbox';
 import { useCheckboxGroupContext } from './checkbox-group';
@@ -18,7 +18,7 @@ const StyledControl = forwardRef<
   PropsOf<typeof nature.div> & {
     color?: string;
   }
->(({ ...props }, ref) => {
+>(({ color = 'pink-500', ...props }, ref) => {
   const _checked = typeof props['data-checked'] !== 'undefined';
   const _active = typeof props['data-active'] !== 'undefined';
   const _focus = typeof props['data-focus'] !== 'undefined';
@@ -27,33 +27,20 @@ const StyledControl = forwardRef<
   const _invalid = typeof props['data-invalid'] !== 'undefined';
   const _hover = typeof props['data-hover'] !== 'undefined';
 
+  const _darken = darken(color, 100);
+
   const DEFAULT = css`
-    background-origin: border-box;
-    border-color: #d2d6dc;
-    border-width: 1px;
-  `;
-
-  const checked = css`
-    color: white;
-    background-color: red;
-    &::checked {
-      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-    }
-  `;
-
-  const active = css`
-    &::active {
-      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
-    }
+    /* background-origin: border-box; */
   `;
 
   const _className = clsx(
-    `box-border inline-flex items-center justify-center align-top select-none focus:shadow-outline focus:shadow-none flex-shrink-0 ${transition} border-solid rounded w-4 h-4 p-0 ${DEFAULT}`,
+    `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white ${transition} border-solid rounded w-4 h-4 p-0 border-gray-300 ${DEFAULT}`,
     {
-      [checked]: _checked,
-      [active]: _active,
+      [`bg-${color}`]: _checked,
+      [`shadow-outline`]: _focus,
+      [`bg-${_darken}`]: _hover && _checked,
+      'border-2': !_checked && !_focus,
       /*
-       * [focus]: _focus,
        * [indeterminate]: _indeterminate,
        * [disabled]: _disabled,
        * [invalid]: _invalid,
