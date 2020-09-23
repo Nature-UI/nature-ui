@@ -1,7 +1,6 @@
-/** @jsx jsx*/
-import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
+/** @jsx jsx */
+import { forwardRef, nature, PropsOf, jsx, clsx } from '@nature-ui/system';
 import { css } from 'emotion';
-import * as React from 'react';
 import { IconProps } from '@nature-ui/icon';
 import { __DEV__ } from '@nature-ui/utils';
 
@@ -10,27 +9,87 @@ import { useCheckboxGroupContext } from './checkbox-group';
 import { CheckboxIcon } from './checkbox-icon';
 
 const transition = css`
-  transition: transform 240ms, opacity 240mx;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+  transition-delay: 0s;
 `;
+const StyledControl = forwardRef<
+  PropsOf<typeof nature.div> & {
+    color?: string;
+  }
+>(({ ...props }, ref) => {
+  const _checked = typeof props['data-checked'] !== 'undefined';
+  const _active = typeof props['data-active'] !== 'undefined';
+  const _focus = typeof props['data-focus'] !== 'undefined';
+  const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
+  const _disabled = typeof props['data-disabled'] !== 'undefined';
+  const _invalid = typeof props['data-invalid'] !== 'undefined';
+  const _hover = typeof props['data-hover'] !== 'undefined';
 
-const StyledControl = forwardRef<PropsOf<typeof nature.div>>((props, ref) => {
-  const _className = `inline-flex items-center justify-center align-top select-none flex-shrink-0 ${transition}`;
+  const DEFAULT = css`
+    background-origin: border-box;
+    border-color: #d2d6dc;
+    border-width: 1px;
+  `;
+
+  const checked = css`
+    color: white;
+    background-color: red;
+    &::checked {
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    }
+  `;
+
+  const active = css`
+    &::active {
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    }
+  `;
+
+  const _className = clsx(
+    `box-border inline-flex items-center justify-center align-top select-none focus:shadow-outline focus:shadow-none flex-shrink-0 ${transition} border-solid rounded w-4 h-4 p-0 ${DEFAULT}`,
+    {
+      [checked]: _checked,
+      [active]: _active,
+      /*
+       * [focus]: _focus,
+       * [indeterminate]: _indeterminate,
+       * [disabled]: _disabled,
+       * [invalid]: _invalid,
+       * [hover]: _hover,
+       */
+    }
+  );
 
   return <nature.div className={_className} ref={ref} {...props} />;
 });
 
-const StyledLabel = forwardRef<PropsOf<typeof nature.div>>((props, ref) => {
-  const _className = `select-none`;
+const StyledLabel = forwardRef<
+  PropsOf<typeof nature.div> & { spacing?: number | string }
+>(({ spacing, ...props }, ref) => {
+  const styles = css`
+    margin-left: ${spacing};
+  `;
+
+  const _className = `select-none ${styles}`;
 
   return <nature.div className={_className} ref={ref} {...props} />;
 });
 
 const Label = nature('label');
-const StyledWrapper = forwardRef<PropsOf<typeof Label>>((props, ref) => {
-  const _className = `cursor-pointer inline-flex items-center align-top relative ${transition}`;
+const StyledWrapper = forwardRef<PropsOf<typeof Label>>(
+  ({ className = '', ...props }, ref) => {
+    const _className = clsx(
+      `cursor-pointer inline-flex items-center align-top relative ${transition}`,
+      {
+        [className]: className,
+      }
+    );
 
-  return <Label className={_className} ref={ref} {...props} />;
-});
+    return <Label className={_className} ref={ref} {...props} />;
+  }
+);
 
 type BaseControlProps = Omit<
   PropsOf<typeof StyledControl>,
@@ -68,7 +127,9 @@ export type CheckboxProps = BaseControlProps &
 export const Checkbox = forwardRef<CheckboxProps>((props, ref) => {
   const group = useCheckboxGroupContext();
 
-  const { className = '', children, ...rest } = props;
+  const { className = '', spacing = '0.5rem', children, ...rest } = props;
+
+  const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
   let isChecked = props.isChecked;
 
@@ -101,9 +162,14 @@ export const Checkbox = forwardRef<CheckboxProps>((props, ref) => {
         <CheckboxIcon
           isChecked={state.isChecked}
           isIndeterminate={state.isIndeterminate}
+          size='10'
         />
       </StyledControl>
-      {children && <StyledLabel {...getLabelProps()}>{children}</StyledLabel>}
+      {children && (
+        <StyledLabel spacing={SPACING} {...getLabelProps()}>
+          {children}
+        </StyledLabel>
+      )}
     </StyledWrapper>
   );
 });

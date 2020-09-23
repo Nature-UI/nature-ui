@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Icon, IconProps } from '@nature-ui/icon';
+import { Icon, SvgIconProps } from '@nature-ui/icon';
 
-const CheckIcon = (props: IconProps) => {
+const CheckIcon = (props: SvgIconProps) => {
   return (
     <Icon viewBox='0 0 14 14' {...props}>
       <g fill='currentColor'>
@@ -11,7 +11,7 @@ const CheckIcon = (props: IconProps) => {
   );
 };
 
-export const MinusIcon = (props: IconProps) => {
+export const MinusIcon = (props: SvgIconProps) => {
   return (
     <Icon {...props}>
       <rect fill='currentColor' height='4' width='20' x='2' y='10' />
@@ -19,7 +19,7 @@ export const MinusIcon = (props: IconProps) => {
   );
 };
 
-export type CheckboxIconProps = IconProps & {
+export type CheckboxIconProps = SvgIconProps & {
   isChecked?: boolean;
   isIndeterminate?: boolean;
 };

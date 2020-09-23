@@ -154,19 +154,8 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
     [setActive]
   );
 
-  return {
-    state: {
-      isInvalid,
-      isFocused,
-      isChecked,
-      isActive,
-      isHovered,
-      isIndeterminate,
-      isDisabled,
-      isReadOnly,
-      isRequired,
-    },
-    getCheckboxProps: (prop: CustomCheckboxProps = {}) => ({
+  const getCheckboxProps = (prop: CustomCheckboxProps = {}) => {
+    return {
       ...prop,
       'data-active': dataAttr(isActive),
       'data-hover': dataAttr(isHovered),
@@ -185,8 +174,11 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
         touchAction: 'none',
         ...prop.style,
       },
-    }),
-    getInputProps: (prop: HiddenInputProps = {}) => ({
+    };
+  };
+
+  const getInputProps = (prop: HiddenInputProps = {}) => {
+    return {
       ...prop,
       ref: mergeRefs(ref, prop.ref),
       type: 'checkbox',
@@ -205,7 +197,23 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
       'aria-invalid': isInvalid,
       'aria-disabled': isDisabled,
       className: `${visuallyHiddenStyle}`,
-    }),
+    };
+  };
+
+  return {
+    state: {
+      isInvalid,
+      isFocused,
+      isChecked,
+      isActive,
+      isHovered,
+      isIndeterminate,
+      isDisabled,
+      isReadOnly,
+      isRequired,
+    },
+    getCheckboxProps,
+    getInputProps,
     getLabelProps: (prop: Dict = {}) => {
       /**
        * Prevent `onBlur` being fired when the checkbox label is touched
