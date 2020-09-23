@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 import { Badge, Stack } from '../src';
 
 export default {
-  decorators: [withKnobs],
   title: 'Badge',
 };
 

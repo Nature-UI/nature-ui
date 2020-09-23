@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 import { Stack } from '@nature-ui/layout';
 
 import { Avatar, AvatarBadge, AvatarGroup } from '../src';
 
 export default {
-  decorators: [withKnobs],
   title: 'Avatar',
 };
 

@@ -5,7 +5,6 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { Button } from './button';
 
 export default {
-  decorators: [withKnobs],
   title: 'Button',
 };
 

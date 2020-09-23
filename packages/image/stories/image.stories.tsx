@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 import { Image } from '../src';
 
@@ -7,7 +6,6 @@ import { Image } from '../src';
 import * as localImg from './large.jpg';
 
 export default {
-  decorators: [withKnobs],
   title: 'Image',
 };
 

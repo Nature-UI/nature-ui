@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 import Alert from '../src';
 
 export default {
-  decorators: [withKnobs],
   title: 'Alert',
 };
 
@@ -17,7 +15,14 @@ export const Success = () => {
 };
 
 export const Error = () => {
-  return <Alert status='error'>This is an Error Alert 😖</Alert>;
+  return (
+    <Alert status='error'>
+      This is an Error Alert{' '}
+      <span aria-label='emoji' role='img'>
+        😖
+      </span>
+    </Alert>
+  );
 };
 
 export const Info = () => {

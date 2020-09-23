@@ -76,7 +76,6 @@ export const Icon = React.forwardRef(
       focusable,
       ref,
       role,
-      size,
       width: _width,
       height: _height,
     };
