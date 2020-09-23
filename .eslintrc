@@ -64,6 +64,7 @@
         "version": "^v12.18.2",
         "ignores": []
       }
-    ]
+    ],
+    "no-warning-comments": 0
   }
 }

@@ -162,6 +162,7 @@ export const Checkbox = forwardRef<CheckboxProps>((props, ref) => {
         <CheckboxIcon
           isChecked={state.isChecked}
           isIndeterminate={state.isIndeterminate}
+          // FIXME: Make sizes `dynamic`
           size='10'
         />
       </StyledControl>
