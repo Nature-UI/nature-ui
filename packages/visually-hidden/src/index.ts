@@ -1,2 +1,5 @@
-export * from './visually-hidden';
-export { default } from './visually-hidden';
+export {
+  visuallyHiddenStyle,
+  VisuallyHiddenInput,
+  VisuallyHidden as default,
+} from './visually-hidden';

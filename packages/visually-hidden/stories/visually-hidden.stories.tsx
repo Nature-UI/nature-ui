@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
 
-import { VisuallyHidden, VisuallyHiddenInput } from '../src';
+import VisuallyHidden, { VisuallyHiddenInput } from '../src';
 
 export default {
   title: 'Visually Hidden',
