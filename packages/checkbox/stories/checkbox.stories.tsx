@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Story } from '@storybook/react';
 
 import { Checkbox, CheckboxProps } from '../src';
 
@@ -7,13 +8,15 @@ export default {
   component: Checkbox,
 };
 
-const Template = (args: CheckboxProps) => <Checkbox {...args} />;
+type CheckboxType = Story<CheckboxProps>;
+
+const Template: CheckboxType = (args) => <Checkbox {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
+  ...Template.args,
   children: 'Basic',
   defaultIsChecked: true,
-} as CheckboxProps;
+};
 
-console.log({ Basic });
 // export const Checked = () => <Checkbox >Checked</Checkbox>
