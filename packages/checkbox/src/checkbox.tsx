@@ -29,12 +29,8 @@ const StyledControl = forwardRef<
 
   const _darken = darken(color, 100);
 
-  const DEFAULT = css`
-    /* background-origin: border-box; */
-  `;
-
   const _className = clsx(
-    `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white ${transition} border-solid rounded w-4 h-4 p-0 border-gray-300 ${DEFAULT}`,
+    `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white ${transition} border-solid rounded w-4 h-4 p-0 border-gray-300`,
     {
       [`bg-${color}`]: _checked,
       [`shadow-outline`]: _focus,
