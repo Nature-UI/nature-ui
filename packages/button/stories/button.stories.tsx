@@ -1,37 +1,41 @@
 import * as React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Button } from '../src';
+import { Button, ButtonType } from '../src';
 
 export default {
   title: 'Button',
+  component: Button,
+} as Meta;
+
+type ButtonStoryType = Story<ButtonType>;
+
+const Template: ButtonStoryType = (args) => <Button {...args} />;
+
+export const Default: ButtonStoryType = Template.bind({});
+Default.args = {
+  children: 'Click me',
 };
 
-export const Default = () => {
-  return <Button>Button</Button>;
+export const Outlined: ButtonStoryType = Template.bind({});
+Outlined.args = {
+  text: 'teal-500',
+  variant: 'outline',
+  children: 'Click me!',
 };
 
-export const Outlined = () => {
-  return (
-    <Button text='teal-500' variant='outline'>
-      Button
-    </Button>
-  );
+export const Ghost: ButtonStoryType = Template.bind({});
+Ghost.args = {
+  text: 'teal-500',
+  variant: 'ghost',
+  children: 'Hover me!',
 };
 
-export const Ghost = () => {
-  return (
-    <Button text='teal-500' variant='ghost'>
-      Button
-    </Button>
-  );
-};
-
-export const Link = () => {
-  return (
-    <Button text='teal-500' variant='link'>
-      A Link
-    </Button>
-  );
+export const Link: ButtonStoryType = Template.bind({});
+Link.args = {
+  text: 'teal-500',
+  variant: 'link',
+  children: 'Click me!',
 };
 
 export const Sizes = () => {
@@ -53,13 +57,7 @@ export const Sizes = () => {
   );
 };
 
-export const IsDisabled = () => {
-  return (
-    <Button color='teal-500' variant='solid' isDisabled>
-      Button
-    </Button>
-  );
-};
+export const IsDisabled = Template.bind({});
 
 export const IsLoading = () => {
   return (

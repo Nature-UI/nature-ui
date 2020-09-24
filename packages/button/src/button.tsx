@@ -2,8 +2,9 @@ import * as React from 'react';
 import { nature, clsx } from '@nature-ui/system';
 import { PropsOf } from '@nature-ui/system/src';
 import { __DEV__, lighten, darken } from '@nature-ui/utils';
-import './button.css';
 import { Spinner } from '@nature-ui/spinner';
+
+import './button.css';
 
 interface ButtonProps {
   /**
@@ -31,14 +32,19 @@ interface ButtonProps {
    */
   loadingText?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg';
+
+  /**
+   * Typeof String | JSX.Element
+   */
+  children?: React.ReactNode;
 }
 
 const NatureButton = nature('button');
 
-export type ButtonType = PropsOf<typeof NatureButton>;
+export type ButtonType = PropsOf<typeof NatureButton> & ButtonProps;
 
 export const Button = React.forwardRef(
-  (props: ButtonProps & ButtonType, ref: React.Ref<any>) => {
+  (props: ButtonType, ref: React.Ref<any>) => {
     const {
       as,
       variant = 'solid',
@@ -50,7 +56,6 @@ export const Button = React.forwardRef(
       isDisabled = false,
       isLoading = false,
       loadingText,
-
       ...rest
     } = props;
 
