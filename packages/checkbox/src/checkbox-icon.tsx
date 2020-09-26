@@ -13,7 +13,7 @@ const CheckIcon = (props: SvgIconProps) => {
 
 export const MinusIcon = (props: SvgIconProps) => {
   return (
-    <Icon {...props}>
+    <Icon viewBox='0 0 24 24' {...props}>
       <rect fill='currentColor' height='4' width='20' x='2' y='10' />
     </Icon>
   );
