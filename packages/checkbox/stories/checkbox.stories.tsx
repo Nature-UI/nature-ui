@@ -104,10 +104,8 @@ export const CheckboxGroupExample = () => {
       onChange={(value) => console.log(value)}
     >
       <Stack
-        className='items-start'
         spacing={24}
-        direction='row'
-        // align="start" direction={["column", "row"]} spacing={[2, 4, 6]}
+        direction={'row'}
       >
         <Checkbox value='one'>One</Checkbox>
         <Checkbox value='two'>Two</Checkbox>
@@ -116,3 +114,25 @@ export const CheckboxGroupExample = () => {
     </CheckboxGroup>
   );
 };
+
+type Value = string | number
+type ArrayOfValue = Value[]
+
+export const ControlledCheckboxGroup = () => {
+  const [value, setValue] = React.useState<ArrayOfValue>(["one", "two"])
+  return (
+    <CheckboxGroup
+      value={value}
+      onChange={(value) => {
+        console.log(value)
+        setValue(value)
+      }}
+    >
+      <Stack direction="row" spacing="40px">
+        <Checkbox value="one">One</Checkbox>
+        <Checkbox value="two">Two</Checkbox>
+        <Checkbox value="three">Three</Checkbox>
+      </Stack>
+    </CheckboxGroup>
+  )
+}
