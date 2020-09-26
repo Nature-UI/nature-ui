@@ -9,12 +9,6 @@ import { useCheckbox, UseCheckboxProps } from './use-checkbox';
 import { useCheckboxGroupContext } from './checkbox-group';
 import { CheckboxIcon } from './checkbox-icon';
 
-const transition = css`
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-`;
 const StyledControl = React.forwardRef(
   (
     {
@@ -26,7 +20,6 @@ const StyledControl = React.forwardRef(
     ref: React.Ref<HTMLDivElement>
   ) => {
     const _checked = typeof props['data-checked'] !== 'undefined';
-    const _active = typeof props['data-active'] !== 'undefined';
     const _focus = typeof props['data-focus'] !== 'undefined';
     const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
     const _disabled = typeof props['data-disabled'] !== 'undefined';
@@ -35,7 +28,7 @@ const StyledControl = React.forwardRef(
 
     const _darken = darken(color, 100);
 
-    const DEFAULTS = `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white ${transition} border-solid rounded w-4 h-4 p-0 border-gray-300 border-2`;
+    const DEFAULTS = `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out`;
 
     const _className = clsx(DEFAULTS, {
       [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
@@ -58,13 +51,7 @@ const StyledLabel = React.forwardRef(
     }: PropsOf<typeof nature.div> & { spacing?: number | string },
     ref: React.Ref<HTMLDivElement>
   ) => {
-    const _checked = typeof props['data-checked'] !== 'undefined';
-    const _active = typeof props['data-active'] !== 'undefined';
-    const _focus = typeof props['data-focus'] !== 'undefined';
-    const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
     const _disabled = typeof props['data-disabled'] !== 'undefined';
-    const _invalid = typeof props['data-invalid'] !== 'undefined';
-    const _hover = typeof props['data-hover'] !== 'undefined';
 
     const styles = css`
       margin-left: ${spacing};
@@ -85,7 +72,7 @@ const StyledWrapper = React.forwardRef(
     ref: React.Ref<HTMLLabelElement>
   ) => {
     const _className = clsx(
-      `cursor-pointer inline-flex items-center align-top relative ${transition}`,
+      `cursor-pointer inline-flex items-center align-top relative`,
       {
         [className]: className,
       }
@@ -174,7 +161,7 @@ export const Checkbox = React.forwardRef(
             isChecked={state.isChecked}
             isIndeterminate={state.isIndeterminate}
             size='10'
-            className={`text-current inline-block flex-shrink-0 leading-4 align-middle ${transition}`}
+            className={`text-current inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out`}
           />
         </StyledControl>
         {children && (

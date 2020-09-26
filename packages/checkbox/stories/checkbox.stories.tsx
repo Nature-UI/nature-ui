@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Story } from '@storybook/react';
 import { Stack } from '@nature-ui/layout';
 
-import { Checkbox, CheckboxProps } from '../src';
+import { Checkbox, CheckboxGroup, CheckboxProps } from '../src';
 
 export default {
   title: 'Checkbox',
@@ -94,5 +94,25 @@ export const Indeterminate = () => {
         </Checkbox>
       </Stack>
     </>
+  );
+};
+
+export const CheckboxGroupExample = () => {
+  return (
+    <CheckboxGroup
+      defaultValue={['one', 'two']}
+      onChange={(value) => console.log(value)}
+    >
+      <Stack
+        className='items-start'
+        spacing={24}
+        direction='row'
+        // align="start" direction={["column", "row"]} spacing={[2, 4, 6]}
+      >
+        <Checkbox value='one'>One</Checkbox>
+        <Checkbox value='two'>Two</Checkbox>
+        <Checkbox value='three'>Three</Checkbox>
+      </Stack>
+    </CheckboxGroup>
   );
 };
