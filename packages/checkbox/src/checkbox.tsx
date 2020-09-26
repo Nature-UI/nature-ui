@@ -35,21 +35,16 @@ const StyledControl = React.forwardRef(
 
     const _darken = darken(color, 100);
 
-    const _className = clsx(
-      `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white ${transition} border-solid rounded w-4 h-4 p-0 border-gray-300`,
-      {
-        [`bg-${color}`]: _checked,
-        [`shadow-outline`]: _focus,
-        [`bg-${_darken}`]: _hover && _checked,
-        'border-2': !_checked && !_focus,
-        'cursor-not-allowed ': _disabled,
-        /*
-         * [indeterminate]: _indeterminate,
-         * [invalid]: _invalid,
-         * [hover]: _hover,
-         */
-      }
-    );
+    const DEFAULTS = `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white ${transition} border-solid rounded w-4 h-4 p-0 border-gray-300 border-2`;
+
+    const _className = clsx(DEFAULTS, {
+      [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
+      [`shadow-outline`]: _focus,
+      [`bg-${_darken}`]: _hover && _checked && !_disabled,
+      [`border-${color}`]: (!_invalid && _checked) || _indeterminate,
+      'bg-gray-300': _disabled,
+      'border-red-500': _invalid,
+    });
 
     return <nature.div className={_className} ref={ref} {...props} />;
   }
@@ -63,11 +58,21 @@ const StyledLabel = React.forwardRef(
     }: PropsOf<typeof nature.div> & { spacing?: number | string },
     ref: React.Ref<HTMLDivElement>
   ) => {
+    const _checked = typeof props['data-checked'] !== 'undefined';
+    const _active = typeof props['data-active'] !== 'undefined';
+    const _focus = typeof props['data-focus'] !== 'undefined';
+    const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
+    const _disabled = typeof props['data-disabled'] !== 'undefined';
+    const _invalid = typeof props['data-invalid'] !== 'undefined';
+    const _hover = typeof props['data-hover'] !== 'undefined';
+
     const styles = css`
       margin-left: ${spacing};
     `;
 
-    const _className = `select-none ${styles}`;
+    const _className = clsx(`select-none ${styles}`, {
+      'text-gray-400': _disabled,
+    });
 
     return <nature.div className={_className} ref={ref} {...props} />;
   }
@@ -127,7 +132,13 @@ export const Checkbox = React.forwardRef(
   (props: CheckboxProps, ref: React.Ref<any>) => {
     const group = useCheckboxGroupContext();
 
-    const { className = '', spacing = '0.5rem', children, ...rest } = props;
+    const {
+      className = '',
+      spacing = '0.5rem',
+      children,
+      color,
+      ...rest
+    } = props;
 
     const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
@@ -158,12 +169,12 @@ export const Checkbox = React.forwardRef(
     return (
       <StyledWrapper className={className} {...htmlProps}>
         <input {...getInputProps({ ref })} />
-        <StyledControl {...getCheckboxProps()}>
+        <StyledControl color={color} {...getCheckboxProps()}>
           <CheckboxIcon
             isChecked={state.isChecked}
             isIndeterminate={state.isIndeterminate}
-            // FIXME: Make sizes `dynamic`
             size='10'
+            className={`text-current inline-block flex-shrink-0 leading-4 align-middle ${transition}`}
           />
         </StyledControl>
         {children && (
