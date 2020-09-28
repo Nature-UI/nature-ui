@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { Progress, ProgressLabel, ProgressProps } from '../src';
+import { Progress, ProgressProps } from '../src';
 
 export default {
-  title: 'Linear Progress',
+  title: 'Progress/Linear',
   component: Progress,
 } as Meta;
 
