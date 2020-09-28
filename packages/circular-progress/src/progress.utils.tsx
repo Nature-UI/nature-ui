@@ -30,6 +30,15 @@ export const rotate = keyframes`
 `;
 
 /**
+ * CSS Animation for progress indeterminate effect
+ */
+
+export const progress = keyframes`
+  0% { left: -40% }
+  100% { left: 100% }
+`;
+
+/**
  * CSS Animation for progress stripe effect
  */
 export const stripe = keyframes`
