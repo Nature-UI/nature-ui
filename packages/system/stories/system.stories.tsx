@@ -20,9 +20,9 @@ export const withHeading = () => (
 
 export const Basic = () => (
   <nature.h1
-    css={`
-      background-color: red;
-    `}
+    css={{
+      backgroundColor: 'red',
+    }}
     className='text-3xl font-bold'
   >
     Hello world

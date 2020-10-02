@@ -4,7 +4,7 @@ import { Md3DRotation } from 'react-icons/md';
 import { Icon, SvgIconProps } from '../src';
 
 export default {
-  title: 'Icon',
+  title: 'Icons/Icon',
 };
 
 export const Default = (props: SvgIconProps) => {
@@ -22,5 +22,5 @@ export const Default = (props: SvgIconProps) => {
 };
 
 export const UsingReactIcon = () => (
-  <Icon as={Md3DRotation} color='teal' size={80} />
+  <Icon as={Md3DRotation} color='teal' size='lg' />
 );

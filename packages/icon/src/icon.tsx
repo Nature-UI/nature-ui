@@ -1,5 +1,6 @@
+/** @jsx jsx */
+import { jsx, nature, PropsOf, clsx as clx } from '@nature-ui/system';
 import * as React from 'react';
-import { nature, PropsOf, clsx as clx } from '@nature-ui/system';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
 
 const fallbackIcon = {
@@ -63,6 +64,7 @@ export const Icon = React.forwardRef(
       as: type,
       focusable = false,
       boxSize,
+      css,
       ...rest
     } = props;
 
@@ -79,6 +81,10 @@ export const Icon = React.forwardRef(
       focusable,
       ref,
       role,
+      css: {
+        width: _width,
+        height: _height,
+      },
       width: _width,
       height: _height,
     };
