@@ -3,6 +3,7 @@ import { clsx, jsx, nature, PropsOf } from '@nature-ui/system';
 import { generateStripe } from '@nature-ui/color';
 import { __DEV__, isUndefined } from '@nature-ui/utils';
 import { css } from 'emotion';
+import React from 'react';
 
 import {
   getProgressProps,
@@ -10,7 +11,6 @@ import {
   GetProgressPropsOptions,
   stripe,
 } from './progress.utils';
-import React from 'react';
 
 /**
  * ProgressLabel (Linear)
@@ -74,16 +74,20 @@ const StyledIndicator = ({ ...rest }: PropsOf<typeof nature.div>) => (
 const ProgressIndicator = (props: ProgressIndicatorProps) => {
   const { min, max, value, className = '', ...rest } = props;
 
-  const progress = getProgressProps({ value, min, max });
+  const _progress = getProgressProps({
+    value,
+    min,
+    max,
+  });
 
   const DEFAULTS = clsx({
     [className]: className,
     [css`
-      width: ${progress.percent}%;
-    `]: progress.percent,
+      width: ${_progress.percent}%;
+    `]: _progress.percent,
   });
 
-  return <StyledIndicator {...progress.bind} {...rest} className={DEFAULTS} />;
+  return <StyledIndicator {..._progress.bind} {...rest} className={DEFAULTS} />;
 };
 
 export type ProgressTrackProps = PropsOf<typeof nature.div>;
@@ -226,7 +230,12 @@ export const Progress = React.forwardRef(
     return (
       <ProgressTrack size={_size} {...rest} ref={ref}>
         <ProgressIndicator
-          {...{ min, max, value, className: _indicatorStyles }}
+          {...{
+            min,
+            max,
+            value,
+            className: _indicatorStyles,
+          }}
         />
         {showPercent && !label ? (
           <ProgressLabel fontSize={_fontSize}>{value}%</ProgressLabel>

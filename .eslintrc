@@ -65,6 +65,7 @@
         "ignores": []
       }
     ],
-    "no-warning-comments": 0
+    "no-warning-comments": 0,
+    "no-nested-ternary": "off"
   }
 }
