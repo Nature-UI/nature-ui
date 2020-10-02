@@ -4,7 +4,7 @@ import { Md3DRotation } from 'react-icons/md';
 import { Icon, SvgIconProps } from '../src';
 
 export default {
-  title: 'Icon',
+  title: 'Icons/Icon',
 };
 
 export const Default = (props: SvgIconProps) => {

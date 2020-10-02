@@ -38,7 +38,6 @@
   "dependencies": {
     "@nature-ui/utils": "^0.1.0",
     "@nature-ui/icon": "^0.1.0",
-    "emotion": "^10.0.27",
     "react": "^16.13.1",
     "rimraf": "^3.0.2"
   },
