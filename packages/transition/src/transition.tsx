@@ -31,37 +31,28 @@ export type TransitionStyles = {
   [K in TransitionStyleState]?: React.CSSProperties;
 };
 
-export const Transition = React.forwardRef(
-  (props: TransitionProps, ref: React.Ref<any>) => {
-    const {
-      styles,
-      in: inProp,
-      timeout = 150,
-      transition = `all ${timeout}ms ease-in-out`,
-      children,
-      ...rest
-    } = props;
+export const Transition = (props: TransitionProps) => {
+  const {
+    styles,
+    in: inProp,
+    timeout = 150,
+    transition = `all ${timeout}ms ease-in-out`,
+    children,
+    ...rest
+  } = props;
 
-    const getStyle = (state: TransitionStatus) => ({
-      ...styles.init,
-      transition,
-      ...styles[state],
-    });
+  const getStyle = (state: TransitionStatus) => ({
+    ...styles.init,
+    transition,
+    ...styles[state],
+  });
 
-    return (
-      <CSSTransition
-        appear
-        unmountOnExit
-        in={inProp}
-        timeout={timeout}
-        {...rest}
-        ref={ref}
-      >
-        {(state) => children(getStyle(state))}
-      </CSSTransition>
-    );
-  }
-);
+  return (
+    <CSSTransition appear unmountOnExit in={inProp} timeout={timeout} {...rest}>
+      {(state) => children(getStyle(state))}
+    </CSSTransition>
+  );
+};
 
 if (__DEV__) {
   Transition.displayName = 'Transition';
