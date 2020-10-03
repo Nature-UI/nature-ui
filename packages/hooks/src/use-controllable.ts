@@ -7,6 +7,7 @@ export const useControllableProp = <T>(
 ): readonly [boolean, T] => {
   const { current: isControlled } = React.useRef(prop !== undefined);
   const value = isControlled && typeof prop !== 'undefined' ? prop : state;
+
   return [isControlled, value] as const;
 };
 
@@ -48,7 +49,7 @@ export interface UseControllableStateProps<T> {
 const defaultPropsMap = {
   value: 'value',
   defaultValue: 'defaultValue',
-  onChange: 'onChange'
+  onChange: 'onChange',
 };
 
 /**
@@ -65,7 +66,7 @@ export const useControllableState = <T>(
     onChange,
     shouldUpdate = () => true,
     name = 'Component',
-    propsMap = defaultPropsMap
+    propsMap = defaultPropsMap,
   } = props;
 
   const [valueState, setValue] = React.useState(defaultValue as T);
@@ -84,7 +85,7 @@ export const useControllableState = <T>(
         `Component should not switch from controlled to uncontrolled (or vice versa). ` +
         `Use the '${propsMap['value']}' with an '${propsMap['onChange']}' handler. ` +
         `If you want an uncontrolled component, remove the ${propsMap['value']} prop and use '${propsMap['defaultValue']}' instead. ` +
-        `More info: https://fb.me/react-controlled-components`
+        `More info: https://fb.me/react-controlled-components`,
     });
   }, [valueProp, isControlled, name]);
 
@@ -95,7 +96,7 @@ export const useControllableState = <T>(
       condition: _defaultValue !== defaultValue,
       message:
         `Warning: A component is changing the default value of an uncontrolled ${name} after being initialized. ` +
-        `To suppress this warning opt to use a controlled ${name}.`
+        `To suppress this warning opt to use a controlled ${name}.`,
     });
   }, [JSON.stringify(defaultValue)]);
 
@@ -116,5 +117,6 @@ export const useControllableState = <T>(
     },
     [onChange, shouldUpdate, isControlled, value]
   );
+
   return [value, updateValue] as [T, React.Dispatch<React.SetStateAction<T>>];
 };

@@ -3,6 +3,7 @@ import { nature, PropsOf, jsx, clsx } from '@nature-ui/system';
 import { isUndefined, StringOrNumber, __DEV__ } from '@nature-ui/utils';
 import { css } from 'emotion';
 import React from 'react';
+
 import { getProgressProps, rotate, spin } from './progress.utils';
 
 const CircleTag = nature('circle');
@@ -153,6 +154,7 @@ const StyledProgress = React.forwardRef(
     const _className = clsx(`inline-block relative align-middle`, {
       [className]: className,
     });
+
     return <ProgressTag className={_className} {...rest} ref={ref} />;
   }
 );
@@ -281,5 +283,6 @@ export const CircularProgressLabel = (
   const _className = clsx(STYLES, {
     [className]: className,
   });
+
   return <ProgressTag className={_className} {...rest} />;
 };

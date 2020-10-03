@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useSafeLayoutEffect } from './use-safe-layout-effect';
 
 /**
@@ -11,6 +12,7 @@ export const useEventCallback = <T extends Event | React.SyntheticEvent>(
   callback: (event: T, ...args: any[]) => void
 ) => {
   const ref = React.useRef(callback);
+
   useSafeLayoutEffect(() => {
     ref.current = callback;
   });

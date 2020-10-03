@@ -7,11 +7,12 @@ export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
 
   if (typeof ref === 'function') {
     ref(value);
+
     return;
   }
 
   try {
-    //@ts-ignore
+    // @ts-ignore
     ref?.current = value;
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);
@@ -35,6 +36,7 @@ export const useMergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => {
     if (refs.every((ref) => ref === null)) {
       return null;
     }
+
     return (node: T) => {
       refs.forEach((ref) => {
         if (ref) assignRef(ref, node);

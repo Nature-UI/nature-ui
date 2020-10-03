@@ -1,5 +1,6 @@
 import { FunctionArguments, isBrowser } from '@nature-ui/utils';
 import { useEffect } from 'react';
+
 import { useLatestRef } from './use-latest-ref';
 
 type AddEventListener = FunctionArguments<typeof document.addEventListener>;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useLatestRef } from './use-latest-ref';
 
 /**
@@ -16,6 +17,7 @@ export const useTimeout = (callback: Function, delay: number | null) => {
     const timeoutId = setTimeout(() => {
       saveCallback.current?.();
     }, delay);
+
     return () => clearTimeout(timeoutId);
   }, [delay, saveCallback]);
 };

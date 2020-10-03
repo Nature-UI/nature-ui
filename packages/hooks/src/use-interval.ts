@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useLatestRef } from './use-latest-ref';
 
 /**
@@ -9,14 +10,18 @@ import { useLatestRef } from './use-latest-ref';
  */
 export const useInterval = (callback: () => void, delay: number | null) => {
   const savedCallback = useLatestRef(callback);
+
   React.useEffect(() => {
     const tick = () => {
       savedCallback.current?.();
     };
+
     if (delay !== null) {
       const id = setInterval(tick, delay);
+
       return () => clearInterval(id);
     }
+
     return;
   }, [delay, savedCallback]);
 };

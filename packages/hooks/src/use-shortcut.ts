@@ -6,6 +6,7 @@ import * as React from 'react';
  */
 export const isPrintableCharacter = (event: React.KeyboardEvent) => {
   const { key } = event;
+
   return key.length === 1 || (key.length > 1 && /[^a-zA-Z0-9]/.test(key));
 };
 
@@ -49,8 +50,10 @@ export const useShortcut = (props: UseShortcutProps = {}) => {
     return (event: React.KeyboardEvent) => {
       if (event.key === 'Backspace') {
         const keyCopy = [...keys];
+
         keyCopy.pop();
         setKeys(keyCopy);
+
         return;
       }
 
@@ -69,5 +72,6 @@ export const useShortcut = (props: UseShortcutProps = {}) => {
       }
     };
   };
+
   return onKeyDown;
 };

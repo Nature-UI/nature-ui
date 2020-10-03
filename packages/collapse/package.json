@@ -32,22 +32,24 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "rimraf ./dist && tsc"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.0",
-    "@nature-ui/icon": "^0.1.0",
+    "@nature-ui/transition": "^0.1.0",
+    "@nature-ui/hooks": "^0.1.0",
     "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "@reach/rect": "^0.11.2"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
+    "react": "^16.*",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "@nature-ui/utils": "^0.1.0",
     "@nature-ui/system": "^0.1.0"
   }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { forwardRef, nature, PropsOf, clsx } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-import {css} from 'emotion'
+import { css } from 'emotion';
 
 import { Box } from './box';
 
@@ -32,16 +32,16 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
   const clones = validChildren.map((child, index) => {
     const isLast = index + 1 === validChildren.length;
 
-    const SPACING = typeof spacing === 'number' ? `${spacing}px` : spacing
-    
+    const SPACING = typeof spacing === 'number' ? `${spacing}px` : spacing;
+
     const ROW = css`
-    margin-right: ${SPACING};
+      margin-right: ${SPACING};
     `;
 
     const COL = css`
-    margin-bottom: ${SPACING};
-    `
-    
+      margin-bottom: ${SPACING};
+    `;
+
     if (!isLast) {
       const _className = clsx({
         [COL]: spacing && direction === 'col',
