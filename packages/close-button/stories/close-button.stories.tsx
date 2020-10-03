@@ -30,10 +30,15 @@ export const Sizes = (props: CloseType) => (
   </>
 );
 
-export const AlertExample = (props: CloseType) => (
+export const Example = (props: CloseType) => (
   <>
-    <div className='p-4 bg-orange-300'>
-      <CloseButton size='sm' {...props} />
+    <div className='p-4 bg-orange-300 relative pr-10'>
+      <CloseButton
+        aria-label='Close'
+        size='sm'
+        {...props}
+        className='absolute top-0 right-0 mt-2 mr-2'
+      />
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
       consectetur quo eius ipsam perferendis fugit necessitatibus quia
       dignissimos suscipit molestiae eveniet, dicta a. At, ab blanditiis
