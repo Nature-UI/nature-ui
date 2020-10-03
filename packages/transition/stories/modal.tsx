@@ -19,7 +19,13 @@ export const modalStyles: React.CSSProperties = {
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const Modal = (props: DivProps) => (
-  <div {...props} style={{ ...modalStyles, ...props.style }}>
+  <div
+    {...props}
+    style={{
+      ...modalStyles,
+      ...props.style,
+    }}
+  >
     <h1 className='text-lg font-bold'>Animate Me</h1>
     <p className='mt-6'>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius porro quas

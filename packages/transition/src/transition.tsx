@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { __DEV__ } from '@nature-ui/utils';
-import CSSTransition from 'react-transition-group/Transition';
+import { CSSTransition } from 'react-transition-group';
 import type {
   TransitionProps as TProps,
   TransitionStatus,

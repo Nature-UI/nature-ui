@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Modal, modalStyles } from './modal';
 import { SlideFade } from '../src';
+
+import { Modal, modalStyles } from './modal';
 
 export default {
   title: 'Transition/SlideFade',
@@ -11,6 +12,7 @@ export default {
 
 export const Basic = () => {
   const [isOpen, setIsOpen] = React.useState(true);
+
   return (
     <>
       <button onClick={() => setIsOpen((p) => !p)}>Click Me</button>
@@ -32,6 +34,7 @@ export const Basic = () => {
 
 export const WithTmeout = () => {
   const [isOpen, setIsOpen] = React.useState(true);
+
   return (
     <>
       <button onClick={() => setIsOpen((p) => !p)}>Click Me</button>

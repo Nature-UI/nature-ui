@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
+
 import { Transition, TransitionProps } from './transition';
 
 type Placement = 'left' | 'right' | 'bottom' | 'top';
@@ -14,6 +15,7 @@ const createBaseStyle = (placement: Placement): any => {
         right: 0,
       };
     }
+
     case 'top': {
       return {
         maxWidth: '100vw',
@@ -22,6 +24,7 @@ const createBaseStyle = (placement: Placement): any => {
         right: 0,
       };
     }
+
     case 'left': {
       return {
         width: '100%',
@@ -30,6 +33,7 @@ const createBaseStyle = (placement: Placement): any => {
         top: 0,
       };
     }
+
     case 'right': {
       return {
         width: '100%',
@@ -38,6 +42,7 @@ const createBaseStyle = (placement: Placement): any => {
         height: '100vh',
       };
     }
+
     default:
       break;
   }
@@ -45,7 +50,9 @@ const createBaseStyle = (placement: Placement): any => {
 
 const getTransformStyle = (placement: Placement, value: string) => {
   let axis = '';
+
   if (placement === 'left' || placement === 'right') axis = 'X';
+
   if (placement === 'top' || placement === 'bottom') axis = 'Y';
 
   return `translate${axis}(${value})`;
@@ -73,7 +80,7 @@ const getTransitionStyles = (placement: Placement) => {
 };
 
 export type SlideProps = Omit<TransitionProps, 'styles' | 'timeout'> & {
-/** The direction to slide drawer from */
+  /** The direction to slide drawer from */
   placement?: Placement;
   /** The transition timeout */
   timeout?: StringOrNumber;
@@ -94,10 +101,18 @@ export const Slide = (props: SlideProps) => {
     <Transition
       styles={styles}
       transition={`all ${timeout}ms cubic-bezier(0,0,0.2,1)`}
-      timeout={{ enter: 0, exit: Number(timeout) }}
+      timeout={{
+        enter: 0,
+        exit: Number(timeout),
+      }}
       {...rest}
     >
-      {(styles) => children({ ...positionStyles, ...styles })}
+      {(_styles) =>
+        children({
+          ...positionStyles,
+          ..._styles,
+        })
+      }
     </Transition>
   );
 };

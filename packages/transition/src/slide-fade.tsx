@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
+
 import { Transition, TransitionProps } from './transition';
 
 export interface SlideFadeProps
   extends Omit<TransitionProps, 'styles' | 'timeout'> {
-      /**
-     * The initial offset to slide from 
-     */
+  /**
+   * The initial offset to slide from
+   */
   initialOffset?: string;
-/**
-     * The transition timeout
-     */
+  /**
+   * The transition timeout
+   */
   timeout?: StringOrNumber;
 }
 
@@ -38,7 +39,10 @@ export const SlideFade = (props: SlideFadeProps) => {
     <Transition
       styles={styles}
       transition={`all ${timeout}ms cubic-bezier(0.4, 0.14, 0.3, 1)`}
-      timeout={{ enter: 0, exit: Number(timeout) }}
+      timeout={{
+        enter: 0,
+        exit: Number(timeout),
+      }}
       {...rest}
     />
   );
