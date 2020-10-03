@@ -18,9 +18,9 @@ const fallbackIcon = {
 };
 
 const sizes = {
-  xs: 12,
-  sm: 16,
-  md: 20,
+  xs: 10,
+  sm: 12,
+  md: 16,
   lg: 24,
   xl: 36,
 };

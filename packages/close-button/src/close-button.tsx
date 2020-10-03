@@ -13,7 +13,7 @@ const StyledButton = React.forwardRef(
     const { className = '', ...rest } = props;
 
     const _className = clsx(
-      `flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2 hover:bg-gray-500 hover:bg-opacity-25`,
+      `flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2`,
       {
         [className]: className,
       }
@@ -22,8 +22,12 @@ const StyledButton = React.forwardRef(
     return (
       <ButtonTag
         ref={ref}
+        css={{
+          '&:hover': {
+            backgroundColor: 'rgba(0,0,0,0.06)',
+          },
+        }}
         className={_className}
-        aria-label='Close'
         type='button'
         {...rest}
       />

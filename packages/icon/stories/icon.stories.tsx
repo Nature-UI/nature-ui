@@ -1,3 +1,4 @@
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 import { Md3DRotation } from 'react-icons/md';
 
@@ -5,9 +6,12 @@ import { Icon, SvgIconProps } from '../src';
 
 export default {
   title: 'Icons/Icon',
-};
+  component: Icon,
+} as Meta;
 
-export const Default = (props: SvgIconProps) => {
+type IconType = Story<SvgIconProps>;
+
+export const Default = (props: IconType) => {
   return (
     <span>
       <Icon viewBox='0 0 70 71' {...props} size='xl'>
@@ -21,6 +25,6 @@ export const Default = (props: SvgIconProps) => {
   );
 };
 
-export const UsingReactIcon = () => (
-  <Icon as={Md3DRotation} color='teal' size='lg' />
+export const UsingReactIcon = (props: IconType) => (
+  <Icon as={Md3DRotation} color='teal' size='lg' {...props} />
 );
