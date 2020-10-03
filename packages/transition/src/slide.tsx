@@ -4,7 +4,7 @@ import { Transition, TransitionProps } from './transition';
 
 type Placement = 'left' | 'right' | 'bottom' | 'top';
 
-const createBaseStyle = (placement: Placement) => {
+const createBaseStyle = (placement: Placement): any => {
   switch (placement) {
     case 'bottom': {
       return {
