@@ -9,7 +9,7 @@ export default {
   component: ScaleFade,
 } as Meta;
 
-export function Basic() {
+export const Basic = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <>
@@ -28,9 +28,9 @@ export function Basic() {
       </ScaleFade>
     </>
   );
-}
+};
 
-export function ScaleFadeWithTimeout() {
+export const ScaleFadeWithTimeout = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <>
@@ -49,4 +49,4 @@ export function ScaleFadeWithTimeout() {
       </ScaleFade>
     </>
   );
-}
+};
