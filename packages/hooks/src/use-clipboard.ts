@@ -16,6 +16,7 @@ export const useClipboard = (
 
   const onCopy = React.useCallback(() => {
     const didCopy = copy(text);
+
     setCopied(didCopy);
   }, [text]);
 
@@ -24,8 +25,10 @@ export const useClipboard = (
       const id = setTimeout(() => {
         setCopied(false);
       }, timeout);
+
       return () => clearTimeout(id);
     }
+
     return;
   }, [timeout, copied]);
 

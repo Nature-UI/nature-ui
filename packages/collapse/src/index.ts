@@ -1,2 +1,1 @@
-// export * from './collapse';
-export {}; // FIXME:
+export * from './collapse';

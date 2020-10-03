@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { useUpdateEffect } from './use-update-effect';
 
 /**
@@ -11,6 +12,7 @@ import { useUpdateEffect } from './use-update-effect';
 export const useLogger = (label: string, ...values: any[]) => {
   React.useEffect(() => {
     console.log(`${label} mounted:`, ...values);
+
     return () => {
       console.log(`${label} unmounted`);
     };

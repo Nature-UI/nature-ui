@@ -53,7 +53,7 @@ export const isFocusable = (element: Element): boolean => {
   const others = {
     a: () => element.hasAttribute('href'),
     audio: () => element.hasAttribute('controls'),
-    video: () => element.hasAttribute('controls')
+    video: () => element.hasAttribute('controls'),
   };
 
   if (localName in others) {

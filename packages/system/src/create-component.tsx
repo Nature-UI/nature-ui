@@ -7,6 +7,7 @@ import {
   isUndefined,
 } from '@nature-ui/utils';
 import hoist from 'hoist-non-react-statics';
+
 import { jsx } from './jsx';
 import { getDisplayName } from './system-utils';
 import { NatureComponent } from './system-types';
@@ -44,6 +45,7 @@ export const createComponent = <T extends As>(component: T) => {
 
   // hoist all non-react statics attached to the `component` prop
   const MainComponent = hoist(Component, component as any);
+
   return MainComponent as NatureComponent<T>;
   // };
 };

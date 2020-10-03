@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { useUpdateEffect } from './use-update-effect';
 import { focus, hasFocusWithin } from '@nature-ui/utils';
+
+import { useUpdateEffect } from './use-update-effect';
 
 export type UseFocusEffectOptions = {
   shouldFocus: boolean;
@@ -22,6 +23,7 @@ export const useFocusEffect = <T extends HTMLElement>(
 
   useUpdateEffect(() => {
     const node = ref.current;
+
     if (!node || !shouldFocus) return;
 
     if (!hasFocusWithin(node)) {

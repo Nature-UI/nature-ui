@@ -9,5 +9,6 @@ export const useForceUpdate = () => {
   const forceUpdate = React.useCallback(() => {
     setCount(count + 1);
   }, [count]);
+
   return forceUpdate;
 };

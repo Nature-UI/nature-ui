@@ -13,5 +13,6 @@ export const useLatestRef = <T>(value: T) => {
   React.useEffect(() => {
     ref.current = value;
   }, [value]);
+
   return ref;
 };
