@@ -54,7 +54,6 @@ export const Collapse = React.forwardRef(
       config,
       startingHeight = 0,
       animateOpacity = true,
-      className,
       style: htmlStyle,
       timeout = 150,
       easing = 'ease',
@@ -111,7 +110,7 @@ export const Collapse = React.forwardRef(
         onExited={() => setHidden(true)}
         timeout={{
           enter: 0,
-          exit: timeout,
+          exit: Number(timeout),
         }}
         transition={transition}
         unmountOnExit={false}
@@ -119,7 +118,6 @@ export const Collapse = React.forwardRef(
         {(styles) => (
           <DivTag
             ref={forwardedRef}
-            // className={cx('chakra-collapse', className)}
             aria-hidden={ariaAttr(hidden)}
             {...rest}
             style={{
