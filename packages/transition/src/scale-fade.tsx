@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
+
 import { Transition, TransitionProps } from './transition';
 
 const getTransitionStyles = (initialScale: number) => ({
@@ -18,15 +19,16 @@ const getTransitionStyles = (initialScale: number) => ({
 });
 
 export type ScaleFadeProps = Omit<TransitionProps, 'styles' | 'timeout'> & {
-     /** 
-      * The initial scale to animate from  
-      */
+  /**
+   * The initial scale to animate from
+   */
   initialScale?: StringOrNumber;
-  /** 
-   * The transition timeout 
+  /**
+   * The transition timeout
    */
   timeout?: StringOrNumber;
 };
+
 export const ScaleFade = (props: ScaleFadeProps) => {
   const { initialScale = 0.9, timeout = 150, ...rest } = props;
   const styles = getTransitionStyles(Number(initialScale));

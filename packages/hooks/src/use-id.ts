@@ -15,6 +15,7 @@ export const useId = (idProp?: string, prefix?: string) => {
   const uuid = useUID() as string;
   const id = idProp ?? uuid;
   const result = prefix ? generatePrefix(prefix, id) : id;
+
   return result as string;
 };
 
@@ -36,5 +37,6 @@ export const useId = (idProp?: string, prefix?: string) => {
 
 export const useIds = (idProp?: string, ...prefixes: string[]) => {
   const id = useId(idProp);
+
   return prefixes.map((prefix) => generatePrefix(prefix, id));
 };

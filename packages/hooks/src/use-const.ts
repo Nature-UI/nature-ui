@@ -12,5 +12,6 @@ type InitialValue<T> = T | (() => T);
 
 export const useConst = <T>(initialValue: InitialValue<T>): T => {
   const [value] = React.useState(initialValue);
+
   return value;
 };

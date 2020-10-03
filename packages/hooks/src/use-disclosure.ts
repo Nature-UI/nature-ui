@@ -17,7 +17,7 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
     onClose: onCloseProp,
     onOpen: onOpenProp,
     isOpen: isOpenProp,
-    id: idProp
+    id: idProp,
   } = props;
 
   const [isOpenState, setIsOpen] = React.useState(props.defaultIsOpen || false);
@@ -57,13 +57,13 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
       ...props,
       'aria-expanded': 'true',
       'aria-controls': id,
-      onClick: callAllHandler(props.onClick, onToggle)
+      onClick: callAllHandler(props.onClick, onToggle),
     }),
     getDisclosureProps: (props: any = {}) => ({
       ...props,
       hidden: !isOpen,
-      id
-    })
+      id,
+    }),
   };
 };
 
