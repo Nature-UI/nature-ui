@@ -26,7 +26,7 @@ export const WithTimeout = () => {
   return (
     <>
       <button onClick={() => setIsOpen((p) => !p)}>Toggle Modal</button>
-      <Fade timeout={500} in={isOpen}>
+      <Fade timeout={700} in={isOpen}>
         {(styles) => <Modal style={styles} />}
       </Fade>
     </>

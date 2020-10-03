@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react';
 
-import { Modal, modalStyles } from './modal';
+import { Modal } from './modal';
 import { Slide } from '../src';
 
 export default {
@@ -23,7 +23,7 @@ export const Basic = () => {
     </>
   );
 };
-export const SlideWithPlacement = () => {
+export const WithPlacement = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <>
@@ -35,7 +35,7 @@ export const SlideWithPlacement = () => {
   );
 };
 
-export const SlideWithTimeout = () => {
+export const WithTimeout = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <>

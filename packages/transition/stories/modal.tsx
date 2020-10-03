@@ -7,12 +7,13 @@ export const modalStyles: React.CSSProperties = {
   width: '50%',
   maxWidth: '630px',
   minWidth: '320px',
-  background: 'orange',
+  background: 'skyblue',
   minHeight: 300,
   height: 'auto',
   backfaceVisibility: 'hidden',
   padding: '1rem',
   transform: `translateX(-50%) translateY(-50%)`,
+  borderRadius: '5px',
 };
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
