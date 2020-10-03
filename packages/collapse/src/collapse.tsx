@@ -86,14 +86,6 @@ export const Collapse = React.forwardRef(
 
     const _refs = mergeRefs(ref, _child.props.ref);
 
-    console.log({
-      height: getStr('height'),
-      realHeight: height,
-      ref,
-      forwardedRef,
-      _refs,
-    });
-
     const defaultConfig: TransitionStyles = {
       init: {
         height: startingHeight,
@@ -139,7 +131,7 @@ export const Collapse = React.forwardRef(
             }}
           >
             {React.cloneElement(_child, {
-              ref,
+              ref: _refs,
             })}
           </DivTag>
         )}
