@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const modalStyles: React.CSSProperties = {
+export const modalStyles: React.CSSProperties = {
   position: 'fixed',
   top: '50%',
   left: '50%',

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { __DEV__ } from '@nature-ui/utils';
+import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
 import { Transition, TransitionProps, TransitionStyles } from './transition';
 
 export type FadeProps = Omit<TransitionProps, 'styles' | 'timeout'> & {
-  timeout?: number;
+  timeout?: StringOrNumber;
 };
 
 const styles: TransitionStyles = {
@@ -19,7 +19,7 @@ export const Fade = (props: FadeProps) => {
     <Transition
       transition={`all ${timeout}ms cubic-bezier(0.175, 0.885, 0.320, 1.175)`}
       styles={styles}
-      timeout={{ enter: 0, exit: timeout }}
+      timeout={{ enter: 0, exit: Number(timeout) }}
       {...rest}
     />
   );

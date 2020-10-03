@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { Modal } from './modal';
-import { Fade, FadeProps } from '../src';
+import { Fade } from '../src';
 
 export default {
   title: 'Transition/Fade',
