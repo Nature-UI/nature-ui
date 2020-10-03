@@ -1,15 +1,17 @@
 {
-  "name": "@nature-ui/color",
+  "name": "@nature-ui/close-button",
   "version": "0.1.0",
-  "description": "A base React component for icons",
+  "description": "A React and Chakra UI close button component.",
   "keywords": [
+    "close-button",
+    "button",
+    "icon-button",
     "react",
-    "color",
-    "ui",
-    "nature-ui"
+    "close-icon",
+    "nature ui"
   ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
-  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
   "main": "dist/index.js",
   "directories": {
@@ -28,18 +30,22 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
     "@nature-ui/utils": "^0.1.0",
-    "emotion": "^10.0.27",
+    "@nature-ui/icon": "^0.1.0",
     "react": "^16.13.1",
-    "tinycolor2": "^1.4.1"
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "@types/tinycolor2": "^1.4.2"
+    "@nature-ui/system": "^0.1.0"
   }
 }

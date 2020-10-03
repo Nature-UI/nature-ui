@@ -1,12 +1,13 @@
-import Color from 'tinycolor2';
+import tinyColor from 'tinycolor2';
 import { isEmptyObject } from '@nature-ui/utils';
+import {css} from 'emotion'
 
 /**
  * Determines if the tone of a given color is `light` or `dark`
  * @param color - the color in hex, rgb or hsl
  */
 export const tone = (color: string) => {
-  const isDark = Color(color).isDark();
+  const isDark = tinyColor(color).isDark();
   return isDark ? 'dark' : 'light';
 };
 
@@ -28,7 +29,7 @@ export const isLight = (color: string) => tone(color) === 'light';
  * @param opacity - the amount white to add
  */
 export const transparentize = (color: string, opacity: number) =>
-  Color(color).setAlpha(opacity).toRgbString();
+  tinyColor(color).setAlpha(opacity).toRgbString();
 
 /**
  * Add white to a color
@@ -36,7 +37,7 @@ export const transparentize = (color: string, opacity: number) =>
  * @param amount - the amount white to add (0-1)
  */
 export const whiten = (color: string, amount: number) =>
-  Color.mix(color, '#fff', amount).toHexString();
+  tinyColor.mix(color, '#fff', amount).toHexString();
 
 /**
  * Add black to a color
@@ -44,7 +45,7 @@ export const whiten = (color: string, amount: number) =>
  * @param amount - the amount white to add (0-1)
  */
 export const blacken = (color: string, amount: number) =>
-  Color.mix(color, '#000', amount).toHexString();
+  tinyColor.mix(color, '#000', amount).toHexString();
 
 /**
  * Darken a specified color
@@ -52,10 +53,10 @@ export const blacken = (color: string, amount: number) =>
  * @param amount - the amount white to add (0-1)
  */
 export const darken = (color: string, amount: number) =>
-  Color(color).darken(amount).toHexString();
+  tinyColor(color).darken(amount).toHexString();
 
 export const lighten = (color: string, amount: number) =>
-  Color(color).lighten(amount).toHexString();
+  tinyColor(color).lighten(amount).toHexString();
 
 /**
  * Checks the contract ratio of between 2 colors,
@@ -64,7 +65,7 @@ export const lighten = (color: string, amount: number) =>
  * @param fg - the foreground or text color
  * @param bg - the background color
  */
-export const contrast = (fg: string, bg: string) => Color.readability(bg, fg);
+export const contrast = (fg: string, bg: string) => tinyColor.readability(bg, fg);
 
 /**
  * Checks if a color meets the Web Content Accessibility
@@ -76,28 +77,30 @@ export const contrast = (fg: string, bg: string) => Color.readability(bg, fg);
 export const isAccessible = (
   textColor: string,
   bgColor: string,
-  options?: Color.WCAG2Options
-) => Color.isReadable(bgColor, textColor, options);
+  options?: tinyColor.WCAG2Options
+) => tinyColor.isReadable(bgColor, textColor, options);
 
 export const complementary = (color: string) =>
-  Color(color).complement().toHexString();
+  tinyColor(color).complement().toHexString();
 
 export const generateStripe = (
   size = '1rem',
   color = 'rgba(255, 255, 255, 0.15)'
-) => ({
-  backgroundImage: `linear-gradient(
-        45deg,
-        ${color} 25%,
-        transparent 25%,
-        transparent 50%,
-        ${color} 50%,
-        ${color} 75%,
-        transparent 75%,
-        transparent
-      )`,
-  backgroundSize: `${size} ${size}`,
-});
+): string => {
+  return css`
+  background-image: linear-gradient(
+          45deg,
+          ${color} 25%,
+          transparent 25%,
+          transparent 50%,
+          ${color} 50%,
+          ${color} 75%,
+          transparent 75%,
+          transparent
+        );
+    background-size: ${size} ${size};
+    `
+};
 
 interface RandomColorOptions {
   /**
@@ -110,8 +113,9 @@ interface RandomColorOptions {
    */
   colors?: string[];
 }
+
 export const randomColor = (opts?: RandomColorOptions): string => {
-  const fallback = Color.random().toHexString();
+  const fallback = tinyColor.random().toHexString();
 
   if (!opts || isEmptyObject(opts)) {
     return fallback;

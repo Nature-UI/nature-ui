@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { forwardRef, nature, PropsOf, clsx } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
+import {css} from 'emotion'
 
 import { Box } from './box';
 
@@ -10,7 +11,7 @@ export type StackProps = PropsOf<typeof StackElem> & {
   /**
    * The space between each stack item
    */
-  spacing?: number;
+  spacing?: string | number;
   /**
    * The direction to stack the items.
    */
@@ -31,10 +32,20 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
   const clones = validChildren.map((child, index) => {
     const isLast = index + 1 === validChildren.length;
 
+    const SPACING = typeof spacing === 'number' ? `${spacing}px` : spacing
+    
+    const ROW = css`
+    margin-right: ${SPACING};
+    `;
+
+    const COL = css`
+    margin-bottom: ${SPACING};
+    `
+    
     if (!isLast) {
       const _className = clsx({
-        [`mb-${spacing}`]: spacing && direction === 'col',
-        [`mr-${spacing}`]: spacing && direction === 'row',
+        [COL]: spacing && direction === 'col',
+        [ROW]: spacing && direction === 'row',
       });
 
       return (

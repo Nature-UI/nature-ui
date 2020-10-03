@@ -1,6 +1,7 @@
+/** @jsx jsx */
+import { jsx, nature, PropsOf, clsx as clx } from '@nature-ui/system';
 import * as React from 'react';
-import { nature, PropsOf, clsx as clx } from '@nature-ui/system';
-import { __DEV__ } from '@nature-ui/utils';
+import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
 
 const fallbackIcon = {
   path: (
@@ -17,11 +18,11 @@ const fallbackIcon = {
 };
 
 const sizes = {
-  xs: 16,
-  sm: 20,
-  md: 28,
-  lg: 36,
-  xl: 48,
+  xs: 10,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 36,
 };
 
 export interface IconProps {
@@ -32,7 +33,7 @@ export interface IconProps {
   /**
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    */
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xs' | number;
+  size?: keyof typeof sizes | number;
   /**
    * Allows you to redefine what the coordinates without units mean inside an SVG element.
    * For example, if the SVG element is 500 (width) by 200 (height),
@@ -41,14 +42,18 @@ export interface IconProps {
    * to bottom right (50,20) and each unit will be worth 10px.
    */
   viewBox?: string;
+  /**
+   * Overwrites the width and height of the svg element
+   */
+  boxSize?: StringOrNumber;
 }
 
 const SvgIcon = nature('svg');
 
-export type SvgIconProps = PropsOf<typeof SvgIcon>;
+export type SvgIconProps = PropsOf<typeof SvgIcon> & IconProps;
 
 export const Icon = React.forwardRef(
-  (props: IconProps & SvgIconProps, ref: React.Ref<any>) => {
+  (props: SvgIconProps, ref: React.Ref<any>) => {
     const {
       children,
       className = '',
@@ -58,8 +63,8 @@ export const Icon = React.forwardRef(
       color = 'currentColor',
       as: type,
       focusable = false,
-      width,
-      height,
+      boxSize,
+      css,
       ...rest
     } = props;
 
@@ -67,8 +72,8 @@ export const Icon = React.forwardRef(
       [className]: className,
     });
 
-    const _width = width ?? (sizes[size] || size);
-    const _height = height ?? (sizes[size] || size);
+    const _width = boxSize ?? (sizes[size] || size);
+    const _height = boxSize ?? (sizes[size] || size);
 
     const sharedProps = {
       className: DEFAULT_CLASS,
@@ -76,6 +81,10 @@ export const Icon = React.forwardRef(
       focusable,
       ref,
       role,
+      css: {
+        width: _width,
+        height: _height,
+      },
       width: _width,
       height: _height,
     };
