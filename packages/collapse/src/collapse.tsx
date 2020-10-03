@@ -20,7 +20,7 @@ export type CollapseProps = PropsOf<typeof DivTag> & {
    * The height you want the content in it's collapsed state.
    * @default 0
    */
-  startingHeight?: number;
+  startingHeight?: StringOrNumber;
   /**
    * Custom styles for the Transition component's appear, entered and exiting states
    */
@@ -36,7 +36,7 @@ export type CollapseProps = PropsOf<typeof DivTag> & {
    * @default
    * 150
    */
-  timeout?: number;
+  timeout?: StringOrNumber;
   /**
    * The CSS `transition-timing-function` to apply for the collapse animation
    *
