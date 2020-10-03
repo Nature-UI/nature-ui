@@ -8,6 +8,7 @@ export default {
   title: 'Transition/ScaleFade',
   component: ScaleFade,
 } as Meta;
+
 export function Basic() {
   const [isOpen, setIsOpen] = React.useState(true);
   return (

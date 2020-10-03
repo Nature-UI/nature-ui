@@ -18,7 +18,13 @@ const getTransitionStyles = (initialScale: number) => ({
 });
 
 export type ScaleFadeProps = Omit<TransitionProps, 'styles' | 'timeout'> & {
+     /** 
+      * The initial scale to animate from  
+      */
   initialScale?: StringOrNumber;
+  /** 
+   * The transition timeout 
+   */
   timeout?: StringOrNumber;
 };
 export const ScaleFade = (props: ScaleFadeProps) => {
