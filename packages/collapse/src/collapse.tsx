@@ -9,7 +9,9 @@ import { ariaAttr, mergeRefs, __DEV__, StringOrNumber } from '@nature-ui/utils';
 import { useRect } from '@reach/rect';
 import * as React from 'react';
 
-export type CollapseProps = PropsOf<typeof nature.div> & {
+const DivTag = nature('div');
+
+export type CollapseProps = PropsOf<typeof DivTag> & {
   /**
    * If `true`, the content will be visible
    */
@@ -18,25 +20,28 @@ export type CollapseProps = PropsOf<typeof nature.div> & {
    * The height you want the content in it's collapsed state.
    * @default 0
    */
-  startingHeight?: StringOrNumber;
+  startingHeight?: number;
   /**
    * Custom styles for the Transition component's appear, entered and exiting states
    */
   config?: TransitionProps['styles'];
   /**
-   * If `true`, the opacity of the component will be animated
+   * If `true`, the opacity of the content will be animated
    * @default true
    */
-  animatedOpacity?: boolean;
+  animateOpacity?: boolean;
   /**
    * The CSS `transition-duration` (in ms) to apply for the collapse animation
-   * @default 150
+   *
+   * @default
+   * 150
    */
-  timeout?: StringOrNumber;
+  timeout?: number;
   /**
    * The CSS `transition-timing-function` to apply for the collapse animation
    *
-   * @default `ease`
+   * @default
+   * "ease"
    */
   easing?: string;
 };
@@ -48,9 +53,9 @@ export const Collapse = React.forwardRef(
       children,
       config,
       startingHeight = 0,
-      animatedOpacity = true,
+      animateOpacity = true,
       className,
-      style: htmlStyles,
+      style: htmlStyle,
       timeout = 150,
       easing = 'ease',
       ...rest
@@ -79,6 +84,16 @@ export const Collapse = React.forwardRef(
     const rect = useRect(ref, true);
     const height = rect?.height ?? 0;
 
+    const _refs = mergeRefs(ref, _child.props.ref);
+
+    console.log({
+      height: getStr('height'),
+      realHeight: height,
+      ref,
+      forwardedRef,
+      _refs,
+    });
+
     const defaultConfig: TransitionStyles = {
       init: {
         height: startingHeight,
@@ -104,28 +119,29 @@ export const Collapse = React.forwardRef(
         onExited={() => setHidden(true)}
         timeout={{
           enter: 0,
-          exit: Number(timeout),
+          exit: timeout,
         }}
         transition={transition}
         unmountOnExit={false}
       >
-        {(_styles) => (
-          <nature.div
+        {(styles) => (
+          <DivTag
             ref={forwardedRef}
+            // className={cx('chakra-collapse', className)}
             aria-hidden={ariaAttr(hidden)}
             {...rest}
             style={{
-              ..._styles,
+              ...styles,
               overflow: 'hidden',
-              opacity: animatedOpacity ? _styles.opacity : 1,
+              opacity: animateOpacity ? styles.opacity : 1,
               willChange: 'height, opacity, transform',
-              ...htmlStyles,
+              ...htmlStyle,
             }}
           >
             {React.cloneElement(_child, {
-              ref: mergeRefs(ref, _child.props.ref),
+              ref,
             })}
-          </nature.div>
+          </DivTag>
         )}
       </Transition>
     );
