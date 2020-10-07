@@ -22,6 +22,7 @@ export default {
 
 const InputTag = nature('input');
 const TextareaTag = nature('textarea');
+const SelectTag = nature('select');
 
 type OmittedTypes = 'disabled' | 'required' | 'readOnly' | 'size';
 
@@ -111,6 +112,32 @@ export const TextAreaExample = () => (
   <FormControl id='first-name' isInvalid>
     <FormLabel>First name</FormLabel>
     <TextArea placeholder='First Name' />
+    <FormHelperText>Keep it very short and sweet!</FormHelperText>
+    <FormErrorMessage>
+      <FormErrorIcon />
+      Your First name is invalid
+    </FormErrorMessage>
+  </FormControl>
+);
+
+type SelectProps = Omit<PropsOf<'select'>, OmittedTypes> & FormControlOptions;
+
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+  (props, ref) => {
+    const inputProps = useFormControl<HTMLSelectElement>(props);
+
+    return <SelectTag ref={ref} {...inputProps} />;
+  }
+);
+
+export const SelectExample = () => (
+  <FormControl id='first-name' isInvalid>
+    <FormLabel>First name</FormLabel>
+    <Select>
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </Select>
     <FormHelperText>Keep it very short and sweet!</FormHelperText>
     <FormErrorMessage>
       <FormErrorIcon />
