@@ -1,4 +1,4 @@
-[![Divine_Nature's github stats](https://github-readme-stats.vercel.app/api?username=dnature)](https://github.com/anuraghazra/github-readme-stats)
+## This project is currently under development and open source.
 
 Commit emojis:
 
