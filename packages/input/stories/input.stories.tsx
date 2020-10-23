@@ -63,6 +63,5 @@ export const WithStates = () => (
     <Input isInvalid placeholder='isInvalid' />
     <Input isDisabled placeholder='isDisabled' />
     <Input isReadOnly placeholder='isReadonly' />
-    <Input isRequired placeholder='isRequired' />
   </Stack>
 );

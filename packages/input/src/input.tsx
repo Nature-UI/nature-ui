@@ -25,7 +25,7 @@ interface InputOptions {
   isFullWidth?: boolean;
 }
 
-type Omitted = 'disabled' | 'required' | 'readOnly' | 'size';
+type Omitted = 'disabled' | 'required' | 'readOnly';
 
 const _SIZES = {
   sm: {
@@ -48,17 +48,13 @@ const _SIZES = {
   },
 };
 
-export interface InputProps
-  extends Omit<PropsOf<typeof StyledInput>, Omitted>,
-    FormControlOptions {
-  size?: keyof typeof _SIZES | number;
-  variant?: 'outlined' | 'filled' | 'flushed' | 'unstyled';
-}
+export type InputProps = Omit<PropsOf<typeof StyledInput>, Omitted>;
 
 type StyledInputProps = PropsOf<typeof InputTag> &
   InputOptions &
   FormControlOptions & {
     size?: keyof typeof _SIZES | number;
+    variant?: 'outlined' | 'filled' | 'flushed' | 'unstyled';
   };
 
 /**
@@ -72,9 +68,8 @@ const StyledInput = (props: StyledInputProps) => {
     className = '',
     size = 'md',
     isInvalid,
-    isDisabled,
     isReadOnly,
-    isRequired,
+    isDisabled,
     ...rest
   } = props;
 
@@ -100,6 +95,7 @@ const StyledInput = (props: StyledInputProps) => {
       [_invalid]: isInvalid,
       [`border focus:border-blue-400`]: !isInvalid,
       [_border]: !isReadOnly,
+      'cursor-not-allowed opacity-50': isDisabled,
     },
 
     _height,
