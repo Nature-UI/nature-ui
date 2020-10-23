@@ -31,17 +31,20 @@ const _SIZES = {
   sm: {
     height: '2rem',
     fontSize: '0.875rem',
-    paddingLeft: '0.75rem',    paddingRight: '0.75rem',
+    paddingLeft: '0.75rem',
+    paddingRight: '0.75rem',
   },
   md: {
     height: '2.5rem',
     fontSize: '1rem',
-    paddingLeft: '1rem',    paddingRight: '1rem',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
   },
   lg: {
     height: '3rem',
-    fontSize: '1.25rem',
-    paddingLeft: '1rem',    paddingRight: '1rem',
+    fontSize: '1.125rem',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
   },
 };
 
@@ -49,8 +52,14 @@ export interface InputProps
   extends Omit<PropsOf<typeof StyledInput>, Omitted>,
     FormControlOptions {
   size?: keyof typeof _SIZES | number;
-  variant?: "outlined" | "filled" | "flushed" | "unstyled";
+  variant?: 'outlined' | 'filled' | 'flushed' | 'unstyled';
 }
+
+type StyledInputProps = PropsOf<typeof InputTag> &
+  InputOptions &
+  FormControlOptions & {
+    size?: keyof typeof _SIZES | number;
+  };
 
 /**
  * Input - Theming
@@ -58,8 +67,46 @@ export interface InputProps
  * To style the input globally, change the styles in
  * `theme.components.Input`
  */
-const StyledInput = (props: PropsOf<typeof InputTag> & InputOptions) => {
-  return <InputTag {...props} />;
+const StyledInput = (props: StyledInputProps) => {
+  const {
+    className = '',
+    size = 'md',
+    isInvalid,
+    isDisabled,
+    isReadOnly,
+    isRequired,
+    ...rest
+  } = props;
+
+  const _css = typeof size === 'string' && css(_SIZES[size]);
+  const _height =
+    typeof size === 'number' &&
+    css`
+      height: ${size}px;
+    `;
+
+  const _border = css`
+    &:focus {
+      border-width: 2px;
+    }
+  `;
+
+  const _invalid = `focus:border-red-500 border-red-500 border-2`;
+
+  const _className = clsx(
+    _css,
+    `w-full rounded px-4 outline-none border-solid border-gray-400 transition-all duration-150`,
+    {
+      [_invalid]: isInvalid,
+      [`border focus:border-blue-400`]: !isInvalid,
+      [_border]: !isReadOnly,
+    },
+
+    _height,
+    className
+  );
+
+  return <InputTag className={_className} {...rest} />;
 };
 
 /**
@@ -71,24 +118,7 @@ export const Input = React.forwardRef(
   (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
     const inputProps = useFormControl<HTMLInputElement>(props);
 
-    const { className = '', size = 'md', ...rest } = props;
-
-
-    const _css = typeof size === 'string' && css(_SIZES[size])
-    const _height = typeof size === 'number' && css({
-      height: size + 'px',
-    })
-
-    const _className = clsx(_css,`w-full rounded px-4 outline-none border border-solid border-gray-300 focus:shadow-outline transition-all duration-150`,  _height, className);
-
-    return (
-      <StyledInput
-        ref={ref}
-        {...inputProps}
-        {...rest}
-        className={_className}
-      />
-    );
+    return <StyledInput ref={ref} {...inputProps} />;
   }
 );
 
