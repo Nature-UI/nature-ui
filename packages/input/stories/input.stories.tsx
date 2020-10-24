@@ -28,9 +28,9 @@ Basic.args = {
 export const WithSizes: InputType = () => {
   return (
     <Stack spacing='1rem'>
-      {['sm', 'md', 'lg', 45].map((size) => (
-        // @ts-ignore
+      {['sm', 'md', 'lg'].map((size) => (
         <Input
+          // @ts-ignore
           size={size}
           placeholder='This is an input component'
           key={size}
@@ -57,11 +57,20 @@ export const Controlled: InputType = () => {
   );
 };
 
-export const WithStates = () => (
+export const WithStates: InputType = () => (
   <Stack>
     <Input placeholder='Idle' />
     <Input isInvalid placeholder='isInvalid' />
     <Input isDisabled placeholder='isDisabled' />
     <Input isReadOnly placeholder='isReadonly' />
+  </Stack>
+);
+
+export const WithVariants: InputType = () => (
+  <Stack>
+    <Input variant='outline' placeholder='Outline' />
+    <Input variant='filled' placeholder='Filled' />
+    <Input variant='flushed' placeholder='Flushed' />
+    <Input variant='unstyled' placeholder='Unstyled' />
   </Stack>
 );

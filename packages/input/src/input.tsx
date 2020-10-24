@@ -31,18 +31,27 @@ const _SIZES = {
   sm: {
     height: '2rem',
     fontSize: '0.875rem',
-    paddingLeft: '0.75rem',
-    paddingRight: '0.75rem',
   },
   md: {
     height: '2.5rem',
     fontSize: '1rem',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
   },
   lg: {
     height: '3rem',
     fontSize: '1.125rem',
+  },
+};
+
+const _PADDING = {
+  sm: {
+    paddingLeft: '0.75rem',
+    paddingRight: '0.75rem',
+  },
+  md: {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
+  lg: {
     paddingLeft: '1rem',
     paddingRight: '1rem',
   },
@@ -54,7 +63,7 @@ type StyledInputProps = PropsOf<typeof InputTag> &
   InputOptions &
   FormControlOptions & {
     size?: keyof typeof _SIZES | number;
-    variant?: 'outlined' | 'filled' | 'flushed' | 'unstyled';
+    variant?: 'outline' | 'filled' | 'flushed' | 'unstyled';
   };
 
 /**
@@ -70,9 +79,11 @@ const StyledInput = (props: StyledInputProps) => {
     isInvalid,
     isReadOnly,
     isDisabled,
+    variant = 'outline',
     ...rest
   } = props;
 
+  const _padding = typeof size === 'string' && css(_PADDING[size]);
   const _css = typeof size === 'string' && css(_SIZES[size]);
   const _height =
     typeof size === 'number' &&
@@ -88,17 +99,25 @@ const StyledInput = (props: StyledInputProps) => {
 
   const _invalid = `focus:border-red-500 border-red-500 border-2`;
 
+  const _outline = variant === 'outline';
+  const _filled = variant === 'filled';
+  const _flushed = variant === 'flushed';
+  const _unstyled = variant === 'unstyled';
+
   const _className = clsx(
-    _css,
-    `w-full rounded px-4 outline-none border-solid border-gray-400 transition-all duration-150`,
+    `w-full outline-none transition-all duration-150`,
     {
       [_invalid]: isInvalid,
-      [`border focus:border-blue-400`]: !isInvalid,
-      [_border]: !isReadOnly,
+      [`border`]: !isInvalid && _outline,
+      [_border]: !isReadOnly && (_outline || _filled),
       'cursor-not-allowed opacity-50': isDisabled,
+      'border-solid border-gray-400': _outline,
+      'focus:border-blue-600': !isInvalid && (_outline || _filled),
+      'hover:bg-gray-300 bg-gray-200 focus:bg-transparent': _filled,
+      [`${String(_padding)} rounded`]: _filled || _outline,
+      'border-b-2 border-gray-300 focus:border-blue-600': _flushed,
+      [(String(_height), String(_css))]: !_unstyled,
     },
-
-    _height,
     className
   );
 
