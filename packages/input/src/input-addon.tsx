@@ -44,6 +44,7 @@ const StyledAddon = (props: PropsOf<typeof DivTag>) => {
 
 export type InputAddonProps = PropsOf<typeof StyledAddon> & {
   placement?: Placement;
+  value?: string;
 };
 
 /**
@@ -53,10 +54,14 @@ export type InputAddonProps = PropsOf<typeof StyledAddon> & {
  */
 export const InputAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
-    const { placement = 'left', ...rest } = props;
+    const { placement = 'left', value, children, ...rest } = props;
     const placementStyles = placements[placement] ?? {};
 
-    return <StyledAddon ref={ref} css={placementStyles} {...rest} />;
+    return (
+      <StyledAddon ref={ref} css={placementStyles} {...rest}>
+        {value || children}
+      </StyledAddon>
+    );
   }
 );
 
@@ -71,7 +76,7 @@ if (__DEV__) {
  */
 export const InputLeftAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
-    return <InputAddon ref={ref} placement='left' {...props} />;
+    return <InputAddon ref={ref} {...props} />;
   }
 );
 

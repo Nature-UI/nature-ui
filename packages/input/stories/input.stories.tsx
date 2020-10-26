@@ -2,7 +2,13 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Stack, Box } from '@nature-ui/layout';
 
-import { Input, InputProps } from '../src';
+import {
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  InputProps,
+  InputRightAddon,
+} from '../src';
 
 export default {
   title: 'Input',
@@ -67,10 +73,37 @@ export const WithStates: InputType = () => (
 );
 
 export const WithVariants: InputType = () => (
-  <Stack>
+  <Stack spacing='2rem'>
     <Input variant='outline' placeholder='Outline' />
     <Input variant='filled' placeholder='Filled' />
     <Input variant='flushed' placeholder='Flushed' />
     <Input variant='unstyled' placeholder='Unstyled' />
+  </Stack>
+);
+
+export const WithInputAddon = () => (
+  <Stack spacing='2rem'>
+    <InputGroup>
+      <InputLeftAddon
+        value='+234'
+        className='px-4 bg-gray-200 border-solid border rounded-l border-gray-400'
+      />
+      <Input placeholder='Phone number...' />
+    </InputGroup>
+
+    <InputGroup size='sm'>
+      <InputLeftAddon
+        value='https://'
+        className='px-4 bg-gray-200 border-solid border rounded-l border-gray-400'
+      />
+      <Input
+        placeholder='website.com'
+        // className='rounded-l-none rounded-r-none'
+      />
+      <InputRightAddon
+        value='.com'
+        className='px-4 bg-gray-300 border-solid border border-gray-400'
+      />
+    </InputGroup>
   </Stack>
 );

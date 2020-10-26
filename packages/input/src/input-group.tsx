@@ -19,9 +19,9 @@ export const InputGroup = React.forwardRef(
   (props: InputGroupProps, ref: React.Ref<any>) => {
     const { children = '', size = 'md', className, ...rest } = props;
 
-    const _className = clsx('', className);
+    const _className = clsx('flex', className);
 
-    // const stylesRef = React.useRef<InputGroupProps>({});
+    const stylesRef = React.useRef<InputGroupProps>({});
 
     const validChildren = getValidChildren(children);
 
@@ -30,10 +30,10 @@ export const InputGroup = React.forwardRef(
     validChildren.forEach((child: any) => {
       if (!__size) return;
 
-      console.log({ childType: child.type });
-
       if (child.type.__hidden === 'InputLeftElement') {
-        // stylesRef.current.className = __size
+        stylesRef.current.css = {
+          paddingLeft: size,
+        };
       }
 
       if (child.type.__hidden === 'InputRightElement') {
@@ -41,18 +41,28 @@ export const InputGroup = React.forwardRef(
       }
 
       if (child.type.__hidden === 'InputRightAddon') {
-        // stylesRef.current.borderRightRadius = 0;
+        (stylesRef as any).current.borderRightRadius = 0;
       }
 
       if (child.type.__hidden === 'InputLeftAddon') {
-        // stylesRef.current.borderLeftRadius = 0;
+        (stylesRef as any).current.borderLeftRadius = 0;
       }
     });
 
     const clones = validChildren.map((child: any) => {
       return child.type.__hidden !== 'Input'
         ? React.cloneElement(child, {})
-        : React.cloneElement(child, {});
+        : React.cloneElement(child, {
+            css: {
+              borderTopRightRadius: (stylesRef as any).current
+                ?.borderRightRadius,
+              borderBottomRightRadius: (stylesRef as any).current
+                ?.borderRightRadius,
+              borderTopLeftRadius: (stylesRef as any).current?.borderLeftRadius,
+              borderBottomLeftRadius: (stylesRef as any).current
+                ?.borderLeftRadius,
+            },
+          });
     });
 
     return (
@@ -62,7 +72,3 @@ export const InputGroup = React.forwardRef(
     );
   }
 );
-
-if (__DEV__) {
-  InputGroup.displayName = 'InputGroup';
-}
