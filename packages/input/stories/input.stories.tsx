@@ -1,14 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Stack, Box } from '@nature-ui/layout';
+import { CheckIcon } from '@nature-ui/icons';
 
-import {
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  InputProps,
-  InputRightAddon,
-} from '../src';
+import { Input, InputProps } from '../src';
 
 export default {
   title: 'Input',
@@ -83,27 +78,39 @@ export const WithVariants: InputType = () => (
 
 export const WithInputAddon = () => (
   <Stack spacing='2rem'>
-    <InputGroup>
-      <InputLeftAddon
-        value='+234'
-        className='px-4 bg-gray-200 border-solid border rounded-l border-gray-400'
-      />
-      <Input placeholder='Phone number...' />
-    </InputGroup>
+    <Input
+      placeholder='your-website'
+      defaultValue='divinehycenth'
+      addonLeft='https://'
+      addonRight='.com'
+    />
 
-    <InputGroup size='sm'>
-      <InputLeftAddon
-        value='https://'
-        className='px-4 bg-gray-200 border-solid border rounded-l border-gray-400'
-      />
-      <Input
-        placeholder='website.com'
-        // className='rounded-l-none rounded-r-none'
-      />
-      <InputRightAddon
-        value='.com'
-        className='px-4 bg-gray-300 border-solid border border-gray-400'
-      />
-    </InputGroup>
+    <Input
+      placeholder='Phone number...'
+      type='number'
+      addonLeft='+234'
+      size='sm'
+    />
+
+    <Input
+      placeholder='Enter amount'
+      type='number'
+      addonRight={<CheckIcon color='green' />}
+    />
   </Stack>
 );
+
+export const PasswordInput = () => {
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
+
+  return (
+    <Input
+      placeholder='Enter password'
+      type={show ? 'text' : 'password'}
+      addonRight={
+        <button onClick={handleClick}>{show ? 'Hide' : 'Show'}</button>
+      }
+    />
+  );
+};

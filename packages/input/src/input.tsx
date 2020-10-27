@@ -4,7 +4,10 @@ import { FormControlOptions, useFormControl } from '@nature-ui/form-control';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
+import { InputLeftAddon, InputRightAddon } from './input-addon';
+
 const InputTag = nature('input');
+const SpanTag = nature('span');
 
 interface InputOptions {
   /**
@@ -23,6 +26,16 @@ interface InputOptions {
    * If `true`, the input element will span the full width of it's parent
    */
   isFullWidth?: boolean;
+  /**
+   * Left addon: It can be an icon or any form of JSX element
+   * and would be positioned the left.
+   */
+  addonLeft?: React.ReactNode;
+  /**
+   * Right addon: It can be an icon or any form of JSX element
+   * and would be positioned the right.
+   */
+  addonRight?: React.ReactNode;
 }
 
 type Omitted = 'disabled' | 'required' | 'readOnly';
@@ -80,11 +93,17 @@ const StyledInput = (props: StyledInputProps) => {
     isReadOnly,
     isDisabled,
     variant = 'outline',
+    addonLeft,
+    addonRight,
     ...rest
   } = props;
 
+  const _addon = addonLeft || addonRight;
+
   const _padding = typeof size === 'string' && css(_PADDING[size]);
   const _css = typeof size === 'string' && css(_SIZES[size]);
+
+  console.log({ _css });
   const _height =
     typeof size === 'number' &&
     css`
@@ -105,6 +124,7 @@ const StyledInput = (props: StyledInputProps) => {
   const _unstyled = variant === 'unstyled';
 
   const _className = clsx(
+    className,
     `w-full outline-none transition-all duration-150`,
     {
       [_invalid]: isInvalid,
@@ -117,9 +137,32 @@ const StyledInput = (props: StyledInputProps) => {
       [`${String(_padding)} rounded`]: _filled || _outline,
       'border-b-2 border-gray-300 focus:border-blue-600': _flushed,
       [(String(_height), String(_css))]: !_unstyled,
-    },
-    className
+    }
   );
+
+  const _withAddon = clsx(
+    {
+      'rounded-l-none': addonLeft,
+      'rounded-r-none': addonRight,
+    },
+    _className
+  );
+
+  if (_addon) {
+    return (
+      <SpanTag className='flex'>
+        {addonLeft && (
+          <InputLeftAddon className={String(_css)}>{addonLeft}</InputLeftAddon>
+        )}
+        <InputTag className={_withAddon} {...rest} />
+        {addonRight && (
+          <InputRightAddon className={String(_css)}>
+            {addonRight}
+          </InputRightAddon>
+        )}
+      </SpanTag>
+    );
+  }
 
   return <InputTag className={_className} {...rest} />;
 };

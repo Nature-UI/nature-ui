@@ -4,7 +4,7 @@ import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
 type Placement = 'left' | 'right';
-const DivTag = nature('div');
+const SpanTag = nature('span');
 
 const placements = {
   left: {
@@ -13,7 +13,7 @@ const placements = {
     borderRightColor: 'transparent',
   },
   right: {
-    marginRight: '-1px',
+    marginLeft: '0px',
     borderLeftRadius: 0,
     borderLeftColor: 'transparent',
   },
@@ -24,7 +24,7 @@ const placements = {
  *
  * Wrapper element around the InputAddon component
  */
-const StyledAddon = (props: PropsOf<typeof DivTag>) => {
+const StyledAddon = (props: PropsOf<typeof SpanTag>) => {
   const { className = '', ...rest } = props;
 
   const _className = clsx(`flex w-auto items-center whitespace-no-wrap`, {
@@ -32,10 +32,12 @@ const StyledAddon = (props: PropsOf<typeof DivTag>) => {
   });
 
   return (
-    <DivTag
-      css={{
-        flex: '0 0 auto',
-      }}
+    <SpanTag
+      /*
+       * css={{
+       *   flex: '0 0 auto',
+       * }}
+       */
       className={_className}
       {...rest}
     />
@@ -44,7 +46,6 @@ const StyledAddon = (props: PropsOf<typeof DivTag>) => {
 
 export type InputAddonProps = PropsOf<typeof StyledAddon> & {
   placement?: Placement;
-  value?: string;
 };
 
 /**
@@ -54,12 +55,22 @@ export type InputAddonProps = PropsOf<typeof StyledAddon> & {
  */
 export const InputAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
-    const { placement = 'left', value, children, ...rest } = props;
+    const { placement = 'left', children, className = '', ...rest } = props;
     const placementStyles = placements[placement] ?? {};
+    // const _isString = typeof children === 'string';
+    const _className = clsx(
+      className,
+      'px-4 bg-gray-100 border border-gray-400'
+    );
 
     return (
-      <StyledAddon ref={ref} css={placementStyles} {...rest}>
-        {value || children}
+      <StyledAddon
+        ref={ref}
+        css={placementStyles}
+        {...rest}
+        className={_className}
+      >
+        {children}
       </StyledAddon>
     );
   }
@@ -76,7 +87,10 @@ if (__DEV__) {
  */
 export const InputLeftAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
-    return <InputAddon ref={ref} {...props} />;
+    const { className = '', ...rest } = props;
+    const _className = clsx(className, 'rounded-l');
+
+    return <InputAddon ref={ref} {...rest} className={_className} />;
   }
 );
 
@@ -94,7 +108,17 @@ InputLeftAddon.__hidden = 'InputLeftAddon';
  */
 export const InputRightAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
-    return <InputAddon ref={ref} placement='right' {...props} />;
+    const { className = '', ...rest } = props;
+    const _className = clsx(className, 'rounded-r');
+
+    return (
+      <InputAddon
+        ref={ref}
+        placement='right'
+        className={_className}
+        {...rest}
+      />
+    );
   }
 );
 
