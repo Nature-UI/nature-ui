@@ -57,9 +57,9 @@ export const FocusLock = (props: FocusLockProps) => {
     } else {
       if (contentRef?.current) {
         const focusable = getAllFocusable(contentRef.current);
-      }
-      if (isFocusable.length === 0) {
-        contentRef?.current?.focus();
+        if (focusable.length === 0) {
+          contentRef?.current?.focus();
+        }
       }
     }
   }, [initialFocusRef, contentRef]);
