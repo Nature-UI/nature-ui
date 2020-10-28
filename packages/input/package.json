@@ -1,9 +1,18 @@
 {
-  "name": "@nature-ui/system",
+  "name": "@nature-ui/input",
   "version": "0.1.0",
-  "description": "Nature UI system primitives",
+  "description": "A React component for input text field",
+  "keywords": [
+    "react",
+    "input",
+    "text field",
+    "nature ui",
+    "react component",
+    "validation",
+    "form control"
+  ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
-  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
   "main": "dist/index.js",
   "directories": {
@@ -28,15 +37,16 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.35",
-    "@nature-ui/utils": "^0.1.0",
-    "clsx": "^1.1.1",
-    "emotion": "^10.0.27",
-    "hoist-non-react-statics": "^3.3.2",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "@nature-ui/form-control": "^0.1.0",
+    "@nature-ui/utils": "^0.1.0"
   },
   "devDependencies": {
-    "@types/hoist-non-react-statics": "^3.3.1"
+    "@nature-ui/system": "^0.1.0",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "@nature-ui/system": ">=0.1",
+    "react": "16.x",
+    "rimraf": "^3.0.2"
   }
 }
