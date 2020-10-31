@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 
-import { usePortalManager } from './portal-manager';
+import { usePortalManager } from './modal-manager';
 
 type PortalContext = HTMLDivElement | null;
 

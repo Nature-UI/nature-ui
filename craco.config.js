@@ -6,7 +6,7 @@ const sass = import('node-sass');
 module.exports = {
   style: {
     postcss: {
-      plugins: [postcss, tailwind, autoprefixer, sass]
+      plugins: [postcss, tailwind, autoprefixer, sass],
       /*
        * env: {
        *   autoprefixer: {
@@ -14,6 +14,6 @@ module.exports = {
        *   },
        * },
        */
-    }
-  }
+    },
+  },
 };

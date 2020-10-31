@@ -1,8 +1,9 @@
 import { createContext, isBrowser, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { usePortalManager } from './portal-manager';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
+
+import { usePortalManager } from './portal-manager';
 
 type PortalContext = HTMLDivElement | null;
 
@@ -47,8 +48,10 @@ export const Portal = (props: PortalProps) => {
   const [portal] = React.useState(() => {
     if (isBrowser) {
       const div = document.createElement('div');
+
       return div;
     }
+
     // for ssr
     return null;
   });
@@ -71,7 +74,7 @@ export const Portal = (props: PortalProps) => {
       if (!portal || !container) return;
 
       // else, simply append component to the portal node
-      container.appendChild(portal);
+      container.append(portal);
     },
     [portal]
   );
@@ -131,7 +134,7 @@ export const Portal = (props: PortalProps) => {
   );
 
   if (!portal) {
-    return <React.Fragment>{_children}</React.Fragment>;
+    return <>{_children}</>;
   }
 
   return ReactDOM.createPortal(

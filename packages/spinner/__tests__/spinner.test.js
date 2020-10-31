@@ -3,5 +3,5 @@
 const spinner = require('..');
 
 describe('@nature-ui/spinner', () => {
-    it('needs tests');
+  it('needs tests');
 });
