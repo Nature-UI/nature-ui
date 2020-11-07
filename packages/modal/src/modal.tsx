@@ -161,30 +161,7 @@ if (__DEV__) {
 
 type ContentOptions = Pick<ModalProps, 'scrollBehavior'>;
 
-/**
- * ModalContent - Theming
- *
- * To style the modal content globally, change the styles in
- * `theme.components.Modal` under the `Content` key
- */
-const StyledContent = React.forwardRef(
-  (props: PropsOf<typeof SectionTag> & ContentOptions, ref: React.Ref<any>) => {
-    const { className = '', ...rest } = props;
-
-    const _className = clsx(
-      className,
-      'flex flex-col relative w-full focus:outline-none'
-    );
-
-    return <SectionTag className={_className} {...rest} ref={ref} />;
-  }
-);
-
-if (__DEV__) {
-  StyledContent.displayName = 'StyledContent';
-}
-
-export type ModalContentProps = PropsOf<typeof StyledContent>;
+export type ModalContentProps = PropsOf<typeof SectionTag> & ContentOptions;
 
 const _SIZES = {
   sm: '384',
@@ -217,7 +194,7 @@ export const ModalContent = React.forwardRef(
 
     const _className = clsx(
       className,
-      'bg-white shadow-lg my-12 rounded h-full flex flex-col relative w-full',
+      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none',
       {
         'overflow-auto': scrollBehavior === 'inside',
       }
@@ -225,21 +202,14 @@ export const ModalContent = React.forwardRef(
     const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
     const css = {
       width: _size,
-      maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'auto',
+      maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'none',
     };
     const theming = {
       variant,
       css,
     };
 
-    return (
-      <StyledContent
-        scrollBehavior={scrollBehavior}
-        className={_className}
-        {...theming}
-        {...contentProps}
-      />
-    );
+    return <SectionTag className={_className} {...contentProps} {...theming} />;
   }
 );
 
@@ -249,30 +219,7 @@ if (__DEV__) {
 
 type OverlayOptions = Pick<ModalProps, 'isCentered' | 'scrollBehavior'>;
 
-/**
- * ModalOverlay - Theming
- *
- * To style the modal overlay globally, change the styles in
- * `theme.components.Modal` under the `Overlay` key
- */
-const StyledOverlay = React.forwardRef(
-  (props: PropsOf<typeof DivTag> & OverlayOptions, ref: React.Ref<any>) => {
-    const { className = '', isCentered, scrollBehavior, ...rest } = props;
-
-    const _className = clsx(
-      className,
-      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen',
-      {
-        'overflow-auto': scrollBehavior !== 'inside',
-        'overflow-hidden': scrollBehavior === 'inside',
-      }
-    );
-
-    return <DivTag ref={ref} {...rest} className={_className} />;
-  }
-);
-
-export type ModalOverlayProps = PropsOf<typeof StyledOverlay>;
+export type ModalOverlayProps = PropsOf<typeof DivTag> & OverlayOptions;
 
 /**
  * ModalOverlay
@@ -309,17 +256,17 @@ export const ModalOverlay = React.forwardRef(
       css,
     };
 
-    const _className = clsx('chakra-modal__overlay', className);
-
-    return (
-      <StyledOverlay
-        className={_className}
-        scrollBehavior={scrollBehavior}
-        isCentered={isCentered}
-        {...theming}
-        {...overlayProps}
-      />
+    const _className = clsx(
+      className,
+      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start',
+      {
+        'overflow-auto': scrollBehavior === 'outside',
+        'overflow-hidden': scrollBehavior === 'inside',
+        'items-center': isCentered,
+      }
     );
+
+    return <DivTag className={_className} {...theming} {...overlayProps} />;
   }
 );
 

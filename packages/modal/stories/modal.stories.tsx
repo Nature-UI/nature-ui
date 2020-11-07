@@ -103,3 +103,47 @@ export const BasicUsage = () => {
     </>
   );
 };
+
+export const ReturnFocus = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = React.useRef<any>();
+
+  return (
+    <>
+      <div ref={finalRef} tabIndex={-1} aria-label='Focus moved to this box'>
+        Some other content that&apos;ll receive focus on close.
+      </div>
+
+      <Button mt={4} onClick={onOpen}>
+        Open Modal
+      </Button>
+
+      <Modal
+        variant='normal'
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay>
+          <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+              ullamco deserunt aute id consequat veniam incididunt duis in sint
+              irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+              officia tempor esse quis.
+            </ModalBody>
+
+            <ModalFooter>
+              <Button mr={3} onClick={onClose}>
+                Close
+              </Button>
+              <Button variant='ghost'>Secondary Action</Button>
+            </ModalFooter>
+          </ModalContent>
+        </ModalOverlay>
+      </Modal>
+    </>
+  );
+};
