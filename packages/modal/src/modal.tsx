@@ -112,7 +112,7 @@ export const Modal = (props: ModalProps) => {
     returnFocusOnClose = true,
     isOpen,
     scrollBehavior = 'outside',
-    size = 'lg',
+    size = 'md',
     variant = 'blur',
     trapFocus = true,
     autoFocus = true,
@@ -167,18 +167,32 @@ type ContentOptions = Pick<ModalProps, 'scrollBehavior'>;
  * To style the modal content globally, change the styles in
  * `theme.components.Modal` under the `Content` key
  */
-const StyledContent = (props: PropsOf<typeof SectionTag> & ContentOptions) => {
-  const { className = '', ...rest } = props;
+const StyledContent = React.forwardRef(
+  (props: PropsOf<typeof SectionTag> & ContentOptions, ref: React.Ref<any>) => {
+    const { className = '', ...rest } = props;
 
-  const _className = clsx(
-    className,
-    'flex flex-col relative w-full focus:outline-none'
-  );
+    const _className = clsx(
+      className,
+      'flex flex-col relative w-full focus:outline-none'
+    );
 
-  return <SectionTag className={_className} {...rest} />;
-};
+    return <SectionTag className={_className} {...rest} ref={ref} />;
+  }
+);
+
+if (__DEV__) {
+  StyledContent.displayName = 'StyledContent';
+}
 
 export type ModalContentProps = PropsOf<typeof StyledContent>;
+
+const _SIZES = {
+  sm: '384',
+  md: '448px',
+  lg: '512px',
+  xl: '576px',
+  full: '100%',
+};
 
 /**
  * ModalContent
@@ -195,10 +209,28 @@ export const ModalContent = React.forwardRef(
       size,
       scrollBehavior,
     } = useModalContext();
-    const contentProps = getContentProps({ ...rest, ref });
 
-    const _className = clsx(className);
-    const theming = { variant, size };
+    const contentProps = getContentProps({
+      ...rest,
+      ref,
+    });
+
+    const _className = clsx(
+      className,
+      'bg-white shadow-lg my-12 rounded h-full flex flex-col relative w-full',
+      {
+        'overflow-auto': scrollBehavior === 'inside',
+      }
+    );
+    const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
+    const css = {
+      width: _size,
+      maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'auto',
+    };
+    const theming = {
+      variant,
+      css,
+    };
 
     return (
       <StyledContent
@@ -223,22 +255,22 @@ type OverlayOptions = Pick<ModalProps, 'isCentered' | 'scrollBehavior'>;
  * To style the modal overlay globally, change the styles in
  * `theme.components.Modal` under the `Overlay` key
  */
-const StyledOverlay = (props: PropsOf<typeof DivTag> & OverlayOptions) => {
-  const { className = '', isCentered, scrollBehavior, ...rest } = props;
+const StyledOverlay = React.forwardRef(
+  (props: PropsOf<typeof DivTag> & OverlayOptions, ref: React.Ref<any>) => {
+    const { className = '', isCentered, scrollBehavior, ...rest } = props;
 
-  const _className = clsx(
-    className,
-    'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-full h-full',
-    {
-      center: isCentered,
-      'flex-start': !isCentered,
-      hidden: scrollBehavior === 'inside',
-      auto: scrollBehavior !== 'inside',
-    }
-  );
+    const _className = clsx(
+      className,
+      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen',
+      {
+        'overflow-auto': scrollBehavior !== 'inside',
+        'overflow-hidden': scrollBehavior === 'inside',
+      }
+    );
 
-  return <DivTag {...rest} className={_className} />;
-};
+    return <DivTag ref={ref} {...rest} className={_className} />;
+  }
+);
 
 export type ModalOverlayProps = PropsOf<typeof StyledOverlay>;
 
@@ -248,7 +280,6 @@ export type ModalOverlayProps = PropsOf<typeof StyledOverlay>;
  * React component that renders a backdrop behind the modal. It's
  * also used as a wrapper for the modal content for better positioning.
  *
- * @see Docs https://nature-ui.com/components/modal
  */
 export const ModalOverlay = React.forwardRef(
   (props: ModalOverlayProps, ref: React.Ref<any>) => {
@@ -261,9 +292,24 @@ export const ModalOverlay = React.forwardRef(
       size,
     } = useModalContext();
 
-    const overlayProps = getOverlayProps({ ...rest, ref });
-    const theming = { variant, size };
-    const _className = clsx('nature-modal__overlay', className);
+    const overlayProps = getOverlayProps({
+      ...rest,
+      ref,
+    });
+
+    const _variant = variant === 'blur' ? '5px' : '0px';
+
+    const css = {
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      backdropFilter: `blur(${_variant})`,
+    };
+    const theming = {
+      variant,
+      size,
+      css,
+    };
+
+    const _className = clsx('chakra-modal__overlay', className);
 
     return (
       <StyledOverlay
@@ -289,18 +335,25 @@ export type ModalHeaderProps = PropsOf<typeof StyledHeader>;
  * To style the modal header globally, change the styles in
  * `theme.components.Modal` under the `Header` key
  */
-const StyledHeader = (props: PropsOf<typeof nature.header>) => {
-  const { ...rest } = props;
+const StyledHeader = React.forwardRef(
+  (props: PropsOf<typeof nature.header>, ref: React.Ref<any>) => {
+    const { ...rest } = props;
 
-  return (
-    <HeaderTag
-      {...rest}
-      css={{
-        flex: 0,
-      }}
-    />
-  );
-};
+    return (
+      <HeaderTag
+        {...rest}
+        css={{
+          flex: 0,
+        }}
+        ref={ref}
+      />
+    );
+  }
+);
+
+if (__DEV__) {
+  StyledHeader.displayName = 'StyledHeader'; // FIXME: Remove this
+}
 
 /**
  * ModalHeader
@@ -325,7 +378,11 @@ export const ModalHeader = React.forwardRef(
       return () => setHeaderMounted(false);
     }, []);
 
-    const _className = clsx('nature-modal__header', className);
+    const _className = clsx(
+      'nature-modal__header',
+      className,
+      'p-4 font-bold text-xl'
+    );
 
     return (
       <StyledHeader ref={ref} className={_className} id={headerId} {...rest} />
@@ -352,7 +409,7 @@ const StyledBody = (props: StyledBodyProps) => {
   const { className = '', scrollBehavior, ...rest } = props;
 
   const _className = clsx(className, 'flex-1', {
-    auto: scrollBehavior === 'inside',
+    'overflow-auto': scrollBehavior === 'inside',
   });
 
   return <DivTag {...rest} className={_className} />;
@@ -380,7 +437,7 @@ export const ModalBody = forwardRef(
       return () => setBodyMounted(false);
     }, []);
 
-    const _className = clsx('nature-modal__body', className);
+    const _className = clsx('nature-modal__body', className, 'py-2 px-4');
 
     return (
       <StyledBody
@@ -408,9 +465,9 @@ if (__DEV__) {
 export const ModalFooter = (props: PropsOf<typeof FooterTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(className, 'flex items-center justify-end');
+  const _className = clsx(className, 'flex items-center justify-end p-4');
 
-  return <FooterTag className={_className} css={{ flex: 0 }} />;
+  return <FooterTag className={_className} css={{ flex: 0 }} {...rest} />;
 };
 
 if (__DEV__) {
@@ -429,14 +486,15 @@ export const ModalCloseButton = React.forwardRef(
     const { onClick, className, ...rest } = props;
     const { onClose } = useModalContext();
 
-    const _className = clsx('nature-modal__close-btn', className);
+    const _className = clsx(
+      'nature-modal__close-btn',
+      className,
+      'absolute top-0 right-0 mt-3 mr-3'
+    );
 
     return (
       <CloseButton
         ref={ref}
-        position='absolute'
-        top='8px'
-        right='12px'
         className={_className}
         onClick={callAllHandler(onClick, onClose)}
         {...rest}

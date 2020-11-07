@@ -43,7 +43,12 @@ export const BasicUsage = () => {
     <>
       <Button onClick={onOpen}>Open</Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        variant='blur'
+        scrollBehavior='outside'
+        isOpen={isOpen}
+        onClose={onClose}
+      >
         <ModalOverlay>
           <ModalContent>
             <ModalCloseButton />
@@ -81,10 +86,16 @@ export const BasicUsage = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button onClick={onClose} colorScheme='gray' mr='12px'>
+              <Button
+                onClick={onClose}
+                className='bg-gray-200 hover:bg-gray-300 transition duration-200'
+                mr='12px'
+              >
                 Cancel
               </Button>
-              <Button colorScheme='blue'>Save</Button>
+              <Button className='bg-blue-600 text-white hover:bg-blue-500 ml-3'>
+                Save
+              </Button>
             </ModalFooter>
           </ModalContent>
         </ModalOverlay>
