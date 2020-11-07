@@ -3,5 +3,5 @@
 const button = require('..');
 
 describe('@nature-ui/button', () => {
-    it('needs tests');
+  it('needs tests');
 });

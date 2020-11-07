@@ -1,13 +1,20 @@
 {
-  "name": "@nature-ui/close-button",
+  "name": "@nature-ui/modal",
   "version": "0.1.0",
-  "description": "A React and Chakra UI close button component.",
+  "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
-    "close-button",
-    "button",
-    "icon-button",
     "react",
-    "close-icon",
+    "react component",
+    "modal",
+    "dialog",
+    "modal dialog",
+    "accessible modal",
+    "aria modal",
+    "a11y modal",
+    "accessible modal",
+    "modal component",
+    "react modal component",
+    "react modal",
     "nature ui"
   ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
@@ -36,16 +43,21 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
+    "@nature-ui/close-button": "^0.1.0",
+    "@nature-ui/focus-lock": "^0.1.0",
+    "@nature-ui/hooks": "^0.1.0",
+    "@nature-ui/portal": "^0.1.0",
     "@nature-ui/utils": "^0.1.0",
-    "@nature-ui/icon": "^0.1.0",
-    "react": "^16.13.1",
+    "aria-hidden": "^1.1.1",
+    "react-remove-scroll": "^2.4.0"
+  },
+  "devDependencies": {
+    "@nature-ui/system": "^0.1.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
+    "@nature-ui/system": "^0.1.0",
+    "react": "16.x",
     "rimraf": "^3.0.2"
-  },
-  "devDependencies": {
-    "@nature-ui/system": "^0.1.0"
   }
 }

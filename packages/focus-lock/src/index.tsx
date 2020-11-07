@@ -54,12 +54,11 @@ export const FocusLock = (props: FocusLockProps) => {
   const onActivation = React.useCallback(() => {
     if (initialFocusRef?.current) {
       initialFocusRef.current.focus();
-    } else {
-      if (contentRef?.current) {
-        const focusable = getAllFocusable(contentRef.current);
-        if (focusable.length === 0) {
-          contentRef?.current?.focus();
-        }
+    } else if (contentRef?.current) {
+      const focusable = getAllFocusable(contentRef.current);
+
+      if (focusable.length === 0) {
+        contentRef?.current?.focus();
       }
     }
   }, [initialFocusRef, contentRef]);
