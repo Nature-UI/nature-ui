@@ -14,6 +14,7 @@ import {
 
 export default {
   title: 'AlertDialog',
+  component: AlertDialog,
   decorators: [
     (StoryFn: Function) => (
       <PortalManager>
