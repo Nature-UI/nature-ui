@@ -154,7 +154,7 @@ export const useFocusOnShow = (
     }
 
     if (popoverRef.current) {
-      const firstTabbable = getFirstTabbableIn(popover.current, true);
+      const firstTabbable = getFirstTabbableIn(popoverRef.current, true);
 
       focus(firstTabbable ?? popoverRef.current);
     }

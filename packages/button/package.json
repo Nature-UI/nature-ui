@@ -31,14 +31,15 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "rimraf ./dist && tsc && copyfiles ./src/button.css -u 1 dist"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^0.1.0",
     "@nature-ui/spinner": "^0.1.0",
+    "@nature-ui/system": "^0.1.0",
+    "copyfiles": "^2.4.0",
     "react": "^16.13.1",
     "rimraf": "^3.0.2"
   }

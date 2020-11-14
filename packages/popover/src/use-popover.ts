@@ -1,175 +1,195 @@
+import { useBoolean, useDisclosure, useIds } from '@nature-ui/hooks';
+import { Placement, usePopper, UsePopperProps } from '@nature-ui/popper';
+import { callAllHandler, Dict, mergeRefs } from '@nature-ui/utils';
 import * as React from 'react';
-import { Instance, createPopper, Modifier, Placement } from '@popperjs/core';
 
-import { getArrowStyles } from './popover.utils';
+import {
+  useBlurOutside,
+  useFocusOnHide,
+  useFocusOnShow,
+} from './popover.utils';
 
-const isBrowser = typeof window !== 'undefined';
-
-const useSafeLayoutEffect = isBrowser ? React.useLayoutEffect : React.useEffect;
-
-export type { Placement };
-
-export interface UsePopperProps {
+export interface UsePopoverProps {
+  /**
+   * The html `id` attribute of the popover.
+   * If not provided, we generate a unique id.
+   *
+   * This `id` is also used to auto-generate the `aria-labelledby`
+   * and `aria-decribedby` attributes that points to the `PopoverHeader` and `PopoverBody`
+   */
+  id?: string;
+  /**
+   * If `true`, the popover will be opened in controlled mode.
+   */
+  isOpen?: boolean;
+  /**
+   * If `true`, the popover will be initially opened.
+   */
+  defaultIsOpen?: boolean;
+  /**
+   * The `ref` of the element that should receive focus when the popover opens.
+   */
+  initialFocusRef?: React.RefObject<any>;
+  /**
+   * If `true`, focus will be returned to the element that triggers the popover
+   * when it closes
+   */
+  returnFocus?: boolean;
+  /**
+   * If `true`, focus will be transferred to the first interactive element
+   * when the popover opens
+   */
+  autoFocus?: boolean;
+  /**
+   * The gap (in pixels) to apply between the popover and the target.
+   * Used by `popper.js`
+   */
   gutter?: number;
+  /**
+   * The placment of the popover
+   */
   placement?: Placement;
-  offset?: number;
-  preventOverflow?: boolean;
-  fixed?: boolean;
-  forceUpdate?: boolean;
-  flip?: boolean;
+  /**
+   * If `true`, the popover will close when you blur out it by
+   * clicking outside or tabbing out
+   */
+  closeOnBlur?: boolean;
+  /**
+   * If `true`, the popover will close when you hit the `Esc` key
+   */
+  closeOnEsc?: boolean;
+  /**
+   * Callback fired when the popover opens
+   */
+  onOpen?: () => void;
+  /**
+   * Callback fired when the popover closes
+   */
+  onClose?: () => void;
+  /**
+   * The size of the popover arrow
+   */
   arrowSize?: number;
+  /**
+   * The `box-shadow` of the popover arrow
+   */
   arrowShadowColor?: string;
-  eventsEnabled?: boolean;
-  modifiers?: Modifier<any, any>[];
+  /**
+   * The Popper.js modifiers to use.
+   */
+  modifiers?: UsePopperProps['modifiers'];
 }
 
-export const usePopper = (props: UsePopperProps) => {
+export const usePopover = (props: UsePopoverProps = {}) => {
   const {
-    placement: initialPlacement = 'bottom',
-    offset: offsetProp,
-    preventOverflow = true,
-    fixed = false,
-    forceUpdate = true,
-    flip = true,
-    arrowSize = 10,
-    arrowShadowColor,
-    gutter = arrowSize,
-    eventsEnabled = true,
+    closeOnBlur = true,
+    closeOnEsc = true,
+    initialFocusRef,
+    placement,
+    gutter,
+    id,
+    arrowSize,
+    returnFocus = true,
+    autoFocus = true,
+    arrowShadowColor = '#E2E8F0',
     modifiers,
   } = props;
 
-  const popper = React.useRef<Instance | null>(null);
-  const referenceRef = React.useRef<HTMLButtonElement>(null);
-  const popoverRef = React.useRef<HTMLDivElement>(null);
-  const arrowRef = React.useRef<HTMLDivElement>(null);
+  const { isOpen, onClose, onToggle } = useDisclosure(props);
 
-  const [originalPlacement, place] = React.useState(initialPlacement);
-  const [placement, setPlacement] = React.useState(initialPlacement);
-  const [offset] = React.useState(offsetProp || [0, gutter]);
-  const [popoverStyles, setPopoverStyles] = React.useState<React.CSSProperties>(
-    {}
+  const triggerRef = React.useRef<any>(null);
+  const popoverRef = React.useRef<any>(null);
+
+  const [hasHeader, setHasHeader] = useBoolean();
+  const [hasBody, setHasBody] = useBoolean();
+
+  const [triggerId, popoverId, headerId, bodyId] = useIds(
+    id,
+    'popover-trigger',
+    'popover-content',
+    'popover-header',
+    'popover-body'
   );
-  const [arrowStyles, setArrowStyles] = React.useState<React.CSSProperties>({});
 
-  const update = React.useCallback(() => {
-    if (popper.current) {
-      popper.current.forceUpdate();
+  const { popper, reference, arrow } = usePopper({
+    placement,
+    gutter,
+    forceUpdate: isOpen,
+    arrowSize,
+    arrowShadowColor,
+    modifiers,
+  });
 
-      return true;
-    }
+  useFocusOnHide(popoverRef, {
+    autoFocus: returnFocus,
+    visible: isOpen,
+    focusRef: triggerRef,
+  });
 
-    return false;
-  }, []);
+  useFocusOnShow(popoverRef, {
+    autoFocus,
+    visible: isOpen,
+    focusRef: initialFocusRef,
+  });
 
-  const modifiersOverride = modifiers ?? [];
+  const onBlur = useBlurOutside(triggerRef, popoverRef, {
+    visible: Boolean(closeOnBlur && isOpen),
+    action: onClose,
+  });
 
-  useSafeLayoutEffect(() => {
-    if (referenceRef.current && popoverRef.current) {
-      popper.current = createPopper(referenceRef.current, popoverRef.current, {
-        placement: originalPlacement,
-        strategy: fixed ? 'fixed' : 'absolute',
-        modifiers: [
-          {
-            name: 'eventListeners',
-            enabled: eventsEnabled,
-          },
-          {
-            name: 'applyStyles',
-            enabled: false,
-          },
-          {
-            name: 'flip',
-            enabled: flip,
-            options: { padding: 8 },
-          },
-          {
-            name: 'computeStyles',
-            options: {
-              gpuAcceleration: false,
-              adaptive: false,
-            },
-          },
-          {
-            name: 'offset',
-            options: { offset },
-          },
-          {
-            name: 'preventOverflow',
-            enabled: preventOverflow,
-            options: {
-              tetherOffset: () => arrowRef.current?.clientHeight || 0,
-            },
-          },
-          {
-            name: 'arrow',
-            enabled: Boolean(arrowRef.current),
-            options: { element: arrowRef.current },
-          },
-          {
-            name: 'updateState',
-            phase: 'write',
-            enabled: true,
-            fn: ({ state }) => {
-              setPlacement(state.placement);
-              setPopoverStyles(state.styles.popper as React.CSSProperties);
-              setArrowStyles(state.styles.arrow as React.CSSProperties);
-            },
-          },
-          ...modifiersOverride,
-        ],
-      });
-    }
-
-    return () => {
-      if (popper.current) {
-        popper.current.destroy();
-        popper.current = null;
+  const onKeyDown = React.useCallback(
+    (event: React.KeyboardEvent) => {
+      if (closeOnEsc && event.key === 'Escape') {
+        onClose();
       }
-    };
-  }, [
-    originalPlacement,
-    fixed,
-    forceUpdate,
-    flip,
-    offset,
-    preventOverflow,
-    eventsEnabled,
-  ]);
-
-  useSafeLayoutEffect(() => {
-    const id = requestAnimationFrame(() => {
-      if (forceUpdate) {
-        popper.current?.forceUpdate();
-      }
-    });
-
-    return () => {
-      cancelAnimationFrame(id);
-    };
-  }, [forceUpdate]);
-
-  const computedArrowStyles: React.CSSProperties = {
-    ...arrowStyles,
-    ...getArrowStyles(placement, arrowSize, arrowShadowColor),
-  };
+    },
+    [closeOnEsc, onClose]
+  );
 
   return {
-    popperInstance: popper.current,
-    reference: {
-      ref: referenceRef,
-    },
-    popper: {
-      ref: popoverRef,
-      style: popoverStyles,
-    },
-    arrow: {
-      ref: arrowRef,
-      style: computedArrowStyles,
-    },
-    update,
-    placement,
-    place,
+    isOpen,
+    onClose,
+    headerId,
+    hasHeader,
+    setHasHeader,
+    bodyId,
+    hasBody,
+    setHasBody,
+    getArrowProps: (_props: Dict = {}) => ({
+      ..._props,
+      ref: mergeRefs(arrow.ref, _props.ref),
+      css: {
+        ...arrow.style,
+        ..._props.style,
+      },
+    }),
+    getTriggerProps: (_props: Dict = {}) => ({
+      ..._props,
+      id: triggerId,
+      ref: mergeRefs(triggerRef, reference.ref, _props.ref),
+      'aria-haspopup': 'dialog' as React.AriaAttributes['aria-haspopup'],
+      'aria-expanded': isOpen,
+      'aria-controls': popoverId,
+      onClick: callAllHandler(_props.onClick, onToggle),
+    }),
+    getPopoverProps: (_props: Dict = {}) => ({
+      ..._props,
+      id: popoverId,
+      tabIndex: -1,
+      hidden: !isOpen,
+      ref: mergeRefs(popoverRef, popper.ref, _props.ref),
+      style: {
+        ..._props.style,
+        ...popper.style,
+      },
+      'aria-hidden': isOpen ? undefined : true,
+      role: 'dialog',
+      onBlur: callAllHandler(_props.onBlur, onBlur),
+      onKeyDown: callAllHandler(_props.onKeyDown, onKeyDown),
+      'aria-labelledby': hasHeader ? headerId : undefined,
+      'aria-describedby': hasBody ? bodyId : undefined,
+    }),
   };
 };
 
-export type UsePopperReturn = ReturnType<typeof usePopper>;
+export type UsePopoverReturn = ReturnType<typeof usePopover>;
