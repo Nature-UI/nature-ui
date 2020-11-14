@@ -1,15 +1,14 @@
 {
-  "name": "@nature-ui/button",
+  "name": "@nature-ui/popover",
   "version": "0.1.0",
-  "description": "A React component that is a base button.",
+  "description": "A React component to render that renders it's content in a popover",
   "keywords": [
-    "button",
-    "button-group",
+    "popover",
+    "popper",
+    "dialog",
     "react",
-    "nature-ui",
     "component",
-    "clickable",
-    "tabbable"
+    "nature ui"
   ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui",
@@ -31,16 +30,24 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc && copyfiles ./src/button.css -u 1 dist"
+    "build": "rimraf ./dist && tsc"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/spinner": "^0.1.0",
+    "@nature-ui/close-button": "^0.1.0",
+    "@nature-ui/hooks": "^0.1.0",
+    "@nature-ui/popper": "^0.1.0",
+    "@nature-ui/portal": "^0.1.0",
+    "@nature-ui/utils": "^0.1.0"
+  },
+  "devDependencies": {
     "@nature-ui/system": "^0.1.0",
-    "copyfiles": "^2.4.0",
-    "react": "^16.13.1",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "react": "16.x",
     "rimraf": "^3.0.2"
   }
 }
