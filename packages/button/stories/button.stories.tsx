@@ -57,7 +57,12 @@ export const Sizes = () => {
   );
 };
 
-export const IsDisabled = Template.bind({});
+export const IsDisabled: ButtonStoryType = Template.bind({});
+
+IsDisabled.args = {
+  isDisabled: true,
+  children: 'Disabled',
+};
 
 export const IsLoading = () => {
   return (

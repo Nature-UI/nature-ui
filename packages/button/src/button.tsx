@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { nature, clsx } from '@nature-ui/system';
-import { PropsOf } from '@nature-ui/system/src';
+import { nature, clsx, PropsOf, css } from '@nature-ui/system';
 import { __DEV__, lighten, darken } from '@nature-ui/utils';
 import { Spinner } from '@nature-ui/spinner';
 
@@ -31,7 +30,7 @@ interface ButtonProps {
    * The label to show in the button when isLoading is true. If no text is passed, it only shows the spinner
    */
   loadingText?: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | number;
 
   /**
    * Typeof String | JSX.Element
@@ -42,6 +41,29 @@ interface ButtonProps {
 const NatureButton = nature('button');
 
 export type ButtonType = PropsOf<typeof NatureButton> & ButtonProps;
+
+const _SIZES = {
+  xs: {
+    size: '1.5rem',
+    font: '0.75rem',
+    padding: '0.5rem',
+  },
+  sm: {
+    size: '2rem',
+    font: '0.875rem',
+    padding: '0.75rem',
+  },
+  md: {
+    size: '2.5rem',
+    font: '1rem',
+    padding: '1rem',
+  },
+  lg: {
+    size: '3rem',
+    font: '1.125rem',
+    padding: '1.5rem',
+  },
+};
 
 export const Button = React.forwardRef(
   (props: ButtonType, ref: React.Ref<any>) => {
@@ -59,6 +81,23 @@ export const Button = React.forwardRef(
       ...rest
     } = props;
 
+    const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
+    const _font = _SIZES[size].font ?? '1rem';
+    const _padding = _SIZES[size].padding ?? '1rem';
+
+    const _link = variant === 'link';
+
+    const _sizes = css({
+      height: _size,
+      minWidth: _size,
+      paddingLeft: _padding,
+      paddingRight: _padding,
+    });
+
+    const _css = css({
+      fontSize: _font,
+    });
+
     const DEFAULT_CLASS =
       'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle';
     const STYLES = {
@@ -70,10 +109,6 @@ export const Button = React.forwardRef(
       )} text-${text} border border-${text} focus:border-transparent`,
       ghost: `hover:bg-${lighten(text)} text-${text} button--ripple`,
       link: `hover:underline text-${text}`,
-      xs: 'px-1 py-1 text-xs',
-      sm: 'px-2 py-2 text-sm',
-      md: 'px-4 py-2 text-md',
-      lg: 'px-6 py-3 text-lg',
       disabled: 'opacity-50 cursor-not-allowed',
     };
 
@@ -84,10 +119,9 @@ export const Button = React.forwardRef(
         [STYLES['disabled']]: isDisabled || isLoading,
       });
     } else {
-      BTNClass = clsx(DEFAULT_CLASS, {
-        [STYLES[size]]: size && variant !== 'link',
+      BTNClass = clsx(className, _css, DEFAULT_CLASS, {
+        [_sizes]: !_link,
         [STYLES[variant]]: variant,
-        [className]: className,
         [STYLES['disabled']]: isDisabled || isLoading,
       });
     }
