@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { nature, clsx, PropsOf, css } from '@nature-ui/system';
+import { nature, clsx, PropsOf, css, keyframes } from '@nature-ui/system';
 import { __DEV__, lighten, darken } from '@nature-ui/utils';
 import { Spinner } from '@nature-ui/spinner';
-
-import './button.css';
 
 interface ButtonProps {
   /**
@@ -94,9 +92,35 @@ export const Button = React.forwardRef(
       paddingRight: _padding,
     });
 
-    const _css = css({
-      fontSize: _font,
-    });
+    const _ripple = keyframes`
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(10);
+      }
+    `;
+
+    const _css = css`
+      font-size: ${_font};
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1em;
+        height: 1em;
+        background: currentColor;
+        border-radius: 50%;
+        opacity: 0;
+      }
+
+      &focus:not(:active)::after {
+        animation: 0.3s ${_ripple};
+      }
+    `;
 
     const DEFAULT_CLASS =
       'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle';
