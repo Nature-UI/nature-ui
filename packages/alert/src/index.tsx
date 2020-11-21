@@ -64,28 +64,22 @@ interface AlertOptions {
    * The variant of the alert style to use
    */
   variant?: 'solid' | 'subtle';
-
-  /**
-   * Other tailwind utility classes or custom classnames you wish to include
-   */
-  className?: string;
-
-  children?: React.ReactNode;
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
   component?: React.ElementType;
   id?: string;
+  alertTitle?: React.ReactNode;
 }
 
-export type AlertProps = AlertOptions;
+const DivTag = nature('div');
+export type AlertProps = AlertOptions & PropsOf<typeof DivTag>;
 
 const BASE_STYLE =
   'px-4 py-3 flex items-center w-full relative overflow-hidden';
 
-const DivTag = nature('div');
-export const AlertWrapper = (props: AlertProps & PropsOf<typeof DivTag>) => {
+export const AlertWrapper = (props: AlertProps) => {
   const {
     className = '',
     status = 'success',
@@ -123,7 +117,7 @@ export const AlertTitle = (props: AlertTitleProps) => {
   const { className = '', ...rest } = props;
   // const Component = 'div';
 
-  return <DivTag className={clx(className, 'font-bold mr-3')} {...rest} />;
+  return <DivTag className={clx(className, 'font-bold')} {...rest} />;
 };
 
 if (__DEV__) {
@@ -174,51 +168,23 @@ if (__DEV__) {
   AlertIcon.displayName = 'AlertIcon';
 }
 
-const Alert: React.ForwardRefExoticComponent<AlertProps> = React.forwardRef(
-  (props: AlertProps, ref: React.Ref<any>) => {
-    const {
-      className = '',
-      status = 'success',
-      children,
-      variant = 'subtle',
-      component: Component = 'div',
-    } = props;
+const Alert = (props: AlertProps) => {
+  const {
+    variant = 'subtle',
+    status = 'error',
+    alertTitle,
+    children,
+    ...rest
+  } = props;
 
-    // const Component = 'div';
-
-    const {
-      iconColor,
-      icon: IconComponent,
-      variant: Variant,
-      bg,
-    } = ALERT_STATUSES[status];
-    const VARIANT: string = Variant[variant];
-
-    const componentClass = clx(className, BASE_STYLE, {
-      [bg]: status,
-      [VARIANT]: variant,
-    });
-
-    // const Icon = ALERT_STATUSES[status];
-
-    const iconClasses = clx({
-      [VARIANT]: variant,
-      'mr-3': variant,
-      [iconColor]: variant !== 'solid',
-    });
-
-    const context = { status, variant };
-
-    return (
-      <AlertContextProvider value={context}>
-        <Component className={componentClass} ref={ref}>
-          {status && <IconComponent className={iconClasses} size={20} />}
-          <Component>{children ? children : 'This is an alert 🙂'}</Component>
-        </Component>
-      </AlertContextProvider>
-    );
-  }
-);
+  return (
+    <AlertWrapper {...rest} variant={variant} status={status}>
+      <AlertIcon />
+      <AlertTitle className='mr-3'>{alertTitle}</AlertTitle>
+      <AlertDescription>{children}</AlertDescription>
+    </AlertWrapper>
+  );
+};
 
 if (__DEV__) {
   Alert.displayName = 'Alert';

@@ -1,8 +1,9 @@
 import {
-  Alert,
   AlertDescription,
   AlertIcon,
+  AlertProps,
   AlertTitle,
+  AlertWrapper,
   ALERT_STATUSES,
 } from '@nature-ui/alert';
 import { CloseButton } from '@nature-ui/close-button';
@@ -42,7 +43,7 @@ export interface UseToastOptions {
   /**
    * If `true`, toast will show a close button
    */
-  isClosable?: boolean;
+  isCloseable?: boolean;
   /**
    * The alert component `variant` to use
    */
@@ -64,25 +65,106 @@ export interface UseToastOptions {
   onCloseComplete?: () => void;
 }
 
-export type IToast = UseToastOptions
+export type IToast = UseToastOptions;
 
-const DivTag = nature("div")
-const Toast = (props: UseToastOptions & PropsOf<typeof Alert>) => {
-    const {status = "success", variant, id, title, isCloseable, onClose, description, className = '', ...rest} = props
+const DivTag = nature('div');
+const Toast = (props: any) => {
+  const {
+    status = 'success',
+    variant,
+    id,
+    title,
+    isCloseable,
+    onClose,
+    description,
+    className = '',
+    ...rest
+  } = props;
 
-    return (
-        <Alert
-            status={status}
-            variant={variant}
-            id={id}
-            className={clsx(className, 'text-left shadow-lg rounded-md items-start m-2 p-4')}
+  return (
+    <AlertWrapper
+      status={status}
+      variant={variant}
+      id={id}
+      className={clsx(
+        className,
+        'text-left shadow-lg rounded-md items-start m-2 p-4'
+      )}
+      {...rest}
+    >
+      <AlertIcon />
+      <DivTag className='flex-1'>
+        {title && <AlertTitle>{title}</AlertTitle>}
+        {description && (
+          <AlertDescription marginTop='px' lineHeight='short'>
+            {description}
+          </AlertDescription>
+        )}
+      </DivTag>
+      {isCloseable && (
+        <CloseButton
+          size='sm'
+          onClick={onClose}
+          className='absolute right-0 top-0 mr-2 mt-2'
+        />
+      )}
+    </AlertWrapper>
+  );
+};
 
-        >
-            <AlertIcon />
-            <DivTag className="flex-1">
-                {title && <Aler}
+const defaults = {
+  duration: 5000,
+  position: 'bottom',
+  variant: 'solid',
+} as const;
 
-            </DivTag>
-        </Alert>
-    )
-}
+/**
+ * React hook used to create a function that can be used
+ * to show toasts in an application.
+ */
+export const useToast = () => {
+  const toastImpl = (options: UseToastOptions) => {
+    const { render } = options;
+
+    const Message = (props: RenderProps) => (
+      <>
+        {isFunction(render) ? (
+          render(props)
+        ) : (
+          <Toast {...{ ...props, ...opts }} />
+        )}
+      </>
+    );
+    const opts = merge(defaults, options);
+
+    return toast.notify(Message, opts);
+  };
+
+  toastImpl.close = toast.close;
+  toastImpl.closeAll = toast.closeAll;
+
+  toastImpl.update = (id: ToastId, options: Omit<UseToastOptions, 'id'>) => {
+    const { render, ...rest } = options;
+
+    const opts = merge(defaults, rest) as any;
+
+    toast.update(id, {
+      ...opts,
+      message: (props) => (
+        <>
+          {isFunction(render) ? (
+            render(props)
+          ) : (
+            <Toast {...{ ...props, ...opts }} />
+          )}
+        </>
+      ),
+    });
+  };
+
+  toastImpl.isActive = toast.isActive;
+
+  return toastImpl;
+};
+
+export default useToast;
