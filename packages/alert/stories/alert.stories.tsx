@@ -1,9 +1,28 @@
 import * as React from 'react';
 
-import Alert from '../src';
+import Alert, {
+  AlertWrapper,
+  AlertTitle,
+  AlertDescription,
+  AlertIcon,
+} from '../src';
 
 export default {
   title: 'Alert',
+  component: Alert,
+  decorators: [
+    (story: Function) => <div className='max-w-2xl mx-auto'>{story()}</div>,
+  ],
+};
+
+export const Basic = () => {
+  return (
+    <AlertWrapper variant='solid' status='error' className='rounded-md'>
+      <AlertIcon />
+      <AlertTitle className='mr-3'>Outdated</AlertTitle>
+      <AlertDescription>Your experience may be degraded!</AlertDescription>
+    </AlertWrapper>
+  );
 };
 
 export const Success = () => {
@@ -16,8 +35,8 @@ export const Success = () => {
 
 export const Error = () => {
   return (
-    <Alert status='error'>
-      This is an Error Alert{' '}
+    <Alert status='error' alertTitle='Error alert'>
+      This is an Error Alert
       <span aria-label='emoji' role='img'>
         😖
       </span>
@@ -26,21 +45,21 @@ export const Error = () => {
 };
 
 export const Info = () => {
-  return <Alert status='info' />;
+  return <Alert status='info' alertTitle='Info alert' />;
 };
 
 export const Warning = () => {
-  return <Alert status='warning' />;
+  return <Alert status='warning' alertTitle='Warning alert' />;
 };
 
 export const Solid = () => {
   return (
-    <Alert status='success' variant='solid'>
+    <Alert
+      status='success'
+      alertTitle={<div>Success alert</div>}
+      variant='solid'
+    >
       This is a solid variant!
     </Alert>
   );
-};
-
-export const NoIcon = () => {
-  return <Alert>This is an alert without an Icon!</Alert>;
 };

@@ -117,7 +117,7 @@ export const Button = React.forwardRef(
         opacity: 0;
       }
 
-      &focus:not(:active)::after {
+      &:focus:not(:active)::after {
         animation: 0.3s ${_ripple};
       }
     `;

@@ -2968,6 +2968,16 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.5.4.tgz#de25b5da9f727985a3757fd59b5d028aba75841a"
   integrity sha512-ZpKr+WTb8zsajqgDkvCEWgp6d5eJT6Q63Ng2neTbzBO76Lbe91vX/iVIW9dikq+Fs3yEo+ls4cxeXABD2LtcbQ==
 
+"@reach/alert@^0.11.2":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@reach/alert/-/alert-0.11.2.tgz#7712a1ac2380d9426a0fe202a2fc48b976548bff"
+  integrity sha512-udMiJ+MR97ZcPxwc4CNSs6FvXfjiS/Q1mL61fbONSPSkN4GFSWkYy2WvXH5pZfg1DbEscRNGa7E8bgJfGiVo1g==
+  dependencies:
+    "@reach/utils" "0.11.2"
+    "@reach/visually-hidden" "0.11.1"
+    prop-types "^15.7.2"
+    tslib "^2.0.0"
+
 "@reach/auto-id@^0.11.0":
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.11.2.tgz#c66a905c5401d1ac3da8d26165b8d27d6e778fa6"
@@ -3009,6 +3019,13 @@
     "@types/warning" "^3.0.0"
     tslib "^2.0.0"
     warning "^4.0.3"
+
+"@reach/visually-hidden@0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.11.1.tgz#3d7a5742acf18372f35b9e216680edd8073f35e3"
+  integrity sha512-TZZNSttor2jG6ZPGI35s/8G0FNSz49QrJIhAZbnUqHyPf3+jtNqAC0dOWW8Nuk+mApDDDVYd2KZ9P2vnzllNnQ==
+  dependencies:
+    tslib "^2.0.0"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
