@@ -1,9 +1,24 @@
 import * as React from 'react';
 
-import Alert from '../src';
+import Alert, {
+  AlertWrapper,
+  AlertTitle,
+  AlertDescription,
+  AlertIcon,
+} from '../src';
 
 export default {
   title: 'Alert',
+};
+
+export const Basic = () => {
+  return (
+    <AlertWrapper variant='solid' status='error' className='rounded-md'>
+      <AlertIcon />
+      <AlertTitle>Outdated</AlertTitle>
+      <AlertDescription>Your experience may be degraded!</AlertDescription>
+    </AlertWrapper>
+  );
 };
 
 export const Success = () => {
@@ -39,8 +54,4 @@ export const Solid = () => {
       This is a solid variant!
     </Alert>
   );
-};
-
-export const NoIcon = () => {
-  return <Alert>This is an alert without an Icon!</Alert>;
 };

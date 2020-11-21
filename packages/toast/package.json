@@ -55,6 +55,7 @@
   "peerDependencies": {
     "@nature-ui/system": "^0.1.0",
     "react": "16.x",
+    "react-dom": "16.x",
     "rimraf": "^3.0.2"
   }
 }
