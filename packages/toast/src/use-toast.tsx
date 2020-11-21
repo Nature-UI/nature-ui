@@ -86,10 +86,10 @@ const Toast = (props: any) => {
       status={status}
       variant={variant}
       id={id}
-      className={clsx(
-        className,
-        'text-left shadow-lg rounded-md items-start m-2 p-4'
-      )}
+      className={clsx(className, 'text-left shadow-lg rounded-md m-2 p-4')}
+      style={{
+        alignItems: 'start',
+      }}
       {...rest}
     >
       <AlertIcon />
