@@ -19,7 +19,7 @@ export const Basic = () => {
   return (
     <AlertWrapper variant='solid' status='error' className='rounded-md'>
       <AlertIcon />
-      <AlertTitle>Outdated</AlertTitle>
+      <AlertTitle className='mr-3'>Outdated</AlertTitle>
       <AlertDescription>Your experience may be degraded!</AlertDescription>
     </AlertWrapper>
   );
