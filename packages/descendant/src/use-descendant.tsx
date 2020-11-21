@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useSafeLayoutEffect, useForceUpdate } from '@nature-ui/hooks';
-import { element } from 'prop-types';
 
 export type Descendant<T extends HTMLElement, P = {}> = P & {
   element: T | null;

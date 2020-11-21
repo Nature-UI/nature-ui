@@ -1,4 +1,3 @@
-import { nature } from '@nature-ui/system';
 import * as React from 'react';
 import { useDescendant, useDescendants, DescendantContext } from '../src';
 import { createContext } from '@nature-ui/utils';
