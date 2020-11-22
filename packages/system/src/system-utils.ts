@@ -2,6 +2,7 @@ import * as React from 'react';
 import { isString, UnionStringArray, __DEV__ } from '@nature-ui/utils';
 
 import { ForwardRefComponent } from './system-types';
+import { pseudoSelectors } from './pseudo';
 
 /**
  * Carefully selected html elements for chakra components.
@@ -92,6 +93,27 @@ export const domElements = [
 ] as const;
 
 export type DOMElements = UnionStringArray<typeof domElements>;
+
+export const pseudoProps = (props: any) => {
+  let result = {};
+
+  for (const prop in props) {
+    if (prop in pseudoSelectors) {
+      const style = { [prop]: props[prop] };
+
+      console.log({
+        style,
+        from: 'pseudoProps',
+      });
+      result = {
+        ...result,
+        ...style,
+      };
+    }
+  }
+
+  return result;
+};
 
 export const isTag = (target: any) => {
   return isString(target) && __DEV__

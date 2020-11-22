@@ -1,43 +1,40 @@
 import * as React from 'react';
-import {mergeRefs, dataAttr} from '@nature-ui/utils'
-
+import { mergeRefs, dataAttr } from '@nature-ui/utils';
 
 interface DOMAttrs {
-  onMouseDown?: React.MouseEventHandler
-  onMouseUp?: React.MouseEventHandler
-  onMouseOver?: React.MouseEventHandler
-  onMouseEnter?: React.MouseEventHandler
-  onMouseMove?: React.MouseEventHandler
-  onMouseLeave?: React.MouseEventHandler
-  onClick?: React.MouseEventHandler
-  ref?: React.Ref<any>
-  onKeyDown?: React.KeyboardEventHandler
-  onKeyUp?: React.KeyboardEventHandler
-  tabIndex?: number
+  onMouseDown?: React.MouseEventHandler;
+  onMouseUp?: React.MouseEventHandler;
+  onMouseOver?: React.MouseEventHandler;
+  onMouseEnter?: React.MouseEventHandler;
+  onMouseMove?: React.MouseEventHandler;
+  onMouseLeave?: React.MouseEventHandler;
+  onClick?: React.MouseEventHandler;
+  ref?: React.Ref<any>;
+  onKeyDown?: React.KeyboardEventHandler;
+  onKeyUp?: React.KeyboardEventHandler;
+  tabIndex?: number;
 }
-
 
 export interface UseClickableProps extends DOMAttrs {
   /**
    * If `true`, the element will be disabled.
    * It will set the `disabled` HTML attribute
    */
-  isDisabled?: boolean
+  isDisabled?: boolean;
   /**
    * If `true` and isDisabled, the element will
    * have only `aria-disabled` set to `true`
    */
-  isFocusable?: boolean
+  isFocusable?: boolean;
   /**
    * Whether or not trigger click on pressing `Enter`.
    */
-  clickOnEnter?: boolean
+  clickOnEnter?: boolean;
   /**
    * Whether or not trigger click on pressing `Space`.
    */
-  clickOnSpace?: boolean
+  clickOnSpace?: boolean;
 }
-
 
 /**
  * useClickable
@@ -62,140 +59,148 @@ export const useClickable = (props: UseClickableProps = {}) => {
     tabIndex: tabIndexProp,
     onMouseOver,
     ...htmlProps
-  } = props
+  } = props;
 
-   /**
+  /**
    * We'll use this to track if the element is a button element
    */
-  const [isButton, setIsButton] = React.useState(true)
+  const [isButton, setIsButton] = React.useState(true);
 
-   /**
+  /**
    * For custom button implementation, we'll use this to track when
    * we mouse down on the button, to enable use style it's ":active" style
    */
-  const [isActive, setIsActive] = React.useState(false)
+  const [isActive, setIsActive] = React.useState(false);
 
   /**
    * The ref callback that fires as soon as the dom node is ready
    */
   const refCallback = React.useCallback((node) => {
-    if (node?.tagName !== "BUTTON") {
-      setIsButton(false)
+    if (node?.tagName !== 'BUTTON') {
+      setIsButton(false);
     }
-  }, [])
+  }, []);
 
-  const tabIndex = isButton ? tabIndexProp : tabIndexProp || 0
-  const trulyDisabled = isDisabled && !isFocusable
+  const tabIndex = isButton ? tabIndexProp : tabIndexProp || 0;
+  const trulyDisabled = isDisabled && !isFocusable;
 
   const handleClick = React.useCallback(
     (event: React.MouseEvent) => {
-      if(isDisabled) {
-        event.stopPropagation()
-        event.preventDefault()
-        return
+      if (isDisabled) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        return;
       }
 
-      const selft = event.currentTarget as HTMLElement
-      selft.focus()
-      onClick?.(event)
+      const selft = event.currentTarget as HTMLElement;
+
+      selft.focus();
+      onClick?.(event);
     },
     [isDisabled, onClick]
-  )
+  );
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent) => {
-      onKeyDown?.(event)
+      onKeyDown?.(event);
 
       if (isDisabled || event.defaultPrevented || event.metaKey) {
-        return
+        return;
       }
 
-      const shouldClickOnEnter = clickOnEnter && event.key === "Enter"
-      const shouldClickOnSpace = clickOnSpace && event.key === " "
+      const shouldClickOnEnter = clickOnEnter && event.key === 'Enter';
+      const shouldClickOnSpace = clickOnSpace && event.key === ' ';
 
       if (!isButton && shouldClickOnSpace) {
-        event.preventDefault()
-        setIsActive(true)
-        return
+        event.preventDefault();
+        setIsActive(true);
+
+        return;
       }
 
       if (!isButton && shouldClickOnEnter) {
-        event.preventDefault()
-        const self = event.currentTarget as HTMLElement
-        self.click()
-        return
+        event.preventDefault();
+        const self = event.currentTarget as HTMLElement;
+
+        self.click();
+
+        return;
       }
     },
-    [isDisabled, isButton, onKeyDown, clickOnEnter, clickOnSpace],
-  )
-  
+    [isDisabled, isButton, onKeyDown, clickOnEnter, clickOnSpace]
+  );
+
   const handleKeyUp = React.useCallback(
     (event: React.KeyboardEvent) => {
-      onKeyUp?.(event)
+      onKeyUp?.(event);
 
-      if (isDisabled || event.defaultPrevented || event.metaKey) return
+      if (isDisabled || event.defaultPrevented || event.metaKey) return;
 
-      const shouldClickOnSpace = clickOnSpace && event.key === " "
+      const shouldClickOnSpace = clickOnSpace && event.key === ' ';
 
       if (!isButton && shouldClickOnSpace) {
-        event.preventDefault()
-        setIsActive(false)
+        event.preventDefault();
+        setIsActive(false);
 
-        const self = event.currentTarget as HTMLElement
-        self.click()
+        const self = event.currentTarget as HTMLElement;
+
+        self.click();
       }
     },
-    [clickOnSpace, isButton, isDisabled, onKeyUp],
-  )
-  
+    [clickOnSpace, isButton, isDisabled, onKeyUp]
+  );
+
   const handleMouseDown = React.useCallback(
     (event: React.MouseEvent) => {
       if (isDisabled) {
-        event.stopPropagation()
-        event.preventDefault()
-        return
+        event.stopPropagation();
+        event.preventDefault();
+
+        return;
       }
 
       if (!isButton) {
-        setIsActive(true)
+        setIsActive(true);
       }
 
-      onMouseDown?.(event)
+      onMouseDown?.(event);
     },
-    [isDisabled, isButton, onMouseDown],
-  )
+    [isDisabled, isButton, onMouseDown]
+  );
 
   const handleMouseUp = React.useCallback(
     (event: React.MouseEvent) => {
       if (!isButton) {
-        setIsActive(false)
+        setIsActive(false);
       }
 
-      onMouseUp?.(event)
+      onMouseUp?.(event);
     },
-    [onMouseUp, isButton],
-  )
+    [onMouseUp, isButton]
+  );
 
   const handleMouseOver = React.useCallback(
     (event: React.MouseEvent) => {
       if (isDisabled) {
-        event.preventDefault()
-        return
+        event.preventDefault();
+
+        return;
       }
 
-      onMouseOver?.(event)
+      onMouseOver?.(event);
     },
-    [isDisabled, onMouseOver],
-  )
+    [isDisabled, onMouseOver]
+  );
 
-  const ref = mergeRefs(htmlRef, refCallback)
+  const ref = mergeRefs(htmlRef, refCallback);
 
-  if(isButton){
+  if (isButton) {
     return {
       ...htmlProps,
       ref,
-      type: "button" as React.ButtonHTMLAttributes<any>["type"],
-      "aria-disabled": trulyDisabled ? undefined : isDisabled,
+      type: 'button' as React.ButtonHTMLAttributes<any>['type'],
+      'aria-disabled': trulyDisabled ? undefined : isDisabled,
       disabled: trulyDisabled,
       onClick: handleClick,
       onMouseDown,
@@ -203,15 +208,15 @@ export const useClickable = (props: UseClickableProps = {}) => {
       onKeyUp,
       onKeyDown,
       onMouseOver,
-    }
+    };
   }
 
   return {
     ...htmlProps,
     ref,
-    role: "button",
-    "data-active": dataAttr(isActive),
-    "aria-disabled": !!isDisabled,
+    role: 'button',
+    'data-active': dataAttr(isActive),
+    'aria-disabled': Boolean(isDisabled),
     tabIndex: trulyDisabled ? undefined : tabIndex,
     onClick: handleClick,
     onMouseDown: handleMouseDown,
@@ -219,7 +224,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
     onKeyUp: handleKeyUp,
     onKeyDown: handleKeyDown,
     onMouseOver: handleMouseOver,
-  }
-}
+  };
+};
 
-export type UseClickableReturn = ReturnType<typeof useClickable>
+export type UseClickableReturn = ReturnType<typeof useClickable>;

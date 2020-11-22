@@ -1,6 +1,7 @@
 import * as React from 'react';
-import useToast from '../src';
 import { Button } from '@nature-ui/button';
+
+import useToast from '../src';
 import { Toast } from '../src/toast';
 // import { chakra } from "@chakra-ui/system"
 
@@ -8,17 +9,18 @@ export default {
   title: 'Toast',
   decorators: [
     (Story: Function) => (
-      <React.Fragment>
+      <>
         <Story />
-      </React.Fragment>
+      </>
     ),
   ],
   component: Toast,
 };
 
-export function ToastExample() {
+export const ToastExample = () => {
   const toast = useToast();
   const id = 'login-error-toast';
+
   return (
     <>
       <Button
@@ -56,10 +58,11 @@ export function ToastExample() {
       <button onClick={() => toast.close(id)}>Close One</button>
     </>
   );
-}
+};
 
-export function CustomRender() {
+export const CustomRender = () => {
   const toast = useToast();
+
   return (
     <Button
       onClick={() =>
@@ -74,10 +77,11 @@ export function CustomRender() {
       Show Toast
     </Button>
   );
-}
+};
 
-export function SuccessToast() {
+export const SuccessToast = () => {
   const toast = useToast();
+
   return (
     <Button
       onClick={() =>
@@ -93,10 +97,11 @@ export function SuccessToast() {
       Show Success Toast
     </Button>
   );
-}
+};
 
-export function WarningToast() {
+export const WarningToast = () => {
   const toast = useToast();
+
   return (
     <Button
       onClick={() =>
@@ -112,10 +117,11 @@ export function WarningToast() {
       Show Warning Toast
     </Button>
   );
-}
+};
 
-export function ErrorToast() {
+export const ErrorToast = () => {
   const toast = useToast();
+
   return (
     <Button
       onClick={() =>
@@ -131,7 +137,7 @@ export function ErrorToast() {
       Show Error Toast
     </Button>
   );
-}
+};
 
 export const AllSides = () => {
   const toast = useToast();
