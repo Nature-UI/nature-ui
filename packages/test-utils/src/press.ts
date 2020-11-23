@@ -1,5 +1,4 @@
 import { fireEvent } from '@testing-library/react';
-import { element } from 'prop-types';
 
 export const press = (
   key: string,
