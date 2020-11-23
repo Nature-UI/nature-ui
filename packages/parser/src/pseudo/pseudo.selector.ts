@@ -20,13 +20,13 @@ const group = {
     `${selector}:read-only &, ${selector}[aria-expanded=true] &, ${selector}[data-expanded] &, ${selector}[data-state=expanded] &`,
 };
 
-function toGroup(fn: AnyFunction) {
+const toGroup = (fn: AnyFunction) => {
   return merge(fn, '[role=group]', '[data-group]');
-}
+};
 
-function merge(fn: AnyFunction, ...selectors: string[]) {
+const merge = (fn: AnyFunction, ...selectors: string[]) => {
   return selectors.map(fn).join(', ');
-}
+};
 
 const disabled = (selector: string) =>
   `${selector}, ${selector}:focus, ${selector}:hover`;
