@@ -1,1 +1,1 @@
-export * from "./use-clickable"
+export * from './use-clickable';

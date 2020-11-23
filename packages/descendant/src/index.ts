@@ -1,1 +1,1 @@
-export * from "./use-descendant"
+export * from './use-descendant';

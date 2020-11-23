@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { useDescendant, useDescendants, DescendantContext } from '../src';
 import { createContext } from '@nature-ui/utils';
+
+import { useDescendant, useDescendants, DescendantContext } from '../src';
 
 export default {
   title: 'Descendants',
@@ -12,7 +13,7 @@ const [Provider, useDescendantCtx] = createContext<Context>({
   name: 'DescendantContext',
 });
 
-function Option({
+const Option = ({
   value,
   disabled,
   focusable,
@@ -20,7 +21,7 @@ function Option({
   value?: string;
   disabled?: boolean;
   focusable?: boolean;
-}) {
+}) => {
   const context = useDescendantCtx();
 
   const ref = React.useRef<HTMLDivElement>(null);
@@ -38,12 +39,13 @@ function Option({
       Option {index + 1}
     </div>
   );
-}
+};
 
-function Select({ children }: { children?: React.ReactNode }) {
+const Select = ({ children }: { children?: React.ReactNode }) => {
   const context = useDescendants<HTMLDivElement, { value?: string }>();
+
   return <Provider value={context}>{children}</Provider>;
-}
+};
 
 export const Default = () => (
   <Select>
