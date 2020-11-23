@@ -2,6 +2,7 @@ import { Dict, objectKeys } from '@nature-ui/utils';
 
 export const sort = (obj: Dict) => {
   const next: Dict = {};
+
   objectKeys(obj)
     .sort((a, b) =>
       a.localeCompare(b, undefined, {
@@ -12,5 +13,6 @@ export const sort = (obj: Dict) => {
     .forEach((key) => {
       next[key] = obj[key];
     });
+
   return next;
 };

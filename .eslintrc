@@ -67,6 +67,7 @@
       }
     ],
     "no-warning-comments": 0,
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "no-loop-func": 0
   }
 }

@@ -1,4 +1,4 @@
-import { Dict, get, objectKeys } from '@nature-ui/utils';
+import { Dict, objectKeys } from '@nature-ui/utils';
 import * as CSS from 'csstype';
 
 type Scale = Dict<string | number> | Array<string | number>;
