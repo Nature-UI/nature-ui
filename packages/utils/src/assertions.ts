@@ -22,7 +22,7 @@ export const toNumber = (value: any): number => {
 };
 
 export const isNumeric = (value: any): boolean => {
-  return isNumber(value) && value !== null && value - value + 1 >= 0;
+  return value !== null && value - value + 1 >= 0;
 };
 
 export const isArray = <T>(value: any): value is Array<T> => {
@@ -33,7 +33,7 @@ export const isEmptyArray = (value: any): boolean =>
   isArray(value) && value.length === 0;
 
 export const isDefined = (value: any): boolean =>
-  typeof value === 'undefined' || value === undefined;
+  typeof value !== 'undefined' || value === undefined;
 
 export const isUndefined = (value: any): value is undefined =>
   typeof value === 'undefined' || value === undefined;
@@ -67,7 +67,7 @@ export const isEmpty = (value: any): boolean => {
 
   if (isObject(value)) return isEmptyObject(value);
 
-  if (value === null || value.trim === '') return true;
+  if (value === null || !value || value.trim === '') return true;
 
   return false;
 };
