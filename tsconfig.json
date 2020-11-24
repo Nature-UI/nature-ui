@@ -6,7 +6,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    // "isolatedModules": true,
     "outDir": "dist",
     "target": "es5",
     "module": "esnext",
@@ -29,7 +29,7 @@
     "allowSyntheticDefaultImports": true, // FIXME: => false
     "skipLibCheck": true,
     "noEmit": false,
-    "types": ["jest", "node", "react", "react-dom"]
+    "types": ["jest", "node", "react", "react-dom", "@testing-library/jest-dom"]
   },
   "exclude": [
     "node_modules",
@@ -39,5 +39,5 @@
     "webpack",
     "jest"
   ],
-  "include": ["src/**/*", "packages/**/*", "*.config.js"]
+  "include": ["src/**/*", "packages/**/*", "*.config.js", "**/*/__test__/**/*"]
 }

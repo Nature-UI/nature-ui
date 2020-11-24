@@ -6,17 +6,27 @@ export const press = (
   options: KeyboardEventInit = {}
 ) => {
   if (!element) return;
+
   if (document.activeElement !== element) {
     fireEvent.focus(element);
   }
 
-  fireEvent.keyDown(element, { key, ...options });
-  fireEvent.keyUp(element, { key, ...options });
+  fireEvent.keyDown(element, {
+    key,
+    ...options,
+  });
+  fireEvent.keyUp(element, {
+    key,
+    ...options,
+  });
 };
 
 const createPress = (key: string, defaultOptions: KeyboardEventInit = {}) => {
   return (element?: Element | null, options: KeyboardEventInit = {}) =>
-    press(key, element, { ...defaultOptions, ...options });
+    press(key, element, {
+      ...defaultOptions,
+      ...options,
+    });
 };
 
 press.Escape = createPress('Escape');

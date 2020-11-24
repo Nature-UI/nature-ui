@@ -11,10 +11,7 @@
       "src/*"
     ],
     "nohoist": [
-      "packages/apps/**/webpack-dev-server",
-      "**/babel-loader",
-      "**/babel-jest",
-      "**/babel-core"
+      "packages/apps/**/webpack-dev-server"
     ]
   },
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
@@ -51,7 +48,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "rimraf": "^3.0.2",
-    "storybook": "6.0.21"
+    "storybook": "^6.1.5"
   },
   "eslintConfig": {
     "extends": "react-app"
