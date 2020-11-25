@@ -47,10 +47,10 @@ export const isBrowser = checkIsBrowser();
  */
 
 export const normalizeEventKey = (event: React.KeyboardEvent) => {
-  const key = event.key || event.keyCode;
+  const { key, keyCode } = event;
 
   const isArrowKey =
-    key >= 37 && key <= 40 && String(key).indexOf('Arrow') !== 0;
+    keyCode >= 37 && keyCode <= 40 && String(key).indexOf('Arrow') !== 0;
 
   return isArrowKey ? `Arrow${key}` : key;
 };
