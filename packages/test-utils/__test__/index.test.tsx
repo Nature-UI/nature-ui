@@ -1,0 +1,14 @@
+/** @jsx jsx */
+import { jsx } from '@nature-ui/system';
+
+import { render } from '../src';
+
+test('as jsx element', () => {
+  const tools = render(<span>a</span>);
+
+  expect(tools.getByText('a')).toMatchInlineSnapshot(`
+    <span>
+      a
+    </span>
+  `);
+});

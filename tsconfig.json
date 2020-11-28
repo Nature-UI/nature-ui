@@ -9,7 +9,7 @@
     // "isolatedModules": true,
     "outDir": "dist",
     "target": "es5",
-    "module": "esnext",
+    "module": "CommonJS",
     "lib": ["dom", "esnext", "esnext.asynciterable"],
     "sourceMap": true,
     "moduleResolution": "node",

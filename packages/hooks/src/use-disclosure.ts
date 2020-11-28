@@ -38,8 +38,8 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
       setIsOpen(true);
     }
 
-    onCloseProp?.();
-  }, [isControlled, onCloseProp]);
+    onOpenProp?.();
+  }, [isControlled, onOpenProp]);
 
   const onToggle = React.useCallback(() => {
     const action = isOpen ? onClose : onOpen;
