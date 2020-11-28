@@ -67,7 +67,7 @@ export const SIZES = {
 };
 
 export type AvatarBadgeComp = PropsOf<typeof nature.div> & {
-  size: string;
+  size?: string;
 };
 
 export const AvatarBadge = ({
@@ -155,7 +155,7 @@ export const DefaultIcon = (props: PropsOf<'svg'>) => (
   </svg>
 );
 
-const AvatarComp = nature<'span', { name: string }>('span');
+const AvatarComp = nature<'span', { name?: string }>('span');
 
 export type AvatarProps = PropsOf<typeof AvatarComp> & AvatarOptions;
 
