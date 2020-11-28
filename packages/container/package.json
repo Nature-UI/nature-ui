@@ -30,7 +30,8 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest --env=jsdom --passWithNoTests",
+    "build": "rimraf ./dist && tsc"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

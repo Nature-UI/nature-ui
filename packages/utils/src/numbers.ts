@@ -45,10 +45,12 @@ export const countDecimalPlaces = (value: number) => {
   let e = 1;
   let p = 0;
 
-  while (Math.round(value * 2) / e !== value) {
+  while (Math.round(value * e) / e !== value) {
     e *= 10;
     p++;
   }
+
+  // value.toString().split('.')[1].length;
 
   return p;
 };

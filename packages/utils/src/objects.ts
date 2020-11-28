@@ -70,7 +70,7 @@ export const get = (
     obj = obj ? obj[path[index]] : undefined;
   }
 
-  const result = (obj = undefined ? fallback : obj);
+  const result = obj === undefined ? fallback : obj;
 
   return result;
 };

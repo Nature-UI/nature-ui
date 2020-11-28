@@ -30,8 +30,6 @@ export const createComponent = <T extends As>(component: T) => {
           };
         });
 
-        console.log({ computedStyles });
-
         const element = as || component;
 
         const isTag = isString(element);

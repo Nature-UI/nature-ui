@@ -160,7 +160,7 @@ export const Checkbox = React.forwardRef(
           <CheckboxIcon
             isChecked={state.isChecked}
             isIndeterminate={state.isIndeterminate}
-            size='10'
+            size={10}
             className={`text-current inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out`}
           />
         </StyledControl>

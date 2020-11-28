@@ -1,30 +1,24 @@
 {
-  "name": "@nature-ui/checkbox",
+  "name": "@nature-ui/test-utils",
   "version": "0.1.0",
-  "description": "A React Checkbox component for use in forms",
+  "description": "Testing utilities for Chakra UI's components",
   "keywords": [
-    "react",
-    "checkbox",
-    "custom-checkbox",
-    "checkbox-hook",
-    "react hook",
-    "input",
-    "nature-ui",
-    "use-checkbox",
-    "checkboxGroup",
-    "checkbox-group-hook",
-    "use-checbox-group"
+    "nature ui",
+    "test utils",
+    "testing",
+    "utils",
+    "testing library",
+    "react testing library"
   ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "directories": {
-    "lib": "dist",
+    "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "dist",
     "src"
   ],
   "publishConfig": {
@@ -42,18 +36,24 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^0.1.0",
     "@nature-ui/hooks": "^0.1.0",
+    "@nature-ui/system": "^0.1.0",
     "@nature-ui/utils": "^0.1.0",
-    "@nature-ui/icon": "^0.1.0",
     "@nature-ui/visually-hidden": "^0.1.0",
-    "emotion": "^10.0.27",
-    "react": "^16.13.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/user-event": "^12.2.2",
+    "@types/jest-axe": "^3.5.1",
+    "jest-axe": "^4.1.0",
+    "react-test-renderer": "^17.0.1"
+  },
+  "devDependencies": {
+    "@nature-ui/system": "^0.1.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@nature-ui/layout": "^0.1.0",
-    "react": "^16.13.1",
+    "react": "16.x",
     "rimraf": "^3.0.2"
   }
 }
