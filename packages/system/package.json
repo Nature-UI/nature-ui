@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
-    "test": "jest --env=jsdom --passWithNoTest"
+    "test": "jest --env=jsdom --passWithNoTests"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
