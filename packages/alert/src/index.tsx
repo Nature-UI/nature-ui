@@ -74,6 +74,7 @@ interface AlertOptions {
 }
 
 const DivTag = nature('div');
+
 export type AlertProps = AlertOptions & PropsOf<typeof DivTag>;
 
 const BASE_STYLE =
@@ -85,6 +86,7 @@ export const AlertWrapper = (props: AlertProps) => {
     status = 'success',
     variant = 'subtle',
     component: Component = DivTag,
+    role = 'alert',
     ...rest
   } = props;
 
@@ -98,11 +100,14 @@ export const AlertWrapper = (props: AlertProps) => {
     [VARIANT]: variant,
   });
 
-  const context = { status, variant };
+  const context = {
+    status,
+    variant,
+  };
 
   return (
     <AlertContextProvider value={context}>
-      <Component className={componentClass} {...rest} />
+      <Component className={componentClass} {...rest} role={role} />
     </AlertContextProvider>
   );
 };
@@ -189,4 +194,5 @@ const Alert = (props: AlertProps) => {
 if (__DEV__) {
   Alert.displayName = 'Alert';
 }
+
 export default Alert;

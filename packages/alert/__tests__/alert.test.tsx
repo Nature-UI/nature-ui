@@ -1,30 +1,66 @@
-import * as React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
 
-import Alert from '../src';
-// import { render, axe } from '@nature-ui/test-utils';
+import * as React from 'react';
+import { render, axe } from '@nature-ui/test-utils';
 
-// import { AlertDescription, AlertIcon, AlertTitle, AlertWrapper } from '../src';
+import Alert, {
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  AlertWrapper,
+} from '../src';
 
-describe('Alert test: ', () => {
+describe('@nature-ui/alert ', () => {
   test('should have no accessibility issue', async () => {
-    const { getByText } = render(<Alert>Hello world</Alert>);
-    /*
-     * const tools = render(
-     *   <AlertWrapper>
-     *     <AlertIcon />
-     *     <AlertTitle>Alert title</AlertTitle>
-     *     <AlertDescription>Alert description</AlertDescription>
-     *   </AlertWrapper>
-     * );
-     */
+    const tools = render(
+      <AlertWrapper>
+        <AlertIcon />
+        <AlertTitle>Alert title</AlertTitle>
+        <AlertDescription>Alert description</AlertDescription>
+      </AlertWrapper>
+    );
 
-    // const result = await axe(tools.container);
+    const result = await axe(tools.container);
 
-    // expect(result).toHaveNoViolations();
+    expect(result).toHaveNoViolations();
+  });
 
-    expect(true).toBe(true);
-    expect(getByText('Hello world')).toBeInTheDocument();
+  test('should render correctly', () => {
+    const tools = render(
+      <AlertWrapper>
+        <AlertIcon />
+        <AlertTitle>Alert title</AlertTitle>
+        <AlertDescription>Alert description</AlertDescription>
+      </AlertWrapper>
+    );
+
+    expect(tools.asFragment()).toMatchSnapshot();
+  });
+
+  test('should also have no accessibility issue', async () => {
+    const tools = render(
+      <Alert alertTitle='Alert title'>Alert description</Alert>
+    );
+
+    const result = await axe(tools.container);
+
+    expect(result).toHaveNoViolations();
+  });
+
+  test('should also render correctly', async () => {
+    const tools = render(
+      <Alert alertTitle='Alert title'>Alert description</Alert>
+    );
+
+    expect(tools.asFragment()).toMatchSnapshot();
+  });
+
+  test("should have role='alert'", () => {
+    const tools = render(
+      <Alert alertTitle='Alert title'>Alert description</Alert>
+    );
+    const alert = tools.getByRole('alert');
+
+    expect(alert).toBeInTheDocument();
   });
 });
