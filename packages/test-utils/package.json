@@ -13,7 +13,7 @@
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -29,7 +29,8 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "test": "jest --env=jsdom --passWithNoTests"
+    "test": "jest --env=jsdom --passWithNoTests",
+    "build": "rimraf ./dist && tsc"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
