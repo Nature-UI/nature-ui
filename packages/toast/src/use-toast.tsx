@@ -1,15 +1,15 @@
+import * as React from 'react';
 import {
   AlertDescription,
   AlertIcon,
-  AlertProps,
   AlertTitle,
   AlertWrapper,
   ALERT_STATUSES,
 } from '@nature-ui/alert';
 import { CloseButton } from '@nature-ui/close-button';
-import { clsx, nature, PropsOf } from '@nature-ui/system';
+import { clsx, nature } from '@nature-ui/system';
 import { isFunction, merge } from '@nature-ui/utils';
-import * as React from 'react';
+
 import { toast } from './toast.class';
 import { RenderProps, ToastOptions, ToastId } from './toast.types';
 
@@ -131,7 +131,12 @@ export const useToast = () => {
         {isFunction(render) ? (
           render(props)
         ) : (
-          <Toast {...{ ...props, ...opts }} />
+          <Toast
+            {...{
+              ...props,
+              ...opts,
+            }}
+          />
         )}
       </>
     );
@@ -150,12 +155,18 @@ export const useToast = () => {
 
     toast.update(id, {
       ...opts,
+      // eslint-disable-next-line react/display-name
       message: (props) => (
         <>
           {isFunction(render) ? (
             render(props)
           ) : (
-            <Toast {...{ ...props, ...opts }} />
+            <Toast
+              {...{
+                ...props,
+                ...opts,
+              }}
+            />
           )}
         </>
       ),

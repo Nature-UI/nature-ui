@@ -1,10 +1,10 @@
 import { isFunction, __DEV__ } from '@nature-ui/utils';
 import { Transition } from '@nature-ui/transition';
 import { useTimeout } from '@nature-ui/hooks';
-
 import ReachAlert from '@reach/alert';
 import { useRect } from '@reach/rect';
 import * as React from 'react';
+import { nature } from '@nature-ui/system';
 
 import { ToastOptions } from './toast.types';
 import { getToastStyle } from './toast.utils';
@@ -12,6 +12,8 @@ import { getToastStyle } from './toast.utils';
 export interface ToastProps extends ToastOptions {
   requestClose?: boolean;
 }
+
+const DivTag = nature('div');
 
 export const Toast = (props: ToastProps) => {
   const {
@@ -44,6 +46,7 @@ export const Toast = (props: ToastProps) => {
     if (!show) {
       onRequestRemove();
     }
+
     onCloseComplete?.();
   };
 
@@ -91,31 +94,47 @@ export const Toast = (props: ToastProps) => {
       styles={styles}
       transition='all 0.3s cubic-bezier(0.23, 1, 0.32, 1)'
       in={show}
-      timeout={{ enter: 0, exit: 150 }}
+      timeout={{
+        enter: 0,
+        exit: 150,
+      }}
       onExited={onExited}
     >
-      {(styles) => (
-        <div
+      {(_styles) => (
+        <DivTag
           data-toast=''
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           style={{
             willChange: 'transform, height, opacity',
             ...style,
-            ...styles,
+            ..._styles,
           }}
         >
-          <div
+          <DivTag
             ref={ref}
             data-toast-inner=''
-            style={{ pointerEvents: 'auto', maxWidth: 560, minWidth: 300 }}
+            style={{
+              pointerEvents: 'auto',
+              maxWidth: 560,
+              minWidth: 300,
+            }}
           >
             <ReachAlert>
-              {isFunction(message) ? message({ id, onClose: close }) : message}
+              {isFunction(message)
+                ? message({
+                    id,
+                    onClose: close,
+                  })
+                : message}
             </ReachAlert>
-          </div>
-        </div>
+          </DivTag>
+        </DivTag>
       )}
     </Transition>
   );
 };
+
+if (__DEV__) {
+  Toast.displayName = 'Toast';
+}
