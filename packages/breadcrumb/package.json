@@ -31,7 +31,8 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "test": "jest --env=jsdom --passWithNoTests"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
