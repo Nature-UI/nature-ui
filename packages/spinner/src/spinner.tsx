@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { nature, PropsOf, clsx } from '@nature-ui/system';
+import { nature, PropsOf, clsx, css, keyframes } from '@nature-ui/system';
+import VisuallyHidden from '@nature-ui/visually-hidden';
 import { __DEV__ } from '@nature-ui/utils';
-import './spinner.css';
 
 interface SpinnerOptions {
   /**
@@ -17,6 +17,7 @@ interface SpinnerOptions {
    */
   thickness?: string;
   size?: number | 'xs' | 'sm' | 'md' | 'lg';
+  label?: string;
 }
 
 const SIZES = {
@@ -37,12 +38,27 @@ export const Spinner = React.forwardRef(
       thickness = '2px',
       color = 'teal',
       size = 'xs',
+      label = 'Loading...',
       ...rest
     } = props;
 
-    const DEFAULTS = `inline-block overflow-hidden spinner border-2 border-transparent border-t-2 align-middle`;
-    const _classNames = clsx(DEFAULTS, {
-      [className]: className,
+    const _css = css`
+      border-radius: 100%;
+
+      animation: spin 0.5s infinite linear;
+    `;
+
+    const spin = keyframes`
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    `;
+
+    const DEFAULTS = `inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle`;
+    const _classNames = clsx(className, _css, spin, DEFAULTS, {
       [`w-${SIZES[size]} h-${SIZES[size]}`]: typeof size === 'string',
       [`w-${size} h-${size}`]: typeof size === 'number',
     });
@@ -56,7 +72,9 @@ export const Spinner = React.forwardRef(
         }}
         ref={ref}
         {...rest}
-      />
+      >
+        {label && <VisuallyHidden>{label}</VisuallyHidden>}
+      </SpinnerComp>
     );
   }
 );

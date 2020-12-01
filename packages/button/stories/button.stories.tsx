@@ -68,15 +68,27 @@ export const IsLoading = () => {
   return (
     <>
       <Button
+        color='blue-500'
+        variant='outline'
+        isLoading
+        loadingText='Submitting...'
+        size='md'
+      >
+        Button
+      </Button>
+      <Button
         color='teal-500'
         variant='solid'
         isLoading
         loadingText='loading...'
         size='md'
+        className='ml-4'
       >
         Button
       </Button>
-      <Button color='teal-500' variant='solid' isLoading className='ml-4' />
+      <Button color='teal-500' variant='solid' isLoading className='ml-4'>
+        Email
+      </Button>
     </>
   );
 };
