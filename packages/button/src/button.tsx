@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { nature, clsx, PropsOf, css, keyframes } from '@nature-ui/system';
-import { __DEV__, lighten, darken } from '@nature-ui/utils';
+import { __DEV__, lighten, darken, dataAttr } from '@nature-ui/utils';
 import { Spinner } from '@nature-ui/spinner';
 
 interface ButtonProps {
@@ -20,6 +20,10 @@ interface ButtonProps {
    * If true, the button will be disabled.
    */
   isDisabled?: boolean;
+  /**
+   * If `true`, the button will be styled in it's active state.
+   */
+  isActive?: boolean;
   /**
    * If true, the button will show a spinner.
    */
@@ -76,6 +80,7 @@ export const Button = React.forwardRef(
       isDisabled = false,
       isLoading = false,
       loadingText,
+      isActive,
       ...rest
     } = props;
 
@@ -155,6 +160,8 @@ export const Button = React.forwardRef(
       as,
       size,
       disabled: isDisabled || isLoading,
+      'data-active': dataAttr(isActive),
+      'data-loading': dataAttr(isLoading),
     };
 
     return (
@@ -183,7 +190,7 @@ const ButtonSpinner = (
   const {
     className = '',
     label,
-    spinner = <Spinner label={label} size='xs' color='currentColor' />,
+    spinner = <Spinner size='xs' color='currentColor' />,
     ...rest
   } = props;
 
