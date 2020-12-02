@@ -72,3 +72,49 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`@nature-ui/circular-progress Progress renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="overflow-hidden relative bg-gray-300 w-full h-6 css-jb16r4"
+      color="green"
+    >
+      <div
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="20"
+        class="h-full bg-teal-400 css-nyci5l"
+        color="green"
+        role="progressbar"
+      />
+    </div>
+    <div
+      class="overflow-hidden relative bg-gray-300 w-full h-6 css-1r10t72"
+      color="blue"
+    >
+      <div
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="40"
+        class="h-full bg-teal-400 css-1jz7m94 css-1ttdosy"
+        color="blue"
+        role="progressbar"
+      />
+    </div>
+    <div
+      class="overflow-hidden relative bg-gray-300 w-full h-6 css-14dp4mi"
+      color="yellow"
+    >
+      <div
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="80"
+        class="h-full bg-teal-400 css-1jz7m94 css-1g5oqvd css-13r1wu6"
+        color="yellow"
+        role="progressbar"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

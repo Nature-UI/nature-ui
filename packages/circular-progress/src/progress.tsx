@@ -206,7 +206,7 @@ export const Progress = React.forwardRef(
       value,
       min,
       max,
-      valueText: label || String(value),
+      valueText: label,
     });
 
     const DEFAULTS = clsx(_indicatorStyles, {
