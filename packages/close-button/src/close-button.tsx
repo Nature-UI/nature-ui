@@ -27,6 +27,7 @@ const StyledButton = React.forwardRef(
             backgroundColor: 'rgba(0,0,0,0.06)',
           },
         }}
+        aria-label='Close'
         className={_className}
         type='button'
         {...rest}
