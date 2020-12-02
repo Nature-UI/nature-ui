@@ -65,31 +65,6 @@ const StyledIndicator = ({ ...rest }: PropsOf<typeof nature.div>) => (
   <nature.div {...rest} />
 );
 
-/**
- * ProgressIndicator (Linear)
- *
- * The progress component that visually indicates the current level of the progress bar.
- * It applies `background-color` and changes it's width
- */
-const ProgressIndicator = (props: ProgressIndicatorProps) => {
-  const { min, max, value, className = '', ...rest } = props;
-
-  const _progress = getProgressProps({
-    value,
-    min,
-    max,
-  });
-
-  const DEFAULTS = clsx({
-    [className]: className,
-    [css`
-      width: ${_progress.percent}%;
-    `]: _progress.percent,
-  });
-
-  return <StyledIndicator {..._progress.bind} {...rest} className={DEFAULTS} />;
-};
-
 export type ProgressTrackProps = PropsOf<typeof nature.div>;
 
 /**
@@ -227,16 +202,22 @@ export const Progress = React.forwardRef(
 
     const _fontSize = SIZES[size] || size;
 
+    const _progress = getProgressProps({
+      value,
+      min,
+      max,
+      valueText: label || String(value),
+    });
+
+    const DEFAULTS = clsx(_indicatorStyles, {
+      [css`
+        width: ${_progress.percent}%;
+      `]: _progress.percent,
+    });
+
     return (
       <ProgressTrack size={_size} {...rest} ref={ref}>
-        <ProgressIndicator
-          {...{
-            min,
-            max,
-            value,
-            className: _indicatorStyles,
-          }}
-        />
+        <StyledIndicator {..._progress.bind} {...rest} className={DEFAULTS} />
         {showPercent && !label ? (
           <ProgressLabel fontSize={_fontSize}>{value}%</ProgressLabel>
         ) : label ? (

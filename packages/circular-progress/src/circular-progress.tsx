@@ -180,7 +180,7 @@ export const CircularProgress = React.forwardRef(
       children,
       thickness = '10px',
       colorScheme = 'blue-400',
-      trackColor = 'gray-100',
+      trackColor = 'gray-200',
       showPercent,
       ...rest
     } = props;
