@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { forwardRef, nature, PropsOf } from '@nature-ui/system';
+/** @jsx jsx */
+import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import { css } from 'emotion';
 
@@ -26,9 +26,9 @@ export const visuallyHiddenStyle = css`
  * Visually hidden component used to hide
  * elements on screen
  */
-export const VisuallyHidden = forwardRef<PropsOf<typeof Span>>((props, ref) => (
-  <Span className={visuallyHiddenStyle} {...props} ref={ref} />
-));
+export const VisuallyHidden = (props: PropsOf<typeof Span>) => (
+  <Span className={visuallyHiddenStyle} {...props} />
+);
 
 if (__DEV__) {
   VisuallyHidden.displayName = 'VisuallyHidden';

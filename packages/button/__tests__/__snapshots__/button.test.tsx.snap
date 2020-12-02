@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@nature-ui/button Button rernders correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="css-1njcx7 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600"
+  />
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/button shows spinner and loading text if isLoading and loadingText 1`] = `
+<DocumentFragment>
+  <button
+    class="css-1njcx7 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600 opacity-50 cursor-not-allowed"
+    data-loading=""
+    disabled=""
+  >
+    <span
+      class="align-middle relative"
+    >
+      <span
+        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4"
+        style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
+      >
+        <span
+          class="css-z1mnri"
+        >
+          Loading...
+        </span>
+      </span>
+      <span
+        class="ml-2"
+      >
+        Submitting
+      </span>
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/button shows spinner if isLoading 1`] = `
+<DocumentFragment>
+  <button
+    class="css-1njcx7 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600 opacity-50 cursor-not-allowed"
+    data-loading=""
+    disabled=""
+  >
+    <span
+      class="align-middle absolute"
+    >
+      <span
+        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4"
+        style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
+      >
+        <span
+          class="css-z1mnri"
+        >
+          Loading...
+        </span>
+      </span>
+    </span>
+    <span
+      class="opacity-0"
+    >
+      Email
+    </span>
+  </button>
+</DocumentFragment>
+`;

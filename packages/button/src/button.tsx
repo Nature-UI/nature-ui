@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { nature, clsx, PropsOf, css, keyframes } from '@nature-ui/system';
-import { __DEV__, lighten, darken } from '@nature-ui/utils';
+import { __DEV__, lighten, darken, dataAttr } from '@nature-ui/utils';
 import { Spinner } from '@nature-ui/spinner';
 
 interface ButtonProps {
@@ -20,6 +20,10 @@ interface ButtonProps {
    * If true, the button will be disabled.
    */
   isDisabled?: boolean;
+  /**
+   * If `true`, the button will be styled in it's active state.
+   */
+  isActive?: boolean;
   /**
    * If true, the button will show a spinner.
    */
@@ -76,6 +80,7 @@ export const Button = React.forwardRef(
       isDisabled = false,
       isLoading = false,
       loadingText,
+      isActive,
       ...rest
     } = props;
 
@@ -104,6 +109,7 @@ export const Button = React.forwardRef(
 
     const _css = css`
       font-size: ${_font};
+      line-height: 1.2;
 
       &::after {
         content: '';
@@ -123,15 +129,13 @@ export const Button = React.forwardRef(
     `;
 
     const DEFAULT_CLASS =
-      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle';
+      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center';
     const STYLES = {
-      solid: `bg-${color} text-${text} hover:bg-${darken(
-        color
-      )} button--ripple`,
-      outline: `bg-transparent button--ripple hover:bg-${lighten(
+      solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
+      outline: `bg-transparent hover:bg-${lighten(
         text
-      )} text-${text} border border-${text} focus:border-transparent`,
-      ghost: `hover:bg-${lighten(text)} text-${text} button--ripple`,
+      )} text-${color} border border-${color} focus:border-transparent`,
+      ghost: `hover:bg-${lighten(text)} text-${text}`,
       link: `hover:underline text-${text}`,
       disabled: 'opacity-50 cursor-not-allowed',
     };
@@ -156,11 +160,22 @@ export const Button = React.forwardRef(
       as,
       size,
       disabled: isDisabled || isLoading,
+      'data-active': dataAttr(isActive),
+      'data-loading': dataAttr(isLoading),
     };
 
     return (
       <NatureButton {...defaults} {...rest}>
-        {isLoading ? <ButtonSpinner label={loadingText} /> : children}
+        {isLoading ? (
+          <>
+            <ButtonSpinner label={loadingText}>{children}</ButtonSpinner>
+            {children && !loadingText && (
+              <span className='opacity-0'>{children}</span>
+            )}
+          </>
+        ) : (
+          children
+        )}
       </NatureButton>
     );
   }
@@ -168,19 +183,25 @@ export const Button = React.forwardRef(
 
 const ButtonSpinner = (
   props: ButtonType & {
+    spinner?: React.ReactNode;
     label?: string;
   }
 ) => {
   const {
-    children = <Spinner size='xs' color='currentColor' />,
     className = '',
     label,
+    spinner = <Spinner size='xs' color='currentColor' />,
     ...rest
   } = props;
 
+  const _className = clsx(className, 'align-middle', {
+    [`absolute`]: !label,
+    [`relative`]: label,
+  });
+
   return (
-    <span className={className} {...rest}>
-      {children}
+    <span className={_className} {...rest}>
+      {spinner}
       {label && <span className='ml-2'>{label}</span>}
     </span>
   );
