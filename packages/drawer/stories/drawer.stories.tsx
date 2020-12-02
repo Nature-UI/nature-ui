@@ -21,7 +21,7 @@ export const Basic = () => {
   return (
     <>
       <button onClick={() => setOpen(!open)}>Open</button>
-      <Drawer isOpen={open} onClose={() => setOpen(false)}>
+      <Drawer placement='right' isOpen={open} onClose={() => setOpen(false)}>
         <DrawerOverlay>
           <DrawerContent>
             <div>This is the drawer content</div>
