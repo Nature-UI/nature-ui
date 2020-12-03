@@ -103,6 +103,7 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.13",
     "nodemon": "^2.0.4",

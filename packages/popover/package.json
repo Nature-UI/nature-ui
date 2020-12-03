@@ -30,7 +30,8 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "test": "jest --env=jest-environment-jsdom-sixteen"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@nature-ui/system": "^0.1.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

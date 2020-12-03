@@ -125,6 +125,7 @@ describe('@nature-ui/modal', () => {
     const overlay = tools.getByTestId('overlay');
 
     // FIXME: Get rid of the linting error when internet comes up.
+    // eslint-disable-next-line new-cap
     press.Escape(overlay);
     expect(onClose).toHaveBeenCalledWith();
   });
