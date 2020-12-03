@@ -66,14 +66,12 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
   if (status !== 'loaded') {
     if (fallback) return fallback;
 
-    return (
-      <ImageComp
-        {...{
-          src: fallbackSrc,
-          shared,
-        }}
-      />
-    );
+    const result = {
+      src: fallbackSrc,
+      ...shared,
+    };
+
+    return <ImageComp {...result} />;
   }
 
   return (
