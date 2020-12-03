@@ -103,7 +103,6 @@ const StyledInput = (props: StyledInputProps) => {
   const _padding = typeof size === 'string' && css(_PADDING[size]);
   const _css = typeof size === 'string' && css(_SIZES[size]);
 
-  console.log({ _css });
   const _height =
     typeof size === 'number' &&
     css`
