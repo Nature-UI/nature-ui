@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import Alert, {
+import {
+  Alert,
   AlertWrapper,
   AlertTitle,
   AlertDescription,

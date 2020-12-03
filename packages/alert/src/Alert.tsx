@@ -173,7 +173,7 @@ if (__DEV__) {
   AlertIcon.displayName = 'AlertIcon';
 }
 
-const Alert = (props: AlertProps) => {
+export const Alert = (props: AlertProps) => {
   const {
     variant = 'subtle',
     status = 'error',
@@ -194,5 +194,3 @@ const Alert = (props: AlertProps) => {
 if (__DEV__) {
   Alert.displayName = 'Alert';
 }
-
-export default Alert;
