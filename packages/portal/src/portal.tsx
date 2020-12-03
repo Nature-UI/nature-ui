@@ -48,6 +48,7 @@ export const Portal = (props: PortalProps) => {
   const [portal] = React.useState(() => {
     if (isBrowser) {
       const div = document.createElement('div');
+      div.className = "nature-portal"
 
       return div;
     }
