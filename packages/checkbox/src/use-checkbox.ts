@@ -196,7 +196,7 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
       readOnly: isReadOnly,
       'aria-invalid': isInvalid,
       'aria-disabled': isDisabled,
-      className: `${visuallyHiddenStyle}`,
+      style: visuallyHiddenStyle,
     };
   };
 
