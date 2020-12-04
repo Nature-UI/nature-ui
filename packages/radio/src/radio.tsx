@@ -134,7 +134,11 @@ export const Radio = React.forwardRef(
           width: isFullWidth ? 'full' : undefined,
         }}
       >
-        <input className={`nature-radio__input ${style}`} {...inputProps} />
+        <input
+          className={`nature-radio__input`}
+          style={style as any}
+          {...inputProps}
+        />
         <DivTag
           css={{
             width: _size,

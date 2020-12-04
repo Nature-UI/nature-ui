@@ -6,7 +6,8 @@ exports[`@nature-ui/radio Radio renders correctly 1`] = `
     class="nature-radio inline-flex items-center align-top css-0"
   >
     <input
-      class="nature-radio__input [object Object]"
+      class="nature-radio__input"
+      style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
       type="radio"
       value=""
     />
