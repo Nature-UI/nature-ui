@@ -6,6 +6,7 @@ import { Radio, useRadio, UseRadioProps } from '../src';
 describe('@nature-ui/radio', () => {
   test('Radio renders correctly', () => {
     const { asFragment } = render(<Radio size='lg' colorScheme='blue' />);
+
     expect(asFragment()).toMatchSnapshot();
   });
 

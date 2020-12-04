@@ -177,5 +177,3 @@ export const useToast = () => {
 
   return toastImpl;
 };
-
-export default useToast;

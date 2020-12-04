@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Button } from '@nature-ui/button';
 
-import useToast from '../src';
-import { Toast } from '../src/toast';
+import { Toast, useToast } from '../src';
+
 // import { chakra } from "@chakra-ui/system"
 
 export default {
@@ -68,6 +68,7 @@ export const CustomRender = () => {
       onClick={() =>
         toast({
           position: 'top-right',
+          // eslint-disable-next-line react/display-name
           render: () => (
             <div className='p-3 m-2 bg-blue-700 text-white'>Hello World</div>
           ),
@@ -156,7 +157,10 @@ export const AllSides = () => {
       <button
         onClick={() => {
           positions.forEach((p) => {
-            toast({ position: p, title: p });
+            toast({
+              position: p,
+              title: p,
+            });
           });
         }}
       >
