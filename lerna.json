@@ -1,0 +1,14 @@
+{
+  "packages": ["packages/*", "src/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspace": true,
+  "registry": "https://registry.npmjs.org/",
+  "command": {
+    "publish": {
+      "conventionalCommit": true,
+      "message": "chore(release): publish",
+      "ignoreChanges": ["**/stories/**", "**/tests/**"]
+    }
+  }
+}

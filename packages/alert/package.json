@@ -1,0 +1,47 @@
+{
+  "name": "@nature-ui/alert",
+  "version": "1.0.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNature/nature-ui.git"
+  },
+  "scripts": {
+    "test": "jest --env=jsdom --passWithNoTests",
+    "build": "rimraf ./dist && tsc"
+  },
+  "dependencies": {
+    "@nature-ui/utils": "0.1.0",
+    "@nature-ui/system": "0.1.0",
+    "@testing-library/react": "^10.4.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0"
+  },
+  "peerDependencies": {
+    "@storybook/addon-knobs": "^6.0.10",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "react-icons": "^3.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/DNature/nature-ui/issues"
+  },
+  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "devDependencies": {}
+}

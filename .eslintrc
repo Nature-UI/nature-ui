@@ -1,0 +1,73 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-comments",
+    "jest",
+    "promise",
+    "import"
+  ],
+  "extends": [
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard",
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:jest/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+    "get-off-my-lawn"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "react/button-has-type": 0,
+    "react/jsx-no-literals": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "import/exports-last": 0,
+    "@typescript-eslint/indent": 0,
+    "react/jsx-props-no-spreading": 0,
+    "sort-keys": 0,
+    "@typescript-eslint/ban-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "jest/no-empty-title": 0,
+    "jest/require-tothrow-message": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "import/no-extraneous-dependencies": 0,
+    "node/no-extraneous-import": 0,
+    "react/jsx-sort-props": 0,
+    "no-use-before-define": 0,
+    "no-param-reassign": 0,
+    "no-console": 0,
+    "react/no-unescaped-entities": 0,
+    "node/no-unsupported-features/es-builtins": [
+      "error",
+      {
+        "version": "^v12.18.2",
+        "ignores": []
+      }
+    ],
+    "no-warning-comments": 0,
+    "no-nested-ternary": "off",
+    "no-return-assign": 0
+  }
+}

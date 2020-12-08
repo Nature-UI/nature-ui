@@ -1,0 +1,40 @@
+{
+  "name": "@nature-ui/utils",
+  "version": "0.1.0",
+  "description": "Utility functions",
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "homepage": "https://github.com/DNature/nature-ui#readme",
+  "license": "MIT",
+  "engines": {
+    "node": "^v12.18.2"
+  },
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNature/nature-ui.git"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "test": "jest --env=jsdom --passWithNoTests"
+  },
+  "bugs": {
+    "url": "https://github.com/DNature/nature-ui/issues"
+  },
+  "dependencies": {
+    "css-box-model": "^1.2.1",
+    "memoize-one": "^5.1.1",
+    "react": "^16.13.1",
+    "rimraf": "^3.0.2"
+  }
+}

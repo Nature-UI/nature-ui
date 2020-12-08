@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@nature-ui/layout Badge override the theming props 1`] = `
+<DocumentFragment>
+  <span
+    class="p-1 rounded text-xs uppercase font-semibold bg-gray-100 border border-pink-500 text-pink-500"
+  >
+    Badge
+  </span>
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/layout Badge should render with default theming 1`] = `
+<DocumentFragment>
+  <span
+    class="p-1 rounded text-xs uppercase font-semibold bg-gray-100 text-gray-700 bg-gray-200"
+  >
+    Badge
+  </span>
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/layout Box as - prop works correctly 1`] = `
+<DocumentFragment>
+  <a
+    class=""
+    href="www.google.com"
+  >
+    This is box
+  </a>
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/layout Box should render box correctly 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    This is box
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Badge override the theming props 1`] = `
+<DocumentFragment>
+  <span
+    class="p-1 rounded text-xs uppercase font-semibold bg-gray-100 border border-pink-500 text-pink-500"
+  >
+    Badge
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Badge should render with default theming 1`] = `
+<DocumentFragment>
+  <span
+    class="p-1 rounded text-xs uppercase font-semibold bg-gray-100 text-gray-700 bg-gray-200"
+  >
+    Badge
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Box as - prop works correctly 1`] = `
+<DocumentFragment>
+  <a
+    class=""
+    href="www.google.com"
+  >
+    This is box
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Box should render box correctly 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    This is box
+  </div>
+</DocumentFragment>
+`;

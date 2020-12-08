@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    // "baseUrl": "./",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    // "isolatedModules": true,
+    "outDir": "dist",
+    "target": "es5",
+    "module": "CommonJS",
+    "lib": ["dom", "esnext", "esnext.asynciterable"],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    // "rootDir": "src",
+    "suppressImplicitAnyIndexErrors": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true, // FIXME: => false
+    "skipLibCheck": true,
+    "noEmit": false,
+    "types": ["jest", "node", "react", "react-dom", "@testing-library/jest-dom"]
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest"
+  ],
+  "include": ["src/**/*", "packages/**/*", "*.config.js", "**/*/__test__/**/*"]
+}

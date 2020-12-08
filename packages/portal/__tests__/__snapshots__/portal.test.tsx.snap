@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@nature-ui/portal should render into a custom container 1`] = `
+<body>
+  <div>
+    <div
+      data-testid="container"
+    >
+      <div
+        class="nature-portal"
+      >
+        <h1
+          data-testid="heading"
+        >
+          Hello world
+        </h1>
+      </div>
+    </div>
+    <div />
+  </div>
+</body>
+`;
+
+exports[`@nature-ui/portal should render nested portal 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="nature-portal"
+      >
+        This is a portal.
+        <div
+          class="nature-portal"
+        >
+          This is a nested portal
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`@nature-ui/portal should render portal 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="nature-portal"
+      >
+        This is a portal
+      </div>
+    </div>
+  </div>
+</body>
+`;

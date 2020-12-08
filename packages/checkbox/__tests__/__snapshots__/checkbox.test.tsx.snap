@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@nature-ui/checkbox Checkbox renders correctly 1`] = `
+<DocumentFragment>
+  <label
+    class="cursor-pointer inline-flex items-center align-top relative"
+  >
+    <input
+      class="css-z1mnri"
+      type="checkbox"
+      value=""
+    />
+    <div
+      aria-hidden="true"
+      class="box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out"
+    />
+  </label>
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/checkbox Checkbox renders correctly 2`] = `
+<DocumentFragment>
+  <label
+    class="cursor-pointer inline-flex items-center align-top relative"
+  >
+    <input
+      class="css-z1mnri"
+      type="checkbox"
+      value=""
+    />
+    <div
+      aria-hidden="true"
+      class="box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out"
+    />
+    <div
+      class="select-none css-9uebpa"
+    >
+      This is custom checkbox
+    </div>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`@nature-ui/checkbox Checkbox renders correctly with child elements 1`] = `
+<DocumentFragment>
+  <label
+    class="cursor-pointer inline-flex items-center align-top relative"
+  >
+    <input
+      class="css-z1mnri"
+      type="checkbox"
+      value=""
+    />
+    <div
+      aria-hidden="true"
+      class="box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out"
+    />
+    <div
+      class="select-none css-9uebpa"
+    >
+      This is custom checkbox
+    </div>
+  </label>
+</DocumentFragment>
+`;
