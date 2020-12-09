@@ -1,0 +1,83 @@
+{
+  "name": "@nature-ui/react",
+  "version": "0.1.0",
+  "description": "Responsive and accessible React UI components built with react, tailwindcss and emotion",
+  "keywords": [
+    "react",
+    "ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system"
+  ],
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "homepage": "https://github.com/DNature/nature-ui",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNature/nature-ui.git"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "test": "jest --env=jsdom"
+  },
+  "bugs": {
+    "url": "https://github.com/DNature/nature-ui/issues"
+  },
+  "dependencies": {
+    "@nature-ui/alert": "^0.1.0",
+    "@nature-ui/alert-dialog": "^0.1.0",
+    "@nature-ui/avatar": "^0.1.0",
+    "@nature-ui/breadcrumb": "^0.1.0",
+    "@nature-ui/button": "^0.1.0",
+    "@nature-ui/checkbox": "^0.1.0",
+    "@nature-ui/progress": "^0.1.0",
+    "@nature-ui/clickable": "^0.1.0",
+    "@nature-ui/close-button": "^0.1.0",
+    "@nature-ui/collapse": "^0.1.0",
+    "@nature-ui/container": "^0.1.0",
+    "@nature-ui/drawer": "^0.1.0",
+    "@nature-ui/form-control": "^0.1.0",
+    "@nature-ui/hooks": "^0.1.0",
+    "@nature-ui/icon": "^0.1.0",
+    "@nature-ui/image": "^0.1.0",
+    "@nature-ui/input": "^0.1.0",
+    "@nature-ui/layout": "^0.1.0",
+    "@nature-ui/modal": "^0.1.0",
+    "@nature-ui/popover": "^0.1.0",
+    "@nature-ui/popper": "^0.1.0",
+    "@nature-ui/portal": "^0.1.0",
+    "@nature-ui/radio": "^0.1.0",
+    "@nature-ui/spinner": "^0.1.0",
+    "@nature-ui/system": "^0.1.0",
+    "@nature-ui/toast": "^0.1.0",
+    "@nature-ui/transition": "^0.1.0",
+    "@nature-ui/utils": "^0.1.0",
+    "@nature-ui/visually-hidden": "^0.1.0"
+  },
+  "devDependencies": {
+    "@nature-ui/system": "^0.1.0",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "@nature-ui/system": "^0.1.0",
+    "react": "16.x",
+    "rimraf": "^3.0.2"
+  }
+}
