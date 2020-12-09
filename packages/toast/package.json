@@ -41,7 +41,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/alert": "^1.0.0",
+    "@nature-ui/alert": "^0.1.0",
     "@nature-ui/close-button": "^0.1.0",
     "@nature-ui/hooks": "^0.1.0",
     "@nature-ui/transition": "^0.1.0",

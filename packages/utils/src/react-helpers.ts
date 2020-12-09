@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { isFunction } from './assertions';
-
 export interface CreateContextOptions {
   /**
    * If `true`, React will throw if context is `null` or `undefined`
@@ -70,18 +68,10 @@ type ReactRef<T> =
   | React.RefObject<T>
   | React.MutableRefObject<T>;
 
-/**
- * Assigns a value to a ref function or object
- *
- * @param ref the ref to assign to
- * @param value the value
- */
+const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
+  if (ref === null) return;
 
-export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
-  if (!ref || ref === undefined || ref === null) return;
-  // if (ref == null ) return;
-
-  if (isFunction(ref)) {
+  if (typeof ref === 'function') {
     ref(value);
 
     return;
@@ -89,12 +79,11 @@ export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
 
   try {
     // @ts-ignore
-    ref.current = value;
+    ref?.current = value;
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);
   }
 };
-
 /**
  * Combine multiple React refs into a single ref function.
  * This is used mostly when you need to allow consumers forward refs to
