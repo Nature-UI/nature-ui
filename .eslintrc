@@ -62,6 +62,8 @@
     "no-nested-ternary": "off",
     "no-return-assign": 0,
     "jsx-quotes": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": 0
   }
 }

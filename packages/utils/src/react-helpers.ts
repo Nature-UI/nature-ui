@@ -27,12 +27,12 @@ type CreateContextReturn<T> = [React.Provider<T>, () => T, React.Context<T>];
  */
 
 export const createContext = <ContextType>(
-  options: CreateContextOptions = {}
+  options: CreateContextOptions = {},
 ): CreateContextReturn<ContextType> => {
   const {
     strict = true,
     errorMessage = 'useContext must be inside a Provider with a value',
-    name
+    name,
   } = options;
 
   const Context = React.createContext<ContextType | undefined>(undefined);
@@ -59,11 +59,10 @@ export const createContext = <ContextType>(
  * @param children the children
  */
 
-export const getValidChildren = (children: React.ReactNode) => {
-  return React.Children.toArray(children).filter((child) =>
-    React.isValidElement(child)
+export const getValidChildren = (children: React.ReactNode) =>
+  React.Children.toArray(children).filter((child) =>
+    React.isValidElement(child),
   ) as React.ReactElement[];
-};
 
 type ReactRef<T> =
   | React.Ref<T>
@@ -94,8 +93,8 @@ const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
  * @param refs refs to assign to value to
  */
 
-export const mergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => {
-  return (value: T) => {
-    refs.forEach((ref) => assignRef(ref, value));
-  };
+export const mergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => (
+  value: T,
+) => {
+  refs.forEach((ref) => assignRef(ref, value));
 };
