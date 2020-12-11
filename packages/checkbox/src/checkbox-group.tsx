@@ -39,7 +39,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
       onChange,
       value,
     }),
-    [onChange, value]
+    [onChange, value],
   );
 
   return (

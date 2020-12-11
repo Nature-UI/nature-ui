@@ -47,7 +47,7 @@ export const usePopper = (props: UsePopperProps) => {
   const [placement, setPlacement] = React.useState(initialPlacement);
   const [offset] = React.useState(offsetProp || [0, gutter]);
   const [popoverStyles, setPopoverStyles] = React.useState<React.CSSProperties>(
-    {}
+    {},
   );
   const [arrowStyles, setArrowStyles] = React.useState<React.CSSProperties>({});
 

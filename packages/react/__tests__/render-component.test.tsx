@@ -6,7 +6,7 @@ import { Alert } from '../src';
 describe('@nature-ui/react', () => {
   test('it should render Alert component', () => {
     const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>
+      <Alert alertTitle='Alert title'>Alert description</Alert>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();

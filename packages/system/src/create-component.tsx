@@ -48,7 +48,7 @@ export const createComponent = <T extends As>(component: T) => {
           ref,
           ...computedProps,
         });
-      }
+      },
     );
 
     Component.displayName = getDisplayName(component);

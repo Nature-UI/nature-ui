@@ -17,7 +17,7 @@ const StyledControl = React.forwardRef(
     }: PropsOf<typeof nature.div> & {
       color?: string;
     },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const _checked = typeof props['data-checked'] !== 'undefined';
     const _focus = typeof props['data-focus'] !== 'undefined';
@@ -40,7 +40,7 @@ const StyledControl = React.forwardRef(
     });
 
     return <nature.div className={_className} ref={ref} {...props} />;
-  }
+  },
 );
 
 const StyledLabel = React.forwardRef(
@@ -49,7 +49,7 @@ const StyledLabel = React.forwardRef(
       spacing,
       ...props
     }: PropsOf<typeof nature.div> & { spacing?: number | string },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const _disabled = typeof props['data-disabled'] !== 'undefined';
 
@@ -62,24 +62,24 @@ const StyledLabel = React.forwardRef(
     });
 
     return <nature.div className={_className} ref={ref} {...props} />;
-  }
+  },
 );
 
 const Label = nature('label');
 const StyledWrapper = React.forwardRef(
   (
     { className = '', ...props }: PropsOf<typeof Label>,
-    ref: React.Ref<HTMLLabelElement>
+    ref: React.Ref<HTMLLabelElement>,
   ) => {
     const _className = clsx(
       `cursor-pointer inline-flex items-center align-top relative`,
       {
         [className]: className,
-      }
+      },
     );
 
     return <Label className={_className} ref={ref} {...props} />;
-  }
+  },
 );
 
 type BaseControlProps = Omit<
@@ -171,7 +171,7 @@ export const Checkbox = React.forwardRef(
         )}
       </StyledWrapper>
     );
-  }
+  },
 );
 
 if (__DEV__) {

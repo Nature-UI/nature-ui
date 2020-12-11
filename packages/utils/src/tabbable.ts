@@ -33,7 +33,7 @@ export const isHidden = (element: HTMLElement): boolean => {
 };
 
 export const isContentEditable = (
-  element: HTMLElement
+  element: HTMLElement,
 ): boolean | '' | null => {
   const value = element.getAttribute('contenteditable');
 
@@ -77,7 +77,7 @@ export const isActiveElement = (element: Element): boolean =>
   document.activeElement === element;
 
 export const isInputElement = (
-  element: HTMLElement
+  element: HTMLElement,
 ): element is HTMLInputElement => {
   return (
     isHTMLElement(element) &&
@@ -92,7 +92,7 @@ interface FocusProps extends FocusOptions {
 
 export const focus = (
   element: HTMLElement,
-  options: FocusProps = {}
+  options: FocusProps = {},
 ): number => {
   const { isActive = isActiveElement, preventScroll } = options;
 

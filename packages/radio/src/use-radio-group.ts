@@ -65,7 +65,7 @@ export const useRadioGroup = (props: UseRadioGroupProps = {}) => {
     let query = `input:not(:disabled):checked`;
 
     const firstEnabledAndCheckedInput = rootNode.querySelector(
-      query
+      query,
     ) as HTMLElement;
 
     if (firstEnabledAndCheckedInput) {
@@ -98,7 +98,7 @@ export const useRadioGroup = (props: UseRadioGroupProps = {}) => {
 
       onChangeProp?.(nextValue);
     },
-    [onChangeProp, isControlled]
+    [onChangeProp, isControlled],
   );
 
   return {

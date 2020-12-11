@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export const useControllableProp = <T>(
   prop: T | undefined,
-  state: T
+  state: T,
 ): readonly [boolean, T] => {
   const { current: isControlled } = React.useRef(prop !== undefined);
   const value = isControlled && typeof prop !== 'undefined' ? prop : state;
@@ -58,7 +58,7 @@ const defaultPropsMap = {
  */
 
 export const useControllableState = <T>(
-  props: UseControllableStateProps<T>
+  props: UseControllableStateProps<T>,
 ): [T, React.Dispatch<React.SetStateAction<T>>] => {
   const {
     value: valueProp,
@@ -115,7 +115,7 @@ export const useControllableState = <T>(
 
       onChange?.(nextValue);
     },
-    [onChange, shouldUpdate, isControlled, value]
+    [onChange, shouldUpdate, isControlled, value],
   );
 
   return [value, updateValue] as [T, React.Dispatch<React.SetStateAction<T>>];

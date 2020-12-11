@@ -5,7 +5,7 @@ import { useControllableState } from '../src';
 describe('@nature-ui/hooks', () => {
   test('should be uncontrolled when defaultValue is passed', () => {
     const { result } = renderHook(() =>
-      useControllableState({ defaultValue: 'testing' })
+      useControllableState({ defaultValue: 'testing' }),
     );
     const [value] = result.current;
 
@@ -27,7 +27,7 @@ describe('@nature-ui/hooks', () => {
       useControllableState({
         value: 'testing',
         name: 'useControllableState',
-      })
+      }),
     );
     const [value] = result.current;
 

@@ -19,7 +19,7 @@ export type UseFormControlProps<T extends HTMLElement> = FormControlOptions & {
  * and helper text.
  */
 export const useFormControl = <T extends HTMLElement>(
-  props: UseFormControlProps<T>
+  props: UseFormControlProps<T>,
 ) => {
   const field = useFormControlContext();
   const describedBy: string[] = [];

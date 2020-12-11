@@ -79,7 +79,7 @@ export const contrast = (fg: string, bg: string) =>
 export const isAccessible = (
   textColor: string,
   bgColor: string,
-  options?: tinyColor.WCAG2Options
+  options?: tinyColor.WCAG2Options,
 ) => tinyColor.isReadable(bgColor, textColor, options);
 
 export const complementary = (color: string) =>
@@ -87,7 +87,7 @@ export const complementary = (color: string) =>
 
 export const generateStripe = (
   size = '1rem',
-  color = 'rgba(255, 255, 255, 0.15)'
+  color = 'rgba(255, 255, 255, 0.15)',
 ): string => {
   return css`
     background-image: linear-gradient(

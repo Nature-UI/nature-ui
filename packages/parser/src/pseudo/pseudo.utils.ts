@@ -6,7 +6,7 @@ const isPseudoProp = (prop: string): prop is keyof Pseudos =>
   prop in pseudoSelectors;
 
 const getPropName = memoizeOne((prop: string) =>
-  isPseudoProp(prop) ? pseudoSelectors[prop] : prop
+  isPseudoProp(prop) ? pseudoSelectors[prop] : prop,
 );
 
 export const parsePseudo = (props: Dict) => {

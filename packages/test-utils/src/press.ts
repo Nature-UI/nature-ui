@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/react';
 export const press = (
   key: string,
   element?: Element | null,
-  options: KeyboardEventInit = {}
+  options: KeyboardEventInit = {},
 ) => {
   if (!element) return;
 

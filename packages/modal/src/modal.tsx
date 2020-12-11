@@ -197,7 +197,7 @@ export const ModalContent = React.forwardRef(
       'bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none',
       {
         'overflow-auto': scrollBehavior === 'inside',
-      }
+      },
     );
     const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
     const css = {
@@ -210,7 +210,7 @@ export const ModalContent = React.forwardRef(
     };
 
     return <SectionTag className={_className} {...contentProps} {...theming} />;
-  }
+  },
 );
 
 if (__DEV__) {
@@ -263,11 +263,11 @@ export const ModalOverlay = React.forwardRef(
         'overflow-auto': scrollBehavior === 'outside',
         'overflow-hidden': scrollBehavior === 'inside',
         'items-center': isCentered,
-      }
+      },
     );
 
     return <DivTag className={_className} {...theming} {...overlayProps} />;
-  }
+  },
 );
 
 if (__DEV__) {
@@ -295,7 +295,7 @@ const StyledHeader = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -328,13 +328,13 @@ export const ModalHeader = React.forwardRef(
     const _className = clsx(
       'nature-modal__header',
       className,
-      'p-4 font-bold text-xl'
+      'p-4 font-bold text-xl',
     );
 
     return (
       <StyledHeader ref={ref} className={_className} id={headerId} {...rest} />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -395,7 +395,7 @@ export const ModalBody = forwardRef(
         {...rest}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -436,7 +436,7 @@ export const ModalCloseButton = React.forwardRef(
     const _className = clsx(
       'nature-modal__close-btn',
       className,
-      'absolute top-0 right-0 mt-3 mr-3'
+      'absolute top-0 right-0 mt-3 mr-3',
     );
 
     return (
@@ -447,7 +447,7 @@ export const ModalCloseButton = React.forwardRef(
         {...rest}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {

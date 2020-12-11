@@ -12,7 +12,7 @@ describe('@nature-ui/popper', () => {
       `opposite position of $direction is $opposite`,
       ({ direction, opposite }) => {
         expect(getOppositePosition(direction)).toBe(opposite);
-      }
+      },
     );
   });
 

@@ -44,7 +44,7 @@ export const getNextIndex = (
   currentIndex: number,
   length: number,
   step = 1,
-  loop = true
+  loop = true,
 ) => {
   const lastIndex = length - 1;
 
@@ -79,7 +79,7 @@ export const getNextIndex = (
 export const getPrevIndex = (
   currentIndex: number,
   count: number,
-  loop = true
+  loop = true,
 ) => {
   return getNextIndex(currentIndex, count, -1, loop);
 };
@@ -114,7 +114,7 @@ export const getNextItemFromSearch = <T>(
   items: T[],
   searchString: string,
   itemToString: (item: T) => string,
-  currentItem: T
+  currentItem: T,
 ) => {
   if (searchString === undefined) {
     return currentItem;
@@ -123,7 +123,7 @@ export const getNextItemFromSearch = <T>(
   // If current item doesn't exist, find the item that matches the search string
   if (!currentItem) {
     const foundItem = items.find((item) =>
-      itemToString(item).toLowerCase().startsWith(searchString.toLowerCase())
+      itemToString(item).toLowerCase().startsWith(searchString.toLowerCase()),
     );
 
     return foundItem;
@@ -131,7 +131,7 @@ export const getNextItemFromSearch = <T>(
 
   // Filter items for ones that match the search string (case insensitive)
   const matchingItems = items.filter((item) =>
-    itemToString(item).toLowerCase().startsWith(searchString.toLowerCase())
+    itemToString(item).toLowerCase().startsWith(searchString.toLowerCase()),
   );
 
   // If there's a match, let's get the next item to select

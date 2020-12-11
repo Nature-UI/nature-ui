@@ -133,7 +133,7 @@ export const Button = React.forwardRef(
     const STYLES = {
       solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
       outline: `bg-transparent hover:bg-${lighten(
-        text
+        text,
       )} text-${color} border border-${color} focus:border-transparent`,
       ghost: `hover:bg-${lighten(text)} text-${text}`,
       link: `hover:underline text-${text}`,
@@ -178,14 +178,14 @@ export const Button = React.forwardRef(
         )}
       </NatureButton>
     );
-  }
+  },
 );
 
 const ButtonSpinner = (
   props: ButtonType & {
     spinner?: React.ReactNode;
     label?: string;
-  }
+  },
 ) => {
   const {
     className = '',

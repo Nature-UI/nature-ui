@@ -30,7 +30,7 @@ describe('@nature-ui/popover', () => {
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
     expect(utils.getByRole('dialog', { hidden: true })).toHaveAttribute(
       'aria-hidden',
-      'true'
+      'true',
     );
 
     // open the popover
@@ -41,7 +41,7 @@ describe('@nature-ui/popover', () => {
     expect(trigger).toHaveAttribute('aria-expanded', 'true');
     expect(trigger).toHaveAttribute(
       'aria-controls',
-      expect.stringContaining('popover-content')
+      expect.stringContaining('popover-content'),
     );
     expect(utils.getByRole('dialog')).not.toHaveAttribute('aria-hidden');
   });

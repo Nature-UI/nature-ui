@@ -44,7 +44,7 @@ const Container: React.ForwardRefExoticComponent<IContainer> = React.forwardRef(
         <Component className={className}>{children}</Component>
       </Component>
     );
-  }
+  },
 );
 
 Container.displayName = 'Container';

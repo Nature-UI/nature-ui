@@ -35,7 +35,7 @@ const checkIsBrowser = (): boolean => {
   return Boolean(
     typeof _window !== 'undefined' &&
       _window.document &&
-      _window.document.createElement
+      _window.document.createElement,
   );
 };
 

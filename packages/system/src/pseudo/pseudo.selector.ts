@@ -36,7 +36,7 @@ const disabledSelector = merge(
   '&[disabled]',
   '&[aria-disabled=true]',
   '&[data-disabled]',
-  '&[data-state=disabled]'
+  '&[data-state=disabled]',
 );
 
 export const pseudoSelectors = {

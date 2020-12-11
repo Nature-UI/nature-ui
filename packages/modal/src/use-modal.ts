@@ -72,7 +72,7 @@ export const useModal = (props: UseModalProps) => {
     id,
     `nature-modal`,
     `nature-modal--header`,
-    `nature-modal--body`
+    `nature-modal--body`,
   );
 
   /**
@@ -106,7 +106,7 @@ export const useModal = (props: UseModalProps) => {
         onEsc?.();
       }
     },
-    [closeOnEsc, onClose, onEsc]
+    [closeOnEsc, onClose, onEsc],
   );
 
   const onOverlayClick = React.useCallback(
@@ -134,7 +134,7 @@ export const useModal = (props: UseModalProps) => {
         onOverlayClickProp?.();
       }
     },
-    [onClose, closeOnOverlayClick, onOverlayClickProp]
+    [onClose, closeOnOverlayClick, onOverlayClickProp],
   );
 
   const [headerMounted, setHeaderMounted] = React.useState(false);
@@ -158,7 +158,7 @@ export const useModal = (props: UseModalProps) => {
       'aria-labelledby': headerMounted ? headerId : undefined,
       'aria-describedby': bodyMounted ? bodyId : undefined,
       onClick: callAllHandler(props.onClick, (event: React.MouseEvent) =>
-        event.stopPropagation()
+        event.stopPropagation(),
       ),
     }),
     getOverlayProps: (props: Dict = {}) => ({
@@ -184,7 +184,7 @@ export type UseModalReturn = ReturnType<typeof useModal>;
  */
 export const useAriaHidden = (
   ref: React.RefObject<HTMLElement>,
-  shouldHide: boolean
+  shouldHide: boolean,
 ) => {
   React.useEffect(() => {
     if (!ref.current) return;

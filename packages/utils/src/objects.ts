@@ -4,7 +4,7 @@ import { Omit, Dict } from './types';
 
 export const omit = <T extends Dict, K extends keyof T>(
   object: T,
-  keys: K[]
+  keys: K[],
 ) => {
   const result: Dict = {};
 
@@ -19,7 +19,7 @@ export const omit = <T extends Dict, K extends keyof T>(
 
 export const pick = <T extends Dict, K extends keyof T>(
   object: T,
-  keys: K[]
+  keys: K[],
 ) => {
   const result = {} as { [P in K]: T[P] };
 
@@ -34,7 +34,7 @@ export const pick = <T extends Dict, K extends keyof T>(
 
 export const split = <T extends Dict, K extends keyof T>(
   object: T,
-  keys: K[]
+  keys: K[],
 ) => {
   const picked: Dict = {};
   const omitted: Dict = {};
@@ -61,7 +61,7 @@ export const get = (
   obj: any,
   path: string | number,
   fallback?: any,
-  index?: number
+  index?: number,
 ) => {
   // @ts-ignore
   path = (path?.split?.('.') ?? [path]) as string;

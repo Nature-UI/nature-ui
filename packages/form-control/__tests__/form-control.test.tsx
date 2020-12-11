@@ -39,7 +39,7 @@ describe('@nture-ui/form-control', () => {
         <Input placeholder='Name' />
         <FormHelperText>Enter your name please!</FormHelperText>
         <FormErrorMessage>Your name is invalid</FormErrorMessage>
-      </FormControl>
+      </FormControl>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -53,7 +53,7 @@ describe('@nture-ui/form-control', () => {
         <Input placeholder='Name' />
         <FormHelperText>Enter your name please!</FormHelperText>
         <FormErrorMessage>Your name is invalid</FormErrorMessage>
-      </FormControl>
+      </FormControl>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -68,7 +68,7 @@ describe('@nture-ui/form-control', () => {
         <FormHelperText>Enter your name please!</FormHelperText>
         <FormErrorIcon />
         <FormErrorMessage>Your name is invalid</FormErrorMessage>
-      </FormControl>
+      </FormControl>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -87,7 +87,7 @@ describe('@nture-ui/form-control', () => {
           onFocus={onFocus}
           onBlur={onBlur}
         />
-      </FormControl>
+      </FormControl>,
     );
     const input = utils.getByTestId('input');
 
@@ -103,7 +103,7 @@ describe('@nture-ui/form-control', () => {
         <FormLabel>Name</FormLabel>
         <Input placeholder='Name' />
         <FormHelperText>Enter your name please!</FormHelperText>
-      </FormControl>
+      </FormControl>,
     );
     let input = utils.getByLabelText('Name');
 
@@ -121,7 +121,7 @@ describe('@nture-ui/form-control', () => {
         <FormErrorMessage data-testid='error'>
           Your name is invalid
         </FormErrorMessage>
-      </FormControl>
+      </FormControl>,
     );
     input = utils.getByLabelText('Name');
     const indicator = utils.getByTestId('indicator');
@@ -132,7 +132,7 @@ describe('@nture-ui/form-control', () => {
     expect(input).toHaveAttribute('aria-readonly', 'true');
     expect(input).toHaveAttribute(
       'aria-describedby',
-      'name-feedback name-helptext'
+      'name-feedback name-helptext',
     );
     expect(indicator).toHaveAttribute('aria-hidden');
     expect(errorMessage).toHaveAttribute('aria-live', 'polite');
@@ -144,13 +144,13 @@ describe('@nture-ui/form-control', () => {
         <FormLabel>Name</FormLabel>
         <RequiredIndicator data-testid='indicator' />
         <Input placeholder='Name' />
-      </FormControl>
+      </FormControl>,
     );
     const control = utils.getByTestId('control');
     const indicator = utils.getByTestId('indicator');
 
     expect(utils.getByRole('presentation', { hidden: true })).toStrictEqual(
-      indicator
+      indicator,
     );
     expect(utils.getByRole('group')).toStrictEqual(control);
   });
@@ -175,7 +175,7 @@ describe('@nture-ui/form-control', () => {
         <FormErrorMessage data-testid='error-message'>
           Your name is invalid.
         </FormErrorMessage>
-      </FormControl>
+      </FormControl>,
     );
     const label = utils.getByTestId('label');
 

@@ -15,7 +15,7 @@ const Clickable = React.forwardRef(
     const Button = nature('button');
 
     return <Button {...clickable} />;
-  }
+  },
 );
 
 describe('@nature-ui/clickable', () => {
@@ -35,7 +35,7 @@ describe('@nature-ui/clickable', () => {
     const tools = render(
       <Clickable isDisabled isFocusable>
         clickable
-      </Clickable>
+      </Clickable>,
     );
 
     expect(tools.getByText('clickable')).toMatchInlineSnapshot(`
@@ -64,7 +64,7 @@ describe('@nature-ui/clickable', () => {
     const tools = render(
       <Clickable onClick={fn} isDisabled>
         clickable
-      </Clickable>
+      </Clickable>,
     );
 
     const clickable = tools.getByText('clickable');
@@ -87,7 +87,7 @@ describe('@nature-ui/clickable', () => {
     const tools = render(
       <Clickable as='div' onClick={fn}>
         clickable
-      </Clickable>
+      </Clickable>,
     );
 
     const clickable = tools.getByText('clickable');

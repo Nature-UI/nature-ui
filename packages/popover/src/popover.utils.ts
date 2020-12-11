@@ -10,7 +10,7 @@ import { useUpdateEffect, useEventListener } from '@nature-ui/hooks';
  */
 export const hasFocusWithin = (
   popoverRef: React.RefObject<HTMLElement>,
-  event: React.FocusEvent
+  event: React.FocusEvent,
 ) => {
   if (!document.activeElement || !popoverRef.current) {
     return false;
@@ -36,7 +36,7 @@ export const useBlurOutside = (
   options: {
     action: () => void;
     visible: boolean;
-  }
+  },
 ) => {
   const onMouseDown = (event: MouseEvent) => {
     if (options.visible && event.target === triggerRef.current) {
@@ -71,7 +71,7 @@ export interface UseFocusOnHideOptions {
  */
 export const useFocusOnHide = (
   popoverRef: React.RefObject<HTMLElement>,
-  options: UseFocusOnHideOptions
+  options: UseFocusOnHideOptions,
 ) => {
   const isFocusableRef = React.useRef(false);
   const { focusRef, autoFocus, visible } = options;
@@ -132,7 +132,7 @@ export interface UseFocusOnShowOptions {
  */
 export const useFocusOnShow = (
   popoverRef: React.RefObject<HTMLElement>,
-  options: UseFocusOnShowOptions
+  options: UseFocusOnShowOptions,
 ) => {
   const { visible, autoFocus, focusRef } = options;
 

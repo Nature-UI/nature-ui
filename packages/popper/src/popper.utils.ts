@@ -18,7 +18,7 @@ const splitPlacement = (placement: Placement) =>
 export const getArrowStyles = (
   placement: Placement | undefined,
   arrowSize: number,
-  arrowShadowColor?: string
+  arrowShadowColor?: string,
 ): React.CSSProperties => {
   if (typeof placement !== 'string') return {};
 

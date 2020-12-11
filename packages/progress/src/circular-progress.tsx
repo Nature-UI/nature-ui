@@ -156,7 +156,7 @@ const StyledProgress = React.forwardRef(
     });
 
     return <ProgressTag className={_className} {...rest} ref={ref} />;
-  }
+  },
 );
 
 export type CircularProgressProps = PropsOf<typeof ProgressTag> &
@@ -250,7 +250,7 @@ export const CircularProgress = React.forwardRef(
         )}
       </StyledProgress>
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -266,7 +266,7 @@ if (__DEV__) {
 export const CircularProgressLabel = (
   props: PropsOf<typeof ProgressTag> & {
     fontSize?: StringOrNumber;
-  }
+  },
 ) => {
   const { className = '', fontSize = '0.7rem', ...rest } = props;
 

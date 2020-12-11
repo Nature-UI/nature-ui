@@ -7,7 +7,7 @@ export const sort = (obj: Dict) => {
       a.localeCompare(b, undefined, {
         numeric: true,
         sensitivity: 'base',
-      })
+      }),
     )
     .forEach((key) => {
       next[key] = obj[key];

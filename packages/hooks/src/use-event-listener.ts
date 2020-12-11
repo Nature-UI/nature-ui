@@ -18,7 +18,7 @@ export const useEventListener = (
   event: keyof WindowEventMap,
   handler: (event: any) => void,
   doc: Document | null = isBrowser ? document : null,
-  options?: AddEventListener[2]
+  options?: AddEventListener[2],
 ) => {
   const saveHandler = useLatestRef(handler);
 

@@ -36,7 +36,8 @@ export type WithNature<Props> = Props extends { transition?: any }
  */
 
 type RegularComponent<T extends As, P> = (
-  props: WithNature<Omit<PropsOf<T>, 'size' | 'as' | keyof P>> & P & { as?: As }
+  props: WithNature<Omit<PropsOf<T>, 'size' | 'as' | keyof P>> &
+    P & { as?: As },
 ) => JSX.Element;
 
 /**
@@ -48,7 +49,7 @@ type RegularComponent<T extends As, P> = (
  * - Add Nature props to the resulting types.
  */
 type ExtensibleComponent<T extends As, P> = <TT extends As = T>(
-  props: WithNature<WithAs<PropsOf<T>, TT>> & P
+  props: WithNature<WithAs<PropsOf<T>, TT>> & P,
 ) => JSX.Element;
 
 type Comp<T extends As, P> = RegularComponent<T, P> | ExtensibleComponent<T, P>;

@@ -152,7 +152,7 @@ export const FormControl = React.forwardRef(
         <StyledFormControl ref={ref} {...htmlProps} />
       </FormControlContextProvider>
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -191,7 +191,7 @@ export const FormLabel = React.forwardRef(
     const ownProps = useFormControlLabel(rest);
 
     return <StyledLabel ref={ref} className={_className} {...ownProps} />;
-  }
+  },
 );
 
 if (__DEV__) {
@@ -224,7 +224,7 @@ export const RequiredIndicator = React.forwardRef(
         {props.children || '*'}
       </StyledIndicator>
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -274,7 +274,7 @@ export const FormHelperText = React.forwardRef(
         {...rest}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -319,7 +319,7 @@ export const FormErrorMessage = React.forwardRef(
         {...rest}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -354,5 +354,5 @@ export const FormErrorIcon = React.forwardRef(
         />
       </Icon>
     );
-  }
+  },
 );

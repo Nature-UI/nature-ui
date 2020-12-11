@@ -87,7 +87,7 @@ export const AvatarBadge = ({
         `absolute flex items-center justify-center right-0 bottom-0 rounded-full border-solid ${style} border-white -mb-1 -mr-1`,
         {
           [className]: className,
-        }
+        },
       )}
       {...rest}
     />

@@ -39,7 +39,7 @@ export const createIcon = (options: CreateIconOptions) => {
           {path ?? <path d={pathDefinition} fill='currentColor' />}
         </Icon>
       );
-    }
+    },
   );
 
   if (__DEV__) {

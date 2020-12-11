@@ -51,13 +51,13 @@ const Input = React.forwardRef(
         [className]: className,
         'border-red-600 focus:border-red-600': isInvalid,
         'focus:border-blue-400': !isInvalid,
-      }
+      },
     );
 
     return (
       <StyledInput className={_className} ref={ref} {...inputProps} {...rest} />
     );
-  }
+  },
 );
 
 export const InputExample = () => (
@@ -105,7 +105,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         {...rest}
       />
     );
-  }
+  },
 );
 
 export const TextAreaExample = () => (
@@ -127,7 +127,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const inputProps = useFormControl<HTMLSelectElement>(props);
 
     return <SelectTag ref={ref} {...inputProps} />;
-  }
+  },
 );
 
 export const SelectExample = () => (

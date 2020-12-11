@@ -110,7 +110,7 @@ export const PopoverContent = React.forwardRef(
         )}
       </>
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -152,7 +152,7 @@ export const PopoverHeader = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -193,7 +193,7 @@ export const PopoverBody = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {

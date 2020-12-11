@@ -27,7 +27,7 @@ export const parser = combineParsers(
   position,
   shadow,
   space,
-  typography
+  typography,
 );
 
 const layoutParser = combineParsers(space, layout, flexbox, grid, position);

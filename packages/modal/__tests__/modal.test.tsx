@@ -27,7 +27,7 @@ describe('@nature-ui/modal', () => {
             <ModalFooter>Modal footer</ModalFooter>
           </ModalContent>
         </ModalOverlay>
-      </Modal>
+      </Modal>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('@nature-ui/modal', () => {
             <ModalFooter>Modal footer</ModalFooter>
           </ModalContent>
         </ModalOverlay>
-      </Modal>
+      </Modal>,
     );
 
     const result = await axe(tools.container);
@@ -61,7 +61,7 @@ describe('@nature-ui/modal', () => {
             <ModalBody>Modal body</ModalBody>
           </ModalContent>
         </ModalOverlay>
-      </Modal>
+      </Modal>,
     );
 
     const dialog = tools.getByTestId('modal');
@@ -76,14 +76,14 @@ describe('@nature-ui/modal', () => {
      * The id of `DialogBody` should equal the `aria-describedby` of the dialog
      */
     expect(tools.getByText('Modal body').id).toStrictEqual(
-      dialog.getAttribute('aria-describedby')
+      dialog.getAttribute('aria-describedby'),
     );
 
     /**
      * The id of `DialogHeader` should equal the `aria-labelledby` of the dialog
      */
     expect(tools.getByText('Modal header').id).toStrictEqual(
-      dialog.getAttribute('aria-labelledby')
+      dialog.getAttribute('aria-labelledby'),
     );
   });
 
@@ -98,7 +98,7 @@ describe('@nature-ui/modal', () => {
             <ModalCloseButton data-testid='close' />
           </ModalContent>
         </ModalOverlay>
-      </Modal>
+      </Modal>,
     );
 
     /**
@@ -119,7 +119,7 @@ describe('@nature-ui/modal', () => {
             <ModalBody>Modal body</ModalBody>
           </ModalContent>
         </ModalOverlay>
-      </Modal>
+      </Modal>,
     );
 
     const overlay = tools.getByTestId('overlay');

@@ -76,7 +76,7 @@ export const Spinner = React.forwardRef(
         {label && <VisuallyHidden>{label}</VisuallyHidden>}
       </SpinnerComp>
     );
-  }
+  },
 );
 
 if (__DEV__) {

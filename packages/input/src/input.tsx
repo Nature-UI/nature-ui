@@ -136,7 +136,7 @@ const StyledInput = (props: StyledInputProps) => {
       [`${String(_padding)} rounded`]: _filled || _outline,
       'border-b-2 border-gray-300 focus:border-blue-600': _flushed,
       [(String(_height), String(_css))]: !_unstyled,
-    }
+    },
   );
 
   const _withAddon = clsx(
@@ -144,7 +144,7 @@ const StyledInput = (props: StyledInputProps) => {
       'rounded-l-none': addonLeft,
       'rounded-r-none': addonRight,
     },
-    _className
+    _className,
   );
 
   if (_addon) {
@@ -176,7 +176,7 @@ export const Input = React.forwardRef(
     const inputProps = useFormControl<HTMLInputElement>(props);
 
     return <StyledInput ref={ref} {...inputProps} />;
-  }
+  },
 );
 
 if (__DEV__) {

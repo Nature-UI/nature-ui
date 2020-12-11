@@ -1,8 +1,21 @@
-import { PropsOf, nature } from '@nature-ui/system';
-import * as React from 'react';
-import { PortalManager } from '@nature-ui/portal';
-import { __DEV__ } from '@nature-ui/utils';
+# @nature-ui/alert-dialog
 
+AlertDialog component is used interrupt the user with a mandatory confirmation
+or action.
+
+## Installation
+
+```sh
+yarn add @nature-ui/alert-dialog
+
+# or
+
+npm i @nature-ui/alert-dialog
+```
+
+## Import components
+
+```jsx
 import {
   AlertDialog,
   AlertDialogBody,
@@ -10,49 +23,30 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-} from '../src';
+} from '@nature-ui/react';
+```
 
-export default {
-  title: 'AlertDialog',
-  component: AlertDialog,
-  decorators: [
-    (StoryFn: Function) => (
-      <PortalManager>
-        <StoryFn />
-      </PortalManager>
-    ),
-  ],
-};
+## Basic usage
 
-const ButtonTag = nature('button');
+## Usage
 
-const Button = React.forwardRef(
-  (props: PropsOf<typeof ButtonTag>, ref: React.Ref<HTMLButtonElement>) => {
-    const { className, ...rest } = props;
+AlertDialog requires that you provide the `leastDestructiveRef` prop.
 
-    return (
-      <ButtonTag
-        {...rest}
-        ref={ref}
-        className={`px-4 py-2 font-semibold rounded border-none outline-none focus:shadow-outline ${className}`}
-      />
-    );
-  },
-);
+Based on
+[WAI-ARIA specifications](https://www.w3.org/TR/wai-aria-practices/#alertdialog),
+focus should be placed on the least destructive element when the dialog opens,
+to prevent users from accidentally confirming the destructive action.
 
-if (__DEV__) {
-  Button.displayName = 'Button';
-}
-
-export const BasicUsage = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const onOpen = () => setIsOpen(true);
+```jsx
+function AlertDialogExample() {
+  const [isOpen, setIsOpen] = React.useState();
   const onClose = () => setIsOpen(false);
-  const cancelRef = React.useRef<any>();
+  const cancelRef = React.useRef();
 
   return (
     <>
-      <Button onClick={onOpen}>Delete something</Button>
+      <Button onClick={() => setIsOpen(true)}>Delete Customer</Button>
+
       <AlertDialog
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
@@ -75,7 +69,7 @@ export const BasicUsage = () => {
               >
                 Nevermind
               </Button>
-              <Button className='ml-3 bg-red-500 text-white hover:bg-red-600'>
+              <Button className='ml-3' variant='outline'>
                 Yes, delete
               </Button>
             </AlertDialogFooter>
@@ -84,4 +78,5 @@ export const BasicUsage = () => {
       </AlertDialog>
     </>
   );
-};
+}
+```

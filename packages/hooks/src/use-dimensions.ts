@@ -11,7 +11,7 @@ import { useSafeLayoutEffect } from './use-safe-layout-effect';
 
 export const useDimensions = (
   ref: React.RefObject<HTMLElement>,
-  observe?: boolean
+  observe?: boolean,
 ) => {
   const [dimensions, setDimensions] = useState<BoxModel | null>(null);
   const refId = useRef<number>();

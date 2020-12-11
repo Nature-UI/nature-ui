@@ -16,7 +16,7 @@ const StyledButton = React.forwardRef(
       `flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2`,
       {
         [className]: className,
-      }
+      },
     );
 
     return (
@@ -33,7 +33,7 @@ const StyledButton = React.forwardRef(
         {...rest}
       />
     );
-  }
+  },
 );
 
 /**
@@ -74,7 +74,7 @@ export const CloseButton = React.forwardRef(
         {children || <CloseIcon size={size} />}
       </StyledButton>
     );
-  }
+  },
 );
 
 if (__DEV__) {

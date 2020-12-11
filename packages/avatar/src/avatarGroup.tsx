@@ -17,7 +17,7 @@ const AvatarExcessLabel = forwardRef<PropsOf<typeof nature.span>>(
         {...rest}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -52,7 +52,7 @@ const NatureGroup = forwardRef<PropsOf<typeof nature.div>>(
     >
       {children}
     </nature.div>
-  )
+  ),
 );
 
 export type AvatarGroupProps = AvatarGroupOptions & PropsOf<typeof NatureGroup>;
@@ -111,7 +111,7 @@ export const AvatarGroup = forwardRef<AvatarGroupProps>((props, ref) => {
     `bg-gray-300`,
     css`
       margin-left: ${spacingType};
-    `
+    `,
   );
 
   return (

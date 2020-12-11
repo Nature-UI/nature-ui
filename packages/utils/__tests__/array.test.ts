@@ -116,7 +116,7 @@ test('get next item based on search', () => {
     _array,
     'vu',
     (item) => item.value,
-    currentItem
+    currentItem,
   );
 
   expect(result).toStrictEqual({ value: 'Vue' });

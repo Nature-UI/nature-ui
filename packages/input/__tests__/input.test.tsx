@@ -12,7 +12,7 @@ describe('@nature-ui/input', () => {
 
   test('Input addons render correctly', () => {
     const { asFragment } = render(
-      <Input addonLeft='https://' addonRight='.com' />
+      <Input addonLeft='https://' addonRight='.com' />,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('@nature-ui/input', () => {
 
   test('Elements inside input render correctly', () => {
     const { asFragment } = render(
-      <Input addonLeft={<span>Hello</span>} addonRight={<span>Hello</span>} />
+      <Input addonLeft={<span>Hello</span>} addonRight={<span>Hello</span>} />,
     );
 
     expect(asFragment()).toMatchSnapshot();
