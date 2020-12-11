@@ -23,18 +23,20 @@
   },
   "scripts": {
     "test": "jest --env=jsdom --passWithNoTests",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*"
   },
   "dependencies": {
-    "@nature-ui/utils": "0.1.0",
     "@nature-ui/system": "0.1.0",
+    "@nature-ui/utils": "0.1.0",
     "@testing-library/react": "^10.4.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0"
   },
   "peerDependencies": {
-    "@storybook/addon-knobs": "^6.0.10",
     "react": "^16.x",
     "react-dom": "^16.x",
     "react-icons": "^3.10.0"

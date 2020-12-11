@@ -13,17 +13,18 @@
     "node": true
   },
   "plugins": [
-    "@typescript-eslint",
+    "@typescript-eslint/eslint-plugin",
     "eslint-comments",
     "jest",
     "promise",
-    "import"
+    "import",
+    "react-hooks"
   ],
   "extends": [
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard",
     "prettier",
+    "prettier/flowtype",
+    // "prettier/standard",
+    "prettier/react",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:eslint-comments/recommended",
@@ -31,8 +32,8 @@
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "get-off-my-lawn"
+    "plugin:prettier/recommended"
+    // "airbnb-typescript"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -53,21 +54,15 @@
     "jest/require-tothrow-message": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "import/no-extraneous-dependencies": 0,
-    "node/no-extraneous-import": 0,
     "react/jsx-sort-props": 0,
     "no-use-before-define": 0,
     "no-param-reassign": 0,
     "no-console": 0,
     "react/no-unescaped-entities": 0,
-    "node/no-unsupported-features/es-builtins": [
-      "error",
-      {
-        "version": "^v12.18.2",
-        "ignores": []
-      }
-    ],
     "no-warning-comments": 0,
     "no-nested-ternary": "off",
-    "no-return-assign": 0
+    "no-return-assign": 0,
+    "jsx-quotes": "off",
+    "operator-linebreak": "off"
   }
 }

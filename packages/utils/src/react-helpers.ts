@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { isFunction } from './assertions';
+
 export interface CreateContextOptions {
   /**
    * If `true`, React will throw if context is `null` or `undefined`
@@ -30,7 +32,7 @@ export const createContext = <ContextType>(
   const {
     strict = true,
     errorMessage = 'useContext must be inside a Provider with a value',
-    name,
+    name
   } = options;
 
   const Context = React.createContext<ContextType | undefined>(undefined);
@@ -69,9 +71,9 @@ type ReactRef<T> =
   | React.MutableRefObject<T>;
 
 const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
-  if (ref === null) return;
+  if (ref === null || ref === undefined || !ref) return;
 
-  if (typeof ref === 'function') {
+  if (isFunction(ref)) {
     ref(value);
 
     return;
@@ -79,7 +81,7 @@ const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
 
   try {
     // @ts-ignore
-    ref?.current = value;
+    ref.current = value;
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);
   }
