@@ -8,11 +8,11 @@ user action
 ## Installation
 
 ```sh
-npm i @chakra-ui/alert
+npm i @nature-ui/alert
 
 # or
 
-yarn add @chakra-ui/alert
+yarn add @nature-ui/alert
 ```
 
 ## Usage
@@ -22,8 +22,8 @@ import Alert from '@nature-ui/alert';
 
 () => {
   return (
-    <Alert status='success' variant='subtle'>
-      This is a success alert — check it out!
+    <Alert status='success' alertTitle='Wow: ' variant='subtle'>
+      This is a success alert!
     </Alert>
   );
 };
