@@ -32,8 +32,8 @@
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:prettier/recommended"
-    // "airbnb-typescript"
+    "plugin:prettier/recommended",
+    "airbnb-typescript"
   ],
   "rules": {
     "prettier/prettier": "error",

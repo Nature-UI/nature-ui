@@ -4,7 +4,7 @@ import {
   FiInfo,
   FiAlertCircle,
   FiAlertTriangle,
-  FiCheckCircle
+  FiCheckCircle,
 } from 'react-icons/fi';
 import { createContext, __DEV__ } from '@nature-ui/utils';
 
@@ -17,8 +17,8 @@ export const ALERT_STATUSES = {
     icon: FiAlertCircle,
     variant: {
       solid: 'bg-red-600 text-white',
-      subtle: SUBTLE_TEXT
-    }
+      subtle: SUBTLE_TEXT,
+    },
   },
   info: {
     bg: 'bg-blue-200',
@@ -26,8 +26,8 @@ export const ALERT_STATUSES = {
     icon: FiInfo,
     variant: {
       solid: 'bg-blue-600',
-      subtle: SUBTLE_TEXT
-    }
+      subtle: SUBTLE_TEXT,
+    },
   },
   success: {
     bg: 'bg-green-200',
@@ -35,8 +35,8 @@ export const ALERT_STATUSES = {
     icon: FiCheckCircle,
     variant: {
       solid: 'bg-green-600 text-white',
-      subtle: SUBTLE_TEXT
-    }
+      subtle: SUBTLE_TEXT,
+    },
   },
   warning: {
     bg: 'bg-orange-200',
@@ -44,15 +44,15 @@ export const ALERT_STATUSES = {
     icon: FiAlertTriangle,
     variant: {
       solid: 'bg-orange-600 text-white',
-      subtle: SUBTLE_TEXT
-    }
-  }
+      subtle: SUBTLE_TEXT,
+    },
+  },
 };
 
 type AlertContext = Required<Pick<AlertOptions, 'status' | 'variant'>>;
 
 const [AlertProvider, useAlertContext] = createContext<AlertContext>({
-  name: 'AlertContext'
+  name: 'AlertContext',
 });
 
 interface AlertOptions {
@@ -97,12 +97,12 @@ export const AlertWrapper = (props: AlertProps) => {
 
   const componentClass = clx(className, BASE_STYLE, {
     [bg]: status,
-    [VARIANT]: variant
+    [VARIANT]: variant,
   });
 
   const context = {
     status,
-    variant
+    variant,
   };
 
   return (
@@ -163,7 +163,7 @@ export const AlertIcon = (props: AlertIconProps) => {
   const iconClasses = clx(className, {
     [VARIANT]: variant,
     'mr-3': variant,
-    [iconColor]: variant !== 'solid'
+    [iconColor]: variant !== 'solid',
   });
 
   return <IconComponent className={iconClasses} size={20} />;
