@@ -23,7 +23,6 @@
   "extends": [
     "prettier",
     "prettier/flowtype",
-    // "prettier/standard",
     "prettier/react",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
