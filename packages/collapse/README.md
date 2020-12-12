@@ -61,12 +61,6 @@ function Example() {
 }
 ```
 
-## Note
-
-The `startingHeight` prop is passed directly to the `Transition` component which
-uses the `react-transition-group` package under the hood, hence you won't be
-able to pass Nature UI's theme values as a value for the prop.
-
 ## With string as child
 
 ```jsx
