@@ -66,6 +66,8 @@
     "implicit-arrow-linebreak": "off",
     "function-paren-newline": 0,
     "no-underscore-dangle": 0,
-    "@typescript-eslint/naming-convention": 0
+    "@typescript-eslint/naming-convention": 0,
+    "no-bitwise": 0,
+    "no-plusplus": 0
   }
 }
