@@ -1,6 +1,7 @@
 import React from 'react';
 import { ariaAttr, dataAttr, callAllHandler, Dict } from '@nature-ui/utils';
 
+// eslint-disable-next-line import/no-cycle
 import { FormControlOptions, useFormControlContext } from './form-control';
 
 export type UseFormControlProps<T extends HTMLElement> = FormControlOptions & {

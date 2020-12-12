@@ -5,6 +5,7 @@ import * as React from 'react';
 import { useBoolean, useId, useSafeLayoutEffect } from '@nature-ui/hooks';
 import { Icon, SvgIconProps } from '@nature-ui/icon';
 
+// eslint-disable-next-line import/no-cycle
 import { useFormControlLabel } from './use-form-control';
 
 const DivTag = nature('div');
@@ -126,7 +127,7 @@ const useProvider = (props: FormControlContext) => {
 const StyledFormControl = (props: PropsOf<typeof DivTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(`w-full relative`, {
+  const _className = clsx('w-full relative', {
     [className]: className,
   });
 
@@ -165,7 +166,7 @@ if (__DEV__) {
 const StyledLabel = (props: PropsOf<typeof LabelTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(`block text-left`, {
+  const _className = clsx('block text-left', {
     [className]: className,
   });
 
@@ -185,7 +186,7 @@ export const FormLabel = React.forwardRef(
   (props: FormLabelProps, ref: React.Ref<any>) => {
     const { className = '', ...rest } = props;
 
-    const _className = clsx(`mb-2`, {
+    const _className = clsx('mb-2', {
       [className]: className,
     });
     const ownProps = useFormControlLabel(rest);
@@ -262,7 +263,7 @@ export const FormHelperText = React.forwardRef(
       return () => field?.setHasHelpText.off();
     }, []);
 
-    const _className = clsx(`mt-2 text-sm text-gray-600`, {
+    const _className = clsx('mt-2 text-sm text-gray-600', {
       [className]: className,
     });
 
@@ -287,7 +288,7 @@ if (__DEV__) {
 const StyledErrorText = (props: PropsOf<typeof DivTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(`flex items-center`, {
+  const _className = clsx('flex items-center', {
     [className]: className,
   });
 
@@ -307,7 +308,7 @@ export const FormErrorMessage = React.forwardRef(
 
     if (!field?.isInvalid) return null;
 
-    const _className = clsx(`text-sm mt-2  text-red-600`, {
+    const _className = clsx('text-sm mt-2  text-red-600', {
       [className]: className,
     });
 
@@ -336,7 +337,7 @@ export const FormErrorIcon = React.forwardRef(
 
     if (!field?.isInvalid) return null;
     const { className = '', ...rest } = props;
-    const _className = clsx(`mr-2 text-red-600`, {
+    const _className = clsx('mr-2 text-red-600', {
       [className]: className,
     });
 
