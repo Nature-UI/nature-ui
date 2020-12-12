@@ -22,7 +22,7 @@ export const Basic = () => (
  */
 export const FallbackSrcExample = () => (
   <Image
-    src={'https://bit.ly/dan-abramov'}
+    src='https://bit.ly/dan-abramov'
     loading='lazy'
     fallbackSrc='https://via.placeholder.com/150'
   />
@@ -31,9 +31,9 @@ export const FallbackSrcExample = () => (
 export const NativeFallbackSrcExample = () => (
   <Image
     fallbackSrc={localImg}
-    src={'https://bit.ly/dan-abramov'}
-    width={'350px'}
-    height={'500px'}
+    src='https://bit.ly/dan-abramov'
+    width='350px'
+    height='500px'
   />
 );
 
