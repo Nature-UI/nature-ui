@@ -144,13 +144,13 @@ export const Button = React.forwardRef(
 
     if (variant === 'none') {
       BTNClass = clsx(className, {
-        [STYLES['disabled']]: isDisabled || isLoading,
+        [STYLES.disabled]: isDisabled || isLoading,
       });
     } else {
       BTNClass = clsx(className, _css, DEFAULT_CLASS, {
         [_sizes]: !_link,
         [STYLES[variant]]: variant,
-        [STYLES['disabled']]: isDisabled || isLoading,
+        [STYLES.disabled]: isDisabled || isLoading,
       });
     }
 
@@ -195,8 +195,8 @@ const ButtonSpinner = (
   } = props;
 
   const _className = clsx(className, 'align-middle', {
-    [`absolute`]: !label,
-    [`relative`]: label,
+    absolute: !label,
+    relative: label,
   });
 
   return (
