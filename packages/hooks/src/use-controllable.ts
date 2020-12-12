@@ -82,10 +82,10 @@ export const useControllableState = <T>(
       condition: isControlled !== nextIsControlled,
       message:
         `Warning: ${name} is changing from ${mode} from ${nextMode} component` +
-        `Component should not switch from controlled to uncontrolled (or vice versa). ` +
-        `Use the '${propsMap['value']}' with an '${propsMap['onChange']}' handler. ` +
-        `If you want an uncontrolled component, remove the ${propsMap['value']} prop and use '${propsMap['defaultValue']}' instead. ` +
-        `More info: https://fb.me/react-controlled-components`,
+        'Component should not switch from controlled to uncontrolled (or vice versa). ' +
+        `Use the '${propsMap.value}' with an '${propsMap.onChange}' handler. ` +
+        `If you want an uncontrolled component, remove the ${propsMap.value} prop and use '${propsMap.defaultValue}' instead. ` +
+        'More info: https://fb.me/react-controlled-components',
     });
   }, [valueProp, isControlled, name]);
 

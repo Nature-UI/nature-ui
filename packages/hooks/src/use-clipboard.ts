@@ -28,8 +28,6 @@ export const useClipboard = (
 
       return () => clearTimeout(id);
     }
-
-    return;
   }, [timeout, copied]);
 
   return [copied, onCopy] as const;

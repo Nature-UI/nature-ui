@@ -25,8 +25,8 @@ export const useEventListener = (
   useEffect(() => {
     if (!doc) return;
 
-    const listener = (event: any) => {
-      saveHandler.current(event);
+    const listener = (_event: any) => {
+      saveHandler.current(_event);
     };
 
     doc.addEventListener(event, listener, options);

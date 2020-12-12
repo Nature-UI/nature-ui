@@ -49,8 +49,6 @@ export const useDimensions = (
         }
       };
     }
-
-    return;
   }, [ref, observe]);
 
   return dimensions;
