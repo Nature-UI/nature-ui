@@ -13,7 +13,7 @@ const StyledButton = React.forwardRef(
     const { className = '', ...rest } = props;
 
     const _className = clsx(
-      `flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2`,
+      'flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2',
       {
         [className]: className,
       },
