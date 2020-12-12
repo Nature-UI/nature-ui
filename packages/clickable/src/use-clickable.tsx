@@ -124,8 +124,6 @@ export const useClickable = (props: UseClickableProps = {}) => {
         const self = event.currentTarget as HTMLElement;
 
         self.click();
-
-        return;
       }
     },
     [isDisabled, isButton, onKeyDown, clickOnEnter, clickOnSpace],
