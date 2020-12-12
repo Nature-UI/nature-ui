@@ -29,7 +29,10 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
