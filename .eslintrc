@@ -21,6 +21,7 @@
     "react-hooks"
   ],
   "extends": [
+    "airbnb-typescript",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
@@ -31,8 +32,7 @@
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "airbnb-typescript"
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -64,6 +64,8 @@
     "jsx-quotes": "off",
     "operator-linebreak": "off",
     "implicit-arrow-linebreak": "off",
-    "function-paren-newline": 0
+    "function-paren-newline": 0,
+    "no-underscore-dangle": 0,
+    "@typescript-eslint/naming-convention": 0
   }
 }

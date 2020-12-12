@@ -7,17 +7,15 @@ import { css } from 'emotion';
 import { baseStyle, SIZES } from './avatar';
 
 const AvatarExcessLabel = forwardRef<PropsOf<typeof nature.span>>(
-  ({ className = '', ...rest }, ref) => {
-    return (
-      <nature.span
-        className={clsx(`${baseStyle} rounded-full`, {
-          [className]: className,
-        })}
-        ref={ref}
-        {...rest}
-      />
-    );
-  },
+  ({ className = '', ...rest }, ref) => (
+    <nature.span
+      className={clsx(`${baseStyle} rounded-full`, {
+        [className]: className,
+      })}
+      ref={ref}
+      {...rest}
+    />
+  ),
 );
 
 if (__DEV__) {
@@ -88,27 +86,27 @@ export const AvatarGroup = forwardRef<AvatarGroupProps>((props, ref) => {
     height: ${SIZES[size]};
   `;
 
-  const defaults = `border-2 border-solid border-white`;
+  const defaults = 'border-2 border-solid border-white';
   const spacingType = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
   const clones = reversedChildren.map((child, index) => {
     const isFirstAvatar = index === 0;
 
-    const _className = clsx(STYLES, defaults, {
+    const className = clsx(STYLES, defaults, {
       [css`
         margin-right: ${spacingType};
       `]: !isFirstAvatar,
     });
 
     return React.cloneElement(child as React.ReactElement<any>, {
-      className: _className,
+      className,
     });
   });
 
   const groupExcess = clsx(
     STYLES,
     defaults,
-    `bg-gray-300`,
+    'bg-gray-300',
     css`
       margin-left: ${spacingType};
     `,
@@ -117,9 +115,9 @@ export const AvatarGroup = forwardRef<AvatarGroupProps>((props, ref) => {
   return (
     <NatureGroup ref={ref} role='group' {...rest}>
       {excess && (
-        <AvatarExcessLabel
-          className={groupExcess}
-        >{`+${excess}`}</AvatarExcessLabel>
+        <AvatarExcessLabel className={groupExcess}>
+          {`+${excess}`}
+        </AvatarExcessLabel>
       )}
       {clones}
     </NatureGroup>
