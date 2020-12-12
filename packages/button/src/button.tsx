@@ -1,4 +1,6 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+
 import { nature, clsx, PropsOf, css, keyframes } from '@nature-ui/system';
 import { __DEV__, lighten, darken, dataAttr } from '@nature-ui/utils';
 import { Spinner } from '@nature-ui/spinner';
@@ -67,6 +69,37 @@ const _SIZES = {
   },
 };
 
+const ButtonSpinner = (
+  props: ButtonType & {
+    spinner?: React.ReactNode;
+    label?: string;
+  },
+) => {
+  const {
+    className = '',
+    label,
+    spinner = <Spinner size='xs' color='currentColor' />,
+    ...rest
+  } = props;
+
+  const _className = clsx(className, 'align-middle', {
+    absolute: !label,
+    relative: label,
+  });
+
+  return (
+    <span className={_className} {...rest}>
+      {spinner}
+      {label && <span className='ml-2'>{label}</span>}
+    </span>
+  );
+};
+
+ButtonSpinner.defaultProps = {
+  spinner: PropTypes.node,
+  label: PropTypes.string,
+};
+
 export const Button = React.forwardRef(
   (props: ButtonType, ref: React.Ref<any>) => {
     const {
@@ -105,7 +138,7 @@ export const Button = React.forwardRef(
         opacity: 0;
         transform: translate(-50%, -50%) scale(10);
       }
-    `;
+      `;
 
     const _css = css`
       font-size: ${_font};
@@ -180,32 +213,6 @@ export const Button = React.forwardRef(
     );
   },
 );
-
-const ButtonSpinner = (
-  props: ButtonType & {
-    spinner?: React.ReactNode;
-    label?: string;
-  },
-) => {
-  const {
-    className = '',
-    label,
-    spinner = <Spinner size='xs' color='currentColor' />,
-    ...rest
-  } = props;
-
-  const _className = clsx(className, 'align-middle', {
-    absolute: !label,
-    relative: label,
-  });
-
-  return (
-    <span className={_className} {...rest}>
-      {spinner}
-      {label && <span className='ml-2'>{label}</span>}
-    </span>
-  );
-};
 
 if (__DEV__) {
   Button.displayName = 'Button';
