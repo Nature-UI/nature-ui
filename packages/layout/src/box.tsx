@@ -39,9 +39,9 @@ export const Box = forwardRef<SquareProps>((props, ref) => {
     ...rest
   } = props;
 
-  const CENTER_CONTENT = `flex items-center justify-center`;
+  const CENTER_CONTENT = 'flex items-center justify-center';
 
-  const DEFAULTS = ``;
+  const DEFAULTS = '';
   let SIZE;
 
   if (typeof size === 'number') {
