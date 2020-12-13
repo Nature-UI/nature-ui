@@ -115,7 +115,7 @@ const StyledInput = (props: StyledInputProps) => {
     }
   `;
 
-  const _invalid = `focus:border-red-500 border-red-500 border-2`;
+  const _invalid = 'focus:border-red-500 border-red-500 border-2';
 
   const _outline = variant === 'outline';
   const _filled = variant === 'filled';
@@ -124,10 +124,10 @@ const StyledInput = (props: StyledInputProps) => {
 
   const _className = clsx(
     className,
-    `w-full outline-none transition-all duration-150`,
+    'w-full outline-none transition-all duration-150',
     {
       [_invalid]: isInvalid,
-      [`border`]: !isInvalid && _outline,
+      border: !isInvalid && _outline,
       [_border]: !isReadOnly && (_outline || _filled),
       'cursor-not-allowed opacity-50': isDisabled,
       'border-solid border-gray-400': _outline,

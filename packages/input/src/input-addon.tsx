@@ -27,7 +27,7 @@ const placements = {
 const StyledAddon = (props: PropsOf<typeof SpanTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(`flex w-auto items-center whitespace-no-wrap`, {
+  const _className = clsx('flex w-auto items-center whitespace-no-wrap', {
     [className]: className,
   });
 
