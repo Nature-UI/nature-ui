@@ -57,13 +57,13 @@ export const Radio = React.forwardRef(
       ...radioProps
     } = props;
 
-    let isChecked = props.isChecked;
+    let { isChecked } = props;
 
     if (group?.value && props.value) {
       isChecked = group.value === props.value;
     }
 
-    let onChange = props.onChange;
+    let { onChange } = props;
 
     if (props.value && group?.onChange) {
       onChange = group.onChange;
@@ -135,7 +135,7 @@ export const Radio = React.forwardRef(
         }}
       >
         <input
-          className={`nature-radio__input`}
+          className='nature-radio__input'
           style={style as any}
           {...inputProps}
         />
