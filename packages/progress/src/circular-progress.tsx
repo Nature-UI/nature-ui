@@ -151,7 +151,7 @@ const ProgressTag = nature('div');
 const StyledProgress = React.forwardRef(
   (props: PropsOf<typeof ProgressTag>, ref: React.Ref<HTMLDivElement>) => {
     const { className = '', ...rest } = props;
-    const _className = clsx(`inline-block relative align-middle`, {
+    const _className = clsx('inline-block relative align-middle', {
       [className]: className,
     });
 
@@ -161,6 +161,36 @@ const StyledProgress = React.forwardRef(
 
 export type CircularProgressProps = PropsOf<typeof ProgressTag> &
   CircularProgressOptions;
+
+/**
+ * CircularProgressLabel
+ *
+ * CircularProgress component label. In most cases it's a numeric indicator
+ * of the circular progress component's value
+ */
+export const CircularProgressLabel = (
+  props: PropsOf<typeof ProgressTag> & {
+    fontSize?: StringOrNumber;
+  },
+) => {
+  const { className = '', fontSize = '0.7rem', ...rest } = props;
+
+  const STYLES = css`
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: ${fontSize};
+  `;
+
+  const _className = clsx(STYLES, {
+    [className]: className,
+  });
+
+  return <ProgressTag className={_className} {...rest} />;
+};
 
 /**
  * React component used to indicate the progressof an activity
@@ -256,33 +286,3 @@ export const CircularProgress = React.forwardRef(
 if (__DEV__) {
   CircularProgress.displayName = 'CircularProgress';
 }
-
-/**
- * CircularProgressLabel
- *
- * CircularProgress component label. In most cases it's a numeric indicator
- * of the circular progress component's value
- */
-export const CircularProgressLabel = (
-  props: PropsOf<typeof ProgressTag> & {
-    fontSize?: StringOrNumber;
-  },
-) => {
-  const { className = '', fontSize = '0.7rem', ...rest } = props;
-
-  const STYLES = css`
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    font-size: ${fontSize};
-  `;
-
-  const _className = clsx(STYLES, {
-    [className]: className,
-  });
-
-  return <ProgressTag className={_className} {...rest} />;
-};
