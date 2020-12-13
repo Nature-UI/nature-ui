@@ -58,17 +58,3 @@ popovers, modal, etc.
   <Portal>This is a nested portal</Portal>
 </Portal>
 ```
-
-### Custom container
-
-You can also portal elements into a custom containers. Simply pass a `container`
-prop that points to the `node` of that element.
-
-```jsx
-<>
-  <div data-testid='container' ref={ref} />
-  <Portal container={() => ref.current}>
-    <h1 data-testid='heading'>Hello world</h1>
-  </Portal>
-</>
-```
