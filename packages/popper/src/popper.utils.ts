@@ -55,6 +55,4 @@ export const getBoxShadow = (placement: Placement, color: string) => {
   if (placement.includes('left')) {
     return `1px -1px 1px 0 ${color}`;
   }
-
-  return;
 };
