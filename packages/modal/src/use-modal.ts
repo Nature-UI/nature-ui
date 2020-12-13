@@ -70,9 +70,9 @@ export const useModal = (props: UseModalProps) => {
 
   const [dialogId, headerId, bodyId] = useIds(
     id,
-    `nature-modal`,
-    `nature-modal--header`,
-    `nature-modal--body`,
+    'nature-modal',
+    'nature-modal--header',
+    'nature-modal--body',
   );
 
   /**
