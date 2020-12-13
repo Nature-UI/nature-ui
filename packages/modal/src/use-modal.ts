@@ -48,6 +48,35 @@ export interface UseModalProps {
 }
 
 /**
+ * Modal hook to polyfill `aria-modal`.
+ *
+ * It applies `aria-hidden` to elements behind the modal
+ * to indicate that they're `inert`.
+ *
+ * @param ref React ref of the node
+ * @param shouldHide whether `aria-hidden` should be applied
+ */
+export const useAriaHidden = (
+  ref: React.RefObject<HTMLElement>,
+  shouldHide: boolean,
+) => {
+  React.useEffect(() => {
+    if (!ref.current) return;
+    let undo: Undo | null = null;
+
+    if (shouldHide && ref.current) {
+      undo = hideOthers(ref.current);
+    }
+
+    return () => {
+      if (shouldHide) {
+        undo?.();
+      }
+    };
+  }, [shouldHide, ref]);
+};
+
+/**
  * Modal hook that manages all the logic for the modal dialog widget
  * and returns prop getters, state and actions.
  *
@@ -148,56 +177,27 @@ export const useModal = (props: UseModalProps) => {
     setBodyMounted,
     setHeaderMounted,
     dialogRef,
-    getContentProps: (props: Dict = {}) => ({
-      ...props,
-      ref: mergeRefs(props.ref, dialogRef),
+    getContentProps: (_props: Dict = {}) => ({
+      ..._props,
+      ref: mergeRefs(_props.ref, dialogRef),
       id: dialogId,
-      role: props.role || 'dialog',
+      role: _props.role || 'dialog',
       tabIndex: -1,
       'aria-modal': true,
       'aria-labelledby': headerMounted ? headerId : undefined,
       'aria-describedby': bodyMounted ? bodyId : undefined,
-      onClick: callAllHandler(props.onClick, (event: React.MouseEvent) =>
+      onClick: callAllHandler(_props.onClick, (event: React.MouseEvent) =>
         event.stopPropagation(),
       ),
     }),
-    getOverlayProps: (props: Dict = {}) => ({
-      ...props,
-      ref: mergeRefs(props.ref, overlayRef),
-      onClick: callAllHandler(props.onClick, onOverlayClick),
-      onKeyDown: callAllHandler(props.onKeyDown, onKeyDown),
-      onMouseDown: callAllHandler(props.onMouseDown, onMouseDown),
+    getOverlayProps: (_props: Dict = {}) => ({
+      ..._props,
+      ref: mergeRefs(_props.ref, overlayRef),
+      onClick: callAllHandler(_props.onClick, onOverlayClick),
+      onKeyDown: callAllHandler(_props.onKeyDown, onKeyDown),
+      onMouseDown: callAllHandler(_props.onMouseDown, onMouseDown),
     }),
   };
 };
 
 export type UseModalReturn = ReturnType<typeof useModal>;
-
-/**
- * Modal hook to polyfill `aria-modal`.
- *
- * It applies `aria-hidden` to elements behind the modal
- * to indicate that they're `inert`.
- *
- * @param ref React ref of the node
- * @param shouldHide whether `aria-hidden` should be applied
- */
-export const useAriaHidden = (
-  ref: React.RefObject<HTMLElement>,
-  shouldHide: boolean,
-) => {
-  React.useEffect(() => {
-    if (!ref.current) return;
-    let undo: Undo | null = null;
-
-    if (shouldHide && ref.current) {
-      undo = hideOthers(ref.current);
-    }
-
-    return () => {
-      if (shouldHide) {
-        undo?.();
-      }
-    };
-  }, [shouldHide, ref]);
-};

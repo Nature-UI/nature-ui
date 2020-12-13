@@ -4,27 +4,36 @@ import * as React from 'react';
  * Proper state management for nested modals.
  * Simplified, but inspired by material-ui's ModalManager class.
  */
-export const manager = {
-  modals: [] as any,
+class ModalManager {
+  modals: any[];
+
+  constructor() {
+    this.modals = [];
+  }
+
   add(modal: any) {
     this.modals.push(modal);
-  },
+  }
+
   remove(modal: any) {
-    this.modals = this.modals.filter((_modal: any) => _modal !== modal);
-  },
+    this.modals = this.modals.filter((_modal) => _modal !== modal);
+  }
+
   isTopModal(modal: any) {
     const topmostModal = this.modals[this.modals.length - 1];
-
     return topmostModal === modal;
-  },
-};
+  }
+}
 
-export function useModalManager(ref: React.Ref<any>, isOpen?: boolean) {
+export const manager = new ModalManager();
+
+export const useModalManager = (ref: React.Ref<any>, isOpen?: boolean) => {
   React.useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     isOpen && manager.add(ref);
 
     return () => {
       manager.remove(ref);
     };
   }, [isOpen, ref]);
-}
+};

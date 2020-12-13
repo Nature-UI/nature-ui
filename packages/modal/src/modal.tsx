@@ -132,6 +132,7 @@ export const Modal = (props: ModalProps) => {
 
   if (!isOpen) return null;
 
+  const { dialogRef } = context;
   return (
     <ModalContextProvider value={context}>
       <Portal getContainer={getContainer}>
@@ -141,7 +142,7 @@ export const Modal = (props: ModalProps) => {
           initialFocusRef={initialFocusRef}
           finalFocusRef={finalFocusRef}
           restoreFocus={returnFocusOnClose}
-          contentRef={context.dialogRef}
+          contentRef={dialogRef}
         >
           <RemoveScroll
             allowPinchZoom={allowPinchZoom}
