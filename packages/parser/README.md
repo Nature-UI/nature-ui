@@ -1,11 +1,11 @@
-# `@nature-ui/utils`
+# `@nature-ui/parser`
 
 > TODO: description
 
 ## Usage
 
-```
-const utils = require('@nature-ui/utils');
+```jsx
+import parser from '@nature-ui/parser';
 
 // TODO: DEMONSTRATE API
 ```

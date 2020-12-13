@@ -80,7 +80,7 @@ export const transformConfig = (config: Config) => {
       };
 
       if (scale) {
-        result[prop]['scale'] = scale;
+        result[prop].scale = scale;
       }
 
       return;
