@@ -18,9 +18,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "test": "lerna run test --no-private --stream   ",
     "eject": "react-scripts eject",
     "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
     "storybook": "env NODE_ENV=development start-storybook -p 4000",
