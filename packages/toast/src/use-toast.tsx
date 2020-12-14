@@ -126,6 +126,7 @@ export const useToast = () => {
   const toastImpl = (options: UseToastOptions) => {
     const { render } = options;
 
+    const opts = merge(defaults, options);
     const Message = (props: RenderProps) => (
       <>
         {isFunction(render) ? (
@@ -140,7 +141,6 @@ export const useToast = () => {
         )}
       </>
     );
-    const opts = merge(defaults, options);
 
     return toast.notify(Message, opts);
   };

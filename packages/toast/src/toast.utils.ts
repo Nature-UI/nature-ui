@@ -15,23 +15,6 @@ export const findById = (arr: ToastOptions[], id: ToastId) => {
 };
 
 /**
- * Given the toast manager state, finds the toast that matches
- * the id and return it's position and index
- */
-export const findToast = (toasts: ToastState, id: ToastId) => {
-  const position = getToastPosition(toasts, id);
-
-  const index = position
-    ? toasts[position].findIndex((toast) => toast.id == id)
-    : -1;
-
-  return {
-    position,
-    index,
-  };
-};
-
-/**
  * Given the toast manager state, finds the position of the toast that
  * matches the `id`
  */
@@ -47,14 +30,31 @@ export const getToastPosition = (toasts: ToastState, id: ToastId) => {
 };
 
 /**
+ * Given the toast manager state, finds the toast that matches
+ * the id and return it's position and index
+ */
+export const findToast = (toasts: ToastState, id: ToastId) => {
+  const position = getToastPosition(toasts, id);
+
+  const index = position
+    ? toasts[position].findIndex((toast) => String(toast.id) === String(id))
+    : -1;
+
+  return {
+    position,
+    index,
+  };
+};
+
+/**
  * Given the toast manager state, checks if a specific toast is
  * still in the state, which means it's still visible on screen.
  */
 export const isVisible = (toasts: ToastState, id: ToastId) => {
   let found: any;
 
-  Object.values(toasts).forEach((toasts) => {
-    found = toasts.find((toast) => toast.id === id);
+  Object.values(toasts).forEach((_toasts) => {
+    found = _toasts.find((toast) => toast.id === id);
   });
 
   return !!found;
