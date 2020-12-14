@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Drawer renders correctly 1`] = `
+exports[`@nature-ui/drawer Drawer renders correctly 1`] = `
 <DocumentFragment>
   <div>
-    <div>
+    <div
+      class="nature-portal"
+    >
       <div
         class="appear appear-active"
         data-focus-guard="true"

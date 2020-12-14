@@ -1,98 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@nature- should render correctly 1`] = `
-<DocumentFragment>
-  <div>
-    <div>
-      <div
-        aria-hidden="true"
-        data-aria-hidden="true"
-        data-focus-guard="true"
-        style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-        tabindex="0"
-      />
-      <div
-        aria-hidden="true"
-        data-aria-hidden="true"
-        data-focus-guard="true"
-        style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-        tabindex="1"
-      />
-      <div
-        data-focus-lock-disabled="false"
-      >
-        <div>
-          <div
-            class="flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start overflow-auto css-13nve5j"
-            variant="blur"
-          >
-            <section
-              aria-describedby="nature-modal--body-1"
-              aria-labelledby="nature-modal--header-1"
-              aria-modal="true"
-              class="bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none css-ay1frr"
-              id="nature-modal-1"
-              role="dialog"
-              tabindex="-1"
-              variant="blur"
-            >
-              <header
-                class="nature-modal__header p-4 font-bold text-xl css-72fd9l"
-                id="nature-modal--header-1"
-              >
-                Modal header
-              </header>
-              <button
-                class="flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2 nature-modal__close-btn absolute top-0 right-0 mt-3 mr-3 css-ly3tul"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=" css-qzxgwt"
-                  color="currentColor"
-                  focusable="false"
-                  height="12"
-                  role="presentation"
-                  viewBox="0 0 24 24"
-                  width="12"
-                >
-                  <path
-                    d="M.439,21.44a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,1,0,2.122-2.121L14.3,12.177a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.44L12.177,9.7a.25.25,0,0,1-.354,0L2.561.44A1.5,1.5,0,0,0,.439,2.561L9.7,11.823a.25.25,0,0,1,0,.354Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-              <div
-                class="nature-modal__body py-2 px-4 flex-1"
-                id="nature-modal--body-1"
-              >
-                Modal body
-              </div>
-              <footer
-                class="flex items-center justify-end p-4 css-72fd9l"
-              >
-                Modal footer
-              </footer>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div
-        aria-hidden="true"
-        data-aria-hidden="true"
-        data-focus-guard="true"
-        style="width: 1px; height: 0px; padding: 0px; overflow: hidden; position: fixed; top: 1px; left: 1px;"
-        tabindex="0"
-      />
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`@nature-ui/modal should render correctly 1`] = `
 <DocumentFragment>
   <div>
-    <div>
+    <div
+      class="nature-portal"
+    >
       <div
         aria-hidden="true"
         data-aria-hidden="true"
@@ -132,6 +45,7 @@ exports[`@nature-ui/modal should render correctly 1`] = `
                 Modal header
               </header>
               <button
+                aria-label="Close"
                 class="flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2 nature-modal__close-btn absolute top-0 right-0 mt-3 mr-3 css-ly3tul"
                 type="button"
               >

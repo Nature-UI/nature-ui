@@ -32,7 +32,8 @@
     "build": "rimraf ./dist && tsc",
     "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
     "lint:types": "tsc --noEmit",
-    "lint": "concurrently yarn:lint:*"
+    "lint": "concurrently yarn:lint:*",
+    "test": "jest --env jsdom --passWithNoTests"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
