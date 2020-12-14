@@ -1,37 +1,3 @@
-export const getFirstItem = <T>(array: T[]) => {
-  return array !== undefined && array.length > 0 ? array[0] : undefined;
-};
-
-export const getLastItem = <T>(array: T[]) => {
-  const length = array === undefined ? 0 : array.length;
-
-  return length ? array[length - 1] : undefined;
-};
-
-export const getPrevItem = <T>(index: number, array: T[], loop = true) => {
-  const prevIndex = getPrevIndex(index, array.length, loop);
-
-  return array[prevIndex];
-};
-
-export const getNextItem = <T>(index: number, array: T[], loop = true) => {
-  const nextIndex = getNextIndex(index, array.length, 1, loop);
-
-  return array[nextIndex];
-};
-
-export const removeIndex = <T>(array: T[], index: number) => {
-  return array.filter((_, idx) => idx !== index);
-};
-
-export const addItem = <T>(array: T[], item: T) => {
-  return [...array, item];
-};
-
-export const removeItem = <T>(array: T[], item: T) => {
-  return array.filter((eachItem) => eachItem !== item);
-};
-
 /**
  * Get the next index based on the current index and step.
  *
@@ -82,6 +48,40 @@ export const getPrevIndex = (
   loop = true,
 ) => {
   return getNextIndex(currentIndex, count, -1, loop);
+};
+
+export const getFirstItem = <T>(array: T[]) => {
+  return array !== undefined && array.length > 0 ? array[0] : undefined;
+};
+
+export const getLastItem = <T>(array: T[]) => {
+  const length = array === undefined ? 0 : array.length;
+
+  return length ? array[length - 1] : undefined;
+};
+
+export const getPrevItem = <T>(index: number, array: T[], loop = true) => {
+  const prevIndex = getPrevIndex(index, array.length, loop);
+
+  return array[prevIndex];
+};
+
+export const getNextItem = <T>(index: number, array: T[], loop = true) => {
+  const nextIndex = getNextIndex(index, array.length, 1, loop);
+
+  return array[nextIndex];
+};
+
+export const removeIndex = <T>(array: T[], index: number) => {
+  return array.filter((_, idx) => idx !== index);
+};
+
+export const addItem = <T>(array: T[], item: T) => {
+  return [...array, item];
+};
+
+export const removeItem = <T>(array: T[], item: T) => {
+  return array.filter((eachItem) => eachItem !== item);
 };
 
 /**

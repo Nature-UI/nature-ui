@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Booleanish } from './types';
 
+// eslint-disable-next-line import/no-mutable-exports
 let _window: Window | undefined;
 
 /*
@@ -30,12 +31,12 @@ export const getWindow = (node?: HTMLElement | null): Window | undefined =>
  */
 
 const checkIsBrowser = (): boolean => {
-  const _window = getWindow();
+  const __window = getWindow();
 
   return Boolean(
-    typeof _window !== 'undefined' &&
-      _window.document &&
-      _window.document.createElement,
+    typeof __window !== 'undefined' &&
+      __window.document &&
+      __window.document.createElement,
   );
 };
 
