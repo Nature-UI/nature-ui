@@ -97,20 +97,16 @@ export type DOMElements = UnionStringArray<typeof domElements>;
 export const pseudoProps = (props: any) => {
   let result = {};
 
-  for (const prop in props) {
+  Object.keys(props).forEach((prop) => {
     if (prop in pseudoSelectors) {
       const style = { [prop]: props[prop] };
 
-      console.log({
-        style,
-        from: 'pseudoProps',
-      });
       result = {
         ...result,
         ...style,
       };
     }
-  }
+  });
 
   return result;
 };

@@ -12,18 +12,17 @@ const getPropName = memoizeOne((prop: string) =>
 export const parsePseudo = (props: Dict) => {
   const next: Dict = {};
 
-  for (const prop in props) {
+  Object.keys(props).forEach((prop) => {
     if (prop) {
       const propValue = props[prop];
       const propName = getPropName(prop);
 
       if (isObject(propValue) && !isFunction(propValue)) {
         next[propName] = parsePseudo(propValue);
-      } else {
-        next[propName] = propValue;
       }
+      next[propName] = propValue;
     }
-  }
+  });
 
   return next;
 };
