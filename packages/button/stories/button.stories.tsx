@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Stack } from '@nature-ui/layout';
 
-import { Button, ButtonType } from '../src';
+import { Spinner } from '@nature-ui/spinner';
+import { Button, ButtonType, ButtonSpinner } from '../src';
 
 export default {
   title: 'Button',
@@ -100,4 +101,8 @@ export const Red = () => {
       Button
     </Button>
   );
+};
+
+export const buttonSpinner = () => {
+  return <ButtonSpinner />;
 };

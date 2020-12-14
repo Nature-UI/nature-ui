@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import { nature, clsx, PropsOf, css, keyframes } from '@nature-ui/system';
 import { __DEV__, lighten, darken, dataAttr } from '@nature-ui/utils';
@@ -69,18 +68,13 @@ const _SIZES = {
   },
 };
 
-const ButtonSpinner = (
+export const ButtonSpinner = (
   props: ButtonType & {
     spinner?: React.ReactNode;
     label?: string;
   },
 ) => {
-  const {
-    className = '',
-    label,
-    spinner = <Spinner size='xs' color='currentColor' />,
-    ...rest
-  } = props;
+  const { className = '', label, spinner, ...rest } = props;
 
   const _className = clsx(className, 'align-middle', {
     absolute: !label,
@@ -89,15 +83,10 @@ const ButtonSpinner = (
 
   return (
     <span className={_className} {...rest}>
-      {spinner}
+      {spinner || <Spinner size='xs' color='currentColor' />}
       {label && <span className='ml-2'>{label}</span>}
     </span>
   );
-};
-
-ButtonSpinner.defaultProps = {
-  spinner: PropTypes.node,
-  label: PropTypes.string,
 };
 
 export const Button = React.forwardRef(

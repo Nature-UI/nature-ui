@@ -3,7 +3,7 @@
 exports[`@nature-ui/button Button rernders correctly 1`] = `
 <DocumentFragment>
   <button
-    class="css-1njcx7 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600"
+    class="css-yyzfim focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600"
   />
 </DocumentFragment>
 `;
@@ -11,7 +11,7 @@ exports[`@nature-ui/button Button rernders correctly 1`] = `
 exports[`@nature-ui/button shows spinner and loading text if isLoading and loadingText 1`] = `
 <DocumentFragment>
   <button
-    class="css-1njcx7 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600 opacity-50 cursor-not-allowed"
+    class="css-yyzfim focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600 opacity-50 cursor-not-allowed"
     data-loading=""
     disabled=""
   >
@@ -19,11 +19,11 @@ exports[`@nature-ui/button shows spinner and loading text if isLoading and loadi
       class="align-middle relative"
     >
       <span
-        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4"
+        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4 text-currentColor"
         style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
       >
         <span
-          class="css-z1mnri"
+          class="css-e941bk"
         >
           Loading...
         </span>
@@ -41,7 +41,7 @@ exports[`@nature-ui/button shows spinner and loading text if isLoading and loadi
 exports[`@nature-ui/button shows spinner if isLoading 1`] = `
 <DocumentFragment>
   <button
-    class="css-1njcx7 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600 opacity-50 cursor-not-allowed"
+    class="css-yyzfim focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-teal-500 text-white hover:bg-teal-600 opacity-50 cursor-not-allowed"
     data-loading=""
     disabled=""
   >
@@ -49,11 +49,11 @@ exports[`@nature-ui/button shows spinner if isLoading 1`] = `
       class="align-middle absolute"
     >
       <span
-        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4"
+        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4 text-currentColor"
         style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
       >
         <span
-          class="css-z1mnri"
+          class="css-e941bk"
         >
           Loading...
         </span>

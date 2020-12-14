@@ -3,7 +3,7 @@
 exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1frml7e"
+    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-o4kq34"
   >
     <svg
       class=""
@@ -31,7 +31,7 @@ exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
 exports[`@nature-ui/avatar avatar renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1frml7e"
+    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-o4kq34"
   >
     <svg
       class=""

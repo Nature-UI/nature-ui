@@ -23,7 +23,7 @@ export const pick = <T extends Dict, K extends keyof T>(
 ) => {
   const result = {} as { [P in K]: T[P] };
 
-  Object.keys(keys).forEach((key) => {
+  keys.forEach((key) => {
     if (key in object) {
       result[key] = object[key];
     }
