@@ -53,14 +53,14 @@ export const useDisclosure = (props: UseDisclosureProps = {}) => {
     onClose,
     onToggle,
     isControlled,
-    getButtonProps: (props: any = {}) => ({
-      ...props,
+    getButtonProps: (_props: any = {}) => ({
+      ..._props,
       'aria-expanded': 'true',
       'aria-controls': id,
-      onClick: callAllHandler(props.onClick, onToggle),
+      onClick: callAllHandler(_props.onClick, onToggle),
     }),
-    getDisclosureProps: (props: any = {}) => ({
-      ...props,
+    getDisclosureProps: (_props: any = {}) => ({
+      ..._props,
       hidden: !isOpen,
       id,
     }),

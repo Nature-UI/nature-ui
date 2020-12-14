@@ -36,12 +36,14 @@ export const Popover = (props: PopoverProps) => {
   const { children, ...hookProps } = props;
   const context = usePopover(hookProps);
 
+  const { isOpen, onClose } = context;
+
   return (
     <PopoverContextProvider value={context}>
       {isFunction(children)
         ? children({
-            isOpen: context.isOpen,
-            onClose: context.onClose,
+            isOpen,
+            onClose,
           })
         : children}
     </PopoverContextProvider>
@@ -110,7 +112,7 @@ export const PopoverContent = React.forwardRef(
         )}
       </>
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -152,7 +154,7 @@ export const PopoverHeader = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -193,7 +195,7 @@ export const PopoverBody = React.forwardRef(
         ref={ref}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -229,7 +231,7 @@ export const PopoverCloseButton = (props: CloseButtonProps) => {
     <CloseButton
       size='xs'
       onClick={onClose}
-      className={'absolute rounded-md top-0 right-0 p-2 mt-1 mr-2'}
+      className='absolute rounded-md top-0 right-0 p-2 mt-1 mr-2'
       {...props}
     />
   );

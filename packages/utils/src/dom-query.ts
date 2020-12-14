@@ -31,7 +31,7 @@ export const getFirstFocusable = <T extends Element>(container: T) => {
 
 export const getAllTabbable = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ) => {
   const allFocusable = Array.from(container.querySelectorAll<T>(selector));
   const allTabbable = allFocusable.filter(isTabbable);
@@ -49,7 +49,7 @@ export const getAllTabbable = <T extends Element>(
 
 export const getFirstTabbableIn = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ): T | null => {
   const [first] = getAllTabbable(container, fallbackToFocusable);
 
@@ -58,7 +58,7 @@ export const getFirstTabbableIn = <T extends Element>(
 
 export const getLastTabbableIn = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ): T | null => {
   const allTabbable = getAllTabbable(container, fallbackToFocusable);
 
@@ -67,7 +67,7 @@ export const getLastTabbableIn = <T extends Element>(
 
 export const getNextTabbable = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ): T | null => {
   const allFocusable = getAllFocusable(container);
   const index = allFocusable.indexOf(document.activeElement as T);
@@ -82,7 +82,7 @@ export const getNextTabbable = <T extends Element>(
 
 export const getPreviousTabbable = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ): T | null => {
   const allFocusable = getAllFocusable(container).reverse();
   const index = allFocusable.indexOf(document.activeElement as T);
@@ -97,7 +97,7 @@ export const getPreviousTabbable = <T extends Element>(
 
 export const focusNextTabbable = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ) => {
   const nextTabbable = getNextTabbable(container, fallbackToFocusable);
 
@@ -108,7 +108,7 @@ export const focusNextTabbable = <T extends Element>(
 
 export const focusPreviousTabbable = <T extends Element>(
   container: T,
-  fallbackToFocusable?: boolean
+  fallbackToFocusable?: boolean,
 ) => {
   const previousTabbable = getPreviousTabbable(container, fallbackToFocusable);
 

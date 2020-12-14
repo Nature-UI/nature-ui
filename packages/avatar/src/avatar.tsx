@@ -7,7 +7,8 @@ import { css } from 'emotion';
 
 import { randomBgColors } from './randomBgColors';
 
-export const baseStyle = `items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full`;
+export const baseStyle =
+  'items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full';
 interface AvatarOptions {
   /**
    * The name of the person in the avatar.
@@ -87,7 +88,7 @@ export const AvatarBadge = ({
         `absolute flex items-center justify-center right-0 bottom-0 rounded-full border-solid ${style} border-white -mb-1 -mr-1`,
         {
           [className]: className,
-        }
+        },
       )}
       {...rest}
     />
@@ -186,8 +187,8 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
   });
 
   const hasLoaded = status === 'loaded';
-  const _className = clsx(`object-cover w-full h-full rounded-full`, {
-    [`border-2`]: showBorder,
+  const _className = clsx('object-cover w-full h-full rounded-full', {
+    'border-2': showBorder,
   });
 
   const getAvatar = () => {
@@ -239,8 +240,8 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     width: ${SIZES[size]};
     height: ${SIZES[size]};
     background-color: ${bg};
-    border-color: ${borderColor}
-    color: ${color}
+    border-color: ${borderColor};
+    color: ${color};
   `;
 
   return (

@@ -29,7 +29,7 @@ describe('@nature-ui/system', () => {
     const tools = render(
       <Div as={Toyota} isBig>
         a
-      </Div>
+      </Div>,
     );
 
     expect(tools.getByText('a')).toMatchInlineSnapshot(`

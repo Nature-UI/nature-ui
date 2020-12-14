@@ -97,20 +97,16 @@ export type DOMElements = UnionStringArray<typeof domElements>;
 export const pseudoProps = (props: any) => {
   let result = {};
 
-  for (const prop in props) {
+  Object.keys(props).forEach((prop) => {
     if (prop in pseudoSelectors) {
       const style = { [prop]: props[prop] };
 
-      console.log({
-        style,
-        from: 'pseudoProps',
-      });
       result = {
         ...result,
         ...style,
       };
     }
-  }
+  });
 
   return result;
 };
@@ -135,7 +131,7 @@ export const getDisplayName = (primitive: any) => {
 };
 
 export const forwardRef = <P>(
-  comp: (props: P, ref: React.Ref<any>) => React.ReactElement | null
+  comp: (props: P, ref: React.Ref<any>) => React.ReactElement | null,
 ) => {
   return (React.forwardRef(comp as any) as unknown) as ForwardRefComponent<P>;
 };

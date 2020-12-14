@@ -23,9 +23,9 @@ export const AlertDialog = (props: AlertDialogProps) => {
 };
 
 export const AlertDialogContent = React.forwardRef(
-  (props: ModalContentProps, ref: React.Ref<any>) => {
-    return <ModalContent ref={ref} role='alertdialog' {...props} />;
-  }
+  (props: ModalContentProps, ref: React.Ref<any>) => (
+    <ModalContent ref={ref} role='alertdialog' {...props} />
+  ),
 );
 
 if (__DEV__) {

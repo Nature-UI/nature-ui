@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
+import { Stack } from '@nature-ui/layout';
 
 import { Button, ButtonType } from '../src';
 
@@ -40,7 +41,7 @@ Link.args = {
 
 export const Sizes = () => {
   return (
-    <div>
+    <Stack spacing='1rem'>
       <Button size='xs' className='mr-4' color='blue-500' variant='solid'>
         Button
       </Button>
@@ -53,7 +54,7 @@ export const Sizes = () => {
       <Button size='lg' className='mr-4' color='blue-500' variant='solid'>
         Button
       </Button>
-    </div>
+    </Stack>
   );
 };
 

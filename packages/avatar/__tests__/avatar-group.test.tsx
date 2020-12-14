@@ -8,7 +8,7 @@ describe('@nature-ui/avatar', () => {
     const tools = render(
       <AvatarGroup>
         <Avatar />
-      </AvatarGroup>
+      </AvatarGroup>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -22,7 +22,7 @@ describe('@nature-ui/avatar', () => {
         <Avatar />
         <Avatar />
         <Avatar />
-      </AvatarGroup>
+      </AvatarGroup>,
     );
 
     const moreLabel = tools.getByText('+3');

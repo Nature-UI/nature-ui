@@ -98,7 +98,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
       selft.focus();
       onClick?.(event);
     },
-    [isDisabled, onClick]
+    [isDisabled, onClick],
   );
 
   const handleKeyDown = React.useCallback(
@@ -124,11 +124,9 @@ export const useClickable = (props: UseClickableProps = {}) => {
         const self = event.currentTarget as HTMLElement;
 
         self.click();
-
-        return;
       }
     },
-    [isDisabled, isButton, onKeyDown, clickOnEnter, clickOnSpace]
+    [isDisabled, isButton, onKeyDown, clickOnEnter, clickOnSpace],
   );
 
   const handleKeyUp = React.useCallback(
@@ -148,7 +146,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
         self.click();
       }
     },
-    [clickOnSpace, isButton, isDisabled, onKeyUp]
+    [clickOnSpace, isButton, isDisabled, onKeyUp],
   );
 
   const handleMouseDown = React.useCallback(
@@ -166,7 +164,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
 
       onMouseDown?.(event);
     },
-    [isDisabled, isButton, onMouseDown]
+    [isDisabled, isButton, onMouseDown],
   );
 
   const handleMouseUp = React.useCallback(
@@ -177,7 +175,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
 
       onMouseUp?.(event);
     },
-    [onMouseUp, isButton]
+    [onMouseUp, isButton],
   );
 
   const handleMouseOver = React.useCallback(
@@ -190,7 +188,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
 
       onMouseOver?.(event);
     },
-    [isDisabled, onMouseOver]
+    [isDisabled, onMouseOver],
   );
 
   const ref = mergeRefs(htmlRef, refCallback);

@@ -11,7 +11,7 @@ const Refs = React.forwardRef(
     props: {
       children: React.ReactElement;
     },
-    forwardedRef: React.Ref<any>
+    forwardedRef: React.Ref<any>,
   ) => {
     type ChildElement = React.ReactElement<{ ref: React.Ref<any> }>;
     const _child = React.Children.only(props.children) as ChildElement;
@@ -29,7 +29,7 @@ const Refs = React.forwardRef(
         })}
       </div>
     );
-  }
+  },
 );
 
 Refs.displayName = 'Refs';

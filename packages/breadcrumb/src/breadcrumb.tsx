@@ -27,11 +27,11 @@ export const BreadcrumbSeparator = forwardRef<BreadcrumbSeparatorProps>(
       `,
       {
         [className]: className,
-      }
+      },
     );
 
     return <Span className={STYLES} ref={ref} role='presentation' {...rest} />;
-  }
+  },
 );
 
 if (__DEV__) {
@@ -177,7 +177,7 @@ export const Breadcrumb = forwardRef<BreadcrumbProps>((props, ref) => {
       separator,
       isLastChild: count === index + 1,
       spacing: SPACING,
-    })
+    }),
   );
 
   return (

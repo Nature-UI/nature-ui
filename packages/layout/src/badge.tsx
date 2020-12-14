@@ -20,7 +20,7 @@ export const Badge = forwardRef<BadgeType>((props, ref) => {
     ...rest
   } = props;
 
-  const DEFAULTS = `p-1 rounded text-xs uppercase font-semibold bg-gray-100`;
+  const DEFAULTS = 'p-1 rounded text-xs uppercase font-semibold bg-gray-100';
 
   const VARIANTS = {
     solid: `text-white bg-${color}`,

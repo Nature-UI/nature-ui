@@ -1,6 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaVersion": 2016,
     "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
@@ -21,6 +22,7 @@
     "react-hooks"
   ],
   "extends": [
+    "airbnb-typescript",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
@@ -31,8 +33,7 @@
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "airbnb-typescript"
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -64,6 +65,13 @@
     "jsx-quotes": "off",
     "operator-linebreak": "off",
     "implicit-arrow-linebreak": "off",
-    "function-paren-newline": 0
+    "function-paren-newline": 0,
+    "no-underscore-dangle": 0,
+    "@typescript-eslint/naming-convention": 0,
+    "no-bitwise": 0,
+    "no-plusplus": 0,
+    "consistent-return": 0,
+    "react/require-default-props": 0,
+    "func-names": 0
   }
 }

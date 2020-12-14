@@ -63,7 +63,7 @@ export const Collapse = React.forwardRef(
     const getStr = (property: string) => `${property} ${timeout}ms ${easing}`;
 
     const transition = `${getStr('height')}, ${getStr('opacity')}, ${getStr(
-      'transform'
+      'transform',
     )}`;
 
     const [hidden, setHidden] = React.useState(true);
@@ -135,7 +135,7 @@ export const Collapse = React.forwardRef(
         )}
       </Transition>
     );
-  }
+  },
 );
 
 if (__DEV__) {

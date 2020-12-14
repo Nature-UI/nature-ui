@@ -19,7 +19,7 @@ export type UseDescendantProps<T extends HTMLElement, P> = {
 } & Descendant<T, P>;
 
 export const useDescendant = <T extends HTMLElement, P>(
-  props: UseDescendantProps<T, P>
+  props: UseDescendantProps<T, P>,
 ) => {
   const {
     context,
@@ -85,7 +85,7 @@ export const useDescendants = <T extends HTMLElement, P>() => {
 
             return Boolean(
               item.element.compareDocumentPosition(element) &
-                Node.DOCUMENT_POSITION_PRECEDING
+                Node.DOCUMENT_POSITION_PRECEDING,
             );
           });
 
@@ -103,14 +103,14 @@ export const useDescendants = <T extends HTMLElement, P>() => {
         }
       });
     },
-    []
+    [],
   );
 
   const unregister = React.useCallback((element: T) => {
     if (!element) return;
 
-    setDescendants((descendants) =>
-      descendants.filter((descendant) => element !== descendant.element)
+    setDescendants((_descendants) =>
+      _descendants.filter((descendant) => element !== descendant.element),
     );
   }, []);
 

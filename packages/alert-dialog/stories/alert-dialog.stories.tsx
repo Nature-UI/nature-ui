@@ -37,7 +37,7 @@ const Button = React.forwardRef(
         className={`px-4 py-2 font-semibold rounded border-none outline-none focus:shadow-outline ${className}`}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {

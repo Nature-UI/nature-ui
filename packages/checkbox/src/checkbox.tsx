@@ -17,7 +17,7 @@ const StyledControl = React.forwardRef(
     }: PropsOf<typeof nature.div> & {
       color?: string;
     },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const _checked = typeof props['data-checked'] !== 'undefined';
     const _focus = typeof props['data-focus'] !== 'undefined';
@@ -28,11 +28,12 @@ const StyledControl = React.forwardRef(
 
     const _darken = darken(color, 100);
 
-    const DEFAULTS = `box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out`;
+    const DEFAULTS =
+      'box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out';
 
     const _className = clsx(DEFAULTS, {
       [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
-      [`shadow-outline`]: _focus,
+      'shadow-outline': _focus,
       [`bg-${_darken}`]: _hover && _checked && !_disabled,
       [`border-${color}`]: (!_invalid && _checked) || _indeterminate,
       'bg-gray-300': _disabled,
@@ -40,7 +41,7 @@ const StyledControl = React.forwardRef(
     });
 
     return <nature.div className={_className} ref={ref} {...props} />;
-  }
+  },
 );
 
 const StyledLabel = React.forwardRef(
@@ -49,7 +50,7 @@ const StyledLabel = React.forwardRef(
       spacing,
       ...props
     }: PropsOf<typeof nature.div> & { spacing?: number | string },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const _disabled = typeof props['data-disabled'] !== 'undefined';
 
@@ -62,24 +63,24 @@ const StyledLabel = React.forwardRef(
     });
 
     return <nature.div className={_className} ref={ref} {...props} />;
-  }
+  },
 );
 
 const Label = nature('label');
 const StyledWrapper = React.forwardRef(
   (
     { className = '', ...props }: PropsOf<typeof Label>,
-    ref: React.Ref<HTMLLabelElement>
+    ref: React.Ref<HTMLLabelElement>,
   ) => {
     const _className = clsx(
-      `cursor-pointer inline-flex items-center align-top relative`,
+      'cursor-pointer inline-flex items-center align-top relative',
       {
         [className]: className,
-      }
+      },
     );
 
     return <Label className={_className} ref={ref} {...props} />;
-  }
+  },
 );
 
 type BaseControlProps = Omit<
@@ -129,13 +130,13 @@ export const Checkbox = React.forwardRef(
 
     const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
-    let isChecked = props.isChecked;
+    let { isChecked } = props;
 
     if (group?.value && props.value) {
       isChecked = group.value.includes(props.value);
     }
 
-    let onChange = props.onChange;
+    let { onChange } = props;
 
     if (group?.onChange && props.value) {
       onChange = group.onChange;
@@ -161,7 +162,7 @@ export const Checkbox = React.forwardRef(
             isChecked={state.isChecked}
             isIndeterminate={state.isIndeterminate}
             size={10}
-            className={`text-current inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out`}
+            className='text-current inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out'
           />
         </StyledControl>
         {children && (
@@ -171,7 +172,7 @@ export const Checkbox = React.forwardRef(
         )}
       </StyledWrapper>
     );
-  }
+  },
 );
 
 if (__DEV__) {

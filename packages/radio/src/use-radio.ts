@@ -83,12 +83,12 @@ export const useRadio = (props: UseRadioProps = {}) => {
   const ref = React.useRef<HTMLInputElement>(null);
 
   const [isCheckedState, setChecked] = React.useState(
-    Boolean(defaultIsChecked)
+    Boolean(defaultIsChecked),
   );
 
   const [isControlled, isChecked] = useControllableProp(
     isCheckedProp,
-    isCheckedState
+    isCheckedState,
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,7 +113,7 @@ export const useRadio = (props: UseRadioProps = {}) => {
         setActive.on();
       }
     },
-    [setActive]
+    [setActive],
   );
 
   const onKeyUp = React.useCallback(
@@ -122,7 +122,7 @@ export const useRadio = (props: UseRadioProps = {}) => {
         setActive.off();
       }
     },
-    [setActive]
+    [setActive],
   );
 
   return {

@@ -62,10 +62,10 @@ export const useRadioGroup = (props: UseRadioGroupProps = {}) => {
 
     if (!rootNode) return;
 
-    let query = `input:not(:disabled):checked`;
+    let query = 'input:not(:disabled):checked';
 
     const firstEnabledAndCheckedInput = rootNode.querySelector(
-      query
+      query,
     ) as HTMLElement;
 
     if (firstEnabledAndCheckedInput) {
@@ -74,7 +74,7 @@ export const useRadioGroup = (props: UseRadioGroupProps = {}) => {
       return;
     }
 
-    query = `input:not(:disabled)`;
+    query = 'input:not(:disabled)';
 
     const firstEnabledInput = rootNode.querySelector(query) as HTMLElement;
 
@@ -84,7 +84,7 @@ export const useRadioGroup = (props: UseRadioGroupProps = {}) => {
   /**
    * All radio options must use the same name
    */
-  const name = useId(nameProp, `radio`);
+  const name = useId(nameProp, 'radio');
 
   const onChange = useCallback(
     (eventOrValue: EventOrValue) => {
@@ -98,7 +98,7 @@ export const useRadioGroup = (props: UseRadioGroupProps = {}) => {
 
       onChangeProp?.(nextValue);
     },
-    [onChangeProp, isControlled]
+    [onChangeProp, isControlled],
   );
 
   return {

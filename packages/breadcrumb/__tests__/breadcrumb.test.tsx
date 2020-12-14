@@ -16,7 +16,7 @@ describe('@nature-ui/breadcrumb', () => {
         <BreadcrumbItem isCurrent>
           <BreadcrumbLink>Link 3</BreadcrumbLink>
         </BreadcrumbItem>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe('@nature-ui/breadcrumb', () => {
         <BreadcrumbItem isCurrent>
           <BreadcrumbLink>Link 3</BreadcrumbLink>
         </BreadcrumbItem>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
 
     // surrounding `nav` has aria-label="breadcrumb"
@@ -58,7 +58,7 @@ describe('@nature-ui/breadcrumb', () => {
         <BreadcrumbItem>
           <BreadcrumbLink href='#'>Link 2</BreadcrumbLink>
         </BreadcrumbItem>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
 
     expect(getAllByText('-')).toHaveLength(1);

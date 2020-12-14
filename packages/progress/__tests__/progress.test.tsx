@@ -14,7 +14,7 @@ describe('@nature-ui/circular-progress', () => {
           thickness={10}
           value={60}
         />
-      </div>
+      </div>,
     );
 
     expect(asFragment()).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe('@nature-ui/circular-progress', () => {
       <CircularProgress
         {...props}
         getValueText={(value, percent) => `${value} (${percent}%)`}
-      />
+      />,
     );
 
     expect(progress).toHaveAttribute('aria-valuetext', '20 (20%)');
@@ -59,7 +59,7 @@ describe('@nature-ui/circular-progress', () => {
         <Progress color='green' size='sm' value={20} />
         <Progress color='blue' size='md' hasStripe value={40} />
         <Progress color='yellow' size='lg' hasStripe isAnimated value={80} />
-      </div>
+      </div>,
     );
 
     expect(asFragment()).toMatchSnapshot();

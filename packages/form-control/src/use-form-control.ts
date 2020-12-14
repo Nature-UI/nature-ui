@@ -1,6 +1,7 @@
 import React from 'react';
 import { ariaAttr, dataAttr, callAllHandler, Dict } from '@nature-ui/utils';
 
+// eslint-disable-next-line import/no-cycle
 import { FormControlOptions, useFormControlContext } from './form-control';
 
 export type UseFormControlProps<T extends HTMLElement> = FormControlOptions & {
@@ -19,7 +20,7 @@ export type UseFormControlProps<T extends HTMLElement> = FormControlOptions & {
  * and helper text.
  */
 export const useFormControl = <T extends HTMLElement>(
-  props: UseFormControlProps<T>
+  props: UseFormControlProps<T>,
 ) => {
   const field = useFormControlContext();
   const describedBy: string[] = [];

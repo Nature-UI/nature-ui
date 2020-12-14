@@ -27,7 +27,7 @@ const placements = {
 const StyledAddon = (props: PropsOf<typeof SpanTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(`flex w-auto items-center whitespace-no-wrap`, {
+  const _className = clsx('flex w-auto items-center whitespace-no-wrap', {
     [className]: className,
   });
 
@@ -60,7 +60,7 @@ export const InputAddon = React.forwardRef(
     // const _isString = typeof children === 'string';
     const _className = clsx(
       className,
-      'px-4 bg-gray-100 border border-gray-400'
+      'px-4 bg-gray-100 border border-gray-400',
     );
 
     return (
@@ -73,7 +73,7 @@ export const InputAddon = React.forwardRef(
         {children}
       </StyledAddon>
     );
-  }
+  },
 );
 
 if (__DEV__) {
@@ -91,7 +91,7 @@ export const InputLeftAddon = React.forwardRef(
     const _className = clsx(className, 'rounded-l');
 
     return <InputAddon ref={ref} {...rest} className={_className} />;
-  }
+  },
 );
 
 if (__DEV__) {
@@ -119,7 +119,7 @@ export const InputRightAddon = React.forwardRef(
         {...rest}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {

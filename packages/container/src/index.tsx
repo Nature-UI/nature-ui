@@ -1,52 +1,38 @@
 import * as React from 'react';
-import clx from 'clsx';
+import { clsx, nature, PropsOf } from '@nature-ui/system';
+import PropTypes from 'prop-types';
 
 interface IContainer {
-  children?: React.ReactNode;
   /**
    * Determine the max-width of the container.
    */
-  size?: 'lg' | 'md' | 'sm' | 'xl' | 'xs';
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component?: React.ComponentType;
-  className?: string;
+  size?: 'lg' | 'md' | 'sm' | 'xl' | 'xs' | number;
 }
 
 const BASE_STYLE = 'mx-auto container';
-const LG = 'px-20';
-const MD = 'px-32';
-const SM = 'px-48';
-const XL = 'px-0';
-const XS = 'px-64';
+const _SIZES = {
+  lg: 'max-w-lg',
+  md: 'max-w-md',
+  sm: 'max-w-sm',
+  xl: 'max-w-2xl',
+  xs: 'max-w-xs',
+};
 
-const Container: React.ForwardRefExoticComponent<IContainer> = React.forwardRef(
-  (props: IContainer, ref: React.Ref<any>) => {
-    const {
-      component: Component = 'div',
-      size = 'lg',
-      children,
-      className = '',
-    } = props;
+const DivTag = nature('div');
 
-    const componentClass: string = clx(BASE_STYLE, {
-      [LG]: size === 'lg',
-      [MD]: size === 'md',
-      [SM]: size === 'sm',
-      [XL]: size === 'xl',
-      [XS]: size === 'xs',
-    });
+const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
+  const { size = 'lg', children, className = '' } = props;
 
-    return (
-      <Component className={componentClass} ref={ref}>
-        <Component className={className}>{children}</Component>
-      </Component>
-    );
-  }
-);
+  const _size = typeof size === 'string' ? _SIZES[size] : size;
+
+  const componentClass: string = clsx(className, BASE_STYLE, _size);
+
+  return <DivTag className={componentClass}>{children}</DivTag>;
+};
 
 Container.displayName = 'Container';
+Container.defaultProps = {
+  size: PropTypes.oneOf(['md', 'lg', 'xl', 'xs', 'sm']),
+};
 
 export default Container;

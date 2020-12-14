@@ -4,6 +4,7 @@ import Container from '../src';
 
 export default {
   title: 'Container',
+  component: Container,
 };
 
 export const SizeXL: React.FC = () => {

@@ -9,7 +9,7 @@ import { useSafeLayoutEffect } from './use-safe-layout-effect';
  */
 
 export const useEventCallback = <T extends Event | React.SyntheticEvent>(
-  callback: (event: T, ...args: any[]) => void
+  callback: (event: T, ...args: any[]) => void,
 ) => {
   const ref = React.useRef(callback);
 
@@ -19,6 +19,6 @@ export const useEventCallback = <T extends Event | React.SyntheticEvent>(
 
   return React.useCallback(
     (event: T, ...args: any[]) => ref.current(event, ...args),
-    []
+    [],
   );
 };

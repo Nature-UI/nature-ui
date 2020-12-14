@@ -18,7 +18,7 @@ describe('@nature-ui/alert ', () => {
         <AlertIcon />
         <AlertTitle>Alert title</AlertTitle>
         <AlertDescription>Alert description</AlertDescription>
-      </AlertWrapper>
+      </AlertWrapper>,
     );
 
     const result = await axe(tools.container);
@@ -32,7 +32,7 @@ describe('@nature-ui/alert ', () => {
         <AlertIcon />
         <AlertTitle>Alert title</AlertTitle>
         <AlertDescription>Alert description</AlertDescription>
-      </AlertWrapper>
+      </AlertWrapper>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('@nature-ui/alert ', () => {
 
   test('should also have no accessibility issue', async () => {
     const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>
+      <Alert alertTitle='Alert title'>Alert description</Alert>,
     );
 
     const result = await axe(tools.container);
@@ -50,7 +50,7 @@ describe('@nature-ui/alert ', () => {
 
   test('should also render correctly', async () => {
     const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>
+      <Alert alertTitle='Alert title'>Alert description</Alert>,
     );
 
     expect(tools.asFragment()).toMatchSnapshot();
@@ -58,7 +58,7 @@ describe('@nature-ui/alert ', () => {
 
   test("should have role='alert'", () => {
     const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>
+      <Alert alertTitle='Alert title'>Alert description</Alert>,
     );
     const alert = tools.getByRole('alert');
 

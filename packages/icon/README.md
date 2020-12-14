@@ -1,11 +1,15 @@
-# `@nature-ui/icon`
+# Icon
 
-> TODO: description
+A base React icon component for Nature UI.
 
-## Usage
+## Installation
 
+```sh
+yarn add @nature-ui/icon
 ```
-const icon = require('@nature-ui/icon');
 
-// TODO: DEMONSTRATE API
+## Import component
+
+```jsx
+import { Icon } from '@nature-ui/icon';
 ```

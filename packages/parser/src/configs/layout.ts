@@ -5,7 +5,7 @@ import { Config, Length, ResponsiveValue } from '../utils';
 
 function transform(value: any, scale: any) {
   const defaultValue =
-    !isNumber(value) || value > 1 ? value : value * 100 + '%';
+    !isNumber(value) || value > 1 ? value : `${value * 100}%`;
   return get(scale, value, defaultValue);
 }
 

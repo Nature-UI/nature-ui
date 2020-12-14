@@ -24,7 +24,7 @@ export const ProgressLabel = React.forwardRef(
       fontSize = 12,
       ...rest
     }: PropsOf<typeof nature.div> & { fontSize?: number },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const _size = `${(60 / 100) * fontSize}px`;
 
@@ -43,7 +43,7 @@ export const ProgressLabel = React.forwardRef(
     });
 
     return <nature.div className={_className} {...rest} ref={ref} />;
-  }
+  },
 );
 
 if (__DEV__) {
@@ -75,7 +75,7 @@ export type ProgressTrackProps = PropsOf<typeof nature.div>;
 const ProgressTrack = React.forwardRef(
   (
     { className = '', size, ...rest }: CustomProps & ProgressTrackProps,
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const _height = css`
       height: ${size};
@@ -85,11 +85,11 @@ const ProgressTrack = React.forwardRef(
       _height,
       {
         [className]: className,
-      }
+      },
     );
 
     return <nature.div className={_className} {...rest} ref={ref} />;
-  }
+  },
 );
 
 interface ProgressOptions {
@@ -227,7 +227,7 @@ export const Progress = React.forwardRef(
         )}
       </ProgressTrack>
     );
-  }
+  },
 );
 
 if (__DEV__) {

@@ -58,7 +58,7 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
     return <Box key={Number(index)}>{child}</Box>;
   });
 
-  const DEFAULT_CLASS = `flex`;
+  const DEFAULT_CLASS = 'flex';
   const _className = clsx(DEFAULT_CLASS, {
     [`flex-${direction}`]: direction,
     [className]: className,

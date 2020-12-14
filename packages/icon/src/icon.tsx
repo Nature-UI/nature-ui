@@ -101,7 +101,7 @@ export const Icon = React.forwardRef(
         {_path}
       </SvgIcon>
     );
-  }
+  },
 );
 
 if (__DEV__) {

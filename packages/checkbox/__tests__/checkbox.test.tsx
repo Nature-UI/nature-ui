@@ -179,7 +179,7 @@ describe('@nature-ui/checkbox', () => {
     };
     const tools = render(<Component value={checked} onChange={onChange} />);
     const [checkboxOne, checkboxTwo, checkboxThree] = Array.from(
-      tools.container.querySelectorAll('input')
+      tools.container.querySelectorAll('input'),
     );
 
     expect(checkboxOne).toBeChecked();

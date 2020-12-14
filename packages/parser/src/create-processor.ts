@@ -30,7 +30,7 @@ interface Options {
 }
 
 export const createProcessor = () => {
-  let styles: Dict = {};
+  const styles: Dict = {};
 
   return {
     apply: (options: Options) => {
@@ -40,7 +40,6 @@ export const createProcessor = () => {
 
       if (property) {
         styles[property] = value;
-        return;
       }
     },
     value: () => sort(styles),

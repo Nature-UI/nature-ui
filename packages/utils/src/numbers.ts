@@ -26,7 +26,8 @@ const toNumber = (value: any) => {
 
 export const toPrecision = (value: number, precision?: number) => {
   let nextValue: string | number = toNumber(value);
-  const scaleFactor = Math.pow(10, precision ?? 10);
+  const _pres = precision ?? 10;
+  const scaleFactor = 10 ** _pres;
 
   nextValue = Math.round(nextValue * scaleFactor) / scaleFactor;
 
@@ -38,9 +39,8 @@ export const toPrecision = (value: number, precision?: number) => {
  *
  * @param value the decimal value to count
  */
-
 export const countDecimalPlaces = (value: number) => {
-  if (!isFinite(value)) return 0;
+  if (!Number.isFinite(value)) return 0;
 
   let e = 1;
   let p = 0;

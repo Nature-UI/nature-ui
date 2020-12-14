@@ -79,7 +79,7 @@ export const Indeterminate = () => {
       >
         Parent Checkbox
       </Checkbox>
-      <Stack className={'ml-6 mt-2 items-start'}>
+      <Stack className='ml-6 mt-2 items-start'>
         <Checkbox
           isChecked={checkedItems[0]}
           onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
@@ -103,7 +103,7 @@ export const CheckboxGroupExample = () => {
       defaultValue={['one', 'two']}
       onChange={(value) => console.log(value)}
     >
-      <Stack spacing={24} direction={'row'}>
+      <Stack spacing={24} direction='row'>
         <Checkbox value='one'>One</Checkbox>
         <Checkbox value='two'>Two</Checkbox>
         <Checkbox value='three'>Three</Checkbox>

@@ -51,7 +51,7 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps) => {
 
       onChangeProp?.(nextState);
     },
-    [isControlled, onChangeProp]
+    [isControlled, onChangeProp],
   );
 
   const onChange = React.useCallback(
@@ -72,7 +72,7 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps) => {
 
       updateValue(nextValue);
     },
-    [updateValue, value]
+    [updateValue, value],
   );
 
   return {

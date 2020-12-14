@@ -15,10 +15,28 @@ export const getOppositePosition = (position: Direction) =>
 const splitPlacement = (placement: Placement) =>
   placement.split('-') as Direction[];
 
+export const getBoxShadow = (placement: Placement, color: string) => {
+  if (placement.includes('top')) {
+    return `2px 2px 2px 0 ${color}`;
+  }
+
+  if (placement.includes('bottom')) {
+    return `-1px -1px 1px 0 ${color}`;
+  }
+
+  if (placement.includes('right')) {
+    return `-1px 1px 1px 0 ${color}`;
+  }
+
+  if (placement.includes('left')) {
+    return `1px -1px 1px 0 ${color}`;
+  }
+};
+
 export const getArrowStyles = (
   placement: Placement | undefined,
   arrowSize: number,
-  arrowShadowColor?: string
+  arrowShadowColor?: string,
 ): React.CSSProperties => {
   if (typeof placement !== 'string') return {};
 
@@ -37,24 +55,4 @@ export const getArrowStyles = (
       ? getBoxShadow(placement, arrowShadowColor)
       : undefined,
   };
-};
-
-export const getBoxShadow = (placement: Placement, color: string) => {
-  if (placement.includes('top')) {
-    return `2px 2px 2px 0 ${color}`;
-  }
-
-  if (placement.includes('bottom')) {
-    return `-1px -1px 1px 0 ${color}`;
-  }
-
-  if (placement.includes('right')) {
-    return `-1px 1px 1px 0 ${color}`;
-  }
-
-  if (placement.includes('left')) {
-    return `1px -1px 1px 0 ${color}`;
-  }
-
-  return;
 };

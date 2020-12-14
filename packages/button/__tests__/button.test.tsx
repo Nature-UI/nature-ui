@@ -23,7 +23,7 @@ describe('@nature-ui/button', () => {
     const { asFragment, queryByText, getByText } = render(
       <Button isLoading loadingText='Submitting'>
         Submit
-      </Button>
+      </Button>,
     );
 
     expect(asFragment()).toMatchSnapshot();

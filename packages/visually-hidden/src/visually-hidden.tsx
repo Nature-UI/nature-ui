@@ -40,7 +40,7 @@ if (__DEV__) {
 export const VisuallyHiddenInput = forwardRef<PropsOf<typeof Input>>(
   (props, ref) => (
     <Input css={visuallyHiddenStyle as any} {...props} ref={ref} />
-  )
+  ),
 );
 
 if (__DEV__) {

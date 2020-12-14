@@ -15,7 +15,7 @@ describe('@nature-ui/layout', () => {
       const tools = render(
         <Box as='a' href='www.google.com'>
           This is box
-        </Box>
+        </Box>,
       );
 
       expect(tools.asFragment()).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe('@nature-ui/layout', () => {
       const tools = render(
         <Badge variant='outline' color='pink-500'>
           Badge
-        </Badge>
+        </Badge>,
       );
 
       expect(tools.asFragment()).toMatchSnapshot();

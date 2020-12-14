@@ -99,12 +99,12 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
   const ref = React.useRef<HTMLInputElement>(null);
 
   const [checkedState, setCheckedState] = React.useState(
-    Boolean(defaultIsChecked)
+    Boolean(defaultIsChecked),
   );
 
   const [isControlled, isChecked] = useControllableProp(
     checkedProp,
-    checkedState
+    checkedState,
   );
 
   const handleChange = React.useCallback(
@@ -125,7 +125,14 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
 
       onChange?.(event);
     },
-    [isReadOnly, isDisabled, isChecked, isControlled, isIndeterminate, onChange]
+    [
+      isReadOnly,
+      isDisabled,
+      isChecked,
+      isControlled,
+      isIndeterminate,
+      onChange,
+    ],
   );
 
   useSafeLayoutEffect(() => {
@@ -142,7 +149,7 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
         setActive.on();
       }
     },
-    [setActive]
+    [setActive],
   );
 
   const handleKeyUp = React.useCallback(
@@ -151,7 +158,7 @@ export const useCheckbox = (props: UseCheckboxProps = {}) => {
         setActive.off();
       }
     },
-    [setActive]
+    [setActive],
   );
 
   const getCheckboxProps = (prop: CustomCheckboxProps = {}) => {

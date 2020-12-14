@@ -8,7 +8,7 @@ describe('@nature-ui/portal', () => {
     const tools = render(
       <PortalManager>
         <Portal>This is a portal</Portal>
-      </PortalManager>
+      </PortalManager>,
     );
 
     expect(tools.baseElement).toMatchSnapshot();
@@ -21,13 +21,13 @@ describe('@nature-ui/portal', () => {
           This is a portal.
           <Portal>This is a nested portal</Portal>
         </Portal>
-      </PortalManager>
+      </PortalManager>,
     );
 
     expect(tools.baseElement).toMatchSnapshot();
 
     const portals = Array.from(
-      tools.baseElement.querySelectorAll('.nature-portal')
+      tools.baseElement.querySelectorAll('.nature-portal'),
     );
 
     const [parentPortal, childPortal] = portals;
