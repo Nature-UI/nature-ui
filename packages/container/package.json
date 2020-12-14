@@ -22,8 +22,7 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "http://localhost:9000"
+    "access": "public"
   },
   "repository": {
     "type": "git",
