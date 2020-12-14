@@ -26,7 +26,8 @@
     "storybook": "env NODE_ENV=development start-storybook -p 4000",
     "lint": "lerna run lint --no-private --stream",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml}\""
+    "prettier": "prettier --write \"**/*.{ts,tsx,json,md,yml}\"",
+    "v:release": "lerna publish --registry https://localhost:9000"
   },
   "dependencies": {
     "@craco/craco": "^5.6.4",
