@@ -1,10 +1,10 @@
+import { objectKeys } from '@nature-ui/utils';
 import {
   ToastPosition,
   ToastOptions,
   ToastState,
   ToastId,
 } from './toast.types';
-import { objectKeys } from '@nature-ui/utils';
 
 /**
  * Given an array of toasts for a specific position.

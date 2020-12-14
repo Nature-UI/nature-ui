@@ -221,7 +221,7 @@ export class ToastManager extends React.Component<Props, State> {
       return (
         <span
           key={position}
-          id={'chakra-toast-manager-' + position}
+          id={`chakra-toast-manager-${position}`}
           style={this.getStyle(position)}
         >
           {toasts.map((toast) => (

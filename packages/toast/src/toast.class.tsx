@@ -8,9 +8,13 @@ const portalId = 'nature-toast-portal';
 
 class Toaster {
   private createToast?: Methods['notify'];
+
   private removeAll?: Methods['closeAll'];
+
   private closeToast?: Methods['close'];
+
   private updateToast?: Methods['update'];
+
   private isToastActive?: Methods['isActive'];
 
   /**

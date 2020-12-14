@@ -80,12 +80,12 @@ export const Toast = (props: ToastProps) => {
     entered: {
       opacity: 1,
       height,
-      transform: `translateY(0) scale(1)`,
+      transform: 'translateY(0) scale(1)',
     },
     exiting: {
       opacity: 0,
       height: 0,
-      transform: `translateY(0) scale(0.9)`,
+      transform: 'translateY(0) scale(0.9)',
     },
   };
 
