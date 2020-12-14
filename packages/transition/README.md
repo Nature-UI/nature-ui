@@ -1,11 +1,11 @@
-# `@nature-ui/button`
+# `@nature-ui/transition`
 
 > TODO: description
 
 ## Usage
 
-```
-const button = require('@nature-ui/button');
+```jsx
+import { Fade } from '@nature-ui/transition';
 
 // TODO: DEMONSTRATE API
 ```
