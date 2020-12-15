@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert-dialog",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "React component used to render children outside the DOM hierarchy of the parent component",
   "keywords": [
     "react",
@@ -40,11 +40,11 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/modal": "^0.1.0"
+    "@nature-ui/modal": "^0.1.1-alpha.0"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0",
-    "@nature-ui/utils": "^0.1.0",
+    "@nature-ui/system": "^0.1.1-alpha.0",
+    "@nature-ui/utils": "^0.1.1-alpha.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

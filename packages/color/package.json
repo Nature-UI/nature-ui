@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/color",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -38,7 +38,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.0",
+    "@nature-ui/utils": "^0.1.1-alpha.0",
     "emotion": "^10.0.27",
     "react": "^16.13.1",
     "tinycolor2": "^1.4.1"

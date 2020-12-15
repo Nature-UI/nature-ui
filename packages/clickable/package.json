@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/clickable",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "React hook and component that implements native button interactions",
   "keywords": [
     "chakra ui",
@@ -39,7 +39,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.0"
+    "@nature-ui/utils": "^0.1.1-alpha.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
