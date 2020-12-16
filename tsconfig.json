@@ -10,7 +10,7 @@
     "outDir": "dist",
     "target": "es5",
     "module": "CommonJS",
-    "lib": ["dom", "esnext", "esnext.asynciterable"],
+    "lib": ["dom", "esnext"],
     "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
