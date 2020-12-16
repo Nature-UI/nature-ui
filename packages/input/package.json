@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/input",
-  "version": "0.1.1-alpha.2",
+  "version": "0.1.1-alpha.3",
   "description": "A React component for input text field",
   "keywords": [
     "react",
@@ -40,11 +40,11 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/form-control": "^0.1.1-alpha.2",
-    "@nature-ui/utils": "^0.1.1-alpha.2"
+    "@nature-ui/form-control": "^0.1.1-alpha.3",
+    "@nature-ui/utils": "^0.1.1-alpha.3"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.2",
+    "@nature-ui/system": "^0.1.1-alpha.3",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

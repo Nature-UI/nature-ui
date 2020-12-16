@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/avatar",
-  "version": "0.1.1-alpha.2",
+  "version": "0.1.1-alpha.3",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -37,10 +37,10 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/color": "^0.1.1-alpha.2",
-    "@nature-ui/image": "^0.1.1-alpha.2",
-    "@nature-ui/system": "^0.1.1-alpha.2",
-    "@nature-ui/utils": "^0.1.1-alpha.2",
+    "@nature-ui/color": "^0.1.1-alpha.3",
+    "@nature-ui/image": "^0.1.1-alpha.3",
+    "@nature-ui/system": "^0.1.1-alpha.3",
+    "@nature-ui/utils": "^0.1.1-alpha.3",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {

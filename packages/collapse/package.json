@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/collapse",
-  "version": "0.1.1-alpha.2",
+  "version": "0.1.1-alpha.3",
   "description": "An accessible auto-height and collapse component for elements with variable (and dynamic) height",
   "keywords": [
     "react",
@@ -41,14 +41,13 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^0.1.1-alpha.2",
-    "@nature-ui/transition": "^0.1.1-alpha.2",
-    "@nature-ui/system": "^0.1.1-alpha.2",
-    "@nature-ui/utils": "^0.1.1-alpha.2",
+    "@nature-ui/hooks": "^0.1.1-alpha.3",
+    "@nature-ui/system": "^0.1.1-alpha.3",
+    "@nature-ui/transition": "^0.1.1-alpha.3",
+    "@nature-ui/utils": "^0.1.1-alpha.3",
     "@reach/rect": "^0.11.2"
   },
   "peerDependencies": {
     "react": "^16.*"
-  },
-  "devDependencies": {}
+  }
 }
