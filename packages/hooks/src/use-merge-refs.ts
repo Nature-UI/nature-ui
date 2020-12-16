@@ -9,7 +9,7 @@ type ReactRef<T> = React.Ref<T> | React.MutableRefObject<T>;
  * @param value the value
  */
 export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
-  if (ref === null) return;
+  if (ref === null || ref === undefined || !ref) return;
 
   if (typeof ref === 'function') {
     ref(value);
