@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/form-control",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "description": "React component to provide validation states to form fields",
   "keywords": [
     "field",
@@ -43,9 +43,9 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^0.1.1-alpha.0",
-    "@nature-ui/icon": "^0.1.1-alpha.0",
-    "@nature-ui/utils": "^0.1.1-alpha.0",
+    "@nature-ui/hooks": "^0.1.1-alpha.1",
+    "@nature-ui/icon": "^0.1.1-alpha.1",
+    "@nature-ui/utils": "^0.1.1-alpha.1",
     "react": "^16.13.1",
     "rimraf": "^3.0.2"
   },
@@ -55,6 +55,6 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.0"
+    "@nature-ui/system": "^0.1.1-alpha.1"
   }
 }

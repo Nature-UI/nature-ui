@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/close-button",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "description": "A React and Chakra UI close button component.",
   "keywords": [
     "close-button",
@@ -40,8 +40,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/icon": "^0.1.1-alpha.0",
-    "@nature-ui/utils": "^0.1.1-alpha.0",
+    "@nature-ui/icon": "^0.1.1-alpha.1",
+    "@nature-ui/utils": "^0.1.1-alpha.1",
     "react": "^16.13.1",
     "rimraf": "^3.0.2"
   },
@@ -50,6 +50,6 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.0"
+    "@nature-ui/system": "^0.1.1-alpha.1"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/focus-lock",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "description": "React focus lock for all Nature UI components",
   "keywords": [
     "react focus lock",
@@ -39,7 +39,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.1-alpha.0",
+    "@nature-ui/utils": "^0.1.1-alpha.1",
     "react-focus-lock": "^2.4.1"
   },
   "devDependencies": {

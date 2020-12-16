@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/breadcrumb",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.1-alpha.1",
   "description": "A base React component for icons",
   "keywords": [
     "breadcrumbs",
@@ -41,8 +41,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.0",
-    "@nature-ui/utils": "^0.1.1-alpha.0",
+    "@nature-ui/system": "^0.1.1-alpha.1",
+    "@nature-ui/utils": "^0.1.1-alpha.1",
     "emotion": "^10.0.27",
     "react": "^16.13.1"
   },
