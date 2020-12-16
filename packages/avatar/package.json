@@ -41,12 +41,13 @@
     "@nature-ui/image": "^0.1.1-alpha.2",
     "@nature-ui/system": "^0.1.1-alpha.2",
     "@nature-ui/utils": "^0.1.1-alpha.2",
-    "emotion": "^10.0.27",
-    "react": "^16.13.1",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@types/tinycolor2": "^1.4.2",
     "tinycolor2": "^1.4.1"
+  },
+  "peerDependencies": {
+    "react": "^17.x"
   }
 }

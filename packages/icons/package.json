@@ -39,8 +39,9 @@
   },
   "dependencies": {
     "@nature-ui/icon": "^0.1.1-alpha.2",
-    "@storybook/addon-knobs": "^6.0.13",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "@storybook/addon-knobs": "^6.0.13"
+  },
+  "peerDependencies": {
+    "react": "^17.x"
   }
 }

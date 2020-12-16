@@ -1,8 +1,7 @@
 /** @jsx jsx */
-import { clsx, jsx, nature, PropsOf } from '@nature-ui/system';
+import { clsx, jsx, nature, PropsOf, css } from '@nature-ui/system';
 import { generateStripe } from '@nature-ui/color';
 import { __DEV__, isUndefined } from '@nature-ui/utils';
-import { css } from 'emotion';
 import React from 'react';
 
 import {

@@ -45,11 +45,7 @@
   "dependencies": {
     "@popperjs/core": "^2.5.4"
   },
-  "devDependencies": {
-    "rimraf": "^3.0.2"
-  },
   "peerDependencies": {
-    "react": "16.x",
-    "rimraf": "^3.0.2"
+    "react": "17.x"
   }
 }

@@ -40,13 +40,11 @@
   },
   "dependencies": {
     "@nature-ui/utils": "^0.1.1-alpha.2",
-    "react": "^16.13.1",
-    "react-transition-group": "^4.4.1",
-    "rimraf": "^3.0.2"
+    "react": "^17.x",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "react": "^17.x"
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.0"

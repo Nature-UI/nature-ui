@@ -48,8 +48,6 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@nature-ui/system": ">=0.1",
-    "react": "16.x",
-    "rimraf": "^3.0.2"
+    "react": "17.x"
   }
 }

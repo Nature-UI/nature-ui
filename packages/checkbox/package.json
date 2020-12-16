@@ -49,13 +49,11 @@
     "@nature-ui/system": "^0.1.1-alpha.2",
     "@nature-ui/utils": "^0.1.1-alpha.2",
     "@nature-ui/visually-hidden": "^0.1.1-alpha.2",
-    "emotion": "^10.0.27",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "emotion": "^10.0.27"
   },
   "peerDependencies": {
     "@nature-ui/layout": "^0.1.0",
-    "react": "^16.13.1",
+    "react": "^17.x",
     "rimraf": "^3.0.2"
   }
 }

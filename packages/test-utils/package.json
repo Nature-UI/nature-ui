@@ -30,7 +30,6 @@
   },
   "scripts": {
     "test": "jest --env=jsdom --passWithNoTests",
-    "build": "rimraf ./dist && tsc",
     "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
     "lint:types": "tsc --noEmit",
     "lint": "concurrently yarn:lint:*"
@@ -52,11 +51,9 @@
     "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0",
-    "rimraf": "^3.0.2"
+    "@nature-ui/system": "^0.1.0"
   },
   "peerDependencies": {
-    "react": "16.x",
-    "rimraf": "^3.0.2"
+    "react": "17.x"
   }
 }

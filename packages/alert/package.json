@@ -39,14 +39,11 @@
     "@nature-ui/system": "^0.1.1-alpha.2",
     "@nature-ui/utils": "^0.1.1-alpha.2",
     "@testing-library/react": "^10.4.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "react-icons": "^3.10.0"
   },
   "peerDependencies": {
-    "react": "^16.x",
-    "react-dom": "^16.x",
-    "react-icons": "^3.10.0"
+    "react": "^17.x",
+    "react-dom": "^17.x"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

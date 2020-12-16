@@ -49,13 +49,12 @@
   "devDependencies": {
     "@nature-ui/portal": "^0.1.1-alpha.2",
     "@nature-ui/system": "^0.1.1-alpha.2",
-    "@nature-ui/utils": "^0.1.1-alpha.2",
-    "rimraf": "^3.0.2"
+    "@nature-ui/utils": "^0.1.1-alpha.2"
   },
   "peerDependencies": {
     "@nature-ui/modal": "^0.1.0",
     "@nature-ui/portal": "^0.1.0",
-    "react": "16.x",
+    "react": "17.x",
     "rimraf": "^3.0.2"
   }
 }
