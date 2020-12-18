@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/radio",
-  "version": "0.1.1-alpha.3",
+  "version": "0.1.1-alpha.4",
   "description": "A React component to render custom Radio input types",
   "keywords": [
     "radio",
@@ -41,7 +41,7 @@
   "dependencies": {
     "@nature-ui/hooks": "^0.1.1-alpha.3",
     "@nature-ui/utils": "^0.1.1-alpha.3",
-    "@nature-ui/visually-hidden": "^0.1.1-alpha.3"
+    "@nature-ui/visually-hidden": "^0.1.1-alpha.4"
   },
   "devDependencies": {
     "@nature-ui/system": "^0.1.1-alpha.3"

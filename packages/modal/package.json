@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "0.1.1-alpha.3",
+  "version": "0.1.1-alpha.4",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@nature-ui/close-button": "^0.1.1-alpha.3",
-    "@nature-ui/focus-lock": "^0.1.1-alpha.3",
+    "@nature-ui/focus-lock": "^0.1.1-alpha.4",
     "@nature-ui/hooks": "^0.1.1-alpha.3",
     "@nature-ui/portal": "^0.1.1-alpha.3",
     "@nature-ui/utils": "^0.1.1-alpha.3",
