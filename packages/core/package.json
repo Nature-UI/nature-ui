@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/core",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "A React component that is a base button.",
   "keywords": [
     "button",
@@ -39,8 +39,6 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/spinner": "^0.1.1-alpha.4",
-    "@nature-ui/system": "^0.1.1-alpha.3",
     "@nature-ui/alert": "^0.1.1-alpha.3",
     "@nature-ui/alert-dialog": "^0.1.1-alpha.3",
     "@nature-ui/avatar": "^0.1.1-alpha.3",
@@ -63,6 +61,8 @@
     "@nature-ui/portal": "^0.1.1-alpha.3",
     "@nature-ui/progress": "^0.1.1-alpha.3",
     "@nature-ui/radio": "^0.1.1-alpha.3",
+    "@nature-ui/spinner": "^0.1.1-alpha.4",
+    "@nature-ui/system": "^0.1.1-alpha.3",
     "@nature-ui/toast": "^0.1.1-alpha.3",
     "@nature-ui/transition": "^0.1.1-alpha.3",
     "@nature-ui/visually-hidden": "^0.1.1-alpha.3"
