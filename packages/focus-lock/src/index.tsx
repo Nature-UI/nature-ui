@@ -85,5 +85,3 @@ export const FocusLock = (props: FocusLockProps) => {
 if (__DEV__) {
   FocusLock.displayName = 'FocusLock';
 }
-
-export default FocusLock;

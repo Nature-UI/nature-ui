@@ -19,7 +19,7 @@ const _SIZES = {
 
 const DivTag = nature('div');
 
-const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
+export const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
   const { size = 'lg', children, className = '' } = props;
 
   const _size = typeof size === 'string' ? _SIZES[size] : size;
@@ -30,5 +30,3 @@ const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
 };
 
 Container.displayName = 'Container';
-
-export default Container;

@@ -46,5 +46,3 @@ export const VisuallyHiddenInput = forwardRef<PropsOf<typeof Input>>(
 if (__DEV__) {
   VisuallyHiddenInput.displayName = 'VisuallyHiddenInput';
 }
-
-export default VisuallyHidden;
