@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/checkbox",
-  "version": "0.1.1-alpha.4",
+  "version": "0.1.1-alpha.5",
   "description": "A React Checkbox component for use in forms",
   "keywords": [
     "react",
@@ -48,7 +48,7 @@
     "@nature-ui/icon": "^0.1.1-alpha.3",
     "@nature-ui/system": "^0.1.1-alpha.3",
     "@nature-ui/utils": "^0.1.1-alpha.3",
-    "@nature-ui/visually-hidden": "^0.1.1-alpha.4",
+    "@nature-ui/visually-hidden": "^0.1.1-alpha.5",
     "emotion": "^10.0.27"
   },
   "peerDependencies": {
