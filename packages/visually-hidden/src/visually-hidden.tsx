@@ -20,6 +20,7 @@ export const visuallyHiddenStyle: React.CSSProperties = {
   whiteSpace: 'nowrap',
   position: 'absolute',
 };
+
 /**
  * Visually hidden component used to hide
  * elements on screen

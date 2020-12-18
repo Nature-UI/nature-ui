@@ -4063,9 +4063,6 @@
     react "^16.13.1"
     react-dom "^16.13.1"
 
-"@nature-ui/container@^0.1.1-alpha.3":
-  version "0.1.1-alpha.1"
-
 "@next/env@10.0.3":
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.3.tgz#ef1077d78bf500855576f83090d6fb1ec96272f8"

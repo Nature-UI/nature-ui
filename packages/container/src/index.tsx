@@ -9,6 +9,7 @@ interface IContainer {
 }
 
 const BASE_STYLE = 'mx-auto container';
+
 const _SIZES = {
   lg: 'max-w-lg',
   md: 'max-w-md',
