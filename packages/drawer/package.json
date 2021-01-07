@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/drawer",
-  "version": "0.1.1-alpha.5",
+  "version": "0.1.1-alpha.6",
   "description": "React component the renders a Drawer from the edges of the screen",
   "keywords": [
     "drawer",
@@ -43,13 +43,13 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/modal": "^0.1.1-alpha.5",
-    "@nature-ui/transition": "^0.1.1-alpha.3"
+    "@nature-ui/modal": "^0.1.1-alpha.6",
+    "@nature-ui/transition": "^0.1.1-alpha.4"
   },
   "devDependencies": {
-    "@nature-ui/portal": "^0.1.1-alpha.3",
-    "@nature-ui/system": "^0.1.1-alpha.3",
-    "@nature-ui/utils": "^0.1.1-alpha.3"
+    "@nature-ui/portal": "^0.1.1-alpha.4",
+    "@nature-ui/system": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "peerDependencies": {
     "@nature-ui/modal": "^0.1.0",
