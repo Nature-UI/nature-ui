@@ -158,7 +158,7 @@ export const Progress = React.forwardRef(
       isAnimated,
       children,
       size = 'md',
-      colorScheme = 'teal-400',
+      colorScheme = 'blue-400',
       showPercent = false,
       label,
       ...rest

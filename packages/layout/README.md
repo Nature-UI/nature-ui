@@ -24,7 +24,7 @@ import { Box, Stack, Badge, Divider } from '@nature-ui/layout';
 Box is just a `div` on steroids. It gives you the ability to pass style props
 
 ```jsx
-<Box className='text-orange-500 hover:bg-red-600 hover:text-white'>
+<Box className='text-blue-500 hover:bg-red-600 hover:text-white'>
   Welcome to Box
 </Box>
 ```
@@ -43,7 +43,7 @@ Badge is used to render a badge. It can comes in different variants and color
 schemes as defined in the `theme.components.Badge`
 
 ```jsx
-<Badge variant='solid' color='teal-500'>
+<Badge variant='solid' color='blue-500'>
   Verified <FaCheck />
 </Badge>
 ```

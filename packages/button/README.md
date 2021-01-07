@@ -62,11 +62,11 @@ You can also use a custom spinner to render your own spinner component.
 
 ```jsx
 <Stack>
-  <Button isLoading color='teal-500' variant='solid'>
+  <Button isLoading color='blue-500' variant='solid'>
     Email
   </Button>
 
-  <Button isLoading color='teal-500' variant='outline' spinner={<BarSpinner />}>
+  <Button isLoading color='blue-500' variant='outline' spinner={<BarSpinner />}>
     Submit
   </Button>
 </Stack>
