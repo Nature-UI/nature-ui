@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/icons",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.5",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -18,8 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -39,9 +38,9 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/icon": "^0.1.0",
-    "@storybook/addon-knobs": "^6.0.13",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "@nature-ui/icon": "^0.1.1-alpha.4"
+  },
+  "peerDependencies": {
+    "react": "^17.x"
   }
 }

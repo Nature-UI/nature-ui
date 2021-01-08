@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "A React component used to alert users of a particular screen area that needs user action",
   "keywords": [
     "alert",
@@ -36,21 +36,17 @@
     "lint": "concurrently yarn:lint:*"
   },
   "dependencies": {
-    "@nature-ui/system": "0.1.0",
-    "@nature-ui/utils": "0.1.0",
+    "@nature-ui/system": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4",
     "@testing-library/react": "^10.4.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "react-icons": "^3.10.0"
   },
   "peerDependencies": {
-    "react": "^16.x",
-    "react-dom": "^16.x",
-    "react-icons": "^3.10.0"
+    "react": "^17.x",
+    "react-dom": "^17.x"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
-  "homepage": "https://github.com/DNature/nature-ui#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/DNature/nature-ui#readme"
 }

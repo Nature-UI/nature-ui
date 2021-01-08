@@ -8,7 +8,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "website",
+      "website/*",
       "src/*"
     ],
     "nohoist": [
@@ -19,18 +19,19 @@
   "license": "MIT",
   "scripts": {
     "test": "lerna run test --no-private --stream",
-    "build": "lerna run build --no-private --stream",
+    "build": "lerna run build --ignore @nature-ui/test-utils --no-private --stream",
     "eject": "react-scripts eject",
     "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
     "storybook": "env NODE_ENV=development start-storybook -p 4000",
     "lint": "lerna run lint --no-private --stream",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "prettier": "prettier --write \"**/*.{ts,tsx,json,md,yml}\"",
-    "v:release": "lerna publish --registry https://localhost:9000"
+    "v:release": "lerna publish --registry http://localhost:4873",
+    "release": "lerna publish"
   },
   "dependencies": {
     "@craco/craco": "^5.6.4",
-    "@nature-ui/container": "0.1.0",
+    "@nature-ui/container": "0.1.1-alpha.0",
     "@storybook/addon-essentials": "^6.1.10",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.0",
@@ -42,12 +43,12 @@
     "node-sass": "^4.14.1",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "17.0.1",
     "react-docgen-typescript": "^1.20.4",
-    "react-dom": "^16.13.1",
+    "react-dom": "17.0.1",
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^4.0.1",
     "rimraf": "^3.0.2",
     "storybook": "^6.1.10"
   },
@@ -82,8 +83,8 @@
     "@types/jest": "^26.0.13",
     "@types/node": "^14.6.3",
     "@types/postcss-import": "^12.0.0",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
     "autoprefixer": "^9.8.6",

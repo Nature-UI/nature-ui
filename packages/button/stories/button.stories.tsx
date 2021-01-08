@@ -21,21 +21,21 @@ Default.args = {
 
 export const Outlined: ButtonStoryType = Template.bind({});
 Outlined.args = {
-  text: 'teal-500',
+  text: 'blue-500',
   variant: 'outline',
   children: 'Click me!',
 };
 
 export const Ghost: ButtonStoryType = Template.bind({});
 Ghost.args = {
-  text: 'teal-500',
+  text: 'blue-500',
   variant: 'ghost',
   children: 'Hover me!',
 };
 
 export const Link: ButtonStoryType = Template.bind({});
 Link.args = {
-  text: 'teal-500',
+  text: 'blue-500',
   variant: 'link',
   children: 'Click me!',
 };
@@ -79,7 +79,7 @@ export const IsLoading = () => {
         Button
       </Button>
       <Button
-        color='teal-500'
+        color='blue-500'
         variant='solid'
         isLoading
         loadingText='loading...'
@@ -88,7 +88,7 @@ export const IsLoading = () => {
       >
         Button
       </Button>
-      <Button color='teal-500' variant='solid' isLoading className='ml-4'>
+      <Button color='blue-500' variant='solid' isLoading className='ml-4'>
         Email
       </Button>
     </>

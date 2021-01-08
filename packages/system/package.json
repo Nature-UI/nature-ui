@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/system",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "Nature UI system primitives",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -11,8 +11,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -33,14 +32,15 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
-    "@nature-ui/utils": "^0.1.0",
+    "@nature-ui/utils": "^0.1.1-alpha.4",
     "clsx": "^1.1.1",
     "emotion": "^10.0.27",
-    "hoist-non-react-statics": "^3.3.2",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "hoist-non-react-statics": "^3.3.2"
   },
   "devDependencies": {
     "@types/hoist-non-react-statics": "^3.3.1"
+  },
+  "peerDependencies": {
+    "react": "^17.x"
   }
 }

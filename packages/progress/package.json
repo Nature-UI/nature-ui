@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/progress",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "Progress bar component for Nature UI",
   "keywords": [
     "theme",
@@ -20,8 +20,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -41,17 +40,13 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.0",
-    "@nature-ui/color": "^0.1.0",
-    "emotion": "^10.0.27",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "@nature-ui/color": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "react": "^17.x"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0"
+    "@nature-ui/system": "^0.1.1-alpha.4"
   }
 }

@@ -12,6 +12,7 @@ import { CSSObject } from '@emotion/core';
 
 import { jsx } from './jsx';
 import { NatureComponent } from './system-types';
+import { getDisplayName } from './system-utils';
 
 export const createComponent = <T extends As>(component: T) => {
   // return (...interpolations: any[]) => {
@@ -46,8 +47,10 @@ export const createComponent = <T extends As>(component: T) => {
       });
     });
 
-    Component.defaultProps = (component as any).defaultProps;
+    // Compute the display name of the final component
+    Component.displayName = getDisplayName(component);
 
+    Component.defaultProps = (component as any).defaultProps;
     // hoist all non-react statics attached to the `component` prop
     const MainComponent = hoist(Component, component as any);
 

@@ -10,7 +10,7 @@
     "outDir": "dist",
     "target": "es5",
     "module": "CommonJS",
-    "lib": ["dom", "esnext", "esnext.asynciterable"],
+    "lib": ["dom", "esnext"],
     "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
@@ -39,5 +39,5 @@
     "webpack",
     "jest"
   ],
-  "include": ["src/**/*", "packages/**/*", "*.config.js", "**/*/__test__/**/*"]
+  "include": ["src", "packages", "website", "*.config.js", "**/*/__test__/**/*"]
 }

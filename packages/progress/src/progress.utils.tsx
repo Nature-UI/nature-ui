@@ -1,5 +1,5 @@
 import { isFunction, isUndefined, valueToPercent } from '@nature-ui/utils';
-import { keyframes } from 'emotion';
+import { keyframes } from '@nature-ui/system';
 
 /**
  * CSS Animation for progress spin effect

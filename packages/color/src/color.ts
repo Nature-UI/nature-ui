@@ -1,6 +1,6 @@
 import tinyColor from 'tinycolor2';
 import { isEmptyObject } from '@nature-ui/utils';
-import { css } from 'emotion';
+import { css } from '@nature-ui/system';
 
 /**
  * Determines if the tone of a given color is `light` or `dark`

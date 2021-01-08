@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { getAllFocusable, __DEV__ } from '@nature-ui/utils';
 import ReactFocusLock from 'react-focus-lock';
 
@@ -85,5 +86,3 @@ export const FocusLock = (props: FocusLockProps) => {
 if (__DEV__) {
   FocusLock.displayName = 'FocusLock';
 }
-
-export default FocusLock;

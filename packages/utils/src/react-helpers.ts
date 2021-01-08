@@ -92,7 +92,6 @@ const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
  *
  * @param refs refs to assign to value to
  */
-
 export const mergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => (
   value: T,
 ) => {

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/utils",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "Utility functions",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -14,8 +14,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -36,8 +35,9 @@
   },
   "dependencies": {
     "css-box-model": "^1.2.1",
-    "memoize-one": "^5.1.1",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "memoize-one": "^5.1.1"
+  },
+  "peerDependencies": {
+    "react": "^17.x"
   }
 }

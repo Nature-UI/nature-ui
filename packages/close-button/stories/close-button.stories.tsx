@@ -22,8 +22,8 @@ State.args = {
 
 export const Sizes = (props: CloseType) => (
   <>
-    <CloseButton size='xs' className='text-teal-500' {...props} />
-    <CloseButton size='sm' className='text-orange-500' {...props} />
+    <CloseButton size='xs' className='text-blue-500' {...props} />
+    <CloseButton size='sm' className='text-blue-500' {...props} />
     <CloseButton size='md' className='text-red-500' {...props} />
     <CloseButton size='lg' className='text-blue-500' {...props} />
     <CloseButton size='xl' className='text-purple-500' {...props} />
@@ -32,7 +32,7 @@ export const Sizes = (props: CloseType) => (
 
 export const Example = (props: CloseType) => (
   <>
-    <div className='p-4 bg-orange-300 relative pr-10'>
+    <div className='p-4 bg-blue-300 relative pr-10'>
       <CloseButton
         aria-label='Close'
         size='sm'

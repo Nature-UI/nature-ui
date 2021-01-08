@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/container",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "Container, nature-ui, component, Nature-UI container",
   "keywords": [
     "Container",
@@ -22,8 +22,7 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "http://localhost:9000"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -39,16 +38,9 @@
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
-  "dependencies": {
-    "@storybook/addon-knobs": "^6.0.10",
-    "clsx": "^1.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
   "peerDependencies": {
-    "@storybook/addon-knobs": "^6.0.10",
-    "clsx": "^1.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  }
+    "react": "^17.x",
+    "react-dom": "^17.x"
+  },
+  "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d"
 }

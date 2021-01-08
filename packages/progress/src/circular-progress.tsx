@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { nature, PropsOf, jsx, clsx } from '@nature-ui/system';
+import { nature, PropsOf, jsx, clsx, css } from '@nature-ui/system';
 import { isUndefined, StringOrNumber, __DEV__ } from '@nature-ui/utils';
-import { css } from 'emotion';
 import React from 'react';
 
 import { getProgressProps, rotate, spin } from './progress.utils';

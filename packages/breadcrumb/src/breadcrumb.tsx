@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { forwardRef, nature, PropsOf, jsx, clsx } from '@nature-ui/system';
+import { forwardRef, nature, PropsOf, jsx, clsx, css } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-import { css } from 'emotion';
 import * as React from 'react';
 
 const Span = nature('span');

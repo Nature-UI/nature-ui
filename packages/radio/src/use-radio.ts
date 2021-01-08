@@ -189,7 +189,7 @@ export const useRadio = (props: UseRadioProps = {}) => {
         onMouseDown: callAllHandler(_props.onMouseDown, stop),
         onTouchStart: callAllHandler(_props.onTouchState, stop),
         'data-disabled': dataAttr(isDisabled),
-        ' data-checked': dataAttr(isChecked),
+        'data-checked': dataAttr(isChecked),
         'data-invalid': dataAttr(isInvalid),
       };
     },
