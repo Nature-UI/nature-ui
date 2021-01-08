@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Container from '../src';
+import { Container } from '../src';
 
 export default {
   title: 'Container',

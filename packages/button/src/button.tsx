@@ -94,7 +94,7 @@ export const Button = React.forwardRef(
     const {
       as,
       variant = 'solid',
-      color = 'teal-500',
+      color = 'blue-500',
       text = 'white',
       size = 'md',
       children,

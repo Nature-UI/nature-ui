@@ -31,7 +31,7 @@ import Container from '@nature-ui/container';
   <Container className='bg-green-300' size='md'>
     I love Nature
   </Container>
-  <Container className='bg-orange-300' size='sm'>
+  <Container className='bg-blue-300' size='sm'>
     I love Nature
   </Container>
   <Container className='bg-red-300' size='xs'>

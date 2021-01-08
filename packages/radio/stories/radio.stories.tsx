@@ -14,7 +14,7 @@ export const Disabled = () => <Radio isDisabled>Disabled</Radio>;
 export const Readonly = () => (
   <Radio
     wrapperClass='mt-48'
-    colorScheme='teal-600'
+    colorScheme='blue-600'
     isChecked
     isReadOnly
     size='lg'
@@ -24,7 +24,7 @@ export const Readonly = () => (
 );
 
 export const Invalid = () => (
-  <Radio wrapperClass='mt-48' colorScheme='teal-600' isInvalid size='lg'>
+  <Radio wrapperClass='mt-48' colorScheme='blue-600' isInvalid size='lg'>
     I'm a invalid radio
   </Radio>
 );

@@ -39,11 +39,11 @@ export const ALERT_STATUSES = {
     },
   },
   warning: {
-    bg: 'bg-orange-200',
-    iconColor: 'text-orange-600 mr-3',
+    bg: 'bg-blue-200',
+    iconColor: 'text-blue-600 mr-3',
     icon: FiAlertTriangle,
     variant: {
-      solid: 'bg-orange-600 text-white',
+      solid: 'bg-blue-600 text-white',
       subtle: SUBTLE_TEXT,
     },
   },

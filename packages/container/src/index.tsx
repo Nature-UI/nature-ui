@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { clsx, nature, PropsOf } from '@nature-ui/system';
-import PropTypes from 'prop-types';
 
 interface IContainer {
   /**
@@ -10,6 +9,7 @@ interface IContainer {
 }
 
 const BASE_STYLE = 'mx-auto container';
+
 const _SIZES = {
   lg: 'max-w-lg',
   md: 'max-w-md',
@@ -20,7 +20,7 @@ const _SIZES = {
 
 const DivTag = nature('div');
 
-const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
+export const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
   const { size = 'lg', children, className = '' } = props;
 
   const _size = typeof size === 'string' ? _SIZES[size] : size;
@@ -31,8 +31,3 @@ const Container = (props: IContainer & PropsOf<typeof DivTag>) => {
 };
 
 Container.displayName = 'Container';
-Container.defaultProps = {
-  size: PropTypes.oneOf(['md', 'lg', 'xl', 'xs', 'sm']),
-};
-
-export default Container;

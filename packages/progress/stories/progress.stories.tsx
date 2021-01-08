@@ -65,7 +65,7 @@ export const withStripe: ProgressType = Template.bind({});
 withStripe.args = {
   value: 60,
   hasStripe: true,
-  colorScheme: 'orange-500',
+  colorScheme: 'blue-500',
 };
 
 /**
@@ -90,6 +90,6 @@ export const WithAnimation: ProgressType = Template.bind({});
 WithAnimation.args = {
   value: 50,
   hasStripe: true,
-  colorScheme: 'orange-500',
+  colorScheme: 'blue-500',
   isAnimated: true,
 };

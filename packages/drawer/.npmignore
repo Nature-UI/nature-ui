@@ -1,0 +1,6 @@
+/src
+/node_modules
+/test
+/.npmrc
+/.npmignore
+/__tests__

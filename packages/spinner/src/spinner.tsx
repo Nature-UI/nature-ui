@@ -36,7 +36,7 @@ export const Spinner = React.forwardRef(
     const {
       className = '',
       thickness = '2px',
-      color = 'teal-500',
+      color = 'blue-500',
       size = 'xs',
       label = 'Loading...',
       ...rest

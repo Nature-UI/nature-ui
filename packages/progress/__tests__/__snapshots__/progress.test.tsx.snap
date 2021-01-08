@@ -84,7 +84,7 @@ exports[`@nature-ui/circular-progress Progress renders correctly 1`] = `
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="20"
-        class="h-full bg-teal-400 css-nyci5l"
+        class="h-full bg-blue-400 css-nyci5l"
         color="green"
         role="progressbar"
       />
@@ -97,7 +97,7 @@ exports[`@nature-ui/circular-progress Progress renders correctly 1`] = `
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="40"
-        class="h-full bg-teal-400 css-1jz7m94 css-1ttdosy"
+        class="h-full bg-blue-400 css-1jz7m94 css-1ttdosy"
         color="blue"
         role="progressbar"
       />
@@ -110,7 +110,7 @@ exports[`@nature-ui/circular-progress Progress renders correctly 1`] = `
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="80"
-        class="h-full bg-teal-400 css-1jz7m94 css-1g5oqvd css-13r1wu6"
+        class="h-full bg-blue-400 css-1jz7m94 css-1g5oqvd css-13r1wu6"
         color="yellow"
         role="progressbar"
       />
