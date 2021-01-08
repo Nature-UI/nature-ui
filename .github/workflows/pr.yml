@@ -19,8 +19,6 @@ jobs:
 
       - name: Install Yarn and Node
         uses: egordm/gha-yarn-node-cache@v1
-        with:
-          node-version: 12.x
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile && yarn bootstrap
