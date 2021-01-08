@@ -44,12 +44,13 @@
   "dependencies": {
     "@nature-ui/hooks": "^0.1.1-alpha.4",
     "@nature-ui/icon": "^0.1.1-alpha.4",
+    "@nature-ui/system": "^0.1.1-alpha.4",
     "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "peerDependencies": {
-    "react": "^16.*"
+    "react": "^17"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.4"
+    "react": "^17.0.1"
   }
 }

@@ -41,11 +41,11 @@
   },
   "dependencies": {
     "@nature-ui/form-control": "^0.1.1-alpha.4",
+    "@nature-ui/system": "^0.1.1-alpha.4",
     "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.4",
-    "rimraf": "^3.0.2"
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "react": "17.x"

@@ -49,13 +49,11 @@
   "devDependencies": {
     "@nature-ui/portal": "^0.1.1-alpha.4",
     "@nature-ui/system": "^0.1.1-alpha.4",
-    "@nature-ui/utils": "^0.1.1-alpha.4"
+    "@nature-ui/utils": "^0.1.1-alpha.4",
+    "react": "^17.0.1"
   },
   "peerDependencies": {
-    "@nature-ui/modal": "^0.1.0",
-    "@nature-ui/portal": "^0.1.0",
-    "react": "17.x",
-    "rimraf": "^3.0.2"
+    "react": "^17"
   },
   "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d"
 }

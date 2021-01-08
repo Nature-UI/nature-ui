@@ -37,5 +37,8 @@
   },
   "peerDependencies": {
     "react": "^17.x"
+  },
+  "devDependencies": {
+    "react": "^17.0.1"
   }
 }
