@@ -44,7 +44,8 @@
     "@nature-ui/visually-hidden": "^0.1.1-alpha.6"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.4"
+    "@nature-ui/system": "^0.1.1-alpha.4",
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "react": "17.x"

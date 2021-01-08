@@ -47,7 +47,8 @@
   },
   "devDependencies": {
     "@nature-ui/system": "^0.1.1-alpha.4",
-    "jest-environment-jsdom-sixteen": "^1.0.3"
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "react": "17.x"
