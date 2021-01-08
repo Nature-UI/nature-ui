@@ -48,7 +48,7 @@
     "@testing-library/user-event": "^12.2.2",
     "@types/jest-axe": "^3.5.1",
     "jest-axe": "^4.1.0",
-    "react-test-renderer": "^^17.0.1"
+    "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {
     "react": "^17.0.1"

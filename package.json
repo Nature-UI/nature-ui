@@ -21,13 +21,20 @@
     "pkg": "manypkg run",
     "check:pkgs": "manypkg check",
     "fix:pkgs": "manypkg fix",
-    "test": "lerna run test --no-private --stream",
-    "build": "lerna run build --ignore @nature-ui/test-utils --no-private --stream",
-    "eject": "react-scripts eject",
-    "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
-    "storybook": "env NODE_ENV=development start-storybook -p 4000",
+    "version:pkgs": "changeset version",
+    "contributors:add": "all-contributors add",
+    "contributors:gen": "all-contributors generate",
+    "prestart": "yarn && yarn bootstrap",
+    "boot": "yarn prestart && yarn build",
+    "start": "yarn build && yarn storybook",
     "lint": "lerna run lint --no-private --stream",
     "bootstrap": "lerna bootstrap --use-workspaces",
+    "test": "lerna run test --no-private --stream",
+    "build": "lerna run build --ignore @nature-ui/test-utils --no-private --stream",
+    "clean": "lerna clean --yes && rm -rf node_modules",
+    "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
+    "storybook": "env NODE_ENV=development start-storybook -p 4000",
+    "commit": "cz",
     "prettier": "prettier --write \"**/*.{ts,tsx,json,md,yml}\"",
     "v:release": "lerna publish --registry http://localhost:4873",
     "release": "lerna publish"
@@ -127,6 +134,8 @@
     ]
   },
   "devDependencies": {
-    "@changesets/cli": "^2.12.0"
+    "@changesets/changelog-github": "^0.2.7",
+    "@changesets/cli": "^2.12.0",
+    "all-contributors-cli": "^6.19.0"
   }
 }
