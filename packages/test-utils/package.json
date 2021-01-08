@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/test-utils",
-  "version": "0.1.1-alpha.6",
+  "version": "0.2.0",
   "description": "Testing utilities for Chakra UI's components",
   "keywords": [
     "nature ui",
@@ -38,10 +38,10 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^0.1.1-alpha.4",
-    "@nature-ui/system": "^0.1.1-alpha.4",
-    "@nature-ui/utils": "^0.1.1-alpha.4",
-    "@nature-ui/visually-hidden": "^0.1.1-alpha.6",
+    "@nature-ui/hooks": "^0.2.0",
+    "@nature-ui/system": "^0.2.0",
+    "@nature-ui/utils": "^0.2.0",
+    "@nature-ui/visually-hidden": "^0.2.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/react-hooks": "^3.4.2",
@@ -51,7 +51,7 @@
     "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0"
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "react": "17.x"

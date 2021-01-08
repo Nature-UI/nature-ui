@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "0.1.1-alpha.6",
+  "version": "0.2.0",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",
@@ -46,16 +46,17 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/close-button": "^0.1.1-alpha.4",
-    "@nature-ui/focus-lock": "^0.1.1-alpha.6",
-    "@nature-ui/hooks": "^0.1.1-alpha.4",
-    "@nature-ui/portal": "^0.1.1-alpha.4",
-    "@nature-ui/utils": "^0.1.1-alpha.4",
+    "@nature-ui/close-button": "^0.2.0",
+    "@nature-ui/focus-lock": "^0.2.0",
+    "@nature-ui/hooks": "^0.2.0",
+    "@nature-ui/portal": "^0.2.0",
+    "@nature-ui/utils": "^0.2.0",
     "aria-hidden": "^1.1.1",
     "react-remove-scroll": "^2.4.0"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.4"
+    "@nature-ui/system": "^0.2.0",
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "react": "17.x"

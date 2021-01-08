@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/utils",
-  "version": "0.1.1-alpha.4",
+  "version": "0.2.0",
   "description": "Utility functions",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -36,5 +36,8 @@
   },
   "peerDependencies": {
     "react": "^17.x"
+  },
+  "devDependencies": {
+    "react": "^17.0.1"
   }
 }
