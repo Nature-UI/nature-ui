@@ -22,7 +22,7 @@ const getTransitionStyles = (initialOffset: string) => ({
   },
   entered: {
     opacity: 1,
-    transform: `translateY(0px)`,
+    transform: 'translateY(0px)',
   },
   exiting: {
     opacity: 0,

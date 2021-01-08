@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/breadcrumb",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "A base React component for icons",
   "keywords": [
     "breadcrumbs",
@@ -20,8 +20,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -32,19 +31,21 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
     "test": "jest --env=jsdom --passWithNoTests"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^0.1.0",
-    "@nature-ui/utils": "^0.1.0",
-    "emotion": "^10.0.27",
-    "react": "^16.13.1"
+    "@nature-ui/system": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "devDependencies": {
     "@types/tinycolor2": "^1.4.2",
+    "react": "^17.x",
     "tinycolor2": "^1.4.1"
   }
 }

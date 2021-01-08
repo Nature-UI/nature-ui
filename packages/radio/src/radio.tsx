@@ -57,13 +57,13 @@ export const Radio = React.forwardRef(
       ...radioProps
     } = props;
 
-    let isChecked = props.isChecked;
+    let { isChecked } = props;
 
     if (group?.value && props.value) {
       isChecked = group.value === props.value;
     }
 
-    let onChange = props.onChange;
+    let { onChange } = props;
 
     if (props.value && group?.onChange) {
       onChange = group.onChange;
@@ -118,7 +118,7 @@ export const Radio = React.forwardRef(
         [`bg-${dark} border-${dark}`]: _hover && _checked && !_invalid,
         'bg-gray-300 text-gray-300': _disabled,
         'text-gray-500': _disabled && _checked,
-      }
+      },
     );
 
     return (
@@ -128,14 +128,14 @@ export const Radio = React.forwardRef(
           'nature-radio inline-flex items-center align-top',
           {
             'opacity-50': _disabled,
-          }
+          },
         )}
         css={{
           width: isFullWidth ? 'full' : undefined,
         }}
       >
         <input
-          className={`nature-radio__input`}
+          className='nature-radio__input'
           style={style as any}
           {...inputProps}
         />
@@ -160,7 +160,7 @@ export const Radio = React.forwardRef(
         )}
       </StyledWrapper>
     );
-  }
+  },
 );
 
 if (__DEV__) {

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/drawer",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.6",
   "description": "React component the renders a Drawer from the edges of the screen",
   "keywords": [
     "drawer",
@@ -23,8 +23,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -35,25 +34,28 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
     "test": "jest --env=jsdom"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/modal": "^0.1.0",
-    "@nature-ui/transition": "^0.1.0"
+    "@nature-ui/modal": "^0.1.1-alpha.6",
+    "@nature-ui/transition": "^0.1.1-alpha.4"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0",
-    "@nature-ui/utils": "^0.1.0",
-    "@nature-ui/portal": "^0.1.0",
-    "rimraf": "^3.0.2"
+    "@nature-ui/portal": "^0.1.1-alpha.4",
+    "@nature-ui/system": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "peerDependencies": {
     "@nature-ui/modal": "^0.1.0",
     "@nature-ui/portal": "^0.1.0",
-    "react": "16.x",
+    "react": "17.x",
     "rimraf": "^3.0.2"
-  }
+  },
+  "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d"
 }

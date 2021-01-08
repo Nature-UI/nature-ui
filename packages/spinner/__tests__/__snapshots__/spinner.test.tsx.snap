@@ -3,8 +3,8 @@
 exports[`Spinner renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4"
-    style="border-top: 2px solid teal; border-left: 2px solid teal;"
+    class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-4 h-4 text-blue-500"
+    style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
   >
     <span
       class="css-e941bk"

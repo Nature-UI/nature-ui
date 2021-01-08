@@ -39,11 +39,11 @@ export const ALERT_STATUSES = {
     },
   },
   warning: {
-    bg: 'bg-orange-200',
-    iconColor: 'text-orange-600 mr-3',
+    bg: 'bg-blue-200',
+    iconColor: 'text-blue-600 mr-3',
     icon: FiAlertTriangle,
     variant: {
-      solid: 'bg-orange-600 text-white',
+      solid: 'bg-blue-600 text-white',
       subtle: SUBTLE_TEXT,
     },
   },
@@ -51,7 +51,7 @@ export const ALERT_STATUSES = {
 
 type AlertContext = Required<Pick<AlertOptions, 'status' | 'variant'>>;
 
-const [AlertContextProvider, useAlertContext] = createContext<AlertContext>({
+const [AlertProvider, useAlertContext] = createContext<AlertContext>({
   name: 'AlertContext',
 });
 
@@ -106,9 +106,9 @@ export const AlertWrapper = (props: AlertProps) => {
   };
 
   return (
-    <AlertContextProvider value={context}>
+    <AlertProvider value={context}>
       <Component className={componentClass} {...rest} role={role} />
-    </AlertContextProvider>
+    </AlertProvider>
   );
 };
 

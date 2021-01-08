@@ -11,49 +11,46 @@ import hoist from 'hoist-non-react-statics';
 import { CSSObject } from '@emotion/core';
 
 import { jsx } from './jsx';
-import { getDisplayName } from './system-utils';
 import { NatureComponent } from './system-types';
+import { getDisplayName } from './system-utils';
 
 export const createComponent = <T extends As>(component: T) => {
   // return (...interpolations: any[]) => {
   return (...interpolations: any[]) => {
-    const Component = React.forwardRef(
-      ({ as, ...props }: any, ref: React.Ref<any>) => {
-        let computedStyles: CSSObject = {};
+    const Component = React.forwardRef((_props: any, ref: React.Ref<any>) => {
+      const { as, ...props } = _props;
+      let computedStyles: CSSObject = {};
 
-        interpolations.forEach((interpolation) => {
-          const style = runIfFn(interpolation, { ...props });
+      interpolations.forEach((interpolation) => {
+        const style = runIfFn(interpolation, { ...props });
 
-          computedStyles = {
-            ...computedStyles,
-            ...style,
-          };
-        });
+        computedStyles = {
+          ...computedStyles,
+          ...style,
+        };
+      });
 
-        const element = as || component;
+      const element = as || component;
 
-        const isTag = isString(element);
+      const isTag = isString(element);
 
-        const computedProps: Dict = isTag ? { ...props } : { ...props };
-        // const computedProps: Dict = !isTag && { ...props };
+      const computedProps: Dict = isTag ? { ...props } : { ...props };
+      // const computedProps: Dict = !isTag && { ...props };
 
-        if (
-          isEmptyObject(computedProps.css) ||
-          isUndefined(computedProps.css)
-        ) {
-          delete computedProps.css;
-        }
-
-        return jsx(element, {
-          ref,
-          ...computedProps,
-        });
+      if (isEmptyObject(computedProps.css) || isUndefined(computedProps.css)) {
+        delete computedProps.css;
       }
-    );
 
+      return jsx(element, {
+        ref,
+        ...computedProps,
+      });
+    });
+
+    // Compute the display name of the final component
     Component.displayName = getDisplayName(component);
-    Component.defaultProps = (component as any).defaultProps;
 
+    Component.defaultProps = (component as any).defaultProps;
     // hoist all non-react statics attached to the `component` prop
     const MainComponent = hoist(Component, component as any);
 

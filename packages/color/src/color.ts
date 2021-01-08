@@ -1,6 +1,6 @@
 import tinyColor from 'tinycolor2';
 import { isEmptyObject } from '@nature-ui/utils';
-import { css } from 'emotion';
+import { css } from '@nature-ui/system';
 
 /**
  * Determines if the tone of a given color is `light` or `dark`
@@ -79,7 +79,7 @@ export const contrast = (fg: string, bg: string) =>
 export const isAccessible = (
   textColor: string,
   bgColor: string,
-  options?: tinyColor.WCAG2Options
+  options?: tinyColor.WCAG2Options,
 ) => tinyColor.isReadable(bgColor, textColor, options);
 
 export const complementary = (color: string) =>
@@ -87,7 +87,7 @@ export const complementary = (color: string) =>
 
 export const generateStripe = (
   size = '1rem',
-  color = 'rgba(255, 255, 255, 0.15)'
+  color = 'rgba(255, 255, 255, 0.15)',
 ): string => {
   return css`
     background-image: linear-gradient(
@@ -116,28 +116,6 @@ interface RandomColorOptions {
   colors?: string[];
 }
 
-export const randomColor = (opts?: RandomColorOptions): string => {
-  const fallback = tinyColor.random().toHexString();
-
-  if (!opts || isEmptyObject(opts)) {
-    return fallback;
-  }
-
-  if (opts.string && opts.colors) {
-    return randomColorFromList(opts.string, opts.colors);
-  }
-
-  if (opts.string && !opts.colors) {
-    return randomColorFromString(opts.string);
-  }
-
-  if (opts.colors && !opts.string) {
-    return randomFromList(opts.colors);
-  }
-
-  return fallback;
-};
-
 export const randomColorFromString = (str: string): string => {
   let hash = 0;
 
@@ -145,7 +123,7 @@ export const randomColorFromString = (str: string): string => {
 
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    hash = hash & hash;
+    hash &= hash;
   }
 
   let color = '#';
@@ -166,7 +144,7 @@ export const randomColorFromList = (str: string, list: string[]): string => {
 
   for (let i = 0; i < str.length; i++) {
     index = str.charCodeAt(i) + ((index << 5) - index);
-    index = index & index;
+    index &= index;
   }
 
   index = ((index % list.length) + list.length) % list.length;
@@ -176,4 +154,26 @@ export const randomColorFromList = (str: string, list: string[]): string => {
 
 export const randomFromList = (list: string[]): string => {
   return list[Math.floor(Math.random() * list.length)];
+};
+
+export const randomColor = (opts?: RandomColorOptions): string => {
+  const fallback = tinyColor.random().toHexString();
+
+  if (!opts || isEmptyObject(opts)) {
+    return fallback;
+  }
+
+  if (opts.string && opts.colors) {
+    return randomColorFromList(opts.string, opts.colors);
+  }
+
+  if (opts.string && !opts.colors) {
+    return randomColorFromString(opts.string);
+  }
+
+  if (opts.colors && !opts.string) {
+    return randomFromList(opts.colors);
+  }
+
+  return fallback;
 };

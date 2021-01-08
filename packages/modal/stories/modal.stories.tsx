@@ -89,7 +89,6 @@ export const BasicUsage = () => {
               <Button
                 onClick={onClose}
                 className='bg-gray-200 hover:bg-gray-300 transition duration-200'
-                mr='12px'
               >
                 Cancel
               </Button>
@@ -136,9 +135,7 @@ export const ReturnFocus = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button mr={3} onClick={onClose}>
-                Close
-              </Button>
+              <Button onClick={onClose}>Close</Button>
               <Button variant='ghost'>Secondary Action</Button>
             </ModalFooter>
           </ModalContent>

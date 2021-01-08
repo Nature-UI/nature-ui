@@ -14,7 +14,7 @@ describe('@nature-ui/avatar', () => {
     const { asFragment } = render(
       <Avatar>
         <AvatarBadge />
-      </Avatar>
+      </Avatar>,
     );
 
     expect(asFragment()).toMatchSnapshot();

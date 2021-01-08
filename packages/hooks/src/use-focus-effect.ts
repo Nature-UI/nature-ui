@@ -17,7 +17,7 @@ export type UseFocusEffectOptions = {
 
 export const useFocusEffect = <T extends HTMLElement>(
   ref: React.RefObject<T>,
-  options: UseFocusEffectOptions
+  options: UseFocusEffectOptions,
 ) => {
   const { shouldFocus, preventScroll } = options;
 

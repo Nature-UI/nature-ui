@@ -36,7 +36,7 @@ export const Spinner = React.forwardRef(
     const {
       className = '',
       thickness = '2px',
-      color = 'teal',
+      color = 'blue-500',
       size = 'xs',
       label = 'Loading...',
       ...rest
@@ -57,18 +57,19 @@ export const Spinner = React.forwardRef(
       }
     `;
 
-    const DEFAULTS = `inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle`;
+    const _size = typeof size === 'string' ? SIZES[size] : size;
+    const DEFAULTS = `inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-${_size} h-${_size}`;
+
     const _classNames = clsx(className, _css, spin, DEFAULTS, {
-      [`w-${SIZES[size]} h-${SIZES[size]}`]: typeof size === 'string',
-      [`w-${size} h-${size}`]: typeof size === 'number',
+      [`text-${color}`]: color,
     });
 
     return (
       <SpinnerComp
         className={_classNames}
         style={{
-          borderTop: `${thickness} solid ${color}`,
-          borderLeft: `${thickness} solid ${color}`,
+          borderTop: `${thickness} solid currentColor`,
+          borderLeft: `${thickness} solid currentColor`,
         }}
         ref={ref}
         {...rest}
@@ -76,7 +77,7 @@ export const Spinner = React.forwardRef(
         {label && <VisuallyHidden>{label}</VisuallyHidden>}
       </SpinnerComp>
     );
-  }
+  },
 );
 
 if (__DEV__) {

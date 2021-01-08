@@ -41,21 +41,20 @@ export class ToastManager extends React.Component<Props, State> {
    */
   static counter = 0;
 
-  /**
-   * State to track all the toast across all positions
-   */
-  state: State = {
-    top: [],
-    'top-left': [],
-    'top-right': [],
-    'bottom-left': [],
-    bottom: [],
-    'bottom-right': [],
-  };
-
   constructor(props: Props) {
     super(props);
 
+    /**
+     * State to track all the toast across all positions
+     */
+    this.state = {
+      top: [],
+      'top-left': [],
+      'top-right': [],
+      'bottom-left': [],
+      bottom: [],
+      'bottom-right': [],
+    } as State;
     const methods = {
       notify: this.notify,
       closeAll: this.closeAll,
@@ -121,7 +120,8 @@ export class ToastManager extends React.Component<Props, State> {
    */
   closeAll = () => {
     objectKeys(this.state).forEach((position) => {
-      this.state[position].forEach((toast) => {
+      const _positions = this.state;
+      _positions[position].forEach((toast) => {
         this.closeToast(toast.id);
       });
     });
@@ -159,7 +159,7 @@ export class ToastManager extends React.Component<Props, State> {
         ...prevState,
         [position]: prevState[position].map((toast) => ({
           ...toast,
-          requestClose: toast.id == id,
+          requestClose: String(toast.id) === String(id),
         })),
       };
     });
@@ -172,7 +172,9 @@ export class ToastManager extends React.Component<Props, State> {
     this.setState((prevState) => {
       return {
         ...prevState,
-        [position]: prevState[position].filter((toast) => toast.id != id),
+        [position]: prevState[position].filter(
+          (toast) => String(toast.id) !== String(id),
+        ),
       };
     });
   };
@@ -217,11 +219,12 @@ export class ToastManager extends React.Component<Props, State> {
 
   render() {
     return objectKeys(this.state).map((position: ToastPosition) => {
-      const toasts = this.state[position];
+      const { state } = this;
+      const toasts = state[position];
       return (
         <span
           key={position}
-          id={'chakra-toast-manager-' + position}
+          id={`chakra-toast-manager-${position}`}
           style={this.getStyle(position)}
         >
           {toasts.map((toast) => (

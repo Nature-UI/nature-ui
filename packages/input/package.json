@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/input",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "A React component for input text field",
   "keywords": [
     "react",
@@ -20,8 +20,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -32,22 +31,23 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
     "test": "jest --env=jsdom"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/form-control": "^0.1.0",
-    "@nature-ui/utils": "^0.1.0"
+    "@nature-ui/form-control": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0",
+    "@nature-ui/system": "^0.1.1-alpha.4",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@nature-ui/system": ">=0.1",
-    "react": "16.x",
-    "rimraf": "^3.0.2"
+    "react": "17.x"
   }
 }

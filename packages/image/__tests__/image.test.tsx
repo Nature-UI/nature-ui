@@ -30,7 +30,7 @@ const fallbackSrc = 'https://image.xyz/placeholder';
 
 const renderComponent = (props?: ImageProps) => {
   return render(
-    <Image data-testid='img' src={src} fallbackSrc={fallbackSrc} {...props} />
+    <Image data-testid='img' src={src} fallbackSrc={fallbackSrc} {...props} />,
   );
 };
 

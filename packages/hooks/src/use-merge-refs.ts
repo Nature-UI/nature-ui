@@ -2,8 +2,14 @@ import * as React from 'react';
 
 type ReactRef<T> = React.Ref<T> | React.MutableRefObject<T>;
 
+/**
+ * Assigns a value to a ref function or object
+ *
+ * @param ref the ref to assign to
+ * @param value the value
+ */
 export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
-  if (ref === null) return;
+  if (ref === null || ref === undefined || !ref) return;
 
   if (typeof ref === 'function') {
     ref(value);
@@ -33,7 +39,7 @@ export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
  */
 export const useMergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => {
   return React.useMemo(() => {
-    if (refs.every((ref) => ref === null)) {
+    if (refs.every((ref) => ref === null || ref === undefined || !ref)) {
       return null;
     }
 
@@ -42,5 +48,6 @@ export const useMergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => {
         if (ref) assignRef(ref, node);
       });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, refs);
 };

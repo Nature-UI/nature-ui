@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/form-control",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "React component to provide validation states to form fields",
   "keywords": [
     "field",
@@ -22,8 +22,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -34,24 +33,23 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
     "test": "jest --env=jsdom"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/icon": "^0.1.0",
-    "@nature-ui/hooks": "^0.1.0",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2",
-    "@nature-ui/utils": "^0.1.0"
+    "@nature-ui/hooks": "^0.1.1-alpha.4",
+    "@nature-ui/icon": "^0.1.1-alpha.4",
+    "@nature-ui/utils": "^0.1.1-alpha.4"
   },
   "peerDependencies": {
-    "react": "^16.*",
-    "@nature-ui/system": "^0.1.0",
-    "rimraf": "^3.0.2"
+    "react": "^16.*"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.0"
+    "@nature-ui/system": "^0.1.1-alpha.4"
   }
 }

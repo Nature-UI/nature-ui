@@ -78,6 +78,7 @@ const Toast = (props: any) => {
     onClose,
     description,
     className = '',
+    onCloseComplete,
     ...rest
   } = props;
 
@@ -95,11 +96,7 @@ const Toast = (props: any) => {
       <AlertIcon />
       <DivTag className='flex-1'>
         {title && <AlertTitle>{title}</AlertTitle>}
-        {description && (
-          <AlertDescription marginTop='px' lineHeight='short'>
-            {description}
-          </AlertDescription>
-        )}
+        {description && <AlertDescription>{description}</AlertDescription>}
       </DivTag>
       {isCloseable && (
         <CloseButton
@@ -126,6 +123,7 @@ export const useToast = () => {
   const toastImpl = (options: UseToastOptions) => {
     const { render } = options;
 
+    const opts = merge(defaults, options);
     const Message = (props: RenderProps) => (
       <>
         {isFunction(render) ? (
@@ -140,7 +138,6 @@ export const useToast = () => {
         )}
       </>
     );
-    const opts = merge(defaults, options);
 
     return toast.notify(Message, opts);
   };

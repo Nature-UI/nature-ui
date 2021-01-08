@@ -10,7 +10,7 @@
     "outDir": "dist",
     "target": "es5",
     "module": "CommonJS",
-    "lib": ["dom", "esnext", "esnext.asynciterable"],
+    "lib": ["dom", "esnext"],
     "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
@@ -24,7 +24,7 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true, // FIXME: => false
     "skipLibCheck": true,
@@ -39,5 +39,5 @@
     "webpack",
     "jest"
   ],
-  "include": ["src/**/*", "packages/**/*", "*.config.js", "**/*/__test__/**/*"]
+  "include": ["src", "packages", "website", "*.config.js", "**/*/__test__/**/*"]
 }

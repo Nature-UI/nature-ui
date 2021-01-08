@@ -18,15 +18,15 @@ export const useEventListener = (
   event: keyof WindowEventMap,
   handler: (event: any) => void,
   doc: Document | null = isBrowser ? document : null,
-  options?: AddEventListener[2]
+  options?: AddEventListener[2],
 ) => {
   const saveHandler = useLatestRef(handler);
 
   useEffect(() => {
     if (!doc) return;
 
-    const listener = (event: any) => {
-      saveHandler.current(event);
+    const listener = (_event: any) => {
+      saveHandler.current(_event);
     };
 
     doc.addEventListener(event, listener, options);

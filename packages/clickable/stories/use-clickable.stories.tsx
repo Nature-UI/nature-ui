@@ -27,7 +27,7 @@ const Clickable = React.forwardRef(
     }
 
     return <button className='inline-flex' {...clickable} />;
-  }
+  },
 );
 
 export default {

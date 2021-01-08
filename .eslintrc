@@ -1,6 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaVersion": 2016,
     "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
@@ -13,17 +14,18 @@
     "node": true
   },
   "plugins": [
-    "@typescript-eslint",
+    "@typescript-eslint/eslint-plugin",
     "eslint-comments",
     "jest",
     "promise",
-    "import"
+    "import",
+    "react-hooks"
   ],
   "extends": [
+    "airbnb-typescript",
+    "prettier",
     "prettier/flowtype",
     "prettier/react",
-    "prettier/standard",
-    "prettier",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:eslint-comments/recommended",
@@ -31,8 +33,7 @@
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "get-off-my-lawn"
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -53,21 +54,24 @@
     "jest/require-tothrow-message": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "import/no-extraneous-dependencies": 0,
-    "node/no-extraneous-import": 0,
     "react/jsx-sort-props": 0,
     "no-use-before-define": 0,
     "no-param-reassign": 0,
     "no-console": 0,
     "react/no-unescaped-entities": 0,
-    "node/no-unsupported-features/es-builtins": [
-      "error",
-      {
-        "version": "^v12.18.2",
-        "ignores": []
-      }
-    ],
     "no-warning-comments": 0,
     "no-nested-ternary": "off",
-    "no-return-assign": 0
+    "no-return-assign": 0,
+    "jsx-quotes": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": 0,
+    "no-underscore-dangle": 0,
+    "@typescript-eslint/naming-convention": 0,
+    "no-bitwise": 0,
+    "no-plusplus": 0,
+    "consistent-return": 0,
+    "react/require-default-props": 0,
+    "func-names": 0
   }
 }

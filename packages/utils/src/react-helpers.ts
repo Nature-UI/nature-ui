@@ -27,7 +27,7 @@ type CreateContextReturn<T> = [React.Provider<T>, () => T, React.Context<T>];
  */
 
 export const createContext = <ContextType>(
-  options: CreateContextOptions = {}
+  options: CreateContextOptions = {},
 ): CreateContextReturn<ContextType> => {
   const {
     strict = true,
@@ -59,27 +59,18 @@ export const createContext = <ContextType>(
  * @param children the children
  */
 
-export const getValidChildren = (children: React.ReactNode) => {
-  return React.Children.toArray(children).filter((child) =>
-    React.isValidElement(child)
+export const getValidChildren = (children: React.ReactNode) =>
+  React.Children.toArray(children).filter((child) =>
+    React.isValidElement(child),
   ) as React.ReactElement[];
-};
 
 type ReactRef<T> =
   | React.Ref<T>
   | React.RefObject<T>
   | React.MutableRefObject<T>;
 
-/**
- * Assigns a value to a ref function or object
- *
- * @param ref the ref to assign to
- * @param value the value
- */
-
-export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
-  if (!ref || ref === undefined || ref === null) return;
-  // if (ref == null ) return;
+const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
+  if (ref === null || ref === undefined || !ref) return;
 
   if (isFunction(ref)) {
     ref(value);
@@ -94,7 +85,6 @@ export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);
   }
 };
-
 /**
  * Combine multiple React refs into a single ref function.
  * This is used mostly when you need to allow consumers forward refs to
@@ -102,9 +92,8 @@ export const assignRef = <T = any>(ref: ReactRef<T> | undefined, value: T) => {
  *
  * @param refs refs to assign to value to
  */
-
-export const mergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => {
-  return (value: T) => {
-    refs.forEach((ref) => assignRef(ref, value));
-  };
+export const mergeRefs = <T>(...refs: (ReactRef<T> | undefined)[]) => (
+  value: T,
+) => {
+  refs.forEach((ref) => assignRef(ref, value));
 };

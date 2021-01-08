@@ -1,21 +1,17 @@
 {
   "name": "@nature-ui/utils",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "Utility functions",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "license": "MIT",
-  "engines": {
-    "node": "^v12.18.2"
-  },
   "main": "dist/index.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -26,6 +22,9 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
     "test": "jest --env=jsdom --passWithNoTests"
   },
   "bugs": {
@@ -33,8 +32,9 @@
   },
   "dependencies": {
     "css-box-model": "^1.2.1",
-    "memoize-one": "^5.1.1",
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "memoize-one": "^5.1.1"
+  },
+  "peerDependencies": {
+    "react": "^17.x"
   }
 }

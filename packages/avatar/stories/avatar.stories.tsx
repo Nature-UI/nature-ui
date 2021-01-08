@@ -14,8 +14,7 @@ const Avatars = [
   },
   {
     name: 'Divine Nature',
-    url:
-      'https://avatars3.githubusercontent.com/u/49137104?s=460&u=146d5799f0d876dc8e13be73f032db782f0cd9d1&v=4',
+    url: 'https://tinyurl.com/y4mmkc9v',
   },
   {
     name: 'Christian Nwamba',
@@ -57,7 +56,7 @@ export const DifferentSizes = () => (
     <Avatar
       size='2xl'
       name='Divine Nature'
-      src='https://avatars3.githubusercontent.com/u/49137104?s=460&u=146d5799f0d876dc8e13be73f032db782f0cd9d1&v=4'
+      src='https://tinyurl.com/y4mmkc9v'
     />
   </Stack>
 );

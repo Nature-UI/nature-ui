@@ -72,6 +72,14 @@ export const useImage = (props: UseImageProps) => {
 
   const imageRef = React.useRef<HTMLImageElement | null>();
 
+  const flush = () => {
+    if (imageRef.current) {
+      imageRef.current.onload = null;
+      imageRef.current.onerror = null;
+      imageRef.current = null;
+    }
+  };
+
   const load = React.useCallback(() => {
     if (!src) return;
     flush();
@@ -103,16 +111,6 @@ export const useImage = (props: UseImageProps) => {
     });
     imageRef.current = img;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError]);
-
-  const flush = () => {
-    if (imageRef.current) {
-      // eslint-disable-next-line unicorn/prefer-add-event-listener
-      imageRef.current.onload = null;
-      // eslint-disable-next-line unicorn/prefer-add-event-listener
-      imageRef.current.onerror = null;
-      imageRef.current = null;
-    }
-  };
 
   useSafeLayoutEffect(() => {
     /**

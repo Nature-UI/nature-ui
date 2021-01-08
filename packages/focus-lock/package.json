@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/focus-lock",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.6",
   "description": "React focus lock for all Nature UI components",
   "keywords": [
     "react focus lock",
@@ -18,8 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -30,20 +29,20 @@
   },
   "scripts": {
     "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
     "test": "jest --env=jsdom"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.0",
+    "@nature-ui/utils": "^0.1.1-alpha.4",
     "react-focus-lock": "^2.4.1"
   },
-  "devDependencies": {
-    "rimraf": "^3.0.2"
-  },
   "peerDependencies": {
-    "react": "16.x",
-    "rimraf": "^3.0.2"
-  }
+    "react": "17.x"
+  },
+  "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d"
 }

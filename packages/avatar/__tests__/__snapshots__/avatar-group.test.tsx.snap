@@ -6,7 +6,7 @@ exports[`@nature-ui/avatar AvatarGroup renders correctly 1`] = `
     class="flex items-center justify-end flex-row-reverse"
   >
     <span
-      class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1frml7e css-qhbmea border-2 border-solid border-white"
+      class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-o4kq34 css-qhbmea border-2 border-solid border-white"
     >
       <svg
         class="css-qhbmea border-2 border-solid border-white"

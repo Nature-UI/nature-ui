@@ -15,7 +15,7 @@ export const callAllHandler = <T extends (event: any) => void>(
 ) => {
   return (event: FunctionArguments<T>[0]): any => {
     fns.some((fn) => {
-      // eslint-disable-next-line no-unused-expressions
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       fn && fn(event);
 
       return event && event.defaultPrevented;
@@ -28,7 +28,6 @@ export { memoizeOne };
 export const once = (fn?: Function | null): any => {
   let result: any;
 
-  // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
   return function (this: any, ...args: any[]) {
     if (fn) {
       result = fn.apply(this, args);
@@ -43,10 +42,9 @@ export const once = (fn?: Function | null): any => {
  *
  * @param value a valid tailwindcss color
  * Avoid specifying where the color is going to be applied
- * @example `blue-400`, `orange-200` is a valid color
+ * @example `blue-400`, `blue-200` is a valid color
  * things like `bg-red-500`, `text-gray-100`... are invalid values.
  */
-
 export const darken = (value: string, amount = 100): string => {
   const splitStr = value.split('-');
 

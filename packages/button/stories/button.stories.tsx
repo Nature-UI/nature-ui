@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
+import { Stack } from '@nature-ui/layout';
 
-import { Button, ButtonType } from '../src';
+import { Spinner } from '@nature-ui/spinner';
+import { Button, ButtonType, ButtonSpinner } from '../src';
 
 export default {
   title: 'Button',
@@ -19,28 +21,28 @@ Default.args = {
 
 export const Outlined: ButtonStoryType = Template.bind({});
 Outlined.args = {
-  text: 'teal-500',
+  text: 'blue-500',
   variant: 'outline',
   children: 'Click me!',
 };
 
 export const Ghost: ButtonStoryType = Template.bind({});
 Ghost.args = {
-  text: 'teal-500',
+  text: 'blue-500',
   variant: 'ghost',
   children: 'Hover me!',
 };
 
 export const Link: ButtonStoryType = Template.bind({});
 Link.args = {
-  text: 'teal-500',
+  text: 'blue-500',
   variant: 'link',
   children: 'Click me!',
 };
 
 export const Sizes = () => {
   return (
-    <div>
+    <Stack spacing='1rem'>
       <Button size='xs' className='mr-4' color='blue-500' variant='solid'>
         Button
       </Button>
@@ -53,7 +55,7 @@ export const Sizes = () => {
       <Button size='lg' className='mr-4' color='blue-500' variant='solid'>
         Button
       </Button>
-    </div>
+    </Stack>
   );
 };
 
@@ -77,7 +79,7 @@ export const IsLoading = () => {
         Button
       </Button>
       <Button
-        color='teal-500'
+        color='blue-500'
         variant='solid'
         isLoading
         loadingText='loading...'
@@ -86,7 +88,7 @@ export const IsLoading = () => {
       >
         Button
       </Button>
-      <Button color='teal-500' variant='solid' isLoading className='ml-4'>
+      <Button color='blue-500' variant='solid' isLoading className='ml-4'>
         Email
       </Button>
     </>
@@ -99,4 +101,8 @@ export const Red = () => {
       Button
     </Button>
   );
+};
+
+export const buttonSpinner = () => {
+  return <ButtonSpinner />;
 };

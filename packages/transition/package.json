@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/transition",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.4",
   "description": "Common transition components for Nature UI",
   "keywords": [
     "transition",
@@ -19,8 +19,7 @@
     "test": "__tests__"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -30,20 +29,22 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
+    "test": "jest --env jsdom --passWithNoTests"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^0.1.0",
-    "react": "^16.13.1",
-    "react-transition-group": "^4.4.1",
-    "rimraf": "^3.0.2"
+    "@nature-ui/utils": "^0.1.1-alpha.4",
+    "react": "^17.x",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "rimraf": "^3.0.2"
+    "react": "^17.x"
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.0"

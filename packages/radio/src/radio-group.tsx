@@ -43,7 +43,7 @@ export const RadioGroup = forwardRef(
     const { size = 'md', children, className, ...hookProps } = props;
 
     const { value, onChange, getRootProps, name, htmlProps } = useRadioGroup(
-      hookProps
+      hookProps,
     );
 
     const group = React.useMemo(
@@ -53,7 +53,7 @@ export const RadioGroup = forwardRef(
         onChange,
         value,
       }),
-      [size, name, onChange, value]
+      [size, name, onChange, value],
     );
 
     const groupProps = getRootProps({
@@ -69,7 +69,7 @@ export const RadioGroup = forwardRef(
         </DivTag>
       </RadioGroupContextProvider>
     );
-  }
+  },
 );
 
 if (__DEV__) {

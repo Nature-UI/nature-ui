@@ -9,7 +9,7 @@ describe('@nature-ui/drawer', () => {
     const { asFragment } = render(
       <PortalManager>
         <Drawer isOpen onClose={jest.fn()} />
-      </PortalManager>
+      </PortalManager>,
     );
 
     expect(asFragment()).toMatchSnapshot();

@@ -108,7 +108,7 @@ export const usePopover = (props: UsePopoverProps = {}) => {
     'popover-trigger',
     'popover-content',
     'popover-header',
-    'popover-body'
+    'popover-body',
   );
 
   const { popper, reference, arrow } = usePopper({
@@ -143,7 +143,7 @@ export const usePopover = (props: UsePopoverProps = {}) => {
         onClose();
       }
     },
-    [closeOnEsc, onClose]
+    [closeOnEsc, onClose],
   );
 
   return {

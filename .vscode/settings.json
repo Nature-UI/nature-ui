@@ -7,6 +7,6 @@
     "**/.DS_Store": true
   },
   "explorerExclude.backup": {},
-  "compile-hero.disable-compile-files-on-did-save-code": false,
+  "compile-hero.disable-compile-files-on-did-save-code": true,
   "editor.formatOnSave": true
 }

@@ -10,7 +10,7 @@ import copy from 'copy-to-clipboard';
 
 export const useClipboard = (
   text: string,
-  timeout = 1500
+  timeout = 1500,
 ): readonly [boolean, () => void] => {
   const [copied, setCopied] = React.useState(false);
 
@@ -28,8 +28,6 @@ export const useClipboard = (
 
       return () => clearTimeout(id);
     }
-
-    return;
   }, [timeout, copied]);
 
   return [copied, onCopy] as const;

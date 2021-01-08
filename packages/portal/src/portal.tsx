@@ -48,7 +48,7 @@ export const Portal = (props: PortalProps) => {
   const [portal] = React.useState(() => {
     if (isBrowser) {
       const div = document.createElement('div');
-      div.className = "nature-portal"
+      div.className = 'nature-portal';
 
       return div;
     }
@@ -77,7 +77,7 @@ export const Portal = (props: PortalProps) => {
       // else, simply append component to the portal node
       container.append(portal);
     },
-    [portal]
+    [portal],
   );
 
   useSafeLayoutEffect(() => {
@@ -140,7 +140,7 @@ export const Portal = (props: PortalProps) => {
 
   return ReactDOM.createPortal(
     <PortalContextProvider value={portal}>{_children}</PortalContextProvider>,
-    portal
+    portal,
   );
 };
 

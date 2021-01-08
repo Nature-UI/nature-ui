@@ -5,6 +5,7 @@ import { useDescendant, useDescendants, DescendantContext } from '../src';
 
 export default {
   title: 'Descendants',
+  component: useDescendants,
 };
 
 type Context = DescendantContext<HTMLDivElement, { value?: string }>;

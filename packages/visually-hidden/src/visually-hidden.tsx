@@ -20,6 +20,7 @@ export const visuallyHiddenStyle: React.CSSProperties = {
   whiteSpace: 'nowrap',
   position: 'absolute',
 };
+
 /**
  * Visually hidden component used to hide
  * elements on screen
@@ -40,11 +41,9 @@ if (__DEV__) {
 export const VisuallyHiddenInput = forwardRef<PropsOf<typeof Input>>(
   (props, ref) => (
     <Input css={visuallyHiddenStyle as any} {...props} ref={ref} />
-  )
+  ),
 );
 
 if (__DEV__) {
   VisuallyHiddenInput.displayName = 'VisuallyHiddenInput';
 }
-
-export default VisuallyHidden;

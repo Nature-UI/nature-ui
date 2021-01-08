@@ -10,7 +10,7 @@ const getTransitionStyles = (initialScale: number) => ({
   },
   entered: {
     opacity: 1,
-    transform: `scale(1)`,
+    transform: 'scale(1)',
   },
   exiting: {
     opacity: 0,

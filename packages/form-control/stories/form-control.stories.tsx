@@ -6,7 +6,6 @@ import { Meta } from '@storybook/react';
 import {
   FormControlOptions,
   FormControl,
-  //   FormErrorIcon,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
@@ -46,18 +45,18 @@ const Input = React.forwardRef(
     const { 'aria-invalid': isInvalid } = inputProps;
 
     const _className = clsx(
-      `h-10 px-4 rounded border-2 border-solid outline-none w-full`,
+      'h-10 px-4 rounded border-2 border-solid outline-none w-full',
       {
         [className]: className,
         'border-red-600 focus:border-red-600': isInvalid,
         'focus:border-blue-400': !isInvalid,
-      }
+      },
     );
 
     return (
       <StyledInput className={_className} ref={ref} {...inputProps} {...rest} />
     );
-  }
+  },
 );
 
 export const InputExample = () => (
@@ -92,7 +91,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const { 'aria-invalid': isInvalid } = inputProps;
 
-    const _className = clsx(`w-full border-solid border-2 rounded`, {
+    const _className = clsx('w-full border-solid border-2 rounded', {
       [className]: className,
       'border-red-600': isInvalid,
     });
@@ -105,12 +104,12 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         {...rest}
       />
     );
-  }
+  },
 );
 
 export const TextAreaExample = () => (
-  <FormControl id='first-name' isInvalid>
-    <FormLabel>First name</FormLabel>
+  <FormControl as='fieldset' id='first-name' isInvalid>
+    <FormLabel as='legend'>First name</FormLabel>
     <TextArea placeholder='First Name' />
     <FormHelperText>Keep it very short and sweet!</FormHelperText>
     <FormErrorMessage>
@@ -127,7 +126,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const inputProps = useFormControl<HTMLSelectElement>(props);
 
     return <SelectTag ref={ref} {...inputProps} />;
-  }
+  },
 );
 
 export const SelectExample = () => (
