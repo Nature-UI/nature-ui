@@ -5,9 +5,6 @@
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "license": "MIT",
-  "engines": {
-    "node": "^v12.18.2"
-  },
   "keywords": [
     "react",
     "component",
