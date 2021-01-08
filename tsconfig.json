@@ -39,5 +39,5 @@
     "webpack",
     "jest"
   ],
-  "include": ["src/**/*", "packages/**/*", "*.config.js", "**/*/__test__/**/*"]
+  "include": ["src", "packages", "website", "*.config.js", "**/*/__test__/**/*"]
 }
