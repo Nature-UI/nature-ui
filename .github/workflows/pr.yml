@@ -24,8 +24,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile && yarn bootstrap
-        with:
-          node-version: 12.x
 
       - name: Build packages
         run: yarn build
