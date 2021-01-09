@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/checkbox",
-  "version": "0.2.0",
+  "version": "1.0.0-alpha.0",
   "description": "A React Checkbox component for use in forms",
   "keywords": [
     "react",
@@ -44,11 +44,11 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^0.2.0",
-    "@nature-ui/icon": "^0.2.0",
-    "@nature-ui/system": "^0.2.0",
-    "@nature-ui/utils": "^0.2.0",
-    "@nature-ui/visually-hidden": "^0.2.0",
+    "@nature-ui/hooks": "^1.0.0-alpha.0",
+    "@nature-ui/icon": "^1.0.0-alpha.0",
+    "@nature-ui/system": "^1.0.0-alpha.0",
+    "@nature-ui/utils": "^1.0.0-alpha.0",
+    "@nature-ui/visually-hidden": "^1.0.0-alpha.0",
     "emotion": "^10.0.27"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/system",
-  "version": "0.2.0",
+  "version": "1.0.0-alpha.0",
   "description": "Nature UI system primitives",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
-    "@nature-ui/utils": "^0.2.0",
+    "@nature-ui/utils": "^1.0.0-alpha.0",
     "clsx": "^1.1.1",
     "emotion": "^10.0.27",
     "hoist-non-react-statics": "^3.3.2"
