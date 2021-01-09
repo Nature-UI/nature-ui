@@ -1,5 +1,20 @@
 # @nature-ui/checkbox
 
+## 1.0.0
+
+### Major Changes
+
+- 85bb9c8: Major release
+
+### Patch Changes
+
+- Updated dependencies [85bb9c8]
+  - @nature-ui/hooks@1.0.0
+  - @nature-ui/icon@1.0.0
+  - @nature-ui/system@1.0.0
+  - @nature-ui/utils@1.0.0
+  - @nature-ui/visually-hidden@1.0.0
+
 ## 0.2.0
 
 ### Minor Changes
