@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/popover",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "A React component to render that renders it's content in a popover",
   "keywords": [
     "popover",
@@ -39,14 +39,14 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/close-button": "^1.0.0-alpha.0",
-    "@nature-ui/hooks": "^1.0.0-alpha.0",
-    "@nature-ui/popper": "^1.0.0-alpha.0",
-    "@nature-ui/portal": "^1.0.0-alpha.0",
-    "@nature-ui/utils": "^1.0.0-alpha.0"
+    "@nature-ui/close-button": "^1.0.0",
+    "@nature-ui/hooks": "^1.0.0",
+    "@nature-ui/popper": "^1.0.0",
+    "@nature-ui/portal": "^1.0.0",
+    "@nature-ui/utils": "^1.0.0"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.0.0-alpha.0",
+    "@nature-ui/system": "^1.0.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "react": "^17.0.1"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/icon",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -38,8 +38,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^1.0.0-alpha.0",
-    "@nature-ui/utils": "^1.0.0-alpha.0"
+    "@nature-ui/system": "^1.0.0",
+    "@nature-ui/utils": "^1.0.0"
   },
   "peerDependencies": {
     "react": "^17.x"

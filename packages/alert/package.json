@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "A React component used to alert users of a particular screen area that needs user action",
   "keywords": [
     "alert",
@@ -36,8 +36,8 @@
     "lint": "concurrently yarn:lint:*"
   },
   "dependencies": {
-    "@nature-ui/system": "^1.0.0-alpha.0",
-    "@nature-ui/utils": "^1.0.0-alpha.0",
+    "@nature-ui/system": "^1.0.0",
+    "@nature-ui/utils": "^1.0.0",
     "@testing-library/react": "^11.2.2",
     "react-icons": "^3.11.0"
   },

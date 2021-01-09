@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/transition",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "Common transition components for Nature UI",
   "keywords": [
     "transition",
@@ -39,7 +39,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^1.0.0-alpha.0",
+    "@nature-ui/utils": "^1.0.0",
     "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
