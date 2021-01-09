@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/radio",
-  "version": "0.1.1-alpha.6",
+  "version": "0.2.0",
   "description": "A React component to render custom Radio input types",
   "keywords": [
     "radio",
@@ -39,12 +39,12 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^0.1.1-alpha.4",
-    "@nature-ui/utils": "^0.1.1-alpha.4",
-    "@nature-ui/visually-hidden": "^0.1.1-alpha.6"
+    "@nature-ui/hooks": "^0.2.0",
+    "@nature-ui/utils": "^0.2.0",
+    "@nature-ui/visually-hidden": "^0.2.0"
   },
   "devDependencies": {
-    "@nature-ui/system": "^0.1.1-alpha.4",
+    "@nature-ui/system": "^0.2.0",
     "react": "^17.0.1"
   },
   "peerDependencies": {
