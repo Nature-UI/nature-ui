@@ -1,5 +1,11 @@
 # @nature-ui/hooks
 
+## 1.0.1
+
+### Patch Changes
+
+- fde1f12: # Fixed useClipboard return type
+
 ## 1.0.0
 
 ### Major Changes

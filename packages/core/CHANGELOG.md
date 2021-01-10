@@ -1,5 +1,13 @@
 # @nature-ui/core
 
+## 1.0.1
+
+### Patch Changes
+
+- fde1f12: # Fixed useClipboard return type
+- Updated dependencies [fde1f12]
+  - @nature-ui/hooks@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

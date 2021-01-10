@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React component that is a base button.",
   "keywords": [
     "button",
@@ -50,7 +50,7 @@
     "@nature-ui/container": "^1.0.0",
     "@nature-ui/drawer": "^1.0.0",
     "@nature-ui/form-control": "^1.0.0",
-    "@nature-ui/hooks": "^1.0.0",
+    "@nature-ui/hooks": "^1.0.1",
     "@nature-ui/icon": "^1.0.0",
     "@nature-ui/image": "^1.0.0",
     "@nature-ui/input": "^1.0.0",
