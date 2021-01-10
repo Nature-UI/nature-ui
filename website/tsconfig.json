@@ -3,7 +3,7 @@
     "target": "es5",
     "module": "esnext",
     "jsx": "preserve",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -11,9 +11,16 @@
     "allowJs": true,
     "noEmit": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "hooks/*": ["src/hooks/*"],
+      "components/*": ["src/components/*"],
+      "utils/*": ["src/utils/*"],
+      "analytics/*": ["src/analytics/*"]
+    }
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/last-edit.js"]
 }

@@ -6,19 +6,42 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint --fix --ext=ts,tsx"
   },
   "dependencies": {
-    "@saschazar/next-mdx-extended": "^4.0.0",
+    "@docusaurus/utils": "^2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.22",
+    "@nature-ui/core": "^1.0.0",
+    "@nature-ui/icons": "^1.0.0",
+    "@next/bundle-analyzer": "^10.0.5",
+    "@octokit/rest": "^18.0.12",
     "classnames": "2.2.6",
-    "date-fns": "2.10.0",
+    "date-fns": "^2.16.1",
+    "formik": "^2.2.6",
     "gray-matter": "4.0.2",
     "next": "latest",
+    "next-compose-plugins": "^2.2.1",
+    "next-mdx-enhanced": "^5.0.0",
+    "prism-react-renderer": "^1.1.1",
+    "react-live": "^2.2.3",
+    "react-lorem-component": "^0.13.0",
+    "react-spinners": "^0.10.4",
     "remark": "11.0.2",
-    "remark-html": "10.0.0"
+    "remark-autolink-headings": "^6.0.1",
+    "remark-emoji": "^2.1.0",
+    "remark-html": "10.0.0",
+    "remark-images": "^2.0.0",
+    "remark-slug": "^6.0.0",
+    "remark-toc": "^7.0.0",
+    "remark-unwrap-images": "^2.0.0",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/mdx-js__react": "^1.5.3",
+    "@types/sharp": "^0.27.1",
+    "@types/shelljs": "^0.8.8",
     "postcss-preset-env": "^6.7.0"
   },
   "license": "MIT"

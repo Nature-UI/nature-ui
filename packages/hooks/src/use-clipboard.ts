@@ -7,11 +7,7 @@ import copy from 'copy-to-clipboard';
  * @param text the text or value to copy
  * @param timeout delay (in ms) to switch back to initial state once copied.
  */
-
-export const useClipboard = (
-  text: string,
-  timeout = 1500,
-): readonly [boolean, () => void] => {
+export const useClipboard = (text: string, timeout = 1500) => {
   const [copied, setCopied] = React.useState(false);
 
   const onCopy = React.useCallback(() => {
@@ -21,14 +17,19 @@ export const useClipboard = (
   }, [text]);
 
   React.useEffect(() => {
+    let timeoutId: number | null = null;
+
     if (copied) {
-      const id = setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         setCopied(false);
       }, timeout);
-
-      return () => clearTimeout(id);
     }
+    return () => {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, [timeout, copied]);
 
-  return [copied, onCopy] as const;
+  return { value: text, onCopy, copied };
 };

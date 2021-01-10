@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "title": "Example",
+      "path": "/docs/example"
+    }
+  ]
+}
