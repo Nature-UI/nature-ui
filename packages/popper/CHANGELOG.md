@@ -1,5 +1,13 @@
 # @nature-ui/popper
 
+## 1.0.1
+
+### Patch Changes
+
+- 877c868: Major change. Added button-icon component. Included material design
+  icons. Included Ion icons icons. Added Left and right icons feature for button
+  component.
+
 ## 1.0.0
 
 ### Major Changes

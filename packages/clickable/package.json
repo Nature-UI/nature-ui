@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/clickable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hook and component that implements native button interactions",
   "keywords": [
     "nature ui",
@@ -38,7 +38,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^1.0.0"
+    "@nature-ui/utils": "^1.0.1"
   },
   "peerDependencies": {
     "react": "17.x"
