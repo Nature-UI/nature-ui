@@ -184,7 +184,7 @@ export const ModalContent = React.forwardRef(
     const {
       getContentProps,
       variant,
-      size,
+      size = 'md',
       scrollBehavior,
     } = useModalContext();
 

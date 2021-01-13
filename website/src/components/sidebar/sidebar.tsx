@@ -1,21 +1,13 @@
-import {
-  Box,
-  BoxProps,
-  Center,
-  chakra,
-  Flex,
-  Stack,
-  useColorModeValue,
-  VStack,
-} from '@chakra-ui/react';
+/** @jsx jsx */
+import { Box, BoxProps, nature, Stack, jsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { Routes } from 'utils/get-route-context';
+import NextLink from 'next/link';
+import _ from 'lodash';
 import SidebarCategory from './sidebar-category';
 import SidebarLink from './sidebar-link';
-import NextLink from 'next/link';
 import { BlogIcon, DocsIcon, GuidesIcon, TeamIcon } from './sidebar-icons';
-import _ from 'lodash';
 
 export type SidebarContentProps = Routes & {
   pathname?: string;
@@ -28,24 +20,21 @@ export function SidebarContent(props: SidebarContentProps) {
     <>
       {routes.map((lvl1, idx) => {
         return (
-          <React.Fragment key={idx}>
+          <React.Fragment key={String(idx)}>
             {lvl1.heading && (
-              <chakra.h4
-                fontSize='sm'
-                fontWeight='bold'
-                my='1.25rem'
-                textTransform='uppercase'
-                letterSpacing='wider'
-                color={useColorModeValue('gray.700', 'inherit')}
-              >
+              <nature.h4 className='text-sm font-bold my-5 uppercase text-gray-75'>
                 {lvl1.title}
-              </chakra.h4>
+              </nature.h4>
             )}
 
             {lvl1.routes.map((lvl2, index) => {
               if (!lvl2.routes) {
                 return (
-                  <SidebarLink ml='-3' mt='2' key={lvl2.path} href={lvl2.path}>
+                  <SidebarLink
+                    className='-ml-3 mt-2'
+                    key={lvl2.path}
+                    href={lvl2.path}
+                  >
                     {lvl2.title}
                   </SidebarLink>
                 );
@@ -54,14 +43,14 @@ export function SidebarContent(props: SidebarContentProps) {
               const selected = pathname.startsWith(lvl2.path);
               const opened = selected || lvl2.open;
 
-              const sortedRoutes = !!lvl2.sort
+              const sortedRoutes = lvl2.sort
                 ? _.sortBy(lvl2.routes, (i) => i.title)
                 : lvl2.routes;
 
               return (
                 <SidebarCategory
                   contentRef={contentRef}
-                  key={lvl2.path + index}
+                  key={String(lvl2.path + index)}
                   title={lvl2.title}
                   selected={selected}
                   opened={opened}
@@ -86,26 +75,19 @@ export function SidebarContent(props: SidebarContentProps) {
 const MainNavLink = ({ href, icon, children }) => {
   const { pathname } = useRouter();
   const [, group] = href.split('/');
-  const active = pathname.includes(group);
-  const linkColor = useColorModeValue('gray.900', 'whiteAlpha.900');
+  // const active = pathname.includes(group);
 
   return (
     <NextLink href={href} passHref>
-      <Flex
-        as='a'
-        align='center'
-        fontSize='sm'
-        fontWeight='semibold'
-        transitionProperty='colors'
-        transitionDuration='200ms'
-        color={active ? linkColor : 'gray.500'}
-        _hover={{ color: linkColor }}
+      <nature.a
+        className='flex items-center text-sm font-semibold transition-colors duration-200 text-gray-100'
+        // TODO: Update color and hover state
       >
-        <Center w='6' h='6' bg='teal.400' rounded='base' mr='3'>
+        <nature.div className='flex items-center justify-center w-6 h-6 bg-primary-100 rounded-sm mr-3'>
           {icon}
-        </Center>
+        </nature.div>
         {children}
-      </Flex>
+      </nature.a>
     </NextLink>
   );
 };
@@ -135,7 +117,13 @@ const mainNavLinks = [
 
 const MainNavLinkGroup = (props: BoxProps) => {
   return (
-    <VStack as='ul' align='stretch' spacing='4' {...props}>
+    <Stack
+      direction='col'
+      as='ul'
+      className='items-stretch'
+      spacing='4'
+      {...props}
+    >
       {mainNavLinks.map((item) => (
         <Box as='li' key={item.label}>
           <MainNavLink icon={item.icon} href={item.href}>
@@ -143,7 +131,7 @@ const MainNavLinkGroup = (props: BoxProps) => {
           </MainNavLink>
         </Box>
       ))}
-    </VStack>
+    </Stack>
   );
 };
 

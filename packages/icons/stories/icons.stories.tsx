@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Icon, SvgIconProps } from '@nature-ui/icon';
 import { Meta, Story } from '@storybook/react';
 
-import { AddIcon } from '../src';
+import { AddIcon, Md } from '../src';
 
 export default {
   title: 'Icons/Icons',
@@ -18,6 +18,8 @@ WithSize.args = {
   size: 60,
   color: 'teal',
 };
+
+export const _All = () => <Md.MdAccessible />;
 
 export const WithAs: IconType = Template.bind({});
 WithAs.args = {

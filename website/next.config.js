@@ -116,7 +116,6 @@ const mdxConfig = {
   ],
   extendFrontMatter: {
     process: async (_, matter) => {
-      console.log({ matter });
       const { __resourcePath: mdxPath, author, tags } = matter;
 
       // Read the file path

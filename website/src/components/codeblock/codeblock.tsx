@@ -1,12 +1,9 @@
-/** @jsx jsx */
 import {
   Box,
   BoxProps,
   Button,
   ButtonType,
-  nature,
   useClipboard,
-  jsx,
 } from '@nature-ui/core';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React, { useState } from 'react';
@@ -71,7 +68,7 @@ function CodeBlock(props) {
   const [editorCode, setEditorCode] = useState(children.trim());
 
   const language = className && className.replace(/language-/, '');
-  const { hasCopied, onCopy } = useClipboard(editorCode);
+  const { copied, onCopy } = useClipboard(editorCode);
 
   const liveProviderProps = {
     theme,
@@ -92,9 +89,7 @@ function CodeBlock(props) {
           <CodeContainer>
             <LiveEditor onChange={onChange} style={liveEditorStyle} />
           </CodeContainer>
-          <CopyButton onClick={onCopy}>
-            {hasCopied ? 'copied' : 'copy'}
-          </CopyButton>
+          <CopyButton onClick={onCopy}>{copied ? 'copied' : 'copy'}</CopyButton>
           <EditableNotice />
         </Box>
         <LiveError style={liveErrorStyle} />

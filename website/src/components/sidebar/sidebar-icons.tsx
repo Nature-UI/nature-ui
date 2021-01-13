@@ -1,9 +1,12 @@
-import { chakra, HTMLChakraProps } from '@chakra-ui/react';
-import * as React from 'react';
+/** @jsx jsx */
+import { jsx, nature, PropsOf } from '@nature-ui/core';
 
-export const DocsIcon = (props: HTMLChakraProps<'svg'>) => {
+const SVG = nature('svg');
+type HTML_SVG = PropsOf<typeof SVG>;
+
+export const DocsIcon = (props: HTML_SVG) => {
   return (
-    <chakra.svg
+    <nature.svg
       width='5'
       height='5'
       viewBox='0 0 24 24'
@@ -24,13 +27,13 @@ export const DocsIcon = (props: HTMLChakraProps<'svg'>) => {
         d='M19.8587 15.7546L12.5256 17.6637C12.1812 17.7527 11.8181 17.7527 11.4737 17.6637L4.14066 15.7546C4.092 15.7418 4.04733 15.7215 4 15.7056V18.3636C4 18.5324 4.07023 18.6943 4.19525 18.8136C4.32027 18.933 4.48984 19 4.66664 19H19.3334C19.5102 19 19.6797 18.933 19.8047 18.8136C19.9298 18.6943 20 18.5324 20 18.3636V15.7018C19.9527 15.7183 19.908 15.7387 19.8587 15.7546Z'
         fill='currentColor'
       />
-    </chakra.svg>
+    </nature.svg>
   );
 };
 
-export const GuidesIcon = (props: HTMLChakraProps<'svg'>) => {
+export const GuidesIcon = (props: HTML_SVG) => {
   return (
-    <chakra.svg
+    <nature.svg
       width='5'
       height='5'
       viewBox='0 0 24 24'
@@ -47,13 +50,13 @@ export const GuidesIcon = (props: HTMLChakraProps<'svg'>) => {
         d='M8.76469 10L17.1763 10C17.2909 9.99996 17.4042 10.0252 17.5075 10.0739C17.6109 10.1226 17.7018 10.1934 17.7735 10.2812L20.8322 14.0312C20.9408 14.1643 21 14.3296 21 14.5C21 14.6704 20.9408 14.8357 20.8322 14.9688L17.7735 18.7187C17.7018 18.8066 17.6109 18.8774 17.5075 18.9261C17.4042 18.9748 17.2909 19 17.1763 19H8.76469C8.56188 19 8.36738 18.921 8.22397 18.7803C8.08056 18.6397 8 18.4489 8 18.25L8 10.75C8 10.5511 8.08056 10.3603 8.22397 10.2197C8.36738 10.079 8.56188 10 8.76469 10Z'
         fill='currentColor'
       />
-    </chakra.svg>
+    </nature.svg>
   );
 };
 
-export const TeamIcon = (props: HTMLChakraProps<'svg'>) => {
+export const TeamIcon = (props: HTML_SVG) => {
   return (
-    <chakra.svg
+    <nature.svg
       width='5'
       height='5'
       viewBox='0 0 24 24'
@@ -79,13 +82,13 @@ export const TeamIcon = (props: HTMLChakraProps<'svg'>) => {
         d='M15.3333 18.6666H4.66666C4.29866 18.6666 4 18.368 4 18V17.6833C4 16.1666 5.01799 14.832 6.48732 14.4573C7.46998 14.2067 8.68064 14 9.99996 14C11.3193 14 12.5299 14.2067 13.5126 14.4573C14.9819 14.832 15.9999 16.1666 15.9999 17.6833V18C15.9999 18.368 15.7013 18.6666 15.3333 18.6666Z'
         fill='currentColor'
       />
-    </chakra.svg>
+    </nature.svg>
   );
 };
 
-export const ResourcesIcon = (props: HTMLChakraProps<'svg'>) => {
+export const ResourcesIcon = (props: HTML_SVG) => {
   return (
-    <chakra.svg
+    <nature.svg
       width='5'
       height='5'
       viewBox='0 0 24 24'
@@ -102,13 +105,13 @@ export const ResourcesIcon = (props: HTMLChakraProps<'svg'>) => {
         d='M19.6087 10.8696C19.6087 10.3173 19.161 9.86956 18.6087 9.86956H6C5.44771 9.86956 5 10.3173 5 10.8696V17.1739C5 17.6582 5.19239 18.1227 5.53485 18.4652C5.87731 18.8076 6.34178 19 6.82609 19H17.7826C18.2669 19 18.7314 18.8076 19.0738 18.4652C19.4163 18.1227 19.6087 17.6582 19.6087 17.1739V10.8696Z'
         fill='currentColor'
       />
-    </chakra.svg>
+    </nature.svg>
   );
 };
 
-export const BlogIcon = (props: HTMLChakraProps<'svg'>) => {
+export const BlogIcon = (props: HTML_SVG) => {
   return (
-    <chakra.svg
+    <nature.svg
       width='5'
       height='5'
       viewBox='0 0 24 24'
@@ -135,6 +138,6 @@ export const BlogIcon = (props: HTMLChakraProps<'svg'>) => {
         fill='currentColor'
         fillOpacity='0.7'
       />
-    </chakra.svg>
+    </nature.svg>
   );
 };

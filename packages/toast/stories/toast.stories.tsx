@@ -3,7 +3,7 @@ import { Button } from '@nature-ui/button';
 
 import { Toast, useToast } from '../src';
 
-// import { chakra } from "@chakra-ui/system"
+// import { nature } from "@nature-ui/system"
 
 export default {
   title: 'Toast',

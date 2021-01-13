@@ -18,7 +18,9 @@
       "hooks/*": ["src/hooks/*"],
       "components/*": ["src/components/*"],
       "utils/*": ["src/utils/*"],
-      "analytics/*": ["src/analytics/*"]
+      "analytics/*": ["src/analytics/*"],
+      "types/*": ["types/*"],
+      "lib/*": ["lib/*"]
     }
   },
   "exclude": ["node_modules"],

@@ -1,14 +1,15 @@
-import { BoxProps, chakra, useColorModeValue } from '@chakra-ui/react';
+/** @jsx jsx */
+import { BoxProps, nature, jsx } from '@nature-ui/core';
 import { ReactNode, RefObject, useEffect, useRef, useState } from 'react';
 
-interface SidebarCategoryProps extends BoxProps {
+type SidebarCategoryProps = BoxProps & {
   isMobile?: boolean;
   title: string;
   opened?: boolean;
   selected?: boolean;
   children: ReactNode;
   contentRef?: RefObject<any>;
-}
+};
 
 interface SidebarState {
   toggle?: boolean;
@@ -49,7 +50,7 @@ function SidebarCategory(props: SidebarCategoryProps) {
     if (toggle && shouldScroll) {
       const contentEl = contentRef.current;
 
-      if (toggle == true && contentEl) {
+      if ((toggle || toggle === true) && contentEl) {
         // 10 is added for better margin
         const height =
           ref.current.offsetTop - (isMobile ? 10 : contentEl.offsetTop);
@@ -60,26 +61,17 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef]);
 
   return (
-    <chakra.div mt='8' ref={ref} {...rest}>
-      <chakra.p
-        width='full'
-        textTransform='uppercase'
-        letterSpacing='wider'
-        fontSize='xs'
-        fontWeight='bold'
-        display='flex'
-        alignItems='center'
-        justifyContent='space-between'
-        userSelect='none'
-        color={useColorModeValue('gray.500', 'inherit')}
-        // onClick={onClick}
+    <nature.div mt='8' ref={ref} {...rest}>
+      <nature.p
+        className='w-full uppercase text-xs font-bold flex items-center justify-between text-gray-500'
+        css={{ userSelect: 'none' }}
       >
         {title}
-      </chakra.p>
-      <chakra.div role='group' hidden={!toggle} mt='16px' mx='-3'>
+      </nature.p>
+      <nature.div className='mt-4 -mx-3' role='group' hidden={!toggle}>
         {children}
-      </chakra.div>
-    </chakra.div>
+      </nature.div>
+    </nature.div>
   );
 }
 

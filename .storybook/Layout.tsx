@@ -1,7 +1,7 @@
 import React from 'react';
-// import '../src/scss/base.scss';
 import '!style-loader!css-loader!../src/css/tailwind.css';
-import Container from '@nature-ui/container';
+// import '!style-loader!css-loader!../src/css/base.css';
+import { Container } from '@nature-ui/container';
 
 const Layout = ({ children }) => {
   return (

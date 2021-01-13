@@ -5,8 +5,8 @@ import { ForwardRefComponent } from './system-types';
 import { pseudoSelectors } from './pseudo';
 
 /**
- * Carefully selected html elements for chakra components.
- * This is mostly for `chakra.<element>` syntax.
+ * Carefully selected html elements for nature components.
+ * This is mostly for `nature.<element>` syntax.
  */
 export const domElements = [
   'a',

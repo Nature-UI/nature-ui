@@ -1,5 +1,5 @@
 {
-  "name": "blog-starter-typescript",
+  "name": "@nature-ui/docs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "@docusaurus/utils": "^2.0.0-alpha.70",
     "@mdx-js/react": "^1.6.22",
-    "@nature-ui/core": "^1.0.0",
+    "@nature-ui/core": "^1.0.1",
     "@nature-ui/icons": "^1.0.0",
     "@next/bundle-analyzer": "^10.0.5",
     "@octokit/rest": "^18.0.12",
@@ -20,6 +20,7 @@
     "date-fns": "^2.16.1",
     "formik": "^2.2.6",
     "gray-matter": "4.0.2",
+    "lodash": "^4.17.20",
     "next": "latest",
     "next-compose-plugins": "^2.2.1",
     "next-mdx-enhanced": "^5.0.0",
@@ -39,10 +40,13 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/lodash": "^4.14.167",
     "@types/mdx-js__react": "^1.5.3",
     "@types/sharp": "^0.27.1",
     "@types/shelljs": "^0.8.8",
-    "postcss-preset-env": "^6.7.0"
+    "postcss": "^8.2.4",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^2.0.2"
   },
   "license": "MIT"
 }

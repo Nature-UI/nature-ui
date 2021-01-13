@@ -15,9 +15,10 @@ export type RadioGroupContext = Pick<
   size?: 'sm' | 'md' | 'lg' | number;
 };
 
-const [RadioGroupContextProvider, useRadioGroupContext] = createContext<
-  RadioGroupContext
->({
+const [
+  RadioGroupContextProvider,
+  useRadioGroupContext,
+] = createContext<RadioGroupContext>({
   name: 'RadioGroupContext',
   strict: false,
 });
@@ -36,7 +37,7 @@ export type RadioGroupProps = UseRadioGroupProps &
  * Used for multiple radios which are bound in one group,
  * and it indicates which option is selected.
  *
- * @see Docs https://chakra-ui.com/components/radio
+ * @see Docs https://nature-ui.com/components/radio
  */
 export const RadioGroup = forwardRef(
   (props: RadioGroupProps, ref: React.Ref<any>) => {
@@ -60,7 +61,7 @@ export const RadioGroup = forwardRef(
       ref,
       ...htmlProps,
     });
-    const _className = clsx('chakra-radio-group', className);
+    const _className = clsx('nature-radio-group', className);
 
     return (
       <RadioGroupContextProvider value={group}>

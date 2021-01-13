@@ -1,13 +1,14 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import Container from '../../components/container';
-import PostBody from '../../components/post-body';
-import Header from '../../components/header';
-import PostHeader from '../../components/post-header';
-import Layout from '../../components/layout';
-import { getPostBySlug, getAllPosts } from '../../lib/api';
-import PostTitle from '../../components/post-title';
 import Head from 'next/head';
+import Container from '../../src/components/container';
+import PostBody from '../../src/components/post-body';
+import Header from '../../src/components/header';
+import PostHeader from '../../src/components/post-header';
+import Layout from '../../src/components/layout';
+import { getPostBySlug, getAllPosts } from '../../lib/api';
+import PostTitle from '../../src/components/post-title';
 import { CMS_NAME } from '../../lib/constants';
 import markdownToHtml from '../../lib/markdownToHtml';
 import PostType from '../../types/post';
@@ -87,10 +88,10 @@ export async function getStaticPaths() {
   const posts = getAllPosts(['slug']);
 
   return {
-    paths: posts.map((posts) => {
+    paths: posts.map((_posts) => {
       return {
         params: {
-          slug: posts.slug,
+          slug: _posts.slug,
         },
       };
     }),

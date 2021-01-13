@@ -1,37 +1,28 @@
-import { chakra, PropsOf, useColorModeValue } from '@chakra-ui/react';
+/** @jsx jsx */
+import { nature, PropsOf, jsx } from '@nature-ui/core';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 const StyledLink = React.forwardRef(function StyledLink(
-  props: PropsOf<typeof chakra.a> & { isActive?: boolean },
+  props: PropsOf<typeof nature.a> & { isActive?: boolean },
   ref: React.Ref<any>,
 ) {
   const { isActive, ...rest } = props;
 
   return (
-    <chakra.a
+    <nature.a
       aria-current={isActive ? 'page' : undefined}
-      width='100%'
-      px='3'
-      py='1'
+      className='text-gray-75 w-full font-semibold text-sm transition-all duration-200 px-3 py-1 rounded-md'
       rounded='md'
       ref={ref}
-      fontSize='sm'
-      fontWeight='500'
-      color={useColorModeValue('gray.700', 'whiteAlpha.900')}
-      transition='all 0.2s'
-      _activeLink={{
-        bg: useColorModeValue('teal.50', 'rgba(48, 140, 122, 0.3)'),
-        color: useColorModeValue('teal.700', 'teal.200'),
-        fontWeight: '600',
-      }}
+      // TODO: Active
       {...rest}
     />
   );
 });
 
-type SidebarLinkProps = PropsOf<typeof chakra.div> & {
+type SidebarLinkProps = PropsOf<typeof nature.div> & {
   href?: string;
   icon?: React.ReactElement;
 };
@@ -43,17 +34,11 @@ const SidebarLink = (props: SidebarLinkProps) => {
   const isActive = pathname === href;
 
   return (
-    <chakra.div
-      userSelect='none'
-      display='flex'
-      alignItems='center'
-      lineHeight='1.5rem'
-      {...rest}
-    >
+    <nature.div className='select-none flex items-center leading-6' {...rest}>
       <NextLink href={href} passHref>
         <StyledLink isActive={isActive}>{children}</StyledLink>
       </NextLink>
-    </chakra.div>
+    </nature.div>
   );
 };
 

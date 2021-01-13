@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Stack } from '@nature-ui/layout';
+import { SearchIcon, PhoneIcon, Io } from '@nature-ui/icons';
 
-import { Spinner } from '@nature-ui/spinner';
-import { Button, ButtonType, ButtonSpinner } from '../src';
+import { Button, ButtonType, ButtonSpinner, IconButton } from '../src';
 
 export default {
   title: 'Button',
@@ -105,4 +105,33 @@ export const Red = () => {
 
 export const buttonSpinner = () => {
   return <ButtonSpinner />;
+};
+
+export const iconButton = () => (
+  <Stack direction='row'>
+    <IconButton aria-label='Search database' icon={<SearchIcon />} />
+
+    <IconButton
+      color='orange-500'
+      aria-label='Search database'
+      icon={<SearchIcon />}
+    />
+
+    <IconButton color='gray-400' aria-label='Call Segun' size='lg'>
+      <PhoneIcon />
+    </IconButton>
+  </Stack>
+);
+
+export const WithIcon = () => {
+  return (
+    <Stack spacing='1rem' direction='row'>
+      <Button leftIcon={<SearchIcon />} variant='solid'>
+        Search
+      </Button>
+      <Button rightIcon={<Io.IoLogoGithub />} variant='ghost' text='teal-600'>
+        Github
+      </Button>
+    </Stack>
+  );
 };

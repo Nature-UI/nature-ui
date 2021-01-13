@@ -23,7 +23,7 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-} from '@nature-ui/react';
+} from '@nature-ui/core';
 ```
 
 ## Basic usage

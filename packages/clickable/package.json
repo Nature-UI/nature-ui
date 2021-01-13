@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React hook and component that implements native button interactions",
   "keywords": [
-    "chakra ui",
+    "nature ui",
     "clickable",
     "tabbable",
     "button",
