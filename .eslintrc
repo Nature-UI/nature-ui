@@ -74,7 +74,8 @@
     "react/require-default-props": 0,
     "func-names": 0,
     "react/jsx-pascal-case": 0,
-    "no-restricted-syntax": "off",
+    "no-restricted-syntax": 0,
+    "jsx-a11y/anchor-is-valid": 0,
     "react-hooks/exhaustive-deps": 0
   },
   "overrides": [

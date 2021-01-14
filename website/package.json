@@ -12,8 +12,8 @@
   "dependencies": {
     "@docusaurus/utils": "^2.0.0-alpha.70",
     "@mdx-js/react": "^1.6.22",
-    "@nature-ui/core": "^1.0.1",
-    "@nature-ui/icons": "^1.0.0",
+    "@nature-ui/core": "^1.0.2",
+    "@nature-ui/icons": "^1.0.1",
     "@next/bundle-analyzer": "^10.0.5",
     "@octokit/rest": "^18.0.12",
     "classnames": "2.2.6",
