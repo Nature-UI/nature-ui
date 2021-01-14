@@ -7,7 +7,7 @@ export default {
 };
 
 export const Inline = () => (
-  <Stack direction='row' className={'flex-wrap'}>
+  <Stack direction='row' className='flex-wrap'>
     <Box size={50} className='bg-gray-200 p-4 border border-solid' />
     <Box size={50} className='bg-gray-200 p-4 border border-solid' />
     <Box size={50} className='bg-gray-200 p-4 border border-solid' />

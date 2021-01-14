@@ -591,7 +591,7 @@
 
 "@nature-ui/core@^1.0.2":
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@nature-ui/core/-/core-1.0.2.tgz#b4d7023b8c582dcf4532030dc825bce95f0be717"
+  resolved "http://localhost:4873/@nature-ui%2fcore/-/core-1.0.2.tgz#b4d7023b8c582dcf4532030dc825bce95f0be717"
   integrity sha512-TSxvzKLZw58uo20JzDkPxkHLFMvZY9hRyci/RachOIO4Px/ROLHa+jL8GIUk17HV9Y3wcp3/Z8nnrylk4sRZEA==
   dependencies:
     "@nature-ui/alert" "^1.0.1"
@@ -806,8 +806,8 @@
 
 "@nature-ui/visually-hidden@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/visually-hidden/-/visually-hidden-1.0.1.tgz#b0e9807f756c7b189da3c717c316dbc5d1d708b8"
-  integrity sha512-PkzRH/XDVZ0KsVVgGRrSW+eaTKTgAe+lVqHF0sIVxClrGPEvzFR9LumrXrdh1GTmpK4nsgAUJW+EY4HZWdkKrQ==
+  resolved "http://localhost:4873/@nature-ui%2fvisually-hidden/-/visually-hidden-1.0.1.tgz#5903e4b16ce7ce856da98f88891179a41349fa54"
+  integrity sha512-ZWQSeDxzO9rYbWMaJr+7d75HhpBMw7+VLmhjV56NlHwTSlqpv3qzUDrlw/yGL+XmhruPX094XsDOU8YPw4TDbA==
   dependencies:
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"
