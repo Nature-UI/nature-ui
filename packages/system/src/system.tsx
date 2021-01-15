@@ -1,12 +1,12 @@
 import { As } from '@nature-ui/utils';
 import clsx from 'clsx';
 
-import { DOMElements, pseudoProps } from './system-utils';
+import { DOMElements } from './system-utils';
 import { NatureComponent } from './system-types';
 import { createComponent } from './create-component';
 
 export const natureComp = <T extends As>(component: T) => {
-  return createComponent<T>(component)(pseudoProps);
+  return createComponent<T>(component);
 };
 
 type NatureJSXElements = {

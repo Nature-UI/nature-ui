@@ -22,7 +22,7 @@ const Index = ({ allPosts }: Props) => {
   const morePosts = allPosts.slice(1);
 
   const _css = css`
-    height: 90vh;
+    min-height: 90vh;
     &::after {
       content: '';
       width: 100%;
@@ -35,10 +35,10 @@ const Index = ({ allPosts }: Props) => {
   `;
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={`grid place-items-center w-screen ${_css}`}>
         <Box size='md' className='text-center mt-16'>
-          <h1 className='text-6xl font-bold text-gray-100'>
+          <h1 className='md:text-6xl font-bold text-gray-100'>
             Set of Lightview and fully customizable React Components optimized
             for <span className='text-primary-100'>TailwindCss</span>
           </h1>
@@ -57,25 +57,6 @@ const Index = ({ allPosts }: Props) => {
           </div>
         </Box>
       </div>
-      <Layout>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
     </>
   );
 };

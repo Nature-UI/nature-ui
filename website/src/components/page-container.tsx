@@ -3,6 +3,8 @@ import { Badge, Box, nature, jsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
+import Header from './header';
+
 function useHeadingFocusOnRouteChange() {
   const router = useRouter();
 
@@ -39,6 +41,7 @@ function PageContainer(props: PageContainerProps) {
 
   return (
     <>
+      <Header />
       <nature.div as='main' className=''>
         <Box className='flex'>
           {sidebar || null}

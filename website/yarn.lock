@@ -693,8 +693,8 @@
 
 "@nature-ui/layout@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/layout/-/layout-1.0.1.tgz#7635e77fe1b3c43a26b9f00d8709d239d0d842fe"
-  integrity sha512-y27AST7IAA5r5V8FRsOiwPe4R78Ykhf4LulEObF/SPlk+5vXOsb2xSZnTwFXfTJ8/TgZNWIF0w5c5FY7iKiMSQ==
+  resolved "http://localhost:4873/@nature-ui%2flayout/-/layout-1.0.1.tgz#a203c0a5b28e0c4d97062c5eb01c7f1d5d73f7b0"
+  integrity sha512-8DJKA3eU/eToLG4pGtoi5j8mXr/P7VYBTOOT3TDM1exII8ssDsrBdOtbPHv9yDo8uoHOfWCv9VfTR//QxVdXtQ==
   dependencies:
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"

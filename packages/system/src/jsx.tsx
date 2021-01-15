@@ -14,7 +14,11 @@ export const jsx = (
   props: Dict,
   ...children: React.ReactNode[]
 ) => {
-  return emotion.apply(type, [type, props, ...children]);
+  const { as, ...rest } = props;
+  if (as) {
+    type = as;
+  }
+  return emotion.apply(undefined, [type, rest, ...children]);
 };
 
 export default jsx;

@@ -16,7 +16,7 @@ const siteConfig = {
     blogUrl: `${baseUrl}/blog/develop`,
   },
   discord: {
-    url: 'https://discord.gg/udJ884rJ',
+    url: 'https://discord.gg/ZA7NgwkeQ4',
   },
   seo: {
     title: 'Nature UI',

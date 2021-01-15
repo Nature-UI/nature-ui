@@ -16,7 +16,6 @@ export const withHeading1 = () => (
         fontSize: '50px',
         color: 'tomato',
       }}
-      _hover={{ color: 'teal.500' }}
     >
       Welcome
     </Heading>
@@ -25,9 +24,6 @@ export const withHeading1 = () => (
         height: '60px',
         fontSize: '20px',
         minWidth: '400px',
-      }}
-      _active={{
-        backgroundColor: 'tomato',
       }}
     >
       Welcome
@@ -46,6 +42,7 @@ export const withHeading = () => (
 
 export const Basic = () => (
   <nature.h1
+    as='span'
     css={{
       backgroundColor: 'red',
     }}
