@@ -27,6 +27,7 @@
     "prism-react-renderer": "^1.1.1",
     "react-live": "^2.2.3",
     "react-lorem-component": "^0.13.0",
+    "react-remove-scroll": "^2.4.1",
     "react-spinners": "^0.10.4",
     "remark": "11.0.2",
     "remark-autolink-headings": "^6.0.1",

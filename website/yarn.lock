@@ -584,8 +584,8 @@
 
 "@nature-ui/container@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/container/-/container-1.0.1.tgz#80f55c9b607292989f5e183f39079434ae545be5"
-  integrity sha512-JwYhI9oCjGyN0njlJkYU35lFqDA70dv6GdFCCLnRcr3tr/zNReN3/8N+rE8/BTfo4GUg/1brmEPFCl56ee+/3g==
+  resolved "http://localhost:4873/@nature-ui%2fcontainer/-/container-1.0.1.tgz#6d3cd956e05268a23b0a4b4704e5df81988b8737"
+  integrity sha512-ZN0tKzvn9V6YeAT8RBwILI9Qo21bq7teFlwF4yowCJy/SSeHZC1+I3iUoeRRAFgDqvGdTRSFBNtQBA8LJJy9yg==
   dependencies:
     "@nature-ui/system" "^1.0.1"
 
@@ -667,8 +667,8 @@
 
 "@nature-ui/icons@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/icons/-/icons-1.0.1.tgz#3f248070af689fe27a3538274788538644c1dcfd"
-  integrity sha512-6OIAVWW2M8pDJKRJ6DJ9GG/j1AOtB7JnodHg93CkPD+ew3sDe/336Z5700ZT9EsNdtqSfagyTOva1i3B1eC1Fw==
+  resolved "http://localhost:4873/@nature-ui%2ficons/-/icons-1.0.1.tgz#ba2f0989be8119e6ca63fb555bd5a68a0685f86e"
+  integrity sha512-OPM80m4qYHh6JIYlduxx8rWd8ew6rjycGLItZ7zgkzSM0igngcIJxKdWCn90SoWIDTOjaTkBDTLETFfWPiVK6w==
   dependencies:
     "@nature-ui/icon" "^1.0.1"
     react-icons "^4.1.0"
@@ -693,8 +693,8 @@
 
 "@nature-ui/layout@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2flayout/-/layout-1.0.1.tgz#a203c0a5b28e0c4d97062c5eb01c7f1d5d73f7b0"
-  integrity sha512-8DJKA3eU/eToLG4pGtoi5j8mXr/P7VYBTOOT3TDM1exII8ssDsrBdOtbPHv9yDo8uoHOfWCv9VfTR//QxVdXtQ==
+  resolved "http://localhost:4873/@nature-ui%2flayout/-/layout-1.0.1.tgz#c05fa324c196b3bf87e4703c0e757fa1fc701445"
+  integrity sha512-0e3oeNTdVbDwI/cmmclHU2QgJJGEZYmuQv6+H/w5bg/3C02aCuQ3lOiTolBaa1fuqQLDnhGU1CeM6vNOT/XKuw==
   dependencies:
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"
@@ -5612,7 +5612,7 @@ react-remove-scroll-bar@^2.1.0:
     react-style-singleton "^2.1.0"
     tslib "^1.0.0"
 
-react-remove-scroll@^2.4.0:
+react-remove-scroll@^2.4.0, react-remove-scroll@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/react-remove-scroll/-/react-remove-scroll-2.4.1.tgz#e0af6126621083a5064591d367291a81b2d107f5"
   integrity sha512-K7XZySEzOHMTq7dDwcHsZA6Y7/1uX5RsWhRXVYv8rdh+y9Qz2nMwl9RX/Mwnj/j7JstCGmxyfyC0zbVGXYh3mA==

@@ -41,6 +41,13 @@ module.exports = {
         outline:
           'var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)',
       },
+      maxWidth: {
+        xl: '48rem',
+        lg: '42rem',
+        md: '38rem',
+        sm: '32rem',
+        xs: '28rem',
+      },
     },
   },
   variants: {},

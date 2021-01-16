@@ -7,7 +7,7 @@ module.exports = {
           100: '#4C08DB',
         },
         gray: {
-          100: '#2D3748',
+          1000: '#2D3748',
           75: '#5B626F',
           50: '#898E97',
           25: '#B6BABE',
@@ -35,8 +35,7 @@ module.exports = {
         gradient: '2.80303px 2.80303px 9.34343px rgba(76, 8, 219, 0.15)',
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
-        outline:
-          'var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)',
+        outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       },
       backgroundImage: {
         gradient: 'linear-gradient(147.72deg, #4C08DB 18.83%, #38B2AC 96.12%)',

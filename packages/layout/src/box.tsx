@@ -21,7 +21,7 @@ export const Box = (props: SquareProps) => {
   const {
     children,
     className = '',
-    size = '600px',
+    size,
     centerContent = false,
     centered = false,
     ...rest
@@ -34,14 +34,16 @@ export const Box = (props: SquareProps) => {
     [CENTER_CONTENT]: centerContent,
   });
 
+  const defaults = size
+    ? {
+        css: {
+          width: size,
+        },
+      }
+    : {};
+
   return (
-    <BoxLayout
-      css={{
-        width: size,
-      }}
-      className={_classNames}
-      {...rest}
-    >
+    <BoxLayout {...defaults} className={_classNames} {...rest}>
       {children}
     </BoxLayout>
   );

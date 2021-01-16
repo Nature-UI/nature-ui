@@ -24,11 +24,11 @@ export type SquareProps = ContainerProps & {
 };
 
 const sizes = {
-  xs: 'lg:w-1/4',
-  sm: 'lg:w-1/3',
-  md: 'lg:w-2/5',
-  lg: 'lg:w-2/4',
-  xl: 'lg:w-3/5',
+  xs: 'max-w-xs',
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
 };
 
 export const Container = (props: SquareProps) => {
@@ -53,7 +53,7 @@ export const Container = (props: SquareProps) => {
     }
   });
 
-  const _classNames = clsx(className, 'md:w-4/5 w-5/6', {
+  const _classNames = clsx(className, 'px-6', {
     [sizes[size]]: SIZE,
     'mx-auto': centered,
     [CENTER_CONTENT]: centerContent,
