@@ -659,8 +659,8 @@
 
 "@nature-ui/icon@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/icon/-/icon-1.0.1.tgz#a47597d0e076d9b8f9c618972bbcb1b40cfff99d"
-  integrity sha512-W2/KJEZUU+pc2CwyZ86/MvxHfgxYUsujJGemOnK6Fm5f9bS6D3AAU1TdaWNqcJWPIJv+ysFjmkRZrXUk9/KUDQ==
+  resolved "http://localhost:4873/@nature-ui%2ficon/-/icon-1.0.1.tgz#81c7dcff5098cd4db1e5536e6b9a1a6ea99701ae"
+  integrity sha512-kqO3G1bAA7qZ5G5iS5+jCesC4LelEtOoRUU9gdQCQteW3gXZHWNjf9lxnKJFXokBOhv7zIsMukaEPyIuFi+ytg==
   dependencies:
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"

@@ -19,9 +19,10 @@ const HeaderContent = () => {
     mobileNavBtnRef.current?.focus();
   }, [mobileNav.isOpen]);
   return (
-    <>
-      <div className='w-screen bg-gradient-line h-2' />
-      <div className='max-w-4xl px-4 md:mx-auto w-full mt-3'>
+    <div className='fixed top-0 left-0 w-full pb-3 bg-white z-10 border-b'>
+      <div className='w-full bg-gradient-line h-2 absolute top-0 left-0' />
+
+      <div className='w-full max-w-4xl px-4 md:mx-auto mt-3'>
         <div className='flex items-center justify-between'>
           <Logo />
           <div className='hidden md:w-4/6 md:flex items-center justify-end'>
@@ -45,7 +46,7 @@ const HeaderContent = () => {
             >
               <a target='_blank'>
                 <Icon
-                  className=' text-gray-50 hover:text-gray-75 transition-colors duration-150'
+                  className='text-gray-50 hover:text-gray-75 transition-colors duration-150'
                   size='lg'
                   as={DiscordIcon}
                 />
@@ -60,8 +61,12 @@ const HeaderContent = () => {
           />
         </div>
       </div>
-      <MobileNaveContent isOpen={false} onClose={() => console.log('Closed')} />
-    </>
+
+      <MobileNaveContent
+        isOpen={mobileNav.isOpen}
+        onClose={mobileNav.onClose}
+      />
+    </div>
   );
 };
 

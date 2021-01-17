@@ -3,6 +3,7 @@
 '@nature-ui/core': patch
 '@nature-ui/layout': patch
 '@nature-ui/icons': patch
+'@nature-ui/icon': patch
 '@nature-ui/container': patch
 ---
 

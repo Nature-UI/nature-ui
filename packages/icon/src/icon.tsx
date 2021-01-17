@@ -60,7 +60,7 @@ export const Icon = React.forwardRef(
       size = 'sm',
       role = 'presentation',
       viewBox = '0 0 24 24',
-      color = 'currentColor',
+      color,
       as: type,
       focusable = false,
       boxSize,

@@ -1,6 +1,9 @@
 import * as React from 'react';
 
 import { Button } from '@nature-ui/button';
+import { Icon } from '@nature-ui/icon';
+import { Di, Io, Md } from '@nature-ui/icons';
+
 import { Stack, Box } from '../src';
 
 export default {
@@ -46,3 +49,41 @@ export const WithButtons = () => (
     <Button variant='solid'>Hi world</Button>
   </Stack>
 );
+
+export const links = [
+  {
+    icon: Di.DiGithubBadge,
+    label: 'Github',
+  },
+  {
+    icon: Io.IoLogoTwitter,
+    label: 'Twitter',
+  },
+  {
+    icon: Io.IoGlobeOutline,
+    label: 'Website',
+  },
+  {
+    icon: Io.IoLogoLinkedin,
+    label: 'Linkedin',
+  },
+  {
+    icon: Md.MdEmail,
+    label: 'Email',
+  },
+];
+
+export const WithIcons = () => {
+  return (
+    <Stack direction='row' spacing='1rem'>
+      {links.map((link) => (
+        <Icon
+          as={link.icon}
+          size='xl'
+          aria-label={link.label}
+          key={link.label}
+        />
+      ))}
+    </Stack>
+  );
+};

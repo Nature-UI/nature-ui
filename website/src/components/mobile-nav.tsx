@@ -9,7 +9,7 @@ import {
   Stack,
   useUpdateEffect,
 } from '@nature-ui/core';
-import { Io, Icon } from '@nature-ui/icons';
+import { Ai, Icon } from '@nature-ui/icons';
 import Link from 'next/link';
 
 import { RemoveScroll } from 'react-remove-scroll';
@@ -33,6 +33,9 @@ const NavLink = ({ href, children, ...rest }) => {
         className={clsx('transition-all duration-200', {
           'font-semibold': isActive,
         })}
+        css={{
+          flex: '1 1 0%',
+        }}
         color={`${isActive ? 'primary-gradient-button' : 'gray-50'}`}
         variant={`${isActive ? 'solid' : 'outline'}`}
         {...rest}
@@ -56,6 +59,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
 
   useUpdateEffect(() => {
     if (isOpen) {
+      console.log('Is open');
       closeBtnRef.current?.focus();
     }
   }, [isOpen]);
@@ -64,25 +68,25 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
     <>
       {isOpen && (
         <RemoveScroll forwardProps>
-          <Box>
+          <div className='min-h-full absolute top-0 left-0 w-full mt-3 bg-white z-10'>
             <Box className='px-4'>
-              <Stack direction='row'>
+              <Stack direction='row' className='items-center'>
                 <Logo />
                 <CloseButton
                   ref={closeBtnRef}
-                  className='ml-auto '
+                  className='ml-auto'
                   onClick={onClose}
                 />
               </Stack>
             </Box>
             <Box className='px-6 mt-6'>
-              <Stack direction='row' spacing='1rem'>
+              <Stack direction='row' spacing='8px'>
                 <NavLink href='/docs/getting-started'>Docs</NavLink>
                 <NavLink href='/guides/integrations/with-cra'>Guides</NavLink>
                 <NavLink href='/team'>Team</NavLink>
               </Stack>
             </Box>
-          </Box>
+          </div>
         </RemoveScroll>
       )}
     </>
@@ -99,14 +103,14 @@ export const MobileNavButton = React.forwardRef(
         >
           <a target='_blank'>
             <Icon
-              className='text-gray-50 hover:text-gray-75 transition-colors duration-150'
+              className='md:hidden text-gray-50 hover:text-gray-75 transition-colors duration-150'
               size='lg'
               as={GithubIcon}
             />
           </a>
         </Link>
         <IconButton
-          className='md:hidden text-3xl ml-3'
+          className='md:hidden text-xl  ml-3'
           ref={ref}
           css={{
             paddingLeft: '5px !important',
@@ -115,8 +119,7 @@ export const MobileNavButton = React.forwardRef(
           aria-label='Open menu'
           color='gray-800'
           variant='ghost'
-          size='sm'
-          icon={<Io.IoMenuOutline />}
+          icon={<Ai.AiOutlineMenu />}
           {...props}
         />
       </div>

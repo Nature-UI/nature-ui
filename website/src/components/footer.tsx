@@ -1,32 +1,77 @@
+import { Box, Container, Icon, Stack } from '@nature-ui/core';
+import { Di, Io, Md } from '@nature-ui/icons';
+import Link from 'next/link';
 import React from 'react';
-import { EXAMPLE_PATH } from 'lib/constants';
-import Container from './container';
+import { NigeriaFlag } from './nigeriaFlag';
+
+// 🇳🇬
+
+export const links = [
+  {
+    icon: Di.DiGithubBadge,
+    label: 'Github',
+    href: '//github.com/dnature',
+  },
+  {
+    icon: Io.IoLogoTwitter,
+    label: 'Twitter',
+    href: '//twitter.com/DivineHycenth',
+  },
+  {
+    icon: Io.IoGlobeOutline,
+    label: 'Website',
+    href: '//divinehycenth.com',
+  },
+  {
+    icon: Io.IoLogoLinkedin,
+    label: 'Linkedin',
+    href: '//linkedin.com/in/dnature',
+  },
+  {
+    icon: Md.MdEmail,
+    label: 'Email',
+    href: 'mailto:contact@divinehycenth.com',
+  },
+];
+
+type FooterLinkProps = {
+  icon?: React.ElementType;
+  href?: string;
+  label?: string;
+};
+const FooterLink: React.FC<FooterLinkProps> = ({
+  icon,
+  href,
+  label,
+  ...rest
+}) => (
+  <Box as='span' {...rest}>
+    <Link href={href} aria-label={label}>
+      <a target='_blank'>
+        <Icon as={icon} size='lg' className='text-gray-50' />
+      </a>
+    </Link>
+  </Box>
+);
 
 const Footer = () => {
   return (
-    <footer className='bg-accent-1 border-t border-accent-2'>
-      <Container>
-        <div className='py-28 flex flex-col lg:flex-row items-center'>
-          <h3 className='text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2'>
-            Statically Generated with Next.js.
-          </h3>
-          <div className='flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2'>
-            <a
-              href='https://nextjs.org/docs/basic-features/pages'
-              className='mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0'
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className='mx-3 font-bold hover:underline'
-            >
-              View on GitHub
-            </a>
-          </div>
-        </div>
+    <Box as='footer' className='border-t bg-white text-center py-16'>
+      <Container size='xs' centered>
+        <p className='text-sm'>
+          <span>
+            Proudly made in
+            <NigeriaFlag />
+          </span>
+          <span>by Divine Hycenth</span>
+        </p>
+        <Stack direction='row' spacing='1rem' className='justify-center mt-3'>
+          {links.map((link) => (
+            <FooterLink key={link.href} {...link} />
+          ))}
+        </Stack>
       </Container>
-    </footer>
+    </Box>
   );
 };
 
