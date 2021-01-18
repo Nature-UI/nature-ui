@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Stack } from '@nature-ui/layout';
+
 import {
   Alert,
   AlertWrapper,
@@ -50,7 +52,11 @@ export const Info = () => {
 };
 
 export const Warning = () => {
-  return <Alert status='warning' alertTitle='Warning alert' />;
+  return (
+    <Alert status='warning' alertTitle='Warning alert'>
+      This is warning
+    </Alert>
+  );
 };
 
 export const Solid = () => {
@@ -62,5 +68,24 @@ export const Solid = () => {
     >
       This is a solid variant!
     </Alert>
+  );
+};
+
+export const WithVariants = () => {
+  return (
+    <>
+      <Stack spacing='10px'>
+        {['top-accent', 'left-accent', 'solid', 'subtle'].map((variant) => (
+          <Alert
+            key={variant}
+            status='error'
+            alertTitle='Error alert'
+            variant={variant}
+          >
+            {variant}!
+          </Alert>
+        ))}
+      </Stack>
+    </>
   );
 };

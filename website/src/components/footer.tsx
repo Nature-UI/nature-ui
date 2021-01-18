@@ -1,5 +1,6 @@
 import { Box, Container, Icon, Stack } from '@nature-ui/core';
-import { Di, Io, Md } from '@nature-ui/icons';
+import { Io, Md } from '@nature-ui/icons';
+import siteConfig from 'configs/site-config';
 import Link from 'next/link';
 import React from 'react';
 import { NigeriaFlag } from './nigeriaFlag';
@@ -8,7 +9,7 @@ import { NigeriaFlag } from './nigeriaFlag';
 
 export const links = [
   {
-    icon: Di.DiGithubBadge,
+    icon: Io.IoLogoGithub,
     label: 'Github',
     href: '//github.com/dnature',
   },
@@ -31,6 +32,11 @@ export const links = [
     icon: Md.MdEmail,
     label: 'Email',
     href: 'mailto:contact@divinehycenth.com',
+  },
+  {
+    icon: Io.IoLogoDiscord,
+    label: 'Discord',
+    href: siteConfig.discord.url,
   },
 ];
 

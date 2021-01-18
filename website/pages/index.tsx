@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <main className='grid place-items-center w-screen bg-white md:pb-32 pb-12'>
+      <main className='grid place-items-center w-full bg-white md:pb-32 pb-12'>
         <Container size='md' className='text-center mt-32 md:mt-48 mb-16'>
           <h1 className='text-3xl md:text-6xl font-bold text-gray-1000 leading-normal'>
             Set of Lightview and fully customizable React Components optimized

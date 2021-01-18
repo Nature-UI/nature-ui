@@ -506,8 +506,8 @@
 
 "@nature-ui/alert@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/alert/-/alert-1.0.1.tgz#73d65bd35c3d2e4eb9df481df4c76f6c4f61de66"
-  integrity sha512-lj2r0brdU11XA/XMg4CY+fLCzDyDherb4ebsn9lKxzTGcMlIt8pBsMHXuonrYsyR+YgpUSVeSPVbMaYNrsPICA==
+  resolved "http://localhost:4873/@nature-ui%2falert/-/alert-1.0.1.tgz#705cee30d031249746dd9ceaa8daae6818b3d9b2"
+  integrity sha512-SVxVx83SPgUsnVwcdoD6CufEzved5WwQwqFAW2tpz3XgF/MTkB3y0IrZFSgbUXq/pqt88ndY+dKq7VewuRikAg==
   dependencies:
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"

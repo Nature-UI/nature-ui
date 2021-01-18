@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { clsx as clx, nature, PropsOf } from '@nature-ui/system';
+import { clsx, clsx as clx, nature, PropsOf } from '@nature-ui/system';
 import {
   FiInfo,
   FiAlertCircle,
@@ -39,11 +39,11 @@ export const ALERT_STATUSES = {
     },
   },
   warning: {
-    bg: 'bg-blue-200',
-    iconColor: 'text-blue-600 mr-3',
+    bg: 'bg-orange-200',
+    iconColor: 'text-orange-600 mr-3',
     icon: FiAlertTriangle,
     variant: {
-      solid: 'bg-blue-600 text-white',
+      solid: 'bg-orange-600 text-white',
       subtle: SUBTLE_TEXT,
     },
   },
@@ -63,7 +63,7 @@ interface AlertOptions {
   /**
    * The variant of the alert style to use
    */
-  variant?: 'solid' | 'subtle';
+  variant?: 'solid' | 'subtle' | 'left-accent' | 'top-accent';
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
@@ -87,6 +87,7 @@ export const AlertWrapper = (props: AlertProps) => {
     variant = 'subtle',
     component: Component = DivTag,
     role = 'alert',
+    children,
     ...rest
   } = props;
 
@@ -104,10 +105,22 @@ export const AlertWrapper = (props: AlertProps) => {
     status,
     variant,
   };
+  const hasIcon = variant.includes('accent');
 
   return (
     <AlertProvider value={context}>
-      <Component className={componentClass} {...rest} role={role} />
+      <Component className={componentClass} {...rest} role={role}>
+        {hasIcon && (
+          <DivTag
+            className={clsx('absolute top-0 left-0 mr-2', {
+              'h-full w-1 ': variant === 'left-accent',
+              'w-full h-1 ': variant === 'top-accent',
+              [ALERT_STATUSES[status].variant.solid]: status,
+            })}
+          />
+        )}
+        {children}
+      </Component>
     </AlertProvider>
   );
 };
@@ -120,7 +133,6 @@ export type AlertTitleProps = PropsOf<typeof DivTag>;
 
 export const AlertTitle = (props: AlertTitleProps) => {
   const { className = '', ...rest } = props;
-  // const Component = 'div';
 
   return <DivTag className={clx(className, 'font-bold')} {...rest} />;
 };
@@ -152,11 +164,10 @@ export const AlertIcon = (props: AlertIconProps) => {
   const { variant = 'subtle', status = 'success' } = useAlertContext();
 
   // const Component = 'div';
-
   const { iconColor, icon: IconComponent, variant: Variant } = ALERT_STATUSES[
     status
   ];
-  const VARIANT: string = Variant[variant];
+  const VARIANT = Variant[variant];
 
   // const Icon = ALERT_STATUSES[status];
 
@@ -182,9 +193,11 @@ export const Alert = (props: AlertProps) => {
     ...rest
   } = props;
 
+  const hasIcon = !variant.includes('accent');
+
   return (
     <AlertWrapper {...rest} variant={variant} status={status}>
-      <AlertIcon />
+      {hasIcon && <AlertIcon />}
       <AlertTitle className='mr-3'>{alertTitle}</AlertTitle>
       <AlertDescription>{children}</AlertDescription>
     </AlertWrapper>

@@ -1,8 +1,18 @@
 {
   "routes": [
     {
-      "title": "Example",
-      "path": "/docs/example"
+      "title": "Getting Started",
+      "heading": true,
+      "routes": [
+        {
+          "title": "Example",
+          "path": "/docs/example"
+        },
+        {
+          "title": "Installation",
+          "path": "/docs/getting-started"
+        }
+      ]
     }
   ]
 }

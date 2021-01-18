@@ -9,4 +9,17 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   @apply bg-gray-100;
+  @apply text-gray-75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply text-gray-1000;
+}
+
+blockquote * p {
+  margin-top: 0 !important;
 }

@@ -42,28 +42,30 @@ function PageContainer(props: PageContainerProps) {
   return (
     <>
       <Header />
-      <nature.div as='main' className=''>
+      <Box as='main' className='bg-white'>
         <Box className='flex'>
           {sidebar || null}
           <div style={{ flex: 1 }}>
             <Box
               id='content'
-              pt={3}
-              px={5}
-              mt='4.5rem'
-              mx='auto'
-              maxW='48rem'
-              minH='76vh'
+              className='pt-3 px-5 mt-16 mx-auto max-w-3xl'
+              css={{
+                maxHeight: '86vh',
+              }}
             >
-              <nature.h1 className='outline-none'>{title}</nature.h1>
+              <h1 className='outline-none text-3xl font-bold mt-8 mb-1'>
+                {title}
+              </h1>
               {version && <Badge color='teal-500'>v{version}</Badge>}
               {children}
-              <Box mt='40px'>{editUrl && <nature.a href={editUrl} />}</Box>
+              <Box className='mt-14'>
+                {editUrl && <nature.a href={editUrl} />}
+              </Box>
               {pagination || null}
             </Box>
           </div>
         </Box>
-      </nature.div>
+      </Box>
     </>
   );
 }

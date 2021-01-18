@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: {
+    // content: ['!./pages/docs/**/*.mdx'],
+    // content: ['!./src/components/mdx-components.tsx'],
+  },
   theme: {
     extend: {
       colors: {
@@ -14,6 +17,17 @@ module.exports = {
         },
         accent: {
           100: '#38B2AC',
+        },
+        orange: {
+          100: '#FFFAF0',
+          200: '#FEEBC8',
+          300: '#FBD38D',
+          400: '#F6AD55',
+          500: '#ED8936',
+          600: '#DD6B20',
+          700: '#C05621',
+          800: '#9C4221',
+          900: '#7B341E',
         },
       },
       spacing: {
