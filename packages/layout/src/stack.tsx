@@ -4,7 +4,8 @@ import * as React from 'react';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
 import { css } from 'emotion';
 
-export type StackProps = PropsOf<typeof nature.div> & {
+const DivTag = nature('div');
+export type StackProps = PropsOf<typeof DivTag> & {
   /**
    * The space between each stack item
    */
@@ -21,6 +22,7 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
     spacing = 4,
     direction = 'col',
     className = '',
+    as,
     ...rest
   } = props;
 
@@ -68,9 +70,9 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
   });
 
   return (
-    <nature.div className={_className} {...rest} ref={ref}>
+    <DivTag className={_className} {...rest} ref={ref}>
       {clones}
-    </nature.div>
+    </DivTag>
   );
 });
 

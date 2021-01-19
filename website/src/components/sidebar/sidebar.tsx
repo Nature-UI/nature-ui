@@ -1,10 +1,12 @@
-/** @jsx jsx */
-import { Box, BoxProps, nature, Stack, jsx } from '@nature-ui/core';
+/** @jsx */
+import { Box, BoxProps, Stack, clsx, jsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { Routes } from 'utils/get-route-context';
 import NextLink from 'next/link';
 import _ from 'lodash';
+import { El } from 'components/nature-jsx-elements';
+
 import SidebarCategory from './sidebar-category';
 import SidebarLink from './sidebar-link';
 import { BlogIcon, DocsIcon, GuidesIcon, TeamIcon } from './sidebar-icons';
@@ -22,9 +24,9 @@ export function SidebarContent(props: SidebarContentProps) {
         return (
           <React.Fragment key={String(idx)}>
             {lvl1.heading && (
-              <nature.h4 className='text-sm font-bold my-5 uppercase text-gray-75'>
+              <El.h4 className='text-sm font-bold my-5 uppercase text-gray-1000'>
                 {lvl1.title}
-              </nature.h4>
+              </El.h4>
             )}
 
             {lvl1.routes.map((lvl2, index) => {
@@ -55,13 +57,18 @@ export function SidebarContent(props: SidebarContentProps) {
                   selected={selected}
                   opened={opened}
                 >
-                  <Stack as='ul'>
+                  <El.ul>
                     {sortedRoutes.map((lvl3) => (
-                      <SidebarLink as='li' key={lvl3.path} href={lvl3.path}>
+                      <SidebarLink
+                        as='li'
+                        className='mt-2'
+                        key={lvl3.path}
+                        href={lvl3.path}
+                      >
                         {lvl3.title}
                       </SidebarLink>
                     ))}
-                  </Stack>
+                  </El.ul>
                 </SidebarCategory>
               );
             })}
@@ -75,19 +82,23 @@ export function SidebarContent(props: SidebarContentProps) {
 const MainNavLink = ({ href, icon, children }) => {
   const { pathname } = useRouter();
   const [, group] = href.split('/');
-  // const active = pathname.includes(group);
+  const active = pathname.includes(group);
 
   return (
     <NextLink href={href} passHref>
-      <nature.a
-        className='flex items-center text-sm font-semibold transition-colors duration-200 text-gray-100'
-        // TODO: Update color and hover state
+      <El.a
+        className={clsx(
+          'flex items-center text-sm font-bold transition-colors duration-200 text-gray-50 hover:text-gray-75',
+          {
+            'text-gray-1000': active,
+          },
+        )}
       >
-        <nature.div className='flex items-center justify-center w-6 h-6 bg-primary-100 rounded-sm mr-3'>
+        <El.div className='flex items-center justify-center w-6 h-6 bg-gradient-button rounded-md mr-3'>
           {icon}
-        </nature.div>
+        </El.div>
         {children}
-      </nature.a>
+      </El.a>
     </NextLink>
   );
 };
@@ -117,19 +128,13 @@ const mainNavLinks = [
 
 const MainNavLinkGroup = (props: BoxProps) => {
   return (
-    <Stack
-      direction='col'
-      as='ul'
-      className='items-stretch'
-      spacing='4'
-      {...props}
-    >
+    <Stack direction='col' className='items-stretch' spacing='1rem' {...props}>
       {mainNavLinks.map((item) => (
-        <Box as='li' key={item.label}>
+        <El.li className='list-none' key={item.label}>
           <MainNavLink icon={item.icon} href={item.href}>
             {item.label}
           </MainNavLink>
-        </Box>
+        </El.li>
       ))}
     </Stack>
   );
@@ -144,20 +149,12 @@ const Sidebar = ({ routes }) => {
       ref={ref}
       as='nav'
       aria-label='Main Navigation'
-      pos='sticky'
-      top='6.5rem'
-      w='280px'
-      h='calc(((100vh - 1.5rem) - 64px) - 42px);'
-      pr='8'
-      pb='8'
-      pl='3'
-      pt='8'
-      overflowY='auto'
-      className='sidebar-content'
-      flexShrink={0}
-      display={{ base: 'none', md: 'block' }}
+      css={{
+        height: 'calc(((100vh - 1.5rem) - 64px) - 42px);',
+      }}
+      className='sticky top-28 w-72 pr-8 pb-8 pl-3 pt-8 flex-shrink-0 hidden md:block overflow-y-auto'
     >
-      <MainNavLinkGroup mb='10' />
+      <MainNavLinkGroup className='mb-10' />
       <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
     </Box>
   );

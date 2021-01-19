@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { BoxProps, nature, jsx } from '@nature-ui/core';
+import { BoxProps, jsx } from '@nature-ui/core';
+import { El } from 'components/nature-jsx-elements';
 import { ReactNode, RefObject, useEffect, useRef, useState } from 'react';
 
 type SidebarCategoryProps = BoxProps & {
@@ -33,10 +34,6 @@ function SidebarCategory(props: SidebarCategoryProps) {
     toggle: selected || opened,
   });
 
-  // const onClick = () => {
-  //   setToggle({ toggle: !toggle, shouldScroll: true })
-  // }
-
   // If a category is selected indirectly, open it. This can happen when using the search input
   useEffect(() => {
     if (selected) {
@@ -61,17 +58,17 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef]);
 
   return (
-    <nature.div mt='8' ref={ref} {...rest}>
-      <nature.p
-        className='w-full uppercase text-xs font-bold flex items-center justify-between text-gray-500'
+    <El.div className='mt-8' ref={ref} {...rest}>
+      <El.p
+        className='w-full uppercase text-xs font-bold flex items-center justify-between text-gray-50'
         css={{ userSelect: 'none' }}
       >
         {title}
-      </nature.p>
-      <nature.div className='mt-4 -mx-3' role='group' hidden={!toggle}>
+      </El.p>
+      <El.div className='mt-4 -mx-3' role='group' hidden={!toggle}>
         {children}
-      </nature.div>
-    </nature.div>
+      </El.div>
+    </El.div>
   );
 }
 

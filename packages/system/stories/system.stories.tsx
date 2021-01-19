@@ -51,3 +51,16 @@ export const Basic = () => (
     Hello world
   </nature.h1>
 );
+
+const H1 = nature('h1');
+export const WithAs = () => (
+  <H1
+    as='span'
+    css={{
+      backgroundColor: 'red',
+    }}
+    className='text-3xl font-bold'
+  >
+    Hello world
+  </H1>
+);

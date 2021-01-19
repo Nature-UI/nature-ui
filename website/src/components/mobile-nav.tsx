@@ -36,7 +36,7 @@ const NavLink = ({ href, children, ...rest }) => {
         css={{
           flex: '1 1 0%',
         }}
-        color={`${isActive ? 'primary-gradient-button' : 'gray-50'}`}
+        color={`${isActive ? 'gradient-button' : 'gray-50'}`}
         variant={`${isActive ? 'solid' : 'outline'}`}
         {...rest}
       >
@@ -68,7 +68,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
     <>
       {isOpen && (
         <RemoveScroll forwardProps>
-          <div className='min-h-full absolute top-0 left-0 w-full mt-3 bg-white z-10'>
+          <div className='min-h-screen absolute top-0 left-0 w-full mt-3 bg-white z-10'>
             <Box className='px-4'>
               <Stack direction='row' className='items-center'>
                 <Logo />
@@ -96,7 +96,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
 export const MobileNavButton = React.forwardRef(
   (props: IconButtonProps, ref: React.Ref<any>) => {
     return (
-      <div className='justify-end flex items-center'>
+      <div className='md:hidden justify-end flex items-center'>
         <Link
           aria-label='Go to Nature UI GitHub page'
           href={siteConfig.repo.url}

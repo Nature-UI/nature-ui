@@ -1,9 +1,11 @@
 /** @jsx jsx */
-import { Badge, Box, nature, jsx } from '@nature-ui/core';
+import { Badge, Box, jsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
+import Footer from './footer';
 import Header from './header';
+import { El } from './nature-jsx-elements';
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter();
@@ -42,15 +44,15 @@ function PageContainer(props: PageContainerProps) {
   return (
     <>
       <Header />
-      <Box as='main' className='bg-white'>
-        <Box className='flex'>
+      <Box as='main' className='bg-white h-full'>
+        <Box centered className='flex max-w-screen-lg mx-auto'>
           {sidebar || null}
-          <div style={{ flex: 1 }}>
+          <Box className='flex-1'>
             <Box
               id='content'
-              className='pt-3 px-5 mt-16 mx-auto max-w-3xl'
+              className='pt-3 px-5 mt-16 mx-auto max-w-3xl bg-white'
               css={{
-                maxHeight: '86vh',
+                minHeight: '76vh',
               }}
             >
               <h1 className='outline-none text-3xl font-bold mt-8 mb-1'>
@@ -58,12 +60,11 @@ function PageContainer(props: PageContainerProps) {
               </h1>
               {version && <Badge color='teal-500'>v{version}</Badge>}
               {children}
-              <Box className='mt-14'>
-                {editUrl && <nature.a href={editUrl} />}
-              </Box>
+              <Box className='mt-14'>{editUrl && <El.a href={editUrl} />}</Box>
               {pagination || null}
             </Box>
-          </div>
+            <Footer />
+          </Box>
         </Box>
       </Box>
     </>

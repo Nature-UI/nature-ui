@@ -13,6 +13,7 @@ export const El = {
   td: nature('td'),
   a: nature('a'),
   span: nature('span'),
+  svg: nature('svg'),
   div: nature('div'),
   code: nature('code'),
   hr: nature('hr'),
@@ -20,6 +21,6 @@ export const El = {
   br: nature('br'),
   ul: nature('ul'),
   ol: nature('ol'),
-  li: nature('h1'),
+  li: nature('li'),
   blockquote: nature('blockquote'),
 };

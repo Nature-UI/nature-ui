@@ -91,14 +91,16 @@ const MDXComponents = {
   table: Table,
   th: THead,
   td: TData,
-  a: (props) => <El.a {...props} />,
+  a: (props) => (
+    <El.a className='text-primary-100 hover:underline' {...props} />
+  ),
   p: (props) => <El.p className='mt-5 leading-7' {...props} />,
   ul: (props) => <El.ul {...props} />,
   ol: (props) => <El.ol {...props} />,
   li: (props) => <El.li pb='4px' {...props} />,
   blockquote: (props) => (
     <Alert
-      className='mt-4 rounded-sm my-6'
+      className='mt-4 rounded-md my-6'
       role='none'
       status='warning'
       variant='left-accent'
