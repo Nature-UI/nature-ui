@@ -32,3 +32,13 @@ export const UsingReactIcon = (props: IconType) => (
 export const WithCustomColor = (props: IconType) => (
   <Icon as={Md.MdAccessible} className='text-blue-500' size='lg' {...props} />
 );
+
+export const BoxSize = (props: IconType) => (
+  <Icon
+    as={Md.MdAccessible}
+    boxSize='50px'
+    className='text-blue-500'
+    size='lg'
+    {...props}
+  />
+);

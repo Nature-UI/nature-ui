@@ -9,6 +9,7 @@ import theme from 'prism-react-renderer/themes/nightOwl';
 import React, { useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import scope from './react-live-scope';
+import Highlight from './highlight';
 
 export const liveEditorStyle: React.CSSProperties = {
   fontSize: 14,
@@ -25,15 +26,19 @@ export const liveErrorStyle: React.CSSProperties = {
   backgroundColor: 'red',
 };
 
-const LiveCodePreview = (props) => (
-  <LivePreview className='mt-5 p-3 border rounded-lg' {...props} />
+const LiveCodePreview = ({ className, ...props }: any) => (
+  <LivePreview
+    className={`${className} mt-5 p-3 border border-solid border-gray-200 rounded-lg`}
+    {...props}
+  />
 );
 
-const CopyButton = (props: ButtonType) => (
+const CopyButton = ({ className, ...props }: ButtonType) => (
   <Button
-    size='sm'
-    className='absolute uppercase text-blue-500 text-xs h-6 top-0'
-    css={{ zIndex: 1, right: '1.25em' }}
+    size='xs'
+    color='primary-600'
+    className={`${className} uppercase text-xs h-6 top-0 right-5 z-10`}
+    css={{ position: 'absolute' }}
     {...props}
   />
 );
@@ -55,16 +60,25 @@ const EditableNotice = (props: BoxProps) => {
   );
 };
 
-const CodeContainer = (props) => (
+const CodeContainer = ({ className, ...props }: any) => (
   <Box
-    className='p-5 rounded-lg my-8'
+    className={`${className} p-3 rounded-lg my-8`}
     css={{ backgroundColor: '#011627' }}
     {...props}
   />
 );
 
 function CodeBlock(props) {
-  const { className, live = true, manual, render, children, ...rest } = props;
+  const {
+    className,
+    live = true,
+    manual,
+    ln,
+    viewlines,
+    render,
+    children,
+    ...rest
+  } = props;
   const [editorCode, setEditorCode] = useState(children.trim());
 
   const language = className && className.replace(/language-/, '');
@@ -84,8 +98,8 @@ function CodeBlock(props) {
   if (language === 'jsx' && live === true) {
     return (
       <LiveProvider {...liveProviderProps}>
-        <LiveCodePreview zIndex='1' />
-        <Box position='relative' zIndex='0'>
+        <LiveCodePreview className='z-10' />
+        <Box className='relative z-0'>
           <CodeContainer>
             <LiveEditor onChange={onChange} style={liveEditorStyle} />
           </CodeContainer>
@@ -102,17 +116,30 @@ function CodeBlock(props) {
       <div style={{ marginTop: 32 }}>
         <LiveProvider {...liveProviderProps}>
           <LiveCodePreview />
+          <Box className='relative z-0'>
+            <CopyButton onClick={onCopy}>
+              {copied ? 'copied' : 'copy'}
+            </CopyButton>
+          </Box>
         </LiveProvider>
       </div>
     );
   }
 
   return (
-    <LiveProvider disabled {...liveProviderProps}>
-      <CodeContainer>
-        <LiveEditor style={liveEditorStyle} />
+    <Box className='relative z-0'>
+      <CodeContainer className='p-4 overflow-hidden'>
+        <Highlight
+          codeString={editorCode}
+          language={language}
+          metaString={ln}
+          showLines={viewlines}
+        />
       </CodeContainer>
-    </LiveProvider>
+      <CopyButton className='top-4' onClick={onCopy}>
+        {copied ? 'copied' : 'copy'}
+      </CopyButton>
+    </Box>
   );
 }
 

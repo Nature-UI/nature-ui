@@ -1,0 +1,104 @@
+---
+title: Alert
+package: '@nature-ui/alert'
+description:
+  Alerts are used to communicate a state that affects a system, feature or page.
+---
+
+Alerts are used to communicate a state that affects a system, feature or page.
+
+## Import
+
+Nature UI exports 5 alert related components.
+
+- `Alert`: A complete standalone alert component.
+- `AlertWrapper`: The wrapper for alert components.
+- `AlertIcon`: The visual icon for the alert that changes based on the `status`
+  prop.
+- `AlertTitle`: The title of the alert to be announced by screen readers.
+- `AlertDescription`: The description of the alert to be announced by screen
+  readers.
+
+```js
+import {
+  Alert,
+  AlertWrapper,
+  AlertTitle,
+  AlertDescription,
+  AlertIcon,
+} from '@nature-ui/core';
+```
+
+## Usage
+
+```jsx
+<Alert status='error'>Data uploaded to the server. Fire on!</Alert>
+```
+
+## Advanced Usage
+
+```jsx
+<AlertWrapper variant='solid' status='error' className='rounded-md'>
+  <AlertIcon />
+  <AlertTitle className='mr-3'>Outdated</AlertTitle>
+  <AlertDescription>Your experience may be degraded!</AlertDescription>
+</AlertWrapper>
+```
+
+### Status
+
+Change the status of the alerts by passing the `status` prop. This affects the
+color scheme and icon used. Alert supports `error`, `success`, `warning` and
+`info` statuses.
+
+```jsx
+<Stack spacing='8px'>
+  <Alert status='success'>Data uploaded to the server. Fire on!</Alert>
+  <Alert status='error'>Data uploaded to the server. Fire on!</Alert>
+  <Alert status='warning'>
+    Seems your account is about expire, upgrade now
+  </Alert>
+  <Alert status='info'>Nature UI V2 is coming soon!</Alert>
+</Stack>
+```
+
+### Variants
+
+`Alert` has 4 variant styles you can use. Pass the `variant` prop and use either
+`subtle`, `solid`, `left-accent` or `top-accent`.
+
+```jsx
+<Stack spacing='8px'>
+  <Alert variant='subtle' status='success'>
+    Data uploaded to the server. Fire on!
+  </Alert>
+  <Alert variant='solid' status='success'>
+    Data uploaded to the server. Fire on!
+  </Alert>
+  <Alert variant='left-accent' status='success'>
+    Data uploaded to the server. Fire on!
+  </Alert>
+  <Alert variant='top-accent' status='success'>
+    Data uploaded to the server. Fire on!
+  </Alert>
+</Stack>
+```
+
+### Composition
+
+`Alert` ships with smaller components to allow for flexibility in creating all
+kinds of layouts. Here's an example of a custom alert style and layout:
+
+```jsx
+<AlertWrapper
+  status='success'
+  variant='subtle'
+  className='flex-col items-center justify-center text-center h-48'
+>
+  <AlertIcon boxSize='40px' className={'mr-0'} />
+  <AlertTitle className='mt-4 mb-1 text-lg'>Application submitted!</AlertTitle>
+  <AlertDescription className='max-w-sm'>
+    Thanks for submitting your application. Our team will get back to you soon.
+  </AlertDescription>
+</AlertWrapper>
+```

@@ -79,10 +79,12 @@ const MDXComponents = {
       {...props}
     />
   ),
-  h3: (props) => <LinkedHeading as='h3' {...props} />,
+  h3: (props) => (
+    <LinkedHeading className='text-xl font-medium' as='h3' {...props} />
+  ),
   h4: (props) => <LinkedHeading as='h4' {...props} />,
   hr: (props) => <Divider {...props} />,
-  strong: (props) => <Box fontWeight='semibold' {...props} />,
+  strong: (props) => <Box className='font-medium' {...props} />,
   inlineCode: InlineCode,
   code: CodeBlock,
   pre: Pre,
@@ -95,9 +97,9 @@ const MDXComponents = {
     <El.a className='text-primary-100 hover:underline' {...props} />
   ),
   p: (props) => <El.p className='mt-5 leading-7' {...props} />,
-  ul: (props) => <El.ul {...props} />,
+  ul: (props) => <El.ul className='mt-7 ml-7' {...props} />,
   ol: (props) => <El.ol {...props} />,
-  li: (props) => <El.li pb='4px' {...props} />,
+  li: (props) => <El.li className='pb-1 list-disc' {...props} />,
   blockquote: (props) => (
     <Alert
       className='mt-4 rounded-md my-6'

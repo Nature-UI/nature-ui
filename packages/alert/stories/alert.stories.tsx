@@ -89,3 +89,20 @@ export const WithVariants = () => {
     </>
   );
 };
+
+export const Composition = () => (
+  <AlertWrapper
+    status='success'
+    variant='subtle'
+    className='flex-col items-center justify-center text-center h-48'
+  >
+    <AlertIcon boxSize='40px' className='mr-0' />
+    <AlertTitle className='mt-4 mb-1 text-lg'>
+      Application submitted!
+    </AlertTitle>
+    <AlertDescription className='max-w-sm'>
+      Thanks for submitting your application. Our team will get back to you
+      soon.
+    </AlertDescription>
+  </AlertWrapper>
+);

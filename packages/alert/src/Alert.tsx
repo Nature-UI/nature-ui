@@ -1,12 +1,8 @@
 import * as React from 'react';
 import { clsx, clsx as clx, nature, PropsOf } from '@nature-ui/system';
-import {
-  FiInfo,
-  FiAlertCircle,
-  FiAlertTriangle,
-  FiCheckCircle,
-} from 'react-icons/fi';
+
 import { createContext, __DEV__ } from '@nature-ui/utils';
+import { Icon, Fi, IconProps } from '@nature-ui/icons';
 
 const SUBTLE_TEXT = 'text-gray-800';
 
@@ -14,7 +10,7 @@ export const ALERT_STATUSES = {
   error: {
     bg: 'bg-red-200',
     iconColor: 'text-red-600 mr-3',
-    icon: FiAlertCircle,
+    icon: Fi.FiAlertCircle,
     variant: {
       solid: 'bg-red-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -23,7 +19,7 @@ export const ALERT_STATUSES = {
   info: {
     bg: 'bg-blue-200',
     iconColor: 'text-blue-600 mr-3',
-    icon: FiInfo,
+    icon: Fi.FiInfo,
     variant: {
       solid: 'bg-blue-600',
       subtle: SUBTLE_TEXT,
@@ -32,7 +28,7 @@ export const ALERT_STATUSES = {
   success: {
     bg: 'bg-green-200',
     iconColor: 'text-green-600 mr-3',
-    icon: FiCheckCircle,
+    icon: Fi.FiCheckCircle,
     variant: {
       solid: 'bg-green-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -41,7 +37,7 @@ export const ALERT_STATUSES = {
   warning: {
     bg: 'bg-orange-200',
     iconColor: 'text-orange-600 mr-3',
-    icon: FiAlertTriangle,
+    icon: Fi.FiAlertTriangle,
     variant: {
       solid: 'bg-orange-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -156,17 +152,15 @@ if (__DEV__) {
 
 const SpanTag = nature('span');
 
-export type AlertIconProps = PropsOf<typeof SpanTag>;
+export type AlertIconProps = IconProps & PropsOf<typeof SpanTag>;
 
 export const AlertIcon = (props: AlertIconProps) => {
-  const { className = '' } = props;
+  const { className = '', size = 20, ...rest } = props;
 
   const { variant = 'subtle', status = 'success' } = useAlertContext();
 
   // const Component = 'div';
-  const { iconColor, icon: IconComponent, variant: Variant } = ALERT_STATUSES[
-    status
-  ];
+  const { iconColor, icon, variant: Variant } = ALERT_STATUSES[status];
   const VARIANT = Variant[variant];
 
   // const Icon = ALERT_STATUSES[status];
@@ -177,7 +171,7 @@ export const AlertIcon = (props: AlertIconProps) => {
     [iconColor]: variant !== 'solid',
   });
 
-  return <IconComponent className={iconClasses} size={20} />;
+  return <Icon as={icon} className={iconClasses} size={size} {...rest} />;
 };
 
 if (__DEV__) {

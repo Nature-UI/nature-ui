@@ -76,7 +76,9 @@
     "react/jsx-pascal-case": 0,
     "no-restricted-syntax": 0,
     "jsx-a11y/anchor-is-valid": 0,
-    "react-hooks/exhaustive-deps": 0
+    "react-hooks/exhaustive-deps": 0,
+    "import/no-cycle": 0,
+    "react/destructuring-assignment": 0
   },
   "overrides": [
     {
