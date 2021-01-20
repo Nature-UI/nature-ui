@@ -145,18 +145,20 @@ const Sidebar = ({ routes }) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   return (
-    <Box
-      ref={ref}
-      as='nav'
-      aria-label='Main Navigation'
-      css={{
-        height: 'calc(((100vh - 1.5rem) - 64px) - 42px);',
-      }}
-      className='sticky top-28 w-72 pr-8 pb-8 pl-3 pt-8 flex-shrink-0 hidden md:block overflow-y-auto'
-    >
-      <MainNavLinkGroup className='mb-10' />
-      <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
-    </Box>
+    <>
+      <Box
+        ref={ref}
+        as='nav'
+        aria-label='Main Navigation'
+        css={{
+          height: 'calc(((100vh - 1.5rem) - 64px) - 42px);',
+        }}
+        className='sticky top-28 w-72 pr-8 pb-8 pl-3 pt-8 flex-shrink-0 hidden md:block overflow-y-auto'
+      >
+        <MainNavLinkGroup className='mb-10' />
+        <SidebarContent routes={routes} pathname={pathname} contentRef={ref} />
+      </Box>
+    </>
   );
 };
 

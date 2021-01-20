@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { nature, PropsOf, clsx } from '@nature-ui/system';
+import { nature, PropsOf, clsx, forwardRef } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 
 const BoxLayout = nature('div');
@@ -17,7 +17,7 @@ export type SquareProps = BoxProps & {
   centered?: boolean;
 };
 
-export const Box = (props: SquareProps) => {
+export const Box = forwardRef<SquareProps>((props, ref) => {
   const {
     children,
     className = '',
@@ -43,11 +43,11 @@ export const Box = (props: SquareProps) => {
     : {};
 
   return (
-    <BoxLayout {...defaults} className={_classNames} {...rest}>
+    <BoxLayout ref={ref} {...defaults} className={_classNames} {...rest}>
       {children}
     </BoxLayout>
   );
-};
+});
 
 if (__DEV__) {
   Box.displayName = 'Box';

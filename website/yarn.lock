@@ -694,8 +694,8 @@
 
 "@nature-ui/layout@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2flayout/-/layout-1.0.1.tgz#c05fa324c196b3bf87e4703c0e757fa1fc701445"
-  integrity sha512-0e3oeNTdVbDwI/cmmclHU2QgJJGEZYmuQv6+H/w5bg/3C02aCuQ3lOiTolBaa1fuqQLDnhGU1CeM6vNOT/XKuw==
+  resolved "http://localhost:4873/@nature-ui%2flayout/-/layout-1.0.1.tgz#1726d9a20dbde7bf7041350a0a42ed5a22ea075f"
+  integrity sha512-QntB0IYt1H+7HK+BDy1zTQ7ios4gs+x+nhm8xWHIz5ebLNivDQNN8d+Iir0lq6xT3WAle8dYYq6eMqqQxD1VTA==
   dependencies:
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"
