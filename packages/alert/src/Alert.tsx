@@ -2,15 +2,21 @@ import * as React from 'react';
 import { clsx, clsx as clx, nature, PropsOf } from '@nature-ui/system';
 
 import { createContext, __DEV__ } from '@nature-ui/utils';
-import { Icon, Fi, SvgIconProps } from '@nature-ui/icons';
+import { Icon, SvgIconProps } from '@nature-ui/icon';
+import {
+  FiAlertCircle,
+  FiInfo,
+  FiCheckCircle,
+  FiAlertTriangle,
+} from 'react-icons/fi';
 
 const SUBTLE_TEXT = 'text-gray-800';
 
-export const ALERT_STATUSES: any = {
+export const ALERT_STATUSES = {
   error: {
     bg: 'bg-red-200',
     iconColor: 'text-red-600 mr-3',
-    icon: Fi.FiAlertCircle,
+    icon: FiAlertCircle,
     variant: {
       solid: 'bg-red-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -19,16 +25,16 @@ export const ALERT_STATUSES: any = {
   info: {
     bg: 'bg-blue-200',
     iconColor: 'text-blue-600 mr-3',
-    icon: Fi.FiInfo,
+    icon: FiInfo,
     variant: {
-      solid: 'bg-blue-600',
+      solid: 'bg-blue-600 text-white',
       subtle: SUBTLE_TEXT,
     },
   },
   success: {
     bg: 'bg-green-200',
     iconColor: 'text-green-600 mr-3',
-    icon: Fi.FiCheckCircle,
+    icon: FiCheckCircle,
     variant: {
       solid: 'bg-green-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -37,7 +43,7 @@ export const ALERT_STATUSES: any = {
   warning: {
     bg: 'bg-orange-200',
     iconColor: 'text-orange-600 mr-3',
-    icon: Fi.FiAlertTriangle,
+    icon: FiAlertTriangle,
     variant: {
       solid: 'bg-orange-600 text-white',
       subtle: SUBTLE_TEXT,

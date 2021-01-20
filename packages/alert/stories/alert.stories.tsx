@@ -59,15 +59,22 @@ export const Warning = () => {
   );
 };
 
-export const Solid = () => {
+export const Solids = () => {
   return (
-    <Alert
-      status='success'
-      alertTitle={<div>Success alert</div>}
-      variant='solid'
-    >
-      This is a solid variant!
-    </Alert>
+    <Stack spacing='10px'>
+      <Alert status='success' alertTitle='Success alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+      <Alert status='info' alertTitle='Info alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+      <Alert status='warning' alertTitle='Warning alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+      <Alert status='error' alertTitle='Error alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+    </Stack>
   );
 };
 
