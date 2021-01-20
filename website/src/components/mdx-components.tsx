@@ -21,7 +21,10 @@ const Table = (props) => (
 );
 
 const THead = (props) => (
-  <El.th className='bg-gray-50 p-2 font-semibold text-sm ' {...props} />
+  <El.th
+    className='bg-gray-25 bg-opacity-10 p-2 font-semibold text-sm '
+    {...props}
+  />
 );
 
 const TData = (props) => (
@@ -68,7 +71,7 @@ const LinkedHeading = (props: PropsOf<typeof El.h2>) => {
 };
 
 const InlineCode = (props: any) => (
-  <El.code className='text-accent-100 ' {...props} />
+  <El.code className='text-accent-600 ' {...props} />
 );
 
 const MDXComponents = {
@@ -80,11 +83,11 @@ const MDXComponents = {
     />
   ),
   h3: (props) => (
-    <LinkedHeading className='text-xl font-medium' as='h3' {...props} />
+    <LinkedHeading className='text-xl font-medium mt-6' as='h3' {...props} />
   ),
   h4: (props) => <LinkedHeading as='h4' {...props} />,
   hr: (props) => <Divider {...props} />,
-  strong: (props) => <Box className='font-medium' {...props} />,
+  strong: (props) => <Box className='font-medium ' {...props} />,
   inlineCode: InlineCode,
   code: CodeBlock,
   pre: Pre,

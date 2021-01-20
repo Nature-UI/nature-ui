@@ -1,10 +1,12 @@
-import React from 'react';
-import { Container, Button, Box } from '@nature-ui/core';
+/** @jsx jsx */
+import { Container, Button, Box, jsx } from '@nature-ui/core';
 import { Ai, Io, Md } from '@nature-ui/icons';
+import Link from 'next/link';
 
 import Header from 'components/header';
 import { Feature } from 'components/feature';
 import Footer from 'components/footer';
+import siteConfig from 'configs/site-config';
 
 const Index = () => {
   return (
@@ -18,21 +20,29 @@ const Index = () => {
           </h1>
 
           <Box className='mt-12'>
-            <Button
-              color='gradient-button'
-              size='lg'
-              className='w-full mb-4 sm:mb-0 sm:w-auto sm:mr-8 shadow-gradient hover:opacity-80'
-            >
-              Get started
-            </Button>
-            <Button
-              size='lg'
-              color='gray-200'
-              text='gray-1000'
-              className='w-full sm:w-auto'
-            >
-              <Io.IoLogoGithub size='1.5rem' className='mr-2' /> Github
-            </Button>
+            <Link href='/docs/getting-started'>
+              <a>
+                <Button
+                  color='gradient-button'
+                  size='lg'
+                  className='w-full mb-4 sm:mb-0 sm:w-auto sm:mr-8 shadow-gradient hover:opacity-80'
+                >
+                  Get started
+                </Button>
+              </a>
+            </Link>
+            <Link href={siteConfig.repo.url}>
+              <a target='_blank'>
+                <Button
+                  size='lg'
+                  color='gray-200'
+                  text='gray-1000'
+                  className='w-full sm:w-auto'
+                >
+                  <Io.IoLogoGithub size='1.5rem' className='mr-2' /> Github
+                </Button>
+              </a>
+            </Link>
           </Box>
         </Container>
       </main>

@@ -102,3 +102,46 @@ kinds of layouts. Here's an example of a custom alert style and layout:
   </AlertDescription>
 </AlertWrapper>
 ```
+
+`Alert` can also incorporate other Nature UI components. Here's an example of an
+alert with wrapping description text:
+
+```jsx
+<AlertWrapper status='success'>
+  <AlertIcon />
+  <Box className='flex-1'>
+    <AlertTitle>Success!</AlertTitle>
+    <AlertDescription className='block'>
+      Your application has been received. We will review your application and
+      respond within the next 48 hours.
+    </AlertDescription>
+  </Box>
+  <CloseButton className='absolute right-3 top-3' />
+</AlertWrapper>
+```
+
+## Props
+
+### Alert Props
+
+| Name    | Type                                           | Default  | Description                            |
+| ------- | ---------------------------------------------- | -------- | -------------------------------------- |
+| status  | `error`, `success`, `warning`, `info`          | `info`   | The status of the alert                |
+| variant | `subtle`, `solid`, `left-accent`, `top-accent` | `subtle` | The variant of the alert style to use. |
+
+### AlertWrapper Props
+
+`AlertIcon` composes `Alert` and changes the icon or background respectively
+based on the `status` or `variant` prop.
+
+### AlertIcon Props
+
+`AlertIcon` composes `Icon` and changes the icon based on the `status` prop.
+
+### AlertTitle Props
+
+`AlertTitle` composes the `Box` component.
+
+### AlertDescription Props
+
+`AlertDescription` composes the `Box` component.

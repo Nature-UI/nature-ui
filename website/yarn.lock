@@ -506,9 +506,10 @@
 
 "@nature-ui/alert@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2falert/-/alert-1.0.1.tgz#705cee30d031249746dd9ceaa8daae6818b3d9b2"
-  integrity sha512-SVxVx83SPgUsnVwcdoD6CufEzved5WwQwqFAW2tpz3XgF/MTkB3y0IrZFSgbUXq/pqt88ndY+dKq7VewuRikAg==
+  resolved "http://localhost:4873/@nature-ui%2falert/-/alert-1.0.1.tgz#974db187be6e5dcaea9f03a76ed8b02fdad63ff3"
+  integrity sha512-x0Fd9/s68kZT1K7EWfNCXednDzLho+IYHxEh2Y+3MEx5s+Eapy7DVMdFO+0h7lSE8Bt9kaidQjmb5y7wl7eZMA==
   dependencies:
+    "@nature-ui/icons" "^1.0.1"
     "@nature-ui/system" "^1.0.1"
     "@nature-ui/utils" "^1.0.1"
     "@testing-library/react" "^11.2.2"

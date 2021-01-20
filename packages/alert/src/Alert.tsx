@@ -2,11 +2,11 @@ import * as React from 'react';
 import { clsx, clsx as clx, nature, PropsOf } from '@nature-ui/system';
 
 import { createContext, __DEV__ } from '@nature-ui/utils';
-import { Icon, Fi, IconProps } from '@nature-ui/icons';
+import { Icon, Fi, SvgIconProps } from '@nature-ui/icons';
 
 const SUBTLE_TEXT = 'text-gray-800';
 
-export const ALERT_STATUSES = {
+export const ALERT_STATUSES: any = {
   error: {
     bg: 'bg-red-200',
     iconColor: 'text-red-600 mr-3',
@@ -150,9 +150,7 @@ if (__DEV__) {
   AlertDescription.displayName = 'AlertDescription';
 }
 
-const SpanTag = nature('span');
-
-export type AlertIconProps = IconProps & PropsOf<typeof SpanTag>;
+export type AlertIconProps = SvgIconProps;
 
 export const AlertIcon = (props: AlertIconProps) => {
   const { className = '', size = 20, ...rest } = props;

@@ -94,7 +94,7 @@ const MainNavLink = ({ href, icon, children }) => {
           },
         )}
       >
-        <El.div className='flex items-center justify-center w-6 h-6 bg-gradient-button rounded-md mr-3'>
+        <El.div className='flex items-center justify-center w-6 h-6 bg-primary-75 rounded-md mr-3'>
           {icon}
         </El.div>
         {children}

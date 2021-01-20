@@ -21,7 +21,11 @@ module.exports = {
           25: '#B6BABE',
         },
         accent: {
-          100: '#38B2AC',
+          600: '#14ABA4',
+          500: '#48B9B4',
+          400: '#7DC8C5',
+          300: '#B0D6D4',
+          200: '#D0DFDF',
         },
         orange: {
           100: '#FFFAF0',
