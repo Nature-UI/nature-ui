@@ -92,44 +92,16 @@
           "open": true,
           "routes": [
             {
-              "title": "Aspect Ratio",
-              "path": "/docs/layout/aspect-ratio"
-            },
-            {
               "title": "Box",
               "path": "/docs/layout/box"
-            },
-            {
-              "title": "Center",
-              "path": "/docs/layout/center"
             },
             {
               "title": "Container",
               "path": "/docs/layout/container"
             },
             {
-              "title": "Flex",
-              "path": "/docs/layout/flex"
-            },
-            {
-              "title": "Grid",
-              "path": "/docs/layout/grid"
-            },
-            {
-              "title": "Link",
-              "path": "/docs/components/link"
-            },
-            {
-              "title": "SimpleGrid",
-              "path": "/docs/layout/simple-grid"
-            },
-            {
               "title": "Stack",
               "path": "/docs/layout/stack"
-            },
-            {
-              "title": "Wrap",
-              "path": "/docs/layout/wrap"
             }
           ]
         },
@@ -266,21 +238,6 @@
           ]
         },
         {
-          "title": "Typography",
-          "path": "/docs/typography",
-          "open": true,
-          "routes": [
-            {
-              "title": "Text",
-              "path": "/docs/typography/text"
-            },
-            {
-              "title": "Heading",
-              "path": "/docs/typography/heading"
-            }
-          ]
-        },
-        {
           "title": "Overlay",
           "path": "/docs/overlay",
           "open": true,
@@ -319,16 +276,8 @@
           "sort": true,
           "routes": [
             {
-              "title": "Accordion",
-              "path": "/docs/components/accordion"
-            },
-            {
               "title": "Breadcrumb",
               "path": "/docs/components/breadcrumb"
-            },
-            {
-              "title": "Tabs",
-              "path": "/docs/components/tabs"
             },
             {
               "title": "Visually Hidden",

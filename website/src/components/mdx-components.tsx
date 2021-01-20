@@ -1,13 +1,6 @@
 /** @jsx jsx */
-import {
-  Alert,
-  Box,
-  nature,
-  jsx,
-  PropsOf,
-  Divider,
-  clsx,
-} from '@nature-ui/core';
+import { Alert, Box, jsx, PropsOf, Divider, clsx } from '@nature-ui/core';
+import { Fa } from '@nature-ui/icons';
 import React from 'react';
 import CodeBlock from './codeblock/codeblock';
 import { El } from './nature-jsx-elements';
@@ -113,6 +106,7 @@ const MDXComponents = {
       {...props}
     />
   ),
+  Fa,
   // 'carbon-ad': CarbonAd,
   // ComponentLinks,
   // IconsList,

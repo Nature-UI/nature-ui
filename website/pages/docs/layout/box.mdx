@@ -1,0 +1,105 @@
+---
+title: Box
+package: 'Na-ui/layout'
+image: 'components/box.svg'
+description:
+  Box is the most abstract component on top of which all other Nature UI
+  components are built. By default, it renders a `div` element
+---
+
+Box is the most abstract component on top of which all other Nature UI
+components are built. By default, it renders a `div` element.
+
+## Import
+
+```js
+import { Box } from '@chakra-ui/react';
+```
+
+## Basic Usage
+
+```jsx
+<Box
+  css={{
+    backgroundColor: 'tomato',
+    width: '100%',
+  }}
+  className='p-4 text-white'
+>
+  This is the Box
+</Box>
+```
+
+### Usage
+
+```jsx
+// Sample card from Airbnb
+
+function AirbnbExample() {
+  const property = {
+    imageUrl: 'https://bit.ly/2Z4KKcF',
+    imageAlt: 'Rear view of modern home with pool',
+    beds: 3,
+    baths: 2,
+    title: 'Modern home in city center in the heart of historic Los Angeles',
+    formattedPrice: '$1,900.00',
+    reviewCount: 34,
+    rating: 4,
+  };
+
+  return (
+    <Box className='max-w-sm border border-gray-200 rounded-lg overflow-hidden'>
+      <Image src={property.imageUrl} alt={property.imageAlt} />
+
+      <Box className='p-6'>
+        <Box className='flex items-baseline'>
+          <Badge className='rounded-full px-2' variant='solid' color='blue-500'>
+            New
+          </Badge>
+          <Box className='text-gray-500 font-medium text-xs tracking-wide uppercase ml-2'>
+            {property.beds} beds &bull; {property.baths} baths
+          </Box>
+        </Box>
+
+        <Box className='mt-3 font-semibold leading-tight' as='h4'>
+          {property.title}
+        </Box>
+
+        <Box>
+          {property.formattedPrice}
+          <Box as='span' className='text-gray-600 text-sm'>
+            / wk
+          </Box>
+        </Box>
+
+        <Box className='flex mt-2 items-center'>
+          {Array(5)
+            .fill('')
+            .map((_, i) => (
+              <StarIcon
+                key={i}
+                className={
+                  i < property.rating ? 'text-blue-500' : 'text-gray-300'
+                }
+              />
+            ))}
+          <Box className='text-gray-600 ml-2 text-sm'>
+            {property.reviewCount} reviews
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+```
+
+### as prop
+
+You can use the `as` prop to change the element render, just like
+styled-components.
+
+```jsx
+<Box as='button' className='rounded-md bg-purple-600 text-white px-4 h-8'>
+  Button
+</Box>
+```
