@@ -10,7 +10,7 @@ html {
   overflow-x: hidden;
   @apply bg-gray-100;
   @apply text-gray-75;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 h1,
