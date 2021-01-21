@@ -1,0 +1,152 @@
+---
+title: Checkbox
+package: '@nature-ui/checkbox'
+image: 'components/checkbox.svg'
+description:
+  Checkbox component is used in forms when a user needs to select multiple
+  values from several options.
+---
+
+The `Checkbox` component is used in forms when a user needs to select multiple
+values from several options.
+
+Native HTML checkboxes are 100% accessible by default, so we used a
+[very common CSS technique](https://dev.to/lkopacz/create-custom-keyboard-accessible-checkboxes-2036)
+to style the checkboxes.
+
+## Import
+
+```js
+import { Checkbox, CheckboxGroup } from '@nature-ui/core';
+```
+
+## Usage
+
+Basic usage of `Checkbox`.
+
+```jsx
+<Checkbox defaultIsChecked>Checkbox</Checkbox>
+```
+
+### Disabled Checkbox
+
+```jsx
+<Stack spacing={10} direction='row'>
+  <Checkbox isDisabled>Checkbox</Checkbox>
+  <Checkbox isDisabled defaultIsChecked>
+    Checkbox
+  </Checkbox>
+</Stack>
+```
+
+### Checkbox with custom color
+
+You can override the color of the `Checkbox` to any color key specified in
+`theme.colors`.
+
+```jsx
+<Stack spacing={10} direction='row'>
+  <Checkbox color='purple-500' defaultIsChecked>
+    Checkbox
+  </Checkbox>
+  <Checkbox color='green-500' defaultIsChecked>
+    Checkbox
+  </Checkbox>
+</Stack>
+```
+
+### Checkbox sizes
+
+Pass the `size` prop to change the size of the `Checkbox`. Values can be either
+`sm`, `md` or `lg`.
+
+```jsx
+<Stack spacing={10} direction='row'>
+  <Checkbox size='sm' color='purple-500'>
+    Checkbox
+  </Checkbox>
+  <Checkbox size='md' color='green-500' defaultIsChecked>
+    Checkbox
+  </Checkbox>
+  <Checkbox size='lg' color='orange-500' defaultIsChecked>
+    Checkbox
+  </Checkbox>
+</Stack>
+```
+
+### Invalid Checkbox
+
+```jsx
+<Checkbox isInvalid>Checkbox</Checkbox>
+```
+
+### Changing the spacing
+
+We added the `spacing` prop to customize the spacing between the `Checkbox` and
+label text.
+
+```jsx live=false
+<Checkbox spacing='1rem'>Option</Checkbox>
+```
+
+### Changing the icon size
+
+You can customize the size of the check icon by passing the `iconSize` prop.
+
+```jsx live=false
+<Checkbox iconSize='1rem'>Option</Checkbox>
+```
+
+### Indeterminate
+
+```jsx
+function IndeterminateExample() {
+  const [checkedItems, setCheckedItems] = React.useState([false, false]);
+
+  const allChecked = checkedItems.every(Boolean);
+  const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+
+  return (
+    <>
+      <Checkbox
+        isChecked={allChecked}
+        isIndeterminate={isIndeterminate}
+        onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
+      >
+        Parent Checkbox
+      </Checkbox>
+      <Stack className={'pl-6 mt-1'} spacing={1}>
+        <Checkbox
+          isChecked={checkedItems[0]}
+          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+        >
+          Child Checkbox 1
+        </Checkbox>
+        <Checkbox
+          isChecked={checkedItems[1]}
+          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
+        >
+          Child Checkbox 2
+        </Checkbox>
+      </Stack>
+    </>
+  );
+}
+```
+
+### CheckboxGroup
+
+Chakra exports a `CheckboxGroup` component to help manage the checked state of
+its children `Checkbox` components and conveniently pass a few shared style
+props to each. See the props table at the bottom of this page for a list of the
+shared styling props.
+
+```jsx
+<CheckboxGroup color='green-600' defaultValue={['naruto', 'kakashi']}>
+  <Stack direction='row'>
+    <Checkbox value='naruto'>Naruto</Checkbox>
+    <Checkbox value='sasuke'>Sasuke</Checkbox>
+    <Checkbox value='kakashi'>kakashi</Checkbox>
+  </Stack>
+</CheckboxGroup>
+```

@@ -9,16 +9,22 @@ import {
 
 export interface CheckboxGroupProps extends UseCheckboxGroupProps {
   children?: React.ReactNode;
+  size?: string | undefined;
+  color?: string | undefined;
 }
 
 export type CheckboxGroupContext = Pick<
   UseCheckboxGroupReturn,
   'onChange' | 'value'
->;
+> & {
+  size?: string | undefined;
+  color?: string | undefined;
+};
 
-const [CheckboxGroupContextProvider, useCheckboxGroupContext] = createContext<
-  CheckboxGroupContext
->({
+const [
+  CheckboxGroupContextProvider,
+  useCheckboxGroupContext,
+] = createContext<CheckboxGroupContext>({
   name: 'CheckboxGroupContext',
   strict: false,
 });
@@ -31,13 +37,15 @@ export { useCheckboxGroupContext };
  *
  */
 export const CheckboxGroup = (props: CheckboxGroupProps) => {
-  const { children } = props;
+  const { children, color, size } = props;
   const { value, onChange } = useCheckboxGroup(props);
 
   const group = React.useMemo(
     () => ({
       onChange,
       value,
+      color,
+      size,
     }),
     [onChange, value],
   );

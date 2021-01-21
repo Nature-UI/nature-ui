@@ -101,6 +101,7 @@ export const CheckboxGroupExample = () => {
   return (
     <CheckboxGroup
       defaultValue={['one', 'two']}
+      color='green-500'
       onChange={(value) => console.log(value)}
     >
       <Stack spacing={24} direction='row'>
