@@ -1,14 +1,12 @@
-import * as React from 'react';
-import { nature, PropsOf, clsx } from '@nature-ui/system';
+/** @jsx jsx */
+import { nature, PropsOf, clsx, jsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 
 const DivTag = nature('div');
 
-export type ContainerProps = PropsOf<typeof DivTag>;
-
 // type Omitted = "size" | "boxSize" | "width" | "height" | "w" | "h"
 
-export type SquareProps = ContainerProps & {
+export type ContainerProps = PropsOf<typeof DivTag> & {
   /**
    * The size (width and height) of the square
    * It uses the range value in your tailwind.config.js file
@@ -24,18 +22,18 @@ export type SquareProps = ContainerProps & {
 };
 
 const sizes = {
-  xs: 'max-w-3xl',
-  sm: 'max-w-4xl',
+  xs: 'max-w-xl',
+  sm: 'max-w-3xl',
   md: 'max-w-5xl',
   lg: 'max-w-6xl',
-  xl: 'container',
+  xl: 'max-w-screen-xl',
 };
 
-export const Container = (props: SquareProps) => {
+export const Container = (props: ContainerProps) => {
   const {
     children,
     className = '',
-    size = 'Lg',
+    size = 'lg',
     centerContent = false,
     centered = false,
     ...rest
@@ -53,10 +51,8 @@ export const Container = (props: SquareProps) => {
     }
   });
 
-  console.log({ size });
-
-  const _classNames = clsx(className, 'px-6 px-0', {
-    [sizes[size]]: SIZE,
+  const _classNames = clsx(className, {
+    [sizes[size]]: sizes[size],
     'mx-auto': centered,
     [CENTER_CONTENT]: centerContent,
   });

@@ -49,7 +49,7 @@ export const SizeXS: React.FC = () => {
 
 export const Size500: React.FC = () => {
   return (
-    <Container className='bg-gray-300' size='500px' centered>
+    <Container className='bg-gray-300' size='300px' centered>
       I love Nature
     </Container>
   );
