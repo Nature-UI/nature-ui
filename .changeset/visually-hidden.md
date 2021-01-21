@@ -7,6 +7,8 @@
 '@nature-ui/container': patch
 '@nature-ui/alert': patch
 '@nature-ui/checkbox': patch
+'@nature-ui/form-control': patch
+'@nature-ui/radio': patch
 ---
 
 Re-Exported visually hidden module

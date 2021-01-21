@@ -13,6 +13,7 @@ export type RadioGroupContext = Pick<
   'onChange' | 'value' | 'name'
 > & {
   size?: 'sm' | 'md' | 'lg' | number;
+  color?: string;
 };
 
 const [
@@ -41,7 +42,7 @@ export type RadioGroupProps = UseRadioGroupProps &
  */
 export const RadioGroup = forwardRef(
   (props: RadioGroupProps, ref: React.Ref<any>) => {
-    const { size = 'md', children, className, ...hookProps } = props;
+    const { size = 'md', children, className, color, ...hookProps } = props;
 
     const { value, onChange, getRootProps, name, htmlProps } = useRadioGroup(
       hookProps,
@@ -52,6 +53,7 @@ export const RadioGroup = forwardRef(
         name,
         size,
         onChange,
+        color,
         value,
       }),
       [size, name, onChange, value],

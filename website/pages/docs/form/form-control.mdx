@@ -1,0 +1,141 @@
+---
+title: Form Control
+package: '@nature-ui/form-control'
+description:
+  Form Control provides context such as isInvalid, isDisabled, and isRequired to
+  form elements
+---
+
+FormControl provides context such as `isInvalid`, `isDisabled`, and `isRequired`
+to form elements.
+
+It follows the [WAI specifications](https://www.w3.org/WAI/tutorials/forms/) for
+forms.
+
+## Import
+
+```js
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from '@nature-ui/core';
+```
+
+## Usage
+
+```jsx
+<FormControl id='email'>
+  <FormLabel>Email address</FormLabel>
+  <Input type='email' />
+  <FormHelperText>We'll never share your email.</FormHelperText>
+</FormControl>
+```
+
+### Sample usage for a radio or checkbox group
+
+```jsx
+<FormControl as='fieldset'>
+  <FormLabel as='legend'>Favorite Naruto Character</FormLabel>
+  <RadioGroup defaultValue='Itachi'>
+    <Stack direction='row' spacing='2rem'>
+      {['Sasuke', 'Nagato', 'Itachi', 'Nature'].map((value) => (
+        <Radio key={value} value={value}>
+          {value}
+        </Radio>
+      ))}
+    </Stack>
+  </RadioGroup>
+  <FormHelperText>Select only if you're a fan.</FormHelperText>
+</FormControl>
+```
+
+### Making a field required
+
+By passing the `isRequired` props, the `Input` field has `aria-required` set to
+`true`, and the `FormLabel` will show a red asterisk.
+
+```jsx
+<FormControl id='first-name' isRequired>
+  <FormLabel>
+    First name <RequiredIndicator />
+  </FormLabel>
+  <Input placeholder='First name' />
+</FormControl>
+```
+
+### Select Example
+
+```jsx
+<FormControl id='country'>
+  <FormLabel>Country</FormLabel>
+  <select placeholder='Select country'>
+    <option>United Arab Emirates</option>
+    <option>Nigeria</option>
+  </select>
+</FormControl>
+```
+
+### Usage with Form Libraries
+
+Form Libraries like [Formik](https://jaredpalmer.com/formik/) make it soooo easy
+to manage form state and validation. I 💖 Formik
+
+```jsx
+function FormikExample() {
+  function validateName(value) {
+    let error;
+    if (!value) {
+      error = 'Name is required';
+    } else if (value !== 'Divine') {
+      error = "Jeez! You're not a fan 😱";
+    }
+    return error;
+  }
+
+  return (
+    <Formik
+      initialValues={{ name: 'Sasuke' }}
+      onSubmit={(values, actions) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2));
+          actions.setSubmitting(false);
+        }, 1000);
+      }}
+      render={(props) => (
+        <form onSubmit={props.handleSubmit}>
+          <Field
+            name='name'
+            validate={validateName}
+            render={({ field, form }) => (
+              <FormControl isInvalid={form.errors.name && form.touched.name}>
+                <FormLabel htmlFor='name'>First name</FormLabel>
+                <Input {...field} id='name' placeholder='name' />
+                <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+              </FormControl>
+            )}
+          />
+          <Button
+            color='purple-600'
+            isLoading={props.isSubmitting}
+            type='submit'
+            className='mt-4'
+          >
+            Submit
+          </Button>
+        </form>
+      )}
+    />
+  );
+}
+```
+
+## Props
+
+| Name         | Type      | Default | Description                                     |
+| ------------ | --------- | ------- | ----------------------------------------------- |
+| `isInvalid`  | `boolean` | `false` | If `true`, this prop is passed to its children. |
+| `isRequired` | `boolean` | `false` | If `true`, this prop is passed to its children. |
+| `isDisabled` | `boolean` | `false` | If `true`, this prop is passed to its children. |
+| `isReadOnly` | `boolean` | `false` | If `true`, this prop is passed to its children. |

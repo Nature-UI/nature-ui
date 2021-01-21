@@ -641,8 +641,8 @@
 
 "@nature-ui/form-control@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/form-control/-/form-control-1.0.1.tgz#528b0aa1af474b69e0f19361084dd075339e9027"
-  integrity sha512-G6I1o6X88ZsFkfVNHHeq7Nup3ETCxoBe9LGhf0hDeM82Ld9QXXD6dMaZ/4dzqtdCspj3K+M9vNoQJDONKCabug==
+  resolved "http://localhost:4873/@nature-ui%2fform-control/-/form-control-1.0.1.tgz#352d3ab05ae91beeb59e9a14334c6621ada9d9af"
+  integrity sha512-wqJM99UgU6m/DXUYVU0aIww1ERsgozVCKe68AE6Tm3muZuGYqTPcIUNVacJf5jhziYumnO/W6jueG+CdLHs4eQ==
   dependencies:
     "@nature-ui/hooks" "^1.0.2"
     "@nature-ui/icon" "^1.0.1"
@@ -749,8 +749,8 @@
 
 "@nature-ui/radio@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/radio/-/radio-1.0.1.tgz#9562912724721a0020362dea53cab4063544eaef"
-  integrity sha512-boiNCsoFy7UmF45ckF7X0Qggq2tOASR2q8VCVhXIal/QpfyJPjdkpolui5c4q8bF9UNYt7ptucjui+N+QI0CVA==
+  resolved "http://localhost:4873/@nature-ui%2fradio/-/radio-1.0.1.tgz#7ee938e1c7bd954858eaad63f241b37eed4bc48c"
+  integrity sha512-vJHzSQkICz6mRpNDl1mpl2q3tgJbeLL07SHB0R82IQGjnQ9aI2ZBTy4LUis/Tpn7zZZhRNTPkGZma6NKdEWa/A==
   dependencies:
     "@nature-ui/hooks" "^1.0.2"
     "@nature-ui/utils" "^1.0.1"
