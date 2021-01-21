@@ -130,11 +130,11 @@ const StyledInput = (props: StyledInputProps) => {
       border: !isInvalid && _outline,
       [_border]: !isReadOnly && (_outline || _filled),
       'cursor-not-allowed opacity-50': isDisabled,
-      'border-solid border-gray-400': _outline,
+      'border-solid border-gray-200': _outline,
       'focus:border-blue-600': !isInvalid && (_outline || _filled),
       'hover:bg-gray-300 bg-gray-200 focus:bg-transparent': _filled,
       [`${String(_padding)} rounded`]: _filled || _outline,
-      'border-b-2 border-gray-300 focus:border-blue-600': _flushed,
+      'border-b-2 border-gray-200 focus:border-blue-600': _flushed,
       [(String(_height), String(_css))]: !_unstyled,
     },
   );

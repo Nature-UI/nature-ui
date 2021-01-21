@@ -685,8 +685,8 @@
 
 "@nature-ui/input@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/input/-/input-1.0.1.tgz#12cf465b3ee8fada6f5f3dd8beedefd5376ae8ec"
-  integrity sha512-1OB6LOdb2rGaTeX969D/8yVg2l9srN6JssTI+82WBL41GuBxrLma2oTwQ8yEYb651y2CEl8N9QqC4oi1UlBxSQ==
+  resolved "http://localhost:4873/@nature-ui%2finput/-/input-1.0.1.tgz#97d47b3c4ee978d85ff880389f6a52c7f28c3c5d"
+  integrity sha512-thwm37pMofR70IT/YTh2aXP4RMDXKV5Tf01sqEF3ItqzmkXPf4T7EswWDYuyYH/vLFJYmF52AH+DrEluRLSdfg==
   dependencies:
     "@nature-ui/form-control" "^1.0.1"
     "@nature-ui/system" "^1.0.1"

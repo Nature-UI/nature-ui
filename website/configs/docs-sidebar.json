@@ -132,10 +132,6 @@
               "path": "/docs/form/input"
             },
             {
-              "title": "Number Input",
-              "path": "/docs/form/number-input"
-            },
-            {
               "title": "Pin Input",
               "path": "/docs/form/pin-input"
             },

@@ -9,6 +9,7 @@
 '@nature-ui/checkbox': patch
 '@nature-ui/form-control': patch
 '@nature-ui/radio': patch
+'@nature-ui/input': patch
 ---
 
 Re-Exported visually hidden module
