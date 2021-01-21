@@ -43,16 +43,16 @@ Link.args = {
 export const Sizes = () => {
   return (
     <Stack spacing='1rem'>
-      <Button size='xs' className='mr-4' color='blue-500' variant='solid'>
+      <Button size='xs' color='blue-500' variant='solid'>
         Button
       </Button>
-      <Button size='sm' className='mr-4' color='blue-500' variant='solid'>
+      <Button size='sm' color='blue-500' variant='solid'>
         Button
       </Button>
-      <Button size='md' className='mr-4' color='blue-500' variant='solid'>
+      <Button size='md' color='blue-500' variant='solid'>
         Button
       </Button>
-      <Button size='lg' className='mr-4' color='blue-500' variant='solid'>
+      <Button size='lg' color='blue-500' variant='solid'>
         Button
       </Button>
     </Stack>
