@@ -13,6 +13,7 @@
 '@nature-ui/modal': patch
 '@nature-ui/alert-dialog': patch
 '@nature-ui/button': patch
+'@nature-ui/popover': patch
 '@nature-ui/textarea': prerelease
 ---
 

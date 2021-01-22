@@ -1,5 +1,6 @@
-import { nature } from '@nature-ui/system';
+import { Input } from '@nature-ui/input';
 import { Button } from '@nature-ui/button';
+import { Box, Stack } from '@nature-ui/layout';
 import * as React from 'react';
 
 import {
@@ -11,12 +12,17 @@ import {
   PopoverBody,
   PopoverArrow,
   PopoverCloseButton,
+  PopoverFooter,
 } from '../src';
 
 export default {
   title: 'Popover',
   component: Popover,
-  decorators: [(story: Function) => <div className='mt-64'>{story()}</div>],
+  decorators: [
+    (story: Function) => (
+      <div className='mt-64 mx-auto max-w-screen-sm'>{story()}</div>
+    ),
+  ],
 };
 
 export const PopoverExample = () => {
@@ -60,8 +66,6 @@ export const simple = () => (
   </Popover>
 );
 
-const Input = nature('input');
-
 export const basic = () => (
   <>
     <Popover placement='top'>
@@ -96,3 +100,40 @@ export const basic = () => (
     <Input />
   </>
 );
+
+export function WalkthroughPopover() {
+  const initialFocusRef = React.useRef();
+  return (
+    <Popover
+      initialFocusRef={initialFocusRef}
+      placement='bottom'
+      closeOnBlur={false}
+    >
+      <PopoverTrigger>
+        <Button className='ml-12  '>Trigger</Button>
+      </PopoverTrigger>
+      <PopoverContent className='w-full px-3 bg-blue-800 text-white border-blue-800'>
+        <PopoverHeader className='pt-4 font-bold border-none'>
+          Manage Your Channels
+        </PopoverHeader>
+        <PopoverArrow />
+        <PopoverCloseButton />
+        <PopoverBody>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore.
+        </PopoverBody>
+        <PopoverFooter className='flex pb-4 border-none justify-between items-center'>
+          <Box className='text-sm'>Step 2 of 4</Box>
+          <Stack direction='row' spacing='1rem'>
+            <Button size='sm' className='block' color='green-500'>
+              Setup Email
+            </Button>
+            <Button size='sm' color='blue-500' ref={initialFocusRef}>
+              Next
+            </Button>
+          </Stack>
+        </PopoverFooter>
+      </PopoverContent>
+    </Popover>
+  );
+}

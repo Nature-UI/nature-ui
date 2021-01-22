@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
-import { nature, PropsOf } from '@nature-ui/system';
+import { clsx, nature, PropsOf, jsx } from '@nature-ui/system';
 import {
   createContext,
   isFunction,
@@ -11,9 +12,10 @@ import * as React from 'react';
 
 import { usePopover, UsePopoverProps, UsePopoverReturn } from './use-popover';
 
-const [PopoverContextProvider, usePopoverContext] = createContext<
-  UsePopoverReturn
->({
+const [
+  PopoverContextProvider,
+  usePopoverContext,
+] = createContext<UsePopoverReturn>({
   name: 'PopoverContext',
 });
 
@@ -89,7 +91,7 @@ export type PopoverContentProps = PropsOf<typeof SectionTag>;
  * accessibility requirements for a popover
  */
 export const PopoverContent = React.forwardRef(
-  (props: PopoverContentProps, ref: React.Ref<any>) => {
+  ({ className, ...props }: PopoverContentProps, ref: React.Ref<any>) => {
     const { getPopoverProps } = usePopoverContext();
 
     const { hidden, 'aria-hidden': ariaHidden, ...rest } = getPopoverProps({
@@ -100,17 +102,21 @@ export const PopoverContent = React.forwardRef(
     const _hidden = hidden || ariaHidden;
 
     return (
-      <>
+      <React.Fragment>
         {!_hidden && (
           <SectionTag
-            className='relative flex flex-col max-w-xs bg-white border shadow-md border-solid rounded focus:shadow-outline outline-none z-50'
+            className={clsx(
+              className,
+              'relative flex flex-col max-w-xs bg-white border shadow-md border-solid rounded focus:shadow-outline outline-none z-50',
+            )}
             css={{
               borderColor: 'inherit',
             }}
             {...rest}
+            {...{ hidden, 'aria-hidden': ariaHidden }}
           />
         )}
-      </>
+      </React.Fragment>
     );
   },
 );
@@ -137,7 +143,7 @@ export type PopoverHeaderProps = PropsOf<typeof HeaderTag>;
  * screenreaders.
  */
 export const PopoverHeader = React.forwardRef(
-  (props: PopoverHeaderProps, ref: React.Ref<any>) => {
+  ({ className, ...props }: PopoverHeaderProps, ref: React.Ref<any>) => {
     const { headerId, setHasHeader } = usePopoverContext();
 
     useSafeLayoutEffect(() => {
@@ -148,7 +154,10 @@ export const PopoverHeader = React.forwardRef(
 
     return (
       <HeaderTag
-        className='nature-popover__header px-3 py-2 border-solid border border-t-0 border-r-0 border-l-0'
+        className={clsx(
+          className,
+          'nature-popover__header px-3 py-2 border-solid border border-t-0 border-r-0 border-l-0',
+        )}
         {...props}
         id={headerId}
         ref={ref}
@@ -178,7 +187,7 @@ const DivTag = nature('div');
  * at least one interactive element.
  */
 export const PopoverBody = React.forwardRef(
-  (props: PopoverBodyProps, ref: React.Ref<any>) => {
+  ({ className, ...props }: PopoverBodyProps, ref: React.Ref<any>) => {
     const { bodyId, setHasBody } = usePopoverContext();
 
     useSafeLayoutEffect(() => {
@@ -189,7 +198,7 @@ export const PopoverBody = React.forwardRef(
 
     return (
       <HeaderTag
-        className='nature-popover__body px-3 py-2'
+        className={clsx(className, 'nature-popover__body px-3 py-2')}
         {...props}
         id={bodyId}
         ref={ref}
@@ -204,10 +213,16 @@ if (__DEV__) {
 
 const FooterTag = nature('footer');
 
-export const PopoverFooter = (props: PropsOf<typeof FooterTag>) => {
+export const PopoverFooter = ({
+  className,
+  ...props
+}: PropsOf<typeof FooterTag>) => {
   return (
     <FooterTag
-      className='px-3 py-2 border-solid border border-b-0 border-r-0 border-l-0'
+      className={clsx(
+        className,
+        'px-3 py-2 border-solid border border-b-0 border-r-0 border-l-0',
+      )}
       {...props}
     />
   );
@@ -224,14 +239,20 @@ export type PopoverCloseButtonProps = CloseButtonProps;
  *
  * The button to close the popover
  */
-export const PopoverCloseButton = (props: CloseButtonProps) => {
+export const PopoverCloseButton = ({
+  className,
+  ...props
+}: CloseButtonProps) => {
   const { onClose } = usePopoverContext();
 
   return (
     <CloseButton
       size='xs'
       onClick={onClose}
-      className='absolute rounded-md top-0 right-0 p-2 mt-1 mr-2'
+      className={clsx(
+        className,
+        'absolute rounded-md top-0 right-0 p-2 mt-1 mr-2',
+      )}
       {...props}
     />
   );
@@ -243,10 +264,12 @@ if (__DEV__) {
 
 export type PopoverArrowProps = PropsOf<typeof DivTag>;
 
-export const PopoverArrow = (props: PopoverArrowProps) => {
+export const PopoverArrow = ({ className, ...props }: PopoverArrowProps) => {
   const { getArrowProps } = usePopoverContext();
 
-  return <DivTag className='bg-white' {...getArrowProps(props)} />;
+  return (
+    <DivTag className={clsx(className, 'bg-white')} {...getArrowProps(props)} />
+  );
 };
 
 if (__DEV__) {
