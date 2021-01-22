@@ -134,10 +134,6 @@
             {
               "title": "Radio",
               "path": "/docs/form/radio"
-            },
-            {
-              "title": "Textarea",
-              "path": "/docs/form/textarea"
             }
           ]
         },
