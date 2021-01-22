@@ -23,5 +23,6 @@ export * from '@nature-ui/radio';
 export * from '@nature-ui/spinner';
 export * from '@nature-ui/system';
 export * from '@nature-ui/toast';
+// export * from '@nature-ui/textarea';
 export * from '@nature-ui/transition';
 export * from '@nature-ui/visually-hidden';

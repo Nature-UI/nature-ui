@@ -80,6 +80,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    // borderColor: ['active', 'focus', 'hover'],
+  },
   plugins: [],
 };

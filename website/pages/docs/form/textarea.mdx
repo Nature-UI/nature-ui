@@ -1,0 +1,44 @@
+---
+title: Textarea
+package: '@nature-ui/textarea'
+description:
+  The Textarea component allows you to easily create multi-line text inputs.
+---
+
+The `Textarea` component allows you to easily create multi-line text inputs.
+
+## Import
+
+```js
+import { Textarea } from '@nature-ui/core';
+```
+
+### Usage
+
+```jsx
+<Textarea placeholder='Here is a sample placeholder' />
+```
+
+### Controlled Textarea
+
+```jsx
+function Example() {
+  let [value, setValue] = React.useState('');
+
+  let handleInputChange = (e) => {
+    let inputValue = e.target.value;
+    setValue(inputValue);
+  };
+  return (
+    <>
+      <p className='mb-3'>Value: {value}</p>
+      <Textarea
+        value={value}
+        onChange={handleInputChange}
+        placeholder='Here is a sample placeholder'
+        size='sm'
+      />
+    </>
+  );
+}
+```

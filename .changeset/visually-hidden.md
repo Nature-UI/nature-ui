@@ -10,6 +10,7 @@
 '@nature-ui/form-control': patch
 '@nature-ui/radio': patch
 '@nature-ui/input': patch
+'@nature-ui/textarea': patch
 ---
 
 Re-Exported visually hidden module
