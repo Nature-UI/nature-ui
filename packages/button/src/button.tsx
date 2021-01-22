@@ -134,7 +134,7 @@ export const Button = React.forwardRef(
     const {
       as,
       variant = 'solid',
-      color = 'blue-500',
+      color = 'gray-200',
       size = 'md',
       children,
       text: _text,
@@ -149,7 +149,15 @@ export const Button = React.forwardRef(
       ...rest
     } = props;
 
-    let text = _text || 'white';
+    const textColor = (): string => {
+      const amount = Number(color.split('-')[1]);
+      if (amount >= 300) {
+        return 'white';
+      }
+      return 'gray-600';
+    };
+
+    let text = _text || textColor();
 
     const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
     const _font = _SIZES[size].font ?? '1rem';

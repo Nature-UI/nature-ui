@@ -536,8 +536,8 @@
 
 "@nature-ui/button@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/button/-/button-1.0.1.tgz#a77deecf6480a4afd12378f0c407358c96070276"
-  integrity sha512-sImEAQd7D1B5bI40RAvQspSTAsGxkvkb6Fz/ggSnQkK92vFjIMtXom8AXWq6Dnofsn7GzpmNdkRh95aFRfRxQA==
+  resolved "http://localhost:4873/@nature-ui%2fbutton/-/button-1.0.1.tgz#e12487614fa8052f379126d2223bed180725ac49"
+  integrity sha512-9QRDONW2peDEZqQ9C5R7mYT0Bk5uh2p31Xt9/dUc9Lz25AqFamMtzmICwnWcsq0VvhkM2A4wkPGCBHXoQRPjJw==
   dependencies:
     "@nature-ui/spinner" "^1.0.1"
     "@nature-ui/system" "^1.0.1"
@@ -702,8 +702,8 @@
 
 "@nature-ui/modal@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/modal/-/modal-1.0.1.tgz#ee494e85960c0cd322846a0533937055bc5e2b6d"
-  integrity sha512-0oO43ICQlT5DUn5uGLnUXqoaSxAZHXqPXv5qi8w+sqJUfs63J7uD0IejUsj0HrUHD0tFZRBsGDU6t6/TufG5TA==
+  resolved "http://localhost:4873/@nature-ui%2fmodal/-/modal-1.0.1.tgz#c2287016c871b19480c8579ef1dc63c190fc99cf"
+  integrity sha512-4JtW2vU1ApKwXx0t+8M5yJrXoQ9SqN7ECdRkwQbnZAlfZ4i7nfD041GcSFEqV2X2D9HoLwwtvPgXdnzOhY3nnQ==
   dependencies:
     "@nature-ui/close-button" "^1.0.1"
     "@nature-ui/focus-lock" "^1.0.1"
