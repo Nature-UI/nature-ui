@@ -132,24 +132,8 @@
               "path": "/docs/form/input"
             },
             {
-              "title": "Pin Input",
-              "path": "/docs/form/pin-input"
-            },
-            {
               "title": "Radio",
               "path": "/docs/form/radio"
-            },
-            {
-              "title": "Select",
-              "path": "/docs/form/select"
-            },
-            {
-              "title": "Slider",
-              "path": "/docs/form/slider"
-            },
-            {
-              "title": "Switch",
-              "path": "/docs/form/switch"
             },
             {
               "title": "Textarea",
