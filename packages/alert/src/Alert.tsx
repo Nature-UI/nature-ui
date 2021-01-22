@@ -76,6 +76,9 @@ interface AlertOptions {
 }
 
 const DivTag = nature('div');
+const SpanTag = nature('span');
+const PTag = nature('p');
+const H3 = nature('p');
 
 export type AlertProps = AlertOptions & PropsOf<typeof DivTag>;
 
@@ -113,7 +116,7 @@ export const AlertWrapper = (props: AlertProps) => {
     <AlertProvider value={context}>
       <Component className={componentClass} {...rest} role={role}>
         {hasIcon && (
-          <DivTag
+          <SpanTag
             className={clsx('absolute top-0 left-0 mr-2', {
               'h-full w-1 ': variant === 'left-accent',
               'w-full h-1 ': variant === 'top-accent',
@@ -136,20 +139,17 @@ export type AlertTitleProps = PropsOf<typeof DivTag>;
 export const AlertTitle = (props: AlertTitleProps) => {
   const { className = '', ...rest } = props;
 
-  return <DivTag className={clx(className, 'font-bold')} {...rest} />;
+  return <H3 className={clx(className, 'font-bold')} {...rest} />;
 };
 
 if (__DEV__) {
   AlertTitle.displayName = 'AlertTitle';
 }
 
-export type AlertDescriptionProps = PropsOf<typeof DivTag>;
+export type AlertDescriptionProps = PropsOf<typeof PTag>;
 
 export const AlertDescription = (props: AlertDescriptionProps) => {
-  const { className = '', ...rest } = props;
-  // const Component = 'div';
-
-  return <DivTag className={className} {...rest} />;
+  return <PTag {...props} />;
 };
 
 if (__DEV__) {
@@ -196,7 +196,7 @@ export const Alert = (props: AlertProps) => {
   return (
     <AlertWrapper {...rest} variant={variant} status={status}>
       {hasIcon && <AlertIcon />}
-      <AlertTitle className='mr-3'>{alertTitle}</AlertTitle>
+      {alertTitle && <AlertTitle className='mr-3'>{alertTitle}</AlertTitle>}
       <AlertDescription>{children}</AlertDescription>
     </AlertWrapper>
   );

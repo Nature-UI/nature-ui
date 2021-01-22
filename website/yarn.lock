@@ -506,8 +506,8 @@
 
 "@nature-ui/alert@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2falert/-/alert-1.0.1.tgz#de97244e2b2cdbb841e414ef9abe69872d2421c2"
-  integrity sha512-BjDfK5UsRByjE5hn1pKJIaN7vabvMyqVuXxZtlgjnWO3HcpV0eznaGYOFOZtw3WEUUIZIVxx21H5eIsCaXVonQ==
+  resolved "http://localhost:4873/@nature-ui%2falert/-/alert-1.0.1.tgz#c31b5a8ea7538aa123f849fc723f57342e453393"
+  integrity sha512-rOOoK4D7TsosU0OPttosUvSljrCpkUyNTfQCmJig4xvi4wUOn2GGno7DA9naXtV0/6XMaUSlxvtx0drSPPvRgw==
   dependencies:
     "@nature-ui/icons" "^1.0.1"
     "@nature-ui/system" "^1.0.1"

@@ -80,7 +80,7 @@ const MDXComponents = {
   ),
   h4: (props) => <LinkedHeading as='h4' {...props} />,
   hr: (props) => <Divider {...props} />,
-  strong: (props) => <Box className='font-medium ' {...props} />,
+  strong: (props) => <Box as='strong' className='font-medium ' {...props} />,
   inlineCode: InlineCode,
   code: CodeBlock,
   pre: Pre,
