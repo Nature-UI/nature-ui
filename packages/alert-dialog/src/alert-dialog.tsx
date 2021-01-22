@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@nature-ui/system';
 import {
   Modal,
   ModalContent,

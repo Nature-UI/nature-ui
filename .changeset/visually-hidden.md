@@ -11,6 +11,7 @@
 '@nature-ui/radio': patch
 '@nature-ui/input': patch
 '@nature-ui/modal': patch
+'@nature-ui/alert-dialog': patch
 '@nature-ui/button': patch
 '@nature-ui/textarea': prerelease
 ---

@@ -702,8 +702,8 @@
 
 "@nature-ui/modal@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2fmodal/-/modal-1.0.1.tgz#c2287016c871b19480c8579ef1dc63c190fc99cf"
-  integrity sha512-4JtW2vU1ApKwXx0t+8M5yJrXoQ9SqN7ECdRkwQbnZAlfZ4i7nfD041GcSFEqV2X2D9HoLwwtvPgXdnzOhY3nnQ==
+  resolved "http://localhost:4873/@nature-ui%2fmodal/-/modal-1.0.1.tgz#2d5cc63f556df1c62a720d84e6f309fb5dc1d026"
+  integrity sha512-cOqX7WVyV7MlkfrD/rbxASXF89ADwoWW6RtS9scuPG0yv+fqds3nvzEBi/g9dQwTWK0z+8UZTjXjfctv3V6Trg==
   dependencies:
     "@nature-ui/close-button" "^1.0.1"
     "@nature-ui/focus-lock" "^1.0.1"

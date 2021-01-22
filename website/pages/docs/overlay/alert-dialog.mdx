@@ -51,7 +51,9 @@ function AlertDialogExample() {
 
   return (
     <>
-      <Button onClick={onOpen}>Delete something</Button>
+      <Button color='red-600' onClick={onOpen}>
+        Delete something
+      </Button>
       <AlertDialog
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
@@ -74,7 +76,10 @@ function AlertDialogExample() {
               >
                 Nevermind
               </Button>
-              <Button className='ml-3 bg-red-500 text-white hover:bg-red-600'>
+              <Button
+                color='red-500'
+                className='ml-3 text-white hover:bg-red-600'
+              >
                 Yes, delete
               </Button>
             </AlertDialogFooter>
@@ -85,3 +90,87 @@ function AlertDialogExample() {
   );
 }
 ```
+
+### Background blur
+
+Set the `variant` prop to `normal` to remove the background blur.
+
+```jsx live="false"
+<AlertDialog variant='normal'>
+  No background blur effect
+  <>...</>
+</AlertDialog>
+```
+
+### Changing the transition
+
+The `Modal` comes with a scale transition by default but you can change it by
+passing a `motionPreset` prop, and set its value to either `slideInBottom`,
+`slideInRight`, or `scale`.
+
+```jsx
+function TransitionExample() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+
+  return (
+    <>
+      <Button onClick={onOpen}>Discard</Button>
+      <Fade timeout={300} in={isOpen}>
+        {(styles) => (
+          <AlertDialog
+            leastDestructiveRef={cancelRef}
+            onClose={onClose}
+            isOpen={true}
+            isCentered
+          >
+            <AlertDialogOverlay style={styles}>
+              <SlideFade timeout={200} in={isOpen} unmountOnExit={false}>
+                {(styles) => (
+                  <AlertDialogContent style={styles}>
+                    <AlertDialogHeader>Discard Changes?</AlertDialogHeader>
+                    <AlertDialogCloseButton />
+                    <AlertDialogBody>
+                      Are you sure you want to discard all of your notes? 44
+                      words will be deleted.
+                    </AlertDialogBody>
+                    <AlertDialogFooter>
+                      <Button ref={cancelRef} onClick={onClose}>
+                        No
+                      </Button>
+                      <Button color='red-500' className={'ml-3'}>
+                        Yes
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                )}
+              </SlideFade>
+            </AlertDialogOverlay>
+          </AlertDialog>
+        )}
+      </Fade>
+    </>
+  );
+}
+```
+
+## Accessibility
+
+- AlertDialog has role `alertdialog`, and `aria-modal` set to true.
+- When the dialog opens, focus is automatically set to the least destructive
+  element.
+- When the dialog opens, the content in the `AlertDialogHeader` and
+  `AlertDialogBody` are announced by screen readers via `aria-labelledby` and
+  `aria-describedby` attributes.
+- Clicking on the overlay closes the `AlertDialog`.
+- Pressing <kbd>esc</kbd> closes the dialog.
+
+## Props
+
+AlertDialog and its components compose the `Modal` component. The only exception
+is that it requires a `leastDestructiveRef` which is similar to the
+`initialFocusRef` of `Modal`
+
+| Name                           | Type        | Default | Description                                                   |
+| ------------------------------ | ----------- | ------- | ------------------------------------------------------------- |
+| leastDestructiveRef (required) | `React.Ref` |         | The least destructive action to get focus when dialog is open |

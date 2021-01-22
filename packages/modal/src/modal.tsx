@@ -1,9 +1,10 @@
+/** @jsx jsx */
+import { nature, PropsOf, forwardRef, clsx, jsx } from '@nature-ui/system';
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { FocusLock } from '@nature-ui/focus-lock';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 import { Portal, PortalProps } from '@nature-ui/portal';
 import { RemoveScroll } from 'react-remove-scroll';
-import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
 import {
   callAllHandler,
   createContext,
@@ -195,7 +196,7 @@ export const ModalContent = React.forwardRef(
 
     const _className = clsx(
       className,
-      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none',
+      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none z-50',
       {
         'overflow-auto': scrollBehavior === 'inside',
       },
@@ -259,7 +260,7 @@ export const ModalOverlay = React.forwardRef(
 
     const _className = clsx(
       className,
-      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start z-50',
+      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start z-40',
       {
         'overflow-auto': scrollBehavior === 'outside',
         'overflow-hidden': scrollBehavior === 'inside',
