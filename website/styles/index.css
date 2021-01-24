@@ -29,3 +29,13 @@ blockquote * p {
 li {
   list-style: initial;
 }
+
+pre {
+  scrollbar-width: 0;
+  overflow-x: scroll;
+}
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar {
+  display: none;
+}
