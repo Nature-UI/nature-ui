@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import * as React from 'react';
-import { forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
 import { __DEV__, omit } from '@nature-ui/utils';
 
 import { useImage, UseImageProps } from './use-image';
@@ -31,6 +32,7 @@ interface ImageOptions {
    * If `true`, opt out of the `fallbackSrc` logic and use as `img`
    */
   ignoreFallback?: boolean;
+  size?: string;
 }
 
 const ImageComp = nature('img');
@@ -47,21 +49,31 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
     loading,
     ignoreFallback,
     crossOrigin,
+    size,
     ...rest
   } = props;
 
-  const shouldIgnore =
-    (loading !== undefined && loading !== null) || ignoreFallback;
+  const shouldIgnore = Boolean(loading ?? ignoreFallback);
 
   const status = useImage({
     ...props,
     ignoreFallback: shouldIgnore,
   });
 
-  const shared = {
+  let shared = {
     ref,
     ...(shouldIgnore ? rest : omit(rest, ['onError', 'onLoad'])),
   };
+
+  if (size) {
+    shared = {
+      ...shared,
+      css: {
+        width: size,
+        height: size,
+      },
+    };
+  }
 
   if (status !== 'loaded') {
     if (fallback) return fallback;
