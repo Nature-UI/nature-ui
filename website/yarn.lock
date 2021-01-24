@@ -685,8 +685,8 @@
 
 "@nature-ui/input@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2finput/-/input-1.0.1.tgz#97d47b3c4ee978d85ff880389f6a52c7f28c3c5d"
-  integrity sha512-thwm37pMofR70IT/YTh2aXP4RMDXKV5Tf01sqEF3ItqzmkXPf4T7EswWDYuyYH/vLFJYmF52AH+DrEluRLSdfg==
+  resolved "http://localhost:4873/@nature-ui%2finput/-/input-1.0.1.tgz#dde25efda50c44cb2d83fadbf41b5846290c0f73"
+  integrity sha512-qgwO+CZI1hOHgrA1iXMMUg/4gEV1Pvl70XTkd3T9igLKxSAjF7HIiGuiJ8sEH0YB/4eR/nU8Mz/neKxlpwJ6TQ==
   dependencies:
     "@nature-ui/form-control" "^1.0.1"
     "@nature-ui/system" "^1.0.1"
@@ -715,8 +715,8 @@
 
 "@nature-ui/popover@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/popover/-/popover-1.0.1.tgz#6790eb2ce92d288e7771e90d756c866ac3da4880"
-  integrity sha512-wgrTMV/i56vewudNOvfy78tKZShPJeVePcYDuqNqHoz+VYElzXsvCwO7c+LbcQ/f2EFF1zEm4tsbmibZirDoGw==
+  resolved "http://localhost:4873/@nature-ui%2fpopover/-/popover-1.0.1.tgz#90941bb5c50ebd242029e18122c91b0f2b9240b7"
+  integrity sha512-J2UxGdPDfV/RB0CSOjXlvIRxpzHvwUMuUsFaatYhemRjiguJp7B1d9V00Ji46t+qyd2PJ7/v2mrdMSIeUM0zYw==
   dependencies:
     "@nature-ui/close-button" "^1.0.1"
     "@nature-ui/hooks" "^1.0.2"

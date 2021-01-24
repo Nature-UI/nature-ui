@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Stack } from '@nature-ui/layout';
 
+import { Ai } from '@nature-ui/icons';
 import { Avatar, AvatarBadge, AvatarGroup } from '../src';
 
 export default {
@@ -26,6 +27,10 @@ const Avatars = [
   },
   {
     name: undefined,
+    url: undefined,
+  },
+  {
+    name: 'Divine Nature',
     url: undefined,
   },
 ];
@@ -91,4 +96,17 @@ export const avatarGroup = () => (
       />
     ))}
   </AvatarGroup>
+);
+
+export const CustomFallbackAvatar = () => (
+  <>
+    <AvatarGroup spacing='1rem'>
+      <Avatar color='red-500' icon={<Ai.AiOutlineUser size='20px' />} />
+      <Avatar color='teal-500' className='mb-6' />
+    </AvatarGroup>
+    <AvatarGroup>
+      <Avatar color='red-500' icon={<Ai.AiOutlineUser />} />
+      <Avatar color='teal-500' />
+    </AvatarGroup>
+  </>
 );

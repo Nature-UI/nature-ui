@@ -84,10 +84,8 @@ export const AvatarBadge = ({
   return (
     <nature.div
       className={clsx(
+        className,
         `absolute flex items-center justify-center right-0 bottom-0 rounded-full border-solid ${style} border-white -mb-1 -mr-1`,
-        {
-          [className]: className,
-        },
       )}
       {...rest}
     />
@@ -176,9 +174,13 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     icon = <DefaultIcon />,
     className = '',
     size = 'md',
+    color: bgColor,
+    borderColor: bdColor,
     ...rest
   } = props;
   const { bg, borderColor, color } = randomBgColors(name);
+
+  const [backgroundColor, border] = [`bg-${bgColor}`, `border-${bdColor}`];
 
   const status = useImage({
     src,
@@ -188,6 +190,18 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
   const hasLoaded = status === 'loaded';
   const _className = clsx('object-cover w-full h-full rounded-full', {
     'border-2': showBorder,
+  });
+  const STYLES = css`
+    width: ${SIZES[size]};
+    height: ${SIZES[size]};
+  `;
+
+  const _borderColor = css({
+    borderColor,
+  });
+  const _bg = css({
+    backgroundColor: bg,
+    color,
   });
 
   const getAvatar = () => {
@@ -210,24 +224,31 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
      *
      * In this case, we'll show either the name avatar or default avatar
      */
-
     const showFallback = !src || (src && !hasLoaded);
 
     if (showFallback) {
+      const { className: cn, ..._rest } = icon.props;
       return name ? (
         <InitialAvatar
-          {...{
-            getInitials,
-            name,
-            className: css`
-              color: ${color};
-            `,
-          }}
+          getInitials={getInitials}
+          name={name}
+          className={clsx(baseStyle, STYLES, {
+            [backgroundColor]: bgColor,
+            [border]: bdColor,
+            [_borderColor]: !bdColor,
+            [_bg]: !bgColor,
+          })}
         />
       ) : (
         React.cloneElement(icon, {
+          ..._rest,
           role: 'img',
-          className,
+          className: clsx(cn, baseStyle, {
+            [backgroundColor]: bgColor,
+            [border]: bdColor,
+            [_borderColor]: !bdColor,
+            [_bg]: !bgColor,
+          }),
         })
       );
     }
@@ -235,24 +256,17 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
     return undefined;
   };
 
-  const STYLES = css`
-    width: ${SIZES[size]};
-    height: ${SIZES[size]};
-    background-color: ${bg};
-    border-color: ${borderColor};
-    color: ${color};
-  `;
-
   return (
     <AvatarComp
-      {...{
-        ref,
-        name,
-        className: clsx(`${baseStyle} ${STYLES}`, {
-          [className]: className,
-        }),
-        ...rest,
-      }}
+      ref={ref}
+      name={name}
+      className={clsx(className, baseStyle, STYLES, {
+        [backgroundColor]: bgColor,
+        [border]: bdColor,
+        [_borderColor]: !bdColor,
+        [_bg]: !bgColor,
+      })}
+      {...rest}
     >
       {getAvatar()}
       {props.children}

@@ -47,15 +47,12 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
         [ROW]: spacing && direction === 'row',
       });
 
-      // return (
-      //   <Box key={Number(index)} className={_className}>
-      //     {child}
-      //   </Box>
-      // );
+      const { className: cn, ..._props } = child.props;
       return (
         <React.Fragment key={Number(index)}>
           {React.cloneElement(child as any, {
-            className: clsx(child.props.className, _className),
+            ..._props,
+            className: clsx(cn, _className),
           })}
         </React.Fragment>
       );

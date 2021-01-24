@@ -206,10 +206,6 @@
             {
               "title": "Popover",
               "path": "/docs/overlay/popover"
-            },
-            {
-              "title": "Tooltip",
-              "path": "/docs/overlay/tooltip"
             }
           ]
         },

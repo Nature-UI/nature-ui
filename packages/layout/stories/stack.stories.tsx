@@ -50,7 +50,24 @@ export const WithButtons = () => (
   </Stack>
 );
 
-export const links = [
+export const WithSpan = () => (
+  <Stack direction='row' spacing='1rem'>
+    <span className='P-4 bg-blue-500'>
+      Hi world
+      <span className='P-4 bg-orange-500'>Hi world</span>
+    </span>
+    <span className='P-4 bg-blue-500'>
+      Hi world
+      <span className='P-4 bg-orange-500'>Hi world</span>
+    </span>
+    <span className='P-4 bg-blue-500'>Hi world</span>
+    <span className='P-4 bg-blue-500'>Hi world</span>
+    <span className='P-4 bg-blue-500'>Hi world</span>
+    <span className='P-4 bg-blue-500'>Hi world</span>
+  </Stack>
+);
+
+const links = [
   {
     icon: Di.DiGithubBadge,
     label: 'Github',
