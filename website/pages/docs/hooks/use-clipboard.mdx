@@ -1,0 +1,43 @@
+---
+title: useClipboard
+package: '@nature-ui/hooks'
+---
+
+`useClipboard` is a custom hook that handles copying content to clipboard.
+
+## Return value
+
+The `useClipboard` hook returns an object with the following fields:
+
+| Name        | Type       | Default | Description                              |
+| ----------- | ---------- | ------- | ---------------------------------------- |
+| `value`     | `string`   |         | The copied value.                        |
+| `onCopy`    | `function` |         | Callback function to copy content.       |
+| `hasCopied` | `boolean`  | `false` | If `true`, the content has been copied . |
+
+## Import
+
+```js
+import { useClipboard } from '@nature-ui/core';
+```
+
+## Usage
+
+```jsx
+function Example() {
+  const [value, setValue] = React.useState('Hello world');
+  const { hasCopied, onCopy } = useClipboard(value);
+
+  return (
+    <>
+      <Box className='flex mb-2'>
+        <Input value={value} isReadOnly placeholder='Welcome' />
+        <Button onClick={onCopy} className='ml-2'>
+          {hasCopied ? 'Copied' : 'Copy'}
+        </Button>
+      </Box>
+      <Input placeholder='Paste here' />
+    </>
+  );
+}
+```

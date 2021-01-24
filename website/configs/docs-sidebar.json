@@ -264,10 +264,6 @@
           "sort": true,
           "routes": [
             {
-              "title": "useBreakpointValue",
-              "path": "/docs/hooks/use-breakpoint-value"
-            },
-            {
               "title": "useClipboard",
               "path": "/docs/hooks/use-clipboard"
             },
