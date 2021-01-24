@@ -517,8 +517,8 @@
 
 "@nature-ui/avatar@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/avatar/-/avatar-1.0.1.tgz#312b8de54f7a250a6f02732842951dd492e73115"
-  integrity sha512-lUTUgibFQpSpXiMYciEzom0FkzKuuLqt8ILLUyYWOMyIwQumjrjsVjasHHo/Hfv8oEH6fp4m0U5jAg0bhryPGg==
+  resolved "http://localhost:4873/@nature-ui%2favatar/-/avatar-1.0.1.tgz#38956abd66e0a1f9d794e65b0def2aebc64aca49"
+  integrity sha512-2a6uNjERJLJ8z4Eycm92qOyU+rKLFN9/bawfvlRnxlSCDHpgaioEvPCE/stAKzoSeS6RHAhYFqsuTsIRixVb+A==
   dependencies:
     "@nature-ui/color" "^1.0.1"
     "@nature-ui/image" "^1.0.1"

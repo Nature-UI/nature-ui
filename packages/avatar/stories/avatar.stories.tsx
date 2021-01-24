@@ -80,6 +80,15 @@ export const WithBadge = () => (
         <AvatarBadge size='1.25em' className='bg-green-500' />
       </Avatar>
     ))}
+
+    <Avatar>
+      <AvatarBadge size='1.6em' className='bg-green-500' />
+    </Avatar>
+
+    {/* You can also change the borderColor and bg of the badge */}
+    <Avatar>
+      <AvatarBadge className='bg-orange-500 border-blue-500' size='1.25em' />
+    </Avatar>
   </Stack>
 );
 
