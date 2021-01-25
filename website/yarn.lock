@@ -783,6 +783,17 @@
     emotion "^10.0.27"
     hoist-non-react-statics "^3.3.2"
 
+"@nature-ui/system@^1.0.2":
+  version "1.0.2"
+  resolved "http://localhost:4873/@nature-ui%2fsystem/-/system-1.0.2.tgz#c383aa97626ad27dd45f136271402a21baacbb35"
+  integrity sha512-zlCQyScAK+4csCXTyJ4k+ZFBrtUT0Ng7HQHXzRFEgkP7uALNcokulgZKRoiN1PahBImxpcVlAxkXZEDZM+lbfg==
+  dependencies:
+    "@emotion/core" "^10.0.35"
+    "@nature-ui/utils" "^1.0.2"
+    clsx "^1.1.1"
+    emotion "^10.0.27"
+    hoist-non-react-statics "^3.3.2"
+
 "@nature-ui/toast@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@nature-ui/toast/-/toast-1.0.1.tgz#1ef944cd119840bd01383b45bce6856918a29a21"
@@ -808,6 +819,14 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@nature-ui/utils/-/utils-1.0.1.tgz#97e692537e89c48cbad3df0d661f48ce0ccccfd9"
   integrity sha512-ir5jN3VUCxlS0PrQcnInAqgBPYS/S2SDRmAP56Wd0h2HpJWptbWYr13v6EBoqsJdwOkAqKNsT+lxfsxVMosi+Q==
+  dependencies:
+    css-box-model "^1.2.1"
+    memoize-one "^5.1.1"
+
+"@nature-ui/utils@^1.0.2":
+  version "1.0.2"
+  resolved "http://localhost:4873/@nature-ui%2futils/-/utils-1.0.2.tgz#a1a111d771a42023a76078ebd27db1439e906d11"
+  integrity sha512-o7NEnw/QQF3TBCs33fZDkD9vivzTDMnF4WpRpdnogpBRLFwQfMkpPlhYw1mne6XqSYt1MtEOy5pvPOg30L60hQ==
   dependencies:
     css-box-model "^1.2.1"
     memoize-one "^5.1.1"

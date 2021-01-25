@@ -52,15 +52,13 @@ export const Basic = () => (
   </nature.h1>
 );
 
-const H1 = nature('h1');
 export const WithAs = () => (
-  <H1
-    as='span'
+  <nature.h1
     css={{
       backgroundColor: 'red',
     }}
     className='text-3xl font-bold'
   >
     Hello world
-  </H1>
+  </nature.h1>
 );
