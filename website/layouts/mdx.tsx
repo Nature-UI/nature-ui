@@ -9,6 +9,7 @@ import { getRouteContext } from 'utils/get-route-context';
 import { findRouteByPath, removeFromLast } from 'utils/find-route-by-path';
 
 import docsSidebar from 'configs/docs-sidebar.json';
+import { Pagination } from 'components/pagination';
 
 export const getRoutes = (slug: string) => {
   const configMap = {
@@ -24,14 +25,20 @@ export const getRoutes = (slug: string) => {
 const MDXLayout = ({ frontMatter, children }) => {
   const routes = getRoutes(frontMatter.slug);
 
-  // const route = findRouteByPath(removeFromLast(frontMatter.slug, '#'), routes);
-  // const routeContext = getRouteContext(route, routes);
+  const route = findRouteByPath(removeFromLast(frontMatter.slug, '#'), routes);
+  const routeContext = getRouteContext(route, routes);
 
   return (
     <MDXProvider components={{ ...natureComponents, ...MDXComponents }}>
       <PageContainer
         sidebar={<Sidebar routes={routes} />}
         frontMatter={frontMatter}
+        pagination={
+          <Pagination
+            next={routeContext.nextRoute}
+            previous={routeContext.prevRoute}
+          />
+        }
       >
         {children}
       </PageContainer>

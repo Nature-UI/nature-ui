@@ -6,6 +6,7 @@ import * as React from 'react';
 import Footer from './footer';
 import Header from './header';
 import { El } from './nature-jsx-elements';
+import PageTransition from './page-transition';
 
 function useHeadingFocusOnRouteChange() {
   const router = useRouter();
@@ -47,19 +48,21 @@ function PageContainer(props: PageContainerProps) {
       <Box as='main' className='bg-white h-full'>
         <Box centered className='flex max-w-screen-lg mx-auto'>
           {sidebar || null}
-          <Box className='flex-1'>
+          <Box className='flex-1 w-screen'>
             <Box
               id='content'
-              className='pt-3 px-5 mt-16 mx-auto max-w-3xl bg-white'
+              className='pt-3 px-5 mt:10 md:mt-16 mx-auto max-w-3xl bg-white'
               css={{
                 minHeight: '76vh',
               }}
             >
-              <h1 className='outline-none text-3xl font-bold mt-8 mb-1'>
-                {title}
-              </h1>
-              {version && <Badge color='teal-500'>v{version}</Badge>}
-              {children}
+              <PageTransition>
+                <h1 className='outline-none text-3xl font-bold mt-8 mb-1'>
+                  {title}
+                </h1>
+                {version && <Badge color='teal-500'>v{version}</Badge>}
+                {children}
+              </PageTransition>
               <Box className='mt-14'>{editUrl && <El.a href={editUrl} />}</Box>
               {pagination || null}
             </Box>

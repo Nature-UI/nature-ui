@@ -48,9 +48,6 @@ const getTimestampAndAuthor = (str) => {
   const [, timestamp, author] = temp;
   const dateStr = fromUnixTime(+timestamp);
 
-  // FIXME:
-  console.log({ temp });
-
   return {
     date: format(dateStr, 'MMMM dd, yyyy'),
     author,

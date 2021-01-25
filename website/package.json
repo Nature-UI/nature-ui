@@ -19,6 +19,7 @@
     "classnames": "2.2.6",
     "date-fns": "^2.16.1",
     "formik": "^2.2.6",
+    "framer-motion": "^3.2.2-rc.1",
     "gray-matter": "4.0.2",
     "lodash": "^4.17.20",
     "next": "latest",

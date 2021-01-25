@@ -150,8 +150,12 @@ export const Button = React.forwardRef(
     } = props;
 
     const textColor = (): string => {
-      const amount = Number(color.split('-')[1]);
+      const split = color.split('-');
+      const amount = Number(split[split.length - 1]);
       if (amount >= 300) {
+        return 'white';
+      }
+      if (!amount) {
         return 'white';
       }
       return 'gray-600';

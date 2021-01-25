@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  BoxProps,
   Button,
   CloseButton,
   clsx,
@@ -11,14 +12,16 @@ import {
 } from '@nature-ui/core';
 import { Ai, Icon } from '@nature-ui/icons';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 import { RemoveScroll } from 'react-remove-scroll';
+import { AnimatePresence, motion, useElementScroll } from 'framer-motion';
 
 import siteConfig from 'configs/site-config';
 import { useRouteChanged } from 'hooks/use-route-change';
+import { getRoutes } from 'layouts/mdx';
 
-import { useRouter } from 'next/router';
 import { Logo } from './Logo';
+import { SidebarContent } from './sidebar/sidebar';
 import { GithubIcon } from './CustomIcons';
 
 const NavLink = ({ href, children, ...rest }) => {
@@ -31,7 +34,7 @@ const NavLink = ({ href, children, ...rest }) => {
     <Link href={href}>
       <Button
         className={clsx('transition-all duration-200', {
-          'font-semibold': isActive,
+          'font-semibold flex-1': isActive,
         })}
         css={{
           flex: '1 1 0%',
@@ -46,6 +49,29 @@ const NavLink = ({ href, children, ...rest }) => {
   );
 };
 
+const ScrollView = (props: BoxProps & { onScroll?: any }) => {
+  const { onScroll, ...rest } = props;
+  const [y, setY] = React.useState(0);
+  const elRef = React.useRef<any>();
+  const { scrollY } = useElementScroll(elRef);
+  React.useEffect(() => {
+    return scrollY.onChange(() => setY(scrollY.get()));
+  }, [scrollY]);
+
+  useUpdateEffect(() => {
+    onScroll?.(y > 5);
+  }, [y]);
+
+  return (
+    <Box
+      ref={elRef}
+      className='overflow-auto px-6 mb-6 flex-1'
+      id='routes'
+      {...rest}
+    />
+  );
+};
+
 interface MobileNavContentProps {
   isOpen?: boolean;
   onClose?: () => void;
@@ -54,42 +80,68 @@ interface MobileNavContentProps {
 export const MobileNaveContent = (props: MobileNavContentProps) => {
   const { isOpen, onClose } = props;
   const closeBtnRef = React.useRef<HTMLButtonElement>();
+  const { pathname } = useRouter();
 
   useRouteChanged(onClose);
 
   useUpdateEffect(() => {
     if (isOpen) {
-      console.log('Is open');
-      closeBtnRef.current?.focus();
+      requestAnimationFrame(() => {
+        closeBtnRef.current?.focus();
+      });
     }
   }, [isOpen]);
 
+  const [shadow, setShadow] = React.useState<string>();
+
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
         <RemoveScroll forwardProps>
-          <div className='min-h-screen absolute top-0 left-0 w-full mt-3 bg-white z-10'>
-            <Box className='px-4'>
-              <Stack direction='row' className='items-center'>
-                <Logo />
-                <CloseButton
-                  ref={closeBtnRef}
-                  className='ml-auto'
-                  onClick={onClose}
+          <motion.div
+            transition={{ duration: 0.08 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+          >
+            <Box className='h-screen absolute top-0 left-0 w-full mt-3 bg-white z-10 flex flex-col overflow-auto pb-8'>
+              <Box>
+                <Box className='px-4'>
+                  <Stack direction='row' className='items-center'>
+                    <Logo />
+                    <CloseButton
+                      ref={closeBtnRef}
+                      className='ml-auto'
+                      onClick={onClose}
+                    />
+                  </Stack>
+                </Box>
+                <Box className={`px-6 mt-6 pb-4 shadow-${shadow}`}>
+                  <Stack direction='row' spacing='8px'>
+                    <NavLink href='/docs/getting-started'>Docs</NavLink>
+                    <NavLink href='/guides/integrations/with-cra'>
+                      Guides
+                    </NavLink>
+                    <NavLink href='/team'>Team</NavLink>
+                  </Stack>
+                </Box>
+              </Box>
+
+              <ScrollView
+                onScroll={(scrolled) => {
+                  setShadow(scrolled ? 'md' : undefined);
+                }}
+              >
+                <SidebarContent
+                  pathname={pathname}
+                  routes={getRoutes(pathname)}
                 />
-              </Stack>
+              </ScrollView>
             </Box>
-            <Box className='px-6 mt-6'>
-              <Stack direction='row' spacing='8px'>
-                <NavLink href='/docs/getting-started'>Docs</NavLink>
-                <NavLink href='/guides/integrations/with-cra'>Guides</NavLink>
-                <NavLink href='/team'>Team</NavLink>
-              </Stack>
-            </Box>
-          </div>
+          </motion.div>
         </RemoveScroll>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

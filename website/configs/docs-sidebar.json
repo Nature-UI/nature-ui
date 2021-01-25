@@ -274,22 +274,6 @@
             {
               "title": "useDisclosure",
               "path": "/docs/hooks/use-disclosure"
-            },
-            {
-              "title": "useMediaQuery",
-              "path": "/docs/hooks/use-media-query"
-            },
-            {
-              "title": "usePrefersReducedMotion",
-              "path": "/docs/hooks/use-prefers-reduced-motion"
-            },
-            {
-              "title": "useTheme",
-              "path": "/docs/hooks/use-theme"
-            },
-            {
-              "title": "useToken",
-              "path": "/docs/hooks/use-token"
             }
           ]
         }
