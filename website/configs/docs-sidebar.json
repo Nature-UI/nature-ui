@@ -8,80 +8,15 @@
           "title": "Installation",
           "path": "/docs/getting-started"
         },
-        {
-          "title": "Upgrade to v1",
-          "path": "/docs/migration"
-        },
-        {
-          "title": "Design Principles",
-          "path": "/docs/principles"
-        },
-        {
-          "title": "Comparison",
-          "path": "/docs/comparison"
-        },
-        {
-          "title": "Features",
-          "path": "/docs/features",
-          "open": true,
-          "routes": [
-            {
-              "title": "Style Props",
-              "path": "/docs/features/style-props"
-            },
-            {
-              "title": "Gradient",
-              "path": "/docs/features/gradient",
-              "new": true
-            },
-            {
-              "title": "Color Mode",
-              "path": "/docs/features/color-mode"
-            },
-            {
-              "title": "Responsive Styles",
-              "path": "/docs/features/responsive-styles"
-            },
-            {
-              "title": "Chakra Factory",
-              "path": "/docs/features/chakra-factory"
-            },
-            {
-              "title": "Global Styles",
-              "path": "/docs/features/global-styles"
-            },
-            {
-              "title": "Text & Layer Styles",
-              "path": "/docs/features/text-and-layer-styles"
-            },
-            {
-              "title": "RTL Support",
-              "path": "/docs/features/rtl-support",
-              "new": true
-            }
-          ]
-        },
 
         {
-          "title": "Theming",
+          "title": "Configuration",
           "path": "/docs/theming",
           "open": true,
           "routes": [
             {
-              "title": "Default Theme",
-              "path": "/docs/theming/theme"
-            },
-            {
-              "title": "Customize Theme",
-              "path": "/docs/theming/customize-theme"
-            },
-            {
-              "title": "Component Style",
-              "path": "/docs/theming/component-style"
-            },
-            {
-              "title": "Advanced",
-              "path": "/docs/theming/advanced"
+              "title": "Configuration",
+              "path": "/docs/theming/configuration"
             }
           ]
         },

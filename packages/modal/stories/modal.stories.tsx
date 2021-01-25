@@ -103,6 +103,74 @@ export const BasicUsage = () => {
   );
 };
 
+export const WithSize = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onOpen}>Open</Button>
+
+      <Modal
+        variant='blur'
+        scrollBehavior='outside'
+        isOpen={isOpen}
+        size='600px'
+        onClose={onClose}
+      >
+        <ModalOverlay>
+          <ModalContent>
+            <ModalCloseButton />
+
+            <ModalHeader>Welcome Home</ModalHeader>
+
+            <ModalBody>
+              Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+              ullamco deserunt aute id consequat veniam incididunt duis in sint
+              irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+              officia tempor esse quis. Sit nulla est ex deserunt exercitation
+              anim occaecat. Nostrud ullamco deserunt aute id consequat veniam
+              incididunt duis in sint irure nisi. Mollit officia cillum Lorem
+              ullamco minim nostrud elit officia tempor esse quis. Sit nulla est
+              ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
+              aute id consequat veniam incididunt duis in sint irure nisi.
+              Mollit officia cillum Lorem ullamco minim nostrud elit officia
+              tempor esse quis. Sit nulla est ex deserunt exercitation anim
+              occaecat. Nostrud ullamco deserunt aute id consequat veniam
+              incididunt duis in sint irure nisi. Mollit officia cillum Lorem
+              ullamco minim nostrud elit officia tempor esse quis. Sit nulla est
+              ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
+              aute id consequat veniam incididunt duis in sint irure nisi.
+              Mollit officia cillum Lorem ullamco minim nostrud elit officia
+              tempor esse quis. Mollit officia cillum Lorem ullamco minim
+              nostrud elit officia tempor esse quis. Sit nulla est ex deserunt
+              exercitation anim occaecat. Nostrud ullamco deserunt aute id
+              consequat veniam incididunt duis in sint irure nisi. Mollit
+              officia cillum Lorem ullamco minim nostrud elit officia tempor
+              esse quis. Mollit officia cillum Lorem ullamco minim nostrud elit
+              officia tempor esse quis. Sit nulla est ex deserunt exercitation
+              anim occaecat. Nostrud ullamco deserunt aute id consequat veniam
+              incididunt duis in sint irure nisi. Mollit officia cillum Lorem
+              ullamco minim nostrud elit officia tempor esse quis.
+            </ModalBody>
+
+            <ModalFooter>
+              <Button
+                onClick={onClose}
+                className='bg-gray-200 hover:bg-gray-300 transition duration-200'
+              >
+                Cancel
+              </Button>
+              <Button className='bg-blue-600 text-white hover:bg-blue-500 ml-3'>
+                Save
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </ModalOverlay>
+      </Modal>
+    </>
+  );
+};
+
 export const ReturnFocus = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef<any>();
@@ -122,6 +190,7 @@ export const ReturnFocus = () => {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
+        // size='500px'
       >
         <ModalOverlay>
           <ModalContent>

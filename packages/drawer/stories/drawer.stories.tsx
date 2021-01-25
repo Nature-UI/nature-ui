@@ -21,7 +21,30 @@ export const Basic = () => {
   return (
     <>
       <button onClick={() => setOpen(!open)}>Open</button>
-      <Drawer placement='right' isOpen={open} onClose={() => setOpen(false)}>
+      <Drawer isOpen={open} onClose={() => setOpen(false)}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <div>This is the drawer content</div>
+            <button>This is a button</button>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+    </>
+  );
+};
+
+export const RightPlacement = () => {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(!open)}>Open</button>
+      <Drawer
+        size='lg'
+        placement='right'
+        isOpen={open}
+        onClose={() => setOpen(false)}
+      >
         <DrawerOverlay>
           <DrawerContent>
             <div>This is the drawer content</div>

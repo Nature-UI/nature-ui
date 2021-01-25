@@ -66,7 +66,7 @@ export interface DrawerProps extends ModalProps {
 }
 
 export const Drawer = (props: DrawerProps) => {
-  const { isOpen, onClose, placement = 'right', children, ...rest } = props;
+  const { isOpen, onClose, placement = 'left', children, ...rest } = props;
 
   return (
     <DrawerTransition in={isOpen} placement={placement}>

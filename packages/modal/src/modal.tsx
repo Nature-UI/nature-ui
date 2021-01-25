@@ -18,7 +18,7 @@ import { useModal, UseModalProps, UseModalReturn } from './use-modal';
 type ModalContext = UseModalReturn &
   Pick<ModalProps, 'isCentered' | 'scrollBehavior'> & {
     variant?: StringOrNumber;
-    size?: 'sm' | 'md' | 'lg' | 'full' | number;
+    size?: StringOrNumber;
   };
 
 const FooterTag = nature('footer');
@@ -93,7 +93,7 @@ export interface ModalProps extends UseModalProps {
    * Defaults to `false`.
    */
   allowPinchZoom?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'full' | number;
+  size?: StringOrNumber;
   variant?: 'blur' | 'normal';
 }
 
@@ -113,7 +113,7 @@ export const Modal = (props: ModalProps) => {
     returnFocusOnClose = true,
     isOpen,
     scrollBehavior = 'outside',
-    size = 'md',
+    size = 'xs',
     variant = 'blur',
     trapFocus = true,
     autoFocus = true,
@@ -166,10 +166,11 @@ type ContentOptions = Pick<ModalProps, 'scrollBehavior'>;
 export type ModalContentProps = PropsOf<typeof SectionTag> & ContentOptions;
 
 const _SIZES = {
-  sm: '384',
-  md: '448px',
-  lg: '512px',
-  xl: '576px',
+  xs: '20rem',
+  sm: '24rem',
+  md: '28rem',
+  lg: '32rem',
+  xl: '36rem',
   full: '100%',
 };
 
@@ -185,7 +186,7 @@ export const ModalContent = React.forwardRef(
     const {
       getContentProps,
       variant,
-      size = 'md',
+      size = 'xs',
       scrollBehavior,
     } = useModalContext();
 
@@ -196,12 +197,19 @@ export const ModalContent = React.forwardRef(
 
     const _className = clsx(
       className,
-      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none z-50',
+      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full focus:outline-none z-50',
       {
         'overflow-auto': scrollBehavior === 'inside',
       },
     );
-    const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
+    let _size;
+
+    if (size in _SIZES) {
+      _size = _SIZES[size];
+    } else {
+      _size = size;
+    }
+
     const css = {
       width: _size,
       maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'none',

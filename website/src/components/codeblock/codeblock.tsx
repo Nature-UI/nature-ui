@@ -28,7 +28,7 @@ export const liveErrorStyle: React.CSSProperties = {
 
 const LiveCodePreview = ({ className, ...props }: any) => (
   <LivePreview
-    className={`${className} mt-5 p-3 border border-solid border-gray-200 rounded-lg`}
+    className={`${className} mt-5 p-3 border border-solid border-gray-200 rounded-lg overflow-x-auto`}
     {...props}
   />
 );

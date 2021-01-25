@@ -632,8 +632,8 @@
 
 "@nature-ui/drawer@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/drawer/-/drawer-1.0.1.tgz#b5974ca481659f6f6ae98c299efebe07138f91a2"
-  integrity sha512-dNZZHpFcKL4ue0rzfCz6MDMxaQfgqCuwS5TiTczR5tgrqiv9k0aUHg118G6sHplFxlE0qcqlT5kisRpyrzbpWA==
+  resolved "http://localhost:4873/@nature-ui%2fdrawer/-/drawer-1.0.1.tgz#912aa9a7fa498c6e58dcfd71a7246d82257aceb3"
+  integrity sha512-xgnJDIsPFqs8M6rl5dUChuyU1IKpXaWqVP+374223dB85uV7UZCFTm0E1xdcj/8yuHOAtjdf0mt0Kauuv/AfEA==
   dependencies:
     "@nature-ui/modal" "^1.0.1"
     "@nature-ui/transition" "^1.0.1"
@@ -709,8 +709,8 @@
 
 "@nature-ui/modal@^1.0.1":
   version "1.0.1"
-  resolved "http://localhost:4873/@nature-ui%2fmodal/-/modal-1.0.1.tgz#2d5cc63f556df1c62a720d84e6f309fb5dc1d026"
-  integrity sha512-cOqX7WVyV7MlkfrD/rbxASXF89ADwoWW6RtS9scuPG0yv+fqds3nvzEBi/g9dQwTWK0z+8UZTjXjfctv3V6Trg==
+  resolved "http://localhost:4873/@nature-ui%2fmodal/-/modal-1.0.1.tgz#547e60ba7690f35167c01ae7a11ce93565904efe"
+  integrity sha512-xfidxUbdQbClmkM2QpYmW61P1ntqh9fDUeUqTmDD/RQDyNzvCE6dqLGnkqnM29ZvQqfGaWjOEghdJ4GzxbXhbA==
   dependencies:
     "@nature-ui/close-button" "^1.0.1"
     "@nature-ui/focus-lock" "^1.0.1"
