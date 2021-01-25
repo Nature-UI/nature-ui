@@ -26,10 +26,6 @@ blockquote * p {
   margin-top: 0 !important;
 }
 
-li {
-  list-style: initial;
-}
-
 pre {
   scrollbar-width: 0;
   overflow-x: scroll;

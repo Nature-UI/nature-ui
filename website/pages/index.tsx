@@ -5,12 +5,17 @@ import Link from 'next/link';
 
 import Header from 'components/header';
 import { Feature } from 'components/feature';
+import SEO from 'components/seo';
 import Footer from 'components/footer';
 import siteConfig from 'configs/site-config';
 
 const Index = () => {
   return (
     <>
+      <SEO
+        title='Nature UI - A simple, modular, extensible and accessible component library based on tailwindcss that gives you the building blocks you need to build your React applications.'
+        description='Simple, Modular and Accessible UI Components based on Tailwindcss for your React Applications.'
+      />
       <Header />
       <main className='grid place-items-center w-full bg-white md:pb-32 pb-12'>
         <Container size='md' className='text-center mt-32 md:mt-48 mb-16'>

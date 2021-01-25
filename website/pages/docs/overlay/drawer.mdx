@@ -39,13 +39,7 @@ function DrawerExample() {
       <Button ref={btnRef} color='purple-500' onClick={onOpen}>
         Open
       </Button>
-      <Drawer
-        isOpen={isOpen}
-        placement='right'
-        onClose={onClose}
-        finalFocusRef={btnRef}
-        size='xs'
-      >
+      <Drawer isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />

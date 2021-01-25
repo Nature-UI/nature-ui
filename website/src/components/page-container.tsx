@@ -3,6 +3,7 @@ import { Badge, Box, jsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
+import SEO from 'components/seo';
 import { EditPageLink } from 'components/edit-page-button';
 import Footer from './footer';
 import Header from './header';
@@ -44,6 +45,7 @@ function PageContainer(props: PageContainerProps) {
 
   return (
     <>
+      <SEO title={title} description={description} />
       <Header />
       <Box as='main' className='bg-white h-full'>
         <Box centered className='flex max-w-screen-lg mx-auto'>

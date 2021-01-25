@@ -95,7 +95,7 @@ const MDXComponents = {
   p: (props) => <El.p className='mt-5 leading-7' {...props} />,
   ul: (props) => <El.ul className='mt-7 ml-7' {...props} />,
   ol: (props) => <El.ol {...props} />,
-  li: (props) => <El.li className='pb-1' {...props} />,
+  li: (props) => <El.li className='pb-1 list-disc' {...props} />,
   blockquote: (props) => (
     <Alert
       className='mt-4 rounded-md my-6'

@@ -25,6 +25,7 @@
     "next": "latest",
     "next-compose-plugins": "^2.2.1",
     "next-mdx-enhanced": "^5.0.0",
+    "next-seo": "^4.17.0",
     "prism-react-renderer": "^1.1.1",
     "react-live": "^2.2.3",
     "react-lorem-component": "^0.13.0",
