@@ -19,10 +19,10 @@ const HeaderContent = () => {
     mobileNavBtnRef.current?.focus();
   }, [mobileNav.isOpen]);
   return (
-    <div className='sticky top-0 left-0 w-full bg-white z-10 border-b'>
+    <header className='sticky top-0 left-0 w-full bg-white z-10 border-b'>
       <div className='w-full bg-gradient-line h-2 absolute top-0 left-0' />
 
-      <div className='w-full max-w-screen-lg px-4 md:px-0 md:mx-auto py-3'>
+      <nav className='w-full max-w-screen-lg px-4 md:px-0 md:mx-auto py-3'>
         <div className='flex items-center justify-between'>
           <Logo />
           <div className='hidden md:w-4/6 md:flex items-center justify-end'>
@@ -60,13 +60,13 @@ const HeaderContent = () => {
             onClick={mobileNav.onOpen}
           />
         </div>
-      </div>
+      </nav>
 
       <MobileNaveContent
         isOpen={mobileNav.isOpen}
         onClose={mobileNav.onClose}
       />
-    </div>
+    </header>
   );
 };
 

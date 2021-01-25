@@ -98,7 +98,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
     <AnimatePresence>
       {isOpen && (
         <RemoveScroll forwardProps>
-          <motion.div
+          <motion.nav
             transition={{ duration: 0.08 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -138,7 +138,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
                 />
               </ScrollView>
             </Box>
-          </motion.div>
+          </motion.nav>
         </RemoveScroll>
       )}
     </AnimatePresence>
