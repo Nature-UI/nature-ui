@@ -3,9 +3,9 @@ import { Badge, Box, jsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
+import { EditPageLink } from 'components/edit-page-button';
 import Footer from './footer';
 import Header from './header';
-import { El } from './nature-jsx-elements';
 import PageTransition from './page-transition';
 
 function useHeadingFocusOnRouteChange() {
@@ -63,7 +63,9 @@ function PageContainer(props: PageContainerProps) {
                 {version && <Badge color='teal-500'>v{version}</Badge>}
                 {children}
               </PageTransition>
-              <Box className='mt-14'>{editUrl && <El.a href={editUrl} />}</Box>
+              <Box className='mt-14'>
+                {editUrl && <EditPageLink href={editUrl} />}
+              </Box>
               {pagination || null}
             </Box>
             <Footer />
