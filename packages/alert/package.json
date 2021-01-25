@@ -36,11 +36,10 @@
     "lint": "concurrently yarn:lint:*"
   },
   "dependencies": {
+    "@nature-ui/icons": "^1.0.1",
     "@nature-ui/system": "^1.0.1",
     "@nature-ui/utils": "^1.0.1",
-    "@nature-ui/icons": "^1.0.1",
-    "@testing-library/react": "^11.2.2",
-    "react-icons": "^3.11.0"
+    "react-icons": "^4.1.0"
   },
   "peerDependencies": {
     "react": "^17.x",

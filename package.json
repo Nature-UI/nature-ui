@@ -110,7 +110,7 @@
     "react-docgen-typescript": "^1.20.4",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.1",
-    "react-icons": "^3.11.0",
+    "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "rimraf": "^3.0.2",
