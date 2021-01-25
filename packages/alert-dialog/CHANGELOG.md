@@ -1,5 +1,13 @@
 # @nature-ui/alert-dialog
 
+## 1.0.2
+
+### Patch Changes
+
+- fe90811: Another Realease
+- Updated dependencies [fe90811]
+  - @nature-ui/modal@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

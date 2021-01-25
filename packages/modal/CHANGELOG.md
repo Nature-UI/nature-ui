@@ -1,5 +1,17 @@
 # @nature-ui/modal
 
+## 1.0.2
+
+### Patch Changes
+
+- fe90811: Another Realease
+- Updated dependencies [fe90811]
+  - @nature-ui/close-button@1.0.2
+  - @nature-ui/focus-lock@1.0.2
+  - @nature-ui/hooks@1.0.3
+  - @nature-ui/portal@1.0.2
+  - @nature-ui/utils@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
