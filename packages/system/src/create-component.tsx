@@ -8,7 +8,7 @@ import {
   runIfFn,
 } from '@nature-ui/utils';
 import hoist from 'hoist-non-react-statics';
-import { CSSObject } from '@emotion/core';
+import { CSSObject } from '@emotion/react';
 
 import { jsx } from './jsx';
 import { NatureComponent } from './system-types';

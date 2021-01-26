@@ -69,17 +69,13 @@ export const withSize = () => (
   />
 );
 
-/**
- * Native `img` has support for `width`, and `height` prop,
- * however size those are used as style prop, we added support
- * for `htmlWidth`, and `htmlHeight` to handle this case.
- */
+// TODO: Add support for `htmlWidth` and `htmlHeight`
 export const withNativeWidth = () => (
   <Image
     src='https://bit.ly/divine_n'
     fallbackSrc='https://via.placeholder.com/240'
-    htmlWidth='300px'
-    htmlHeight='300px'
+    width='300px'
+    height='300px'
     onLoad={() => {
       console.log('loaded');
     }}

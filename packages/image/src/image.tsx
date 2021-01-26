@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import * as React from 'react';
-import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
+import { forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__, omit } from '@nature-ui/utils';
 
 import { useImage, UseImageProps } from './use-image';
@@ -60,20 +59,25 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
     ignoreFallback: shouldIgnore,
   });
 
-  let shared = {
-    ref,
-    ...(shouldIgnore ? rest : omit(rest, ['onError', 'onLoad'])),
+  let shared = {};
+
+  const css = {
+    width: size,
+    height: size,
   };
 
   if (size) {
     shared = {
       ...shared,
-      css: {
-        width: size,
-        height: size,
-      },
+      css,
     };
   }
+
+  shared = {
+    ...shared,
+    ref,
+    ...(shouldIgnore ? rest : omit(rest, ['onError', 'onLoad'])),
+  };
 
   if (status !== 'loaded') {
     if (fallback) return fallback;
