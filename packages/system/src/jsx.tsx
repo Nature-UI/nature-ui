@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Dict } from '@nature-ui/utils';
-import { jsx as emotion } from '@emotion/core';
+import { jsx as emotion } from '@emotion/react';
 
 // export const jsx = (
 //   type: React.ElementType = 'div',

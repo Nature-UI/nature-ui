@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { jsx, nature, PropsOf, Icon, IconProps } from '@nature-ui/core';
+/** * */
+import * as React from 'react';
+import { nature, PropsOf, Icon, IconProps } from '@nature-ui/core';
 
 const SVG = nature('svg');
 type HTML_SVG = PropsOf<typeof SVG>;

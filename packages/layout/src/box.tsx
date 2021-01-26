@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { nature, PropsOf, clsx, jsx, forwardRef } from '@nature-ui/system';
+import { nature, PropsOf, clsx, forwardRef } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 
 const BoxLayout = nature('div');

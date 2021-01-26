@@ -1,7 +1,7 @@
-/** @jsx jsx */
-import { Badge, Box, jsx } from '@nature-ui/core';
-import { useRouter } from 'next/router';
+/** * */
 import * as React from 'react';
+import { Badge, Box } from '@nature-ui/core';
+import { useRouter } from 'next/router';
 
 import SEO from 'components/seo';
 import { EditPageLink } from 'components/edit-page-button';

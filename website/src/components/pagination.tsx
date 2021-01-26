@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { Box, jsx } from '@nature-ui/core';
+/** * */
+import * as React from 'react';
+import { Box } from '@nature-ui/core';
 import { ChevronLeftIcon, ChevronRightIcon } from '@nature-ui/icons';
 import NextLink from 'next/link';
 

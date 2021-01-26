@@ -1,7 +1,7 @@
-/** @jsx jsx */
-import { Alert, Box, jsx, PropsOf, Divider, clsx } from '@nature-ui/core';
+/** * */
+import * as React from 'react';
+import { Alert, Box, PropsOf, Divider, clsx } from '@nature-ui/core';
 import { Fa } from '@nature-ui/icons';
-import React from 'react';
 import CodeBlock from './codeblock/codeblock';
 import { El } from './nature-jsx-elements';
 

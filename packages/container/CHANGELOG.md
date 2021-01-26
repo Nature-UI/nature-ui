@@ -1,5 +1,16 @@
 # @nature-ui/container
 
+## 1.1.0
+
+### Minor Changes
+
+- Bump system module
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes

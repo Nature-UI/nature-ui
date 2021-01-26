@@ -1,5 +1,16 @@
 # @nature-ui/icons
 
+## 1.1.0
+
+### Minor Changes
+
+- Bump system module
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/icon@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes

@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, nature } from '@nature-ui/core';
+/** * */
+import * as React from 'react';
 import { El } from 'components/nature-jsx-elements';
 import BaseHighlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';

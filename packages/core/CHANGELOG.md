@@ -1,5 +1,42 @@
 # @nature-ui/core
 
+## 1.1.0
+
+### Minor Changes
+
+- Bump system module
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/alert@1.1.0
+  - @nature-ui/alert-dialog@1.1.0
+  - @nature-ui/avatar@1.1.0
+  - @nature-ui/breadcrumb@1.1.0
+  - @nature-ui/button@1.1.0
+  - @nature-ui/checkbox@1.1.0
+  - @nature-ui/close-button@1.1.0
+  - @nature-ui/collapse@1.1.0
+  - @nature-ui/container@1.1.0
+  - @nature-ui/drawer@1.1.0
+  - @nature-ui/form-control@1.1.0
+  - @nature-ui/hooks@1.1.0
+  - @nature-ui/icon@1.1.0
+  - @nature-ui/image@1.1.0
+  - @nature-ui/input@1.1.0
+  - @nature-ui/layout@1.1.0
+  - @nature-ui/modal@1.1.0
+  - @nature-ui/popover@1.1.0
+  - @nature-ui/popper@1.1.0
+  - @nature-ui/portal@1.1.0
+  - @nature-ui/progress@1.1.0
+  - @nature-ui/radio@1.1.0
+  - @nature-ui/spinner@1.1.0
+  - @nature-ui/system@1.1.0
+  - @nature-ui/toast@1.1.0
+  - @nature-ui/transition@1.1.0
+  - @nature-ui/visually-hidden@1.1.0
+
 ## 1.0.3
 
 ### Patch Changes

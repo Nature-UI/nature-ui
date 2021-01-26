@@ -1,5 +1,11 @@
 # @nature-ui/popper
 
+## 1.1.0
+
+### Minor Changes
+
+- Bump system module
+
 ## 1.0.2
 
 ### Patch Changes

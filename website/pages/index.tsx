@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { Container, Button, Box, jsx } from '@nature-ui/core';
+/** * */
+import * as React from 'react';
+import { Container, Button, Box } from '@nature-ui/core';
 import { Ai, Io, Md } from '@nature-ui/icons';
 import Link from 'next/link';
 

@@ -1,5 +1,5 @@
-/** @jsx */
-import { Box, BoxProps, Stack, clsx, jsx } from '@nature-ui/core';
+/** * */
+import { Box, BoxProps, Stack, clsx } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { Routes } from 'utils/get-route-context';

@@ -1,14 +1,13 @@
-/** @jsx jsx */
+/** * */
+import * as React from 'react';
 import {
   nature,
-  jsx,
   PropsOf,
   Button,
   Stack,
   VisuallyHidden,
 } from '@nature-ui/core';
 import { SearchIcon } from '@nature-ui/icons';
-import * as React from 'react';
 
 const ACTION_KEY_DEFAULT = ['Ctrl', 'Control'];
 const ACTION_KEY_APPLE = ['⌘', 'Command'];

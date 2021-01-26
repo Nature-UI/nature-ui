@@ -37,6 +37,7 @@
     "commit": "cz",
     "prettier": "prettier --write \"**/*.{ts,tsx,json,md,yml}\"",
     "prerelease": "yarn build",
+    "v-release": "lerna run v-pub",
     "release": "changeset publish"
   },
   "dependencies": {

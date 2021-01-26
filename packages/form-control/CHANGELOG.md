@@ -1,5 +1,19 @@
 # @nature-ui/form-control
 
+## 1.1.0
+
+### Minor Changes
+
+- Bump system module
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/hooks@1.1.0
+  - @nature-ui/icon@1.1.0
+  - @nature-ui/system@1.1.0
+  - @nature-ui/utils@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes

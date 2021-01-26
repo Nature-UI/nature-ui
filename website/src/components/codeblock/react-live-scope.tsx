@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { nature, jsx } from '@nature-ui/core';
-import React from 'react';
+/** * */
+import * as React from 'react';
 import * as Nature from '@nature-ui/core';
 import * as Icons from '@nature-ui/icons';
 import * as Formik from 'formik';

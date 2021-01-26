@@ -1,5 +1,17 @@
 # @nature-ui/drawer
 
+## 1.1.0
+
+### Minor Changes
+
+- Bump system module
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/modal@1.1.0
+  - @nature-ui/transition@1.1.0
+
 ## 1.0.2
 
 ### Patch Changes

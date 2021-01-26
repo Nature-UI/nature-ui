@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { BoxProps, jsx } from '@nature-ui/core';
+/** * */
+import * as React from 'react';
+import { BoxProps } from '@nature-ui/core';
 import { El } from 'components/nature-jsx-elements';
 import { ReactNode, RefObject, useEffect, useRef, useState } from 'react';
 
