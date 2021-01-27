@@ -1,4 +1,4 @@
-/** * */
+/** ** */
 import * as React from 'react';
 import { nature, PropsOf, Icon, IconProps } from '@nature-ui/core';
 

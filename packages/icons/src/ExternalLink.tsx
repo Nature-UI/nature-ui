@@ -1,5 +1,4 @@
 import { createIcon } from '@nature-ui/icon';
-import * as React from 'react';
 
 export const ExternalLinkIcon = createIcon({
   displayName: 'ExternalLinkIcon',

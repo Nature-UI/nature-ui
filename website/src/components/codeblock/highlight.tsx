@@ -1,4 +1,4 @@
-/** * */
+/** ** */
 import * as React from 'react';
 import { El } from 'components/nature-jsx-elements';
 import BaseHighlight, { defaultProps, Language } from 'prism-react-renderer';

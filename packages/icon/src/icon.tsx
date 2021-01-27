@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, nature, PropsOf, clsx as clx } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, clsx as clx } from '@nature-ui/system';
 import * as React from 'react';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
 
@@ -64,7 +64,6 @@ export const Icon = React.forwardRef(
       as: type,
       focusable = false,
       boxSize,
-      css,
       ...rest
     } = props;
 

@@ -3,15 +3,13 @@
 exports[`@nature-ui/icon Icon renders a third-party icon correctly 1`] = `
 <DocumentFragment>
   <svg
-    class=" css-qzxgwt"
-    color="currentColor"
+    class=" css-9xkhqu-Icon"
     fill="currentColor"
     focusable="false"
     height="1em"
     role="presentation"
     stroke="currentColor"
     stroke-width="0"
-    style="color: currentColor;"
     viewBox="0 0 24 24"
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +24,7 @@ exports[`@nature-ui/icon Icon renders a third-party icon correctly 1`] = `
 exports[`@nature-ui/icon Icon renders correctly 1`] = `
 <DocumentFragment>
   <svg
-    class=" css-qzxgwt"
-    color="currentColor"
+    class=" css-9xkhqu-Icon"
     focusable="false"
     height="12"
     role="presentation"

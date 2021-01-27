@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { clsx, jsx, nature, PropsOf } from '@nature-ui/system';
+/** ** */
+import { clsx, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__, createContext } from '@nature-ui/utils';
 import * as React from 'react';
 import { useBoolean, useId, useSafeLayoutEffect } from '@nature-ui/hooks';

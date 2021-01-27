@@ -1,4 +1,4 @@
-/** * */
+/** ** */
 import * as React from 'react';
 import { Alert, Box, PropsOf, Divider, clsx } from '@nature-ui/core';
 import { Fa } from '@nature-ui/icons';

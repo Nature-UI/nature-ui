@@ -1,4 +1,4 @@
-/** * */
+/** ** */
 import * as React from 'react';
 import { Box } from '@nature-ui/core';
 import { ChevronLeftIcon, ChevronRightIcon } from '@nature-ui/icons';

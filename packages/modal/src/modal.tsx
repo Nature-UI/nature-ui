@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { nature, PropsOf, forwardRef, clsx, jsx } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { FocusLock } from '@nature-ui/focus-lock';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';

@@ -7,16 +7,17 @@ exports[`@nature-ui/alert  should also render correctly 1`] = `
     role="alert"
   >
     <svg
-      class="text-gray-800 mr-3 text-red-600 mr-3"
+      class="text-gray-800 mr-3 text-red-600 mr-3 css-rre05l-Icon"
       fill="none"
-      height="20"
-      size="20"
+      focusable="false"
+      height="1em"
+      role="presentation"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="2"
       viewBox="0 0 24 24"
-      width="20"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
@@ -32,21 +33,19 @@ exports[`@nature-ui/alert  should also render correctly 1`] = `
       />
       <line
         x1="12"
-        x2="12"
+        x2="12.01"
         y1="16"
         y2="16"
       />
     </svg>
-    <div
+    <p
       class="mr-3 font-bold"
     >
       Alert title
-    </div>
-    <div
-      class=""
-    >
+    </p>
+    <p>
       Alert description
-    </div>
+    </p>
   </div>
 </DocumentFragment>
 `;
@@ -58,16 +57,17 @@ exports[`@nature-ui/alert  should render correctly 1`] = `
     role="alert"
   >
     <svg
-      class="text-gray-800 mr-3 text-green-600 mr-3"
+      class="text-gray-800 mr-3 text-green-600 mr-3 css-rre05l-Icon"
       fill="none"
-      height="20"
-      size="20"
+      focusable="false"
+      height="1em"
+      role="presentation"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="2"
       viewBox="0 0 24 24"
-      width="20"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -77,16 +77,14 @@ exports[`@nature-ui/alert  should render correctly 1`] = `
         points="22 4 12 14.01 9 11.01"
       />
     </svg>
-    <div
+    <p
       class="font-bold"
     >
       Alert title
-    </div>
-    <div
-      class=""
-    >
+    </p>
+    <p>
       Alert description
-    </div>
+    </p>
   </div>
 </DocumentFragment>
 `;

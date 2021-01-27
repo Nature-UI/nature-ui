@@ -1,5 +1,13 @@
 # @nature-ui/image
 
+## 1.1.1
+
+### Patch Changes
+
+- 5dc1908: Patch
+- Updated dependencies [5dc1908]
+  - @nature-ui/system@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes

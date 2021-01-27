@@ -1,12 +1,11 @@
-/** @jsx jsx */
-import { nature, PropsOf, clsx, jsx } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, clsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-
-const DivTag = nature('div');
+import * as React from 'react';
 
 // type Omitted = "size" | "boxSize" | "width" | "height" | "w" | "h"
 
-export type ContainerProps = PropsOf<typeof DivTag> & {
+export type ContainerProps = PropsOf<typeof nature.div> & {
   /**
    * The size (width and height) of the square
    * It uses the range value in your tailwind.config.js file
@@ -58,7 +57,7 @@ export const Container = (props: ContainerProps) => {
   });
 
   return (
-    <DivTag
+    <nature.div
       {...rest}
       className={_classNames}
       css={{
@@ -66,7 +65,7 @@ export const Container = (props: ContainerProps) => {
       }}
     >
       {children}
-    </DivTag>
+    </nature.div>
   );
 };
 

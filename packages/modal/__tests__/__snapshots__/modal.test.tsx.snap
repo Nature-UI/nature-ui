@@ -25,21 +25,21 @@ exports[`@nature-ui/modal should render correctly 1`] = `
       >
         <div>
           <div
-            class="flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start overflow-auto css-13nve5j"
+            class="flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start z-40 overflow-auto css-514051-ModalOverlay"
             variant="blur"
           >
             <section
               aria-describedby="nature-modal--body-1"
               aria-labelledby="nature-modal--header-1"
               aria-modal="true"
-              class="bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none css-ay1frr"
+              class="bg-white shadow-lg my-12 rounded flex flex-col relative w-full focus:outline-none z-50 css-15l0n00-ModalContent"
               id="nature-modal-1"
               role="dialog"
               tabindex="-1"
               variant="blur"
             >
               <header
-                class="nature-modal__header p-4 font-bold text-xl css-72fd9l"
+                class="nature-modal__header p-4 font-bold text-xl css-1gfottg-StyledHeader"
                 id="nature-modal--header-1"
               >
                 Modal header
@@ -51,8 +51,7 @@ exports[`@nature-ui/modal should render correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=" css-qzxgwt"
-                  color="currentColor"
+                  class=" css-9xkhqu-Icon"
                   focusable="false"
                   height="12"
                   role="presentation"
@@ -72,7 +71,7 @@ exports[`@nature-ui/modal should render correctly 1`] = `
                 Modal body
               </div>
               <footer
-                class="flex items-center justify-end p-4 css-72fd9l"
+                class="flex items-center justify-end p-4 css-w30ywn-ModalFooter"
               >
                 Modal footer
               </footer>

@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { nature, clsx, PropsOf, css, jsx } from '@nature-ui/system';
+/** ** */
+import { nature, clsx, PropsOf, css } from '@nature-ui/system';
 import * as React from 'react';
 
 import {
@@ -188,9 +188,9 @@ export const Button = React.forwardRef(
       'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
     const STYLES = {
       solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
-      outline: `bg-transparent hover:bg-${lighten(
+      outline: `bg-transparent text-${text} border border-${text} focus:border-transparent hover:bg-${lighten(
         text,
-      )} text-${color} border border-${color} focus:border-transparent`,
+      )}`,
       ghost: `hover:bg-${lighten(text)} text-${text}`,
       link: `hover:underline text-${text}`,
       disabled: 'opacity-50 cursor-not-allowed',
@@ -238,12 +238,12 @@ export const Button = React.forwardRef(
           </ButtonIcon>
         )}
         {isLoading ? (
-          <React.Fragment>
+          <>
             <ButtonSpinner label={loadingText}>{children}</ButtonSpinner>
             {children && !loadingText && (
               <nature.span className='opacity-0'>{children}</nature.span>
             )}
-          </React.Fragment>
+          </>
         ) : (
           children
         )}

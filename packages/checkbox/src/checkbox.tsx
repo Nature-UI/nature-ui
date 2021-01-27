@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { nature, PropsOf, jsx, clsx, css } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, clsx, css } from '@nature-ui/system';
 import { IconProps } from '@nature-ui/icon';
 import { darken, __DEV__ } from '@nature-ui/utils';
 import React from 'react';

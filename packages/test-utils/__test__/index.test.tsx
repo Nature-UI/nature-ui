@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@nature-ui/system';
+/** ** */
+import * as React from 'react';
 
 import { render } from '../src';
 

@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { clsx, jsx, nature, PropsOf, css } from '@nature-ui/system';
+/** ** */
+import { clsx, nature, PropsOf, css } from '@nature-ui/system';
 import { FormControlOptions, useFormControl } from '@nature-ui/form-control';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';

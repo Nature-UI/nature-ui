@@ -1,16 +1,13 @@
-/** @jsx jsx */
-import { nature, clsx, PropsOf, css, jsx } from '@nature-ui/system';
+import { nature, clsx, PropsOf, css } from '@nature-ui/system';
 import { darken, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
 import { useRadioGroupContext } from './radio-group';
 import { useRadio, UseRadioProps } from './use-radio';
 
-const DivTag = nature('div');
-
 type Omitted = 'onChange' | 'defaultChecked' | 'checked';
 
-type BaseControlProps = Omit<PropsOf<typeof DivTag>, Omitted>;
+type BaseControlProps = Omit<PropsOf<typeof nature.div>, Omitted>;
 
 export type RadioProps = UseRadioProps &
   BaseControlProps & {
@@ -27,8 +24,6 @@ export type RadioProps = UseRadioProps &
     color?: string;
     wrapperClass?: string;
   };
-
-const StyledWrapper = nature('label');
 
 const _SIZES = {
   sm: '0.75rem',
@@ -114,7 +109,7 @@ export const Radio = React.forwardRef(
       _css,
       {
         [`bg-${color} border-${color}`]: _checked && !_invalid,
-        ring: _focus,
+        'shadow-outline': _focus,
         'border-red-600': _invalid,
         [`bg-${dark} border-${dark}`]: _hover && _checked && !_invalid,
         'bg-gray-300 text-gray-300': _disabled,
@@ -123,7 +118,7 @@ export const Radio = React.forwardRef(
     );
 
     return (
-      <StyledWrapper
+      <nature.label
         className={clsx(
           className,
           'nature-radio inline-flex items-center align-top',
@@ -140,7 +135,7 @@ export const Radio = React.forwardRef(
           style={style as any}
           {...inputProps}
         />
-        <DivTag
+        <nature.div
           css={{
             width: _size,
             height: _size,
@@ -149,17 +144,17 @@ export const Radio = React.forwardRef(
           className={_className}
         />
         {children && (
-          <DivTag
+          <nature.div
             className='nature-radio__label select-none'
-            {...getLabelProps()}
             css={{
               marginLeft: spacing,
             }}
+            {...getLabelProps()}
           >
             {children}
-          </DivTag>
+          </nature.div>
         )}
-      </StyledWrapper>
+      </nature.label>
     );
   },
 );

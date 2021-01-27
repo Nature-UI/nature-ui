@@ -1,8 +1,7 @@
-/** @jsx jsx */
-import { forwardRef, nature, PropsOf, clsx, jsx } from '@nature-ui/system';
+/** ** */
+import { forwardRef, nature, PropsOf, clsx, css } from '@nature-ui/system';
 import * as React from 'react';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-import { css } from 'emotion';
 
 const DivTag = nature('div');
 export type StackProps = PropsOf<typeof DivTag> & {

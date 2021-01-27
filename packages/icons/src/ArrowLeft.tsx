@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createIcon } from '@nature-ui/icon';
 
 export const ArrowLeftIcon = createIcon({

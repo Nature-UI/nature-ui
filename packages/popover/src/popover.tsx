@@ -1,7 +1,7 @@
-/** @jsx jsx */
+/** ** */
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
-import { clsx, nature, PropsOf, jsx } from '@nature-ui/system';
+import { clsx, nature, PropsOf } from '@nature-ui/system';
 import {
   createContext,
   isFunction,
@@ -102,7 +102,7 @@ export const PopoverContent = React.forwardRef(
     const _hidden = hidden || ariaHidden;
 
     return (
-      <React.Fragment>
+      <>
         {!_hidden && (
           <SectionTag
             className={clsx(
@@ -116,7 +116,7 @@ export const PopoverContent = React.forwardRef(
             {...{ hidden, 'aria-hidden': ariaHidden }}
           />
         )}
-      </React.Fragment>
+      </>
     );
   },
 );

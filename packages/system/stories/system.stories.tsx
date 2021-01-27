@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { nature, jsx } from '../src';
+/** ** */
+import * as React from 'react';
+import { nature } from '../src';
 
 export default {
   title: 'System',

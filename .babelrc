@@ -1,17 +1,18 @@
 {
-	"presets": [
-		"@babel/preset-env",
-		"@babel/preset-typescript",
-		"@babel/preset-react"
-	],
-	"plugins": [
-		"@babel/plugin-transform-react-jsx",
-		"@babel/plugin-proposal-class-properties",
-		"@babel/plugin-syntax-jsx"
-	],
-	"env": {
-		"test": {
-			"plugins": ["@babel/plugin-transform-modules-commonjs"]
-		}
-	}
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+    // "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-react-jsx",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-jsx"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    }
+  }
 }

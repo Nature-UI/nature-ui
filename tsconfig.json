@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -26,7 +27,14 @@
     "allowSyntheticDefaultImports": true, // FIXME: => false
     "skipLibCheck": true,
     "noEmit": false,
-    "types": ["jest", "node", "react", "react-dom", "@testing-library/jest-dom"]
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-dom",
+      "@testing-library/jest-dom",
+      "@emotion/react"
+    ]
   },
   "exclude": [
     "node_modules",
