@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "^14"
+    "node": ">12"
   },
   "workspaces": {
     "packages": [
@@ -38,6 +38,7 @@
     "prettier": "prettier --write \"**/*.{ts,tsx,json,md,yml}\"",
     "prerelease": "yarn build",
     "v-release": "lerna run v-pub",
+    "build:storybook": "build-storybook && sb extract",
     "release": "changeset publish"
   },
   "dependencies": {
@@ -138,5 +139,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@storybook/storybook-deployer": "^2.8.7"
   }
 }
