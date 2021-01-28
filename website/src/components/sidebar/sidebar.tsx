@@ -109,21 +109,21 @@ const mainNavLinks = [
     href: '/docs/getting-started',
     label: 'Docs',
   },
-  {
-    icon: <GuidesIcon />,
-    href: '/guides/integrations/with-cra',
-    label: 'Guides',
-  },
-  {
-    icon: <TeamIcon />,
-    href: '/team',
-    label: 'Team',
-  },
-  {
-    icon: <BlogIcon />,
-    href: '/blog',
-    label: 'Blog',
-  },
+  // {
+  //   icon: <GuidesIcon />,
+  //   href: '/guides/integrations/with-cra',
+  //   label: 'Guides',
+  // },
+  // {
+  //   icon: <TeamIcon />,
+  //   href: '/team',
+  //   label: 'Team',
+  // },
+  // {
+  //   icon: <BlogIcon />,
+  //   href: '/blog',
+  //   label: 'Blog',
+  // },
 ];
 
 const MainNavLinkGroup = (props: BoxProps) => {
