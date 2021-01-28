@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/layout",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A React component for displaying spinners and loaders",
   "keywords": [
     "spinner",
@@ -38,7 +38,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^1.1.0",
+    "@nature-ui/system": "^1.1.2",
     "@nature-ui/utils": "^1.1.0"
   },
   "peerDependencies": {

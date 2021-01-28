@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",
@@ -55,7 +55,7 @@
     "react-remove-scroll": "^2.4.0"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.0",
+    "@nature-ui/system": "^1.1.2",
     "react": "^17.0.1"
   },
   "peerDependencies": {

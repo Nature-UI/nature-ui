@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/checkbox",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A React Checkbox component for use in forms",
   "keywords": [
     "react",
@@ -45,10 +45,10 @@
   },
   "dependencies": {
     "@nature-ui/hooks": "^1.1.0",
-    "@nature-ui/icon": "^1.1.0",
-    "@nature-ui/system": "^1.1.0",
+    "@nature-ui/icon": "^1.1.1",
+    "@nature-ui/system": "^1.1.2",
     "@nature-ui/utils": "^1.1.0",
-    "@nature-ui/visually-hidden": "^1.1.0"
+    "@nature-ui/visually-hidden": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^17.x"

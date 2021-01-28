@@ -1,5 +1,14 @@
 # @nature-ui/alert
 
+## 1.1.1
+
+### Patch Changes
+
+- 5dc1908: Fixed css prop issue
+- Updated dependencies [5dc1908]
+  - @nature-ui/icons@1.1.1
+  - @nature-ui/system@1.1.2
+
 ## 1.1.0
 
 ### Minor Changes

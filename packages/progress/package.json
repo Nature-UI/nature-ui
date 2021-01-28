@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/progress",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Progress bar component for Nature UI",
   "keywords": [
     "theme",
@@ -47,7 +47,7 @@
     "react": "^17.x"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.0",
+    "@nature-ui/system": "^1.1.2",
     "react": "^17.0.1"
   }
 }

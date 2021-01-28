@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/container",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Container, nature-ui, component, Nature-UI container",
   "keywords": [
     "Container",
@@ -43,7 +43,7 @@
     "react-dom": "^17.x"
   },
   "dependencies": {
-    "@nature-ui/system": "^1.1.0"
+    "@nature-ui/system": "^1.1.2"
   },
   "devDependencies": {
     "react": "^17.0.1",

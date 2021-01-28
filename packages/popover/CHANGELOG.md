@@ -1,5 +1,11 @@
 # @nature-ui/popover
 
+## 1.1.1
+
+### Patch Changes
+
+- 5dc1908: Fixed css prop issue
+
 ## 1.1.0
 
 ### Minor Changes

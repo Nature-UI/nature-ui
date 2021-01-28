@@ -1,5 +1,13 @@
 # @nature-ui/alert-dialog
 
+## 1.1.1
+
+### Patch Changes
+
+- 5dc1908: Fixed css prop issue
+- Updated dependencies [5dc1908]
+  - @nature-ui/modal@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes
