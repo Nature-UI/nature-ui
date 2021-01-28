@@ -1,13 +1,10 @@
+/** ** */
+import { forwardRef, nature, PropsOf, clsx, css } from '@nature-ui/system';
 import * as React from 'react';
-import { forwardRef, nature, PropsOf, clsx } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-import { css } from 'emotion';
 
-import { Box } from './box';
-
-const StackElem = nature('div');
-
-export type StackProps = PropsOf<typeof StackElem> & {
+const DivTag = nature('div');
+export type StackProps = PropsOf<typeof DivTag> & {
   /**
    * The space between each stack item
    */
@@ -24,6 +21,7 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
     spacing = 4,
     direction = 'col',
     className = '',
+    as,
     ...rest
   } = props;
 
@@ -48,26 +46,29 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
         [ROW]: spacing && direction === 'row',
       });
 
+      const { className: cn, ..._props } = child.props;
       return (
-        <Box key={Number(index)} className={_className}>
-          {child}
-        </Box>
+        <React.Fragment key={Number(index)}>
+          {React.cloneElement(child as any, {
+            ..._props,
+            className: clsx(cn, _className),
+          })}
+        </React.Fragment>
       );
     }
 
-    return <Box key={Number(index)}>{child}</Box>;
+    return child;
   });
 
   const DEFAULT_CLASS = 'flex';
-  const _className = clsx(DEFAULT_CLASS, {
+  const _className = clsx(className, DEFAULT_CLASS, {
     [`flex-${direction}`]: direction,
-    [className]: className,
   });
 
   return (
-    <StackElem className={_className} {...rest} ref={ref}>
+    <DivTag className={_className} {...rest} ref={ref}>
       {clones}
-    </StackElem>
+    </DivTag>
   );
 });
 

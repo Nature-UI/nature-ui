@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { nature, PropsOf, clsx, jsx } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, clsx } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
@@ -31,17 +31,7 @@ const StyledAddon = (props: PropsOf<typeof SpanTag>) => {
     [className]: className,
   });
 
-  return (
-    <SpanTag
-      /*
-       * css={{
-       *   flex: '0 0 auto',
-       * }}
-       */
-      className={_className}
-      {...rest}
-    />
-  );
+  return <SpanTag className={_className} {...rest} />;
 };
 
 export type InputAddonProps = PropsOf<typeof StyledAddon> & {
@@ -60,7 +50,7 @@ export const InputAddon = React.forwardRef(
     // const _isString = typeof children === 'string';
     const _className = clsx(
       className,
-      'px-4 bg-gray-100 border border-gray-400',
+      'px-4 bg-gray-100 border border-gray-200',
     );
 
     return (

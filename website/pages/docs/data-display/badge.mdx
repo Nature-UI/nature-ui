@@ -1,0 +1,78 @@
+---
+title: Badge
+package: '@nature-ui/layout'
+description:
+  Badges are used to highlight an item's status for quick recognition.
+---
+
+Badges are used to highlight an item's status for quick recognition.
+
+## Import
+
+```js
+import { Badge } from '@nature-ui/core';
+```
+
+## Usage
+
+```jsx
+<Badge>Default</Badge>
+```
+
+### Badge Color
+
+Pass the `color` prop to customize the color of the Badge. `color` can be any
+**color key** that exists in `theme.colors`.
+[Learn more about theming](/docs/theming/theme).
+
+```jsx
+<Stack direction='row'>
+  <Badge>Default</Badge>
+  <Badge color='green-200'>Success</Badge>
+  <Badge color='red-300'>Removed</Badge>
+  <Badge color='purple-300'>New</Badge>
+</Stack>
+```
+
+### Badge Variants
+
+Pass the `variant` prop and set it to either `subtle`, `solid`, or `outline` to
+get a different style.
+
+```jsx
+<Stack direction='row'>
+  <Badge variant='outline' color='green-500'>
+    Default
+  </Badge>
+  <Badge variant='solid' color='green-500'>
+    Success
+  </Badge>
+  <Badge variant='subtle' color='green-200'>
+    Removed
+  </Badge>
+</Stack>
+```
+
+## Composition
+
+```jsx
+<Box className='flex'>
+  <Avatar src='https://tinyurl.com/y4mmkc9v' />
+  <Box className='ml-3'>
+    <p className='font-bold'>
+      Divine Nature
+      <Badge className='ml-1' color='green-200'>
+        New
+      </Badge>
+    </p>
+    <p className='text-sm'>Software Engineer</p>
+  </Box>
+</Box>
+```
+
+## Props
+
+| Name      | Type                         | Default    | Description                                                            |
+| --------- | ---------------------------- | ---------- | ---------------------------------------------------------------------- |
+| `variant` | `solid`, `subtle`, `outline` | `subtle`   | The style variant of the badge                                         |
+| `color`   | `string`                     | `gray-500` | The color scheme to use for the badge. Must be a key in `theme.colors` |

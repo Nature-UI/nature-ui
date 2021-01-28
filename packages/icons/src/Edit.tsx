@@ -1,5 +1,4 @@
 import { createIcon } from '@nature-ui/icon';
-import * as React from 'react';
 
 export const EditIcon = createIcon({
   displayName: 'EditIcon',

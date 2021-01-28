@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Button } from '@nature-ui/button';
+import { Stack } from '@nature-ui/layout';
 
 import { Toast, useToast } from '../src';
 
-// import { chakra } from "@chakra-ui/system"
+// import { nature } from "@nature-ui/system"
 
 export default {
   title: 'Toast',
@@ -120,6 +121,26 @@ export const WarningToast = () => {
   );
 };
 
+export const InfoToast = () => {
+  const toast = useToast();
+
+  return (
+    <Button
+      onClick={() =>
+        toast({
+          title: 'Warning.',
+          description: 'This is a warning.',
+          status: 'info',
+          duration: 9000,
+          isCloseable: true,
+        })
+      }
+    >
+      Show Warning Toast
+    </Button>
+  );
+};
+
 export const ErrorToast = () => {
   const toast = useToast();
 
@@ -169,3 +190,41 @@ export const AllSides = () => {
     </>
   );
 };
+
+export function Example() {
+  const toast = useToast();
+  const toastIdRef = React.useRef();
+
+  function close() {
+    if (toastIdRef.current) {
+      toast.close(toastIdRef.current);
+    }
+  }
+
+  function closeAll() {
+    // you may optionally pass an object of positions to exclusively close
+    // keeping other positions opened
+    // e.g. `{ positions: ['bottom'] }`
+    toast.closeAll();
+  }
+
+  function addToast() {
+    toastIdRef.current = toast({ description: 'some text' });
+  }
+
+  return (
+    <Stack direction='col' spacing='1rem'>
+      <Button onClick={addToast} type='button'>
+        Toast
+      </Button>
+
+      <Button onClick={close} type='button' variant='outline'>
+        Close last toast
+      </Button>
+
+      <Button onClick={closeAll} type='button' variant='outline'>
+        Close all toasts
+      </Button>
+    </Stack>
+  );
+}

@@ -109,6 +109,7 @@ export const useImage = (props: UseImageProps) => {
       setStatus('failed');
       onError?.(error);
     });
+
     imageRef.current = img;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError]);
 

@@ -1,15 +1,37 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
 
-/* Your own custom utilities */
+body,
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 1.5;
+  @apply bg-gray-100;
+  @apply text-gray-75;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply text-gray-1000;
+}
+
+blockquote * p {
+  margin-top: 0 !important;
+}
+
+pre {
+  scrollbar-width: 0;
+  overflow-x: scroll;
+}
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar {
+  display: none;
+}

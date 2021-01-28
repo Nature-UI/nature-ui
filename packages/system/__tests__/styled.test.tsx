@@ -1,7 +1,8 @@
-/** @jsx jsx */
+/** ** */
 import { render } from '@nature-ui/test-utils';
+import * as React from 'react';
 
-import { nature, jsx } from '../src';
+import { nature } from '../src';
 
 describe('@nature-ui/system', () => {
   test('as jsx element', () => {
@@ -46,7 +47,7 @@ describe('@nature-ui/system', () => {
 
     expect(tools.asFragment()).toMatchSnapshot();
 
-    expect(tools.getByText('Welcome')).toHaveClass(`mt-40`);
+    expect(tools.getByText('Welcome')).toHaveClass('mt-40');
   });
 
   test('nature function - renders correctly', () => {

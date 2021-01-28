@@ -1,0 +1,56 @@
+---
+title: Spinner
+package: '@nature-ui/spinner'
+description:
+  Spinners provide a visual cue that an action is processing awaiting a course
+  of change or a result.
+---
+
+Spinners provide a visual cue that an action is either processing, awaiting a
+course of change or a result.
+
+## Import
+
+```js
+import { Spinner } from '@nature-ui/core';
+```
+
+## Usage
+
+```jsx
+<Spinner />
+```
+
+### Spinner with Color
+
+```jsx
+<Spinner color='red-500' />
+```
+
+### Spinner with different size
+
+```jsx
+<Stack direction='row' spacing={'1.15rem'}>
+  <Spinner size='xs' />
+  <Spinner size='sm' />
+  <Spinner size='md' />
+  <Spinner size='lg' />
+</Stack>
+```
+
+### Spinner with empty area color
+
+```jsx
+<Spinner thickness='4px' speed='0.65s' color='blue-500' size='lg' />
+```
+
+## Props
+
+| Name       | Type                                 | Default       | Description                                                     |
+| ---------- | ------------------------------------ | ------------- | --------------------------------------------------------------- |
+| size       | `"lg"` \| `"md"` \| `"sm"` \| `"xs"` | `md`          | The size of the spinner.                                        |
+| thickness  | `string`                             | `2px`         | The thickness of the spinner.                                   |
+| speed      | `string`                             | `0.45s`       | The speed of the spinner.                                       |
+| label      | `string`                             | `Loading...`  | An accessible label for the spinner (Useful for screen readers) |
+| color      | `string`                             |               | The color of the spinner.                                       |
+| emptyColor | `string`                             | `transparent` | The color of the empty areas in the spinner.                    |

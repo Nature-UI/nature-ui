@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { forwardRef, nature, PropsOf, jsx } from '@nature-ui/system';
+/** ** */
+import * as React from 'react';
+import { forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 
 const Span = nature('span');
@@ -47,3 +48,4 @@ export const VisuallyHiddenInput = forwardRef<PropsOf<typeof Input>>(
 if (__DEV__) {
   VisuallyHiddenInput.displayName = 'VisuallyHiddenInput';
 }
+export default VisuallyHidden;

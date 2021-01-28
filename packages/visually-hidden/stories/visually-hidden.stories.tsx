@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import VisuallyHidden, { VisuallyHiddenInput } from '../src';
+import { VisuallyHidden, VisuallyHiddenInput } from '../src';
 
 export default {
   title: 'Visually Hidden',

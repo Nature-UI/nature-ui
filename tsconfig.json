@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    // "baseUrl": "./",
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    // "isolatedModules": true,
     "outDir": "dist",
     "target": "es5",
     "module": "CommonJS",
@@ -15,7 +14,6 @@
     "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
-    // "rootDir": "src",
     "suppressImplicitAnyIndexErrors": true,
     "removeComments": true,
     "noImplicitAny": true,
@@ -29,7 +27,14 @@
     "allowSyntheticDefaultImports": true, // FIXME: => false
     "skipLibCheck": true,
     "noEmit": false,
-    "types": ["jest", "node", "react", "react-dom", "@testing-library/jest-dom"]
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-dom",
+      "@testing-library/jest-dom",
+      "@emotion/react"
+    ]
   },
   "exclude": [
     "node_modules",
@@ -39,5 +44,5 @@
     "webpack",
     "jest"
   ],
-  "include": ["src", "packages", "website", "*.config.js", "**/*/__test__/**/*"]
+  "include": ["src", "packages", "*.config.js", "**/*/__test__/**/*", "website"]
 }

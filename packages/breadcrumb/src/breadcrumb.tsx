@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { forwardRef, nature, PropsOf, jsx, clsx, css } from '@nature-ui/system';
+/** ** */
+import { forwardRef, nature, PropsOf, clsx, css } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 

@@ -1,7 +1,8 @@
-import { PropsOf, nature } from '@nature-ui/system';
+import { Button } from '@nature-ui/button';
 import * as React from 'react';
 import { PortalManager } from '@nature-ui/portal';
-import { __DEV__ } from '@nature-ui/utils';
+import { useDisclosure } from '@nature-ui/hooks';
+import { Fade, SlideFade } from '@nature-ui/transition';
 
 import {
   AlertDialog,
@@ -10,6 +11,7 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
+  AlertDialogCloseButton,
 } from '../src';
 
 export default {
@@ -23,26 +25,6 @@ export default {
     ),
   ],
 };
-
-const ButtonTag = nature('button');
-
-const Button = React.forwardRef(
-  (props: PropsOf<typeof ButtonTag>, ref: React.Ref<HTMLButtonElement>) => {
-    const { className, ...rest } = props;
-
-    return (
-      <ButtonTag
-        {...rest}
-        ref={ref}
-        className={`px-4 py-2 font-semibold rounded border-none outline-none focus:shadow-outline ${className}`}
-      />
-    );
-  },
-);
-
-if (__DEV__) {
-  Button.displayName = 'Button';
-}
 
 export const BasicUsage = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -75,7 +57,7 @@ export const BasicUsage = () => {
               >
                 Nevermind
               </Button>
-              <Button className='ml-3 bg-red-500 text-white hover:bg-red-600'>
+              <Button className='ml-3text-white' color='red-600'>
                 Yes, delete
               </Button>
             </AlertDialogFooter>
@@ -85,3 +67,47 @@ export const BasicUsage = () => {
     </>
   );
 };
+
+export function TransitionExample() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
+
+  return (
+    <>
+      <Button onClick={onOpen}>Discard</Button>
+      <Fade timeout={300} in={isOpen}>
+        {(styles) => (
+          <AlertDialog
+            leastDestructiveRef={cancelRef}
+            onClose={onClose}
+            isOpen
+            isCentered
+          >
+            <AlertDialogOverlay style={styles}>
+              <SlideFade timeout={150} in={isOpen} unmountOnExit={false}>
+                {(_styles) => (
+                  <AlertDialogContent style={_styles}>
+                    <AlertDialogHeader>Discard Changes?</AlertDialogHeader>
+                    <AlertDialogCloseButton />
+                    <AlertDialogBody>
+                      Are you sure you want to discard all of your notes? 44
+                      words will be deleted.
+                    </AlertDialogBody>
+                    <AlertDialogFooter>
+                      <Button ref={cancelRef} onClick={onClose}>
+                        No
+                      </Button>
+                      <Button color='red-500' className='ml-3'>
+                        Yes
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                )}
+              </SlideFade>
+            </AlertDialogOverlay>
+          </AlertDialog>
+        )}
+      </Fade>
+    </>
+  );
+}

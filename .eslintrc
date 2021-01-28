@@ -2,7 +2,6 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2016,
-    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     }
@@ -22,16 +21,17 @@
     "react-hooks"
   ],
   "extends": [
+    "plugin:import/recommended",
     "airbnb-typescript",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
     "eslint:recommended",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jest/recommended",
     "plugin:promise/recommended",
-    "plugin:import/errors",
     "plugin:import/typescript",
     "plugin:prettier/recommended"
   ],
@@ -72,6 +72,21 @@
     "no-plusplus": 0,
     "consistent-return": 0,
     "react/require-default-props": 0,
-    "func-names": 0
-  }
+    "func-names": 0,
+    "react/jsx-pascal-case": 0,
+    "no-restricted-syntax": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "react-hooks/exhaustive-deps": 0,
+    "import/no-cycle": 0,
+    "react/destructuring-assignment": 0,
+    "react/react-in-jsx-scope": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["tsconfig.json"]
+      }
+    }
+  ]
 }

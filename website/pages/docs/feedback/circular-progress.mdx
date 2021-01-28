@@ -1,0 +1,94 @@
+---
+title: Circular Progress
+package: '@nature-ui/progress'
+description:
+  Circular Progress is used to indicates the progress for determinate and
+  indeterminate processes.
+---
+
+The CircularProgress component is used to indicate the progress for determinate
+and indeterminate processes.
+
+- Determine progress: fills the circular track with color, as the indicator
+  moves from 0 to 360 degrees.
+- Indeterminate progress: grows and shrinks the indicator while moving along the
+  circular track.
+
+## Import
+
+```js
+import { CircularProgress } from '@nature-ui/core';
+```
+
+## Usage
+
+```jsx
+<CircularProgress value={80} />
+```
+
+### Changing the size
+
+You can add `size` prop to the progress bar to add a custom size.
+
+```jsx
+// Change the size to 120px
+<CircularProgress value={30} size='120px' />
+```
+
+### Changing the thickness
+
+You can add the `thickness` prop to update the thickness of the progress ring.
+
+> The thickness has to be a ratio of the size. Value should be between 0 and 1.
+
+```jsx
+<CircularProgress value={59} size='100px' thickness='4px' />
+```
+
+### Changing the color
+
+You can add `colorScheme` prop to any progress bar to apply any color that
+exists in the theme config file.
+
+```jsx
+<CircularProgress value={30} colorScheme='orange-400' thickness='12px' />
+```
+
+### Adding label
+
+You can add `label` prop to any progress bar to include a label text.
+
+```jsx
+<CircularProgress label='40%' value={40} colorScheme='green-400' size='50px' />
+```
+
+### Indeterminate Progress
+
+Setting the progress to indeterminate means you're not able to determine the
+`value` upfront. Pass the `isIndeterminate` prop to activate this state.
+
+```jsx
+<CircularProgress isIndeterminate colorScheme='green-300' />
+```
+
+### Accessibility
+
+- Progress has `role` set to `progressbar` to denote that it is a progress bar.
+- Progress has `aria-valuenow` set to the percentage completion value passed to
+  the component, to ensure the progress percent is visible to screen readers.
+
+## Props
+
+| Name            | Type                 | Default | Description                                                                                                      |
+| --------------- | -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |
+| size            | `string` or `number` | `48px`  | The size of the circular progress in CSS units. When provided with a number, the unit defaults to `px`           |
+| max             | `number`             | `100`   | Maximum value defining 100% progress made (must be higher than 'min')                                            |
+| min             | `number`             | `0`     | Minimum value defining 'no progress' (must be lower than 'max')                                                  |
+| value           | `number`             |         | Current progress (must be between min/max)                                                                       |
+| isIndeterminate | `boolean`            |         | Puts the component into 'indeterminate' state; Ignores 'value' prop                                              |
+| thickness       | `string or number`   | `10px`  | The thickness of progress indicator                                                                              |
+| angle           | `number`             | `0`     | Angle to rotate progress indicator by                                                                            |
+| capIsRound      | `boolean`            |         | If `true`, the cap of the progress indicator will be rounded                                                     |
+| children        | `React.ReactNode`    |         | The content of the circular progress bar. If passed, the content will be inside and centered in the progress bar |
+| trackColor      | `string`             | `gray`  | The color name of the progress track. Use a color key in the theme object                                        |
+| colorScheme     | `string`             | `blue`  | The color of the progress indicator. Use a color key in the theme object                                         |

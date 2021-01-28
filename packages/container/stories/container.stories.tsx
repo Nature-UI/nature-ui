@@ -9,7 +9,7 @@ export default {
 
 export const SizeXL: React.FC = () => {
   return (
-    <Container className='bg-gray-300' size='xl'>
+    <Container centered className='bg-gray-300' size='xl'>
       I love Nature
     </Container>
   );
@@ -42,6 +42,14 @@ export const SizeSM: React.FC = () => {
 export const SizeXS: React.FC = () => {
   return (
     <Container className='bg-gray-300' size='xs'>
+      I love Nature
+    </Container>
+  );
+};
+
+export const Size500: React.FC = () => {
+  return (
+    <Container className='bg-gray-300' size='300px' centered>
       I love Nature
     </Container>
   );

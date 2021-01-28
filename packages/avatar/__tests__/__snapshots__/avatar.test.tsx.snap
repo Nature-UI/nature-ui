@@ -3,10 +3,10 @@
 exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-o4kq34"
+    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-qhbmea css-1edvott css-17of72q"
   >
     <svg
-      class=""
+      class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1edvott css-17of72q"
       color="#fff"
       role="img"
       style="width: 100%; height: 100%;"
@@ -31,10 +31,10 @@ exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
 exports[`@nature-ui/avatar avatar renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-o4kq34"
+    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-qhbmea css-1edvott css-17of72q"
   >
     <svg
-      class=""
+      class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1edvott css-17of72q"
       color="#fff"
       role="img"
       style="width: 100%; height: 100%;"

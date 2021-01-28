@@ -1,8 +1,17 @@
+/** ** */
+import { nature, clsx, PropsOf, css } from '@nature-ui/system';
 import * as React from 'react';
 
-import { nature, clsx, PropsOf, css, keyframes } from '@nature-ui/system';
-import { __DEV__, lighten, darken, dataAttr } from '@nature-ui/utils';
+import {
+  __DEV__,
+  lighten,
+  darken,
+  dataAttr,
+  StringOrNumber,
+} from '@nature-ui/utils';
 import { Spinner } from '@nature-ui/spinner';
+
+import { rippleEffect } from './button-effects';
 
 interface ButtonProps {
   /**
@@ -34,7 +43,21 @@ interface ButtonProps {
    */
   loadingText?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | number;
-
+  /**
+   * If added, the button will show an icon before the button's label.
+   * @type React.ReactElement
+   */
+  leftIcon?: React.ReactElement;
+  /**
+   * If added, the button will show an icon after the button's label.
+   * @type React.ReactElement
+   */
+  rightIcon?: React.ReactElement;
+  /**
+   * The space between the button icon and label.
+   * @type SystemProps["marginRight"]
+   */
+  iconSpacing?: StringOrNumber;
   /**
    * Typeof String | JSX.Element
    */
@@ -68,6 +91,23 @@ const _SIZES = {
   },
 };
 
+const ButtonIcon = (props: PropsOf<typeof nature.span>) => {
+  const { children, ...rest } = props;
+
+  const _children = React.isValidElement(children)
+    ? React.cloneElement(children, {
+        'aria-hidden': true,
+        focusable: false,
+      })
+    : children;
+
+  return <nature.span {...rest}>{_children}</nature.span>;
+};
+
+if (__DEV__) {
+  ButtonIcon.displayName = 'ButtonIcon';
+}
+
 export const ButtonSpinner = (
   props: ButtonType & {
     spinner?: React.ReactNode;
@@ -94,17 +134,34 @@ export const Button = React.forwardRef(
     const {
       as,
       variant = 'solid',
-      color = 'blue-500',
-      text = 'white',
+      color = 'gray-200',
       size = 'md',
       children,
+      text: _text,
       className = '',
       isDisabled = false,
       isLoading = false,
       loadingText,
       isActive,
+      leftIcon,
+      rightIcon,
+      iconSpacing = '10px',
       ...rest
     } = props;
+
+    const textColor = (): string => {
+      const split = color.split('-');
+      const amount = Number(split[split.length - 1]);
+      if (amount >= 300) {
+        return 'white';
+      }
+      if (!amount) {
+        return 'white';
+      }
+      return 'gray-600';
+    };
+
+    let text = _text || textColor();
 
     const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
     const _font = _SIZES[size].font ?? '1rem';
@@ -119,44 +176,21 @@ export const Button = React.forwardRef(
       paddingRight: _padding,
     });
 
-    const _ripple = keyframes`
-      50% {
-        opacity: 0.3;
-      }
-      100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(10);
-      }
-      `;
+    if (Number(color.split('-')[1]) <= 400) {
+      text = 'gray-700';
+    }
 
-    const _css = css`
-      font-size: ${_font};
-      line-height: 1.2;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 1em;
-        height: 1em;
-        background: currentColor;
-        border-radius: 50%;
-        opacity: 0;
-      }
-
-      &:focus:not(:active)::after {
-        animation: 0.3s ${_ripple};
-      }
-    `;
+    if (variant === 'ghost') {
+      text = _text || 'gray-700';
+    }
 
     const DEFAULT_CLASS =
-      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center';
+      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
     const STYLES = {
       solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
-      outline: `bg-transparent hover:bg-${lighten(
+      outline: `bg-transparent text-${text} border border-${text} focus:border-transparent hover:bg-${lighten(
         text,
-      )} text-${color} border border-${color} focus:border-transparent`,
+      )}`,
       ghost: `hover:bg-${lighten(text)} text-${text}`,
       link: `hover:underline text-${text}`,
       disabled: 'opacity-50 cursor-not-allowed',
@@ -169,7 +203,7 @@ export const Button = React.forwardRef(
         [STYLES.disabled]: isDisabled || isLoading,
       });
     } else {
-      BTNClass = clsx(className, _css, DEFAULT_CLASS, {
+      BTNClass = clsx(className, rippleEffect, DEFAULT_CLASS, {
         [_sizes]: !_link,
         [STYLES[variant]]: variant,
         [STYLES.disabled]: isDisabled || isLoading,
@@ -187,16 +221,40 @@ export const Button = React.forwardRef(
     };
 
     return (
-      <NatureButton {...defaults} {...rest}>
+      <NatureButton
+        css={{
+          fontSize: _font,
+        }}
+        {...defaults}
+        {...rest}
+      >
+        {leftIcon && !isLoading && (
+          <ButtonIcon
+            css={{
+              marginRight: iconSpacing,
+            }}
+          >
+            {leftIcon}
+          </ButtonIcon>
+        )}
         {isLoading ? (
           <>
             <ButtonSpinner label={loadingText}>{children}</ButtonSpinner>
             {children && !loadingText && (
-              <span className='opacity-0'>{children}</span>
+              <nature.span className='opacity-0'>{children}</nature.span>
             )}
           </>
         ) : (
           children
+        )}
+        {rightIcon && !isLoading && (
+          <ButtonIcon
+            css={{
+              marginLeft: iconSpacing,
+            }}
+          >
+            {rightIcon}
+          </ButtonIcon>
         )}
       </NatureButton>
     );

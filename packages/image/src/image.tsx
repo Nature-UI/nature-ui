@@ -31,6 +31,7 @@ interface ImageOptions {
    * If `true`, opt out of the `fallbackSrc` logic and use as `img`
    */
   ignoreFallback?: boolean;
+  size?: string;
 }
 
 const ImageComp = nature('img');
@@ -47,18 +48,33 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
     loading,
     ignoreFallback,
     crossOrigin,
+    size,
     ...rest
   } = props;
 
-  const shouldIgnore =
-    (loading !== undefined && loading !== null) || ignoreFallback;
+  const shouldIgnore = Boolean(loading ?? ignoreFallback);
 
   const status = useImage({
     ...props,
     ignoreFallback: shouldIgnore,
   });
 
-  const shared = {
+  let shared = {};
+
+  const css = {
+    width: size,
+    height: size,
+  };
+
+  if (size) {
+    shared = {
+      ...shared,
+      css,
+    };
+  }
+
+  shared = {
+    ...shared,
     ref,
     ...(shouldIgnore ? rest : omit(rest, ['onError', 'onLoad'])),
   };

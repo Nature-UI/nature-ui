@@ -12,19 +12,13 @@ export const Basic = () => <Radio>Hello</Radio>;
 export const Disabled = () => <Radio isDisabled>Disabled</Radio>;
 
 export const Readonly = () => (
-  <Radio
-    wrapperClass='mt-48'
-    colorScheme='blue-600'
-    isChecked
-    isReadOnly
-    size='lg'
-  >
+  <Radio color='blue-600' isChecked isReadOnly size='lg'>
     I'm a readonly radio
   </Radio>
 );
 
 export const Invalid = () => (
-  <Radio wrapperClass='mt-48' colorScheme='blue-600' isInvalid size='lg'>
+  <Radio color='blue-600' isInvalid size='lg'>
     I'm a invalid radio
   </Radio>
 );
@@ -39,7 +33,7 @@ export const WithSizes = () => {
           key={size}
           size={size}
           name='sample'
-          colorScheme='green-500'
+          color='green-500'
           className='ml-6'
         >
           Option

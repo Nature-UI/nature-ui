@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { nature, PropsOf, jsx, clsx, css } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, clsx, css } from '@nature-ui/system';
 import { IconProps } from '@nature-ui/icon';
 import { darken, __DEV__ } from '@nature-ui/utils';
 import React from 'react';
@@ -122,8 +122,9 @@ export const Checkbox = React.forwardRef(
     const {
       className = '',
       spacing = '0.5rem',
+      iconColor,
       children,
-      color,
+      color = group?.color,
       iconSize,
       ...rest
     } = props;
@@ -162,7 +163,9 @@ export const Checkbox = React.forwardRef(
             isChecked={state.isChecked}
             isIndeterminate={state.isIndeterminate}
             size={iconSize}
-            className='text-current inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out'
+            className={`inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out text-${
+              iconColor || 'current'
+            }`}
           />
         </StyledControl>
         {children && (

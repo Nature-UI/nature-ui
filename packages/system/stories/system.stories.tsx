@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { nature, jsx } from '../src';
+/** ** */
+import * as React from 'react';
+import { nature } from '../src';
 
 export default {
   title: 'System',
@@ -16,7 +17,6 @@ export const withHeading1 = () => (
         fontSize: '50px',
         color: 'tomato',
       }}
-      _hover={{ color: 'teal.500' }}
     >
       Welcome
     </Heading>
@@ -25,9 +25,6 @@ export const withHeading1 = () => (
         height: '60px',
         fontSize: '20px',
         minWidth: '400px',
-      }}
-      _active={{
-        backgroundColor: 'tomato',
       }}
     >
       Welcome
@@ -45,6 +42,18 @@ export const withHeading = () => (
 );
 
 export const Basic = () => (
+  <nature.h1
+    as='span'
+    css={{
+      backgroundColor: 'red',
+    }}
+    className='text-3xl font-bold'
+  >
+    Hello world
+  </nature.h1>
+);
+
+export const WithAs = () => (
   <nature.h1
     css={{
       backgroundColor: 'red',

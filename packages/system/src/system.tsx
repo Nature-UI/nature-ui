@@ -1,12 +1,12 @@
 import { As } from '@nature-ui/utils';
 import clsx from 'clsx';
 
-import { DOMElements, pseudoProps } from './system-utils';
+import { DOMElements, domElements } from './system-utils';
 import { NatureComponent } from './system-types';
 import { createComponent } from './create-component';
 
 export const natureComp = <T extends As>(component: T) => {
-  return createComponent<T>(component)(pseudoProps);
+  return createComponent<T>(component)();
 };
 
 type NatureJSXElements = {
@@ -19,5 +19,11 @@ type CreateNatureComponent = {
 
 export const nature = (natureComp as unknown) as CreateNatureComponent &
   NatureJSXElements;
+
+domElements.forEach((tag) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  nature[tag] = nature(tag);
+});
 
 export { clsx };

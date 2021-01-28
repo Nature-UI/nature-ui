@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, nature, PropsOf } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf } from '@nature-ui/system';
 import {
   Transition,
   TransitionProps,

@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, nature, PropsOf, clsx } from '@nature-ui/system';
+/** ** */
+import { nature, PropsOf, clsx } from '@nature-ui/system';
 import * as React from 'react';
 import { Meta } from '@storybook/react';
 

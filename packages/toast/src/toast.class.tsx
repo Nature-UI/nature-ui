@@ -1,5 +1,4 @@
 import { isBrowser } from '@nature-ui/utils';
-import * as React from 'react';
 import { render } from 'react-dom';
 import { Methods, ToastManager } from './toast-manager';
 import { ToastId, ToastMessage, ToastOptions } from './toast.types';

@@ -1,3 +1,12 @@
 module.exports = {
-  plugins: ['tailwindcss', 'postcss-preset-env'],
+  plugins: {
+    tailwindcss: {
+      config: '../tailwind.config.js',
+    },
+    autoprefixer: {},
+    'postcss-import': {},
+    'postcss-mixins': {},
+    'postcss-preset-env': {},
+    'postcss-flexbugs-fixes': {},
+  },
 };

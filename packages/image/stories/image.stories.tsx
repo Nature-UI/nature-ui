@@ -22,18 +22,8 @@ export const Basic = () => (
  */
 export const FallbackSrcExample = () => (
   <Image
-    src='https://bit.ly/dan-abramov'
-    loading='lazy'
+    src='https://bit.ly/dan-abramov_s'
     fallbackSrc='https://via.placeholder.com/150'
-  />
-);
-
-export const NativeFallbackSrcExample = () => (
-  <Image
-    fallbackSrc={localImg}
-    src='https://bit.ly/dan-abramov'
-    width='350px'
-    height='500px'
   />
 );
 
@@ -43,7 +33,7 @@ export const NativeFallbackSrcExample = () => (
  */
 export const FallbackElementExample = () => (
   <Image
-    src='https://bit.ly/dan-abramov'
+    src='https://bit.ly/dan-abramov_s'
     fallback={
       <div
         style={{
@@ -63,7 +53,7 @@ export const FallbackElementExample = () => (
  */
 export const withFit = () => (
   <Image
-    src='https://bit.ly/sage-adebayo'
+    src='https://bit.ly/divine_n'
     fallbackSrc='https://via.placeholder.com/240'
     fit='cover'
     width='400px'
@@ -71,17 +61,21 @@ export const withFit = () => (
   />
 );
 
-/**
- * Native `img` has support for `width`, and `height` prop,
- * however size those are used as style prop, we added support
- * for `htmlWidth`, and `htmlHeight` to handle this case.
- */
+export const withSize = () => (
+  <Image
+    src='https://bit.ly/divine_n'
+    fallbackSrc='https://via.placeholder.com/240'
+    size='150px'
+  />
+);
+
+// TODO: Add support for `htmlWidth` and `htmlHeight`
 export const withNativeWidth = () => (
   <Image
-    src='https://bit.ly/sage-adebayo'
+    src='https://bit.ly/divine_n'
     fallbackSrc='https://via.placeholder.com/240'
-    htmlWidth='300px'
-    htmlHeight='300px'
+    width='300px'
+    height='300px'
     onLoad={() => {
       console.log('loaded');
     }}

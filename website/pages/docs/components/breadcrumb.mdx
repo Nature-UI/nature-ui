@@ -1,0 +1,148 @@
+---
+title: Breadcrumb
+package: '@nature-ui/breadcrumb'
+image: 'components/breadcrumb.svg'
+description:
+  Breadcrumbs, or a breadcrumb navigation, can help to enhance how users
+  navigate to previous page levels of a website, especially if that website has
+  many pages or products.
+---
+
+Breadcrumbs, or a breadcrumb navigation, can help enhance how users navigate to
+previous page levels of a website, especially if that website has many pages or
+products.
+
+## Import
+
+Nature UI exports 3 breadcrumb-related components:
+
+- `Breadcrumb`: The parent container for breadcrumbs.
+- `BreadcrumbItem`: Individual breadcrumb element containing a link and a
+  divider.
+- `BreadcrumbLink`: The breadcrumb link.
+
+```js
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@nature-ui/core';
+```
+
+## Usage
+
+Add `isCurrent` prop to the `BreadcrumbItem` that matches the current path. When
+this prop is present, the `BreadcrumbLink` renders a `span` with `aria-current`
+set to `page` instead of an anchor element.
+
+```jsx
+<Breadcrumb>
+  <BreadcrumbItem>
+    <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+  </BreadcrumbItem>
+
+  <BreadcrumbItem>
+    <BreadcrumbLink href='#'>Docs</BreadcrumbLink>
+  </BreadcrumbItem>
+
+  <BreadcrumbItem isCurrent>
+    <BreadcrumbLink href='#'>Breadcrumb</BreadcrumbLink>
+  </BreadcrumbItem>
+</Breadcrumb>
+```
+
+### Separators
+
+Change the separator used in the breadcrumb by passing a string, like `-` or an
+icon.
+
+```jsx
+<Breadcrumb separator='-'>
+  <BreadcrumbItem>
+    <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+  </BreadcrumbItem>
+
+  <BreadcrumbItem>
+    <BreadcrumbLink href='#'>About</BreadcrumbLink>
+  </BreadcrumbItem>
+
+  <BreadcrumbItem isCurrent>
+    <BreadcrumbLink href='#'>Contact</BreadcrumbLink>
+  </BreadcrumbItem>
+</Breadcrumb>
+```
+
+### Using an icon as the separator
+
+```jsx
+<Breadcrumb
+  spacing='8px'
+  separator={<ChevronRightIcon className='inline-block' color='gray-500' />}
+>
+  <BreadcrumbItem>
+    <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+  </BreadcrumbItem>
+
+  <BreadcrumbItem>
+    <BreadcrumbLink href='#'>About</BreadcrumbLink>
+  </BreadcrumbItem>
+
+  <BreadcrumbItem isCurrent>
+    <BreadcrumbLink href='#'>Contact</BreadcrumbLink>
+  </BreadcrumbItem>
+</Breadcrumb>
+```
+
+## Usage with Routing Library
+
+To use the Breadcrumb with a routing Library like Reach Router or React Router,
+all you need to do is to pass the `as` prop to the `BreadcrumbLink` component.
+
+It'll replace the rendered `a` tag with Reach's Link.
+
+```jsx live=false
+// import { Link } from "@reach/router"
+
+<Breadcrumb>
+  <BreadcrumbItem>
+    <BreadcrumbLink as={Link} to='#'>
+      Home
+    </BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <BreadcrumbLink as={Link} to='#'>
+      About
+    </BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem isCurrent>
+    <BreadcrumbLink>Contact</BreadcrumbLink>
+  </BreadcrumbItem>
+</Breadcrumb>
+```
+
+## Accessibility
+
+- The Breadcrumbs are rendered in a `nav` to denote that it is a navigation
+  landmark.
+- The Breadcrumb `nav` has `aria-label` set to `breadcrumb`.
+- The BreadcrumbItem with `isCurrentPage` prop adds the `aria-current=page` to
+  the BreadcrumbLink.
+- The separator has `role` set to `presentation` to denote that its for
+  presentation purposes.
+
+## Props
+
+### Breadcrumb Props
+
+| Name      | Type                        | Default  | Description                                         |
+| --------- | --------------------------- | -------- | --------------------------------------------------- |
+| separator | `string`, `React.ReactNode` | `/`      | The visual separator between the breadcrumb item.   |
+| spacing   | `css.margin`                | `0.5rem` | The left and right margin applied to the separator. |
+
+### BreadcrumbItem Props
+
+| Name      | Type      | Default | Description                                                                                                    |
+| --------- | --------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| isCurrent | `boolean` |         | If `true`, it indicates that the breadcrumb link is active page, adds `aria-current=page` and renders a `span` |
+
+<br />
+
+### BreadcrumbLink Props
+
+The BreadcrumbLink composes the HTML anchor (`a`) tag.

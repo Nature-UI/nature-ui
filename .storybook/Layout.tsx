@@ -1,13 +1,13 @@
 import React from 'react';
-// import '../src/scss/base.scss';
 import '!style-loader!css-loader!../src/css/tailwind.css';
-import Container from '@nature-ui/container';
+// import '!style-loader!css-loader!../src/css/base.css';
+import { Box } from '@nature-ui/layout';
 
 const Layout = ({ children }) => {
   return (
-    <Container size='lg' className='mt-6'>
-      {children}
-    </Container>
+    // <Box size='lg' className='mt-6'>
+    children
+    // </Box>
   );
 };
 

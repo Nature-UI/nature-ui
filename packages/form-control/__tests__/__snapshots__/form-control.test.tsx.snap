@@ -7,7 +7,7 @@ exports[`@nture-ui/form-control FormControl renders correctly in default state 1
     role="group"
   >
     <label
-      class="block text-left mb-2"
+      class="mb-2 block text-left font-semibold"
       for="name"
       id="name-label"
     >
@@ -19,7 +19,7 @@ exports[`@nture-ui/form-control FormControl renders correctly in default state 1
       placeholder="Name"
     />
     <div
-      class="mt-2 text-sm text-gray-600"
+      class="mt-2 text-sm text-gray-400"
       id="name-helptext"
     >
       Enter your name please!
@@ -35,7 +35,7 @@ exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] =
     role="group"
   >
     <label
-      class="block text-left mb-2"
+      class="mb-2 block text-left font-semibold"
       data-invalid=""
       for="name"
       id="name-label"
@@ -49,15 +49,14 @@ exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] =
       placeholder="Name"
     />
     <div
-      class="mt-2 text-sm text-gray-600"
+      class="mt-2 text-sm text-gray-400"
       id="name-helptext"
     >
       Enter your name please!
     </div>
     <svg
       aria-hidden="true"
-      class="mr-2 text-red-600 css-13htjwu"
-      color="currentColor"
+      class="mr-2 text-red-600 css-t12e3p-Icon"
       focusable="false"
       height="1rem"
       role="presentation"
@@ -71,7 +70,7 @@ exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] =
     </svg>
     <div
       aria-live="polite"
-      class="flex items-center text-sm mt-2  text-red-600"
+      class="text-sm mt-2  text-red-600 flex items-center"
       id="name-feedback"
     >
       Your name is invalid
@@ -87,7 +86,7 @@ exports[`@nture-ui/form-control FormControl renders correctly when required 1`] 
     role="group"
   >
     <label
-      class="block text-left mb-2"
+      class="mb-2 block text-left font-semibold"
       for="name"
       id="name-label"
     >
@@ -106,7 +105,7 @@ exports[`@nture-ui/form-control FormControl renders correctly when required 1`] 
       placeholder="Name"
     />
     <div
-      class="mt-2 text-sm text-gray-600"
+      class="mt-2 text-sm text-gray-400"
       id="name-helptext"
     >
       Enter your name please!

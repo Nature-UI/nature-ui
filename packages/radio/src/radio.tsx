@@ -5,11 +5,9 @@ import * as React from 'react';
 import { useRadioGroupContext } from './radio-group';
 import { useRadio, UseRadioProps } from './use-radio';
 
-const DivTag = nature('div');
-
 type Omitted = 'onChange' | 'defaultChecked' | 'checked';
 
-type BaseControlProps = Omit<PropsOf<typeof DivTag>, Omitted>;
+type BaseControlProps = Omit<PropsOf<typeof nature.div>, Omitted>;
 
 export type RadioProps = UseRadioProps &
   BaseControlProps & {
@@ -23,11 +21,9 @@ export type RadioProps = UseRadioProps &
      */
     isFullWidth?: boolean;
     size?: 'sm' | 'md' | 'lg' | number;
-    colorScheme?: string;
+    color?: string;
     wrapperClass?: string;
   };
-
-const StyledWrapper = nature('label');
 
 const _SIZES = {
   sm: '0.75rem',
@@ -52,8 +48,7 @@ export const Radio = React.forwardRef(
       size = group?.size || 'md',
       children,
       isFullWidth,
-      colorScheme = 'blue-500',
-      wrapperClass = '',
+      color = group?.color || 'blue-500',
       ...radioProps
     } = props;
 
@@ -87,6 +82,8 @@ export const Radio = React.forwardRef(
     const { style, ...inputProps } = getInputProps({ ref });
     const { ...checkboxProps } = getCheckboxProps(rest);
 
+    const { className, ..._rest } = checkboxProps as any;
+
     const _css = css`
       &::before {
         content: '';
@@ -99,7 +96,7 @@ export const Radio = React.forwardRef(
       }
     `;
 
-    const dark = darken(colorScheme, 100);
+    const dark = darken(color, 100);
 
     const _focus = typeof checkboxProps['data-focus'] !== 'undefined';
     const _checked = typeof checkboxProps['data-checked'] !== 'undefined';
@@ -108,11 +105,10 @@ export const Radio = React.forwardRef(
     const _disabled = typeof checkboxProps['data-disabled'] !== 'undefined';
 
     const _className = clsx(
-      props.className,
       'nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-2 border-solid rounded-full text-white transition-all duration-150',
       _css,
       {
-        [`bg-${colorScheme} border-${colorScheme}`]: _checked && !_invalid,
+        [`bg-${color} border-${color}`]: _checked && !_invalid,
         'shadow-outline': _focus,
         'border-red-600': _invalid,
         [`bg-${dark} border-${dark}`]: _hover && _checked && !_invalid,
@@ -122,9 +118,9 @@ export const Radio = React.forwardRef(
     );
 
     return (
-      <StyledWrapper
+      <nature.label
         className={clsx(
-          wrapperClass,
+          className,
           'nature-radio inline-flex items-center align-top',
           {
             'opacity-50': _disabled,
@@ -139,26 +135,26 @@ export const Radio = React.forwardRef(
           style={style as any}
           {...inputProps}
         />
-        <DivTag
+        <nature.div
           css={{
             width: _size,
             height: _size,
           }}
-          {...checkboxProps}
+          {..._rest}
           className={_className}
         />
         {children && (
-          <DivTag
+          <nature.div
             className='nature-radio__label select-none'
-            {...getLabelProps()}
             css={{
               marginLeft: spacing,
             }}
+            {...getLabelProps()}
           >
             {children}
-          </DivTag>
+          </nature.div>
         )}
-      </StyledWrapper>
+      </nature.label>
     );
   },
 );

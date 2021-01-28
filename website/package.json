@@ -1,25 +1,56 @@
 {
-  "name": "blog-starter-typescript",
+  "name": "@nature-ui/docs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint --fix --ext=ts,tsx"
   },
   "dependencies": {
-    "@saschazar/next-mdx-extended": "^4.0.0",
+    "@docusaurus/utils": "^2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.22",
+    "@nature-ui/core": "^1.1.1",
+    "@nature-ui/icons": "^1.1.1",
+    "@next/bundle-analyzer": "^10.0.5",
+    "@octokit/rest": "^18.0.12",
     "classnames": "2.2.6",
-    "date-fns": "2.10.0",
+    "date-fns": "^2.16.1",
+    "formik": "^2.2.6",
+    "framer-motion": "^3.2.2-rc.1",
     "gray-matter": "4.0.2",
+    "lodash": "^4.17.20",
     "next": "latest",
+    "next-compose-plugins": "^2.2.1",
+    "next-mdx-enhanced": "^5.0.0",
+    "next-seo": "^4.17.0",
+    "prism-react-renderer": "^1.1.1",
+    "react-live": "^2.2.3",
+    "react-lorem-component": "^0.13.0",
+    "react-remove-scroll": "^2.4.1",
+    "react-spinners": "^0.10.4",
     "remark": "11.0.2",
-    "remark-html": "10.0.0"
+    "remark-autolink-headings": "^6.0.1",
+    "remark-emoji": "^2.1.0",
+    "remark-html": "10.0.0",
+    "remark-images": "^2.0.0",
+    "remark-slug": "^6.0.0",
+    "remark-toc": "^7.0.0",
+    "remark-unwrap-images": "^2.0.0",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^11.0.0",
     "@types/classnames": "^2.2.10",
-    "postcss-preset-env": "^6.7.0"
+    "@types/lodash": "^4.14.167",
+    "@types/mdx-js__react": "^1.5.3",
+    "@types/sharp": "^0.27.1",
+    "@types/shelljs": "^0.8.8",
+    "postcss": "^8.2.4",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^2.0.2"
   },
   "license": "MIT"
 }

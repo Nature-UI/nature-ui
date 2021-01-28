@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Stack } from '@nature-ui/layout';
+
 import {
   Alert,
   AlertWrapper,
@@ -50,17 +52,64 @@ export const Info = () => {
 };
 
 export const Warning = () => {
-  return <Alert status='warning' alertTitle='Warning alert' />;
-};
-
-export const Solid = () => {
   return (
-    <Alert
-      status='success'
-      alertTitle={<div>Success alert</div>}
-      variant='solid'
-    >
-      This is a solid variant!
+    <Alert status='warning' alertTitle='Warning alert'>
+      This is warning
     </Alert>
   );
 };
+
+export const Solids = () => {
+  return (
+    <Stack spacing='10px'>
+      <Alert status='success' alertTitle='Success alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+      <Alert status='info' alertTitle='Info alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+      <Alert status='warning' alertTitle='Warning alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+      <Alert status='error' alertTitle='Error alert' variant='solid'>
+        This is a solid variant!
+      </Alert>
+    </Stack>
+  );
+};
+
+export const WithVariants = () => {
+  return (
+    <>
+      <Stack spacing='10px'>
+        {['top-accent', 'left-accent', 'solid', 'subtle'].map((variant) => (
+          <Alert
+            key={variant}
+            status='error'
+            alertTitle='Error alert'
+            variant={variant}
+          >
+            {variant}!
+          </Alert>
+        ))}
+      </Stack>
+    </>
+  );
+};
+
+export const Composition = () => (
+  <AlertWrapper
+    status='success'
+    variant='subtle'
+    className='flex-col items-center justify-center text-center h-48'
+  >
+    <AlertIcon boxSize='40px' className='mr-0' />
+    <AlertTitle className='mt-4 mb-1 text-lg'>
+      Application submitted!
+    </AlertTitle>
+    <AlertDescription className='max-w-sm'>
+      Thanks for submitting your application. Our team will get back to you
+      soon.
+    </AlertDescription>
+  </AlertWrapper>
+);

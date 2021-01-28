@@ -1,9 +1,10 @@
+/** ** */
+import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { FocusLock } from '@nature-ui/focus-lock';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 import { Portal, PortalProps } from '@nature-ui/portal';
 import { RemoveScroll } from 'react-remove-scroll';
-import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
 import {
   callAllHandler,
   createContext,
@@ -17,7 +18,7 @@ import { useModal, UseModalProps, UseModalReturn } from './use-modal';
 type ModalContext = UseModalReturn &
   Pick<ModalProps, 'isCentered' | 'scrollBehavior'> & {
     variant?: StringOrNumber;
-    size?: 'sm' | 'md' | 'lg' | 'full' | number;
+    size?: StringOrNumber;
   };
 
 const FooterTag = nature('footer');
@@ -92,7 +93,7 @@ export interface ModalProps extends UseModalProps {
    * Defaults to `false`.
    */
   allowPinchZoom?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'full' | number;
+  size?: StringOrNumber;
   variant?: 'blur' | 'normal';
 }
 
@@ -112,7 +113,7 @@ export const Modal = (props: ModalProps) => {
     returnFocusOnClose = true,
     isOpen,
     scrollBehavior = 'outside',
-    size = 'md',
+    size = 'xs',
     variant = 'blur',
     trapFocus = true,
     autoFocus = true,
@@ -165,11 +166,12 @@ type ContentOptions = Pick<ModalProps, 'scrollBehavior'>;
 export type ModalContentProps = PropsOf<typeof SectionTag> & ContentOptions;
 
 const _SIZES = {
-  sm: '384',
-  md: '448px',
-  lg: '512px',
-  xl: '576px',
-  full: '100%',
+  xs: '20rem !important',
+  sm: '24rem !important',
+  md: '28rem !important',
+  lg: '32rem !important',
+  xl: '36rem !important',
+  full: '100% !important',
 };
 
 /**
@@ -181,12 +183,7 @@ const _SIZES = {
 export const ModalContent = React.forwardRef(
   (props: ModalContentProps, ref: React.Ref<any>) => {
     const { className, ...rest } = props;
-    const {
-      getContentProps,
-      variant,
-      size,
-      scrollBehavior,
-    } = useModalContext();
+    const { getContentProps, size = 'xs', scrollBehavior } = useModalContext();
 
     const contentProps = getContentProps({
       ...rest,
@@ -195,22 +192,25 @@ export const ModalContent = React.forwardRef(
 
     const _className = clsx(
       className,
-      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full  focus:outline-none',
+      'bg-white shadow-lg my-12 rounded flex flex-col relative focus:outline-none z-50',
       {
         'overflow-auto': scrollBehavior === 'inside',
       },
     );
-    const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
+    let _size;
+
+    if (size in _SIZES) {
+      _size = _SIZES[size];
+    } else {
+      _size = size;
+    }
+
     const css = {
       width: _size,
       maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'none',
     };
-    const theming = {
-      variant,
-      css,
-    };
 
-    return <SectionTag className={_className} {...contentProps} {...theming} />;
+    return <SectionTag className={_className} {...contentProps} css={css} />;
   },
 );
 
@@ -259,7 +259,7 @@ export const ModalOverlay = React.forwardRef(
 
     const _className = clsx(
       className,
-      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start',
+      'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start z-40',
       {
         'overflow-auto': scrollBehavior === 'outside',
         'overflow-hidden': scrollBehavior === 'inside',

@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { clsx as clx, nature, PropsOf } from '@nature-ui/system';
-import {
-  FiInfo,
-  FiAlertCircle,
-  FiAlertTriangle,
-  FiCheckCircle,
-} from 'react-icons/fi';
+import { clsx, clsx as clx, nature, PropsOf } from '@nature-ui/system';
+
 import { createContext, __DEV__ } from '@nature-ui/utils';
+import { Icon, SvgIconProps } from '@nature-ui/icon';
+import {
+  FiAlertCircle,
+  FiInfo,
+  FiCheckCircle,
+  FiAlertTriangle,
+} from 'react-icons/fi';
 
 const SUBTLE_TEXT = 'text-gray-800';
 
@@ -25,7 +27,7 @@ export const ALERT_STATUSES = {
     iconColor: 'text-blue-600 mr-3',
     icon: FiInfo,
     variant: {
-      solid: 'bg-blue-600',
+      solid: 'bg-blue-600 text-white',
       subtle: SUBTLE_TEXT,
     },
   },
@@ -39,11 +41,11 @@ export const ALERT_STATUSES = {
     },
   },
   warning: {
-    bg: 'bg-blue-200',
-    iconColor: 'text-blue-600 mr-3',
+    bg: 'bg-orange-200',
+    iconColor: 'text-orange-600 mr-3',
     icon: FiAlertTriangle,
     variant: {
-      solid: 'bg-blue-600 text-white',
+      solid: 'bg-orange-600 text-white',
       subtle: SUBTLE_TEXT,
     },
   },
@@ -63,7 +65,7 @@ interface AlertOptions {
   /**
    * The variant of the alert style to use
    */
-  variant?: 'solid' | 'subtle';
+  variant?: 'solid' | 'subtle' | 'left-accent' | 'top-accent';
   /**
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
@@ -74,6 +76,9 @@ interface AlertOptions {
 }
 
 const DivTag = nature('div');
+const SpanTag = nature('span');
+const PTag = nature('p');
+const H3 = nature('p');
 
 export type AlertProps = AlertOptions & PropsOf<typeof DivTag>;
 
@@ -87,6 +92,7 @@ export const AlertWrapper = (props: AlertProps) => {
     variant = 'subtle',
     component: Component = DivTag,
     role = 'alert',
+    children,
     ...rest
   } = props;
 
@@ -104,10 +110,22 @@ export const AlertWrapper = (props: AlertProps) => {
     status,
     variant,
   };
+  const hasIcon = variant.includes('accent');
 
   return (
     <AlertProvider value={context}>
-      <Component className={componentClass} {...rest} role={role} />
+      <Component className={componentClass} {...rest} role={role}>
+        {hasIcon && (
+          <SpanTag
+            className={clsx('absolute top-0 left-0 mr-2', {
+              'h-full w-1 ': variant === 'left-accent',
+              'w-full h-1 ': variant === 'top-accent',
+              [ALERT_STATUSES[status].variant.solid]: status,
+            })}
+          />
+        )}
+        {children}
+      </Component>
     </AlertProvider>
   );
 };
@@ -120,43 +138,34 @@ export type AlertTitleProps = PropsOf<typeof DivTag>;
 
 export const AlertTitle = (props: AlertTitleProps) => {
   const { className = '', ...rest } = props;
-  // const Component = 'div';
 
-  return <DivTag className={clx(className, 'font-bold')} {...rest} />;
+  return <H3 className={clx(className, 'font-bold')} {...rest} />;
 };
 
 if (__DEV__) {
   AlertTitle.displayName = 'AlertTitle';
 }
 
-export type AlertDescriptionProps = PropsOf<typeof DivTag>;
+export type AlertDescriptionProps = PropsOf<typeof PTag>;
 
 export const AlertDescription = (props: AlertDescriptionProps) => {
-  const { className = '', ...rest } = props;
-  // const Component = 'div';
-
-  return <DivTag className={className} {...rest} />;
+  return <PTag {...props} />;
 };
 
 if (__DEV__) {
   AlertDescription.displayName = 'AlertDescription';
 }
 
-const SpanTag = nature('span');
-
-export type AlertIconProps = PropsOf<typeof SpanTag>;
+export type AlertIconProps = SvgIconProps;
 
 export const AlertIcon = (props: AlertIconProps) => {
-  const { className = '' } = props;
+  const { className = '', size = 20, ...rest } = props;
 
   const { variant = 'subtle', status = 'success' } = useAlertContext();
 
   // const Component = 'div';
-
-  const { iconColor, icon: IconComponent, variant: Variant } = ALERT_STATUSES[
-    status
-  ];
-  const VARIANT: string = Variant[variant];
+  const { iconColor, icon, variant: Variant } = ALERT_STATUSES[status];
+  const VARIANT = Variant[variant];
 
   // const Icon = ALERT_STATUSES[status];
 
@@ -166,7 +175,7 @@ export const AlertIcon = (props: AlertIconProps) => {
     [iconColor]: variant !== 'solid',
   });
 
-  return <IconComponent className={iconClasses} size={20} />;
+  return <Icon as={icon} className={iconClasses} size={size} {...rest} />;
 };
 
 if (__DEV__) {
@@ -182,10 +191,12 @@ export const Alert = (props: AlertProps) => {
     ...rest
   } = props;
 
+  const hasIcon = !variant.includes('accent');
+
   return (
     <AlertWrapper {...rest} variant={variant} status={status}>
-      <AlertIcon />
-      <AlertTitle className='mr-3'>{alertTitle}</AlertTitle>
+      {hasIcon && <AlertIcon />}
+      {alertTitle && <AlertTitle className='mr-3'>{alertTitle}</AlertTitle>}
       <AlertDescription>{children}</AlertDescription>
     </AlertWrapper>
   );

@@ -1,0 +1,221 @@
+---
+title: Transitions
+package: '@nature-ui/transition'
+image: 'components/transition.svg'
+description:
+  Nature UI exports four components `Fade`, `ScaleFade`, `Slide`, and
+  `SlideFade` to provide simple transitions.
+---
+
+Nature UI exports four components `Fade`, `ScaleFade`, `Slide`, and `SlideFade`
+to provide simple transitions.
+
+## Import
+
+Most transition components are made using `framer-motion`. They accept the
+following props:
+
+- Common props from framer's `motion` elements
+- `in` prop used to trigger the transition
+- `unmountOnExit` prop used to unmount the component when it is not visible.
+
+```js
+import { Fade, ScaleFade, Slide, SlideFade } from '@nature-ui/core';
+```
+
+## Usage
+
+### Fade transition
+
+```jsx
+function FadeEx() {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Box style={{ minHeight: 250 }}>
+      <Button onClick={onToggle}>Click Me</Button>
+      <Fade in={isOpen} timeout={700}>
+        {(styles) => (
+          <Box
+            style={styles}
+            className='p-10 text-white bg-teal-500 rounded-md shadow-md mt-4'
+          >
+            Fade
+            <Lorem count={1} />
+          </Box>
+        )}
+      </Fade>
+    </Box>
+  );
+}
+```
+
+### ScaleFade transition
+
+```jsx
+function ScaleFadeEx() {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Box style={{ minHeight: 250 }}>
+      <Button onClick={onToggle}>Click Me</Button>
+      <ScaleFade initialScale={0.9} in={isOpen}>
+        {(styles) => (
+          <Box
+            style={styles}
+            className='p-10 text-white bg-teal-500 rounded-md shadow-md mt-4'
+          >
+            Scale Fade
+            <Lorem count={1} />
+          </Box>
+        )}
+      </ScaleFade>
+    </Box>
+  );
+}
+```
+
+### Slide transition
+
+```jsx
+function SlideEx() {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onToggle}>Click Me</Button>
+      <Slide placement='bottom' in={isOpen}>
+        {(styles) => (
+          <Box
+            style={{ ...styles, zIndex: 60 }}
+            className='p-10 text-white bg-teal-500 rounded-md shadow-md mt-4'
+          >
+            Slide <br />
+            <br />
+            <Lorem count={1} />
+          </Box>
+        )}
+      </Slide>
+    </>
+  );
+}
+```
+
+### Slide Fade transition
+
+```jsx
+function SlideFadeEx() {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Box style={{ minHeight: 270 }}>
+      <Button onClick={onToggle}>Click Me</Button>
+      <SlideFade in={isOpen}>
+        {(styles) => (
+          <Box
+            style={{ ...styles, zIndex: 60 }}
+            className='p-10 text-white bg-teal-500 rounded-md shadow-md mt-4'
+          >
+            Slide Fade <br />
+            <br />
+            <Lorem count={1} />
+          </Box>
+        )}
+      </SlideFade>
+    </Box>
+  );
+}
+```
+
+### Collapse transition
+
+The Collapse component is used to create regions of content that can
+expand/collapse with a simple animation. It helps to hide content that's not
+immediately relevant to the user.
+
+```jsx
+function CollapseEx() {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onToggle}>Click Me</Button>
+      <Collapse isOpen={isOpen}>
+        <Box className='p-10 text-white bg-teal-500 rounded-md shadow-md mt-4'>
+          Collapses <br />
+          <br />
+          <Lorem count={1} />
+        </Box>
+      </Collapse>
+    </>
+  );
+}
+```
+
+#### Changing the startingHeight
+
+```jsx
+function Example() {
+  const [show, setShow] = React.useState(false);
+
+  const handleToggle = () => setShow(!show);
+
+  return (
+    <>
+      <Collapse startingHeight={20} isOpen={show}>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+        labore wes anderson cred nesciunt sapiente ea proident.
+      </Collapse>
+      <Button size='sm' onClick={handleToggle} className='mt-4'>
+        Show {show ? 'Less' : 'More'}
+      </Button>
+    </>
+  );
+}
+```
+
+## Props
+
+The transition components extends the
+[framer-motion](https://www.framer.com/api/motion/component/).
+
+### Fade Props
+
+| Name          | Type      | Default | Description                                                                 |
+| ------------- | --------- | ------- | --------------------------------------------------------------------------- |
+| isOpen        | `boolean` | -       | Show the component; triggers the enter or exit states                       |
+| unmountOnExit | `boolean` | -       | If `true`, the element will unmount when `in={false}` and animation is done |
+
+### ScaleFade Props
+
+| Name          | Type      | Default | Description                                                                 |
+| ------------- | --------- | ------- | --------------------------------------------------------------------------- |
+| isOpen        | `boolean` | -       | Show the component; triggers the enter or exit states                       |
+| initialScale  | `number`  | `0.95`  | The initial scale of the element                                            |
+| unmountOnExit | `boolean` | -       | If `true`, the element will unmount when `in={false}` and animation is done |
+
+### Slide Props
+
+| Name          | Type                                           | Default   | Description                                                                 |
+| ------------- | ---------------------------------------------- | --------- | --------------------------------------------------------------------------- |
+| placement     | `"top"` \| `"right"` \| `"bottom"` \| `"left"` | `"right"` | The direction to slide from                                                 |
+| isOpen        | `boolean`                                      | -         | Show the component; triggers the enter or exit states                       |
+| unmountOnExit | `boolean`                                      | -         | If `true`, the element will unmount when `in={false}` and animation is done |
+
+### SlideFade Props
+
+| Name          | Type      | Default | Description                                                                 |
+| ------------- | --------- | ------- | --------------------------------------------------------------------------- |
+| isOpen        | `boolean` | -       | If `true`, the content will animate in                                      |
+| initialOffset | `string`  | -       | The offset on the vertical or `y` axis                                      |
+| unmountOnExit | `boolean` | -       | If `true`, the element will unmount when `in={false}` and animation is done |
+
+### Collapse Props
+
+| Name           | Type                   | Default | Description                                                                 |
+| -------------- | ---------------------- | ------- | --------------------------------------------------------------------------- |
+| animateOpacity | `boolean`              | -       | If `true`, the opacity of the content will be animated                      |
+| isOpen         | `boolean`              | `false` | If `true`, the content will be expanded                                     |
+| startingHeight | `string ` \| ` number` | `0`     | The height you want the content in its collapsed state.                     |
+| unmountOnExit  | `boolean`              | -       | If `true`, the element will unmount when `in={false}` and animation is done |
