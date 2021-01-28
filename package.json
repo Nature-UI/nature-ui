@@ -92,6 +92,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
+    "execa": "^5.0.0",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
     "jest-environment-jsdom-sixteen": "^1.0.3",

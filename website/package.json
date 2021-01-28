@@ -20,6 +20,7 @@
     "@types/react-dom": "^17.0.0",
     "classnames": "2.2.6",
     "date-fns": "^2.16.1",
+    "execa": "^5.0.0",
     "formik": "^2.2.6",
     "framer-motion": "^3.2.2-rc.1",
     "gray-matter": "4.0.2",
@@ -43,16 +44,22 @@
     "remark-slug": "^6.0.0",
     "remark-toc": "^7.0.0",
     "remark-unwrap-images": "^2.0.0",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^11.0.0",
     "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.167",
     "@types/mdx-js__react": "^1.5.3",
+    "@types/node": "^14.14.22",
     "@types/sharp": "^0.27.1",
     "@types/shelljs": "^0.8.8",
+    "autoprefixer": "^10.2.3",
     "postcss": "^8.2.4",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.0",
+    "postcss-mixins": "^7.0.2",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.2"
   },
