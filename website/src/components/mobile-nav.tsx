@@ -39,8 +39,8 @@ const NavLink = ({ href, children, ...rest }) => {
         css={{
           flex: '1 1 0%',
         }}
-        color={`${isActive ? 'gradient-button' : 'gray-50'}`}
-        variant={`${isActive ? 'solid' : 'outline'}`}
+        color={isActive ? 'gradient-button' : 'gray-50'}
+        variant={isActive ? 'solid' : 'outline'}
         {...rest}
       >
         {children}
