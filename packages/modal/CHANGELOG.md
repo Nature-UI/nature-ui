@@ -1,5 +1,11 @@
 # @nature-ui/modal
 
+## 1.1.2
+
+### Patch Changes
+
+- Made modal width important
+
 ## 1.1.1
 
 ### Patch Changes

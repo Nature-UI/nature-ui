@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",

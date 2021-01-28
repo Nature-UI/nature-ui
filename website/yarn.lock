@@ -801,9 +801,9 @@
     "@nature-ui/utils" "^1.1.0"
 
 "@nature-ui/modal@^1.1.0", "@nature-ui/modal@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@nature-ui/modal/-/modal-1.1.1.tgz#c028a74297e41cc05c955e077d038c1f9f4eebbb"
-  integrity sha512-d0SvdTJsMU58Z4fpg5Aj5wartzgM7vl8q3oKD9c6MpMoJyzoi0+lcAewmxvTwU7ToRb3xeoRzp6daUtkZ1xscw==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@nature-ui/modal/-/modal-1.1.2.tgz#9f1374154a310f059fcb2c2f3e55ab42f7740bd0"
+  integrity sha512-QLXfspWUcsPJMPXj/JMdHxQQ1JLIvbpPLj3ko3hhOaz4BHxfH4x0bVMNsmXII7eW6Ueg0YOs18JvdKsvAZ+ouQ==
   dependencies:
     "@nature-ui/close-button" "^1.1.0"
     "@nature-ui/focus-lock" "^1.1.0"
@@ -898,11 +898,12 @@
     react-transition-group "^4.4.1"
 
 "@nature-ui/utils@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/utils/-/utils-1.1.0.tgz#42e72cb764b31bbaeb67cc0d20474c007e074b34"
-  integrity sha512-JJQr/Ce28AhYxBuOSUh0h5BaDigfENFYvuxjmVNbY8Tqo3VPZsWnW2wSi1y93PvOuuEq5n9jqsd7tPAFrfgKBw==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@nature-ui/utils/-/utils-1.1.1.tgz#ec891011cb6537db7347306954ab21b414e4b9da"
+  integrity sha512-/iJ0I4QaHheIWDslfTsdW47qTVGoSBW5ptbehzJ7069HPJrkiwn3Cf6GZR2WK7bcL1DCx3JadXtfqZrwsoSZyQ==
   dependencies:
     css-box-model "^1.2.1"
+    deepmerge "^4.2.2"
     memoize-one "^5.1.1"
 
 "@nature-ui/visually-hidden@^1.1.0", "@nature-ui/visually-hidden@^1.1.1":
@@ -2618,6 +2619,11 @@ deepmerge@^2.1.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
   integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
+
+deepmerge@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
 define-property@^0.2.5:
   version "0.2.5"

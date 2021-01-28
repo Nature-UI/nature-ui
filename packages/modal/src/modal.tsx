@@ -166,12 +166,12 @@ type ContentOptions = Pick<ModalProps, 'scrollBehavior'>;
 export type ModalContentProps = PropsOf<typeof SectionTag> & ContentOptions;
 
 const _SIZES = {
-  xs: '20rem',
-  sm: '24rem',
-  md: '28rem',
-  lg: '32rem',
-  xl: '36rem',
-  full: '100%',
+  xs: '20rem !important',
+  sm: '24rem !important',
+  md: '28rem !important',
+  lg: '32rem !important',
+  xl: '36rem !important',
+  full: '100% !important',
 };
 
 /**
@@ -183,12 +183,7 @@ const _SIZES = {
 export const ModalContent = React.forwardRef(
   (props: ModalContentProps, ref: React.Ref<any>) => {
     const { className, ...rest } = props;
-    const {
-      getContentProps,
-      variant,
-      size = 'xs',
-      scrollBehavior,
-    } = useModalContext();
+    const { getContentProps, size = 'xs', scrollBehavior } = useModalContext();
 
     const contentProps = getContentProps({
       ...rest,
@@ -197,7 +192,7 @@ export const ModalContent = React.forwardRef(
 
     const _className = clsx(
       className,
-      'bg-white shadow-lg my-12 rounded flex flex-col relative w-full focus:outline-none z-50',
+      'bg-white shadow-lg my-12 rounded flex flex-col relative focus:outline-none z-50',
       {
         'overflow-auto': scrollBehavior === 'inside',
       },
@@ -214,12 +209,8 @@ export const ModalContent = React.forwardRef(
       width: _size,
       maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'none',
     };
-    const theming = {
-      variant,
-      css,
-    };
 
-    return <SectionTag className={_className} {...contentProps} {...theming} />;
+    return <SectionTag className={_className} {...contentProps} css={css} />;
   },
 );
 

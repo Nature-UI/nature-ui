@@ -108,6 +108,67 @@ function PlacementExample() {
 }
 ```
 
+### With Sizes
+
+The `size` prop accepts one of `xs`, `sm`, `md`, `lg`, `xl`, `full` or any valid
+css width property value.
+
+```jsx
+function DrawerExample() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = React.useState('xs');
+
+  const btnRef = React.useRef();
+
+  return (
+    <>
+      <Button ref={btnRef} color='purple-500' onClick={onOpen}>
+        Open
+      </Button>
+
+      <RadioGroup defaultValue={size} onChange={setSize}>
+        <Stack direction='row' className='mt-4'>
+          <Radio value='xs'>xs</Radio>
+          <Radio value='sm'>sm</Radio>
+          <Radio value='md'>md</Radio>
+          <Radio value='lg'>lg</Radio>
+          <Radio value='full'>full</Radio>
+        </Stack>
+      </RadioGroup>
+      <Drawer
+        size={size}
+        isOpen={isOpen}
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Create your account</DrawerHeader>
+
+            <DrawerBody>
+              <Input placeholder='Type here...' />
+            </DrawerBody>
+
+            <DrawerFooter>
+              <Button
+                variant='outline'
+                className='mr-3'
+                color='gray-600'
+                onClick={onClose}
+              >
+                Cancel
+              </Button>
+              <Button color='blue-500'>Save</Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+    </>
+  );
+}
+```
+
 ### Focus on specific element
 
 When a form is in the drawer, you might need to set focus on a specific element
