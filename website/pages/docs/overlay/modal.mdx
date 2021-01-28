@@ -104,6 +104,55 @@ function BasicUsage() {
 }
 ```
 
+### With Sizes
+
+The `size` prop accepts one of `xs`, `sm`, `md`, `lg`, `xl` or `full`.
+
+```jsx
+function DrawerExample() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = React.useState('xs');
+
+  const btnRef = React.useRef();
+
+  return (
+    <>
+      <Button ref={btnRef} color='purple-500' onClick={onOpen}>
+        Open
+      </Button>
+
+      <RadioGroup defaultValue={size} onChange={setSize}>
+        <Stack direction='row' className='mt-4'>
+          <Radio value='xs'>xs</Radio>
+          <Radio value='sm'>sm</Radio>
+          <Radio value='md'>md</Radio>
+          <Radio value='lg'>lg</Radio>
+          <Radio value='full'>full</Radio>
+        </Stack>
+      </RadioGroup>
+      <Modal size={size} variant='normal' isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay>
+          <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Lorem count={2} />
+            </ModalBody>
+
+            <ModalFooter>
+              <Button color='blue-600' className='mr-3' onClick={onClose}>
+                Close
+              </Button>
+              <Button variant='ghost'>Secondary Action</Button>
+            </ModalFooter>
+          </ModalContent>
+        </ModalOverlay>
+      </Modal>
+    </>
+  );
+}
+```
+
 ### Control Focus when Modal closes
 
 When the dialog closes, it returns focus to the element that triggered it. Set
@@ -476,21 +525,22 @@ To prevent focus trapping, pass `trapFocus` and set it's value to `false`.
 
 ### Modal Props
 
-| Name                | Type                      | Default   | Description                                                                                                                         |
-| ------------------- | ------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| isOpen              | `boolean`                 |           | If `true`, the modal will open                                                                                                      |
-| onClose             | `(event, reason) => void` |           | Callback invoked to close the modal.                                                                                                |
-| isCentered          | `boolean`                 |           | If `true`, the `Modal` will be centered on screen                                                                                   |
-| initialFocusRef     | `React.Ref`               |           | The least destructive action to get focus when dialog is open                                                                       |
-| finalFocusRef       | `React.Ref`               |           | The least destructive action to get focus when dialog is open                                                                       |
-| blockScrollOnMount  | `boolean`                 | `true`    | If `true`, scrolling will be disabled on the `body` when the modal opens.                                                           |
-| useInert            | `boolean`                 | `true`    | A11y: If `true`, the siblings of the `Modal` will have `aria-hidden` set to `true` so that screen readers can only see the `Modal`. |
-| children            | `React.ReactNode`         |           | The content of the modal.                                                                                                           |
-| scrollBehavior      | `inside`, `outside`       | `outside` | Where scroll behaviour should originate.                                                                                            |
-| closeOnOverlayClick | `boolean`                 | `true`    | If `true`, the modal will close when the overlay is clicked                                                                         |
-| returnFocusOnClose  | `boolean`                 | `true`    | If `true`, the modal will return focus to the element that triggered it when it closes.                                             |
-| closeOnEsc          | `boolean`                 | `true`    | If `true`, the modal will close when the `Esc` key is pressed                                                                       |
-| id                  | `string`                  |           | The top-level `id` to use for the modal and it's sub-components                                                                     |
+| Name                | Type                      | Default                              | Description                                                                                                                         |
+| ------------------- | ------------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| isOpen              | `boolean`                 |                                      | If `true`, the modal will open                                                                                                      |
+| size                | `xs`                      | `xs`, `sm`, `md`, `lg`, `xl`, `full` |                                                                                                                                     |
+| onClose             | `(event, reason) => void` |                                      | Callback invoked to close the modal.                                                                                                |
+| isCentered          | `boolean`                 |                                      | If `true`, the `Modal` will be centered on screen                                                                                   |
+| initialFocusRef     | `React.Ref`               |                                      | The least destructive action to get focus when dialog is open                                                                       |
+| finalFocusRef       | `React.Ref`               |                                      | The least destructive action to get focus when dialog is open                                                                       |
+| blockScrollOnMount  | `boolean`                 | `true`                               | If `true`, scrolling will be disabled on the `body` when the modal opens.                                                           |
+| useInert            | `boolean`                 | `true`                               | A11y: If `true`, the siblings of the `Modal` will have `aria-hidden` set to `true` so that screen readers can only see the `Modal`. |
+| children            | `React.ReactNode`         |                                      | The content of the modal.                                                                                                           |
+| scrollBehavior      | `inside`, `outside`       | `outside`                            | Where scroll behaviour should originate.                                                                                            |
+| closeOnOverlayClick | `boolean`                 | `true`                               | If `true`, the modal will close when the overlay is clicked                                                                         |
+| returnFocusOnClose  | `boolean`                 | `true`                               | If `true`, the modal will return focus to the element that triggered it when it closes.                                             |
+| closeOnEsc          | `boolean`                 | `true`                               | If `true`, the modal will close when the `Esc` key is pressed                                                                       |
+| id                  | `string`                  |                                      | The top-level `id` to use for the modal and it's sub-components                                                                     |
 
 ### Other components
 
