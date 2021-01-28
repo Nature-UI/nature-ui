@@ -18,7 +18,7 @@ const Index = () => {
         description='Simple, Modular and Accessible UI Components based on Tailwindcss for your React Applications.'
       />
       <Header />
-      <main className='grid place-items-center w-full bg-white md:pb-32 pb-12'>
+      <main className='grid place-items-center w-full bg-white md:pb-32 pb-12 px-4 md:px-0'>
         <Container size='md' className='text-center mt-32 md:mt-48 mb-16'>
           <h1 className='text-3xl md:text-6xl font-bold text-gray-1000 leading-normal'>
             Set of Lightview and fully customizable React Components optimized
@@ -59,7 +59,12 @@ const Index = () => {
           height: '174.69px',
         }}
       />
-      <Container className='py-24' centered size='lg' as='section'>
+      <Container
+        className='py-24  px-4 md:px-0'
+        centered
+        size='lg'
+        as='section'
+      >
         <Box className='grid md:grid-cols-2 gap-8'>
           <Feature icon={Md.MdAccessibility} title='Accessible'>
             Nature UI strictly follows WAI-ARIA standards for all components.

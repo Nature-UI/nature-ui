@@ -8305,11 +8305,6 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
-dependency-graph@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/dependency-graph/-/dependency-graph-0.9.0.tgz#11aed7e203bc8b00f48356d92db27b265c445318"
-  integrity sha512-9YLIBURXj4DJMFALxXw9K3Y3rwb5Fk0X5/8ipCzaN84+gKxoHK43tVKRNakCQbiEx07E8Uwhuq21BpUagFhZ8w==
-
 deprecation@^2.0.0, deprecation@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/deprecation/-/deprecation-2.3.1.tgz#6368cbdb40abf3373b525ac87e4a260c3a700919"
@@ -10180,11 +10175,6 @@ get-stdin@^6.0.0:
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
   integrity sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
 
-get-stdin@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-8.0.0.tgz#cbad6a73feb75f6eeb22ba9e01f89aa28aa97a53"
-  integrity sha512-sY22aA6xchAzprjyqmSEQv4UbAAzRN0L2dQB0NlN5acTTK9Don6nhoc3eAbUnpZiCANAMfd/+40kVdKfFygohg==
-
 get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
@@ -11182,13 +11172,6 @@ import-cwd@^2.0.0:
   dependencies:
     import-from "^2.1.0"
 
-import-cwd@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-3.0.0.tgz#20845547718015126ea9b3676b7592fb8bd4cf92"
-  integrity sha512-4pnzH16plW+hgvRECbDWpQl3cqtvSofHWh44met7ESfZ8UZOWWddm8hEyDTqREJ9RbYHY8gi8DqmaelApoOGMg==
-  dependencies:
-    import-from "^3.0.0"
-
 import-fresh@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -11211,13 +11194,6 @@ import-from@^2.1.0:
   integrity sha1-M1238qev/VOqpHHUuAId7ja387E=
   dependencies:
     resolve-from "^3.0.0"
-
-import-from@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/import-from/-/import-from-3.0.0.tgz#055cfec38cd5a27d8057ca51376d7d3bf0891966"
-  integrity sha512-CiuXOFFSzkU5x/CR0+z7T91Iht4CXgfCxVOFRhh2Zyhg5wOpWvvDLQUsWl+gcN+QscYBjez8hDCt85O7RLDttQ==
-  dependencies:
-    resolve-from "^5.0.0"
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -13086,25 +13062,10 @@ lodash.clonedeep@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
-lodash.difference@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
-  integrity sha1-nMtOUF1Ia5FlE0V3KIWi3yf9AXw=
-
-lodash.forown@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.forown/-/lodash.forown-4.4.0.tgz#85115cf04f73ef966eced52511d3893cc46683af"
-  integrity sha1-hRFc8E9z75ZuztUlEdOJPMRmg68=
-
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
-
-lodash.groupby@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.groupby/-/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
-  integrity sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=
 
 lodash.ismatch@^4.4.0:
   version "4.4.0"
@@ -15161,24 +15122,6 @@ postcss-calc@^7.0.1:
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.0.2"
 
-postcss-cli@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/postcss-cli/-/postcss-cli-8.3.1.tgz#865dad08300ac59ae9cecb7066780aa81c767a77"
-  integrity sha512-leHXsQRq89S3JC9zw/tKyiVV2jAhnfQe0J8VI4eQQbUjwIe0XxVqLrR+7UsahF1s9wi4GlqP6SJ8ydf44cgF2Q==
-  dependencies:
-    chalk "^4.0.0"
-    chokidar "^3.3.0"
-    dependency-graph "^0.9.0"
-    fs-extra "^9.0.0"
-    get-stdin "^8.0.0"
-    globby "^11.0.0"
-    postcss-load-config "^3.0.0"
-    postcss-reporter "^7.0.0"
-    pretty-hrtime "^1.0.3"
-    read-cache "^1.0.0"
-    slash "^3.0.0"
-    yargs "^16.0.0"
-
 postcss-color-functional-notation@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/postcss-color-functional-notation/-/postcss-color-functional-notation-2.0.1.tgz#5efd37a88fbabeb00a2966d1e53d98ced93f74e0"
@@ -15414,14 +15357,6 @@ postcss-load-config@^2.0.0:
   dependencies:
     cosmiconfig "^5.0.0"
     import-cwd "^2.0.0"
-
-postcss-load-config@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-load-config/-/postcss-load-config-3.0.0.tgz#850bb066edd65b734329eacf83af0c0764226c87"
-  integrity sha512-lErrN8imuEF1cSiHBV8MiR7HeuzlDpCGNtaMyYHlOBuJHHOGw6S4xOMZp8BbXPr7AGQp14L6PZDlIOpfFJ6f7w==
-  dependencies:
-    cosmiconfig "^7.0.0"
-    import-cwd "^3.0.0"
 
 postcss-loader@3.0.0, postcss-loader@^3.0.0:
   version "3.0.0"
@@ -15777,18 +15712,6 @@ postcss-replace-overflow-wrap@^3.0.0:
   integrity sha512-2T5hcEHArDT6X9+9dVSPQdo7QHzG4XKclFT8rU5TzJPDN7RIRTbO9c4drUISOVemLj03aezStHCR2AIcr8XLpw==
   dependencies:
     postcss "^7.0.2"
-
-postcss-reporter@^7.0.0:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/postcss-reporter/-/postcss-reporter-7.0.2.tgz#03e9e7381c1afe40646f9c22e7aeeb860e051065"
-  integrity sha512-JyQ96NTQQsso42y6L1H1RqHfWH1C3Jr0pt91mVv5IdYddZAE9DUZxuferNgk6q0o6vBVOrfVJb10X1FgDzjmDw==
-  dependencies:
-    colorette "^1.2.1"
-    lodash.difference "^4.5.0"
-    lodash.forown "^4.4.0"
-    lodash.get "^4.4.2"
-    lodash.groupby "^4.6.0"
-    lodash.sortby "^4.7.0"
 
 postcss-safe-parser@5.0.2:
   version "5.0.2"
@@ -20653,7 +20576,7 @@ yargs@^15.0.0, yargs@^15.0.1, yargs@^15.1.0, yargs@^15.4.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^16.0.0, yargs@^16.1.0:
+yargs@^16.1.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==

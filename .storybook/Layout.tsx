@@ -1,5 +1,5 @@
 import React from 'react';
-import '!style-loader!css-loader!../src/css/tailwind.css';
+import '!style-loader!css-loader!./tailwind.css';
 // import '!style-loader!css-loader!../src/css/base.css';
 import { Box } from '@nature-ui/layout';
 

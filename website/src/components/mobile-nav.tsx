@@ -119,10 +119,10 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
                 <Box className={`px-6 mt-6 pb-4 shadow-${shadow}`}>
                   <Stack direction='row' spacing='8px'>
                     <NavLink href='/docs/getting-started'>Docs</NavLink>
-                    <NavLink href='/guides/integrations/with-cra'>
+                    {/* <NavLink href='/guides/integrations/with-cra'>
                       Guides
                     </NavLink>
-                    <NavLink href='/team'>Team</NavLink>
+                    <NavLink href='/team'>Team</NavLink> */}
                   </Stack>
                 </Box>
               </Box>
