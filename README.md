@@ -1,15 +1,10 @@
 <p align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <a href="https://github.com/nature-ui/nature-ui">
     <img src="https://github.com/nature-ui/nature-ui/blob/develop/public/full-logo.png?raw=true" alt="nature logo" width="300" />
   </a>
 </p>
 
-<https://github.com/nature-ui/nature-ui/blob/develop/public/full-logo.png>
-
-<h1 align="center">Build Accessible React Apps with Speed ⚡️</h1>
+<h1 align="center">Set of Lightview and fully customizable React Components optimized for TailwindCss</h1>
 
 <br>
 <!-- 
