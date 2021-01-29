@@ -173,7 +173,7 @@ If you are interested in the detailed specification you can visit
    feature branch name as `feature/<feature-name>` from develop branch.
 
 4. Make and commit your changes following the
-   [commit convention](https://github.com/chakra-ui/chakra-ui/blob/develop/CONTRIBUTING.md#commit-convention).
+   [commit convention](https://github.com/nature-ui/nature-ui/blob/develop/CONTRIBUTING.md#commit-convention).
    As you develop, you can run `yarn pkg <module> build` and
    `yarn pkg <module> test` to make sure everything works as expected. Please
    note that you might have to run `yarn boot` first in order to build all
