@@ -1,37 +1,86 @@
-[![Divine_Nature's github stats](https://github-readme-stats.vercel.app/api?username=dnature)](https://github.com/anuraghazra/github-readme-stats)
+<p align="center">
+  <a href="https://github.com/nature-ui/nature-ui">
+    <img src="https://github.com/nature-ui/nature-ui/blob/develop/public/full-logo.png?raw=true" alt="nature logo" width="300" />
+  </a>
+</p>
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<https://github.com/nature-ui/nature-ui/blob/develop/public/full-logo.png>
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<h1 align="center">Build Accessible React Apps with Speed ⚡️</h1>
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<br>
+<!-- 
+<p align="center">
+  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/minzip/@chakra-ui/react"/>
+  <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/chakra-ui/chakra-ui.svg?logo=lgtm&logoWidth=18"/>
+  <img alt="MIT License" src="https://img.shields.io/github/license/chakra-ui/chakra-ui"/>
+  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@chakra-ui/react.svg?style=flat"/>
+  <img alt="Github Stars" src="https://badgen.net/github/stars/chakra-ui/chakra-ui" />
+  <a href="https://discord.gg/yxpPm4q">
+    <img alt="Discord" src="https://img.shields.io/discord/660863154703695893.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" />
+  </a>
+</p>
+<br /> -->
 
-Commit emojis:
+Nature UI provides a set of accessible, reusable, extensible and composable
+React components that make it super easy to create websites and apps with
+tailwindcss.
 
-- 🚀 Feature
-- 📦 Package/Module
-- 🐛 Bug
-- ⚡ ⌛ ✅ 🍌 Anything else for enhancement/optimization
+## Looking for the documentation? 📝
+
+Latest version (v1) => <https://nature-ui.com>
+
+## Features 🚀
+
+- Ease of Styling: Nature UI contains a set of layout components like `Box` and
+  `Stack` that make it easy to style your components with tailwindcss and
+  emotion css prop.
+- Flexible & composable: Nature UI components are built on top of a React UI
+  Primitive for endless composability.
+- Accessible. Nature UI components follow the WAI-ARIA guidelines specifications
+  and have the right `aria-*` attributes.
+
+## Installing Nature UI
+
+To use Nature UI components, all you need to do is install the `@nature-ui/core`
+package and its peer dependencies:
+
+> Make Sure you have tailwindcss setup in your project
+> [https://tailwindcss.com/docs/installation](https://tailwindcss.com/docs/installation)
+
+```sh
+$ yarn add @nature-ui/core
+
+# or
+
+$ npm install @nature-ui/core
+```
+
+## Usage
+
+```jsx
+import { Button } from '@nature-ui/core';
+
+function Example() {
+  return <Button>You're awesome</Button>;
+}
+```
+
+## CodeSandbox Templates
+
+- `Create react app` JavaScript Starter:
+  <https://codesandbox.io/s/nature-ui-0eolr>
+- TypeScript Starter: <https://codesandbox.io/s/nature-uicra-typescript-0ii7c>
+
+## Contributing
+
+Feel like contributing? That's awesome! We have a
+[contributing guide](./CONTRIBUTING.md) to help guide you.
 
 ## Contributors ✨
 
 Thanks goes to these wonderful people
-([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://divinehycenth.com/"><img src="https://avatars0.githubusercontent.com/u/49137104?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Divine Hycenth</b></sub></a><br /><a href="#a11y-DNature" title="Accessibility">️️️️♿️</a> <a href="#question-DNature" title="Answering Questions">💬</a> <a href="#audio-DNature" title="Audio">🔊</a> <a href="#blog-DNature" title="Blogposts">📝</a> <a href="https://github.com/y/y/issues?q=author%3ADNature" title="Bug reports">🐛</a> <a href="#business-DNature" title="Business development">💼</a> <a href="https://github.com/y/y/commits?author=DNature" title="Code">💻</a> <a href="#content-DNature" title="Content">🖋</a> <a href="#data-DNature" title="Data">🔣</a> <a href="#design-DNature" title="Design">🎨</a> <a href="https://github.com/y/y/commits?author=DNature" title="Documentation">📖</a> <a href="#eventOrganizing-DNature" title="Event Organizing">📋</a> <a href="#example-DNature" title="Examples">💡</a> <a href="#financial-DNature" title="Financial">💵</a> <a href="#fundingFinding-DNature" title="Funding Finding">🔍</a> <a href="#ideas-DNature" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-DNature" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-DNature" title="Maintenance">🚧</a> <a href="#mentoring-DNature" title="Mentoring">🧑‍🏫</a> <a href="#platform-DNature" title="Packaging/porting to new platform">📦</a> <a href="#plugin-DNature" title="Plugin/utility libraries">🔌</a> <a href="#projectManagement-DNature" title="Project Management">📆</a> <a href="#research-DNature" title="Research">🔬</a> <a href="https://github.com/y/y/pulls?q=is%3Apr+reviewed-by%3ADNature" title="Reviewed Pull Requests">👀</a> <a href="#security-DNature" title="Security">🛡️</a> <a href="#talk-DNature" title="Talks">📢</a> <a href="https://github.com/y/y/commits?author=DNature" title="Tests">⚠️</a> <a href="#tool-DNature" title="Tools">🔧</a> <a href="#translation-DNature" title="Translation">🌍</a> <a href="#tutorial-DNature" title="Tutorials">✅</a> <a href="#userTesting-DNature" title="User Testing">📓</a> <a href="#video-DNature" title="Videos">📹</a></td>
-  </tr>
-</table>
+## License
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the
-[all-contributors](https://github.com/all-contributors/all-contributors)
-specification. Contributions of any kind welcome!
+MIT © [Divine Hycenth](https://github.com/dnature)
