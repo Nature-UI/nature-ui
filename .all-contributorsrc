@@ -1,6 +1,6 @@
 {
-  "projectName": "y",
-  "projectOwner": "y",
+  "projectName": "nature-ui",
+  "projectOwner": "DNature",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -8,19 +8,20 @@
   ],
   "imageSize": 100,
   "commit": true,
-  "commitConvention": "angular",
+  "commitConvention": "gitmoji",
   "contributors": [
     {
       "login": "DNature",
       "name": "Divine Hycenth",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/49137104?v=4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49137104?v=4",
       "profile": "https://divinehycenth.com/",
       "contributions": [
         "code",
-        "maintenance",
+        "content",
+        "design",
         "doc",
-        "example",
-        "design"
+        "maintenance",
+        "talk"
       ]
     }
   ],

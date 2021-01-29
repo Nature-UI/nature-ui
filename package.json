@@ -8,7 +8,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "website/*",
+      "website",
       "src/*"
     ],
     "nohoist": [
@@ -39,7 +39,11 @@
     "prerelease": "yarn build",
     "v-release": "lerna run v-pub",
     "build:storybook": "build-storybook && sb extract",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "docs": "yarn workspace @nature-ui/docs",
+    "docs:build": "yarn docs build",
+    "docs:dev": "yarn docs dev",
+    "docs:start": "yarn docs start"
   },
   "dependencies": {
     "@babel/cli": "^7.11.5",

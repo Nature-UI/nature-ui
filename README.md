@@ -1,4 +1,7 @@
 <p align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <a href="https://github.com/nature-ui/nature-ui">
     <img src="https://github.com/nature-ui/nature-ui/blob/develop/public/full-logo.png?raw=true" alt="nature logo" width="300" />
   </a>
@@ -80,6 +83,25 @@ Feel like contributing? That's awesome! We have a
 ## Contributors ✨
 
 Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://divinehycenth.com/"><img src="https://avatars.githubusercontent.com/u/49137104?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Divine Hycenth</b></sub></a><br /><a href="https://github.com/DNature/nature-ui/commits?author=DNature" title="Code">💻</a> <a href="#content-DNature" title="Content">🖋</a> <a href="#design-DNature" title="Design">🎨</a> <a href="https://github.com/DNature/nature-ui/commits?author=DNature" title="Documentation">📖</a> <a href="#maintenance-DNature" title="Maintenance">🚧</a> <a href="#talk-DNature" title="Talks">📢</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
 
 ## License
 
