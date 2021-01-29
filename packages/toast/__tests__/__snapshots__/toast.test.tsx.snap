@@ -3,7 +3,7 @@
 exports[`Spinner renders correctly 1`] = `
 <DocumentFragment>
   <button
-    class="css-yyzfim focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center css-1df5r1b bg-blue-500 text-white hover:bg-blue-600"
+    class="css-mqia37 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal css-1df5r1b bg-gray-200 text-gray-700 hover:bg-gray-300 css-15pri0z-Button"
   >
     Show Success Toast
   </button>

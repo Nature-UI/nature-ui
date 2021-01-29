@@ -9,8 +9,7 @@ exports[`@nature-ui/close-button CloseButton renders correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class=" css-qzxgwt"
-      color="currentColor"
+      class=" css-9xkhqu-Icon"
       focusable="false"
       height="12"
       role="presentation"

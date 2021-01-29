@@ -32,11 +32,10 @@ exports[`@nature-ui/modal should render correctly 1`] = `
               aria-describedby="nature-modal--body-1"
               aria-labelledby="nature-modal--header-1"
               aria-modal="true"
-              class="bg-white shadow-lg my-12 rounded flex flex-col relative w-full focus:outline-none z-50 css-15l0n00-ModalContent"
+              class="bg-white shadow-lg my-12 rounded flex flex-col relative focus:outline-none z-50 css-8v7m9r-ModalContent"
               id="nature-modal-1"
               role="dialog"
               tabindex="-1"
-              variant="blur"
             >
               <header
                 class="nature-modal__header p-4 font-bold text-xl css-1gfottg-StyledHeader"

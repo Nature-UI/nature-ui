@@ -7,7 +7,7 @@ exports[`Spinner renders correctly 1`] = `
     style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
   >
     <span
-      class="css-e941bk"
+      class="css-iaws77-VisuallyHidden"
     >
       Loading...
     </span>
