@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Stack } from '@nature-ui/layout';
-import { SearchIcon, PhoneIcon, Io } from '@nature-ui/icons';
+import { SearchIcon, Io } from '@nature-ui/icons';
 
-import { Button, ButtonType, ButtonSpinner, IconButton } from '../src';
+import { Button, ButtonType, ButtonSpinner } from '../src';
 
 export default {
-  title: 'Button',
+  title: 'Button/Buttons',
   component: Button,
 } as Meta;
 
@@ -21,7 +21,7 @@ Default.args = {
 
 export const Outlined: ButtonStoryType = Template.bind({});
 Outlined.args = {
-  text: 'blue-500',
+  color: 'blue-500',
   variant: 'outline',
   children: 'Click me!',
 };
@@ -42,7 +42,7 @@ Link.args = {
 
 export const Sizes = () => {
   return (
-    <Stack spacing='1rem'>
+    <Stack spacing='1rem' direction='row'>
       <Button size='xs' color='blue-500' variant='solid'>
         Button
       </Button>
@@ -106,22 +106,6 @@ export const Red = () => {
 export const buttonSpinner = () => {
   return <ButtonSpinner />;
 };
-
-export const iconButton = () => (
-  <Stack direction='row'>
-    <IconButton aria-label='Search database' icon={<SearchIcon />} />
-
-    <IconButton
-      color='orange-500'
-      aria-label='Search database'
-      icon={<SearchIcon />}
-    />
-
-    <IconButton color='gray-400' aria-label='Call Segun' size='lg'>
-      <PhoneIcon />
-    </IconButton>
-  </Stack>
-);
 
 export const WithIcon = () => {
   return (
