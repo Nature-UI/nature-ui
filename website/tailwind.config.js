@@ -1,5 +1,5 @@
 module.exports = {
-  // purge: ['./src/**/*.tsx', './pages/**/*', './node_modules/@nature-ui/**/*'],
+  purge: ['./src/**/*.tsx', './pages/**/*'],
   purge: [],
   theme: {
     extend: {
@@ -80,9 +80,6 @@ module.exports = {
           'linear-gradient(90.02deg, #4C08DB 47.02%, #38B2AC 95.44%)',
       },
     },
-  },
-  variants: {
-    // borderColor: ['active', 'focus', 'hover'],
   },
   plugins: ['./node_modules/@nature-ui/**/*.js*'],
 };
