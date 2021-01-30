@@ -1,5 +1,4 @@
 module.exports = {
-  // purge: ['./src/**/*.tsx', './pages/**/*', './node_modules/@nature-ui/**/*'],
   purge: [],
   theme: {
     extend: {
@@ -81,8 +80,7 @@ module.exports = {
       },
     },
   },
-  variants: {
-    // borderColor: ['active', 'focus', 'hover'],
-  },
-  plugins: ['./node_modules/@nature-ui/**/*.js*'],
+
+  variants: {},
+  plugins: ['../node_modules/@nature-ui/**/*.js*'],
 };

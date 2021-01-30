@@ -4,6 +4,7 @@ import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 
 import siteConfig from 'configs/site-config';
+
 import '../styles/index.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {

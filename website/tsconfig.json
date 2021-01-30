@@ -12,6 +12,7 @@
     "noEmit": true,
     "moduleResolution": "node",
     "baseUrl": ".",
+    "rootDir": ".",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {

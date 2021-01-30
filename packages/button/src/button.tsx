@@ -62,6 +62,11 @@ interface ButtonProps {
    * Typeof String | JSX.Element
    */
   children?: React.ReactNode;
+  /**
+   * to specify if a button is an icon button.
+   * If this is set to true, the default padding-x will be removed
+   */
+  isIconButton?: boolean;
 }
 
 const NatureButton = nature('button');
@@ -72,22 +77,22 @@ const _SIZES = {
   xs: {
     size: '1.5rem',
     font: '0.75rem',
-    padding: '0.5rem',
+    padding: 'px-2',
   },
   sm: {
     size: '2rem',
     font: '0.875rem',
-    padding: '0.75rem',
+    padding: 'px-3',
   },
   md: {
     size: '2.5rem',
     font: '1rem',
-    padding: '1rem',
+    padding: 'px-4',
   },
   lg: {
     size: '3rem',
     font: '1.125rem',
-    padding: '1.5rem',
+    padding: 'px-5',
   },
 };
 
@@ -145,6 +150,7 @@ export const Button = React.forwardRef(
       isActive,
       leftIcon,
       rightIcon,
+      isIconButton,
       iconSpacing = '10px',
       ...rest
     } = props;
@@ -165,15 +171,13 @@ export const Button = React.forwardRef(
 
     const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
     const _font = _SIZES[size].font ?? '1rem';
-    const _padding = _SIZES[size].padding ?? '1rem';
+    const _padding = _SIZES[size].padding ?? '0.8rem';
 
     const _link = variant === 'link';
 
     const _sizes = css({
       height: _size,
       minWidth: _size,
-      paddingLeft: _padding,
-      paddingRight: _padding,
     });
 
     if (Number(color.split('-')[1]) <= 400) {
@@ -188,9 +192,9 @@ export const Button = React.forwardRef(
       'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
     const STYLES = {
       solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
-      outline: `bg-transparent text-${text} border border-${text} focus:border-transparent hover:bg-${lighten(
-        text,
-      )}`,
+      outline: `bg-transparent text-${color ?? text} border border-${
+        color ?? text
+      } focus:border-transparent hover:bg-${lighten(color ?? text)}`,
       ghost: `hover:bg-${lighten(text)} text-${text}`,
       link: `hover:underline text-${text}`,
       disabled: 'opacity-50 cursor-not-allowed',
@@ -207,6 +211,7 @@ export const Button = React.forwardRef(
         [_sizes]: !_link,
         [STYLES[variant]]: variant,
         [STYLES.disabled]: isDisabled || isLoading,
+        [_padding]: !isIconButton && !_link,
       });
     }
 

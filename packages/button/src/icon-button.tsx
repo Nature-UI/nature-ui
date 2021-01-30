@@ -3,7 +3,12 @@ import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 import { Button, ButtonType } from './button';
 
-type Omitted = 'leftIcon' | 'rightIcon' | 'loadingText' | 'iconSpacing';
+type Omitted =
+  | 'leftIcon'
+  | 'rightIcon'
+  | 'loadingText'
+  | 'iconSpacing'
+  | 'isIconButton';
 
 type BaseButtonProps = Omit<ButtonType, Omitted>;
 
@@ -20,7 +25,7 @@ export interface IconButtonProps extends BaseButtonProps {
   /**
    * A11y: A label that describes the button
    */
-  'aria-label': string;
+  'aria-label'?: string;
 }
 
 export const IconButton = forwardRef<IconButtonProps>((props, ref) => {
@@ -44,7 +49,7 @@ export const IconButton = forwardRef<IconButtonProps>((props, ref) => {
         focusable: false,
       })
     : null;
-  const _className = clsx(className, 'p-0', {
+  const _className = clsx(className, {
     'rounded-full': isRound,
     'rounded-md': !isRound,
   });
@@ -55,6 +60,7 @@ export const IconButton = forwardRef<IconButtonProps>((props, ref) => {
       color={color}
       aria-label={ariaLabel}
       className={_className}
+      isIconButton
       {...rest}
     >
       {_children}
