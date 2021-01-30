@@ -1,5 +1,4 @@
 module.exports = {
-  purge: ['./src/**/*.tsx', './pages/**/*'],
   purge: [],
   theme: {
     extend: {
@@ -81,5 +80,7 @@ module.exports = {
       },
     },
   },
-  plugins: ['./node_modules/@nature-ui/**/*.js*'],
+
+  variants: {},
+  plugins: ['../node_modules/@nature-ui/**/*.js*'],
 };

@@ -1,5 +1,14 @@
 # @nature-ui/button
 
+## 1.1.2
+
+### Patch Changes
+
+- Fixed color property of outlined buttons
+- Removed padding for icon-button
+- Updated dependencies
+  - @nature-ui/button@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes
