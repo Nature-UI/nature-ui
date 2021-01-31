@@ -13,7 +13,7 @@ const VersionSwitcher = () => {
   return (
     <select
       value={v1Url}
-      aria-label="Select the Chakra UI Docs version. You're currently viewing the version 1.0 docs"
+      aria-label="Select the Nature UI UI Docs version. You're currently viewing the version 1.0 docs"
       className='bg-transparent focus:outline-none border-none p-2 mr-3 text-gray-75 rounded focus:ring'
       onChange={(v) => console.log(v)}
     >

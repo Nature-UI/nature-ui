@@ -196,7 +196,7 @@ export const Button = React.forwardRef(
         color ?? text
       } focus:border-transparent hover:bg-${lighten(color ?? text)}`,
       ghost: `hover:bg-${lighten(text)} text-${text}`,
-      link: `hover:underline text-${text}`,
+      link: `hover:underline text-${color}`,
       disabled: 'opacity-50 cursor-not-allowed',
     };
 

@@ -1,7 +1,7 @@
 {
   "name": "@nature-ui/close-button",
   "version": "1.1.0",
-  "description": "A React and Chakra UI close button component.",
+  "description": "A React and Nature UI close button component.",
   "keywords": [
     "close-button",
     "button",

@@ -204,7 +204,7 @@ function ReturnFocus() {
 ### Block Scrolling when Modal opens
 
 For accessibility, it is recommended to block scrolling on the main document
-behind the modal. Chakra does this by default but you can set
+behind the modal. Nature UI does this by default but you can set
 `blockScrollOnMount` to `false` to allow scrolling behind the modal.
 
 ```jsx
@@ -242,11 +242,11 @@ function BasicUsage() {
 
 ### Focus on specific element
 
-Chakra automatically sets focus on the first tabbable element in the modal.
+Nature UI automatically sets focus on the first tabbable element in the modal.
 However, there might be scenarios where you need to manually control where focus
 goes.
 
-Chakra provides 2 props for this use case:
+Nature UI provides 2 props for this use case:
 
 - `initialFocusRef`: The `ref` of the component that receives focus when the
   modal opens.
@@ -389,7 +389,7 @@ function VerticallyCentered() {
 ### Adding transition
 
 The modal doesn't come with any transitions by default so you can manage this
-yourself. Chakra exports four transition components (`Fade`, `ScaleFade`,
+yourself. Nature UI exports four transition components (`Fade`, `ScaleFade`,
 `Slide`, and `SlideFade`) to provide simple transitions.
 
 > For some reason, focus doesn't return back to the trigger after the transition

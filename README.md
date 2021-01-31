@@ -7,18 +7,6 @@
 <h1 align="center">Set of Lightview and fully customizable React Components optimized for TailwindCss</h1>
 
 <br>
-<!-- 
-<p align="center">
-  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/minzip/@chakra-ui/react"/>
-  <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/chakra-ui/chakra-ui.svg?logo=lgtm&logoWidth=18"/>
-  <img alt="MIT License" src="https://img.shields.io/github/license/chakra-ui/chakra-ui"/>
-  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@chakra-ui/react.svg?style=flat"/>
-  <img alt="Github Stars" src="https://badgen.net/github/stars/chakra-ui/chakra-ui" />
-  <a href="https://discord.gg/yxpPm4q">
-    <img alt="Discord" src="https://img.shields.io/discord/660863154703695893.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" />
-  </a>
-</p>
-<br /> -->
 
 Nature UI provides a set of accessible, reusable, extensible and composable
 React components that make it super easy to create websites and apps with
