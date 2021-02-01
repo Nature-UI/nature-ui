@@ -1,5 +1,11 @@
 # @nature-ui/button
 
+## 1.1.3
+
+### Patch Changes
+
+- 477759a:
+
 ## 1.1.2
 
 ### Patch Changes
