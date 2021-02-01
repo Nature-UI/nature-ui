@@ -1,40 +1,47 @@
 import { Box, Container, Icon, Stack } from '@nature-ui/core';
-import { Io, Md } from '@nature-ui/icons';
 import siteConfig from 'configs/site-config';
 import Link from 'next/link';
 import React from 'react';
+import {
+  IoGlobeOutline,
+  IoLogoDiscord,
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoLogoTwitter,
+} from 'react-icons/io5';
+import { MdEmail } from 'react-icons/md';
 import { NigeriaFlag } from './nigeriaFlag';
 
 // 🇳🇬
 
 export const links = [
   {
-    icon: Io.IoLogoGithub,
+    icon: IoLogoGithub,
     label: 'Github',
     href: '//github.com/dnature',
   },
   {
-    icon: Io.IoLogoTwitter,
+    icon: IoLogoTwitter,
     label: 'Twitter',
     href: '//twitter.com/DivineHycenth',
   },
   {
-    icon: Io.IoGlobeOutline,
+    icon: IoGlobeOutline,
     label: 'Website',
     href: '//divinehycenth.com',
   },
   {
-    icon: Io.IoLogoLinkedin,
+    icon: IoLogoLinkedin,
     label: 'Linkedin',
     href: '//linkedin.com/in/dnature',
   },
   {
-    icon: Md.MdEmail,
+    icon: MdEmail,
     label: 'Email',
     href: 'mailto:contact@divinehycenth.com',
   },
   {
-    icon: Io.IoLogoDiscord,
+    icon: IoLogoDiscord,
     label: 'Discord',
     href: siteConfig.discord.url,
   },

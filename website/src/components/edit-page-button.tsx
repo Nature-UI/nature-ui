@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Stack } from '@nature-ui/core';
-import { Md } from '@nature-ui/icons';
+import { MdEdit } from 'react-icons/md';
 import { El } from './nature-jsx-elements';
 
 export const EditPageLink: React.FC<{ href?: string }> = ({ href }) => {
@@ -11,7 +11,7 @@ export const EditPageLink: React.FC<{ href?: string }> = ({ href }) => {
         direction='row'
         spacing='1rem'
       >
-        <Icon as={Md.MdEdit} size='md' className='mr-1' />
+        <Icon as={MdEdit} size='md' className='mr-1' />
         <El.span>Edit this page</El.span>
       </Stack>
     </El.a>

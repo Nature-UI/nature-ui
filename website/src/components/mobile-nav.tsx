@@ -10,7 +10,7 @@ import {
   Stack,
   useUpdateEffect,
 } from '@nature-ui/core';
-import { Ai, Icon } from '@nature-ui/icons';
+import { Icon } from '@nature-ui/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { RemoveScroll } from 'react-remove-scroll';
@@ -20,6 +20,7 @@ import siteConfig from 'configs/site-config';
 import { useRouteChanged } from 'hooks/use-route-change';
 import { getRoutes } from 'layouts/mdx';
 
+import { AiOutlineMenu } from 'react-icons/ai';
 import { Logo } from './Logo';
 import { SidebarContent } from './sidebar/sidebar';
 import { GithubIcon } from './CustomIcons';
@@ -119,10 +120,6 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
                 <Box className={`px-6 mt-6 pb-4 shadow-${shadow}`}>
                   <Stack direction='row' spacing='8px'>
                     <NavLink href='/docs/getting-started'>Docs</NavLink>
-                    {/* <NavLink href='/guides/integrations/with-cra'>
-                      Guides
-                    </NavLink>
-                    <NavLink href='/team'>Team</NavLink> */}
                   </Stack>
                 </Box>
               </Box>
@@ -171,7 +168,7 @@ export const MobileNavButton = React.forwardRef(
           aria-label='Open menu'
           color='gray-800'
           variant='ghost'
-          icon={<Ai.AiOutlineMenu />}
+          icon={<AiOutlineMenu />}
           {...props}
         />
       </div>

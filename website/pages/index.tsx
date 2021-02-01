@@ -1,7 +1,9 @@
 /** ** */
 import * as React from 'react';
 import { Container, Button, Box } from '@nature-ui/core';
-import { Ai, Io, Md } from '@nature-ui/icons';
+import { MdAccessibility, MdGrain, MdPalette } from 'react-icons/md';
+import { AiFillThunderbolt } from 'react-icons/ai';
+import { IoLogoGithub } from 'react-icons/io';
 import Link from 'next/link';
 
 import Header from 'components/header';
@@ -45,7 +47,7 @@ const Index = () => {
                   text='gray-1000'
                   className='w-full sm:w-auto'
                 >
-                  <Io.IoLogoGithub size='1.5rem' className='mr-2' /> Github
+                  <IoLogoGithub size='1.5rem' className='mr-2' /> Github
                 </Button>
               </a>
             </Link>
@@ -66,16 +68,16 @@ const Index = () => {
         as='section'
       >
         <Box className='grid md:grid-cols-2 gap-8'>
-          <Feature icon={Md.MdAccessibility} title='Accessible'>
+          <Feature icon={MdAccessibility} title='Accessible'>
             Nature UI strictly follows WAI-ARIA standards for all components.
           </Feature>
-          <Feature icon={Md.MdGrain} title='Composable'>
+          <Feature icon={MdGrain} title='Composable'>
             Designed with composition in mind. Compose new components with ease.
           </Feature>
-          <Feature icon={Md.MdPalette} title='Themeable'>
+          <Feature icon={MdPalette} title='Themeable'>
             Built upon tailwind css theming design system standard.
           </Feature>
-          <Feature icon={Ai.AiFillThunderbolt} title='Developer Experience'>
+          <Feature icon={AiFillThunderbolt} title='Developer Experience'>
             Guaranteed to boost your productivity when building your app or
             website.
           </Feature>

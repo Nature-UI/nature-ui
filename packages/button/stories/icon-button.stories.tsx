@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Stack } from '@nature-ui/layout';
-import { SearchIcon, PhoneIcon, Io, Hi } from '@nature-ui/icons';
+import { SearchIcon, PhoneIcon } from '@nature-ui/icons';
+import { HiHeart } from 'react-icons/hi';
 
 import { IconButton } from '../src';
 
@@ -17,7 +18,7 @@ export const iconButton = () => (
     <IconButton
       color='orange-500'
       aria-label='Search database'
-      icon={<Hi.HiHeart />}
+      icon={<HiHeart />}
     />
 
     <IconButton color='gray-400' aria-label='Call Segun' size='lg'>

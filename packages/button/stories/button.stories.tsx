@@ -35,7 +35,7 @@ Ghost.args = {
 
 export const Link: ButtonStoryType = Template.bind({});
 Link.args = {
-  text: 'blue-500',
+  color: 'blue-500',
   variant: 'link',
   children: 'Click me!',
 };

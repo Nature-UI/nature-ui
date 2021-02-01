@@ -56,5 +56,3 @@ export * from './WarningTwo';
 export * from './Check';
 export * from './Minus';
 export * from '@nature-ui/icon';
-
-export * from './Icons';
