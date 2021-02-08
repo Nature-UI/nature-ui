@@ -100,7 +100,7 @@ const Index = () => {
           <Box
             as='iframe'
             tabIndex={-1}
-            src='https://codesandbox.io/embed/nature-ui-typescript-0ii7c?fontsize=11&hidenavigation=1&theme=dark'
+            src='https://codesandbox.io/s/nature-ui-0eolr?fontsize=11&hidenavigation=1&theme=dark'
             css={{
               width: '100%',
               background: 'white',
