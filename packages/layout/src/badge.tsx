@@ -2,13 +2,12 @@ import * as React from 'react';
 import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
 import { darken, __DEV__ } from '@nature-ui/utils';
 
-const BadgeLayout = nature('span');
-
-export type BadgeProps = PropsOf<typeof BadgeLayout>;
+export type BadgeProps = PropsOf<typeof nature.span>;
 
 export type BadgeType = BadgeProps & {
   color?: string;
   variant?: 'solid' | 'subtle' | 'outline';
+  css?: any;
 };
 
 export const Badge = forwardRef<BadgeType>((props, ref) => {
@@ -17,10 +16,12 @@ export const Badge = forwardRef<BadgeType>((props, ref) => {
     className = '',
     color = 'gray-200',
     variant = 'subtle',
+    css,
     ...rest
   } = props;
 
-  const DEFAULTS = 'p-1 rounded text-xs uppercase font-semibold bg-gray-100';
+  const DEFAULTS =
+    'rounded-sm px-1 py-0.5 text-xs uppercase font-semibold inline-block align-middle';
 
   const VARIANTS = {
     solid: `text-white bg-${color}`,
@@ -28,8 +29,7 @@ export const Badge = forwardRef<BadgeType>((props, ref) => {
     outline: `border border-${color} text-${color}`,
   };
 
-  const _classNames = clsx(DEFAULTS, {
-    [className]: className,
+  const _classNames = clsx(DEFAULTS, className, {
     [VARIANTS[variant]]: variant,
   });
 
@@ -39,7 +39,11 @@ export const Badge = forwardRef<BadgeType>((props, ref) => {
     ...rest,
   };
 
-  return <BadgeLayout {...values}>{children}</BadgeLayout>;
+  return (
+    <nature.span css={{ ...css, lineHeight: 'normal' }} {...values}>
+      {children}
+    </nature.span>
+  );
 });
 
 if (__DEV__) {
