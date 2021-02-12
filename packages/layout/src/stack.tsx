@@ -10,22 +10,30 @@ export type StackProps = PropsOf<typeof DivTag> & {
    */
   spacing?: string | number;
   /**
-   * The direction to stack the items.
+   * Sets direction to row.
    */
-  direction?: 'row' | 'col';
+  row?: boolean;
+  /**
+   * Sets direction to column.
+   */
+  col?: boolean;
 };
 
 export const Stack = forwardRef<StackProps>((props, ref) => {
   const {
     children,
     spacing = 4,
-    direction = 'col',
+    row,
+    col,
     className = '',
     as,
     ...rest
   } = props;
 
   const validChildren = getValidChildren(children);
+
+  console.log({ row, col });
+  const direction = row ? 'row' : 'col';
 
   const clones = validChildren.map((child, index) => {
     const isLast = index + 1 === validChildren.length;
@@ -42,8 +50,8 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
 
     if (!isLast) {
       const _className = clsx({
-        [COL]: spacing && direction === 'col',
-        [ROW]: spacing && direction === 'row',
+        [COL]: spacing && col,
+        [ROW]: spacing && row,
       });
 
       const { className: cn, ..._props } = child.props;
