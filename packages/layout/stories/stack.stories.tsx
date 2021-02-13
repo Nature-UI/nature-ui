@@ -1,8 +1,6 @@
 import * as React from 'react';
 
 import { Button } from '@nature-ui/button';
-import { Icon } from '@nature-ui/icon';
-import { Di, Io, Md } from '@nature-ui/icons';
 
 import { Stack, Box } from '../src';
 
@@ -11,19 +9,22 @@ export default {
 };
 
 export const Inline = () => (
-  <Stack direction='row' spacing='1rem' className='flex-wrap'>
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
+  <Stack row responsive>
+    <Stack col>
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+    </Stack>
+    <Stack col>
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+    </Stack>
   </Stack>
 );
 
 export const Column = () => (
-  <Stack direction='col'>
+  <Stack col>
     <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
     <Box size='50px' className='bg-blue-200 p-4 border border-solid'>
       Hi
@@ -40,7 +41,7 @@ export const Column = () => (
 );
 
 export const WithButtons = () => (
-  <Stack direction='row' spacing='1rem'>
+  <Stack responsive row spacing='3'>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
@@ -51,7 +52,7 @@ export const WithButtons = () => (
 );
 
 export const WithSpan = () => (
-  <Stack direction='row' spacing='1rem'>
+  <Stack row spacing='3'>
     <span className='P-4 bg-blue-500'>
       Hi world
       <span className='P-4 bg-orange-500'>Hi world</span>
@@ -66,41 +67,3 @@ export const WithSpan = () => (
     <span className='P-4 bg-blue-500'>Hi world</span>
   </Stack>
 );
-
-const links = [
-  {
-    icon: Di.DiGithubBadge,
-    label: 'Github',
-  },
-  {
-    icon: Io.IoLogoTwitter,
-    label: 'Twitter',
-  },
-  {
-    icon: Io.IoGlobeOutline,
-    label: 'Website',
-  },
-  {
-    icon: Io.IoLogoLinkedin,
-    label: 'Linkedin',
-  },
-  {
-    icon: Md.MdEmail,
-    label: 'Email',
-  },
-];
-
-export const WithIcons = () => {
-  return (
-    <Stack direction='row' spacing='1rem'>
-      {links.map((link) => (
-        <Icon
-          as={link.icon}
-          size='xl'
-          aria-label={link.label}
-          key={link.label}
-        />
-      ))}
-    </Stack>
-  );
-};
