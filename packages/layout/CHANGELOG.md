@@ -1,5 +1,13 @@
 # @nature-ui/layout
 
+## 1.1.2
+
+### Patch Changes
+
+- - [x] Replaced direction with "row | col"
+  - [x] Fixed badge paddings
+  - [x] Added responsive prop to stack component
+
 ## 1.1.1
 
 ### Patch Changes
