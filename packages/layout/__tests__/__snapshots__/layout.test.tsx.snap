@@ -3,7 +3,7 @@
 exports[`@nature-ui/layout Badge override the theming props 1`] = `
 <DocumentFragment>
   <span
-    class="p-1 rounded text-xs uppercase font-semibold bg-gray-100 border border-pink-500 text-pink-500"
+    class="rounded-sm px-1 py-0.5 text-xs uppercase font-semibold inline-block align-middle border border-pink-500 text-pink-500 css-1kvi9rf-Badge"
   >
     Badge
   </span>
@@ -13,7 +13,7 @@ exports[`@nature-ui/layout Badge override the theming props 1`] = `
 exports[`@nature-ui/layout Badge should render with default theming 1`] = `
 <DocumentFragment>
   <span
-    class="p-1 rounded text-xs uppercase font-semibold bg-gray-100 text-gray-700 bg-gray-200"
+    class="rounded-sm px-1 py-0.5 text-xs uppercase font-semibold inline-block align-middle text-gray-700 bg-gray-200 css-1kvi9rf-Badge"
   >
     Badge
   </span>

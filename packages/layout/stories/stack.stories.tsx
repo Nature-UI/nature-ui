@@ -9,14 +9,17 @@ export default {
 };
 
 export const Inline = () => (
-  <Stack row spacing='1rem' className='flex-wrap'>
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
-    <Box size='50px' className='bg-gray-200 p-4 border border-solid' />
+  <Stack row responsive>
+    <Stack col>
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+    </Stack>
+    <Stack col>
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+      <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
+    </Stack>
   </Stack>
 );
 
@@ -38,7 +41,7 @@ export const Column = () => (
 );
 
 export const WithButtons = () => (
-  <Stack row spacing='1rem'>
+  <Stack responsive row spacing='3'>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
@@ -49,7 +52,7 @@ export const WithButtons = () => (
 );
 
 export const WithSpan = () => (
-  <Stack row spacing='1rem'>
+  <Stack row spacing='3'>
     <span className='P-4 bg-blue-500'>
       Hi world
       <span className='P-4 bg-orange-500'>Hi world</span>
