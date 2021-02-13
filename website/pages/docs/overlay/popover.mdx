@@ -111,7 +111,7 @@ function WalkthroughPopover() {
         </PopoverBody>
         <PopoverFooter className='flex pb-4 border-none justify-between items-center'>
           <Box className='text-sm'>Step 2 of 4</Box>
-          <Stack direction='row' spacing='1rem'>
+          <Stack row spacing='1rem'>
             <Button size='sm' className='block' color='green-500'>
               Setup Email
             </Button>
@@ -159,7 +159,7 @@ const Form = ({ firstFieldRef, onCancel }) => {
         defaultValue='John'
       />
       <TextInput label='Last name' id='last-name' defaultValue='Smith' />
-      <Stack direction='row'>
+      <Stack row>
         <Button size='sm' color='gray-600' variant='outline' onClick={onCancel}>
           Cancel
         </Button>
@@ -242,7 +242,7 @@ function ControlledUsage() {
             Are you sure you want to continue with your action?
           </PopoverBody>
           <PopoverFooter className='justify-end flex'>
-            <Stack direction='row'>
+            <Stack row>
               <Button size='sm' color='gray-500' variant='outline'>
                 Cancel
               </Button>

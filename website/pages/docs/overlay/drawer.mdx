@@ -81,7 +81,7 @@ function PlacementExample() {
   return (
     <>
       <RadioGroup defaultValue={placement} onChange={setPlacement}>
-        <Stack direction='row' className='mb-4'>
+        <Stack row className='mb-4'>
           <Radio value='top'>Top</Radio>
           <Radio value='right'>Right</Radio>
           <Radio value='bottom'>Bottom</Radio>
@@ -126,7 +126,7 @@ function DrawerExample() {
       </Button>
 
       <RadioGroup defaultValue={size} onChange={setSize}>
-        <Stack direction='row' className='mt-4'>
+        <Stack row className='mt-4'>
           <Radio value='xs'>xs</Radio>
           <Radio value='sm'>sm</Radio>
           <Radio value='md'>md</Radio>

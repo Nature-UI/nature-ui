@@ -19,7 +19,7 @@ import { Stack } from '@nature-ui/core';
 ## Usage
 
 ```jsx
-<Stack>
+<Stack col>
   <Box size='40px' className='bg-gray-200 p-4 border border-solid'>
     1
   </Box>
@@ -38,7 +38,7 @@ Stack accepts either `row` or `col` in the direction prop to changes it's
 direction to vertical or horizontal.
 
 ```jsx
-<Stack direction='row'>
+<Stack row>
   <Box size='40px' className='bg-blue-200 p-2 border border-solid'>
     1
   </Box>
@@ -57,7 +57,7 @@ Stack accepts a `spacing` prop with a valid css value. This prop adds a margin
 to each child of the Stack element except for the last child.
 
 ```jsx
-<Stack spacing='1rem'>
+<Stack col spacing='2'>
   <Alert variant='solid' status='success' alertTitle='Download'>
     Successful!
   </Alert>
@@ -72,7 +72,8 @@ to each child of the Stack element except for the last child.
 
 ## Props
 
-| Name        | Type                        | Description                                             |
-| ----------- | --------------------------- | ------------------------------------------------------- |
-| `direction` | `Responsive(row or column)` | The direction to stack the elements                     |
-| `spacing`   | `MarginProps`               | The space between each stack item. Defaults to `0.5rem` |
+| Name      | Type                 | Default | Description                                                                                |
+| --------- | -------------------- | ------- | ------------------------------------------------------------------------------------------ |
+| `col`     | `boolean`            |         | Sets the direction of the stack elements to column. composes of tailwindcss `flex-col`     |
+| `row`     | `boolean`            |         | Sets the direction of the stack elements to row. composes of tailwindcss `flex-row`        |
+| `spacing` | `string` \| `number` |         | The space between each stack item. Defaults to `4`. Composes of tailwindcss margin classes |

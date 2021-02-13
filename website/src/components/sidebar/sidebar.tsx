@@ -128,7 +128,7 @@ const mainNavLinks = [
 
 const MainNavLinkGroup = (props: BoxProps) => {
   return (
-    <Stack direction='col' className='items-stretch' spacing='1rem' {...props}>
+    <Stack col className='items-stretch' spacing='1rem' {...props}>
       {mainNavLinks.map((item) => (
         <El.li className='list-none' key={item.label}>
           <MainNavLink icon={item.icon} href={item.href}>

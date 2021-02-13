@@ -213,7 +213,7 @@ export function Example() {
   }
 
   return (
-    <Stack direction='col' spacing='1rem'>
+    <Stack col spacing='1rem'>
       <Button onClick={addToast} type='button'>
         Toast
       </Button>

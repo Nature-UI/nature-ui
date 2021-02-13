@@ -32,7 +32,7 @@ whether one or more options are selected.
 
 ```jsx
 <CheckboxGroup defaultValue={['one', 'two']}>
-  <Stack spacing={24} direction='row'>
+  <Stack spacing={24} row>
     <Checkbox value='one'>One</Checkbox>
     <Checkbox value='two'>Two</Checkbox>
     <Checkbox value='three'>Three</Checkbox>

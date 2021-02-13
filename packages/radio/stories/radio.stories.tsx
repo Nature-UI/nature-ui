@@ -65,7 +65,7 @@ export const WithHook = () => {
   });
 
   return (
-    <Stack spacing='20px' direction='row' {...getRootProps()}>
+    <Stack spacing='20px' row {...getRootProps()}>
       {options.map((value) => (
         <Radio key={value} {...getRadioProps({ value })}>
           {value}

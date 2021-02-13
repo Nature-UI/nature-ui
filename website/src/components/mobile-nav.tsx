@@ -108,7 +108,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
             <Box className='h-screen absolute top-0 left-0 w-full mt-3 bg-white z-10 flex flex-col overflow-auto pb-8'>
               <Box>
                 <Box className='px-4'>
-                  <Stack direction='row' className='items-center'>
+                  <Stack row className='items-center'>
                     <Logo />
                     <CloseButton
                       ref={closeBtnRef}
@@ -118,7 +118,7 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
                   </Stack>
                 </Box>
                 <Box className={`px-6 mt-6 pb-4 shadow-${shadow}`}>
-                  <Stack direction='row' spacing='8px'>
+                  <Stack row spacing='8px'>
                     <NavLink href='/docs/getting-started'>Docs</NavLink>
                   </Stack>
                 </Box>

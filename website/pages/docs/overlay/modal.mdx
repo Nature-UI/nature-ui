@@ -122,7 +122,7 @@ function DrawerExample() {
       </Button>
 
       <RadioGroup defaultValue={size} onChange={setSize}>
-        <Stack direction='row' className='mt-4'>
+        <Stack row className='mt-4'>
           <Radio value='xs'>xs</Radio>
           <Radio value='sm'>sm</Radio>
           <Radio value='md'>md</Radio>
@@ -448,7 +448,7 @@ function ScrollingExample() {
   return (
     <>
       <RadioGroup value={scrollBehavior} onChange={setScrollBehavior}>
-        <Stack direction='row'>
+        <Stack row>
           <Radio value='inside'>inside</Radio>
           <Radio value='outside'>outside</Radio>
         </Stack>

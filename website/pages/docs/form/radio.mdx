@@ -24,7 +24,7 @@ function RadioExample() {
   const [value, setValue] = React.useState('1');
   return (
     <RadioGroup onChange={setValue} value={value}>
-      <Stack direction='row'>
+      <Stack row>
         <Radio value='1'>First</Radio>
         <Radio value='2'>Second</Radio>
         <Radio value='3'>Third</Radio>
@@ -41,7 +41,7 @@ You can override the `color` of the Radio to any color key specified in
 
 ```jsx
 <RadioGroup defaultValue='2'>
-  <Stack spacing={12} direction='row'>
+  <Stack spacing={12} row>
     <Radio color='red-600' value='1'>
       Radio
     </Radio>
@@ -88,7 +88,7 @@ The checkbox comes with 3 sizes.
 
 ```jsx
 <RadioGroup defaultValue='1'>
-  <Stack spacing={12} direction='row'>
+  <Stack spacing={12} row>
     <Radio value='1' isDisabled>
       Radio 1
     </Radio>
@@ -150,7 +150,7 @@ function Example() {
   const group = getRootProps();
 
   return (
-    <Stack direction='row' spacing='1rem' {...group}>
+    <Stack row spacing='1rem' {...group}>
       {options.map((value) => {
         const radio = getRadioProps({ value });
         return (

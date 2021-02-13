@@ -124,7 +124,7 @@ export function WalkthroughPopover() {
         </PopoverBody>
         <PopoverFooter className='flex pb-4 border-none justify-between items-center'>
           <Box className='text-sm'>Step 2 of 4</Box>
-          <Stack direction='row' spacing='1rem'>
+          <Stack row spacing='1rem'>
             <Button size='sm' className='block' color='green-500'>
               Setup Email
             </Button>

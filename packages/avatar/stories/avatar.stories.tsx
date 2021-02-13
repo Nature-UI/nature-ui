@@ -36,7 +36,7 @@ const Avatars = [
 ];
 
 export const Basic = () => (
-  <Stack direction='row'>
+  <Stack row>
     {Avatars.map(({ name, url }) => (
       <Avatar
         key={name}
@@ -50,7 +50,7 @@ export const Basic = () => (
 );
 
 export const DifferentSizes = () => (
-  <Stack direction='row'>
+  <Stack row>
     <Avatar size='md' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
     <Avatar
       size='lg'
@@ -67,7 +67,7 @@ export const DifferentSizes = () => (
 );
 
 export const WithBadge = () => (
-  <Stack direction='row'>
+  <Stack row>
     {Avatars.map(({ name, url }) => (
       <Avatar
         size='md'

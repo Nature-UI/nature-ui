@@ -19,7 +19,7 @@ export default {
 const list = ['#145fd9', '#14d95c', '#9414d9', '#2e14d9', '#d2d914', '#d91452'];
 
 export const Lighten = () => (
-  <Stack direction='row'>
+  <Stack row>
     <div
       className='w-8 h-8 rounded-full'
       style={{ backgroundColor: lighten('#145fd9', 20) }}
@@ -36,7 +36,7 @@ export const Lighten = () => (
 );
 
 export const Darken = () => (
-  <Stack direction='row'>
+  <Stack row>
     <div
       className='w-8 h-8 rounded-full'
       style={{ backgroundColor: darken('#145fd9', 20) }}
@@ -53,7 +53,7 @@ export const Darken = () => (
 );
 
 export const Random = () => (
-  <Stack direction='row'>
+  <Stack row>
     <div
       className='w-8 h-8 rounded-full'
       style={{ backgroundColor: randomColor() }}
@@ -70,7 +70,7 @@ export const Random = () => (
 );
 
 export const RandomColorFromString = () => (
-  <Stack direction='row'>
+  <Stack row>
     <div
       className='w-8 h-8 rounded-full'
       style={{ backgroundColor: randomColorFromString('divine') }}
@@ -88,7 +88,7 @@ export const RandomColorFromString = () => (
 
 export const RandomColorFromList = () => {
   return (
-    <Stack direction='row'>
+    <Stack row>
       <div
         className='w-8 h-8 rounded-full'
         style={{ backgroundColor: randomColorFromList('a', list) }}
@@ -107,7 +107,7 @@ export const RandomColorFromList = () => {
 
 export const RandomFromList = () => {
   return (
-    <Stack direction='row'>
+    <Stack row>
       <div
         className='w-8 h-8 rounded-full'
         style={{ backgroundColor: randomFromList(list) }}
@@ -125,7 +125,7 @@ export const RandomFromList = () => {
 };
 
 export const Transparentize = () => (
-  <Stack direction='row'>
+  <Stack row>
     <div
       className='w-8 h-8 rounded-full'
       style={{ backgroundColor: transparentize('#2e14d9', 0.7) }}

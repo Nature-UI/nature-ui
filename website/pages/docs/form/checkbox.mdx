@@ -31,7 +31,7 @@ Basic usage of `Checkbox`.
 ### Disabled Checkbox
 
 ```jsx
-<Stack spacing={10} direction='row'>
+<Stack spacing={10} row>
   <Checkbox isDisabled>Checkbox</Checkbox>
   <Checkbox isDisabled defaultIsChecked>
     Checkbox
@@ -45,7 +45,7 @@ You can override the color of the `Checkbox` to any color key specified in
 `theme.colors`.
 
 ```jsx
-<Stack spacing={10} direction='row'>
+<Stack spacing={10} row>
   <Checkbox color='purple-500' defaultIsChecked>
     Checkbox
   </Checkbox>
@@ -61,7 +61,7 @@ Pass the `size` prop to change the size of the `Checkbox`. Values can be either
 `sm`, `md` or `lg`.
 
 ```jsx
-<Stack spacing={10} direction='row'>
+<Stack spacing={10} row>
   <Checkbox size='sm' color='purple-500'>
     Checkbox
   </Checkbox>
@@ -146,7 +146,7 @@ shared styling props.
 
 ```jsx
 <CheckboxGroup color='green-600' defaultValue={['naruto', 'kakashi']}>
-  <Stack direction='row'>
+  <Stack row>
     <Checkbox value='naruto'>Naruto</Checkbox>
     <Checkbox value='sasuke'>Sasuke</Checkbox>
     <Checkbox value='kakashi'>kakashi</Checkbox>

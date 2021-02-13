@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 export const iconButton = () => (
-  <Stack direction='row'>
+  <Stack row>
     <IconButton aria-label='Search database' icon={<SearchIcon />} />
 
     <IconButton

@@ -104,7 +104,7 @@ export const CheckboxGroupExample = () => {
       color='green-500'
       onChange={(value) => console.log(value)}
     >
-      <Stack spacing={24} direction='row'>
+      <Stack spacing={24} row>
         <Checkbox value='one'>One</Checkbox>
         <Checkbox value='two'>Two</Checkbox>
         <Checkbox value='three'>Three</Checkbox>
@@ -127,7 +127,7 @@ export const ControlledCheckboxGroup = () => {
         setValue(v);
       }}
     >
-      <Stack direction='row' spacing='40px'>
+      <Stack row spacing='40px'>
         <Checkbox value='one'>One</Checkbox>
         <Checkbox value='two'>Two</Checkbox>
         <Checkbox value='three'>Three</Checkbox>

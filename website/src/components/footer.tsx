@@ -78,7 +78,7 @@ const Footer = () => {
           </span>
           <span>by Divine Hycenth</span>
         </p>
-        <Stack direction='row' spacing='1rem' className='justify-center mt-3'>
+        <Stack row spacing='1rem' className='justify-center mt-3'>
           {links.map((link) => (
             <FooterLink key={link.href} {...link} />
           ))}

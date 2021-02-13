@@ -27,7 +27,7 @@ Use the `size` prop to change the size of the button. You can set the value to
 `xs`, `sm`, `md`, or `lg`.
 
 ```jsx
-<Stack spacing={12} direction='row' className='items-center'>
+<Stack spacing={12} row className='items-center'>
   <Button color='teal-500' size='xs'>
     Button
   </Button>
@@ -49,7 +49,7 @@ Use the `variant` prop to change the visual style of the Button. You can set the
 value to either `solid`, `ghost`, `outline`, or `link`.
 
 ```jsx
-<Stack direction='row' spacing={12} className='items-center'>
+<Stack row spacing={12} className='items-center'>
   <Button color='purple-500' variant='solid'>
     Button
   </Button>
@@ -74,7 +74,7 @@ and `RightIcon` props respectively.
 > strings.
 
 ```jsx
-<Stack direction='row' spacing={12}>
+<Stack row spacing={12}>
   <Button leftIcon={<EmailIcon />} color='teal-500' variant='solid'>
     Email
   </Button>
@@ -93,7 +93,7 @@ You can also use icons from popular libraries like
 ```jsx
 // import { MdBuild , MdCall } from "react-icons/md"
 
-<Stack direction='row' spacing={12}>
+<Stack row spacing={12}>
   <Button leftIcon={<MdBuild />} color='pink-500' variant='solid'>
     Settings
   </Button>
@@ -111,7 +111,7 @@ show a spinner and leave the button's width unchanged.
 You can also pass the `loadingText` prop to show a spinner and the loading text.
 
 ```jsx
-<Stack direction='row' spacing={12}>
+<Stack row spacing={12}>
   <Button isLoading color='purple-500' variant='solid'>
     Email
   </Button>

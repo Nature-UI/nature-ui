@@ -25,7 +25,7 @@ import { Avatar, AvatarBadge } from '@nature-ui/core';
 ## Usage
 
 ```jsx
-<Stack direction='row'>
+<Stack row>
   <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
   <Avatar name='Divine Nature' src='http://bit.ly/divine_n' />
   <Avatar name='Adam Wathan' src='https://bit.ly/adam-wathan' />
@@ -41,7 +41,7 @@ import { Avatar, AvatarBadge } from '@nature-ui/core';
 The `Avatar` component comes in 7 sizes.
 
 ```jsx
-<Stack direction='row'>
+<Stack row>
   <Avatar size='xs' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
   <Avatar size='sm' name='Ryan Florence' src='https://bit.ly/ryan-florence' />
   <Avatar size='md' name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
@@ -60,7 +60,7 @@ If there is an error loading the `src` of the avatar, there are 2 fallbacks:
 - If there's no `name` prop, we use a default avatar.
 
 ```jsx
-<Stack direction='row'>
+<Stack row>
   <Avatar name='Kent Dodds' src='http://bit.ly/broken-link' />
   <Avatar name='Oshigaki Kisame' src='https://bit.ly/broken-link' />
   <Avatar src='https://bit.ly/broken-link' />
@@ -76,7 +76,7 @@ match your design requirements.
 - To update the icon svg, pass the `icon` prop.
 
 ```jsx
-<Stack direction='row' spacing={14}>
+<Stack row spacing={14}>
   <Avatar
     color='red-500'
     icon={<Ai.AiOutlineUser color='white' size='2rem' />}
@@ -92,7 +92,7 @@ avatar. We call this a **badge**. Here's an example that shows if the user is
 online:
 
 ```jsx
-<Stack direction='row' spacing={8}>
+<Stack row spacing={8}>
   <Avatar>
     <AvatarBadge size='1.6em' className='bg-green-500' />
   </Avatar>

@@ -42,7 +42,7 @@ Link.args = {
 
 export const Sizes = () => {
   return (
-    <Stack spacing='1rem' direction='row'>
+    <Stack spacing='1rem' row>
       <Button size='xs' color='blue-500' variant='solid'>
         Button
       </Button>
@@ -109,7 +109,7 @@ export const buttonSpinner = () => {
 
 export const WithIcon = () => {
   return (
-    <Stack spacing='1rem' direction='row'>
+    <Stack spacing='1rem' row>
       <Button leftIcon={<SearchIcon />} variant='solid'>
         Search
       </Button>
