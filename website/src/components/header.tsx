@@ -20,7 +20,7 @@ const HeaderContent = () => {
   }, [mobileNav.isOpen]);
   return (
     <header className='sticky top-0 left-0 w-full bg-white z-10 border-b'>
-      <div className='w-full bg-gradient-line h-2 absolute top-0 left-0' />
+      <div className='w-full bg-primary-100 h-2 absolute top-0 left-0' />
 
       <nav className='w-full max-w-screen-lg px-4 md:px-0 md:mx-auto py-3'>
         <div className='flex items-center justify-between'>

@@ -1,6 +1,6 @@
 {
-  "name": "Next.js",
-  "short_name": "Next.js",
+  "name": "Nature-UI",
+  "short_name": "Nature-UI",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
@@ -8,12 +8,12 @@
       "type": "image/png"
     },
     {
-      "src": "/favicons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/favicons/android-chrome-310x310.png",
+      "sizes": "310x310",
       "type": "image/png"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#7C3AED",
+  "background_color": "#7C3AED",
   "display": "standalone"
 }

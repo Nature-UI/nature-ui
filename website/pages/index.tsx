@@ -31,9 +31,9 @@ const Index = () => {
             <Link href='/docs/getting-started'>
               <a>
                 <Button
-                  color='gradient-button'
+                  color='primary-700'
                   size='lg'
-                  className='w-full mb-4 sm:mb-0 sm:w-auto sm:mr-8 shadow-gradient hover:opacity-80'
+                  className='w-full mb-4 sm:mb-0 sm:w-auto sm:mr-8 hover:opacity-80'
                 >
                   Get started
                 </Button>

@@ -4,15 +4,15 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          100: '#4C08DB',
-          75: '#723FDD',
-          50: '#9977E0',
-          25: '#BFAEE2',
-          10: '#D6CFE4',
-          700: '#4C08DB',
-          600: '#723FDD',
-          500: '#9977E0',
-          400: '#BFAEE2',
+          100: '#7A28FF',
+          75: '#9457F8',
+          50: '#B087F2',
+          25: '#CAB5EC',
+          10: '#DBD2E8',
+          700: '#7A28FF',
+          600: '#9457F8',
+          500: '#B087F2',
+          400: '#CAB5EC',
         },
         gray: {
           1000: '#2D3748',
@@ -66,17 +66,9 @@ module.exports = {
         '8xl': '6.25rem',
       },
       boxShadow: {
-        gradient: '2.80303px 2.80303px 9.34343px rgba(76, 8, 219, 0.15)',
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
         outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-      },
-      backgroundImage: {
-        gradient: 'linear-gradient(147.72deg, #4C08DB 18.83%, #38B2AC 96.12%)',
-        'gradient-button':
-          'linear-gradient(127.48deg, #4C08DB -5.22%, #0CBDE3 134.42%)',
-        'gradient-line':
-          'linear-gradient(90.02deg, #4C08DB 47.02%, #38B2AC 95.44%)',
       },
     },
   },

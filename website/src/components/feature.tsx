@@ -5,7 +5,7 @@ export const Feature = ({ title, icon, children, ...props }) => {
   return (
     <Box className='shadow p-10 md:p-12 rounded-xl bg-white' {...props}>
       <Box
-        className='rounded-full p-2 overflow-hidden bg-gradient-button w-12 h-12'
+        className='rounded-full p-2 overflow-hidden bg-primary-100 w-12 h-12'
         centerContent
       >
         <Icon size={25} color='white' as={icon} />
