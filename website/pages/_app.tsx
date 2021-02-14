@@ -17,7 +17,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           rel='icon'
           type='image/png'
           sizes='96x96'
-          href='/favicon/favicon.png'
+          href='/favicon/favicon.ico'
         />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://static.cloudflareinsights.com' />
