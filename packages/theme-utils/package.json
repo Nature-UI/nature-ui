@@ -1,0 +1,52 @@
+{
+  "name": "@nature-ui/theme-utils",
+  "version": "0.0.1",
+  "description": "Tailwind plugin for dark mode in Nature UI",
+  "keywords": [
+    "Dark Mode",
+    "Dark Theme",
+    "Theme",
+    "utils",
+    "tailwindcss",
+    "Nature UI",
+    "tailwind",
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "dark-mode",
+    "dark-theme"
+  ],
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "homepage": "https://github.com/DNature/nature-ui",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DNature/nature-ui.git"
+  },
+  "scripts": {
+    "test": "jest --env=jsdom --passWithNoTests",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*"
+  },
+  "bugs": {
+    "url": "https://github.com/DNature/nature-ui/issues"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.0.3"
+  },
+  "devDependencies": {
+    "@nature-ui/test-utils": "^1.1.0"
+  },
+  "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d"
+}
