@@ -45,9 +45,8 @@ export const LazyImage = (props: LazyImageType) => {
         (entry as any).target = fallback;
       }
     }
-    if (inView && entry && status === 'loaded') {
-      (entry as any).target.src = src;
-      console.log({ status });
+    if (inView && entry) {
+      if (status === 'loaded') (entry as any).target.src = src;
     }
   }, [inView, entry]);
 
