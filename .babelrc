@@ -1,14 +1,23 @@
 {
   "presets": [
     "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      { "runtime": "automatic", "importSource": "@emotion/react" }
+    ],
     "@babel/preset-typescript",
-    "@babel/preset-react"
-    // "@emotion/babel-preset-css-prop"
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": "dev-only",
+        "labelFormat": "[local]"
+      }
+    ]
   ],
   "plugins": [
-    "@babel/plugin-transform-react-jsx",
     "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-syntax-jsx"
+    "@babel/plugin-syntax-jsx",
+    "@emotion/babel-plugin"
   ],
   "env": {
     "test": {
