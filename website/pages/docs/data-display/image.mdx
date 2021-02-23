@@ -61,15 +61,59 @@ prop.
 />
 ```
 
+## LazyImage
+
+LazyImage component enables you to smartly load the images of your app by
+demand, using small placeholders (`fallbackSrc`) while the original image is
+being lazy loaded.
+
+This component composes of
+[react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+
+```jsx
+<Container size='xs' centered>
+  <Stack spacing='8' col className='w-full'>
+    <LazyImage
+      className='w-full h-96 object-cover'
+      src='https://cutt.ly/HlcgdCt'
+      fallbackSrc='https://cutt.ly/dlcgDQG'
+      alt='burger 1'
+    />
+    <LazyImage
+      className='w-full h-96 object-cover'
+      src='https://cutt.ly/qlcgXXE'
+      fallbackSrc='https://cutt.ly/8lcg1kI'
+      alt='burger 3'
+    />
+  </Stack>
+</Container>
+```
+
 ## Props
+
+### Image Props
 
 | Name             | Type               | Default | Description                                                                                                                  |
 | ---------------- | ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `src`            | `string`           |         | The path to the image source                                                                                                 |
 | `fallbackSrc`    | `string`           |         | In event there was an error loading the `src`, specify a fallback. In most cases, this can be an avatar or image placeholder |
 | `alt`            | `string`           |         | The alt text that describes the image                                                                                        |
+| `size`           | `string`           |         | This will change the `height` and `width` of the image.                                                                      |
 | `onLoad`         | `function`         |         | A callback for when the image `src` has been loaded                                                                          |
 | `onError`        | `function`         |         | A callback for when there was an error loading the image `src`                                                               |
 | `htmlWidth`      | `string`, `number` |         | The native HTML width attribute of the `img` element                                                                         |
 | `htmlHeight`     | `string`, `number` |         | The native HTML height attribute of the `img` element                                                                        |
 | `ignoreFallback` | `boolean`          |         | Opt out of the `fallbackSrc` logic and use the `Image` directly                                                              |
+
+### LazyImage Props
+
+| Name          | Type               | Default | Description                                                                                                 |
+| ------------- | ------------------ | ------- | ----------------------------------------------------------------------------------------------------------- |
+| `src`         | `string`           |         | The path to the image source (Mostly a large sized image)                                                   |
+| `fallbackSrc` | `string`           |         | This is used as a placeholder for the `src` attribute. In most cases, this will be a relatively small image |
+| `alt`         | `string`           |         | The alt text that describes the image                                                                       |
+| `size`        | `string`           |         | This will change the `height` and `width` of the image.                                                     |
+| `onLoad`      | `function`         |         | A callback for when the image `src` has been loaded                                                         |
+| `onError`     | `function`         |         | A callback for when there was an error loading the image `src`                                              |
+| `htmlWidth`   | `string`, `number` |         | The native HTML width attribute of the `img` element                                                        |
+| `htmlHeight`  | `string`, `number` |         | The native HTML height attribute of the `img` element                                                       |
