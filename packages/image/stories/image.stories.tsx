@@ -2,11 +2,8 @@ import * as React from 'react';
 
 import { Image } from '../src';
 
-// @ts-ignore
-import * as localImg from './large.jpg';
-
 export default {
-  title: 'Image',
+  title: 'Image/Image',
 };
 
 export const Basic = () => (
@@ -22,7 +19,7 @@ export const Basic = () => (
  */
 export const FallbackSrcExample = () => (
   <Image
-    src='https://bit.ly/dan-abramov_s'
+    src='https://bit.ly/dan-abramov'
     fallbackSrc='https://via.placeholder.com/150'
   />
 );
@@ -33,7 +30,7 @@ export const FallbackSrcExample = () => (
  */
 export const FallbackElementExample = () => (
   <Image
-    src='https://bit.ly/dan-abramov_s'
+    src='https://bit.ly/dan-abramov'
     fallback={
       <div
         style={{

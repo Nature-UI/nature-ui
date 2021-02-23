@@ -34,10 +34,8 @@ interface ImageOptions {
   size?: string;
 }
 
-const ImageComp = nature('img');
-
 export type ImageProps = UseImageProps &
-  PropsOf<typeof ImageComp> &
+  PropsOf<typeof nature.img> &
   ImageOptions;
 
 export const Image = forwardRef<ImageProps>((props, ref) => {
@@ -87,11 +85,11 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
       ...shared,
     };
 
-    return <ImageComp {...result} />;
+    return <nature.img {...result} />;
   }
 
   return (
-    <ImageComp
+    <nature.img
       {...{
         crossOrigin,
         loading,
