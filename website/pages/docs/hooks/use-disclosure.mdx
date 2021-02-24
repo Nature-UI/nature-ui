@@ -30,24 +30,46 @@ The `useDisclosure` hook returns an object with the following fields:
 ## Usage
 
 ```jsx
-function Example() {
+function TransitionExample() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
 
   return (
     <>
-      <Button onClick={onOpen}>Open Drawer</Button>
-      <Drawer placement='right' onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerHeader className='border-b'>Basic Drawer</DrawerHeader>
-            <DrawerBody>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
+      <Button onClick={onOpen}>Discard</Button>
+      <Fade timeout={300} in={isOpen}>
+        {(styles) => (
+          <AlertDialog
+            leastDestructiveRef={cancelRef}
+            onClose={onClose}
+            isOpen={true}
+            isCentered
+          >
+            <AlertDialogOverlay style={styles}>
+              <SlideFade timeout={200} in={isOpen} unmountOnExit={false}>
+                {(styles) => (
+                  <AlertDialogContent style={styles}>
+                    <AlertDialogHeader>Discard Changes?</AlertDialogHeader>
+                    <AlertDialogCloseButton />
+                    <AlertDialogBody>
+                      Are you sure you want to discard all of your notes? 44
+                      words will be deleted.
+                    </AlertDialogBody>
+                    <AlertDialogFooter>
+                      <Button ref={cancelRef} onClick={onClose}>
+                        No
+                      </Button>
+                      <Button color='red-500' className={'ml-3'}>
+                        Yes
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                )}
+              </SlideFade>
+            </AlertDialogOverlay>
+          </AlertDialog>
+        )}
+      </Fade>
     </>
   );
 }
