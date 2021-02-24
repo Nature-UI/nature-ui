@@ -28,7 +28,7 @@ export const liveErrorStyle: React.CSSProperties = {
 
 const LiveCodePreview = ({ className, ...props }: any) => (
   <LivePreview
-    className={`${className} mt-5 p-3 border border-solid border-gray-200 rounded-lg overflow-x-auto`}
+    className={`${className} mt-5 p-3 border border-solid border-gray-200 rounded-lg overflow-x-auto editor__component`}
     {...props}
   />
 );
@@ -46,7 +46,7 @@ const CopyButton = ({ className, ...props }: ButtonType) => (
 const EditableNotice = (props: BoxProps) => {
   return (
     <Box
-      className='absolute w-full rounded-t-lg py-2 z-0 text-gray-400 text-xs font-semibold text-center uppercase pointer-events-none'
+      className='absolute w-full rounded-t-lg py-2 z-0 text-gray-400 text-xs font-semibold text-center uppercase pointer-events-none editor__component'
       css={{
         top: '-1.25em',
         borderTopLeftRadius: '8px',
@@ -62,7 +62,7 @@ const EditableNotice = (props: BoxProps) => {
 
 const CodeContainer = ({ className, ...props }: any) => (
   <Box
-    className={`${className} p-3 rounded-lg my-8`}
+    className={`${className} p-3 rounded-lg my-8 editor__component`}
     css={{ backgroundColor: '#011627' }}
     {...props}
   />
@@ -127,7 +127,7 @@ function CodeBlock(props) {
   }
 
   return (
-    <Box className='relative z-0'>
+    <Box className='relative z-0 editor__component'>
       <CodeContainer className='p-4 overflow-hidden'>
         <Highlight
           codeString={editorCode}

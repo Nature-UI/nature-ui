@@ -102,12 +102,6 @@ export function Search() {
 
   return (
     <>
-      <Head>
-        {/* <link
-          rel='stylesheet'
-          href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
-        /> */}
-      </Head>
       <SearchButton onClick={onOpen} ref={searchButtonRef} />
       {isOpen && (
         <Portal>
@@ -122,7 +116,7 @@ export function Search() {
             onClose={onClose}
             indexName='nature-ui'
             apiKey='0d8256bb9d09856b576409dfb05103af'
-            appId='1409184040'
+            appId='BH4D9OD16A'
             navigator={{
               navigate({ suggestionUrl }) {
                 setIsOpen(false);

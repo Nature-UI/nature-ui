@@ -61,6 +61,7 @@
   flex: auto;
   display: flex;
   align-items: center;
+  min-width: 0;
 }
 
 .DocSearch-Dropdown {
@@ -76,6 +77,7 @@
   width: 1.5rem;
   height: 1.5rem;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  background-size: 100%;
 }
 
 .DocSearch-MagnifierLabel svg {
@@ -96,6 +98,7 @@
   margin-left: 1rem;
   margin-right: 1rem;
   flex: auto;
+  min-width: 0;
 }
 
 .DocSearch-Input:focus {
@@ -151,6 +154,10 @@
   height: 4rem;
 }
 
+.DocSearch-Hit-Tree {
+  display: none;
+}
+
 .DocSearch-Hit-icon {
   flex: none;
   margin-right: 0.875rem;
@@ -169,6 +176,7 @@
   flex: auto;
   display: flex;
   flex-direction: column-reverse;
+  min-width: 0;
 }
 
 .DocSearch-Hit-path {
@@ -179,13 +187,16 @@
 }
 
 .DocSearch-Hit[aria-selected='true'] .DocSearch-Hit-path {
-  @apply text-primary-500;
+  @apply text-primary-200;
 }
 
 .DocSearch-Hit-title {
   @apply text-gray-900;
   line-height: 1.5rem;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .DocSearch-Hit[aria-selected='true'] .DocSearch-Hit-title {
@@ -198,6 +209,7 @@
 
 .DocSearch-Hit-action {
   flex: none;
+  margin-left: 0.875rem;
 }
 
 .DocSearch-Hit-action-button {
@@ -219,14 +231,14 @@
 
 .DocSearch-Hit > a {
   display: block;
-  @apply bg-gray-200;
+  @apply bg-gray-100;
   border-radius: 0.5rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   padding: 0 1.25rem 0 1rem;
 }
 
 .DocSearch-Hit[aria-selected='true'] > a {
-  @apply bg-primary-400;
+  @apply bg-primary-500;
 }
 
 .DocSearch-Hit + .DocSearch-Hit {
@@ -291,7 +303,7 @@
   justify-content: flex-end;
   margin: 0 1.5rem;
   @apply border-t;
-  @apply border-gray-200;
+  @apply border-gray-100;
   padding: 1.25rem 0;
 }
 
