@@ -31,7 +31,7 @@ The `Input` component comes in four sizes. The default is `md`.
 - `lg` (`48px`)
 
 ```jsx
-<Stack spacing={12}>
+<Stack col>
   <Input placeholder='small size' size='sm' />
   <Input placeholder='medium size' size='md' />
   <Input placeholder='large size' size='lg' />
@@ -44,7 +44,7 @@ The input component comes in 4 variants: `outline`, `unstyled`, `flushed`, and
 `filled`. Pass the `variant` prop and set it to one of these values.
 
 ```jsx
-<Stack spacing={12}>
+<Stack col>
   <Input variant='outline' placeholder='Outline' />
   <Input variant='filled' placeholder='Filled' />
   <Input variant='flushed' placeholder='Flushed' />
@@ -58,7 +58,7 @@ Add the `addonLeft` and `addonRight` to include an addon on the left and or
 right of the input element.
 
 ```jsx
-<Stack spacing={4}>
+<Stack col>
   <Input
     placeholder='your-website'
     defaultValue='divinehycenth'
@@ -78,7 +78,7 @@ right of the input element.
 ### Addons also accept JSX Elements.
 
 ```jsx
-<Stack spacing={12}>
+<Stack col>
   <Input
     placeholder='Phone number'
     type='tel'
