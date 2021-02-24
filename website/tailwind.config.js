@@ -4,15 +4,15 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          100: '#7A28FF',
-          75: '#9457F8',
-          50: '#B087F2',
-          25: '#CAB5EC',
-          10: '#DBD2E8',
-          700: '#7A28FF',
-          600: '#9457F8',
-          500: '#B087F2',
-          400: '#CAB5EC',
+          100: 'var(--primary-100)',
+          200: 'var(--primary-200)',
+          300: 'var(--primary-300)',
+          400: 'var(--primary-400)',
+          500: 'var(--primary-500)',
+          600: 'var(--primary-600)',
+          700: 'var(--primary-700)',
+          800: 'var(--primary-800)',
+          900: 'var(--primary-900)',
         },
         gray: {
           1000: '#2D3748',

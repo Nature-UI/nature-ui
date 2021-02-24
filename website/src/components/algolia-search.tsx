@@ -103,28 +103,26 @@ export function Search() {
   return (
     <>
       <Head>
-        <link
-          rel='preconnect'
-          href='https://BH4D9OD16A-dsn.algolia.net'
-          crossOrigin='true'
-        />
+        {/* <link
+          rel='stylesheet'
+          href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css'
+        /> */}
       </Head>
-      {/* <SearchStyle /> */}
       <SearchButton onClick={onOpen} ref={searchButtonRef} />
       {isOpen && (
         <Portal>
           <DocSearchModal
             placeholder='Search the docs'
-            searchParameters={{
-              facetFilters: 'version:v2',
-              distinct: 1,
-            }}
+            // searchParameters={{
+            //   facetFilters: 'version:v1',
+            //   distinct: 1,
+            // }}
             initialQuery={initialQuery}
             initialScrollY={window.scrollY}
             onClose={onClose}
             indexName='nature-ui'
-            apiKey='df1dcc41f7b8e5d68e73dd56d1e19701'
-            appId='BH4D9OD16A'
+            apiKey='0d8256bb9d09856b576409dfb05103af'
+            appId='1409184040'
             navigator={{
               navigate({ suggestionUrl }) {
                 setIsOpen(false);

@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'root.css';
+@import 'docsearch.css';
 
 body,
 html {
