@@ -47,7 +47,7 @@ function PageContainer(props: PageContainerProps) {
     <>
       <SEO title={title} description={description} />
       <Header />
-      <Box as='main' className='bg-white h-full'>
+      <Box className='bg-white h-full'>
         <Box centered className='flex max-w-screen-lg mx-auto'>
           {sidebar || null}
           <Box className='flex-1 w-screen'>

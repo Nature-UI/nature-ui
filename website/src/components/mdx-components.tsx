@@ -49,7 +49,7 @@ const LinkedHeading = (props: PropsOf<typeof El.h2>) => {
           aria-label='anchor'
           href={`#${id}`}
           className={clsx(
-            'text-primary-100 focus:opacity-100 focus:shadow-outline opacity-0 ml-2 outline-none hover:opacity-100 rounded-md',
+            'text-primary-500 focus:opacity-100 focus:shadow-outline opacity-0 ml-2 outline-none hover:opacity-100 rounded-md',
             {
               'opacity-100': hover,
             },
@@ -89,7 +89,7 @@ const MDXComponents = {
   th: THead,
   td: TData,
   a: (props) => (
-    <El.a className='text-primary-100 hover:underline' {...props} />
+    <El.a className='text-primary-500 hover:underline' {...props} />
   ),
   p: (props) => <El.p className='mt-5 leading-7' {...props} />,
   ul: (props) => <El.ul className='mt-7 ml-7' {...props} />,

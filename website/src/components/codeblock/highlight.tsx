@@ -57,7 +57,7 @@ const Highlight = ({
               return (
                 <El.div
                   className={`px-5 ${
-                    shouldHighlightLine(i) && 'bg-primary-25 bg-opacity-40'
+                    shouldHighlightLine(i) && 'bg-primary-200 bg-opacity-40'
                   }`}
                   {...lineProps}
                 >

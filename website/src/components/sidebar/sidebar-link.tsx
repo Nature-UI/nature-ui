@@ -17,7 +17,7 @@ const StyledLink = React.forwardRef(function StyledLink(
       className={clsx(
         'text-gray-75 font-medium w-full text-sm transition-all duration-200 px-3 py-1 rounded-md bg-opacity-50',
         {
-          'bg-primary-25 text-primary-75': isActive,
+          'bg-primary-200 text-primary-700': isActive,
         },
       )}
       rounded='md'

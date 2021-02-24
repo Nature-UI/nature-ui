@@ -24,14 +24,14 @@ const Index = () => {
         <Container size='md' className='text-center mt-32 md:mt-48 mb-16'>
           <h1 className='text-3xl md:text-6xl font-bold text-gray-1000 leading-normal'>
             Set of Lightview and fully customizable React Components optimized
-            for <span className='text-primary-100'>TailwindCss</span>
+            for <span className='text-primary-500'>TailwindCss</span>
           </h1>
 
           <Box className='mt-12'>
             <Link href='/docs/getting-started'>
               <a>
                 <Button
-                  color='primary-700'
+                  color='primary-600'
                   size='lg'
                   className='w-full mb-4 sm:mb-0 sm:w-auto sm:mr-8 hover:opacity-80'
                 >
@@ -61,12 +61,7 @@ const Index = () => {
           height: '174.69px',
         }}
       />
-      <Container
-        className='py-24  px-4 md:px-0'
-        centered
-        size='lg'
-        as='section'
-      >
+      <Container className='py-24 px-8 xl:px-0' centered size='lg' as='section'>
         <Box className='grid md:grid-cols-2 gap-8'>
           <Feature icon={MdAccessibility} title='Accessible'>
             Nature UI strictly follows WAI-ARIA standards for all components.
@@ -84,7 +79,7 @@ const Index = () => {
         </Box>
       </Container>
 
-      <Box className='bg-white py-32' as='section'>
+      <Box className='bg-white py-32 px-8 xl:px-0' as='section'>
         <Container size='lg' centered>
           <Box className='mb-12'>
             <h2 className='text-3xl md:text-6xl font-bold text-center text-gray-1000'>

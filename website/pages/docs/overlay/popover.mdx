@@ -151,7 +151,7 @@ const TextInput = React.forwardRef((props, ref) => {
 // 2. Create the form
 const Form = ({ firstFieldRef, onCancel }) => {
   return (
-    <Stack spacing={14}>
+    <Stack col>
       <TextInput
         label='First name'
         id='first-name'
@@ -159,7 +159,7 @@ const Form = ({ firstFieldRef, onCancel }) => {
         defaultValue='John'
       />
       <TextInput label='Last name' id='last-name' defaultValue='Smith' />
-      <Stack row>
+      <Stack row className='mt-4'>
         <Button size='sm' color='gray-600' variant='outline' onClick={onCancel}>
           Cancel
         </Button>
