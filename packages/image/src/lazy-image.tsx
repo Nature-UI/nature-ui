@@ -21,7 +21,7 @@ export const LazyImage = (props: LazyImageType) => {
     ...rest
   } = props;
 
-  const { ref, inView, entry } = useInView(options);
+  const [ref, inView, entry] = useInView(options);
 
   const status = useImage(props);
 
@@ -45,8 +45,10 @@ export const LazyImage = (props: LazyImageType) => {
         (entry as any).target = fallback;
       }
     }
+
     if (inView && entry) {
-      if (status === 'loaded') (entry as any).target.src = src;
+      (entry as any).target.src = src;
+      // if (status === 'loaded') (entry as any).target.src = src;
     }
   }, [inView, entry]);
 
