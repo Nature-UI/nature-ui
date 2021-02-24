@@ -41,7 +41,7 @@ You can override the `color` of the Radio to any color key specified in
 
 ```jsx
 <RadioGroup defaultValue='2'>
-  <Stack spacing={12} row>
+  <Stack row>
     <Radio color='red-600' value='1'>
       Radio
     </Radio>
@@ -57,7 +57,7 @@ You can override the `color` of the Radio to any color key specified in
 The checkbox comes with 3 sizes.
 
 ```jsx
-<Stack spacing={12}>
+<Stack row>
   <Radio size='sm' name='1' color='red-600'>
     Radio
   </Radio>
@@ -74,7 +74,7 @@ The checkbox comes with 3 sizes.
 
 ```jsx
 <RadioGroup defaultValue='1'>
-  <Stack spacing={12}>
+  <Stack row>
     <Radio value='1' isDisabled>
       Checked
     </Radio>
@@ -88,7 +88,7 @@ The checkbox comes with 3 sizes.
 
 ```jsx
 <RadioGroup defaultValue='1'>
-  <Stack spacing={12} row>
+  <Stack row row>
     <Radio value='1' isDisabled>
       Radio 1
     </Radio>
@@ -115,7 +115,7 @@ to help with this scenario. Here's what you need to do:
 
 ```jsx manual=true
 // 1. Create a component that consumes the `useRadio` hook
-function RadioCard(props) {
+function RadioCard({ className, ...props }) {
   const { getInputProps, getCheckboxProps, ...rest } = useRadio(props);
 
   const input = getInputProps();
@@ -123,11 +123,11 @@ function RadioCard(props) {
 
   const checked = typeof checkbox['data-checked'] === 'string';
   return (
-    <Box as='label' className={props.className}>
+    <Box as='label' className={className}>
       <input {...input} />
       <Box
         {...checkbox}
-        className={`cursor-pointer border rounded-md shadow-md focus:shadow-outline px-5 py-3 ${
+        className={`${className} cursor-pointer border rounded-md shadow-md focus:shadow-outline px-5 py-3 ${
           checked && 'bg-teal-600 text-white border-teal-600'
         }`}
       >
@@ -150,7 +150,7 @@ function Example() {
   const group = getRootProps();
 
   return (
-    <Stack row spacing='1rem' {...group}>
+    <Stack row {...group}>
       {options.map((value) => {
         const radio = getRadioProps({ value });
         return (
