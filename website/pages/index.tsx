@@ -20,9 +20,9 @@ const Index = () => {
         description='Simple, Modular and Accessible UI Components based on Tailwindcss for your React Applications.'
       />
       <Header />
-      <main className='grid place-items-center w-full bg-white md:pb-32 pb-12 px-4 md:px-0'>
-        <Container size='md' className='text-center mt-32 md:mt-48 mb-16'>
-          <h1 className='text-3xl md:text-6xl font-bold text-gray-1000 leading-normal'>
+      <main className='grid place-items-center w-full bg-white md:pb-24 pb-12 px-4 md:px-0'>
+        <Container size='md' className='text-center mt-16 md:mt-28 mb-12'>
+          <h1 className='text-4xl md:text-7xl font-bold md:font-black text-gray-1000 leading-normal'>
             Set of Lightview and fully customizable React Components optimized
             for <span className='text-primary-500'>TailwindCss</span>
           </h1>
@@ -79,13 +79,13 @@ const Index = () => {
         </Box>
       </Container>
 
-      <Box className='bg-white py-32 px-8 xl:px-0' as='section'>
+      <Box className='bg-white py-32 md:px-4 xl:px-0' as='section'>
         <Container size='lg' centered>
           <Box className='mb-12'>
-            <h2 className='text-3xl md:text-6xl font-bold text-center text-gray-1000'>
+            <h2 className='text-3xl md:text-6xl font-black text-center text-gray-1000'>
               Less code. More speed
             </h2>
-            <p className='opacity-70 text-lg mt-3 md:mt-6 max-w-lg mx-auto text-center'>
+            <p className='opacity-80 text-lg mt-3 md:mt-6 max-w-lg mx-auto text-center'>
               Spend less time writing UI code and more time building a great
               experience for your customers.
             </p>

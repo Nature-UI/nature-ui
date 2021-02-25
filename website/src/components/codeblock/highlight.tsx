@@ -1,6 +1,6 @@
 /** ** */
 import * as React from 'react';
-import { El } from 'components/nature-jsx-elements';
+import { nature } from '@nature-ui/core';
 import BaseHighlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import { liveEditorStyle } from './codeblock';
@@ -55,21 +55,21 @@ const Highlight = ({
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
               return (
-                <El.div
+                <nature.div
                   className={`px-5 ${
                     shouldHighlightLine(i) && 'bg-primary-200 bg-opacity-40'
                   }`}
                   {...lineProps}
                 >
                   {showLines && (
-                    <El.span className='opacity-30 mr-6 text-xs'>
+                    <nature.span className='opacity-30 mr-6 text-xs'>
                       {i + 1}
-                    </El.span>
+                    </nature.span>
                   )}
                   {line.map((token, key) => (
                     <span {...getTokenProps({ token, key })} />
                   ))}
-                </El.div>
+                </nature.div>
               );
             })}
           </pre>

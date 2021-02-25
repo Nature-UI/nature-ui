@@ -100,12 +100,13 @@ export const MobileNaveContent = (props: MobileNavContentProps) => {
       {isOpen && (
         <RemoveScroll forwardProps>
           <motion.nav
-            transition={{ duration: 0.08 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
+            className='h-screen absolute top-0 left-0 w-full mt-3 bg-white z-10 flex flex-col overflow-auto pb-8'
+            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -500 }}
           >
-            <Box className='h-screen absolute top-0 left-0 w-full mt-3 bg-white z-10 flex flex-col overflow-auto pb-8'>
+            <Box className='h-screen absolute top-0 left-0 w-full bg-white z-10 flex flex-col overflow-auto pb-8'>
               <Box>
                 <Box className='px-4'>
                   <Stack row className='items-center'>

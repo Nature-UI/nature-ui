@@ -1,33 +1,35 @@
 /** ** */
 import * as React from 'react';
-import { Alert, Box, PropsOf, Divider, clsx } from '@nature-ui/core';
+import { Alert, Box, PropsOf, Divider, clsx, nature } from '@nature-ui/core';
 import CodeBlock from './codeblock/codeblock';
-import { El } from './nature-jsx-elements';
 
-const Pre = (props) => <El.div className='my-8 rounded-sm' {...props} />;
+const Pre = (props) => <nature.div className='my-8 rounded-sm' {...props} />;
 
 const Table = (props) => (
-  <El.div className='overflow-x-hidden'>
-    <El.table className='text-left mt-8 w-full' {...props} />
-  </El.div>
+  <nature.div className='overflow-x-hidden'>
+    <nature.table
+      className='text-left mt-8 w-full overflow-x-auto'
+      {...props}
+    />
+  </nature.div>
 );
 
 const THead = (props) => (
-  <El.th
+  <nature.th
     className='bg-gray-25 bg-opacity-10 p-2 font-semibold text-sm '
     {...props}
   />
 );
 
 const TData = (props) => (
-  <El.td
+  <nature.td
     className='p-2 border-t text-sm whitespace-normal'
     css={{ borderColor: 'inherit' }}
     {...props}
   />
 );
 
-const LinkedHeading = (props: PropsOf<typeof El.h2>) => {
+const LinkedHeading = (props: PropsOf<typeof nature.h2>) => {
   const { children, id } = props;
   const [hover, setHover] = React.useState(false);
 
@@ -36,7 +38,7 @@ const LinkedHeading = (props: PropsOf<typeof El.h2>) => {
   };
 
   return (
-    <El.h2
+    <nature.h2
       data-group=''
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
@@ -45,7 +47,7 @@ const LinkedHeading = (props: PropsOf<typeof El.h2>) => {
     >
       <span>{children}</span>
       {id && (
-        <El.a
+        <nature.a
           aria-label='anchor'
           href={`#${id}`}
           className={clsx(
@@ -56,26 +58,28 @@ const LinkedHeading = (props: PropsOf<typeof El.h2>) => {
           )}
         >
           #
-        </El.a>
+        </nature.a>
       )}
-    </El.h2>
+    </nature.h2>
   );
 };
 
 const InlineCode = (props: any) => (
-  <El.code className='text-accent-600 ' {...props} />
+  <nature.code className='text-accent-600 ' {...props} />
 );
 
 const MDXComponents = {
-  h1: (props) => <El.h1 className='text-3xl leading-5' {...props} />,
+  h1: (props) => (
+    <nature.h1 className='font-black text-4xl leading-5' {...props} />
+  ),
   h2: (props) => (
     <LinkedHeading
-      className='text-2xl mt-16 mb-2 font-medium leading-5'
+      className='font-bold text-3xl mt-16 mb-2 leading-5'
       {...props}
     />
   ),
   h3: (props) => (
-    <LinkedHeading className='text-xl font-medium mt-6' as='h3' {...props} />
+    <LinkedHeading className='text-2xl font-semibold mt-6' as='h3' {...props} />
   ),
   h4: (props) => <LinkedHeading as='h4' {...props} />,
   hr: (props) => <Divider {...props} />,
@@ -89,12 +93,12 @@ const MDXComponents = {
   th: THead,
   td: TData,
   a: (props) => (
-    <El.a className='text-primary-500 hover:underline' {...props} />
+    <nature.a className='text-primary-500 hover:underline' {...props} />
   ),
-  p: (props) => <El.p className='mt-5 leading-7' {...props} />,
-  ul: (props) => <El.ul className='mt-7 ml-7' {...props} />,
-  ol: (props) => <El.ol {...props} />,
-  li: (props) => <El.li className='pb-1 list-disc' {...props} />,
+  p: (props) => <nature.p className='mt-5 leading-7' {...props} />,
+  ul: (props) => <nature.ul className='mt-7 ml-7' {...props} />,
+  ol: (props) => <nature.ol {...props} />,
+  li: (props) => <nature.li className='pb-1 list-disc' {...props} />,
   blockquote: (props) => (
     <Alert
       className='mt-4 rounded-md my-6'
@@ -105,10 +109,6 @@ const MDXComponents = {
       {...props}
     />
   ),
-  // 'carbon-ad': CarbonAd,
-  // ComponentLinks,
-  // IconsList,
-  // PropsTable,
 };
 
 export default MDXComponents;

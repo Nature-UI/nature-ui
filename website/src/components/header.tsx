@@ -19,7 +19,7 @@ const HeaderContent = () => {
     mobileNavBtnRef.current?.focus();
   }, [mobileNav.isOpen]);
   return (
-    <header className='sticky top-0 left-0 w-full bg-white z-10 border-b px-8 xl:px-0'>
+    <header className='sticky top-0 left-0 w-full bg-white z-10 border-b md:px-8 xl:px-0'>
       <div className='w-full bg-primary-500 h-2 absolute top-0 left-0' />
 
       <nav className='w-full max-w-screen-lg px-4 md:px-0 md:mx-auto py-3'>
@@ -53,7 +53,6 @@ const HeaderContent = () => {
               </a>
             </Link>
           </div>
-
           <MobileNavButton
             ref={mobileNavBtnRef}
             aria-label='Open Menu'

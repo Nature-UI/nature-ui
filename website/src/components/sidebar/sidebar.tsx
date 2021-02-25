@@ -1,15 +1,14 @@
 /** ** */
-import { Box, BoxProps, Stack, clsx } from '@nature-ui/core';
+import { Box, BoxProps, Stack, clsx, nature } from '@nature-ui/core';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { Routes } from 'utils/get-route-context';
 import NextLink from 'next/link';
 import _ from 'lodash';
-import { El } from 'components/nature-jsx-elements';
 
 import SidebarCategory from './sidebar-category';
 import SidebarLink from './sidebar-link';
-import { BlogIcon, DocsIcon, GuidesIcon, TeamIcon } from './sidebar-icons';
+import { DocsIcon } from './sidebar-icons';
 
 export type SidebarContentProps = Routes & {
   pathname?: string;
@@ -24,9 +23,9 @@ export function SidebarContent(props: SidebarContentProps) {
         return (
           <React.Fragment key={String(idx)}>
             {lvl1.heading && (
-              <El.h4 className='text-sm font-bold my-5 uppercase text-gray-1000'>
+              <nature.h4 className='text-sm font-bold my-5 uppercase text-gray-1000'>
                 {lvl1.title}
-              </El.h4>
+              </nature.h4>
             )}
 
             {lvl1.routes.map((lvl2, index) => {
@@ -57,7 +56,7 @@ export function SidebarContent(props: SidebarContentProps) {
                   selected={selected}
                   opened={opened}
                 >
-                  <El.ul>
+                  <nature.ul>
                     {sortedRoutes.map((lvl3) => (
                       <SidebarLink
                         as='li'
@@ -68,7 +67,7 @@ export function SidebarContent(props: SidebarContentProps) {
                         {lvl3.title}
                       </SidebarLink>
                     ))}
-                  </El.ul>
+                  </nature.ul>
                 </SidebarCategory>
               );
             })}
@@ -86,7 +85,7 @@ const MainNavLink = ({ href, icon, children }) => {
 
   return (
     <NextLink href={href} passHref>
-      <El.a
+      <nature.a
         className={clsx(
           'flex items-center text-sm font-bold transition-colors duration-200 text-gray-50 hover:text-gray-75',
           {
@@ -94,11 +93,11 @@ const MainNavLink = ({ href, icon, children }) => {
           },
         )}
       >
-        <El.div className='flex items-center justify-center w-6 h-6 bg-primary-700 rounded-md mr-3'>
+        <nature.div className='flex items-center justify-center w-6 h-6 bg-primary-700 rounded-md mr-3'>
           {icon}
-        </El.div>
+        </nature.div>
         {children}
-      </El.a>
+      </nature.a>
     </NextLink>
   );
 };
@@ -130,11 +129,11 @@ const MainNavLinkGroup = (props: BoxProps) => {
   return (
     <Stack col className='items-stretch' spacing='1rem' {...props}>
       {mainNavLinks.map((item) => (
-        <El.li className='list-none' key={item.label}>
+        <nature.li className='list-none' key={item.label}>
           <MainNavLink icon={item.icon} href={item.href}>
             {item.label}
           </MainNavLink>
-        </El.li>
+        </nature.li>
       ))}
     </Stack>
   );

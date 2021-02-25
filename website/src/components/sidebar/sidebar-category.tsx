@@ -1,7 +1,6 @@
 /** ** */
 import * as React from 'react';
-import { BoxProps } from '@nature-ui/core';
-import { El } from 'components/nature-jsx-elements';
+import { BoxProps, nature } from '@nature-ui/core';
 import { ReactNode, RefObject, useEffect, useRef, useState } from 'react';
 
 type SidebarCategoryProps = BoxProps & {
@@ -59,17 +58,17 @@ function SidebarCategory(props: SidebarCategoryProps) {
   }, [toggle, shouldScroll, isMobile, contentRef]);
 
   return (
-    <El.div className='mt-8' ref={ref} {...rest}>
-      <El.p
+    <nature.div className='mt-8' ref={ref} {...rest}>
+      <nature.p
         className='w-full uppercase text-xs font-bold flex items-center justify-between text-gray-50'
         css={{ userSelect: 'none' }}
       >
         {title}
-      </El.p>
-      <El.div className='mt-4 -mx-3' role='group' hidden={!toggle}>
+      </nature.p>
+      <nature.div className='mt-4 -mx-3' role='group' hidden={!toggle}>
         {children}
-      </El.div>
-    </El.div>
+      </nature.div>
+    </nature.div>
   );
 }
 

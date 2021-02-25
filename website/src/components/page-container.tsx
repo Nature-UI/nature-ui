@@ -59,7 +59,7 @@ function PageContainer(props: PageContainerProps) {
               }}
             >
               <PageTransition>
-                <h1 className='outline-none text-3xl font-bold mt-8 mb-1'>
+                <h1 className='outline-none text-4xl font-black mt-8 mb-1'>
                   {title}
                 </h1>
                 {version && <Badge color='teal-500'>v{version}</Badge>}
