@@ -1,5 +1,11 @@
 # @nature-ui/system
 
+## 1.2.0
+
+### Minor Changes
+
+- 595de95: Updated @emotion/react package in system module.
+
 ## 1.1.2
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @nature-ui/image
 
+## 1.2.0
+
+### Minor Changes
+
+- 595de95: Added `Lazy Image` component.
+
+### Patch Changes
+
+- Updated dependencies [595de95]
+  - @nature-ui/system@1.2.0
+
 ## 1.1.2
 
 ### Patch Changes

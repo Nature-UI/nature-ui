@@ -1,5 +1,20 @@
 # @nature-ui/core
 
+## 1.2.0
+
+### Minor Changes
+
+- 595de95: Updated @emotion/react package in system module.
+- Added `Lazy Image` component to Image Module.
+- Fixed alert component bug.
+- Fixed IconButton component size.
+
+### Patch Changes
+
+- Updated dependencies [595de95]
+  - @nature-ui/image@1.2.0
+  - @nature-ui/system@1.2.0
+
 ## 1.1.1
 
 ### Patch Changes
