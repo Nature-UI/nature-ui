@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 import { useInView, IntersectionOptions } from 'react-intersection-observer';
-import { __DEV__ } from '@nature-ui/utils';
 
 export type UseImageProps = {
   /**
