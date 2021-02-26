@@ -220,10 +220,6 @@ export const useLazyImage = (props: UseLazyImage) => {
     };
   }, [status, load, inView, ref, entry]);
 
-  /**
-   * If user opts out of the fallback/placeholder
-   * logic, let's just return 'loaded'
-   */
   return ref;
 };
 

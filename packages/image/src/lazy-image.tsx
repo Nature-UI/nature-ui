@@ -1,3 +1,4 @@
+// @ts-ignore
 import React from 'react';
 
 import { nature } from '@nature-ui/system';
