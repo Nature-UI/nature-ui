@@ -5,6 +5,11 @@ async function redirect() {
       destination: 'https://discord.gg/ZA7NgwkeQ4',
       permanent: true,
     },
+    {
+      source: "/github",
+      destination: 'https://github.com/nature-ui/nature-ui',
+      permanent: true,
+    },
     // GENERAL
     {
       source: "/getting-started",

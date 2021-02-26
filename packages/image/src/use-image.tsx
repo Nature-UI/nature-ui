@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 import { useInView, IntersectionOptions } from 'react-intersection-observer';
+import { __DEV__ } from '@nature-ui/utils';
 
 export type UseImageProps = {
   /**
@@ -210,6 +211,9 @@ export const useLazyImage = (props: UseLazyImage) => {
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError, entry]);
 
   useSafeLayoutEffect(() => {
+    if (process.env.NODE_ENV === 'test' && entry) {
+      (entry as any).target.src = src;
+    }
     if (inView && entry && status === 'loading') {
       load();
     }
@@ -224,3 +228,4 @@ export const useLazyImage = (props: UseLazyImage) => {
 };
 
 export type UseImageReturn = ReturnType<typeof useImage>;
+export type UseLazyImageReturn = ReturnType<typeof useLazyImage>;
