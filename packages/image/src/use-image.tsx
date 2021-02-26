@@ -198,6 +198,7 @@ export const useLazyImage = (props: UseLazyImage) => {
       flush();
       setStatus('loaded');
       onLoad?.(event);
+      (entry as any).target.src = src;
     });
     img.addEventListener('error', (error) => {
       flush();
@@ -206,7 +207,6 @@ export const useLazyImage = (props: UseLazyImage) => {
     });
 
     imageRef.current = img;
-    (entry as any).target.src = src;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError, entry]);
 
   useSafeLayoutEffect(() => {
