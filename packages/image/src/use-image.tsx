@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
+import { useInView, IntersectionOptions } from 'react-intersection-observer';
 
 export type UseImageProps = {
   /**
@@ -135,6 +136,95 @@ export const useImage = (props: UseImageProps) => {
    * logic, let's just return 'loaded'
    */
   return ignoreFallback ? 'loaded' : status;
+};
+
+type UseLazyImage = Omit<UseImageProps, 'ignoreFallback'> & {
+  options?: IntersectionOptions;
+};
+
+export const useLazyImage = (props: UseLazyImage) => {
+  const { src, srcSet, onLoad, onError, crossOrigin, sizes, options } = props;
+
+  const [status, setStatus] = React.useState<Status>(() => {
+    return src ? 'loading' : 'pending';
+  });
+
+  const [inViewRef, inView, entry] = useInView(options);
+
+  React.useEffect(() => {
+    setStatus(src ? 'loading' : 'pending');
+  }, [src]);
+
+  const imageRef = React.useRef<HTMLImageElement | null>();
+
+  const ref = React.useCallback(
+    (node) => {
+      // Ref's from useRef needs to have the node assigned to `current`
+      imageRef.current = node;
+      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+      inViewRef(node);
+    },
+    [inViewRef],
+  );
+
+  const flush = () => {
+    if (imageRef.current) {
+      imageRef.current.onload = null;
+      imageRef.current.onerror = null;
+      imageRef.current = null;
+    }
+  };
+
+  const load = React.useCallback(() => {
+    if (!src) return;
+    flush();
+    const img = new Image();
+
+    img.src = src;
+
+    if (crossOrigin) {
+      img.crossOrigin = crossOrigin;
+    }
+
+    if (srcSet) {
+      img.srcset = srcSet;
+    }
+
+    if (sizes) {
+      img.sizes = sizes;
+    }
+
+    img.addEventListener('load', (event) => {
+      flush();
+      setStatus('loaded');
+      onLoad?.(event);
+    });
+    img.addEventListener('error', (error) => {
+      flush();
+      setStatus('failed');
+      onError?.(error);
+    });
+
+    imageRef.current = img;
+    (entry as any).target.src = src;
+  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, entry]);
+
+  useSafeLayoutEffect(() => {
+    if (inView && entry && status === 'loading') {
+      load();
+    }
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      flush();
+    };
+  }, [status, load, inView, ref, entry]);
+
+  /**
+   * If user opts out of the fallback/placeholder
+   * logic, let's just return 'loaded'
+   */
+  return ref;
 };
 
 export type UseImageReturn = ReturnType<typeof useImage>;
