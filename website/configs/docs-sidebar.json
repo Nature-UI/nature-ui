@@ -177,6 +177,10 @@
             {
               "title": "Image",
               "path": "/docs/data-display/image"
+            },
+            {
+              "title": "Lazy Image",
+              "path": "/docs/data-display/lazy-image"
             }
           ]
         },

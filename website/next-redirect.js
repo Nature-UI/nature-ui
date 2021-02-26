@@ -157,6 +157,11 @@ async function redirect() {
       permanent: true,
     },
     {
+      source: "/lazy-image",
+      destination: "/docs/data-display/lazy-image",
+      permanent: true,
+    },
+    {
       source: "/transition",
       destination: "/docs/components/transitions",
       permanent: true,

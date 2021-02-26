@@ -1,5 +1,11 @@
 # @nature-ui/core
 
+## 1.2.1
+
+### Patch Changes
+
+- f2abdbc: Created `useLazyImage` hook for proper lazy loading of images.
+
 ## 1.2.0
 
 ### Minor Changes
