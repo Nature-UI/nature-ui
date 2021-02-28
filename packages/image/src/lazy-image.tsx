@@ -11,7 +11,7 @@ type LazyImageType = ImageProps & {
   options?: IntersectionOptions;
 };
 export const LazyImage = (props: LazyImageType) => {
-  const { src, fallbackSrc, alt, options, size, fallback, ...rest } = props;
+  const { fallbackSrc, alt, options, size, fallback, ...rest } = props;
 
   // const [ref, inView, entry] = useInView(options);
   const ref = useLazyImage(props);

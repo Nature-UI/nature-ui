@@ -155,23 +155,11 @@ export const useLazyImage = (props: UseLazyImage) => {
     setStatus(src ? 'loading' : 'pending');
   }, [src]);
 
-  const imageRef = React.useRef<HTMLImageElement | null>();
-
-  const ref = React.useCallback(
-    (node) => {
-      // Ref's from useRef needs to have the node assigned to `current`
-      imageRef.current = node;
-      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-      inViewRef(node);
-    },
-    [inViewRef],
-  );
-
   const flush = () => {
-    if (imageRef.current) {
-      imageRef.current.onload = null;
-      imageRef.current.onerror = null;
-      imageRef.current = null;
+    if ((inViewRef as any).current) {
+      (inViewRef as any).current.onload = null;
+      (inViewRef as any).current.onerror = null;
+      (inViewRef as any).current = null;
     }
   };
 
@@ -205,8 +193,6 @@ export const useLazyImage = (props: UseLazyImage) => {
       setStatus('failed');
       onError?.(error);
     });
-
-    imageRef.current = img;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError, entry]);
 
   useSafeLayoutEffect(() => {
@@ -221,9 +207,9 @@ export const useLazyImage = (props: UseLazyImage) => {
     return () => {
       flush();
     };
-  }, [status, load, inView, ref, entry]);
+  }, [status, load, inView, entry]);
 
-  return ref;
+  return inViewRef;
 };
 
 export type UseImageReturn = ReturnType<typeof useImage>;
