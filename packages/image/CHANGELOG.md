@@ -1,5 +1,11 @@
 # @nature-ui/image
 
+## 1.2.1
+
+### Patch Changes
+
+- 64323c3: Removed redundant refs for useLazyImage hook
+
 ## 1.2.0
 
 ### Minor Changes
