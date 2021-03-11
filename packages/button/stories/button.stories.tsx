@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Stack } from '@nature-ui/layout';
-import { SearchIcon, Io } from '@nature-ui/icons';
+import { SearchIcon } from '@nature-ui/icons';
+import { IoLogoGithub } from 'react-icons/io';
 
 import { Button, ButtonType, ButtonSpinner } from '../src';
 
@@ -42,7 +43,7 @@ Link.args = {
 
 export const Sizes = () => {
   return (
-    <Stack spacing='1rem' row>
+    <Stack row>
       <Button size='xs' color='blue-500' variant='solid'>
         Button
       </Button>
@@ -109,11 +110,11 @@ export const buttonSpinner = () => {
 
 export const WithIcon = () => {
   return (
-    <Stack spacing='1rem' row>
+    <Stack row>
       <Button leftIcon={<SearchIcon />} variant='solid'>
         Search
       </Button>
-      <Button rightIcon={<Io.IoLogoGithub />} variant='ghost' text='teal-600'>
+      <Button rightIcon={<IoLogoGithub />} variant='ghost' text='teal-600'>
         Github
       </Button>
     </Stack>

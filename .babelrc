@@ -14,11 +14,7 @@
       }
     ]
   ],
-  "plugins": [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-syntax-jsx",
-    "@emotion/babel-plugin"
-  ],
+  "plugins": ["@emotion/babel-plugin"],
   "env": {
     "test": {
       "plugins": ["@babel/plugin-transform-modules-commonjs"]
