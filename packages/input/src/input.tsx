@@ -1,9 +1,8 @@
 /** ** */
-import { clsx, nature, PropsOf, css } from '@nature-ui/system';
 import { FormControlOptions, useFormControl } from '@nature-ui/form-control';
+import { clsx, css, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
-
 import { InputLeftAddon, InputRightAddon } from './input-addon';
 
 const InputTag = nature('input');
