@@ -1,6 +1,4 @@
 import { render } from '@nature-ui/test-utils';
-import * as React from 'react';
-
 import { Image, ImageProps } from '../src';
 
 const src = 'https://image.xyz/source';
