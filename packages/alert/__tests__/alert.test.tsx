@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
 
-import * as React from 'react';
 import { render, axe } from '@nature-ui/test-utils';
 
 import {

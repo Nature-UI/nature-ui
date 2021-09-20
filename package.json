@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "workspaces": {
     "packages": [
@@ -69,7 +69,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
-    "@typescript-eslint/parser": "^4.9.1",
+    "@typescript-eslint/parser": "^4.31.1",
     "all-contributors-cli": "^6.19.0",
     "autoprefixer": "^10.2.3",
     "babel-preset-react-app": "^10.0.0",
@@ -81,16 +81,17 @@
     "css-loader": "^6.2.0",
     "cssnano": "^5.0.8",
     "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react": "^1.1.7",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react": "^7.25.2",
     "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-testing-library": "^4.12.2",
     "execa": "^5.0.0",
     "husky": "^7.0.2",
     "jest": "^27.2.0",
