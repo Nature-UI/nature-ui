@@ -1,9 +1,6 @@
 /** ** */
-import { nature, PropsOf, clsx } from '@nature-ui/system';
+import { clsx, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
-
-// type Omitted = "size" | "boxSize" | "width" | "height" | "w" | "h"
 
 export type ContainerProps = PropsOf<typeof nature.div> & {
   /**
