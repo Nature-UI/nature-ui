@@ -1,6 +1,4 @@
-import * as React from 'react';
 import { render } from '@nature-ui/test-utils';
-
 import { Collapse } from '../src';
 
 jest.mock('react-transition-group/Transition', () => {
