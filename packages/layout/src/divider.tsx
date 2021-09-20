@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { forwardRef, nature, PropsOf, clsx, css } from '@nature-ui/system';
+import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
 
 const DividerElem = nature('hr');
 

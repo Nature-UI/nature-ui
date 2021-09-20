@@ -1,7 +1,5 @@
 import { render } from '@nature-ui/test-utils';
-import * as React from 'react';
-
-import { Box, Badge } from '../src';
+import { Badge, Box } from '../src';
 
 describe('@nature-ui/layout', () => {
   describe('Box', () => {
