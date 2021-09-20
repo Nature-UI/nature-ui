@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
+import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { darken, __DEV__ } from '@nature-ui/utils';
 
 export type BadgeProps = PropsOf<typeof nature.span>;
