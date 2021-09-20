@@ -1,7 +1,5 @@
-import React from 'react';
 import { render, screen } from '@nature-ui/test-utils';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
-
 import { LazyImage } from '../src';
 
 describe('Lazy Image', () => {
