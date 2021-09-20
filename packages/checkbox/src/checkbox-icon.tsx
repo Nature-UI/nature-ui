@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Icon, SvgIconProps } from '@nature-ui/icon';
 
 const CheckIcon = (props: SvgIconProps) => {

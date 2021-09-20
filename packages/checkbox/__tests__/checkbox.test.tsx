@@ -1,12 +1,11 @@
+import { fireEvent, render, renderHook } from '@nature-ui/test-utils';
 import * as React from 'react';
-import { render, renderHook, fireEvent } from '@nature-ui/test-utils';
-
 import {
   Checkbox,
-  useCheckbox,
-  UseCheckboxProps,
   CheckboxGroup,
   CheckboxGroupProps,
+  useCheckbox,
+  UseCheckboxProps,
 } from '../src';
 
 describe('@nature-ui/checkbox', () => {
