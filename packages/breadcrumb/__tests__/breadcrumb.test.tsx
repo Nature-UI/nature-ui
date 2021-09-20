@@ -1,6 +1,4 @@
-import * as React from 'react';
 import { render } from '@nature-ui/test-utils';
-
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '../src';
 
 describe('@nature-ui/breadcrumb', () => {
