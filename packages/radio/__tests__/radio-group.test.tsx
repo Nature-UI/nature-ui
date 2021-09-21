@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { render, fireEvent } from '@nature-ui/test-utils';
-
-import { useRadioGroup, Radio, UseRadioGroupProps } from '../src';
+import { fireEvent, render } from '@nature-ui/test-utils';
+import { Radio, useRadioGroup, UseRadioGroupProps } from '../src';
 
 describe('@nature-ui/radio', () => {
   test('RadioGroup renders correctly', () => {
