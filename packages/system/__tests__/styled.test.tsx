@@ -1,7 +1,5 @@
 /** ** */
 import { render } from '@nature-ui/test-utils';
-import * as React from 'react';
-
 import { nature } from '../src';
 
 describe('@nature-ui/system', () => {
