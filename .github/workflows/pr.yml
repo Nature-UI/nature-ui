@@ -15,10 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
-      - name: Install Yarn and Node
-        uses: egordm/gha-yarn-node-cache@v1
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 1
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile && yarn bootstrap
