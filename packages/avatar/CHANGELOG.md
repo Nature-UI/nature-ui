@@ -1,5 +1,14 @@
 # @nature-ui/avatar
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+  - @nature-ui/color@1.1.1
+  - @nature-ui/image@1.2.2
+
 ## 1.1.1
 
 ### Patch Changes

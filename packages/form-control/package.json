@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/form-control",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React component to provide validation states to form fields",
   "keywords": [
     "field",
@@ -43,14 +43,14 @@
   },
   "dependencies": {
     "@nature-ui/hooks": "^1.1.0",
-    "@nature-ui/icon": "^1.1.1",
-    "@nature-ui/system": "^1.1.2",
+    "@nature-ui/icon": "^1.1.2",
+    "@nature-ui/system": "^2.0.0",
     "@nature-ui/utils": "^1.1.0"
   },
   "peerDependencies": {
     "react": "^17"
   },
   "devDependencies": {
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   }
 }

@@ -133,5 +133,5 @@ export const getDisplayName = (primitive: any) => {
 export const forwardRef = <P>(
   comp: (props: P, ref: React.Ref<any>) => React.ReactElement | null,
 ) => {
-  return (React.forwardRef(comp as any) as unknown) as ForwardRefComponent<P>;
+  return React.forwardRef(comp as any) as unknown as ForwardRefComponent<P>;
 };

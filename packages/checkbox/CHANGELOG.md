@@ -1,5 +1,14 @@
 # @nature-ui/checkbox
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+  - @nature-ui/icon@1.1.2
+  - @nature-ui/visually-hidden@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes

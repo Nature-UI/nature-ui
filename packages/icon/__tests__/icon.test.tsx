@@ -1,7 +1,5 @@
-import * as React from 'react';
 import { render } from '@nature-ui/test-utils';
 import { Md3DRotation } from 'react-icons/md';
-
 import { Icon } from '../src';
 
 describe('@nature-ui/icon', () => {

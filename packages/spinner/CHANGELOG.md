@@ -1,5 +1,13 @@
 # @nature-ui/spinner
 
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+  - @nature-ui/visually-hidden@1.1.2
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @nature-ui/visually-hidden
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+
 ## 1.1.1
 
 ### Patch Changes

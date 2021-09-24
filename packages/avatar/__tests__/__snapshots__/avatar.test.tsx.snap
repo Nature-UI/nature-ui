@@ -3,7 +3,7 @@
 exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-qhbmea css-1edvott css-17of72q"
+    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-17of72q"
   >
     <svg
       class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1edvott css-17of72q"
@@ -22,7 +22,7 @@ exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
       />
     </svg>
     <div
-      class="absolute flex items-center justify-center right-0 bottom-0 rounded-full border-solid css-1fxcadb border-white -mb-1 -mr-1"
+      class="absolute flex items-center justify-center right-0 bottom-0 rounded-full border-white css-1fxcadb -mr-1"
     />
   </span>
 </DocumentFragment>
@@ -31,7 +31,7 @@ exports[`@nature-ui/avatar Avatar with AvatarBadge renders correctly 1`] = `
 exports[`@nature-ui/avatar avatar renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-qhbmea css-1edvott css-17of72q"
+    class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-17of72q"
   >
     <svg
       class="items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full css-1edvott css-17of72q"

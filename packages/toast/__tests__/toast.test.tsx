@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { render } from '@nature-ui/test-utils';
 import { Button } from '@nature-ui/button';
-
+import { render } from '@nature-ui/test-utils';
 import { useToast } from '../src';
 
 test('Spinner renders correctly', () => {

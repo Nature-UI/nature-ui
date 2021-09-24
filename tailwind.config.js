@@ -73,7 +73,6 @@ module.exports = {
     },
   },
   variants: {
-    // borderColor: ['active', 'focus', 'hover'],
   },
   plugins: [],
 };

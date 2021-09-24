@@ -1,9 +1,8 @@
 /** ** */
-import { forwardRef, nature, PropsOf, clsx, css } from '@nature-ui/system';
-import React from 'react';
-import { __DEV__ } from '@nature-ui/utils';
 import { useImage } from '@nature-ui/image';
-
+import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { __DEV__ } from '@nature-ui/utils';
+import React from 'react';
 import { randomBgColors } from './randomBgColors';
 
 export const baseStyle =
@@ -243,12 +242,16 @@ export const Avatar = forwardRef<AvatarProps>((props, ref) => {
         React.cloneElement(icon, {
           ..._rest,
           role: 'img',
-          className: clsx(cn, baseStyle, {
-            [backgroundColor]: bgColor,
-            [border]: bdColor,
-            [_borderColor]: !bdColor,
-            [_bg]: !bgColor,
-          }),
+          className: clsx(
+            baseStyle,
+            {
+              [backgroundColor]: bgColor,
+              [border]: bdColor,
+              [_borderColor]: !bdColor,
+              [_bg]: !bgColor,
+            },
+            cn,
+          ),
         })
       );
     }

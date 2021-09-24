@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { render } from '@nature-ui/test-utils';
 import { PortalManager } from '@nature-ui/portal';
-
+import { render } from '@nature-ui/test-utils';
 import { Drawer } from '../src';
 
 describe('@nature-ui/drawer', () => {

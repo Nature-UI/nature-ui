@@ -12,31 +12,20 @@
     "jest": true,
     "node": true
   },
-  "plugins": [
-    "@typescript-eslint/eslint-plugin",
-    "eslint-comments",
-    "jest",
-    "promise",
-    "import",
-    "react-hooks"
-  ],
   "extends": [
     "plugin:import/recommended",
-    "airbnb-typescript",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react",
-    "eslint:recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:eslint-comments/recommended",
-    "plugin:jest/recommended",
-    "plugin:promise/recommended",
     "plugin:import/typescript",
-    "plugin:prettier/recommended"
+    "plugin:react-hooks/recommended",
+    "airbnb-typescript",
+    "prettier"
+    // "prettier/react",
+  ],
+  "plugins": [
+    "react-hooks",
+    "@typescript-eslint/eslint-plugin",
+    "testing-library"
   ],
   "rules": {
-    "prettier/prettier": "error",
     "react/jsx-filename-extension": 0,
     "import/extensions": 0,
     "import/prefer-default-export": 0,
@@ -69,7 +58,6 @@
     "no-underscore-dangle": 0,
     "@typescript-eslint/naming-convention": 0,
     "no-bitwise": 0,
-    "no-plusplus": 0,
     "consistent-return": 0,
     "react/require-default-props": 0,
     "func-names": 0,

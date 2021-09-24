@@ -7,7 +7,7 @@ exports[`@nature-ui/alert  should also render correctly 1`] = `
     role="alert"
   >
     <svg
-      class="text-gray-800 mr-3 text-red-600 mr-3 css-rre05l-Icon"
+      class="text-red-600 mr-3 css-rre05l-Icon"
       fill="none"
       focusable="false"
       height="1em"
@@ -39,7 +39,7 @@ exports[`@nature-ui/alert  should also render correctly 1`] = `
       />
     </svg>
     <p
-      class="mr-3 font-bold"
+      class="font-bold mr-3"
     >
       Alert title
     </p>
@@ -57,7 +57,7 @@ exports[`@nature-ui/alert  should render correctly 1`] = `
     role="alert"
   >
     <svg
-      class="text-gray-800 mr-3 text-green-600 mr-3 css-rre05l-Icon"
+      class="text-green-600 mr-3 css-rre05l-Icon"
       fill="none"
       focusable="false"
       height="1em"

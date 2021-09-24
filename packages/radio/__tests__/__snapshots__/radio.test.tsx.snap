@@ -13,7 +13,7 @@ exports[`@nature-ui/radio Radio renders correctly 1`] = `
     />
     <div
       aria-hidden="true"
-      class="nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-2 border-solid rounded-full text-white transition-all duration-150 css-kklk9c css-1wncg9q-Radio"
+      class="nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-solid rounded-full text-white transition-all duration-150 css-1wncg9q-Radio"
     />
   </label>
 </DocumentFragment>

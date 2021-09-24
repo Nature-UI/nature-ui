@@ -1,5 +1,11 @@
 # @nature-ui/system
 
+## 2.0.0
+
+### Major Changes
+
+- Replace old classnames with new ones to improve performance.
+
 ## 1.2.0
 
 ### Minor Changes
