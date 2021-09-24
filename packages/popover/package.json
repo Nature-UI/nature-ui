@@ -33,7 +33,7 @@
     "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
     "lint:types": "tsc --noEmit",
     "lint": "concurrently yarn:lint:*",
-    "test": "jest --env=jest-environment-jsdom-sixteen"
+    "test": "jest --env=jsdom"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
@@ -43,11 +43,10 @@
     "@nature-ui/hooks": "^1.1.0",
     "@nature-ui/popper": "^1.1.0",
     "@nature-ui/portal": "^1.1.0",
-    "@nature-ui/utils": "^1.1.0"
+    "@nature-ui/utils": "^1.1.1"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.2",
-    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "@nature-ui/system": "^1.2.0",
     "react": "^17.0.1"
   },
   "peerDependencies": {
