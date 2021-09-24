@@ -46,7 +46,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/close-button": "^1.1.0",
+    "@nature-ui/close-button": "^1.1.1",
     "@nature-ui/focus-lock": "^1.1.0",
     "@nature-ui/hooks": "^1.1.0",
     "@nature-ui/portal": "^1.1.0",
@@ -55,8 +55,8 @@
     "react-remove-scroll": "^2.4.1"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.2",
-    "react": "^17.0.1"
+    "@nature-ui/system": "^2.0.0",
+    "react": "^17.0.2"
   },
   "peerDependencies": {
     "react": "17.x"

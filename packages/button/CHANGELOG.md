@@ -1,5 +1,13 @@
 # @nature-ui/button
 
+## 1.1.4
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+  - @nature-ui/spinner@1.1.1
+
 ## 1.1.3
 
 ### Patch Changes

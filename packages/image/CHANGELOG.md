@@ -1,5 +1,12 @@
 # @nature-ui/image
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+
 ## 1.2.1
 
 ### Patch Changes
