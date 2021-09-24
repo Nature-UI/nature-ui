@@ -6,17 +6,17 @@ exports[`@nature-ui/input Elements inside input render correctly 1`] = `
     class="flex"
   >
     <span
-      class="flex w-auto items-center whitespace-no-wrap css-1ri2j3w rounded-l px-4 bg-gray-100 border border-gray-200 css-1cf2eow-InputAddon"
+      class="flex w-auto items-center whitespace-no-wrap css-1cf2eow-InputAddon rounded-l px-4 bg-gray-100 border-gray-200"
     >
       <span>
         Hello
       </span>
     </span>
     <input
-      class="rounded-l-none rounded-r-none w-full outline-none transition-all duration-150 border css-1dp2wsc border-solid border-gray-200 focus:border-blue-600 css-q6n4wc rounded css-1ri2j3w"
+      class="rounded w-full outline-none transition-all duration-150 border-gray-200 css-1ri2j3w focus:border-blue-600"
     />
     <span
-      class="flex w-auto items-center whitespace-no-wrap css-1ri2j3w rounded-r px-4 bg-gray-100 border border-gray-200 css-1bzcr1t-InputAddon"
+      class="flex w-auto items-center whitespace-no-wrap css-1bzcr1t-InputAddon rounded-r px-4 bg-gray-100 border-gray-200"
     >
       <span>
         Hello
@@ -32,15 +32,15 @@ exports[`@nature-ui/input Input addons render correctly 1`] = `
     class="flex"
   >
     <span
-      class="flex w-auto items-center whitespace-no-wrap css-1ri2j3w rounded-l px-4 bg-gray-100 border border-gray-200 css-1cf2eow-InputAddon"
+      class="flex w-auto items-center whitespace-no-wrap css-1cf2eow-InputAddon rounded-l px-4 bg-gray-100 border-gray-200"
     >
       https://
     </span>
     <input
-      class="rounded-l-none rounded-r-none w-full outline-none transition-all duration-150 border css-1dp2wsc border-solid border-gray-200 focus:border-blue-600 css-q6n4wc rounded css-1ri2j3w"
+      class="rounded w-full outline-none transition-all duration-150 border-gray-200 css-1ri2j3w focus:border-blue-600"
     />
     <span
-      class="flex w-auto items-center whitespace-no-wrap css-1ri2j3w rounded-r px-4 bg-gray-100 border border-gray-200 css-1bzcr1t-InputAddon"
+      class="flex w-auto items-center whitespace-no-wrap css-1bzcr1t-InputAddon rounded-r px-4 bg-gray-100 border-gray-200"
     >
       .com
     </span>
@@ -51,7 +51,7 @@ exports[`@nature-ui/input Input addons render correctly 1`] = `
 exports[`@nature-ui/input Input renders correctly 1`] = `
 <DocumentFragment>
   <input
-    class="w-full outline-none transition-all duration-150 border css-1dp2wsc border-solid border-gray-200 focus:border-blue-600 css-q6n4wc rounded css-1ri2j3w"
+    class="w-full outline-none transition-all duration-150 border-gray-200 css-1ri2j3w focus:border-blue-600 rounded"
   />
 </DocumentFragment>
 `;
