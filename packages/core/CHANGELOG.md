@@ -1,5 +1,27 @@
 # @nature-ui/core
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [undefined]
+  - @nature-ui/system@2.0.0
+  - @nature-ui/alert@1.1.2
+  - @nature-ui/avatar@1.1.2
+  - @nature-ui/breadcrumb@1.1.2
+  - @nature-ui/button@1.1.4
+  - @nature-ui/checkbox@1.1.2
+  - @nature-ui/close-button@1.1.1
+  - @nature-ui/collapse@1.1.2
+  - @nature-ui/container@1.1.2
+  - @nature-ui/form-control@1.1.2
+  - @nature-ui/icon@1.1.2
+  - @nature-ui/image@1.2.2
+  - @nature-ui/input@1.1.2
+  - @nature-ui/layout@1.1.3
+  - @nature-ui/spinner@1.1.1
+  - @nature-ui/visually-hidden@1.1.2
+
 ## 1.2.1
 
 ### Patch Changes

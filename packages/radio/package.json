@@ -41,11 +41,11 @@
   "dependencies": {
     "@nature-ui/hooks": "^1.1.0",
     "@nature-ui/utils": "^1.1.0",
-    "@nature-ui/visually-hidden": "^1.1.1"
+    "@nature-ui/visually-hidden": "^1.1.2"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.2",
-    "react": "^17.0.1"
+    "@nature-ui/system": "^2.0.0",
+    "react": "^17.0.2"
   },
   "peerDependencies": {
     "react": "17.x"
