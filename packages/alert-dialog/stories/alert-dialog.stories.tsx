@@ -1,17 +1,16 @@
 import { Button } from '@nature-ui/button';
-import * as React from 'react';
-import { PortalManager } from '@nature-ui/portal';
 import { useDisclosure } from '@nature-ui/hooks';
+import { PortalManager } from '@nature-ui/portal';
 import { Fade, SlideFade } from '@nature-ui/transition';
-
+import * as React from 'react';
 import {
   AlertDialog,
   AlertDialogBody,
+  AlertDialogCloseButton,
+  AlertDialogContent,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogContent,
   AlertDialogOverlay,
-  AlertDialogCloseButton,
 } from '../src';
 
 export default {

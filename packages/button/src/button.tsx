@@ -1,16 +1,14 @@
 /** ** */
-import { nature, clsx, PropsOf, css } from '@nature-ui/system';
-import * as React from 'react';
-
+import { Spinner } from '@nature-ui/spinner';
+import { clsx, css, nature, PropsOf } from '@nature-ui/system';
 import {
-  __DEV__,
-  lighten,
   darken,
   dataAttr,
+  lighten,
   StringOrNumber,
+  __DEV__,
 } from '@nature-ui/utils';
-import { Spinner } from '@nature-ui/spinner';
-
+import * as React from 'react';
 import { rippleEffect } from './button-effects';
 
 interface ButtonProps {
