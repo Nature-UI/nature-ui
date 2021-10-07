@@ -1951,7 +1951,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.5.tgz#2c40f81449a4e554e9fc6396910ed4843ec2be50"
   integrity sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==
 
-"@emotion/react@^11.1.5":
+"@emotion/react@^11.1.5", "@emotion/react@^11.4.1":
   version "11.4.1"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.4.1.tgz#a1b0b767b5bad57515ffb0cad9349614d27f4d57"
   integrity sha512-pRegcsuGYj4FCdZN6j5vqCALkNytdrKw3TZMekTzNXixRg4wkLsU5QEaBG5LC6l01Vppxlp7FE3aTHpIG5phLg==
@@ -3122,6 +3122,17 @@
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
   integrity sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==
+
+"@nature-ui/system@^1.2.2":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@nature-ui/system/-/system-2.0.0.tgz#9e6715ac31350b79121bd53f736af9263202868f"
+  integrity sha512-o6s+mSeLPvTFH8CMGuhYft6Eiv6qswYDslBA6cCbIPc90id+eB8ZdNjZmj6XG3GCqZfGbKeYgtoP20k0DNwRFQ==
+  dependencies:
+    "@emotion/css" "^11.1.3"
+    "@emotion/react" "^11.4.1"
+    "@nature-ui/utils" "^1.1.1"
+    clsx "^1.1.1"
+    hoist-non-react-statics "^3.3.2"
 
 "@next/bundle-analyzer@^10.0.5":
   version "10.2.3"

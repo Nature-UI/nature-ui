@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { CSSObject } from '@emotion/css';
 import {
   As,
   Dict,
@@ -8,14 +8,22 @@ import {
   runIfFn,
 } from '@nature-ui/utils';
 import hoist from 'hoist-non-react-statics';
-import { CSSObject } from '@emotion/css';
-
+import * as React from 'react';
 import { jsx } from './jsx';
 import { NatureComponent } from './system-types';
 import { getDisplayName } from './system-utils';
 
+const formatClassNames = (className: string): string => {
+  const ArrayClassName = className.split(' ');
+  const result = {};
+  ArrayClassName.forEach((v) => {
+    const firstChar = v.split('-')[0];
+    result[firstChar] = v;
+  });
+
+  return Object.values(result).join(' ');
+};
 export const createComponent = <T extends As>(component: T) => {
-  // return (...interpolations: any[]) => {
   return (...interpolations: any[]) => {
     const Component = React.forwardRef((_props: any, ref: React.Ref<any>) => {
       const { as, ...props } = _props;
@@ -35,7 +43,13 @@ export const createComponent = <T extends As>(component: T) => {
       const isTag = isString(element);
 
       const computedProps: Dict = isTag ? { ...props } : { ...props };
-      // const computedProps: Dict = !isTag && { ...props };
+      if (
+        computedProps.className &&
+        typeof computedProps.className === 'string' &&
+        computedProps.className.length
+      ) {
+        computedProps.className = formatClassNames(computedProps.className);
+      }
 
       if (isEmptyObject(computedProps.css) || isUndefined(computedProps.css)) {
         delete computedProps.css;
@@ -56,5 +70,4 @@ export const createComponent = <T extends As>(component: T) => {
 
     return MainComponent as NatureComponent<T>;
   };
-  // };
 };

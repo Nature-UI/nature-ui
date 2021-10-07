@@ -1,6 +1,4 @@
-import * as React from 'react';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
-
 import { Transition, TransitionProps } from './transition';
 
 export interface SlideFadeProps
