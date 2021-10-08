@@ -53,7 +53,7 @@
     "@nature-ui/progress": "^1.1.1",
     "@nature-ui/radio": "^1.1.1",
     "@nature-ui/spinner": "^1.1.0",
-    "@nature-ui/system": "^1.2.0",
+    "@nature-ui/system": "^2.0.0",
     "@nature-ui/toast": "^1.1.1",
     "@nature-ui/transition": "^1.1.0",
     "@nature-ui/visually-hidden": "^1.1.1"

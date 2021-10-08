@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@nature-ui/portal": "^1.1.0",
-    "@nature-ui/system": "^1.1.0",
+    "@nature-ui/system": "^2.0.0",
     "@nature-ui/utils": "^1.1.0",
     "react": "^17.0.1"
   },

@@ -39,7 +39,7 @@
   "dependencies": {
     "@nature-ui/color": "^1.1.0",
     "@nature-ui/image": "^1.1.2",
-    "@nature-ui/system": "^1.1.2",
+    "@nature-ui/system": "^2.0.0",
     "@nature-ui/utils": "^1.1.0",
     "tinycolor2": "^1.4.1"
   },

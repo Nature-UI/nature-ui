@@ -47,7 +47,7 @@
     "react": "^17.x"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.2",
+    "@nature-ui/system": "^2.0.0",
     "react": "^17.0.1"
   }
 }

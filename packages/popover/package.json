@@ -46,7 +46,7 @@
     "@nature-ui/utils": "^1.1.0"
   },
   "devDependencies": {
-    "@nature-ui/system": "^1.1.2",
+    "@nature-ui/system": "^2.0.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "react": "^17.0.1"
   },

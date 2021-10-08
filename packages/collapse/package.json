@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@nature-ui/hooks": "^1.1.0",
-    "@nature-ui/system": "^1.1.2",
+    "@nature-ui/system": "^2.0.0",
     "@nature-ui/transition": "^1.1.0",
     "@nature-ui/utils": "^1.1.0",
     "@reach/rect": "^0.11.2"

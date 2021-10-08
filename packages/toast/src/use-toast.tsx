@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   AlertDescription,
   AlertIcon,
@@ -9,9 +8,9 @@ import {
 import { CloseButton } from '@nature-ui/close-button';
 import { clsx, nature } from '@nature-ui/system';
 import { isFunction, merge } from '@nature-ui/utils';
-
+import * as React from 'react';
 import { toast } from './toast.class';
-import { RenderProps, ToastOptions, ToastId } from './toast.types';
+import { RenderProps, ToastId, ToastOptions } from './toast.types';
 
 export interface UseToastOptions {
   /**
@@ -152,7 +151,6 @@ export const useToast = () => {
 
     toast.update(id, {
       ...opts,
-      // eslint-disable-next-line react/display-name
       message: (props) => (
         <>
           {isFunction(render) ? (
