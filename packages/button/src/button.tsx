@@ -1,16 +1,14 @@
 /** ** */
-import { nature, clsx, PropsOf, css } from '@nature-ui/system';
-import * as React from 'react';
-
+import { Spinner } from '@nature-ui/spinner';
+import { clsx, css, nature, PropsOf } from '@nature-ui/system';
 import {
-  __DEV__,
-  lighten,
   darken,
   dataAttr,
+  lighten,
   StringOrNumber,
+  __DEV__,
 } from '@nature-ui/utils';
-import { Spinner } from '@nature-ui/spinner';
-
+import * as React from 'react';
 import { rippleEffect } from './button-effects';
 
 interface ButtonProps {
@@ -121,10 +119,14 @@ export const ButtonSpinner = (
 ) => {
   const { className = '', label, spinner, ...rest } = props;
 
-  const _className = clsx(className, 'align-middle', {
-    absolute: !label,
-    relative: label,
-  });
+  const _className = clsx(
+    'align-middle',
+    {
+      absolute: !label,
+      relative: label,
+    },
+    className,
+  );
 
   return (
     <span className={_className} {...rest}>
@@ -203,16 +205,24 @@ export const Button = React.forwardRef(
     let BTNClass: string;
 
     if (variant === 'none') {
-      BTNClass = clsx(className, {
-        [STYLES.disabled]: isDisabled || isLoading,
-      });
+      BTNClass = clsx(
+        {
+          [STYLES.disabled]: isDisabled || isLoading,
+        },
+        className,
+      );
     } else {
-      BTNClass = clsx(className, rippleEffect, DEFAULT_CLASS, {
-        [_sizes]: !_link,
-        [STYLES[variant]]: variant,
-        [STYLES.disabled]: isDisabled || isLoading,
-        [_padding]: !isIconButton && !_link,
-      });
+      BTNClass = clsx(
+        rippleEffect,
+        DEFAULT_CLASS,
+        {
+          [_sizes]: !_link,
+          [STYLES[variant]]: variant,
+          [STYLES.disabled]: isDisabled || isLoading,
+          [_padding]: !isIconButton && !_link,
+        },
+        className,
+      );
     }
 
     const defaults = {

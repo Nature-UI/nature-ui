@@ -1,13 +1,12 @@
-import * as React from 'react';
-import { clsx, clsx as clx, nature, PropsOf } from '@nature-ui/system';
-
-import { createContext, __DEV__ } from '@nature-ui/utils';
 import { Icon, SvgIconProps } from '@nature-ui/icon';
+import { clsx, nature, PropsOf } from '@nature-ui/system';
+import { createContext, __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 import {
   FiAlertCircle,
-  FiInfo,
-  FiCheckCircle,
   FiAlertTriangle,
+  FiCheckCircle,
+  FiInfo,
 } from 'react-icons/fi';
 
 const SUBTLE_TEXT = 'text-gray-800';
@@ -101,10 +100,14 @@ export const AlertWrapper = (props: AlertProps) => {
   const { variant: Variant, bg } = ALERT_STATUSES[status];
   const VARIANT: string = Variant[variant];
 
-  const componentClass = clx(className, BASE_STYLE, {
-    [bg]: status,
-    [VARIANT]: variant,
-  });
+  const componentClass = clsx(
+    BASE_STYLE,
+    {
+      [bg]: status,
+      [VARIANT]: variant,
+    },
+    className,
+  );
 
   const context = {
     status,
@@ -139,7 +142,7 @@ export type AlertTitleProps = PropsOf<typeof DivTag>;
 export const AlertTitle = (props: AlertTitleProps) => {
   const { className = '', ...rest } = props;
 
-  return <H3 className={clx(className, 'font-bold')} {...rest} />;
+  return <H3 className={clsx('font-bold', className)} {...rest} />;
 };
 
 if (__DEV__) {
@@ -169,11 +172,14 @@ export const AlertIcon = (props: AlertIconProps) => {
 
   // const Icon = ALERT_STATUSES[status];
 
-  const iconClasses = clx(className, {
-    [VARIANT]: variant,
-    'mr-3': variant,
-    [iconColor]: variant !== 'solid',
-  });
+  const iconClasses = clsx(
+    {
+      [VARIANT]: variant,
+      'mr-3': variant,
+      [iconColor]: variant !== 'solid',
+    },
+    className,
+  );
 
   return <Icon as={icon} className={iconClasses} size={size} {...rest} />;
 };
