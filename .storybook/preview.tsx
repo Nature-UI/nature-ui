@@ -1,7 +1,7 @@
 import React from 'react';
 import 'tailwindcss/tailwind.css';
 
-const withNature = (StoryFn: Function) => {
+const withNature: React.FC<Function> = (StoryFn) => {
   return (
     <div id='story-wrapper' style={{ minHeight: '100vh' }}>
       <StoryFn />
