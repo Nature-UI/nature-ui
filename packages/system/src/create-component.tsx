@@ -37,7 +37,6 @@ const formatClassNames = (className: string): string => {
   const cn = `${Object.values(result).join(' ')} ${required.join(
     ' ',
   )} ${withCss?.join(' ')}`;
-  console.log({ className, cn });
 
   return cn;
 };
