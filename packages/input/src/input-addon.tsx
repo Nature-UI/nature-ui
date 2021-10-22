@@ -1,5 +1,5 @@
 /** ** */
-import { nature, PropsOf, clsx } from '@nature-ui/system';
+import { clsx, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
@@ -49,8 +49,8 @@ export const InputAddon = React.forwardRef(
     const placementStyles = placements[placement] ?? {};
     // const _isString = typeof children === 'string';
     const _className = clsx(
-      className,
       'px-4 bg-gray-100 border border-gray-200',
+      className,
     );
 
     return (
@@ -78,7 +78,7 @@ if (__DEV__) {
 export const InputLeftAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
     const { className = '', ...rest } = props;
-    const _className = clsx(className, 'rounded-l');
+    const _className = clsx('rounded-l', className);
 
     return <InputAddon ref={ref} {...rest} className={_className} />;
   },
@@ -99,7 +99,7 @@ InputLeftAddon.__hidden = 'InputLeftAddon';
 export const InputRightAddon = React.forwardRef(
   (props: InputAddonProps, ref: React.Ref<any>) => {
     const { className = '', ...rest } = props;
-    const _className = clsx(className, 'rounded-r');
+    const _className = clsx('rounded-r', className);
 
     return (
       <InputAddon
