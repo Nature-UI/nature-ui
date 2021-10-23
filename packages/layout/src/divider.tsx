@@ -14,12 +14,16 @@ export const Divider = forwardRef<DividerProp>((props, ref) => {
     ...rest
   } = props;
 
-  const _className = clsx(className, 'mr-0 ml-0', {
-    [`border-${color}`]: color,
-    [`h-full border border-t-0 border-r-0 border-b-0 border-${color} ${css`
-      width: 1px;
-    `}`]: orientation === 'vertical',
-  });
+  const _className = clsx(
+    'mr-0 ml-0',
+    {
+      [`border-${color}`]: color,
+      [`h-full border border-t-0 border-r-0 border-b-0 border-${color} ${css`
+        width: 1px;
+      `}`]: orientation === 'vertical',
+    },
+    className,
+  );
 
   return <DividerElem className={_className} {...rest} ref={ref} />;
 });
