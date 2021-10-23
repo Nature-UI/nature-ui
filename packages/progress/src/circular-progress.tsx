@@ -1,8 +1,7 @@
 /** ** */
-import { nature, PropsOf, clsx, css } from '@nature-ui/system';
+import { clsx, css, nature, PropsOf } from '@nature-ui/system';
 import { isUndefined, StringOrNumber, __DEV__ } from '@nature-ui/utils';
 import React from 'react';
-
 import { getProgressProps, rotate, spin } from './progress.utils';
 
 const CircleTag = nature('circle');
@@ -73,10 +72,10 @@ const Shape = (props: ShapeProps) => {
   const { size, isIndeterminate, className = '', ...rest } = props;
 
   const _className = clsx({
-    [className]: className,
     [css`
       animation: ${rotate} 2s linear infinite;
     `]: isIndeterminate,
+    [className]: className,
   });
 
   return (
