@@ -269,7 +269,7 @@ export const PopoverArrow = ({ className, ...props }: PopoverArrowProps) => {
   const { getArrowProps } = usePopoverContext();
 
   return (
-    <DivTag className={clsx(className, 'bg-white')} {...getArrowProps(props)} />
+    <DivTag className={clsx('bg-white', className)} {...getArrowProps(props)} />
   );
 };
 
