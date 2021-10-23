@@ -1,7 +1,7 @@
 /** ** */
-import { forwardRef, nature, PropsOf, clsx } from '@nature-ui/system';
-import * as React from 'react';
+import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { getValidChildren, StringOrNumber, __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 
 const DivTag = nature('div');
 export type StackProps = PropsOf<typeof DivTag> & {
@@ -64,11 +64,14 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
     return child;
   });
 
-  const _className = clsx(className, {
-    flex: !responsive,
-    'block sm:flex': responsive,
-    [`flex-${direction}`]: direction && !responsive,
-  });
+  const _className = clsx(
+    {
+      flex: !responsive,
+      'block sm:flex': responsive,
+      [`flex-${direction}`]: direction && !responsive,
+    },
+    className,
+  );
 
   return (
     <DivTag className={_className} {...rest} ref={ref}>
