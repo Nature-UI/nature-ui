@@ -1,18 +1,17 @@
 /** ** */
-import { nature, PropsOf, forwardRef, clsx } from '@nature-ui/system';
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { FocusLock } from '@nature-ui/focus-lock';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 import { Portal, PortalProps } from '@nature-ui/portal';
-import { RemoveScroll } from 'react-remove-scroll';
+import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import {
   callAllHandler,
   createContext,
-  __DEV__,
   StringOrNumber,
+  __DEV__,
 } from '@nature-ui/utils';
 import * as React from 'react';
-
+import { RemoveScroll } from 'react-remove-scroll';
 import { useModal, UseModalProps, UseModalReturn } from './use-modal';
 
 type ModalContext = UseModalReturn &
@@ -191,11 +190,11 @@ export const ModalContent = React.forwardRef(
     });
 
     const _className = clsx(
-      className,
       'bg-white shadow-lg my-12 rounded flex flex-col relative focus:outline-none z-50',
       {
         'overflow-auto': scrollBehavior === 'inside',
       },
+      className,
     );
     let _size;
 
@@ -232,13 +231,8 @@ export type ModalOverlayProps = PropsOf<typeof DivTag> & OverlayOptions;
 export const ModalOverlay = React.forwardRef(
   (props: ModalOverlayProps, ref: React.Ref<any>) => {
     const { className, ...rest } = props;
-    const {
-      getOverlayProps,
-      scrollBehavior,
-      isCentered,
-      variant,
-      size,
-    } = useModalContext();
+    const { getOverlayProps, scrollBehavior, isCentered, variant, size } =
+      useModalContext();
 
     const overlayProps = getOverlayProps({
       ...rest,
@@ -258,13 +252,13 @@ export const ModalOverlay = React.forwardRef(
     };
 
     const _className = clsx(
-      className,
       'flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start z-40',
       {
         'overflow-auto': scrollBehavior === 'outside',
         'overflow-hidden': scrollBehavior === 'inside',
         'items-center': isCentered,
       },
+      className,
     );
 
     return <DivTag className={_className} {...theming} {...overlayProps} />;
@@ -328,8 +322,8 @@ export const ModalHeader = React.forwardRef(
 
     const _className = clsx(
       'nature-modal__header',
-      className,
       'p-4 font-bold text-xl',
+      className,
     );
 
     return (
@@ -356,9 +350,13 @@ type StyledBodyProps = PropsOf<typeof DivTag> &
 const StyledBody = (props: StyledBodyProps) => {
   const { className = '', scrollBehavior, ...rest } = props;
 
-  const _className = clsx(className, 'flex-1', {
-    'overflow-auto': scrollBehavior === 'inside',
-  });
+  const _className = clsx(
+    'flex-1',
+    {
+      'overflow-auto': scrollBehavior === 'inside',
+    },
+    className,
+  );
 
   return <DivTag {...rest} className={_className} />;
 };
@@ -385,7 +383,7 @@ export const ModalBody = forwardRef(
       return () => setBodyMounted(false);
     }, []);
 
-    const _className = clsx('nature-modal__body', className, 'py-2 px-4');
+    const _className = clsx('nature-modal__body', 'py-2 px-4', className);
 
     return (
       <StyledBody
@@ -413,7 +411,7 @@ if (__DEV__) {
 export const ModalFooter = (props: PropsOf<typeof FooterTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(className, 'flex items-center justify-end p-4');
+  const _className = clsx('flex items-center justify-end p-4', className);
 
   return <FooterTag className={_className} css={{ flex: 0 }} {...rest} />;
 };
@@ -436,8 +434,8 @@ export const ModalCloseButton = React.forwardRef(
 
     const _className = clsx(
       'nature-modal__close-btn',
-      className,
       'absolute top-0 right-0 mt-3 mr-3',
+      className,
     );
 
     return (
