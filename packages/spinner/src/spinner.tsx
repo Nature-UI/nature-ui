@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { nature, PropsOf, clsx, css, keyframes } from '@nature-ui/system';
-import VisuallyHidden from '@nature-ui/visually-hidden';
+import { clsx, css, keyframes, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
+import VisuallyHidden from '@nature-ui/visually-hidden';
+import * as React from 'react';
 
 interface SpinnerOptions {
   /**
@@ -60,9 +60,15 @@ export const Spinner = React.forwardRef(
     const _size = typeof size === 'string' ? SIZES[size] : size;
     const DEFAULTS = `inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-${_size} h-${_size}`;
 
-    const _classNames = clsx(className, _css, spin, DEFAULTS, {
-      [`text-${color}`]: color,
-    });
+    const _classNames = clsx(
+      _css,
+      spin,
+      DEFAULTS,
+      {
+        [`text-${color}`]: color,
+      },
+      className,
+    );
 
     return (
       <SpinnerComp
