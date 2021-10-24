@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@types/tinycolor2": "^1.4.2",
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   },
   "peerDependencies": {
     "react": "^17.x"
