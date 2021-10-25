@@ -1,13 +1,11 @@
-import * as React from 'react';
-
 import { Stack } from '@nature-ui/layout';
-
+import * as React from 'react';
 import {
   Alert,
-  AlertWrapper,
-  AlertTitle,
   AlertDescription,
   AlertIcon,
+  AlertTitle,
+  AlertWrapper,
 } from '../src';
 
 export default {
@@ -61,7 +59,7 @@ export const Warning = () => {
 
 export const Solids = () => {
   return (
-    <Stack spacing='10px'>
+    <Stack col>
       <Alert status='success' alertTitle='Success alert' variant='solid'>
         This is a solid variant!
       </Alert>
@@ -81,12 +79,13 @@ export const Solids = () => {
 export const WithVariants = () => {
   return (
     <>
-      <Stack spacing='10px'>
+      <Stack col>
         {['top-accent', 'left-accent', 'solid', 'subtle'].map((variant) => (
           <Alert
             key={variant}
             status='error'
             alertTitle='Error alert'
+            // @ts-ignore
             variant={variant}
           >
             {variant}!

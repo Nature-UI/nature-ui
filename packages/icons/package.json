@@ -38,7 +38,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/icon": "^1.1.1"
+    "@nature-ui/icon": "^1.1.2"
   },
   "peerDependencies": {
     "react": "^17.x"

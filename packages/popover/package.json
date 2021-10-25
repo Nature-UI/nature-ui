@@ -39,11 +39,11 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/close-button": "^1.1.0",
+    "@nature-ui/close-button": "^1.1.1",
     "@nature-ui/hooks": "^1.1.0",
     "@nature-ui/popper": "^1.1.0",
     "@nature-ui/portal": "^1.1.0",
-    "@nature-ui/utils": "^1.1.0"
+    "@nature-ui/utils": "^1.1.1"
   },
   "devDependencies": {
     "@nature-ui/system": "^2.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/test-utils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Testing utilities for Nature UI UI's components",
   "keywords": [
     "nature ui",
@@ -40,8 +40,8 @@
   "dependencies": {
     "@nature-ui/hooks": "^1.1.0",
     "@nature-ui/system": "^2.0.0",
-    "@nature-ui/utils": "^1.1.0",
-    "@nature-ui/visually-hidden": "^1.1.0",
+    "@nature-ui/utils": "^1.1.2",
+    "@nature-ui/visually-hidden": "^1.1.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.0",
     "@testing-library/react-hooks": "^3.4.2",

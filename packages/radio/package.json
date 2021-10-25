@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@nature-ui/hooks": "^1.1.0",
-    "@nature-ui/utils": "^1.1.0",
-    "@nature-ui/visually-hidden": "^1.1.1"
+    "@nature-ui/utils": "^1.1.1",
+    "@nature-ui/visually-hidden": "^1.1.2"
   },
   "devDependencies": {
     "@nature-ui/system": "^2.0.0",

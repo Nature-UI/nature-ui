@@ -43,13 +43,13 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/modal": "^1.1.0",
+    "@nature-ui/modal": "^1.1.2",
     "@nature-ui/transition": "^1.1.0"
   },
   "devDependencies": {
     "@nature-ui/portal": "^1.1.0",
     "@nature-ui/system": "^2.0.0",
-    "@nature-ui/utils": "^1.1.0",
+    "@nature-ui/utils": "^1.1.1",
     "react": "^17.0.2"
   },
   "peerDependencies": {

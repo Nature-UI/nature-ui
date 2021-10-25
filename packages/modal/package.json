@@ -46,11 +46,11 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/close-button": "^1.1.0",
+    "@nature-ui/close-button": "^1.1.1",
     "@nature-ui/focus-lock": "^1.1.0",
     "@nature-ui/hooks": "^1.1.0",
     "@nature-ui/portal": "^1.1.0",
-    "@nature-ui/utils": "^1.1.0",
+    "@nature-ui/utils": "^1.1.1",
     "aria-hidden": "^1.1.1",
     "react-remove-scroll": "^2.4.1"
   },

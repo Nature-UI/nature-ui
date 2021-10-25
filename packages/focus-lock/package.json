@@ -38,7 +38,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^1.1.0",
+    "@nature-ui/utils": "^1.1.1",
     "react-focus-lock": "^2.4.1"
   },
   "peerDependencies": {
