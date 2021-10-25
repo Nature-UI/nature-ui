@@ -1,5 +1,14 @@
 # @nature-ui/descendant
 
+## 1.1.1
+
+### Patch Changes
+
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/hooks@1.1.1
+
 ## 1.1.0
 
 ### Minor Changes

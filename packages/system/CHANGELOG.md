@@ -1,5 +1,12 @@
 # @nature-ui/system
 
+## 2.0.1
+
+### Patch Changes
+
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+
 ## 1.2.0
 
 ### Minor Changes

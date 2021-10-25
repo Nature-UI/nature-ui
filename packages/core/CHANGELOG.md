@@ -1,5 +1,40 @@
 # @nature-ui/core
 
+## 1.2.3
+
+### Patch Changes
+
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/alert@1.1.3
+  - @nature-ui/alert-dialog@1.1.2
+  - @nature-ui/avatar@1.1.3
+  - @nature-ui/breadcrumb@1.1.3
+  - @nature-ui/button@1.1.5
+  - @nature-ui/checkbox@1.1.3
+  - @nature-ui/close-button@1.1.2
+  - @nature-ui/collapse@1.1.3
+  - @nature-ui/container@1.1.3
+  - @nature-ui/drawer@1.1.1
+  - @nature-ui/form-control@1.1.3
+  - @nature-ui/hooks@1.1.1
+  - @nature-ui/icon@1.1.3
+  - @nature-ui/image@1.2.3
+  - @nature-ui/input@1.1.3
+  - @nature-ui/layout@1.1.4
+  - @nature-ui/modal@1.1.3
+  - @nature-ui/popover@1.1.2
+  - @nature-ui/popper@1.1.1
+  - @nature-ui/portal@1.1.1
+  - @nature-ui/progress@1.1.2
+  - @nature-ui/radio@1.1.2
+  - @nature-ui/spinner@1.1.2
+  - @nature-ui/system@2.0.1
+  - @nature-ui/toast@1.1.2
+  - @nature-ui/transition@1.1.1
+  - @nature-ui/visually-hidden@1.1.3
+
 ## 1.2.1
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @nature-ui/layout
 
+## 1.1.4
+
+### Patch Changes
+
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/system@2.0.1
+
 ## 1.1.2
 
 ### Patch Changes

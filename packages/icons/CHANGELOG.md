@@ -1,5 +1,14 @@
 # @nature-ui/icons
 
+## 1.1.3
+
+### Patch Changes
+
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/icon@1.1.3
+
 ## 1.1.2
 
 ### Patch Changes

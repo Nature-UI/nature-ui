@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/image",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -37,8 +37,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^1.1.0",
-    "@nature-ui/system": "^2.0.0",
+    "@nature-ui/hooks": "^1.1.1",
+    "@nature-ui/system": "^2.0.1",
     "@nature-ui/utils": "^1.1.1",
     "react-intersection-observer": "^8.31.0"
   },
