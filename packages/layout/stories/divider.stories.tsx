@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import { Stack, Divider } from '../src';
+import { Divider, Stack } from '../src';
 
 export default {
   title: 'Divider',
@@ -8,11 +7,9 @@ export default {
 
 export const Vertical = () => {
   return (
-    <Stack row>
-      <span>Part 1</span>
+    <div className='px-12 h-16'>
       <Divider orientation='vertical' />
-      <span>Part 2</span>
-    </Stack>
+    </div>
   );
 };
 

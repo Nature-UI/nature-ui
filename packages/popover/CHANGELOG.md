@@ -1,5 +1,17 @@
 # @nature-ui/popover
 
+## 1.1.2
+
+### Patch Changes
+
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/close-button@1.1.2
+  - @nature-ui/hooks@1.1.1
+  - @nature-ui/popper@1.1.1
+  - @nature-ui/portal@1.1.1
+
 ## 1.1.1
 
 ### Patch Changes

@@ -1,12 +1,14 @@
 # @nature-ui/button
 
-## 1.1.4
+## 1.1.5
 
 ### Patch Changes
 
-- Updated dependencies [undefined]
-  - @nature-ui/system@2.0.0
-  - @nature-ui/spinner@1.1.1
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/spinner@1.1.2
+  - @nature-ui/system@2.0.1
 
 ## 1.1.3
 

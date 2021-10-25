@@ -14,14 +14,31 @@ import { NatureComponent } from './system-types';
 import { getDisplayName } from './system-utils';
 
 const formatClassNames = (className: string): string => {
-  const ArrayClassName = className.split(' ');
+  const withCss = className.split(' ').filter((v) => v.match(/css-\w+/));
+  const ArrayClassName = className
+    .split(' ')
+    .filter((v) => !v.match(/css-\w+/));
+
   const result = {};
+  const required: string[] = [];
   ArrayClassName.forEach((v) => {
-    const firstChar = v.split('-')[0];
-    result[firstChar] = v;
+    const splitCn = v.split('-');
+
+    if (splitCn.length === 1) {
+      required.push(v);
+    } else if (isNaN(parseInt(splitCn[1]))) {
+      required.push(v);
+    } else {
+      const firstChar = splitCn[0];
+      result[firstChar] = v;
+    }
   });
 
-  return Object.values(result).join(' ');
+  const cn = `${Object.values(result).join(' ')} ${required.join(
+    ' ',
+  )} ${withCss?.join(' ')}`;
+
+  return cn;
 };
 export const createComponent = <T extends As>(component: T) => {
   return (...interpolations: any[]) => {

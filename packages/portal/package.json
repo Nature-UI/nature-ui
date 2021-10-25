@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/portal",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React component used to render children outside the DOM hierarchy of the parent component",
   "keywords": [
     "react",
@@ -39,8 +39,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^1.1.0",
-    "@nature-ui/utils": "^1.1.0"
+    "@nature-ui/hooks": "^1.1.1",
+    "@nature-ui/utils": "^1.1.1"
   },
   "peerDependencies": {
     "react": "17.x"

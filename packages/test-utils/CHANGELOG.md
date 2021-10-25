@@ -1,12 +1,15 @@
 # @nature-ui/test-utils
 
-## 1.1.1
+## 1.1.2
 
 ### Patch Changes
 
-- Updated dependencies [undefined]
-  - @nature-ui/system@2.0.0
-  - @nature-ui/visually-hidden@1.1.2
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/hooks@1.1.1
+  - @nature-ui/system@2.0.1
+  - @nature-ui/visually-hidden@1.1.3
 
 ## 1.1.0
 

@@ -1,7 +1,6 @@
-import { nature, clsx, PropsOf, css } from '@nature-ui/system';
+import { clsx, css, nature, PropsOf } from '@nature-ui/system';
 import { darken, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
-
 import { useRadioGroupContext } from './radio-group';
 import { useRadio, UseRadioProps } from './use-radio';
 
@@ -120,11 +119,11 @@ export const Radio = React.forwardRef(
     return (
       <nature.label
         className={clsx(
-          className,
           'nature-radio inline-flex items-center align-top',
           {
             'opacity-50': _disabled,
           },
+          className,
         )}
         css={{
           width: isFullWidth ? 'full' : undefined,

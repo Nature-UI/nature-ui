@@ -28,10 +28,13 @@ export const Box = forwardRef<SquareProps>((props, ref) => {
 
   const CENTER_CONTENT = 'flex items-center justify-center';
 
-  const _classNames = clsx(className, {
-    'mx-auto': centered,
-    [CENTER_CONTENT]: centerContent,
-  });
+  const _classNames = clsx(
+    {
+      'mx-auto': centered,
+      [CENTER_CONTENT]: centerContent,
+    },
+    className,
+  );
 
   const defaults = size
     ? {

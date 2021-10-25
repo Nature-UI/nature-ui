@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
-import { Stack, Box } from '@nature-ui/layout';
 import { CheckIcon } from '@nature-ui/icons';
-
+import { Box, Stack } from '@nature-ui/layout';
+import { Meta, Story } from '@storybook/react';
+import * as React from 'react';
 import { Input, InputProps } from '../src';
 
 export default {

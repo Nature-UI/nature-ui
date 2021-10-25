@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { Slide, SlideProps, Fade } from '@nature-ui/transition';
 import {
   Modal,
-  ModalProps,
-  ModalContentProps,
-  ModalContent,
-  ModalOverlayProps,
-  ModalOverlay,
   ModalBody,
-  ModalHeader,
-  ModalFooter,
   ModalCloseButton,
+  ModalContent,
+  ModalContentProps,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  ModalOverlayProps,
+  ModalProps,
 } from '@nature-ui/modal';
 import { clsx, css, forwardRef } from '@nature-ui/system';
+import { Fade, Slide, SlideProps } from '@nature-ui/transition';
 import { __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 
 interface TransitionStyles {
   content: React.CSSProperties;
@@ -90,7 +90,7 @@ export const DrawerContent = forwardRef<ModalContentProps>((props, ref) => {
   const { className = '', ...rest } = props;
 
   const _css = css(styles as any);
-  const _className = clsx(className, _css, 'fixed mt-0 mb-0 rounded-none');
+  const _className = clsx(_css, 'fixed mt-0 mb-0 rounded-none', className);
 
   return <ModalContent ref={ref} className={_className} {...rest} />;
 });
@@ -104,7 +104,7 @@ export const DrawerOverlay = forwardRef<ModalOverlayProps>((props, ref) => {
   const { className = '', ...rest } = props;
 
   const _css = css(styles as any);
-  const _className = clsx(className, _css, 'transition-all duration-200');
+  const _className = clsx(_css, 'transition-all duration-200', className);
 
   return <ModalOverlay className={_className} ref={ref} {...rest} />;
 });

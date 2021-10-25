@@ -1,4 +1,3 @@
-/** ** */
 import { clsx, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 
@@ -47,11 +46,14 @@ export const Container = (props: ContainerProps) => {
     }
   });
 
-  const _classNames = clsx(className, {
-    [sizes[size]]: sizes[size],
-    'mx-auto': centered,
-    [CENTER_CONTENT]: centerContent,
-  });
+  const _classNames = clsx(
+    {
+      [sizes[size]]: sizes[size],
+      'mx-auto': centered,
+      [CENTER_CONTENT]: centerContent,
+    },
+    className,
+  );
 
   return (
     <nature.div

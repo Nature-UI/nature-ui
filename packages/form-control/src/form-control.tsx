@@ -1,10 +1,9 @@
 /** ** */
-import { clsx, nature, PropsOf } from '@nature-ui/system';
-import { __DEV__, createContext } from '@nature-ui/utils';
-import * as React from 'react';
 import { useBoolean, useId, useSafeLayoutEffect } from '@nature-ui/hooks';
 import { Icon, SvgIconProps } from '@nature-ui/icon';
-
+import { clsx, nature, PropsOf } from '@nature-ui/system';
+import { createContext, __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 // eslint-disable-next-line import/no-cycle
 import { useFormControlLabel } from './use-form-control';
 
@@ -67,13 +66,11 @@ interface FormControlContext extends FormControlOptions {
 
 type FieldContext = Omit<ReturnType<typeof useProvider>, 'htmlProps'>;
 
-const [
-  FormControlContextProvider,
-  useFormControlContext,
-] = createContext<FieldContext>({
-  strict: false,
-  name: 'FormControlContext',
-});
+const [FormControlContextProvider, useFormControlContext] =
+  createContext<FieldContext>({
+    strict: false,
+    name: 'FormControlContext',
+  });
 
 export { useFormControlContext };
 
@@ -128,7 +125,7 @@ const useProvider = (props: FormControlContext) => {
 const StyledFormControl = (props: PropsOf<typeof DivTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(className, 'w-full relative');
+  const _className = clsx('w-full relative', className);
 
   return <DivTag role='group' className={_className} {...rest} />;
 };
@@ -165,7 +162,7 @@ if (__DEV__) {
 const StyledLabel = (props: PropsOf<typeof LabelTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(className, 'block text-left font-semibold');
+  const _className = clsx('block text-left font-semibold', className);
 
   return <LabelTag className={_className} {...rest} />;
 };
@@ -183,7 +180,7 @@ export const FormLabel = React.forwardRef(
   (props: FormLabelProps, ref: React.Ref<any>) => {
     const { className = '', ...rest } = props;
 
-    const _className = clsx(className, 'mb-2');
+    const _className = clsx('mb-2', className);
     const ownProps = useFormControlLabel(rest);
 
     return <StyledLabel ref={ref} className={_className} {...ownProps} />;
@@ -258,7 +255,7 @@ export const FormHelperText = React.forwardRef(
       return () => field?.setHasHelpText.off();
     }, []);
 
-    const _className = clsx(className, 'mt-2 text-sm text-gray-400');
+    const _className = clsx('mt-2 text-sm text-gray-400', className);
 
     return (
       <StyledHelperText
@@ -281,7 +278,7 @@ if (__DEV__) {
 const StyledErrorText = (props: PropsOf<typeof DivTag>) => {
   const { className = '', ...rest } = props;
 
-  const _className = clsx(className, 'flex items-center');
+  const _className = clsx('flex items-center', className);
 
   return <DivTag {...rest} className={_className} aria-live='polite' />;
 };
@@ -299,7 +296,7 @@ export const FormErrorMessage = React.forwardRef(
 
     if (!field?.isInvalid) return null;
 
-    const _className = clsx(className, 'text-sm mt-2  text-red-600');
+    const _className = clsx('text-sm mt-2  text-red-600', className);
 
     return (
       <StyledErrorText
@@ -326,7 +323,7 @@ export const FormErrorIcon = React.forwardRef(
 
     if (!field?.isInvalid) return null;
     const { className = '', ...rest } = props;
-    const _className = clsx(className, 'mr-2 text-red-600');
+    const _className = clsx('mr-2 text-red-600', className);
 
     return (
       <Icon

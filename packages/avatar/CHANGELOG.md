@@ -1,13 +1,15 @@
 # @nature-ui/avatar
 
-## 1.1.2
+## 1.1.3
 
 ### Patch Changes
 
-- Updated dependencies [undefined]
-  - @nature-ui/system@2.0.0
-  - @nature-ui/color@1.1.1
-  - @nature-ui/image@1.2.2
+- 0922ed4: - Proper className placement
+  - Input: added `focusBorderColor`, and `focusErrorColor` feature
+- Updated dependencies [0922ed4]
+  - @nature-ui/color@1.1.2
+  - @nature-ui/image@1.2.3
+  - @nature-ui/system@2.0.1
 
 ## 1.1.1
 

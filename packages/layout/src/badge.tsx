@@ -28,9 +28,13 @@ export const Badge = forwardRef<BadgeType>((props, ref) => {
     outline: `border border-${color} text-${color}`,
   };
 
-  const _classNames = clsx(DEFAULTS, className, {
-    [VARIANTS[variant]]: variant,
-  });
+  const _classNames = clsx(
+    DEFAULTS,
+    {
+      [VARIANTS[variant]]: variant,
+    },
+    className,
+  );
 
   const values = {
     ref,

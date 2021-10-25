@@ -12,7 +12,7 @@ interface InputOptions {
   /**
    * The border color when the input is focused. Use color keys in `theme.colors`
    * @example
-   * focusBorderColor = "blue-500"
+   * focusBorderColor = "blue-600"
    */
   focusBorderColor?: string;
   /**
@@ -95,6 +95,8 @@ const StyledInput = React.forwardRef(
       variant = 'outline',
       addonLeft,
       addonRight,
+      focusBorderColor,
+      errorBorderColor,
       ...rest
     } = props;
 
@@ -115,7 +117,9 @@ const StyledInput = React.forwardRef(
       }
     `;
 
-    const _invalid = 'focus:border-red-500 border-red-500 border-2';
+    const _focusBorderColor = focusBorderColor || 'blue-600';
+    const _errorBorderColor = errorBorderColor || 'red-500';
+    const _invalid = `focus:border-${_errorBorderColor} border-${_errorBorderColor} border-2`;
 
     const _outline = variant === 'outline';
     const _filled = variant === 'filled';
@@ -123,7 +127,6 @@ const StyledInput = React.forwardRef(
     const _unstyled = variant === 'unstyled';
 
     const _className = clsx(
-      className,
       'w-full outline-none transition-all duration-150',
       {
         [_invalid]: isInvalid,
@@ -131,12 +134,15 @@ const StyledInput = React.forwardRef(
         [_border]: !isReadOnly && (_outline || _filled),
         'cursor-not-allowed opacity-50': isDisabled,
         'border-solid border-gray-200': _outline,
-        'focus:border-blue-600': !isInvalid && (_outline || _filled),
+        [`focus:border-${_focusBorderColor}`]:
+          !isInvalid && (_outline || _filled),
         'hover:bg-gray-300 bg-gray-200 focus:bg-transparent': _filled,
         [`${String(_padding)} rounded`]: _filled || _outline,
-        'border-b-2 border-gray-200 focus:border-blue-600': _flushed,
+        [`border-b-2 border-gray-200 focus:border-${_focusBorderColor}`]:
+          _flushed,
         [(String(_height), String(_css))]: !_unstyled,
       },
+      className,
     );
 
     const _withAddon = clsx(

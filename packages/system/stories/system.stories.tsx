@@ -1,6 +1,6 @@
 /** ** */
 import * as React from 'react';
-import { nature } from '../src';
+import { css, nature } from '../src';
 
 export default {
   title: 'System',
@@ -13,10 +13,10 @@ const Btn = nature('button');
 export const withHeading1 = () => (
   <div>
     <Heading
-      css={{
+      className={css({
         fontSize: '50px',
         color: 'tomato',
-      }}
+      })}
     >
       Welcome
     </Heading>
@@ -35,7 +35,11 @@ export const withHeading1 = () => (
 export const withHeading = () => (
   <div>
     <Heading className='text-2xl font-bold'>Welcome</Heading>
-    <Btn className='px-4 py-3 font-bold text-lg border border-black rounded mt-12'>
+    <Btn
+      className={`px-4 py-3 font-bold text-lg border border-black rounded mt-12 ${css(
+        { border: '1px solid red' },
+      )}`}
+    >
       Welcome
     </Btn>
   </div>
