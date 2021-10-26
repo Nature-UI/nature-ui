@@ -7,7 +7,7 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
-      class="inline-block relative align-middle"
+      class=" inline-block relative align-middle "
       role="progressbar"
     >
       <svg
@@ -17,7 +17,7 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
         width="60px"
       >
         <circle
-          class="stroke-current text-gray-200"
+          class=" stroke-current text-gray-200 "
           cx="50"
           cy="50"
           fill="transparent"
@@ -25,7 +25,7 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
           stroke-width="10px"
         />
         <circle
-          class="stroke-current text-blue-400 css-e0aiw1"
+          class=" stroke-current text-blue-400 css-e0aiw1"
           cx="50"
           cy="50"
           fill="transparent"
@@ -40,7 +40,7 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="60"
-      class="inline-block relative align-middle"
+      class=" inline-block relative align-middle "
       role="progressbar"
     >
       <svg
@@ -50,7 +50,7 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
         width="120px"
       >
         <circle
-          class="stroke-current text-transparent"
+          class=" stroke-current text-transparent "
           cx="50"
           cy="50"
           fill="transparent"
@@ -58,7 +58,7 @@ exports[`@nature-ui/circular-progress CircularProgress renders correctly 1`] = `
           stroke-width="10"
         />
         <circle
-          class="stroke-current text-blue-400 css-e0aiw1"
+          class=" stroke-current text-blue-400 css-e0aiw1"
           cx="50"
           cy="50"
           fill="transparent"
@@ -77,40 +77,40 @@ exports[`@nature-ui/circular-progress Progress renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="overflow-hidden relative bg-gray-300 w-full h-6 css-jb16r4"
+      class="h-6 overflow-hidden relative bg-gray-300 w-full css-jb16r4"
       color="green"
     >
       <div
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="20"
-        class="h-full bg-blue-400 css-nyci5l"
+        class=" h-full bg-blue-400 css-nyci5l"
         color="green"
         role="progressbar"
       />
     </div>
     <div
-      class="overflow-hidden relative bg-gray-300 w-full h-6 css-1r10t72"
+      class="h-6 overflow-hidden relative bg-gray-300 w-full css-1r10t72"
       color="blue"
     >
       <div
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="40"
-        class="h-full bg-blue-400 css-1ttdosy"
+        class=" h-full bg-blue-400 css-1jz7m94 css-1ttdosy"
         color="blue"
         role="progressbar"
       />
     </div>
     <div
-      class="overflow-hidden relative bg-gray-300 w-full h-6 css-14dp4mi"
+      class="h-6 overflow-hidden relative bg-gray-300 w-full css-14dp4mi"
       color="yellow"
     >
       <div
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="80"
-        class="h-full bg-blue-400 css-13r1wu6"
+        class=" h-full bg-blue-400 css-1jz7m94 css-1g5oqvd css-13r1wu6"
         color="yellow"
         role="progressbar"
       />

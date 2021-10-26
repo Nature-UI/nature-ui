@@ -25,32 +25,32 @@ exports[`@nature-ui/modal should render correctly 1`] = `
       >
         <div>
           <div
-            class="flex justify-center fixed left-0 top-0 right-0 bottom-0 w-screen h-screen items-start z-40 overflow-auto css-514051-ModalOverlay"
+            class="left-0 top-0 right-0 bottom-0 z-40 flex justify-center fixed w-screen h-screen items-start overflow-auto  css-13nve5j"
             variant="blur"
           >
             <section
               aria-describedby="nature-modal--body-1"
               aria-labelledby="nature-modal--header-1"
               aria-modal="true"
-              class="bg-white shadow-lg my-12 rounded flex-col relative focus:outline-none z-50 css-8v7m9r-ModalContent"
+              class="my-12 z-50 bg-white shadow-lg rounded flex flex-col relative focus:outline-none  css-8mdxoc"
               id="nature-modal-1"
               role="dialog"
               tabindex="-1"
             >
               <header
-                class="nature-modal__header p-4 font-bold text-xl css-1gfottg-StyledHeader"
+                class="p-4 nature-modal__header font-bold text-xl  css-72fd9l"
                 id="nature-modal--header-1"
               >
                 Modal header
               </header>
               <button
                 aria-label="Close"
-                class="flex-shrink-0 items-center justify-center rounded focus:shadow-outline focus:outline-none transition duration-500 ease-in-out p-2 nature-modal__close-btn absolute top-0 right-0 mt-3 mr-3 css-ly3tul"
+                class="duration-500 p-2 top-0 right-0 mt-3 mr-3 flex items-center justify-center flex-shrink-0 rounded focus:shadow-outline focus:outline-none transition ease-in-out nature-modal__close-btn absolute  css-ly3tul"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class=" css-9xkhqu-Icon"
+                  class=" css-qzxgwt"
                   focusable="false"
                   height="12"
                   role="presentation"
@@ -64,13 +64,13 @@ exports[`@nature-ui/modal should render correctly 1`] = `
                 </svg>
               </button>
               <div
-                class="nature-modal__body py-2 px-4 flex-1"
+                class="flex-1 py-2 px-4 nature-modal__body "
                 id="nature-modal--body-1"
               >
                 Modal body
               </div>
               <footer
-                class="flex items-center justify-end p-4 css-w30ywn-ModalFooter"
+                class="p-4 flex items-center justify-end  css-72fd9l"
               >
                 Modal footer
               </footer>

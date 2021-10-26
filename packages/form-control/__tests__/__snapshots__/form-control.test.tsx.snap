@@ -3,11 +3,11 @@
 exports[`@nture-ui/form-control FormControl renders correctly in default state 1`] = `
 <DocumentFragment>
   <div
-    class="w-full relative"
+    class=" w-full relative "
     role="group"
   >
     <label
-      class="mb-2 block text-left font-semibold"
+      class="mb-2 block text-left font-semibold "
       for="name"
       id="name-label"
     >
@@ -19,7 +19,7 @@ exports[`@nture-ui/form-control FormControl renders correctly in default state 1
       placeholder="Name"
     />
     <div
-      class="mt-2 text-gray-400"
+      class="mt-2 text-sm text-gray-400 "
       id="name-helptext"
     >
       Enter your name please!
@@ -31,11 +31,11 @@ exports[`@nture-ui/form-control FormControl renders correctly in default state 1
 exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] = `
 <DocumentFragment>
   <div
-    class="w-full relative"
+    class=" w-full relative "
     role="group"
   >
     <label
-      class="mb-2 block text-left font-semibold"
+      class="mb-2 block text-left font-semibold "
       data-invalid=""
       for="name"
       id="name-label"
@@ -49,14 +49,14 @@ exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] =
       placeholder="Name"
     />
     <div
-      class="mt-2 text-gray-400"
+      class="mt-2 text-sm text-gray-400 "
       id="name-helptext"
     >
       Enter your name please!
     </div>
     <svg
       aria-hidden="true"
-      class="mr-2 text-red-600 css-t12e3p-Icon"
+      class="mr-2 text-red-600  css-13htjwu"
       focusable="false"
       height="1rem"
       role="presentation"
@@ -70,7 +70,7 @@ exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] =
     </svg>
     <div
       aria-live="polite"
-      class="text-red-600 mt-2  flex items-center"
+      class="mt-2 flex items-center text-sm  text-red-600 "
       id="name-feedback"
     >
       Your name is invalid
@@ -82,11 +82,11 @@ exports[`@nture-ui/form-control FormControl renders correctly when invalid 1`] =
 exports[`@nture-ui/form-control FormControl renders correctly when required 1`] = `
 <DocumentFragment>
   <div
-    class="w-full relative"
+    class=" w-full relative "
     role="group"
   >
     <label
-      class="mb-2 block text-left font-semibold"
+      class="mb-2 block text-left font-semibold "
       for="name"
       id="name-label"
     >
@@ -105,7 +105,7 @@ exports[`@nture-ui/form-control FormControl renders correctly when required 1`] 
       placeholder="Name"
     />
     <div
-      class="mt-2 text-gray-400"
+      class="mt-2 text-sm text-gray-400 "
       id="name-helptext"
     >
       Enter your name please!

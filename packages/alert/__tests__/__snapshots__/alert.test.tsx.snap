@@ -3,11 +3,11 @@
 exports[`@nature-ui/alert  should also render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="px-4 py-3 flex items-center w-full relative overflow-hidden bg-red-200 text-gray-800"
+    class="px-4 py-3 flex items-center w-full relative overflow-hidden bg-red-200 text-gray-800 "
     role="alert"
   >
     <svg
-      class="text-red-600 mr-3 css-rre05l-Icon"
+      class="mr-3 text-gray-800 text-red-600  css-1t9pz9x"
       fill="none"
       focusable="false"
       height="1em"
@@ -39,7 +39,7 @@ exports[`@nature-ui/alert  should also render correctly 1`] = `
       />
     </svg>
     <p
-      class="font-bold mr-3"
+      class="mr-3 font-bold "
     >
       Alert title
     </p>
@@ -53,11 +53,11 @@ exports[`@nature-ui/alert  should also render correctly 1`] = `
 exports[`@nature-ui/alert  should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="px-4 py-3 flex items-center w-full relative overflow-hidden bg-green-200 text-gray-800"
+    class="px-4 py-3 flex items-center w-full relative overflow-hidden bg-green-200 text-gray-800 "
     role="alert"
   >
     <svg
-      class="text-green-600 mr-3 css-rre05l-Icon"
+      class="mr-3 text-gray-800 text-green-600  css-1t9pz9x"
       fill="none"
       focusable="false"
       height="1em"
@@ -78,7 +78,7 @@ exports[`@nature-ui/alert  should render correctly 1`] = `
       />
     </svg>
     <p
-      class="font-bold"
+      class=" font-bold "
     >
       Alert title
     </p>

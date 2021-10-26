@@ -3,11 +3,11 @@
 exports[`Spinner renders correctly 1`] = `
 <DocumentFragment>
   <span
-    class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-t-2 align-middle w-4 h-4 text-blue-500"
+    class="animation-1nvx475 border-2 w-4 h-4 inline-block overflow-hidden border-transparent border-t-2 align-middle text-blue-500 css-hxvqwd"
     style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
   >
     <span
-      class="css-iaws77-VisuallyHidden"
+      class="css-e941bk"
     >
       Loading...
     </span>

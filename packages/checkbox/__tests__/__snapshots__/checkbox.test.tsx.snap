@@ -3,7 +3,7 @@
 exports[`@nature-ui/checkbox Checkbox renders correctly 1`] = `
 <DocumentFragment>
   <label
-    class="cursor-pointer inline-flex items-center align-top relative"
+    class=" cursor-pointer inline-flex items-center align-top relative "
   >
     <input
       style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
@@ -12,7 +12,7 @@ exports[`@nature-ui/checkbox Checkbox renders correctly 1`] = `
     />
     <div
       aria-hidden="true"
-      class="box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-2 rounded w-4 h-4 p-0 transition-all duration-300 ease-in-out"
+      class="w-4 h-4 p-0 border-2 duration-300 box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded border-gray-300 transition-all ease-in-out "
     />
   </label>
 </DocumentFragment>
@@ -21,7 +21,7 @@ exports[`@nature-ui/checkbox Checkbox renders correctly 1`] = `
 exports[`@nature-ui/checkbox Checkbox renders correctly with child elements 1`] = `
 <DocumentFragment>
   <label
-    class="cursor-pointer inline-flex items-center align-top relative"
+    class=" cursor-pointer inline-flex items-center align-top relative "
   >
     <input
       style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
@@ -30,10 +30,10 @@ exports[`@nature-ui/checkbox Checkbox renders correctly with child elements 1`] 
     />
     <div
       aria-hidden="true"
-      class="box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-2 rounded w-4 h-4 p-0 transition-all duration-300 ease-in-out"
+      class="w-4 h-4 p-0 border-2 duration-300 box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded border-gray-300 transition-all ease-in-out "
     />
     <div
-      class="select-none css-9uebpa"
+      class=" select-none css-9uebpa"
     >
       This is custom checkbox
     </div>

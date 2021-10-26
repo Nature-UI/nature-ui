@@ -3,7 +3,7 @@
 exports[`@nature-ui/button Button rernders correctly 1`] = `
 <DocumentFragment>
   <button
-    class="css-15pri0z-Button focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal bg-gray-200 text-gray-700 hover:bg-gray-300 px-4"
+    class="px-4 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal bg-gray-200 text-gray-700 hover:bg-gray-300 css-mqia37 css-1x86u9b css-14d0z92"
   />
 </DocumentFragment>
 `;
@@ -11,7 +11,7 @@ exports[`@nature-ui/button Button rernders correctly 1`] = `
 exports[`@nature-ui/button shows spinner and loading text if isLoading and loadingText 1`] = `
 <DocumentFragment>
   <button
-    class="css-15pri0z-Button focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal bg-gray-200 text-gray-700 hover:bg-gray-300 opacity-50 cursor-not-allowed px-4"
+    class="opacity-50 px-4 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-not-allowed css-mqia37 css-1x86u9b css-14d0z92"
     data-loading=""
     disabled=""
   >
@@ -19,11 +19,11 @@ exports[`@nature-ui/button shows spinner and loading text if isLoading and loadi
       class="align-middle relative"
     >
       <span
-        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-t-2 align-middle w-4 h-4 text-currentColor"
+        class="animation-1nvx475 border-2 w-4 h-4 inline-block overflow-hidden border-transparent border-t-2 align-middle text-currentColor css-hxvqwd"
         style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
       >
         <span
-          class="css-iaws77-VisuallyHidden"
+          class="css-e941bk"
         >
           Loading...
         </span>
@@ -41,7 +41,7 @@ exports[`@nature-ui/button shows spinner and loading text if isLoading and loadi
 exports[`@nature-ui/button shows spinner if isLoading 1`] = `
 <DocumentFragment>
   <button
-    class="css-15pri0z-Button focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal bg-gray-200 text-gray-700 hover:bg-gray-300 opacity-50 cursor-not-allowed px-4"
+    class="opacity-50 px-4 focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-not-allowed css-mqia37 css-1x86u9b css-14d0z92"
     data-loading=""
     disabled=""
   >
@@ -49,18 +49,18 @@ exports[`@nature-ui/button shows spinner if isLoading 1`] = `
       class="align-middle absolute"
     >
       <span
-        class="css-hxvqwd animation-1nvx475 inline-block overflow-hidden border-t-2 align-middle w-4 h-4 text-currentColor"
+        class="animation-1nvx475 border-2 w-4 h-4 inline-block overflow-hidden border-transparent border-t-2 align-middle text-currentColor css-hxvqwd"
         style="border-top: 2px solid currentColor; border-left: 2px solid currentColor;"
       >
         <span
-          class="css-iaws77-VisuallyHidden"
+          class="css-e941bk"
         >
           Loading...
         </span>
       </span>
     </span>
     <span
-      class="opacity-0"
+      class="opacity-0  "
     >
       Email
     </span>

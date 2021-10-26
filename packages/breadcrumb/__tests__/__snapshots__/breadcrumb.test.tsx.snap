@@ -7,19 +7,19 @@ exports[`@nature-ui/breadcrumb Breadcrumb renders correctly 1`] = `
     class=""
   >
     <ol
-      class="flex"
+      class=" flex "
     >
       <li
         class=""
       >
         <a
-          class="hover:underline"
+          class=" hover:underline "
           href="#"
         >
           Link 1
         </a>
         <span
-          class="css-157nrv9"
+          class="  css-157nrv9"
           role="presentation"
         >
           /
@@ -29,13 +29,13 @@ exports[`@nature-ui/breadcrumb Breadcrumb renders correctly 1`] = `
         class=""
       >
         <a
-          class="hover:underline"
+          class=" hover:underline "
           href="#"
         >
           Link 2
         </a>
         <span
-          class="css-157nrv9"
+          class="  css-157nrv9"
           role="presentation"
         >
           /

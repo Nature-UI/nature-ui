@@ -3,7 +3,7 @@
 exports[`@nature-ui/radio Radio renders correctly 1`] = `
 <DocumentFragment>
   <label
-    class="nature-radio inline-flex items-center align-top css-1y18hzf-Radio"
+    class=" nature-radio inline-flex items-center align-top  css-0"
   >
     <input
       class="nature-radio__input"
@@ -13,7 +13,7 @@ exports[`@nature-ui/radio Radio renders correctly 1`] = `
     />
     <div
       aria-hidden="true"
-      class="nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-solid rounded-full text-white transition-all duration-150 css-1wncg9q-Radio"
+      class="border-2 duration-150 nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-solid rounded-full text-white transition-all css-kklk9c css-9lngr5"
     />
   </label>
 </DocumentFragment>
