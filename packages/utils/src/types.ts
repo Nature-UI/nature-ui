@@ -30,3 +30,23 @@ export type ObjectOrArray<T, K extends keyof any = keyof any> =
   | Record<K, T>;
 
 export type StringOrNumber = string | number;
+
+export type EventKeys =
+  | 'ArrowDown'
+  | 'ArrowUp'
+  | 'ArrowLeft'
+  | 'ArrowRight'
+  | 'Enter'
+  | 'Space'
+  | 'Tab'
+  | 'Backspace'
+  | 'Control'
+  | 'Meta'
+  | 'Home'
+  | 'End'
+  | 'PageDown'
+  | 'PageUp'
+  | 'Delete'
+  | 'Escape'
+  | ' '
+  | 'Shift';
