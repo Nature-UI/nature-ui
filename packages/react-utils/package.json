@@ -1,0 +1,56 @@
+{
+  "name": "@nature-ui/react-utils",
+  "version": "1.0.0",
+  "description": "React utilities and helpers for Nature UI",
+  "keywords": [
+    "theme",
+    "theming",
+    "ui mode",
+    "ui"
+  ],
+  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "homepage": "https://github.com/nature-ui/nature-ui#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nature-ui/nature-ui.git",
+    "directory": "packages/react-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/nature-ui/nature-ui/issues"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*",
+    "test": "jest --env=jsdom --passWithNoTests"
+  },
+  "dependencies": {
+    "@nature-ui/utils": "^1.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.6"
+  },
+  "devDependencies": {
+    "react": "^17.0.1"
+  }
+}
