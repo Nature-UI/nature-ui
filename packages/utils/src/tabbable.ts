@@ -1,4 +1,4 @@
-import { _window } from './dom';
+import { getOwnerDocument, _window } from './dom';
 
 export const hasDisplayNone = (element: Element): boolean =>
   _window?.getComputedStyle(element).display === 'none';
@@ -16,13 +16,19 @@ export const isDisabled = (element: HTMLElement): boolean => {
   );
 };
 
+export interface FocusableElement {
+  focus(options?: FocusOptions): void;
+}
+
 export const hasFocusWithin = (element: Element): boolean => {
   if (!document.activeElement) return false;
 
   return element.contains(document.activeElement);
 };
 
-export const isHTMLElement = (element: Element): element is HTMLElement => {
+export const isHTMLElement = (
+  element: FocusableElement,
+): element is HTMLElement => {
   return element instanceof HTMLElement;
 };
 
@@ -40,7 +46,7 @@ export const isContentEditable = (
   return value && value !== undefined;
 };
 
-export const isFocusable = (element: Element): boolean => {
+export const isFocusable = (element: FocusableElement): boolean => {
   if (!isHTMLElement(element) || isHidden(element) || isDisabled(element)) {
     return false;
   }
@@ -65,7 +71,7 @@ export const isFocusable = (element: Element): boolean => {
   return hasTabIndex(element);
 };
 
-export const isTabbable = (element: Element): boolean => {
+export const isTabbable = (element: FocusableElement): boolean => {
   return (
     isHTMLElement(element) &&
     isFocusable(element) &&
@@ -73,36 +79,17 @@ export const isTabbable = (element: Element): boolean => {
   );
 };
 
-export const isActiveElement = (element: Element): boolean =>
-  document.activeElement === element;
+export const isActiveElement = (element: FocusableElement): boolean => {
+  const doc = isHTMLElement(element) ? getOwnerDocument(element) : document;
+  return doc.activeElement === (element as HTMLElement);
+};
 
 export const isInputElement = (
-  element: HTMLElement,
+  element: FocusableElement,
 ): element is HTMLInputElement => {
   return (
     isHTMLElement(element) &&
     element.tagName.toLowerCase() === 'input' &&
     'select' in element
   );
-};
-
-interface FocusProps extends FocusOptions {
-  isActive?: typeof isActiveElement;
-}
-
-export const focus = (
-  element: HTMLElement,
-  options: FocusProps = {},
-): number => {
-  const { isActive = isActiveElement, preventScroll } = options;
-
-  if (isActive(element)) return -1;
-
-  return requestAnimationFrame(() => {
-    element.focus({ preventScroll });
-
-    if (isInputElement(element)) {
-      element.select();
-    }
-  });
 };
