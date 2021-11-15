@@ -10,8 +10,8 @@ import {
 import hoist from 'hoist-non-react-statics';
 import * as React from 'react';
 import { jsx } from './jsx';
-import { NatureComponent } from './system-types';
-import { getDisplayName } from './system-utils';
+import { NatureComponent } from './system.types';
+import { getDisplayName } from './system.utils';
 
 const formatClassNames = (className: string): string => {
   const withCss = className.split(' ').filter((v) => v.match(/css-\w+/));

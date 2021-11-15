@@ -1,9 +1,8 @@
 import { As } from '@nature-ui/utils';
 import clsx from 'clsx';
-
-import { DOMElements, domElements } from './system-utils';
-import { NatureComponent } from './system-types';
 import { createComponent } from './create-component';
+import { NatureComponent, PropsOf } from './system.types';
+import { DOMElements, domElements } from './system.utils';
 
 export const natureComp = <T extends As>(component: T) => {
   return createComponent<T>(component)();
@@ -12,6 +11,11 @@ export const natureComp = <T extends As>(component: T) => {
 type NatureJSXElements = {
   [Tag in DOMElements]: NatureComponent<Tag, {}>;
 };
+
+export type HTMLNatureProps<T extends As> = Omit<
+  PropsOf<T>,
+  T extends 'svg' ? 'ref' | 'children' : 'ref'
+> & { as?: As };
 
 type CreateNatureComponent = {
   <T extends As, P = {}>(component: T): NatureComponent<T, P>;

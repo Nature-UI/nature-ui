@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { isString, UnionStringArray, __DEV__ } from '@nature-ui/utils';
-
-import { ForwardRefComponent } from './system-types';
+import { As } from '@nature-ui/utils/src/types';
+import * as React from 'react';
 import { pseudoSelectors } from './pseudo';
+import { ComponentWithAs, PropsOf, RightJoinProps } from './system.types';
 
 /**
  * Carefully selected html elements for nature components.
@@ -130,8 +130,13 @@ export const getDisplayName = (primitive: any) => {
   return isTag(primitive) ? `nature.${primitive}` : getComponentName(primitive);
 };
 
-export const forwardRef = <P>(
-  comp: (props: P, ref: React.Ref<any>) => React.ReactElement | null,
+export const forwardRef = <Props extends object, Component extends As>(
+  comp: React.ForwardRefRenderFunction<
+    any,
+    RightJoinProps<PropsOf<Component>, Props> & {
+      as?: As;
+    }
+  >,
 ) => {
-  return React.forwardRef(comp as any) as unknown as ForwardRefComponent<P>;
+  return React.forwardRef(comp) as unknown as ComponentWithAs<Component, Props>;
 };
