@@ -1,6 +1,5 @@
+import { ariaAttr, callAllHandler } from '@nature-ui/utils';
 import React from 'react';
-import { ariaAttr, dataAttr, callAllHandler, Dict } from '@nature-ui/utils';
-
 // eslint-disable-next-line import/no-cycle
 import { FormControlOptions, useFormControlContext } from './form-control';
 
@@ -10,6 +9,52 @@ export type UseFormControlProps<T extends HTMLElement> = FormControlOptions & {
   onBlur?: React.FocusEventHandler<T>;
   disabled?: boolean;
   readonly?: boolean;
+  required?: boolean;
+};
+
+export const useFormControlProps = <T extends HTMLElement>(
+  props: UseFormControlProps<T>,
+) => {
+  const field = useFormControlContext();
+
+  const {
+    id,
+    disabled,
+    readonly,
+    required,
+    isRequired,
+    isInvalid,
+    isReadOnly,
+    isDisabled,
+    onFocus,
+    onBlur,
+    ...rest
+  } = props;
+
+  const labelIds: string[] = props['aria-describedby']
+    ? [props['aria-describedby']]
+    : [];
+
+  // Error message must be described first in all scenarios
+  if (field?.hasFeedbackText && field?.isInvalid) {
+    labelIds.push(field.feedbackId);
+  }
+
+  if (field?.hasHelpText) {
+    labelIds.push(field.helpTextId);
+  }
+
+  return {
+    ...rest,
+    'aria-describedby': labelIds.join(' ') ?? undefined,
+    id: id ?? field?.id,
+    isDisabled: disabled ?? isDisabled ?? field?.isDisabled,
+    isReadOnly: readonly ?? isReadOnly ?? field?.isReadOnly,
+    isRequired: required ?? isRequired ?? field?.isRequired,
+    isInvalid: isInvalid ?? field?.isInvalid,
+    onFocus: callAllHandler(field?.onFocus, onFocus),
+    onBlur: callAllHandler(field?.onBlur, onBlur),
+  };
 };
 
 /**
@@ -22,50 +67,16 @@ export type UseFormControlProps<T extends HTMLElement> = FormControlOptions & {
 export const useFormControl = <T extends HTMLElement>(
   props: UseFormControlProps<T>,
 ) => {
-  const field = useFormControlContext();
-  const describedBy: string[] = [];
-
-  if (field?.isInvalid) {
-    /**
-     * Error message must be described first
-     * in all scenarios
-     */
-    if (describedBy.length > 0) {
-      describedBy.unshift(field.feedbackId);
-    } else {
-      describedBy.push(field.feedbackId);
-    }
-  }
-
-  if (field?.hasHelpText) describedBy.push(field.helptextId);
-
-  const ariaDescribedBy = describedBy.join(' ');
+  const { isDisabled, isInvalid, isReadOnly, isRequired, ...rest } =
+    useFormControlProps(props);
 
   return {
-    ...props,
-    id: props.id ?? field?.id,
-    disabled: props.disabled || props.isDisabled || field?.isDisabled,
-    readOnly: props.readonly || props.isReadOnly || field?.isReadOnly,
-    'aria-invalid': ariaAttr(props.isInvalid || field?.isInvalid),
-    'aria-required': ariaAttr(props.isRequired || field?.isRequired),
-    'aria-readonly': ariaAttr(props.isReadOnly || field?.isReadOnly),
-    'aria-describedby': ariaDescribedBy || undefined,
-    onFocus: callAllHandler(field?.onFocus, props.onFocus),
-    onBlur: callAllHandler(field?.onBlur, props.onBlur),
-  };
-};
-
-export const useFormControlLabel = (props: Dict) => {
-  const field = useFormControlContext();
-
-  return {
-    ...props,
-    'data-focus': dataAttr(field?.isFocused),
-    'data-disabled': dataAttr(field?.isDisabled),
-    'data-invalid': dataAttr(field?.isInvalid),
-    'data-loading': dataAttr(field?.isLoading),
-    'data-readonly': dataAttr(field?.isReadOnly),
-    id: props.id ?? field?.labelId,
-    htmlFor: props.htmlFor ?? field?.id,
+    ...rest,
+    disabled: isDisabled,
+    readOnly: isReadOnly,
+    required: isRequired,
+    'aria-invalid': ariaAttr(isInvalid),
+    'aria-required': ariaAttr(isRequired),
+    'aria-readonly': ariaAttr(isReadOnly),
   };
 };

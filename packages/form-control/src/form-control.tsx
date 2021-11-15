@@ -1,15 +1,10 @@
 /** ** */
-import { useBoolean, useId, useSafeLayoutEffect } from '@nature-ui/hooks';
-import { Icon, SvgIconProps } from '@nature-ui/icon';
-import { clsx, nature, PropsOf } from '@nature-ui/system';
-import { createContext, __DEV__ } from '@nature-ui/utils';
+import { useBoolean, useId } from '@nature-ui/hooks';
+import { PropGetter, PropGetterV2 } from '@nature-ui/react-utils';
+import { clsx, nature, NatureComponent, PropsOf } from '@nature-ui/system';
+import { createContext, dataAttr, mergeRefs, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
-// eslint-disable-next-line import/no-cycle
-import { useFormControlLabel } from './use-form-control';
-
 const DivTag = nature('div');
-const LabelTag = nature('label');
-const SpanTag = nature('span');
 
 export interface FormControlOptions {
   /**
@@ -64,7 +59,10 @@ interface FormControlContext extends FormControlOptions {
   id?: string;
 }
 
-type FieldContext = Omit<ReturnType<typeof useProvider>, 'htmlProps'>;
+type FieldContext = Omit<
+  ReturnType<typeof useFormControlProvider>,
+  'htmlProps'
+>;
 
 const [FormControlContextProvider, useFormControlContext] =
   createContext<FieldContext>({
@@ -74,7 +72,7 @@ const [FormControlContextProvider, useFormControlContext] =
 
 export { useFormControlContext };
 
-const useProvider = (props: FormControlContext) => {
+const useFormControlProvider = (props: FormControlContext) => {
   const {
     id: idProp,
     isReadOnly,
@@ -90,8 +88,13 @@ const useProvider = (props: FormControlContext) => {
 
   const labelId = `${id}-label`;
   const feedbackId = `${id}-feedback`;
-  const helptextId = `${id}-helptext`;
+  const helpTextId = `${id}-helptext`;
 
+  /**
+   * Track whether the `FormErrorMessage` has been rendered.
+   * We use this to append its id to the `aria-describedby` of the `input`.
+   */
+  const [hasFeedbackText, setHasFeedbackText] = useBoolean(false);
   /**
    * Track of when the `FormHelperText` has been rendered.
    * Er use this to append it's id the `aria-describedby` of the `input`
@@ -101,25 +104,96 @@ const useProvider = (props: FormControlContext) => {
   // Lets keep track of when we focus the form element (e.g `input`)
   const [isFocused, setFocus] = useBoolean();
 
-  const context = {
-    isRequired: Boolean(isRequired),
-    isInvalid: Boolean(isInvalid),
-    isLoading: Boolean(isLoading),
-    isReadOnly: Boolean(isReadOnly),
-    isDisabled: Boolean(isDisabled),
-    isFocused: Boolean(isFocused),
+  const getHelpTextProps = React.useCallback<PropGetter>(
+    (props = {}, forwardedRef = null) => ({
+      id: helpTextId,
+      ...props,
+      /**
+       * Notify the field context when the help text is rendered on scree,
+       * so we can apply the correct `aria-describedby` to the field.
+       */
+      ref: mergeRefs(forwardedRef, (node) => {
+        if (!node) return;
+        setHasHelpText.on();
+      }),
+    }),
+    [helpTextId],
+  );
+
+  const getLabelProps = React.useCallback<PropGetterV2<'label'>>(
+    (props = {}, forwardedRef = null) => ({
+      ...props,
+      ref: forwardedRef,
+      'data-focus': dataAttr(isFocused),
+      'data-disabled': dataAttr(isDisabled),
+      'data-invalid': dataAttr(isInvalid),
+      'data-readonly': dataAttr(isReadOnly),
+      id: props.id ?? labelId,
+      htmlFor: props.htmlFor ?? id,
+    }),
+    [id, labelId, isFocused, isDisabled, isInvalid, isReadOnly],
+  );
+
+  const getErrorMessageProps = React.useCallback<PropGetter>(
+    (props = {}, forwardedRef = null) => ({
+      ...props,
+      id: feedbackId,
+      /**
+       * Notify the field context when the error message is rendered on screen,
+       * so we can apply the correct `aria-describedby` to the field (e.g input, textarea).
+       */
+      ref: mergeRefs(forwardedRef, (node) => {
+        if (!node) return;
+        setHasFeedbackText.on();
+      }),
+    }),
+    [feedbackId],
+  );
+
+  const getRootProps = React.useCallback<PropGetterV2<'div'>>(
+    (props = {}, forwardedRef = null) => ({
+      ...props,
+      ...htmlProps,
+      ref: forwardedRef,
+      role: 'group',
+    }),
+    [htmlProps],
+  );
+
+  const getRequiredIndicatorProps = React.useCallback<PropGetter>(
+    (props = {}, forwardedRef = null) => ({
+      ...props,
+      ref: forwardedRef,
+      role: 'presentation',
+      'aria-hidden': true,
+      children: props.children ?? '*',
+    }),
+    [],
+  );
+
+  return {
+    isRequired: !!isRequired,
+    isInvalid: !!isInvalid,
+    isReadOnly: !!isReadOnly,
+    isDisabled: !!isDisabled,
+    isFocused: !!isFocused,
     onFocus: setFocus.on,
     onBlur: setFocus.off,
+    hasFeedbackText,
+    setHasFeedbackText,
     hasHelpText,
     setHasHelpText,
     id,
     labelId,
     feedbackId,
-    helptextId,
+    helpTextId,
     htmlProps,
+    getHelpTextProps,
+    getErrorMessageProps,
+    getRootProps,
+    getLabelProps,
+    getRequiredIndicatorProps,
   };
-
-  return context;
 };
 
 const StyledFormControl = (props: PropsOf<typeof DivTag>) => {
@@ -130,8 +204,8 @@ const StyledFormControl = (props: PropsOf<typeof DivTag>) => {
   return <DivTag role='group' className={_className} {...rest} />;
 };
 
-export type FormControlProps = FormControlContext &
-  PropsOf<typeof StyledFormControl>;
+export type FormControlProps = NatureComponent<'div'> & FormControlContext & {};
+
 /**
  * FormControl
  *
@@ -142,7 +216,7 @@ export type FormControlProps = FormControlContext &
  */
 export const FormControl = React.forwardRef(
   (props: FormControlProps, ref: React.Ref<any>) => {
-    const { htmlProps, ...context } = useProvider(props);
+    const { htmlProps, ...context } = useFormControlProvider(props);
 
     return (
       <FormControlContextProvider value={context}>
@@ -155,189 +229,3 @@ export const FormControl = React.forwardRef(
 if (__DEV__) {
   FormControl.displayName = 'FormControl';
 }
-
-/**
- * label
- */
-const StyledLabel = (props: PropsOf<typeof LabelTag>) => {
-  const { className = '', ...rest } = props;
-
-  const _className = clsx('block text-left font-semibold', className);
-
-  return <LabelTag className={_className} {...rest} />;
-};
-
-export type FormLabelProps = PropsOf<typeof StyledLabel>;
-
-/**
- * Used to enhance the usability of form controls.
- *
- * It is used to infor users as to what information is required for a form field.
- *
- * Accessibility: Every form field should have a form label
- */
-export const FormLabel = React.forwardRef(
-  (props: FormLabelProps, ref: React.Ref<any>) => {
-    const { className = '', ...rest } = props;
-
-    const _className = clsx('mb-2', className);
-    const ownProps = useFormControlLabel(rest);
-
-    return <StyledLabel ref={ref} className={_className} {...ownProps} />;
-  },
-);
-
-if (__DEV__) {
-  FormLabel.displayName = 'FormLabel';
-}
-
-/**
- * RequiredIndicator
- */
-const StyledIndicator = ({
-  'aria-hidden': AriaHidden = true,
-  ...rest
-}: PropsOf<typeof SpanTag>) => {
-  return <SpanTag role='presentation' aria-hidden={AriaHidden} {...rest} />;
-};
-
-export type RequiredIndicatorProps = PropsOf<typeof StyledIndicator>;
-
-/**
- * Used to show a `required` text or an asterisks (*) to indicate that a field is required
- */
-export const RequiredIndicator = React.forwardRef(
-  (props: RequiredIndicatorProps, ref: React.Ref<HTMLSpanElement>) => {
-    const field = useFormControlContext();
-
-    if (!field?.isRequired) return null;
-
-    return (
-      <StyledIndicator ref={ref} {...props}>
-        {props.children || '*'}
-      </StyledIndicator>
-    );
-  },
-);
-
-if (__DEV__) {
-  RequiredIndicator.displayName = 'RequiredIndicator';
-}
-
-/**
- * FormHelperText
- */
-const StyledHelperText = (props: PropsOf<typeof DivTag>) => (
-  <DivTag {...props} />
-);
-
-export type HelpTextProps = PropsOf<typeof StyledHelperText>;
-
-/**
- * FormHelperText
- *
- * Assistive componenet that conveys additional guidance
- * about the field, such as how it will be used and what
- * types in values should be provided.
- */
-export const FormHelperText = React.forwardRef(
-  (props: HelpTextProps, ref: React.Ref<any>) => {
-    const field = useFormControlContext();
-    const { className = '', ...rest } = props;
-
-    /**
-     * Notify the field context when the help text is rendered on
-     * screen, so we can apply the correct `aria-describedby` to the field (e.g input, textarea)
-     */
-    useSafeLayoutEffect(() => {
-      field?.setHasHelpText.on();
-
-      return () => field?.setHasHelpText.off();
-    }, []);
-
-    const _className = clsx('mt-2 text-sm text-gray-400', className);
-
-    return (
-      <StyledHelperText
-        className={_className}
-        ref={ref}
-        id={props.id ?? field?.helptextId}
-        {...rest}
-      />
-    );
-  },
-);
-
-if (__DEV__) {
-  FormHelperText.displayName = 'FormHelperText';
-}
-
-/**
- * ErrorText
- */
-const StyledErrorText = (props: PropsOf<typeof DivTag>) => {
-  const { className = '', ...rest } = props;
-
-  const _className = clsx('flex items-center', className);
-
-  return <DivTag {...rest} className={_className} aria-live='polite' />;
-};
-
-export type FormErrorMessageProps = PropsOf<typeof StyledErrorText>;
-
-/**
- * Used to provide feedback about an invalid input,
- * and suggest clear instructions on how to fix it.
- */
-export const FormErrorMessage = React.forwardRef(
-  (props: FormErrorMessageProps, ref: React.Ref<any>) => {
-    const { className = '', ...rest } = props;
-    const field = useFormControlContext();
-
-    if (!field?.isInvalid) return null;
-
-    const _className = clsx('text-sm mt-2  text-red-600', className);
-
-    return (
-      <StyledErrorText
-        className={_className}
-        ref={ref}
-        id={props.id ?? field?.feedbackId}
-        {...rest}
-      />
-    );
-  },
-);
-
-if (__DEV__) {
-  FormErrorMessage.displayName = 'FormErrorMessage';
-}
-
-/**
- * Used as the visual indicator that a field is invalid or
- * a field has incorrect values
- */
-export const FormErrorIcon = React.forwardRef(
-  (props: SvgIconProps, ref: React.Ref<any>) => {
-    const field = useFormControlContext();
-
-    if (!field?.isInvalid) return null;
-    const { className = '', ...rest } = props;
-    const _className = clsx('mr-2 text-red-600', className);
-
-    return (
-      <Icon
-        boxSize='1rem'
-        className={_className}
-        ref={ref}
-        aria-hidden
-        {...rest}
-      >
-        <path
-          fill='currentColor'
-          d='M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z'
-        />
-      </Icon>
-    );
-  },
-);
