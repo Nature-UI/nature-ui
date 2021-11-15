@@ -6,6 +6,7 @@
     "theme",
     "theming",
     "ui mode",
+    "nature",
     "ui"
   ],
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
@@ -20,12 +21,6 @@
     "dist"
   ],
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
