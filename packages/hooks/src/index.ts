@@ -17,4 +17,5 @@ export * from './use-merge-refs';
 export * from './use-safe-layout-effect';
 export * from './use-shortcut';
 export * from './use-timeout';
+export * from './use-unmount-effect';
 export * from './use-update-effect';
