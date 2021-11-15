@@ -1,7 +1,6 @@
 import memoizeOne from 'memoize-one';
-
-import { FunctionArguments } from './types';
 import { isFunction } from './assertions';
+import { FunctionArguments } from './types';
 
 export const runIfFn = <T, U>(
   valueOrFn: T | ((...args: U[]) => T),
@@ -15,10 +14,9 @@ export const callAllHandler = <T extends (event: any) => void>(
 ) => {
   return (event: FunctionArguments<T>[0]): any => {
     fns.some((fn) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      fn && fn(event);
+      fn?.(event);
 
-      return event && event.defaultPrevented;
+      return event?.defaultPrevented;
     });
   };
 };

@@ -15,21 +15,23 @@ const SELECTORS = [
 
 const selector = SELECTORS.join();
 
-export const getAllFocusable = <T extends Element>(container: T) => {
+export const getAllFocusable = <T extends HTMLElement>(container: T) => {
   const allFocusable = Array.from(container.querySelectorAll<T>(selector));
 
   allFocusable.unshift(container);
 
-  return allFocusable.filter(isFocusable);
+  return allFocusable
+    .filter(isFocusable)
+    .filter((el) => window.getComputedStyle(el).display !== 'none');
 };
 
-export const getFirstFocusable = <T extends Element>(container: T) => {
+export const getFirstFocusable = <T extends HTMLElement>(container: T) => {
   const allFocusable = getAllFocusable(container);
 
   return allFocusable.length ? allFocusable[0] : null;
 };
 
-export const getAllTabbable = <T extends Element>(
+export const getAllTabbable = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ) => {
@@ -47,7 +49,7 @@ export const getAllTabbable = <T extends Element>(
   return allTabbable;
 };
 
-export const getFirstTabbableIn = <T extends Element>(
+export const getFirstTabbableIn = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ): T | null => {
@@ -56,7 +58,7 @@ export const getFirstTabbableIn = <T extends Element>(
   return first || null;
 };
 
-export const getLastTabbableIn = <T extends Element>(
+export const getLastTabbableIn = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ): T | null => {
@@ -65,7 +67,7 @@ export const getLastTabbableIn = <T extends Element>(
   return allTabbable[allTabbable.length - 1] || null;
 };
 
-export const getNextTabbable = <T extends Element>(
+export const getNextTabbable = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ): T | null => {
@@ -80,7 +82,7 @@ export const getNextTabbable = <T extends Element>(
   );
 };
 
-export const getPreviousTabbable = <T extends Element>(
+export const getPreviousTabbable = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ): T | null => {
@@ -95,7 +97,7 @@ export const getPreviousTabbable = <T extends Element>(
   );
 };
 
-export const focusNextTabbable = <T extends Element>(
+export const focusNextTabbable = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ) => {
@@ -106,7 +108,7 @@ export const focusNextTabbable = <T extends Element>(
   }
 };
 
-export const focusPreviousTabbable = <T extends Element>(
+export const focusPreviousTabbable = <T extends HTMLElement>(
   container: T,
   fallbackToFocusable?: boolean,
 ) => {

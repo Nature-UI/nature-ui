@@ -1,6 +1,6 @@
-import { warn } from '@nature-ui/utils';
 import { getOwnerDocument } from './dom';
-import { FocusableElement, isActiveElement } from './tabbable';
+import { warn } from './logger';
+import { FocusableElement, isActiveElement, isInputElement } from './tabbable';
 export interface ExtendedFocusOptions extends FocusOptions {
   /**
    * Function that determines if the element is the active element.
@@ -108,6 +108,23 @@ export const focus = (
       element.focus({ preventScroll });
     } else {
       element.focus();
+      if (preventScroll) {
+        const scrollableElements = getScrollableElements(
+          element as HTMLElement,
+        );
+        restoreScrollPosition(scrollableElements);
+      }
+    }
+
+    if (isInputElement(element) && selectTextIfInput) {
+      element.select();
     }
   };
+
+  if (nextTick) {
+    return requestAnimationFrame(triggerFocus);
+  }
+
+  triggerFocus();
+  return -1;
 };
