@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { useEventListener, useUpdateEffect } from '@nature-ui/hooks';
 import { focus, getFirstTabbableIn, isFocusable } from '@nature-ui/utils';
-import { useUpdateEffect, useEventListener } from '@nature-ui/hooks';
+import * as React from 'react';
 
 /**
  * Check if the event target is within the popover ref.
@@ -38,7 +38,7 @@ export const useBlurOutside = (
     visible: boolean;
   },
 ) => {
-  const onMouseDown = (event: MouseEvent) => {
+  const onMouseDown = (event: TouchEvent | MouseEvent) => {
     if (options.visible && event.target === triggerRef.current) {
       event.preventDefault();
     }

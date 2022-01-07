@@ -1,8 +1,7 @@
 import { nature, PropsOf } from '@nature-ui/system';
 import { SafeMerge } from '@nature-ui/utils';
 import * as React from 'react';
-
-import { UseClickableProps, useClickable } from '../src';
+import { useClickable, UseClickableProps } from '../src';
 
 export type ClickableProps = SafeMerge<
   UseClickableProps,
@@ -80,7 +79,7 @@ export const button = () => (
     </Clickable>
 
     <button
-      onClick={(event) => {
+      onClick={() => {
         alert('clicked');
       }}
     >
