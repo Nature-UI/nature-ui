@@ -1,7 +1,6 @@
-import * as React from 'react';
 import { forwardRef, nature, PropsOf } from '@nature-ui/system';
-import { __DEV__, omit } from '@nature-ui/utils';
-
+import { omit, __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 import { useImage, UseImageProps } from './use-image';
 
 interface ImageOptions {
@@ -38,17 +37,9 @@ export type ImageProps = UseImageProps &
   PropsOf<typeof nature.img> &
   ImageOptions;
 
-export const Image = forwardRef<ImageProps>((props, ref) => {
-  const {
-    fallbackSrc,
-    fallback,
-    src,
-    loading,
-    ignoreFallback,
-    crossOrigin,
-    size,
-    ...rest
-  } = props;
+export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
+  const { fallbackSrc, fallback, src, loading, ignoreFallback, size, ...rest } =
+    props;
 
   const shouldIgnore = Boolean(loading ?? ignoreFallback);
 
@@ -91,7 +82,6 @@ export const Image = forwardRef<ImageProps>((props, ref) => {
   return (
     <nature.img
       {...{
-        crossOrigin,
         loading,
         src,
         ...shared,

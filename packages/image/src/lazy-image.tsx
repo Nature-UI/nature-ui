@@ -1,10 +1,6 @@
-// @ts-ignore
-import React from 'react';
-
 import { nature } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import { IntersectionOptions } from 'react-intersection-observer';
-
 import { ImageProps, useLazyImage } from '.';
 
 type LazyImageType = ImageProps & {

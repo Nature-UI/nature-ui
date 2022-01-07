@@ -1,6 +1,8 @@
-import * as React from 'react';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
-import { useInView, IntersectionOptions } from 'react-intersection-observer';
+import * as React from 'react';
+import { IntersectionOptions, useInView } from 'react-intersection-observer';
+
+type NativeImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
 export type UseImageProps = {
   /**
@@ -18,11 +20,11 @@ export type UseImageProps = {
   /**
    * A callback for when the image `src` has been loaded
    */
-  onLoad?(event: Event): void;
+  onLoad?: NativeImageProps['onLoad'];
   /**
    * A callback for when there was an error loading the image `src`
    */
-  onError?(error: string | Event): void;
+  onError?: NativeImageProps['onError'];
   /**
    * If `true`, opt out of the `fallbackSrc` logic and use as `img`
    */
@@ -31,10 +33,12 @@ export type UseImageProps = {
    * The key used to set the crossOrigin on the HTMLImageElement into which the image will be loaded.
    * This tells the browser to request cross-origin access when trying to download the image data.
    */
-  crossOrigin?: string;
+  crossOrigin?: NativeImageProps['crossOrigin'];
+  loading?: NativeImageProps['loading'];
 };
 
 type Status = 'loading' | 'failed' | 'pending' | 'loaded';
+type ImageEvent = React.SyntheticEvent<HTMLImageElement, Event>;
 
 /**
  * React hook that loads an image in the browser,
@@ -61,11 +65,10 @@ export const useImage = (props: UseImageProps) => {
     crossOrigin,
     sizes,
     ignoreFallback,
+    loading,
   } = props;
 
-  const [status, setStatus] = React.useState<Status>(() => {
-    return src ? 'loading' : 'pending';
-  });
+  const [status, setStatus] = React.useState<Status>('pending');
 
   React.useEffect(() => {
     setStatus(src ? 'loading' : 'pending');
@@ -88,31 +91,24 @@ export const useImage = (props: UseImageProps) => {
 
     img.src = src;
 
-    if (crossOrigin) {
-      img.crossOrigin = crossOrigin;
-    }
-
-    if (srcSet) {
-      img.srcset = srcSet;
-    }
-
-    if (sizes) {
-      img.sizes = sizes;
-    }
+    if (crossOrigin) img.crossOrigin = crossOrigin;
+    if (srcSet) img.srcset = srcSet;
+    if (sizes) img.sizes = sizes;
+    if (loading) img.loading = loading;
 
     img.addEventListener('load', (event) => {
       flush();
       setStatus('loaded');
-      onLoad?.(event);
+      onLoad?.(event as unknown as ImageEvent);
     });
     img.addEventListener('error', (error) => {
       flush();
       setStatus('failed');
-      onError?.(error);
+      onError?.(error as any);
     });
 
     imageRef.current = img;
-  }, [src, crossOrigin, srcSet, sizes, onLoad, onError]);
+  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, loading]);
 
   useSafeLayoutEffect(() => {
     /**
@@ -125,7 +121,6 @@ export const useImage = (props: UseImageProps) => {
       load();
     }
 
-    // eslint-disable-next-line consistent-return
     return () => {
       flush();
     };
@@ -143,7 +138,8 @@ type UseLazyImage = Omit<UseImageProps, 'ignoreFallback'> & {
 };
 
 export const useLazyImage = (props: UseLazyImage) => {
-  const { src, srcSet, onLoad, onError, crossOrigin, sizes, options } = props;
+  const { src, loading, srcSet, onLoad, onError, crossOrigin, sizes, options } =
+    props;
 
   const [status, setStatus] = React.useState<Status>(() => {
     return src ? 'loading' : 'pending';
@@ -170,30 +166,23 @@ export const useLazyImage = (props: UseLazyImage) => {
 
     img.src = src;
 
-    if (crossOrigin) {
-      img.crossOrigin = crossOrigin;
-    }
-
-    if (srcSet) {
-      img.srcset = srcSet;
-    }
-
-    if (sizes) {
-      img.sizes = sizes;
-    }
+    if (crossOrigin) img.crossOrigin = crossOrigin;
+    if (srcSet) img.srcset = srcSet;
+    if (sizes) img.sizes = sizes;
+    if (loading) img.loading = loading;
 
     img.addEventListener('load', (event) => {
       flush();
       setStatus('loaded');
-      onLoad?.(event);
+      onLoad?.(event as unknown as ImageEvent);
       (entry as any).target.src = src;
     });
     img.addEventListener('error', (error) => {
       flush();
       setStatus('failed');
-      onError?.(error);
+      onError?.(error as any);
     });
-  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, entry]);
+  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, entry, loading]);
 
   useSafeLayoutEffect(() => {
     if (process.env.NODE_ENV === 'test' && entry) {
@@ -203,7 +192,6 @@ export const useLazyImage = (props: UseLazyImage) => {
       load();
     }
 
-    // eslint-disable-next-line consistent-return
     return () => {
       flush();
     };
