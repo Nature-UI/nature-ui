@@ -9,7 +9,7 @@ export type BadgeType = BadgeProps & {
   css?: any;
 };
 
-export const Badge = forwardRef<BadgeType>((props, ref) => {
+export const Badge = forwardRef<BadgeType, 'span'>((props, ref) => {
   const {
     children,
     className = '',

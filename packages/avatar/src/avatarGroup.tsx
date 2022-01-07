@@ -1,11 +1,10 @@
 /** ** */
-import { nature, clsx, PropsOf, forwardRef, css } from '@nature-ui/system';
-import * as React from 'react';
+import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-
+import * as React from 'react';
 import { baseStyle, SIZES } from './avatar';
 
-const AvatarExcessLabel = forwardRef<PropsOf<typeof nature.span>>(
+const AvatarExcessLabel = forwardRef<PropsOf<typeof nature.span>, 'span'>(
   ({ className = '', ...rest }, ref) => (
     <nature.span
       className={clsx(`${baseStyle} rounded-full`, {
@@ -41,26 +40,22 @@ interface AvatarGroupOptions {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
-const NatureGroup = forwardRef<PropsOf<typeof nature.div>>(
-  ({ children }, ref) => (
-    <nature.div
-      ref={ref}
-      className='flex items-center justify-end flex-row-reverse'
-    >
-      {children}
-    </nature.div>
-  ),
-);
-
-export type AvatarGroupProps = AvatarGroupOptions & PropsOf<typeof NatureGroup>;
+export type AvatarGroupProps = AvatarGroupOptions & PropsOf<typeof nature.div>;
 
 /**
  * AvatarGroup
  *
  * React component to displays a number of avatars grouped together in a stack.
  */
-export const AvatarGroup = forwardRef<AvatarGroupProps>((props, ref) => {
-  const { children, max, size = 'md', spacing = '-0.5rem', ...rest } = props;
+export const AvatarGroup = forwardRef<AvatarGroupProps, 'div'>((props, ref) => {
+  const {
+    children,
+    max,
+    size = 'md',
+    spacing = '-0.5rem',
+    className,
+    ...rest
+  } = props;
 
   const validChildren = getValidChildren(children);
 
@@ -112,13 +107,21 @@ export const AvatarGroup = forwardRef<AvatarGroupProps>((props, ref) => {
   );
 
   return (
-    <NatureGroup ref={ref} role='group' {...rest}>
+    <nature.div
+      className={clsx(
+        'flex items-center justify-end flex-row-reverse',
+        className,
+      )}
+      ref={ref}
+      role='group'
+      {...rest}
+    >
       {excess && (
         <AvatarExcessLabel className={groupExcess}>
           {`+${excess}`}
         </AvatarExcessLabel>
       )}
       {clones}
-    </NatureGroup>
+    </nature.div>
   );
 });

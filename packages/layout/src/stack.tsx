@@ -1,10 +1,9 @@
 /** ** */
-import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { clsx, forwardRef, nature } from '@nature-ui/system';
 import { getValidChildren, StringOrNumber, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
-const DivTag = nature('div');
-export type StackProps = PropsOf<typeof DivTag> & {
+export type StackProps = {
   /**
    * The space between each stack item
    */
@@ -23,7 +22,7 @@ export type StackProps = PropsOf<typeof DivTag> & {
   responsive?: boolean;
 };
 
-export const Stack = forwardRef<StackProps>((props, ref) => {
+export const Stack = forwardRef<StackProps, 'div'>((props, ref) => {
   const {
     children,
     spacing = 4,
@@ -74,9 +73,9 @@ export const Stack = forwardRef<StackProps>((props, ref) => {
   );
 
   return (
-    <DivTag className={_className} {...rest} ref={ref}>
+    <nature.div className={_className} {...rest} ref={ref}>
       {clones}
-    </DivTag>
+    </nature.div>
   );
 });
 

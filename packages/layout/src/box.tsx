@@ -16,7 +16,7 @@ export type SquareProps = BoxProps & {
   centered?: boolean;
 };
 
-export const Box = forwardRef<SquareProps>((props, ref) => {
+export const Box = forwardRef<SquareProps, 'div'>((props, ref) => {
   const {
     children,
     className = '',

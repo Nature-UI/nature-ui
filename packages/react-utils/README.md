@@ -1,4 +1,4 @@
-# @chakra-ui/react-utils
+# @nature-ui/react-utils
 
 This package contains all React-related utilities and types that may be consumed
 by other packages.
@@ -8,7 +8,7 @@ by other packages.
 ## Installation
 
 ```sh
-yarn add @chakra-ui/react-utils
+yarn add @nature-ui/react-utils
 # or
-npm i @chakra-ui/react-utils
+npm i @nature-ui/react-utils
 ```

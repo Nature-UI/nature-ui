@@ -1,7 +1,7 @@
 /** ** */
-import * as React from 'react';
 import { forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 
 const Span = nature('span');
 const Input = nature('input');
@@ -39,7 +39,7 @@ if (__DEV__) {
  * custom input components using the html `input`
  * as a proxy
  */
-export const VisuallyHiddenInput = forwardRef<PropsOf<typeof Input>>(
+export const VisuallyHiddenInput = forwardRef<PropsOf<typeof Input>, 'input'>(
   (props, ref) => (
     <Input css={visuallyHiddenStyle as any} {...props} ref={ref} />
   ),

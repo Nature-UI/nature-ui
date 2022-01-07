@@ -1,12 +1,10 @@
-import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { clsx, css, forwardRef, nature } from '@nature-ui/system';
 
-const DividerElem = nature('hr');
-
-export type DividerProp = Omit<PropsOf<typeof DividerElem>, 'children'> & {
+export type DividerProp = {
   orientation?: 'vertical' | 'horizontal';
 };
 
-export const Divider = forwardRef<DividerProp>((props, ref) => {
+export const Divider = forwardRef<DividerProp, 'hr'>((props, ref) => {
   const {
     className = '',
     color = 'gray-200',
@@ -25,5 +23,5 @@ export const Divider = forwardRef<DividerProp>((props, ref) => {
     className,
   );
 
-  return <DividerElem className={_className} {...rest} ref={ref} />;
+  return <nature.hr className={_className} {...rest} ref={ref} />;
 });

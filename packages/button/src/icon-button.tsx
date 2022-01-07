@@ -28,45 +28,47 @@ export interface IconButtonProps extends BaseButtonProps {
   'aria-label'?: string;
 }
 
-export const IconButton = forwardRef<IconButtonProps>((props, ref) => {
-  const {
-    icon,
-    children,
-    isRound,
-    'aria-label': ariaLabel,
-    className = '',
-    color = 'gray-200',
-    ...rest
-  } = props;
+export const IconButton = forwardRef<IconButtonProps, 'button'>(
+  (props, ref) => {
+    const {
+      icon,
+      children,
+      isRound,
+      'aria-label': ariaLabel,
+      className = '',
+      color = 'gray-200',
+      ...rest
+    } = props;
 
-  /**
-   * Passing the icon as prop or children should work
-   */
-  const element = icon || children;
-  const _children = React.isValidElement(element)
-    ? React.cloneElement(element as any, {
-        'aria-hidden': true,
-        focusable: false,
-      })
-    : null;
-  const _className = clsx(className, {
-    'rounded-full': isRound,
-    'rounded-md': !isRound,
-  });
+    /**
+     * Passing the icon as prop or children should work
+     */
+    const element = icon || children;
+    const _children = React.isValidElement(element)
+      ? React.cloneElement(element as any, {
+          'aria-hidden': true,
+          focusable: false,
+        })
+      : null;
+    const _className = clsx(className, {
+      'rounded-full': isRound,
+      'rounded-md': !isRound,
+    });
 
-  return (
-    <Button
-      ref={ref}
-      color={color}
-      aria-label={ariaLabel}
-      className={_className}
-      isIconButton
-      {...rest}
-    >
-      {_children}
-    </Button>
-  );
-});
+    return (
+      <Button
+        ref={ref}
+        color={color}
+        aria-label={ariaLabel}
+        className={_className}
+        isIconButton
+        {...rest}
+      >
+        {_children}
+      </Button>
+    );
+  },
+);
 
 if (__DEV__) {
   IconButton.displayName = 'IconButton';

@@ -1,7 +1,7 @@
 /** ** */
 import { useBoolean, useId } from '@nature-ui/hooks';
 import { PropGetter, PropGetterV2 } from '@nature-ui/react-utils';
-import { clsx, nature, NatureComponent, PropsOf } from '@nature-ui/system';
+import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { createContext, dataAttr, mergeRefs, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 const DivTag = nature('div');
@@ -204,7 +204,7 @@ const StyledFormControl = (props: PropsOf<typeof DivTag>) => {
   return <DivTag role='group' className={_className} {...rest} />;
 };
 
-export type FormControlProps = NatureComponent<'div'> & FormControlContext & {};
+export type FormControlProps = FormControlContext & {};
 
 /**
  * FormControl
@@ -214,17 +214,15 @@ export type FormControlProps = NatureComponent<'div'> & FormControlContext & {};
  *
  * This is commonly used in form elements such as `input`, `select`, `textarea`, etc
  */
-export const FormControl = React.forwardRef(
-  (props: FormControlProps, ref: React.Ref<any>) => {
-    const { htmlProps, ...context } = useFormControlProvider(props);
+export const FormControl = forwardRef<FormControlProps, 'div'>((props, ref) => {
+  const { htmlProps, ...context } = useFormControlProvider(props);
 
-    return (
-      <FormControlContextProvider value={context}>
-        <StyledFormControl ref={ref} {...htmlProps} />
-      </FormControlContextProvider>
-    );
-  },
-);
+  return (
+    <FormControlContextProvider value={context}>
+      <StyledFormControl ref={ref} {...htmlProps} />
+    </FormControlContextProvider>
+  );
+});
 
 if (__DEV__) {
   FormControl.displayName = 'FormControl';

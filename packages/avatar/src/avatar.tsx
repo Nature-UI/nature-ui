@@ -162,7 +162,7 @@ export type AvatarProps = PropsOf<typeof AvatarComp> & AvatarOptions;
  * support for fallback avatar and name-only avatars
  */
 
-export const Avatar = forwardRef<AvatarProps>((props, ref) => {
+export const Avatar = forwardRef<AvatarProps, 'span'>((props, ref) => {
   const {
     name,
     src,

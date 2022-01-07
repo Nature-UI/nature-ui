@@ -1,4 +1,8 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,

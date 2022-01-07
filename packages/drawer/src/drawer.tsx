@@ -85,29 +85,33 @@ if (__DEV__) {
   Drawer.displayName = 'Drawer';
 }
 
-export const DrawerContent = forwardRef<ModalContentProps>((props, ref) => {
-  const { content: styles } = useTransitionContext();
-  const { className = '', ...rest } = props;
+export const DrawerContent = forwardRef<ModalContentProps, 'div'>(
+  (props, ref) => {
+    const { content: styles } = useTransitionContext();
+    const { className = '', ...rest } = props;
 
-  const _css = css(styles as any);
-  const _className = clsx(_css, 'fixed mt-0 mb-0 rounded-none', className);
+    const _css = css(styles as any);
+    const _className = clsx(_css, 'fixed mt-0 mb-0 rounded-none', className);
 
-  return <ModalContent ref={ref} className={_className} {...rest} />;
-});
+    return <ModalContent ref={ref} className={_className} {...rest} />;
+  },
+);
 
 if (__DEV__) {
   DrawerContent.displayName = 'DrawerContent';
 }
 
-export const DrawerOverlay = forwardRef<ModalOverlayProps>((props, ref) => {
-  const { overlay: styles } = useTransitionContext();
-  const { className = '', ...rest } = props;
+export const DrawerOverlay = forwardRef<ModalOverlayProps, 'div'>(
+  (props, ref) => {
+    const { overlay: styles } = useTransitionContext();
+    const { className = '', ...rest } = props;
 
-  const _css = css(styles as any);
-  const _className = clsx(_css, 'transition-all duration-200', className);
+    const _css = css(styles as any);
+    const _className = clsx(_css, 'transition-all duration-200', className);
 
-  return <ModalOverlay className={_className} ref={ref} {...rest} />;
-});
+    return <ModalOverlay className={_className} ref={ref} {...rest} />;
+  },
+);
 
 if (__DEV__) {
   DrawerOverlay.displayName = 'DrawerOverlay';

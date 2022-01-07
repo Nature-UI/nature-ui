@@ -1,12 +1,13 @@
-import React from 'react';
-
 import { Container } from '@nature-ui/container';
 import { Stack } from '@nature-ui/layout';
+import { Meta } from '@storybook/react';
+import React from 'react';
 import { LazyImage } from '../src';
 
 export default {
   title: 'Image/LazyImage',
-};
+  component: LazyImage,
+} as Meta;
 
 export const Example = () => {
   return (

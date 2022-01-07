@@ -1,4 +1,4 @@
-import { As, Dict, Omit } from '@nature-ui/utils';
+import { As, Omit } from '@nature-ui/utils';
 import * as React from 'react';
 
 export interface NatureProps {
@@ -36,11 +36,10 @@ export type WithNature<Props> = Props extends { transition?: any }
  * - Add the `as` prop. in this case, it doesn't do anything special.
  * - Return a JSX Element
  */
-
-type RegularComponent<T extends As, P> = (
-  props: WithNature<Omit<PropsOf<T>, 'size' | 'as' | keyof P>> &
-    P & { as?: As },
-) => JSX.Element;
+// type RegularComponent<T extends As, P> = (
+//   props: WithNature<Omit<PropsOf<T>, 'size' | 'as' | keyof P>> &
+//     P & { as?: As },
+// ) => JSX.Element;
 
 /**
  * Extensible component means:
@@ -50,17 +49,17 @@ type RegularComponent<T extends As, P> = (
  * - Use the `WithAs` to merge the base component prop with `as` component prop
  * - Add Nature props to the resulting types.
  */
-type ExtensibleComponent<T extends As, P> = <TT extends As = T>(
-  props: WithNature<WithAs<PropsOf<T>, TT>> & P,
-) => JSX.Element;
+// type ExtensibleComponent<T extends As, P> = <TT extends As = T>(
+//   props: WithNature<WithAs<PropsOf<T>, TT>> & P,
+// ) => JSX.Element;
 
-type Comp<T extends As, P> = RegularComponent<T, P> | ExtensibleComponent<T, P>;
+// type Comp<T extends As, P> = RegularComponent<T, P> | ExtensibleComponent<T, P>;
 
-export type NatureComponent<T extends As, P extends Dict = {}> = Comp<T, P> & {
-  displayName?: string;
-  propTypes?: React.WeakValidationMap<Omit<PropsOf<T>, 'size'> & P>;
-  defaultProps?: Partial<Omit<PropsOf<T>, 'size'> & P & NatureProps>;
-};
+// export type NatureComponent<T extends As, P extends Dict = {}> = Comp<T, P> & {
+//   displayName?: string;
+//   propTypes?: React.WeakValidationMap<Omit<PropsOf<T>, 'size'> & P>;
+//   defaultProps?: Partial<Omit<PropsOf<T>, 'size'> & P & NatureProps>;
+// };
 
 type Merge<T extends As, P> = P & Omit<PropsOf<T>, keyof P>;
 
@@ -110,3 +109,13 @@ export type ComponentWithAs<Component extends As, Props extends object = {}> = {
   defaultProps?: Partial<any>;
   id?: string;
 };
+
+export interface NatureComponent<T extends As, P = {}>
+  extends ComponentWithAs<
+    T,
+    {
+      displayName?: string;
+      propTypes?: React.WeakValidationMap<Omit<PropsOf<T>, 'size'> & P>;
+      defaultProps?: Partial<Omit<PropsOf<T>, 'size'> & P & NatureProps>;
+    } & P
+  > {}

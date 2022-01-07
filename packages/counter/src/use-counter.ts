@@ -1,15 +1,13 @@
 import { useCallbackRef, useControllableProp } from '@nature-ui/hooks';
 import {
+  clampValue,
+  countDecimalPlaces,
   maxSafeInteger,
   minSafeInteger,
   StringOrNumber,
+  toPrecision,
 } from '@nature-ui/utils';
 import { useCallback, useState } from 'react';
-import {
-  clampValue,
-  countDecimalPlaces,
-  toPrecision,
-} from './../../utils/src/numbers';
 
 const parse = (value: StringOrNumber) =>
   parseFloat(value.toString().replace(/[^\w.-]+/g, ''));
