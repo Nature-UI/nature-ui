@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { EventKeys } from '.';
 import { Booleanish } from './types';
 
 // eslint-disable-next-line import/no-mutable-exports
@@ -46,14 +46,16 @@ export const isBrowser = checkIsBrowser();
  * Get the normalized event key across all browsers
  * @param event keyboard event
  */
-
-export const normalizeEventKey = (event: React.KeyboardEvent) => {
+export const normalizeEventKey = (
+  event: Pick<React.KeyboardEvent, 'key' | 'keyCode'>,
+) => {
   const { key, keyCode } = event;
 
   const isArrowKey =
     keyCode >= 37 && keyCode <= 40 && String(key).indexOf('Arrow') !== 0;
 
-  return isArrowKey ? `Arrow${key}` : key;
+  const eventKey = isArrowKey ? `Arrow${key}` : key;
+  return eventKey as EventKeys;
 };
 
 export const dataAttr = (condition?: boolean) =>

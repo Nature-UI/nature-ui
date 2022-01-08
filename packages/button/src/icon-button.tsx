@@ -1,7 +1,7 @@
 import { clsx, forwardRef } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
-import { Button, ButtonType } from './button';
+import { Button, ButtonProps } from './button';
 
 type Omitted =
   | 'leftIcon'
@@ -10,7 +10,7 @@ type Omitted =
   | 'iconSpacing'
   | 'isIconButton';
 
-type BaseButtonProps = Omit<ButtonType, Omitted>;
+interface BaseButtonProps extends Omit<ButtonProps, Omitted> {}
 
 export interface IconButtonProps extends BaseButtonProps {
   /**
@@ -37,6 +37,7 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
       'aria-label': ariaLabel,
       className = '',
       color = 'gray-200',
+      as, // FIXME: if this is included it breaks the code
       ...rest
     } = props;
 
@@ -45,7 +46,7 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
      */
     const element = icon || children;
     const _children = React.isValidElement(element)
-      ? React.cloneElement(element as any, {
+      ? React.cloneElement(element, {
           'aria-hidden': true,
           focusable: false,
         })

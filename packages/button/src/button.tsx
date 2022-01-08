@@ -17,7 +17,7 @@ import {
 import * as React from 'react';
 import { rippleEffect } from './button-effects';
 
-interface ButtonProps {
+interface ButtonOptions {
   /**
    * The text color of the button. Use a color key passed in theme.colors.
    */
@@ -73,7 +73,7 @@ interface ButtonProps {
   isIconButton?: boolean;
 }
 
-export type ButtonType = HTMLNatureProps<'button'> & ButtonProps;
+export interface ButtonProps extends HTMLNatureProps<'button'>, ButtonOptions {}
 
 const _SIZES = {
   xs: {
@@ -120,7 +120,7 @@ if (__DEV__) {
 }
 
 export const ButtonSpinner = (
-  props: ButtonType & {
+  props: ButtonProps & {
     spinner?: React.ReactNode;
     label?: string;
   },
@@ -144,145 +144,141 @@ export const ButtonSpinner = (
   );
 };
 
-export const Button = React.forwardRef(
-  (props: ButtonType, ref: React.Ref<any>) => {
-    const {
-      as,
-      variant = 'solid',
-      color = 'gray-200',
-      size = 'md',
-      children,
-      text: _text,
-      className = '',
-      isDisabled = false,
-      isLoading = false,
-      loadingText,
-      isActive,
-      leftIcon,
-      rightIcon,
-      isIconButton,
-      iconSpacing = '10px',
-      ...rest
-    } = props;
+export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
+  const {
+    variant = 'solid',
+    color = 'gray-200',
+    size = 'md',
+    children,
+    text: _text,
+    className = '',
+    isDisabled = false,
+    isLoading = false,
+    loadingText,
+    isActive,
+    leftIcon,
+    rightIcon,
+    isIconButton,
+    iconSpacing = '10px',
+    ...rest
+  } = props;
 
-    const textColor = (): string => {
-      const split = color.split('-');
-      const amount = Number(split[split.length - 1]);
-      if (amount >= 300) {
-        return 'white';
-      }
-      if (!amount) {
-        return 'white';
-      }
-      return 'gray-600';
-    };
-
-    let text = _text || textColor();
-
-    const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
-    const _font = _SIZES[size].font ?? '1rem';
-    const _padding = _SIZES[size].padding ?? '0.8rem';
-
-    const _link = variant === 'link';
-
-    const _sizes = css({
-      height: _size,
-      minWidth: _size,
-    });
-
-    if (Number(color.split('-')[1]) <= 400) {
-      text = 'gray-700';
+  const textColor = (): string => {
+    const split = color.split('-');
+    const amount = Number(split[split.length - 1]);
+    if (amount >= 300) {
+      return 'white';
     }
-
-    if (variant === 'ghost') {
-      text = _text || 'gray-700';
+    if (!amount) {
+      return 'white';
     }
+    return 'gray-600';
+  };
 
-    const DEFAULT_CLASS =
-      'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
-    const STYLES = {
-      solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
-      outline: `bg-transparent text-${color ?? text} border border-${
-        color ?? text
-      } focus:border-transparent hover:bg-${lighten(color ?? text)}`,
-      ghost: `hover:bg-${lighten(text)} text-${text}`,
-      link: `hover:underline text-${color}`,
-      disabled: 'opacity-50 cursor-not-allowed',
-    };
+  let text = _text || textColor();
 
-    let BTNClass: string;
+  const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
+  const _font = _SIZES[size].font ?? '1rem';
+  const _padding = _SIZES[size].padding ?? '0.8rem';
 
-    if (variant === 'none') {
-      BTNClass = clsx(
-        {
-          [STYLES.disabled]: isDisabled || isLoading,
-        },
-        className,
-      );
-    } else {
-      BTNClass = clsx(
-        rippleEffect,
-        DEFAULT_CLASS,
-        {
-          [_sizes]: !_link,
-          [STYLES[variant]]: variant,
-          [STYLES.disabled]: isDisabled || isLoading,
-          [_padding]: !isIconButton && !_link,
-        },
-        className,
-      );
-    }
+  const _link = variant === 'link';
 
-    const defaults = {
-      className: BTNClass,
-      ref,
-      as,
-      size,
-      disabled: isDisabled || isLoading,
-      'data-active': dataAttr(isActive),
-      'data-loading': dataAttr(isLoading),
-    };
+  const _sizes = css({
+    height: _size,
+    minWidth: _size,
+  });
 
-    return (
-      <nature.button
-        css={{
-          fontSize: _font,
-        }}
-        {...defaults}
-        {...rest}
-      >
-        {leftIcon && !isLoading && (
-          <ButtonIcon
-            css={{
-              marginRight: iconSpacing,
-            }}
-          >
-            {leftIcon}
-          </ButtonIcon>
-        )}
-        {isLoading ? (
-          <>
-            <ButtonSpinner label={loadingText}>{children}</ButtonSpinner>
-            {children && !loadingText && (
-              <nature.span className='opacity-0'>{children}</nature.span>
-            )}
-          </>
-        ) : (
-          children
-        )}
-        {rightIcon && !isLoading && (
-          <ButtonIcon
-            css={{
-              marginLeft: iconSpacing,
-            }}
-          >
-            {rightIcon}
-          </ButtonIcon>
-        )}
-      </nature.button>
+  if (Number(color.split('-')[1]) <= 400) {
+    text = 'gray-700';
+  }
+
+  if (variant === 'ghost') {
+    text = _text || 'gray-700';
+  }
+
+  const DEFAULT_CLASS =
+    'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
+  const STYLES = {
+    solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
+    outline: `bg-transparent text-${color ?? text} border border-${
+      color ?? text
+    } focus:border-transparent hover:bg-${lighten(color ?? text)}`,
+    ghost: `hover:bg-${lighten(text)} text-${text}`,
+    link: `hover:underline text-${color}`,
+    disabled: 'opacity-50 cursor-not-allowed',
+  };
+
+  let BTNClass: string;
+
+  if (variant === 'none') {
+    BTNClass = clsx(
+      {
+        [STYLES.disabled]: isDisabled || isLoading,
+      },
+      className,
     );
-  },
-);
+  } else {
+    BTNClass = clsx(
+      rippleEffect,
+      DEFAULT_CLASS,
+      {
+        [_sizes]: !_link,
+        [STYLES[variant]]: variant,
+        [STYLES.disabled]: isDisabled || isLoading,
+        [_padding]: !isIconButton && !_link,
+      },
+      className,
+    );
+  }
+
+  const defaults = {
+    className: BTNClass,
+    ref,
+    size,
+    disabled: isDisabled || isLoading,
+    'data-active': dataAttr(isActive),
+    'data-loading': dataAttr(isLoading),
+  };
+
+  return (
+    <nature.button
+      css={{
+        fontSize: _font,
+      }}
+      {...defaults}
+      {...rest}
+    >
+      {leftIcon && !isLoading && (
+        <ButtonIcon
+          css={{
+            marginRight: iconSpacing,
+          }}
+        >
+          {leftIcon}
+        </ButtonIcon>
+      )}
+      {isLoading ? (
+        <>
+          <ButtonSpinner label={loadingText}>{children}</ButtonSpinner>
+          {children && !loadingText && (
+            <nature.span className='opacity-0'>{children}</nature.span>
+          )}
+        </>
+      ) : (
+        children
+      )}
+      {rightIcon && !isLoading && (
+        <ButtonIcon
+          css={{
+            marginLeft: iconSpacing,
+          }}
+        >
+          {rightIcon}
+        </ButtonIcon>
+      )}
+    </nature.button>
+  );
+});
 
 if (__DEV__) {
   Button.displayName = 'Button';

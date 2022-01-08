@@ -1,40 +1,37 @@
-import * as React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
-import { Stack } from '@nature-ui/layout';
 import { SearchIcon } from '@nature-ui/icons';
+import { Stack } from '@nature-ui/layout';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import * as React from 'react';
 import { IoLogoGithub } from 'react-icons/io';
-
-import { Button, ButtonType, ButtonSpinner } from '../src';
+import { Button, ButtonProps, ButtonSpinner } from '../src';
 
 export default {
   title: 'Button/Buttons',
   component: Button,
 } as Meta;
 
-type ButtonStoryType = Story<ButtonType>;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-const Template: ButtonStoryType = (args) => <Button {...args} />;
-
-export const Default: ButtonStoryType = Template.bind({});
+export const Default = Template.bind({});
 Default.args = {
   children: 'Click me',
 };
 
-export const Outlined: ButtonStoryType = Template.bind({});
+export const Outlined = Template.bind({});
 Outlined.args = {
   color: 'blue-500',
   variant: 'outline',
   children: 'Click me!',
 };
 
-export const Ghost: ButtonStoryType = Template.bind({});
+export const Ghost = Template.bind({});
 Ghost.args = {
   text: 'blue-500',
   variant: 'ghost',
   children: 'Hover me!',
 };
 
-export const Link: ButtonStoryType = Template.bind({});
+export const Link = Template.bind({});
 Link.args = {
   color: 'blue-500',
   variant: 'link',
@@ -60,7 +57,7 @@ export const Sizes = () => {
   );
 };
 
-export const IsDisabled: ButtonStoryType = Template.bind({});
+export const IsDisabled = Template.bind({});
 
 IsDisabled.args = {
   isDisabled: true,
