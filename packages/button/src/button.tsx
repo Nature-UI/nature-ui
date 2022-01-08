@@ -1,6 +1,12 @@
 /** ** */
 import { Spinner } from '@nature-ui/spinner';
-import { clsx, css, nature, PropsOf } from '@nature-ui/system';
+import {
+  clsx,
+  css,
+  forwardRef,
+  HTMLNatureProps,
+  nature,
+} from '@nature-ui/system';
 import {
   darken,
   dataAttr,
@@ -67,9 +73,7 @@ interface ButtonProps {
   isIconButton?: boolean;
 }
 
-const NatureButton = nature('button');
-
-export type ButtonType = PropsOf<typeof NatureButton> & ButtonProps;
+export type ButtonType = HTMLNatureProps<'button'> & ButtonProps;
 
 const _SIZES = {
   xs: {
@@ -94,7 +98,7 @@ const _SIZES = {
   },
 };
 
-const ButtonIcon = (props: PropsOf<typeof nature.span>) => {
+const ButtonIcon = forwardRef<HTMLNatureProps<'span'>, 'span'>((props, ref) => {
   const { children, ...rest } = props;
 
   const _children = React.isValidElement(children)
@@ -104,8 +108,12 @@ const ButtonIcon = (props: PropsOf<typeof nature.span>) => {
       })
     : children;
 
-  return <nature.span {...rest}>{_children}</nature.span>;
-};
+  return (
+    <nature.span ref={ref} {...rest}>
+      {_children}
+    </nature.span>
+  );
+});
 
 if (__DEV__) {
   ButtonIcon.displayName = 'ButtonIcon';
@@ -236,7 +244,7 @@ export const Button = React.forwardRef(
     };
 
     return (
-      <NatureButton
+      <nature.button
         css={{
           fontSize: _font,
         }}
@@ -271,7 +279,7 @@ export const Button = React.forwardRef(
             {rightIcon}
           </ButtonIcon>
         )}
-      </NatureButton>
+      </nature.button>
     );
   },
 );
