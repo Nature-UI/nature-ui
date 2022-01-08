@@ -153,6 +153,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     text: _text,
     className = '',
     isDisabled = false,
+    disabled = false,
     isLoading = false,
     loadingText,
     isActive,
@@ -180,6 +181,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
   const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
   const _font = _SIZES[size].font ?? '1rem';
   const _padding = _SIZES[size].padding ?? '0.8rem';
+  const _disabled = isDisabled || disabled || isLoading;
 
   const _link = variant === 'link';
 
@@ -213,7 +215,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
   if (variant === 'none') {
     BTNClass = clsx(
       {
-        [STYLES.disabled]: isDisabled || isLoading,
+        [STYLES.disabled]: _disabled,
       },
       className,
     );
@@ -224,7 +226,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
       {
         [_sizes]: !_link,
         [STYLES[variant]]: variant,
-        [STYLES.disabled]: isDisabled || isLoading,
+        [STYLES.disabled]: _disabled,
         [_padding]: !isIconButton && !_link,
       },
       className,
@@ -235,7 +237,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     className: BTNClass,
     ref,
     size,
-    disabled: isDisabled || isLoading,
+    disabled: _disabled,
     'data-active': dataAttr(isActive),
     'data-loading': dataAttr(isLoading),
   };

@@ -17,8 +17,8 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "airbnb-typescript",
-    "prettier"
-    // "prettier/react",
+    "prettier",
+    "prettier/react"
   ],
   "plugins": [
     "react-hooks",
