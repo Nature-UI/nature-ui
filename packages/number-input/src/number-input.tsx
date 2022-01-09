@@ -1,6 +1,8 @@
 import { useFormControlProps } from '@nature-ui/form-control';
+import { Input } from '@nature-ui/input';
 import { createContext } from '@nature-ui/react-utils';
 import {
+  clsx,
   forwardRef,
   HTMLNatureProps,
   nature,
@@ -41,7 +43,7 @@ interface InputOptions {
   errorBorderColor?: string;
 }
 
-export interface NumberInputProps
+export interface NumberInputWrapperProps
   extends UseNumberInputProps,
     UseNumberInputProps,
     InputOptions,
@@ -57,21 +59,32 @@ export interface NumberInputProps
  *
  * @see Docs https://nature-ui.com/numberinput
  */
-export const NumberInput = forwardRef<NumberInputProps, 'div'>((props, ref) => {
-  const controlProps = useFormControlProps(props);
+export const NumberInputWrapper = forwardRef<NumberInputWrapperProps, 'div'>(
+  (props, ref) => {
+    const controlProps = useFormControlProps(props);
 
-  const { htmlProps, ...context } = useNumberInput(props);
-  const ctx = React.useMemo(() => context, [context]);
+    const { htmlProps, ...context } = useNumberInput(controlProps);
+    const ctx = React.useMemo(() => context, [context]);
 
-  return (
-    <NumberInputProvider value={ctx}>
-      <nature.div ref={ref} {...htmlProps} {...controlProps} />
-    </NumberInputProvider>
-  );
-});
+    return (
+      <NumberInputProvider value={ctx}>
+        <nature.div
+          ref={ref}
+          {...htmlProps}
+          className={clsx('relative z-0', props.className)}
+          css={{
+            '&::before': {
+              // borderColor:
+            },
+          }}
+        />
+      </NumberInputProvider>
+    );
+  },
+);
 
 if (__DEV__) {
-  NumberInput.displayName = 'NumberInput';
+  NumberInputWrapper.displayName = 'NumberInput';
 }
 
 export interface NumberInputStepperProps extends HTMLNatureProps<'div'> {}
@@ -88,7 +101,17 @@ export interface NumberInputStepperProps extends HTMLNatureProps<'div'> {}
  */
 export const NumberInputStepper = forwardRef<NumberInputStepperProps, 'div'>(
   (props, ref) => {
-    return <nature.div aria-hidden ref={ref} {...props} />;
+    return (
+      <nature.div
+        {...props}
+        className={clsx(
+          'flex flex-col absolute top-0 m-1 h-full z-10',
+          props.className,
+        )}
+        aria-hidden
+        ref={ref}
+      />
+    );
   },
 );
 
@@ -115,7 +138,7 @@ export const NumberInputField = forwardRef<NumberInputFieldProps, 'input'>(
 
     const input = getInputProps(props, ref);
 
-    return <nature.input {...input} />;
+    return <Input {...input} />;
   },
 );
 
@@ -176,3 +199,31 @@ export const NumberIncrementStepper = forwardRef<
 if (__DEV__) {
   NumberIncrementStepper.displayName = 'NumberIncrementStepper';
 }
+
+export interface NumberInputProps extends NumberInputWrapperProps {
+  inputProps?: NumberInputFieldProps;
+  stepperProps?: NumberInputStepperProps;
+  incrementStepperProps?: NumberIncrementStepperProps;
+  decrementStepperProps?: NumberDecrementStepperProps;
+}
+
+export const NumberInput = forwardRef<NumberInputProps, 'input'>(
+  (props, ref) => {
+    const {
+      inputProps,
+      stepperProps,
+      incrementStepperProps,
+      decrementStepperProps,
+      ...rest
+    } = props;
+    return (
+      <NumberInputWrapper {...rest}>
+        <NumberInputField {...inputProps} ref={ref} />
+        <NumberInputStepper {...stepperProps}>
+          <NumberIncrementStepper {...incrementStepperProps} />
+          <NumberDecrementStepper {...decrementStepperProps} />
+        </NumberInputStepper>
+      </NumberInputWrapper>
+    );
+  },
+);
