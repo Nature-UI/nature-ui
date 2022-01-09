@@ -1,12 +1,15 @@
 /** ** */
-import { FormControlOptions, useFormControl } from '@nature-ui/form-control';
-import { clsx, css, nature, PropsOf } from '@nature-ui/system';
+import { FormControlOptions } from '@nature-ui/form-control';
+import {
+  clsx,
+  css,
+  forwardRef,
+  HTMLNatureProps,
+  nature,
+} from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 import { InputLeftAddon, InputRightAddon } from './input-addon';
-
-const InputTag = nature('input');
-const SpanTag = nature('span');
 
 interface InputOptions {
   /**
@@ -37,7 +40,7 @@ interface InputOptions {
   addonRight?: React.ReactNode;
 }
 
-type Omitted = 'disabled' | 'required' | 'readOnly';
+type Omitted = 'disabled' | 'required' | 'readOnly' | 'size';
 
 const _SIZES = {
   sm: {
@@ -69,14 +72,13 @@ const _PADDING = {
   },
 };
 
-export type InputProps = Omit<PropsOf<typeof StyledInput>, Omitted>;
-
-type StyledInputProps = PropsOf<typeof InputTag> &
-  InputOptions &
-  FormControlOptions & {
-    size?: keyof typeof _SIZES | number;
-    variant?: 'outline' | 'filled' | 'flushed' | 'unstyled';
-  };
+export interface InputProps
+  extends Omit<HTMLNatureProps<'input'>, Omitted>,
+    InputOptions,
+    FormControlOptions {
+  size?: keyof typeof _SIZES | number;
+  variant?: 'outline' | 'filled' | 'flushed' | 'unstyled';
+}
 
 /**
  * Input - Theming
@@ -84,109 +86,92 @@ type StyledInputProps = PropsOf<typeof InputTag> &
  * To style the input globally, change the styles in
  * `theme.components.Input`
  */
-const StyledInput = React.forwardRef(
-  (props: StyledInputProps, ref: React.Ref<any>) => {
-    const {
-      className = '',
-      size = 'md',
-      isInvalid,
-      isReadOnly,
-      isDisabled,
-      variant = 'outline',
-      addonLeft,
-      addonRight,
-      focusBorderColor,
-      errorBorderColor,
-      ...rest
-    } = props;
+export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
+  const {
+    className = '',
+    size = 'md',
+    isInvalid,
+    isReadOnly,
+    isDisabled,
+    variant = 'outline',
+    addonLeft,
+    addonRight,
+    focusBorderColor,
+    errorBorderColor,
+    ...rest
+  } = props;
 
-    const _addon = addonLeft || addonRight;
+  const _addon = addonLeft || addonRight;
 
-    const _padding = typeof size === 'string' && css(_PADDING[size]);
-    const _css = typeof size === 'string' && css(_SIZES[size]);
+  const _padding = typeof size === 'string' && css(_PADDING[size]);
+  const _css = typeof size === 'string' && css(_SIZES[size]);
 
-    const _height =
-      typeof size === 'number' &&
-      css`
-        height: ${size}px;
-      `;
-
-    const _border = css`
-      &:focus {
-        border-width: 2px;
-      }
+  const _height =
+    typeof size === 'number' &&
+    css`
+      height: ${size}px;
     `;
 
-    const _focusBorderColor = focusBorderColor || 'blue-600';
-    const _errorBorderColor = errorBorderColor || 'red-500';
-    const _invalid = `focus:border-${_errorBorderColor} border-${_errorBorderColor} border-2`;
-
-    const _outline = variant === 'outline';
-    const _filled = variant === 'filled';
-    const _flushed = variant === 'flushed';
-    const _unstyled = variant === 'unstyled';
-
-    const _className = clsx(
-      'w-full outline-none transition-all duration-150',
-      {
-        [_invalid]: isInvalid,
-        border: !isInvalid && _outline,
-        [_border]: !isReadOnly && (_outline || _filled),
-        'cursor-not-allowed opacity-50': isDisabled,
-        'border-solid border-gray-200': _outline,
-        [`focus:border-${_focusBorderColor}`]:
-          !isInvalid && (_outline || _filled),
-        'hover:bg-gray-300 bg-gray-200 focus:bg-transparent': _filled,
-        [`${String(_padding)} rounded`]: _filled || _outline,
-        [`border-b-2 border-gray-200 focus:border-${_focusBorderColor}`]:
-          _flushed,
-        [(String(_height), String(_css))]: !_unstyled,
-      },
-      className,
-    );
-
-    const _withAddon = clsx(
-      {
-        'rounded-l-none': addonLeft,
-        'rounded-r-none': addonRight,
-      },
-      _className,
-    );
-
-    if (_addon) {
-      return (
-        <SpanTag className='flex'>
-          {addonLeft && (
-            <InputLeftAddon className={String(_css)}>
-              {addonLeft}
-            </InputLeftAddon>
-          )}
-          <InputTag ref={ref} className={_withAddon} {...rest} />
-          {addonRight && (
-            <InputRightAddon className={String(_css)}>
-              {addonRight}
-            </InputRightAddon>
-          )}
-        </SpanTag>
-      );
+  const _border = css`
+    &:focus {
+      border-width: 2px;
     }
+  `;
 
-    return <InputTag ref={ref} className={_className} {...rest} />;
-  },
-);
+  const _focusBorderColor = focusBorderColor || 'blue-600';
+  const _errorBorderColor = errorBorderColor || 'red-500';
+  const _invalid = `focus:border-${_errorBorderColor} border-${_errorBorderColor} border-2`;
 
-/**
- * Input
- *
- * Element that allows users enter single valued data.
- */
-export const Input = React.forwardRef(
-  (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-    const inputProps = useFormControl<HTMLInputElement>(props);
+  const _outline = variant === 'outline';
+  const _filled = variant === 'filled';
+  const _flushed = variant === 'flushed';
+  const _unstyled = variant === 'unstyled';
 
-    return <StyledInput ref={ref} {...inputProps} />;
-  },
-);
+  const _className = clsx(
+    'w-full outline-none transition-all duration-150',
+    {
+      [_invalid]: isInvalid,
+      border: !isInvalid && _outline,
+      [_border]: !isReadOnly && (_outline || _filled),
+      'cursor-not-allowed opacity-50': isDisabled,
+      'border-solid border-gray-200': _outline,
+      [`focus:border-${_focusBorderColor}`]:
+        !isInvalid && (_outline || _filled),
+      'hover:bg-gray-300 bg-gray-200 focus:bg-transparent': _filled,
+      [`${String(_padding)} rounded`]: _filled || _outline,
+      [`border-b-2 border-gray-200 focus:border-${_focusBorderColor}`]:
+        _flushed,
+      [(String(_height), String(_css))]: !_unstyled,
+    },
+    className,
+  );
+
+  const _withAddon = clsx(
+    {
+      'rounded-l-none': addonLeft,
+      'rounded-r-none': addonRight,
+    },
+    _className,
+  );
+
+  if (_addon) {
+    return (
+      <nature.span className='flex'>
+        {addonLeft && (
+          <InputLeftAddon className={String(_css)}>{addonLeft}</InputLeftAddon>
+        )}
+        <nature.input ref={ref} className={_withAddon} {...rest} />
+        {addonRight && (
+          <InputRightAddon className={String(_css)}>
+            {addonRight}
+          </InputRightAddon>
+        )}
+      </nature.span>
+    );
+  }
+
+  return <nature.input ref={ref} className={_className} {...rest} />;
+});
 
 if (__DEV__) {
   Input.displayName = 'Input';

@@ -16,22 +16,19 @@ export default {
   ],
 } as Meta;
 
-type InputType = Story<InputProps>;
+const Template: Story<InputProps> = (args) => <Input {...args} />;
 
-const Template: InputType = (args) => <Input {...args} />;
-
-export const Basic: InputType = Template.bind({});
+export const Basic = Template.bind({});
 Basic.args = {
   placeholder: 'Basic input',
 };
 
-export const WithSizes: InputType = () => {
+export const WithSizes = () => {
   return (
     <Stack spacing='1rem'>
       {['sm', 'md', 'lg'].map((size) => (
         <Input
-          // @ts-ignore
-          size={size}
+          size={size as any}
           placeholder='This is an input component'
           key={size}
         />
@@ -40,7 +37,7 @@ export const WithSizes: InputType = () => {
   );
 };
 
-export const Controlled: InputType = () => {
+export const Controlled = () => {
   const [value, setValue] = React.useState('Starting...');
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(event.target.value);
@@ -57,7 +54,7 @@ export const Controlled: InputType = () => {
   );
 };
 
-export const WithStates: InputType = () => (
+export const WithStates = () => (
   <Stack>
     <Input placeholder='Idle' />
     <Input isInvalid placeholder='isInvalid' />
@@ -66,7 +63,7 @@ export const WithStates: InputType = () => (
   </Stack>
 );
 
-export const WithVariants: InputType = () => (
+export const WithVariants = () => (
   <Stack spacing='2rem'>
     <Input variant='outline' placeholder='Outline' />
     <Input variant='filled' placeholder='Filled' />
