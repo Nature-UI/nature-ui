@@ -7,6 +7,7 @@ export * from '@nature-ui/checkbox';
 export * from '@nature-ui/close-button';
 export * from '@nature-ui/collapse';
 export * from '@nature-ui/container';
+export * from '@nature-ui/counter';
 export * from '@nature-ui/drawer';
 export * from '@nature-ui/form-control';
 export * from '@nature-ui/hooks';

@@ -44,9 +44,9 @@
   "dependencies": {
     "@nature-ui/hooks": "^1.1.1",
     "@nature-ui/icon": "^1.1.3",
+    "@nature-ui/react-utils": "^1.0.0",
     "@nature-ui/system": "^2.0.1",
-    "@nature-ui/utils": "^1.1.1",
-    "@nature-ui/react-utils": "^1.0.0"
+    "@nature-ui/utils": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^17"

@@ -39,6 +39,7 @@
     "@nature-ui/close-button": "^1.1.2",
     "@nature-ui/collapse": "^1.1.3",
     "@nature-ui/container": "^1.1.3",
+    "@nature-ui/counter": "^1.0.0",
     "@nature-ui/drawer": "^1.1.1",
     "@nature-ui/form-control": "^1.1.3",
     "@nature-ui/hooks": "^1.1.1",
