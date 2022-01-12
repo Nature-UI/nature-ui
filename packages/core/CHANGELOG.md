@@ -1,5 +1,23 @@
 # @nature-ui/core
 
+## 1.3.0
+
+### Minor Changes
+
+- 2582cd2:
+
+### Patch Changes
+
+- Updated dependencies [2582cd2]
+  - @nature-ui/hooks@1.2.0
+  - @nature-ui/counter@1.1.0
+  - @nature-ui/form-control@1.2.0
+  - @nature-ui/button@1.2.0
+  - @nature-ui/image@1.3.0
+  - @nature-ui/system@2.1.0
+  - @nature-ui/input@1.2.0
+  - @nature-ui/avatar@1.2.0
+
 ## 1.2.3
 
 ### Patch Changes

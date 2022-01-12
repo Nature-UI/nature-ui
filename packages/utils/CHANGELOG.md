@@ -1,5 +1,11 @@
 # @nature-ui/utils
 
+## 1.2.0
+
+### Minor Changes
+
+- 2582cd2:
+
 ## 1.1.1
 
 ### Patch Changes
