@@ -1,5 +1,5 @@
 /** ** */
-import { FormControlOptions } from '@nature-ui/form-control';
+import { FormControlOptions, useFormControl } from '@nature-ui/form-control';
 import {
   clsx,
   css,
@@ -102,7 +102,12 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   } = props;
 
   const _addon = addonLeft || addonRight;
-
+  const input = useFormControl<HTMLInputElement>({
+    isInvalid,
+    isReadOnly,
+    isDisabled,
+    ...rest,
+  });
   const _padding = typeof size === 'string' && css(_PADDING[size]);
   const _css = typeof size === 'string' && css(_SIZES[size]);
 
@@ -160,7 +165,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
         {addonLeft && (
           <InputLeftAddon className={String(_css)}>{addonLeft}</InputLeftAddon>
         )}
-        <nature.input ref={ref} className={_withAddon} {...rest} />
+        <nature.input {...input} ref={ref} className={_withAddon} />
         {addonRight && (
           <InputRightAddon className={String(_css)}>
             {addonRight}
@@ -170,7 +175,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     );
   }
 
-  return <nature.input ref={ref} className={_className} {...rest} />;
+  return <nature.input {...input} ref={ref} className={_className} />;
 });
 
 if (__DEV__) {

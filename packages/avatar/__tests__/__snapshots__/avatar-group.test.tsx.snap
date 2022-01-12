@@ -4,6 +4,7 @@ exports[`@nature-ui/avatar AvatarGroup renders correctly 1`] = `
 <DocumentFragment>
   <div
     class=" flex items-center justify-end flex-row-reverse "
+    role="group"
   >
     <span
       class="border-2 items-center inline-flex text-center justify-center uppercase font-medium relative flex-shrink-0 rounded-full border-solid border-white css-1edvott css-17of72q css-qhbmea css-qhbmea"

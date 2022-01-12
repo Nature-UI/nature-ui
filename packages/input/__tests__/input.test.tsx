@@ -25,8 +25,11 @@ describe('@nature-ui/input', () => {
   });
 
   test('Invalid input renders correctly', () => {
-    const { getByTestId } = render(<Input isInvalid data-testid='input' />);
+    const { getByTestId, container } = render(
+      <Input isInvalid data-testid='input' />,
+    );
     const input = getByTestId('input');
+    console.log(container.innerHTML);
 
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
