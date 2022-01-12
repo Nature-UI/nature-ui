@@ -1,16 +1,23 @@
 /** ** */
-import { nature, PropsOf, clsx } from '@nature-ui/system';
-import * as React from 'react';
-import { Meta } from '@storybook/react';
-
 import {
-  FormControlOptions,
+  clsx,
+  forwardRef,
+  HTMLNatureProps,
+  nature,
+  PropsOf,
+} from '@nature-ui/system';
+import { StringOrNumber } from '@nature-ui/utils';
+import { Meta } from '@storybook/react';
+import * as React from 'react';
+import {
   FormControl,
+  FormControlOptions,
+  FormErrorIcon,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
+  RequiredIndicator,
   useFormControl,
-  FormErrorIcon,
 } from '../src';
 
 export default {
@@ -19,59 +26,61 @@ export default {
   decorators: [(story: Function) => <div className='max-w-md'>{story()}</div>],
 } as Meta;
 
-const InputTag = nature('input');
 const TextareaTag = nature('textarea');
 const SelectTag = nature('select');
 
 type OmittedTypes = 'disabled' | 'required' | 'readOnly' | 'size';
 
-type InputProps = Omit<PropsOf<typeof StyledInput>, OmittedTypes> &
+type InputProps = Omit<HTMLNatureProps<'input'>, OmittedTypes> &
   FormControlOptions & {
     // Input component as `size` by default so it resolves to `never`
-    size?: string;
+    size?: StringOrNumber;
   };
 
-// Create an input that consumes useFromControl
-type Props = { focusBorderColor?: string; errorBorderColor?: string };
+const Input = forwardRef<InputProps, 'input'>((props, ref) => {
+  const inputProps = useFormControl<HTMLInputElement>(props);
+  const { className = '', ...rest } = props;
+  const { 'aria-invalid': isInvalid } = inputProps;
 
-const StyledInput = (props: PropsOf<typeof InputTag> & Props) => (
-  <InputTag {...props} />
-);
+  const _className = clsx(
+    'h-10 px-4 rounded border-2 border-solid outline-none w-full',
+    {
+      [className]: className,
+      'border-red-600 focus:border-red-600': isInvalid,
+      'focus:border-blue-400': !isInvalid,
+    },
+  );
 
-const Input = React.forwardRef(
-  (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
-    const inputProps = useFormControl<HTMLInputElement>(props);
-    const { className = '', ...rest } = props;
-    const { 'aria-invalid': isInvalid } = inputProps;
-
-    const _className = clsx(
-      'h-10 px-4 rounded border-2 border-solid outline-none w-full',
-      {
-        [className]: className,
-        'border-red-600 focus:border-red-600': isInvalid,
-        'focus:border-blue-400': !isInvalid,
-      },
-    );
-
-    return (
-      <StyledInput className={_className} ref={ref} {...inputProps} {...rest} />
-    );
-  },
-);
+  return (
+    //@ts-ignore
+    <nature.input className={_className} ref={ref} {...inputProps} {...rest} />
+  );
+});
 
 export const InputExample = () => (
   <FormControl id='first-name' isRequired isInvalid>
     <FormLabel>First name</FormLabel>
+    <RequiredIndicator data-testid='indicator' />
     <Input placeholder='First Name' />
     <FormHelperText>Keep it very short and sweet!</FormHelperText>
     <FormErrorMessage>Your First name is invalid</FormErrorMessage>
   </FormControl>
 );
 
-type TextAreaProps = Omit<PropsOf<'textarea'>, OmittedTypes> &
+type TextAreaProps = Omit<HTMLNatureProps<'textarea'>, OmittedTypes> &
   FormControlOptions;
 
-const StyledTextArea = (props: TextAreaProps) => {
+const TextArea = forwardRef<TextAreaProps, 'textarea'>((props, ref) => {
+  const inputProps = useFormControl<HTMLTextAreaElement>(props);
+  const { className = '', ...rest } = props;
+
+  const { 'aria-invalid': isInvalid } = inputProps;
+
+  const _className = clsx('w-full border-solid border-2 rounded', {
+    [className]: className,
+    'border-red-600': isInvalid,
+  });
+
   return (
     <TextareaTag
       css={{
@@ -79,33 +88,13 @@ const StyledTextArea = (props: TextAreaProps) => {
         minHeight: '80px',
         lineHeight: 'short',
       }}
-      {...props}
+      className={_className}
+      ref={ref}
+      {...inputProps}
+      {...rest}
     />
   );
-};
-
-const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  (props, ref) => {
-    const inputProps = useFormControl<HTMLTextAreaElement>(props);
-    const { className = '', ...rest } = props;
-
-    const { 'aria-invalid': isInvalid } = inputProps;
-
-    const _className = clsx('w-full border-solid border-2 rounded', {
-      [className]: className,
-      'border-red-600': isInvalid,
-    });
-
-    return (
-      <StyledTextArea
-        ref={ref}
-        className={_className}
-        {...inputProps}
-        {...rest}
-      />
-    );
-  },
-);
+});
 
 export const TextAreaExample = () => (
   <FormControl as='fieldset' id='first-name' isInvalid>

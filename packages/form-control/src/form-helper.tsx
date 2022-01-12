@@ -1,17 +1,7 @@
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
-import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { clsx, forwardRef, HTMLNatureProps, nature } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-import React from 'react';
 import { useFormControlContext } from './form-control';
-
-/**
- * FormHelperText
- */
-const StyledHelperText = (props: PropsOf<typeof nature.div>) => (
-  <nature.div {...props} />
-);
-
-export type HelpTextProps = PropsOf<typeof StyledHelperText>;
 
 /**
  * FormHelperText
@@ -20,8 +10,8 @@ export type HelpTextProps = PropsOf<typeof StyledHelperText>;
  * about the field, such as how it will be used and what
  * types in values should be provided.
  */
-export const FormHelperText = forwardRef(
-  (props: HelpTextProps, ref: React.Ref<any>) => {
+export const FormHelperText = forwardRef<HTMLNatureProps<'div'>, 'div'>(
+  (props, ref) => {
     const field = useFormControlContext();
     const { className = '', ...rest } = props;
 
@@ -38,7 +28,7 @@ export const FormHelperText = forwardRef(
     const _className = clsx('mt-2 text-sm text-gray-400', className);
 
     return (
-      <StyledHelperText
+      <nature.div
         className={_className}
         ref={ref}
         id={props.id ?? field?.helpTextId}

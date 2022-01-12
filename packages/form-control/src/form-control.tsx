@@ -146,6 +146,7 @@ const useFormControlProvider = (props: FormControlContext) => {
         if (!node) return;
         setHasFeedbackText.on();
       }),
+      'aria-live': 'polite',
     }),
     [feedbackId],
   );

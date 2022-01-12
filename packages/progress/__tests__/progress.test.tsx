@@ -44,7 +44,7 @@ describe('@nature-ui/circular-progress', () => {
     utils.rerender(
       <CircularProgress
         {...props}
-        getValueText={(value, percent) => `${value} (${percent}%)`}
+        getValueText={(value: any, percent: any) => `${value} (${percent}%)`}
       />,
     );
 

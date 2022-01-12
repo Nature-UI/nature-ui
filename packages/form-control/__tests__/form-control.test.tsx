@@ -1,7 +1,5 @@
-import { nature, PropsOf } from '@nature-ui/system';
-import { render, fireEvent } from '@nature-ui/test-utils';
-import * as React from 'react';
-
+import { forwardRef, HTMLNatureProps, nature } from '@nature-ui/system';
+import { fireEvent, render, screen } from '@nature-ui/test-utils';
 import {
   FormControl,
   FormControlOptions,
@@ -14,26 +12,71 @@ import {
 } from '../src';
 
 type OmittedTypes = 'disabled' | 'required' | 'readOnly';
-type InputProps = Omit<PropsOf<typeof StyledInput>, OmittedTypes> &
-  FormControlOptions;
+interface InputProps
+  extends Omit<HTMLNatureProps<'input'>, OmittedTypes>,
+    FormControlOptions {
+  focusBorderColor?: string;
+  errorBorderColor?: string;
+}
 
-// Create an input that consumes useFormControl
-type InputOptions = { focusBorderColor?: string; errorBorderColor?: string };
-const StyledInput = nature<'input', InputOptions>('input');
-
-StyledInput.displayName = 'StyledInput';
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   const inputProps = useFormControl<HTMLInputElement>(props);
 
-  return <StyledInput ref={ref} {...inputProps} />;
+  return <nature.input ref={ref} {...inputProps} />;
 });
 
 Input.displayName = 'Input';
+describe('@nature-ui/form-control', () => {
+  test('only displays error icon and message when invalid', () => {
+    const { rerender } = render(
+      <FormControl id='name' isInvalid>
+        <FormLabel>Name</FormLabel>
+        <RequiredIndicator />
+        <Input placeholder='Name' />
+        <FormHelperText>Enter your name please!</FormHelperText>
+        <FormErrorIcon data-testid='icon' />
+        <FormErrorMessage data-testid='message'>
+          Your name is invalid
+        </FormErrorMessage>
+      </FormControl>,
+    );
 
-describe('@nture-ui/form-control', () => {
-  test('FormControl renders correctly in default state', () => {
-    const tools = render(
+    expect(screen.getByTestId('icon')).toBeVisible();
+    expect(screen.getByTestId('message')).toBeVisible();
+
+    rerender(
+      <FormControl id='name'>
+        <FormLabel>Name</FormLabel>
+        <RequiredIndicator />
+        <Input placeholder='Name' />
+        <FormHelperText>Enter your name please!</FormHelperText>
+        <FormErrorIcon data-testid='icon' />
+        <FormErrorMessage data-testid='message'>
+          Your name is invalid
+        </FormErrorMessage>
+      </FormControl>,
+    );
+
+    expect(screen.queryByTestId('icon')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('message')).not.toBeInTheDocument();
+  });
+
+  test('only displays required indicator when required', () => {
+    const { rerender } = render(
+      <FormControl id='name' isRequired>
+        <FormLabel>Name</FormLabel>
+        <Input placeholder='Name' />
+        <FormHelperText>Enter your name please!</FormHelperText>
+        <FormErrorMessage>Your name is invalid</FormErrorMessage>
+      </FormControl>,
+    );
+
+    const indicator = screen.getByRole('presentation', { hidden: true });
+
+    expect(indicator).toBeVisible();
+    expect(indicator).toHaveTextContent('*');
+
+    rerender(
       <FormControl id='name'>
         <FormLabel>Name</FormLabel>
         <Input placeholder='Name' />
@@ -42,43 +85,14 @@ describe('@nture-ui/form-control', () => {
       </FormControl>,
     );
 
-    expect(tools.asFragment()).toMatchSnapshot();
-  });
-
-  test('FormControl renders correctly when required', () => {
-    const tools = render(
-      <FormControl id='name' isRequired>
-        <FormLabel>Name</FormLabel>
-        <RequiredIndicator />
-        <Input placeholder='Name' />
-        <FormHelperText>Enter your name please!</FormHelperText>
-        <FormErrorMessage>Your name is invalid</FormErrorMessage>
-      </FormControl>,
-    );
-
-    expect(tools.asFragment()).toMatchSnapshot();
-  });
-
-  test('FormControl renders correctly when invalid', () => {
-    const tools = render(
-      <FormControl id='name' isInvalid>
-        <FormLabel>Name</FormLabel>
-        <RequiredIndicator />
-        <Input placeholder='Name' />
-        <FormHelperText>Enter your name please!</FormHelperText>
-        <FormErrorIcon />
-        <FormErrorMessage>Your name is invalid</FormErrorMessage>
-      </FormControl>,
-    );
-
-    expect(tools.asFragment()).toMatchSnapshot();
+    expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
   });
 
   test('useFormControl calls provided input callbacks', () => {
     const onFocus = jest.fn();
     const onBlur = jest.fn();
 
-    const utils = render(
+    render(
       <FormControl id='name'>
         <FormLabel>Name</FormLabel>
         <Input
@@ -89,33 +103,32 @@ describe('@nture-ui/form-control', () => {
         />
       </FormControl>,
     );
-    const input = utils.getByTestId('input');
+    const input = screen.getByTestId('input');
 
     fireEvent.focus(input);
     fireEvent.blur(input);
-    expect(onFocus).toHaveBeenCalledWith(expect.anything());
-    expect(onBlur).toHaveBeenCalledWith(expect.anything());
+    expect(onFocus).toHaveBeenCalled();
+    expect(onBlur).toHaveBeenCalled();
   });
 
   test('has the proper aria attributes', async () => {
-    const utils = render(
+    const { rerender, container } = render(
       <FormControl id='name'>
         <FormLabel>Name</FormLabel>
         <Input placeholder='Name' />
         <FormHelperText>Enter your name please!</FormHelperText>
       </FormControl>,
     );
-    let input = utils.getByLabelText('Name');
+    let input = screen.getByLabelText(/Name/);
 
     expect(input).toHaveAttribute('aria-describedby', 'name-helptext');
     expect(input).not.toHaveAttribute('aria-invalid');
     expect(input).not.toHaveAttribute('aria-required');
     expect(input).not.toHaveAttribute('aria-readonly');
 
-    utils.rerender(
+    rerender(
       <FormControl id='name' isRequired isInvalid isReadOnly>
         <FormLabel>Name</FormLabel>
-        <RequiredIndicator data-testid='indicator' />
         <Input placeholder='Name' />
         <FormHelperText>Enter your name please!</FormHelperText>
         <FormErrorMessage data-testid='error'>
@@ -123,9 +136,9 @@ describe('@nture-ui/form-control', () => {
         </FormErrorMessage>
       </FormControl>,
     );
-    input = utils.getByLabelText('Name');
-    const indicator = utils.getByTestId('indicator');
-    const errorMessage = utils.getByTestId('error');
+    input = screen.getByLabelText(/Name/);
+    const indicator = screen.getByRole('presentation', { hidden: true });
+    const errorMessage = screen.getByTestId('error');
 
     expect(input).toHaveAttribute('aria-invalid', 'true');
     expect(input).toHaveAttribute('aria-required', 'true');
@@ -134,36 +147,34 @@ describe('@nture-ui/form-control', () => {
       'aria-describedby',
       'name-feedback name-helptext',
     );
+    console.log({ util: container.innerHTML });
     expect(indicator).toHaveAttribute('aria-hidden');
     expect(errorMessage).toHaveAttribute('aria-live', 'polite');
   });
 
   test('has the correct role attributes', () => {
-    const utils = render(
+    render(
       <FormControl data-testid='control' id='name' isRequired>
         <FormLabel>Name</FormLabel>
-        <RequiredIndicator data-testid='indicator' />
         <Input placeholder='Name' />
       </FormControl>,
     );
-    const control = utils.getByTestId('control');
-    const indicator = utils.getByTestId('indicator');
+    const control = screen.getByTestId('control');
 
-    expect(utils.getByRole('presentation', { hidden: true })).toStrictEqual(
-      indicator,
-    );
-    expect(utils.getByRole('group')).toStrictEqual(control);
+    expect(
+      screen.getByRole('presentation', { hidden: true }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('group')).toEqual(control);
   });
 
-  test('has the correct data attributes', () => {
-    const utils = render(
+  test('has the correct data attributes', async () => {
+    render(
       <FormControl
         data-testid='control'
         id='name'
         isRequired
         isInvalid
         isDisabled
-        isLoading
         isReadOnly
       >
         <FormLabel data-testid='label'>Name</FormLabel>
@@ -177,14 +188,35 @@ describe('@nture-ui/form-control', () => {
         </FormErrorMessage>
       </FormControl>,
     );
-    const label = utils.getByTestId('label');
 
-    fireEvent.focus(utils.getByLabelText('Name'));
+    fireEvent.focus(screen.getByLabelText(/Name/));
 
+    const label = screen.getByTestId('label');
     expect(label).toHaveAttribute('data-focus');
     expect(label).toHaveAttribute('data-invalid');
-
-    expect(label).toHaveAttribute('data-loading');
     expect(label).toHaveAttribute('data-readonly');
+  });
+
+  test('can provide a custom aria-describedby reference', () => {
+    const { rerender } = render(<Input aria-describedby='reference' />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-describedby',
+      'reference',
+    );
+
+    rerender(
+      <FormControl id='name'>
+        <Input aria-describedby='name-expanded-helptext' />
+        <FormHelperText>Please enter your name!</FormHelperText>
+        <p id='name-expanded-helptext'>
+          Sometimes it can be really helpfull to enter a name, trust me.
+        </p>
+      </FormControl>,
+    );
+
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-describedby',
+      'name-expanded-helptext name-helptext',
+    );
   });
 });

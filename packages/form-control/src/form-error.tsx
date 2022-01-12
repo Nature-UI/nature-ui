@@ -1,38 +1,29 @@
 import { Icon, SvgIconProps } from '@nature-ui/icon';
-import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { clsx, forwardRef, HTMLNatureProps, nature } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import React from 'react';
 import { useFormControlContext } from './form-control';
-
-const StyledErrorText = (props: PropsOf<typeof nature.div>) => {
-  const { className = '', ...rest } = props;
-
-  const _className = clsx('flex items-center', className);
-
-  return <nature.div {...rest} className={_className} aria-live='polite' />;
-};
-
-export type FormErrorMessageProps = PropsOf<typeof StyledErrorText>;
 
 /**
  * Used to provide feedback about an invalid input,
  * and suggest clear instructions on how to fix it.
  */
-export const FormErrorMessage = forwardRef(
-  (props: FormErrorMessageProps, ref: React.Ref<any>) => {
+export const FormErrorMessage = forwardRef<HTMLNatureProps<'div'>, 'div'>(
+  (props, ref) => {
     const { className = '', ...rest } = props;
     const field = useFormControlContext();
 
     if (!field?.isInvalid) return null;
 
-    const _className = clsx('text-sm mt-2  text-red-600', className);
+    const _className = clsx(
+      'text-sm mt-2  text-red-600 flex items-center',
+      className,
+    );
 
     return (
-      <StyledErrorText
+      <nature.div
         className={_className}
-        ref={ref}
-        id={props.id ?? field?.feedbackId}
-        {...rest}
+        {...field?.getErrorMessageProps(rest, ref)}
       />
     );
   },

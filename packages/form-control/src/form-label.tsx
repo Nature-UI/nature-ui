@@ -38,19 +38,14 @@ export interface FormLabelProps extends HTMLNatureProps<'label'> {
  * Accessibility: Every form field should have a form label
  */
 export const FormLabel = forwardRef<FormLabelProps, 'label'>((props, ref) => {
-  const {
-    className = '',
-    requiredIndicator = <RequiredIndicator />,
-    children,
-    ...rest
-  } = props;
+  const { className = '', requiredIndicator, children, ...rest } = props;
 
   const field = useFormControlContext();
   const ownProps = field?.getLabelProps(rest, ref) ?? { ref, ...rest };
   return (
     <nature.label {...ownProps} className={clsx(className)}>
       {children}
-      {field.isRequired ? requiredIndicator : null}
+      {field.isRequired && (requiredIndicator || <RequiredIndicator />)}
     </nature.label>
   );
 });
