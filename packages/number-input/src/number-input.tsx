@@ -1,5 +1,5 @@
 import { useFormControlProps } from '@nature-ui/form-control';
-import { Input } from '@nature-ui/input';
+import { Input, InputProps } from '@nature-ui/input';
 import { createContext } from '@nature-ui/react-utils';
 import {
   clsx,
@@ -119,7 +119,7 @@ if (__DEV__) {
   NumberInputStepper.displayName = 'NumberInputStepper';
 }
 
-export interface NumberInputFieldProps extends HTMLNatureProps<'input'> {}
+export interface NumberInputFieldProps extends InputProps {}
 
 /**
  * NumberInputField

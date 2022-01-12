@@ -10,6 +10,7 @@ import { Stack } from '@nature-ui/layout';
 import { nature } from '@nature-ui/system';
 import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
+import { useForm } from 'react-hook-form';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,
@@ -39,66 +40,63 @@ Basic.args = {
   min: 10,
 };
 
-export const withMinAndMax = () => (
-  <NumberInputWrapper defaultValue={15} min={10} max={20}>
-    <NumberInputField />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInputWrapper>
-);
+export const WithMinAndMax = Template.bind({});
+WithMinAndMax.args = {
+  defaultValue: 15,
+  min: 10,
+  max: 20,
+};
 
-export const withStep = () => (
-  <NumberInputWrapper step={5} defaultValue={15} min={10} max={30}>
-    <NumberInputField />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInputWrapper>
-);
+export const WithStep = Template.bind({});
+WithStep.args = {
+  step: 5,
+  min: 10,
+  max: 30,
+  defaultValue: 15,
+};
 
-export const withPrecision = () => (
-  <NumberInputWrapper defaultValue={15} precision={2} step={0.2}>
-    <NumberInputField />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInputWrapper>
-);
+export const WithPrecision = Template.bind({});
+WithPrecision.args = {
+  defaultValue: 15,
+  precision: 2,
+  step: 0.2,
+};
 
-export const withClampValueDisabled = () => (
-  <NumberInputWrapper defaultValue={15} max={30} clampValueOnBlur={false}>
-    <NumberInputField />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInputWrapper>
-);
+export const WithClampValueDisabled = Template.bind({});
+WithClampValueDisabled.args = {
+  defaultValue: 15,
+  max: 30,
+  clampValueOnBlur: false,
+};
 
-export const allowOutOfRange = () => (
-  <NumberInputWrapper
-    defaultValue={15}
-    max={10}
-    keepWithinRange={false}
-    clampValueOnBlur={false}
-  >
-    <NumberInputField />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInputWrapper>
-);
+export const AllowOutOfRange = Template.bind({});
+AllowOutOfRange.args = {
+  defaultValue: 15,
+  max: 10,
+  keepWithinRange: false,
+  clampValueOnBlur: false,
+};
 
-export const inputSizes = () => (
+export const DefaultWithInputSizes = () => (
   <Stack>
-    {['xs', 'sm', 'md', 'lg'].map((size) => (
-      <NumberInputWrapper key={size} size={size} defaultValue={15} min={10}>
-        <NumberInputField />
+    {['sm', 'md', 'lg'].map((size) => (
+      <NumberInput
+        key={size}
+        inputProps={{
+          size: size as any,
+        }}
+        defaultValue={15}
+        min={10}
+      />
+    ))}
+  </Stack>
+);
+
+export const CustomWithInputSizes = () => (
+  <Stack>
+    {['sm', 'md', 'lg'].map((size) => (
+      <NumberInputWrapper key={size} defaultValue={15} min={10}>
+        <NumberInputField size={size as any} />
         <NumberInputStepper>
           <NumberIncrementStepper />
           <NumberDecrementStepper />
@@ -133,6 +131,18 @@ export const WithReactHookForm = () => {
       </NumberInputWrapper>
     </form>
   );
+  // return (
+  //   <form onSubmit={handleSubmit(onSubmit)}>
+  //     <NumberInput
+  //       name='sales'
+  //       onBlur={() => {
+  //         console.log('blurred');
+  //       }}
+  //       ref={register}
+  //       // {...register('sales')}
+  //     />
+  //   </form>
+  // );
 };
 
 function FormError(props: any) {
