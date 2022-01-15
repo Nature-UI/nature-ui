@@ -22,7 +22,8 @@
       "analytics/*": ["src/analytics/*"],
       "types/*": ["types/*"],
       "lib/*": ["lib/*"]
-    }
+    },
+    "incremental": true
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/last-edit.js"]

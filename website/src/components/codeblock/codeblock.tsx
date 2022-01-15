@@ -2,14 +2,14 @@ import {
   Box,
   BoxProps,
   Button,
-  ButtonType,
+  ButtonProps,
   useClipboard,
 } from '@nature-ui/core';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import React, { useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
-import scope from './react-live-scope';
 import Highlight from './highlight';
+import scope from './react-live-scope';
 
 export const liveEditorStyle: React.CSSProperties = {
   fontSize: 14,
@@ -28,16 +28,16 @@ export const liveErrorStyle: React.CSSProperties = {
 
 const LiveCodePreview = ({ className, ...props }: any) => (
   <LivePreview
-    className={`${className} mt-5 p-3 border border-solid border-gray-200 rounded-lg overflow-x-auto editor__component`}
+    className={`mt-5 p-3 border border-solid border-gray-200 rounded-lg overflow-x-auto editor__component ${className}`}
     {...props}
   />
 );
 
-const CopyButton = ({ className, ...props }: ButtonType) => (
+const CopyButton = ({ className, ...props }: ButtonProps) => (
   <Button
     size='xs'
     color='primary-600'
-    className={`${className} uppercase text-xs h-6 top-0 right-5 z-10`}
+    className={`uppercase text-xs h-6 top-0 right-5 z-10 ${className}`}
     css={{ position: 'absolute' }}
     {...props}
   />
@@ -62,7 +62,7 @@ const EditableNotice = (props: BoxProps) => {
 
 const CodeContainer = ({ className, ...props }: any) => (
   <Box
-    className={`${className} p-3 rounded-lg my-8 editor__component`}
+    className={`p-3 rounded-lg my-8 editor__component ${className}`}
     css={{ backgroundColor: '#011627' }}
     {...props}
   />

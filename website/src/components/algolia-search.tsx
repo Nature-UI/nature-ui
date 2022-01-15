@@ -1,19 +1,18 @@
 /** ** */
-import * as React from 'react';
+import { DocSearchModal, useDocSearchKeyboardEvents } from '@docsearch/react';
 import {
-  nature,
-  PropsOf,
   Button,
+  nature,
+  Portal,
+  PropsOf,
   Stack,
   VisuallyHidden,
-  Portal,
 } from '@nature-ui/core';
 import { SearchIcon } from '@nature-ui/icons';
-import Link from 'next/link';
-import Head from 'next/head';
-import { DocSearchModal, useDocSearchKeyboardEvents } from '@docsearch/react';
-import { useRouter } from 'next/router';
 import { startsWith } from 'lodash/fp';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
 const startsWithCss = startsWith('css-');
 
@@ -31,9 +30,8 @@ function Hit(props) {
 
 export const SearchButton = React.forwardRef(
   (props: PropsOf<typeof nature.button>, ref: React.Ref<HTMLButtonElement>) => {
-    const [actionKey, setActionKey] = React.useState<string[]>(
-      ACTION_KEY_APPLE,
-    );
+    const [actionKey, setActionKey] =
+      React.useState<string[]>(ACTION_KEY_APPLE);
 
     React.useEffect(() => {
       if (typeof navigator === 'undefined') return;
@@ -107,10 +105,6 @@ export function Search() {
         <Portal>
           <DocSearchModal
             placeholder='Search the docs'
-            // searchParameters={{
-            //   facetFilters: 'version:v1',
-            //   distinct: 1,
-            // }}
             initialQuery={initialQuery}
             initialScrollY={window.scrollY}
             onClose={onClose}
@@ -118,9 +112,9 @@ export function Search() {
             apiKey='0d8256bb9d09856b576409dfb05103af'
             appId='BH4D9OD16A'
             navigator={{
-              navigate({ suggestionUrl }) {
+              navigate({ itemUrl }) {
                 setIsOpen(false);
-                router.push(suggestionUrl);
+                router.push(itemUrl);
               },
             }}
             hitComponent={Hit}

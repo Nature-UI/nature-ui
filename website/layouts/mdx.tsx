@@ -1,15 +1,13 @@
-import * as React from 'react';
-import * as natureComponents from '@nature-ui/core';
 import { MDXProvider } from '@mdx-js/react';
-
+import * as natureComponents from '@nature-ui/core';
 import MDXComponents from 'components/mdx-components';
 import PageContainer from 'components/page-container';
-import Sidebar from 'components/sidebar/sidebar';
-import { getRouteContext } from 'utils/get-route-context';
-import { findRouteByPath, removeFromLast } from 'utils/find-route-by-path';
-
-import docsSidebar from 'configs/docs-sidebar.json';
 import { Pagination } from 'components/pagination';
+import Sidebar from 'components/sidebar/sidebar';
+import docsSidebar from 'configs/docs-sidebar.json';
+import * as React from 'react';
+import { findRouteByPath, removeFromLast } from 'utils/find-route-by-path';
+import { getRouteContext } from 'utils/get-route-context';
 
 export const getRoutes = (slug: string) => {
   const configMap = {
@@ -22,7 +20,7 @@ export const getRoutes = (slug: string) => {
   return sidebar?.routes ?? [];
 };
 
-const MDXLayout = ({ frontMatter, children }) => {
+const MDXLayout = ({ frontMatter, children }: any) => {
   const routes = getRoutes(frontMatter.slug);
 
   const route = findRouteByPath(removeFromLast(frontMatter.slug, '#'), routes);

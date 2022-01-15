@@ -1,6 +1,6 @@
-import * as React from 'react';
-import dynamic from 'next/dynamic';
 import PageContainer from 'components/page-container';
+import dynamic from 'next/dynamic';
+import * as React from 'react';
 
 const MDXLayout = dynamic(() => import('layouts/mdx'));
 
