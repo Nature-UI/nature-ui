@@ -98,7 +98,7 @@ export const CheckboxGroupExample = () => {
       color='green-500'
       onChange={(value) => console.log(value)}
     >
-      <Stack spacing={24} row>
+      <Stack spacing={'24px'} row>
         <Checkbox value='one'>One</Checkbox>
         <Checkbox value='two'>Two</Checkbox>
         <Checkbox value='three'>Three</Checkbox>

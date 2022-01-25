@@ -30,16 +30,12 @@ const StyledControl = forwardRef<
     'box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white rounded w-4 h-4 p-0 transition-all duration-300 ease-in-out border-2';
 
   const _className = clsx(DEFAULTS, {
-    [`border-${color}`]: (!_invalid && _checked) || _indeterminate,
+    [`border-none`]: (!_invalid && _checked) || _indeterminate,
     ['shadow-outline']: _focus,
     [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
     [`bg-${_darken}`]: _hover && _checked && !_disabled,
     ['bg-gray-300']: _disabled,
     ['border-red-500']: _invalid,
-  });
-
-  console.log({
-    _className,
   });
 
   return <nature.div className={_className} ref={ref} {...props} />;
@@ -117,63 +113,61 @@ export type CheckboxProps = BaseControlProps &
  * multiple values from several options.
  *
  */
-export const Checkbox = forwardRef<HTMLNatureProps<'div'>, 'div'>(
-  (props: CheckboxProps, ref: React.Ref<any>) => {
-    const group = useCheckboxGroupContext();
+export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
+  const group = useCheckboxGroupContext();
 
-    const {
-      className = '',
-      spacing = '0.5rem',
-      iconColor,
-      children,
-      color = group?.color,
-      iconSize,
-      ...rest
-    } = props;
+  const {
+    className = '',
+    spacing = '0.5rem',
+    iconColor,
+    children,
+    color = group?.color,
+    iconSize,
+    ...rest
+  } = props;
 
-    const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
+  const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
-    let { isChecked } = props;
+  let { isChecked } = props;
 
-    if (group?.value && props.value) {
-      isChecked = group.value.includes(props.value);
-    }
+  if (group?.value && props.value) {
+    isChecked = group.value.includes(props.value);
+  }
 
-    let { onChange } = props;
+  let { onChange } = props;
 
-    if (group?.onChange && props.value) {
-      onChange = group.onChange;
-    }
+  if (group?.onChange && props.value) {
+    onChange = group.onChange;
+  }
 
-    const { state, getInputProps, getCheckboxProps, getLabelProps, htmlProps } =
-      useCheckbox({
-        ...rest,
-        isChecked,
-        onChange,
-      });
+  const { state, getInputProps, getCheckboxProps, getLabelProps, htmlProps } =
+    useCheckbox({
+      ...rest,
+      isChecked,
+      onChange,
+    });
 
-    return (
-      <StyledWrapper className={className} {...htmlProps}>
-        <input {...getInputProps({ ref })} />
-        <StyledControl color={color} {...getCheckboxProps()}>
-          <CheckboxIcon
-            isChecked={state.isChecked}
-            isIndeterminate={state.isIndeterminate}
-            size={iconSize}
-            className={`inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out text-${
-              iconColor || 'current'
-            }`}
-          />
-        </StyledControl>
-        {children && (
-          <StyledLabel spacing={SPACING} {...getLabelProps()}>
-            {children}
-          </StyledLabel>
-        )}
-      </StyledWrapper>
-    );
-  },
-);
+  return (
+    <StyledWrapper className={className} {...htmlProps}>
+      <input {...getInputProps({ ref })} />
+      <StyledControl color={color} {...getCheckboxProps()}>
+        <CheckboxIcon
+          isChecked={state.isChecked}
+          isIndeterminate={state.isIndeterminate}
+          size={iconSize}
+          className={`inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out text-${
+            iconColor || 'current'
+          }`}
+        />
+      </StyledControl>
+      {children && (
+        <StyledLabel spacing={SPACING} {...getLabelProps()}>
+          {children}
+        </StyledLabel>
+      )}
+    </StyledWrapper>
+  );
+});
 
 if (__DEV__) {
   Checkbox.displayName = 'Checkbox';
