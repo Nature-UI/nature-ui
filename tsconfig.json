@@ -35,13 +35,6 @@
       "@emotion/react"
     ]
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest"
-  ],
-  "include": ["src", "packages", "*.config.js", "**/*/__test__/**/*", "website"]
+  "exclude": ["node_modules", "build", "acceptance-tests", "webpack", "jest"],
+  "include": ["packages", "*.config.js"]
 }

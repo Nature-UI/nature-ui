@@ -1,5 +1,4 @@
 import { Stack } from '@nature-ui/layout';
-import * as React from 'react';
 import {
   Alert,
   AlertDescription,
@@ -14,16 +13,6 @@ export default {
   decorators: [
     (story: Function) => <div className='max-w-2xl mx-auto'>{story()}</div>,
   ],
-};
-
-export const Basic = () => {
-  return (
-    <AlertWrapper variant='solid' status='error' className='rounded-md'>
-      <AlertIcon />
-      <AlertTitle className='mr-3'>Outdated</AlertTitle>
-      <AlertDescription>Your experience may be degraded!</AlertDescription>
-    </AlertWrapper>
-  );
 };
 
 export const Success = () => {
@@ -112,3 +101,13 @@ export const Composition = () => (
     </AlertDescription>
   </AlertWrapper>
 );
+
+export const Custom = () => {
+  return (
+    <AlertWrapper variant='solid' status='error' className='rounded-md'>
+      <AlertIcon />
+      <AlertTitle className='mr-3'>Outdated</AlertTitle>
+      <AlertDescription>Your experience may be degraded!</AlertDescription>
+    </AlertWrapper>
+  );
+};

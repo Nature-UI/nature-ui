@@ -13,33 +13,6 @@ import { jsx } from './jsx';
 import { NatureComponent } from './system.types';
 import { getDisplayName } from './system.utils';
 
-const formatClassNames = (className: string): string => {
-  const withCss = className.split(' ').filter((v) => v.match(/css-\w+/));
-  const ArrayClassName = className
-    .split(' ')
-    .filter((v) => !v.match(/css-\w+/));
-
-  const result = {};
-  const required: string[] = [];
-  ArrayClassName.forEach((v) => {
-    const splitCn = v.split('-');
-
-    if (splitCn.length === 1) {
-      required.push(v);
-    } else if (isNaN(parseInt(splitCn[1]))) {
-      required.push(v);
-    } else {
-      const firstChar = splitCn[0];
-      result[firstChar] = v;
-    }
-  });
-
-  const cn = `${Object.values(result).join(' ')} ${required.join(
-    ' ',
-  )} ${withCss?.join(' ')}`;
-
-  return cn;
-};
 export const createComponent = <T extends As>(component: T) => {
   return (...interpolations: any[]) => {
     const Component = React.forwardRef((_props: any, ref: React.Ref<any>) => {
@@ -65,7 +38,7 @@ export const createComponent = <T extends As>(component: T) => {
         typeof computedProps.className === 'string' &&
         computedProps.className.length
       ) {
-        computedProps.className = formatClassNames(computedProps.className);
+        computedProps.className = computedProps.className;
       }
 
       if (isEmptyObject(computedProps.css) || isUndefined(computedProps.css)) {

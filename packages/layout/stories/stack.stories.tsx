@@ -1,15 +1,13 @@
-import * as React from 'react';
-
 import { Button } from '@nature-ui/button';
-
-import { Stack, Box } from '../src';
+import * as React from 'react';
+import { Box, Stack } from '../src';
 
 export default {
   title: 'Stack',
 };
 
 export const Inline = () => (
-  <Stack row responsive>
+  <Stack row>
     <Stack col>
       <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
       <Box size='100px' className='bg-gray-200 p-4 border border-solid' />
@@ -41,29 +39,12 @@ export const Column = () => (
 );
 
 export const WithButtons = () => (
-  <Stack responsive row spacing='3'>
+  <Stack row spacing='1.5rem'>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
     <Button variant='solid'>Hi world</Button>
-  </Stack>
-);
-
-export const WithSpan = () => (
-  <Stack row spacing='3'>
-    <span className='P-4 bg-blue-500'>
-      Hi world
-      <span className='P-4 bg-orange-500'>Hi world</span>
-    </span>
-    <span className='P-4 bg-blue-500'>
-      Hi world
-      <span className='P-4 bg-orange-500'>Hi world</span>
-    </span>
-    <span className='P-4 bg-blue-500'>Hi world</span>
-    <span className='P-4 bg-blue-500'>Hi world</span>
-    <span className='P-4 bg-blue-500'>Hi world</span>
-    <span className='P-4 bg-blue-500'>Hi world</span>
   </Stack>
 );

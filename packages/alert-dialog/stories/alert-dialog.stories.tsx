@@ -56,7 +56,7 @@ export const BasicUsage = () => {
               >
                 Nevermind
               </Button>
-              <Button className='ml-3text-white' color='red-600'>
+              <Button className='ml-3text-white ml-3' color='red-600'>
                 Yes, delete
               </Button>
             </AlertDialogFooter>

@@ -1,6 +1,12 @@
-/** ** */
 import { IconProps } from '@nature-ui/icon';
-import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import {
+  clsx,
+  css,
+  forwardRef,
+  HTMLNatureProps,
+  nature,
+  PropsOf,
+} from '@nature-ui/system';
 import { darken, __DEV__ } from '@nature-ui/utils';
 import React from 'react';
 import { useCheckboxGroupContext } from './checkbox-group';
@@ -8,9 +14,9 @@ import { CheckboxIcon } from './checkbox-icon';
 import { useCheckbox, UseCheckboxProps } from './use-checkbox';
 
 const StyledControl = forwardRef<
-  PropsOf<typeof nature.div> & { color?: string },
+  HTMLNatureProps<'div'> & { color?: string },
   'div'
->(({ color = 'pink-500', ...props }, ref) => {
+>(({ color = 'red-500', ...props }, ref) => {
   const _checked = typeof props['data-checked'] !== 'undefined';
   const _focus = typeof props['data-focus'] !== 'undefined';
   const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
@@ -21,21 +27,25 @@ const StyledControl = forwardRef<
   const _darken = darken(color, 100);
 
   const DEFAULTS =
-    'box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white border-solid rounded w-4 h-4 p-0 border-gray-300 border-2 transition-all duration-300 ease-in-out';
+    'box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white rounded w-4 h-4 p-0 transition-all duration-300 ease-in-out border-2';
 
   const _className = clsx(DEFAULTS, {
-    [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
-    'shadow-outline': _focus,
-    [`bg-${_darken}`]: _hover && _checked && !_disabled,
     [`border-${color}`]: (!_invalid && _checked) || _indeterminate,
-    'bg-gray-300': _disabled,
-    'border-red-500': _invalid,
+    ['shadow-outline']: _focus,
+    [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
+    [`bg-${_darken}`]: _hover && _checked && !_disabled,
+    ['bg-gray-300']: _disabled,
+    ['border-red-500']: _invalid,
+  });
+
+  console.log({
+    _className,
   });
 
   return <nature.div className={_className} ref={ref} {...props} />;
 });
 
-const StyledLabel = forwardRef<PropsOf<typeof nature.div>, 'div'>(
+const StyledLabel = forwardRef<HTMLNatureProps<'div'>, 'div'>(
   (
     {
       spacing,
@@ -58,7 +68,7 @@ const StyledLabel = forwardRef<PropsOf<typeof nature.div>, 'div'>(
 );
 
 const Label = nature('label');
-const StyledWrapper = forwardRef<PropsOf<typeof nature.div>, 'div'>(
+const StyledWrapper = forwardRef<HTMLNatureProps<'div'>, 'div'>(
   (
     { className = '', ...props }: PropsOf<typeof Label>,
     ref: React.Ref<HTMLLabelElement>,
@@ -107,7 +117,7 @@ export type CheckboxProps = BaseControlProps &
  * multiple values from several options.
  *
  */
-export const Checkbox = forwardRef<PropsOf<typeof nature.div>, 'div'>(
+export const Checkbox = forwardRef<HTMLNatureProps<'div'>, 'div'>(
   (props: CheckboxProps, ref: React.Ref<any>) => {
     const group = useCheckboxGroupContext();
 

@@ -1,9 +1,0 @@
-{
-  "extends": "../.eslintrc",
-  "rules": {
-    "no-restricted-syntax": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "global-require": "off",
-    "react/prop-types": "off"
-  }
-}

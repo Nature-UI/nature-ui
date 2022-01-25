@@ -1,7 +1,6 @@
-import * as React from 'react';
-import { Story } from '@storybook/react';
 import { Stack } from '@nature-ui/layout';
-
+import { Story } from '@storybook/react';
+import * as React from 'react';
 import { Checkbox, CheckboxGroup, CheckboxProps } from '../src';
 
 export default {
@@ -15,28 +14,24 @@ const Template: CheckboxType = (args) => <Checkbox {...args} />;
 
 export const Basic: CheckboxType = Template.bind({});
 Basic.args = {
-  ...Template.args,
   children: 'Basic',
   defaultIsChecked: true,
 };
 
 export const Disabled: CheckboxType = Template.bind({});
 Disabled.args = {
-  ...Template.args,
   children: 'Disabled',
   isDisabled: true,
 };
 
 export const Readonly: CheckboxType = Template.bind({});
 Readonly.args = {
-  ...Template.args,
   children: 'Readonly',
   isReadOnly: true,
 };
 
 export const ReadonlyChecked: CheckboxType = Template.bind({});
 ReadonlyChecked.args = {
-  ...Template.args,
   children: 'Readonly Checked',
   defaultIsChecked: true,
   isReadOnly: true,
@@ -44,7 +39,6 @@ ReadonlyChecked.args = {
 
 export const Invalid: CheckboxType = Template.bind({});
 Invalid.args = {
-  ...Template.args,
   children: 'Invalid',
   color: 'blue-400',
   isInvalid: true,

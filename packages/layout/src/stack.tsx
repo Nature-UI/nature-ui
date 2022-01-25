@@ -1,13 +1,13 @@
 /** ** */
-import { clsx, forwardRef, nature } from '@nature-ui/system';
-import { getValidChildren, StringOrNumber, __DEV__ } from '@nature-ui/utils';
+import { clsx, css, forwardRef, nature } from '@nature-ui/system';
+import { getValidChildren, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 
 export type StackProps = {
   /**
    * The space between each stack item
    */
-  spacing?: StringOrNumber;
+  spacing?: string;
   /**
    * Sets direction to row.
    */
@@ -16,20 +16,15 @@ export type StackProps = {
    * Sets direction to column.
    */
   col?: boolean;
-  /**
-   * Sets margins on left and right to auto and displays component as block
-   */
-  responsive?: boolean;
 };
 
 export const Stack = forwardRef<StackProps, 'div'>((props, ref) => {
   const {
     children,
-    spacing = 4,
+    spacing = '1rem',
     row,
     col,
     className = '',
-    responsive,
     as,
     ...rest
   } = props;
@@ -42,19 +37,18 @@ export const Stack = forwardRef<StackProps, 'div'>((props, ref) => {
     const isLast = index + 1 === validChildren.length;
     const { className: cn, ..._props } = child.props;
 
-    if (!isLast) {
-      const _className = clsx({
-        [`mb-${spacing}`]: spacing && col && !responsive,
-        [`mr-${spacing}`]: spacing && row && !responsive,
-        [`sm:mr-${spacing}`]: spacing && responsive,
-        [`sm:mb-0 mb-${spacing}`]: responsive,
-      });
+    const _css = css({
+      marginRight: row ? spacing : undefined,
+      marginBottom: col ? spacing : undefined,
+    });
+    const childClassName = clsx(_css, cn);
 
+    if (!isLast) {
       return (
-        <React.Fragment key={Number(index)}>
+        <React.Fragment key={`nature-${Number(index)}`}>
           {React.cloneElement(child as any, {
             ..._props,
-            className: clsx(cn, _className),
+            className: childClassName,
           })}
         </React.Fragment>
       );
@@ -64,10 +58,9 @@ export const Stack = forwardRef<StackProps, 'div'>((props, ref) => {
   });
 
   const _className = clsx(
+    'flex',
     {
-      flex: !responsive,
-      'block sm:flex': responsive,
-      [`flex-${direction}`]: direction && !responsive,
+      [`flex-${direction}`]: direction,
     },
     className,
   );
