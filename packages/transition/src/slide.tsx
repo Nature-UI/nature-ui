@@ -1,122 +1,113 @@
-import * as React from 'react';
-import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
+import { clsx } from '@nature-ui/system';
+import { __DEV__ } from '@nature-ui/utils';
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  motion,
+  MotionStyle,
+  Variants as _Variants,
+} from 'framer-motion';
+import React from 'react';
+import {
+  SlideDirection,
+  slideTransition,
+  TransitionEasings,
+  Variants,
+  withDelay,
+  WithTransitionConfig,
+} from './transition-utiils';
 
-import { Transition, TransitionProps } from './transition';
+export type { SlideDirection };
 
-type Placement = 'left' | 'right' | 'bottom' | 'top';
-
-const createBaseStyle = (placement: Placement): any => {
-  switch (placement) {
-    case 'bottom': {
-      return {
-        maxWidth: '100vw',
-        bottom: 0,
-        left: 0,
-        right: 0,
-      };
-    }
-
-    case 'top': {
-      return {
-        maxWidth: '100vw',
-        top: 0,
-        left: 0,
-        right: 0,
-      };
-    }
-
-    case 'left': {
-      return {
-        width: '100%',
-        height: '100vh',
-        left: 0,
-        top: 0,
-      };
-    }
-
-    case 'right': {
-      return {
-        width: '100%',
-        right: 0,
-        top: 0,
-        height: '100vh',
-      };
-    }
-
-    default:
-      break;
-  }
+const defaultTransition = {
+  exit: { duration: 0.15, ease: TransitionEasings.easeInOut },
+  enter: {
+    tyepe: 'spring',
+    damping: 25,
+    stiffness: 180,
+  },
 };
 
-const getTransformStyle = (placement: Placement, value: string) => {
-  let axis = '';
+export interface SlideOptions {
+  /**
+   * The direction to slide from
+   * @default "right"
+   */
+  direction?: SlideDirection;
+}
+const variants: Variants<SlideOptions> = {
+  exit: ({ direction, transition, transitionEnd, delay }) => {
+    const { exit: exitStyles } = slideTransition({ direction });
 
-  if (placement === 'left' || placement === 'right') axis = 'X';
+    return {
+      ...exitStyles,
+      transition:
+        transition?.exit ?? withDelay.exit(defaultTransition.exit, delay),
+      transitionEnd: transitionEnd?.exit,
+    };
+  },
+  enter: ({ direction, transitionEnd, transition, delay }) => {
+    const { enter: enterStyles } = slideTransition({ direction });
 
-  if (placement === 'top' || placement === 'bottom') axis = 'Y';
-
-  return `translate${axis}(${value})`;
+    return {
+      ...enterStyles,
+      transition:
+        transition?.enter ?? withDelay.enter(defaultTransition.enter, delay),
+      transitionEnd: transitionEnd?.enter,
+    };
+  },
 };
 
-const getTransitionStyles = (placement: Placement) => {
-  const offset = {
-    bottom: '100%',
-    top: '-100%',
-    left: '-100%',
-    right: '100%',
-  };
+export interface SlideProps
+  extends WithTransitionConfig<HTMLMotionProps<'div'>>,
+    SlideOptions {}
 
-  return {
-    init: {
-      transform: getTransformStyle(placement, offset[placement]),
-    },
-    entered: {
-      transform: getTransformStyle(placement, '0%'),
-    },
-    exiting: {
-      transform: getTransformStyle(placement, offset[placement]),
-    },
-  };
-};
+export const Slide = React.forwardRef<HTMLDivElement, SlideProps>(
+  (props, ref) => {
+    const {
+      direction = 'right',
+      style,
+      unmountOnExit,
+      in: isOpen,
+      className,
+      transition,
+      transitionEnd,
+      delay,
+      ...rest
+    } = props;
 
-export type SlideProps = Omit<TransitionProps, 'styles' | 'timeout'> & {
-  /** The direction to slide drawer from */
-  placement?: Placement;
-  /** The transition timeout */
-  timeout?: StringOrNumber;
-};
+    const transitionStyles = slideTransition({ direction });
+    const computedStyle: MotionStyle = Object.assign(
+      { position: 'fixed' },
+      transitionStyles.position,
+      style,
+    );
 
-export const Slide = (props: SlideProps) => {
-  const { placement = 'left', timeout = 150, children, ...rest } = props;
+    const show = unmountOnExit ? isOpen && unmountOnExit : true;
+    const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
 
-  const styles = getTransitionStyles(placement);
+    const custom = { transitionEnd, transition, direction, delay };
 
-  const positionStyles: React.CSSProperties = {
-    position: 'fixed',
-    willChange: 'transform',
-    ...createBaseStyle(placement),
-  };
-
-  return (
-    <Transition
-      styles={styles}
-      transition={`all ${timeout}ms cubic-bezier(0,0,0.2,1)`}
-      timeout={{
-        enter: 0,
-        exit: Number(timeout),
-      }}
-      {...rest}
-    >
-      {(_styles) =>
-        children({
-          ...positionStyles,
-          ..._styles,
-        })
-      }
-    </Transition>
-  );
-};
+    return (
+      <AnimatePresence custom={custom}>
+        {show && (
+          <motion.div
+            ref={ref}
+            initial='exit'
+            className={clsx('', className)}
+            animate={animate}
+            exit='exit'
+            custom={custom}
+            variants={variants as _Variants}
+            style={computedStyle}
+            {...rest}
+          />
+        )}
+      </AnimatePresence>
+    );
+  },
+);
 
 if (__DEV__) {
-  Slide.displayName = 'Slide';
+  Slide.displayName = 'Slid';
 }

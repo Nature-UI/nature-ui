@@ -40,10 +40,13 @@
   },
   "dependencies": {
     "@nature-ui/utils": "^1.1.1",
+    "@nature-ui/system": "~2.1.0",
+    "framer-motion": "^6.2.3",
     "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
-    "react": "^17.0.1"
+    "react": "^17.0.1",
+    "framer-motion": ">=5.x"
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.0",

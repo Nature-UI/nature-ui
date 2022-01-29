@@ -31,7 +31,7 @@ const StyledControl = forwardRef<
 
   const _className = clsx(DEFAULTS, {
     [`border-none`]: (!_invalid && _checked) || _indeterminate,
-    ['shadow-outline']: _focus,
+    ['ring']: _focus,
     [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
     [`bg-${_darken}`]: _hover && _checked && !_disabled,
     ['bg-gray-300']: _disabled,

@@ -1,53 +1,44 @@
-import * as React from 'react';
-import { Meta } from '@storybook/react';
-
+import { useBoolean } from '@nature-ui/hooks';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slide } from '../src';
-
-import { Modal } from './modal';
 
 export default {
   title: 'Transition/Slide',
   component: Slide,
-} as Meta;
+  argTypes: {
+    direction: {
+      options: ['left', 'right', 'top', 'bottom'],
+      control: { type: 'radio' },
+    },
+  },
+} as ComponentMeta<typeof Slide>;
 
-export const Basic = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
-
+const Template: ComponentStory<typeof Slide> = (args) => {
+  const [open, { toggle }] = useBoolean(false);
   return (
     <>
-      <Slide in={isOpen}>{(styles) => <Modal style={styles} />}</Slide>
-      <button
-        className='absolute right-0 mr-48'
-        onClick={() => setIsOpen((p) => !p)}
+      <button onClick={toggle}>Toggle Slide</button>
+      <Slide
+        {...args}
+        style={{
+          maxWidth: 400,
+          background: 'skyblue',
+          padding: 30,
+        }}
+        in={open}
       >
-        Click Me
-      </button>
-    </>
-  );
-};
-
-export const WithPlacement = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
-
-  return (
-    <>
-      <button onClick={() => setIsOpen((p) => !p)}>Click Me</button>
-      <Slide placement='right' in={isOpen}>
-        {(styles) => <Modal style={styles} />}
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
       </Slide>
     </>
   );
 };
 
-export const WithTimeout = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
-
-  return (
-    <>
-      <button onClick={() => setIsOpen((p) => !p)}>Click Me</button>
-      <Slide placement='bottom' timeout='500' in={isOpen}>
-        {(styles) => <Modal style={styles} />}
-      </Slide>
-    </>
-  );
-};
+export const Basic = Template.bind({});
