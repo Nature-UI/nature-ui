@@ -18,15 +18,7 @@ const Template: ComponentStory<typeof Slide> = (args) => {
   return (
     <>
       <button onClick={toggle}>Toggle Slide</button>
-      <Slide
-        {...args}
-        style={{
-          maxWidth: 400,
-          background: 'skyblue',
-          padding: 30,
-        }}
-        in={open}
-      >
+      <Slide {...args} in={open}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -42,3 +34,19 @@ const Template: ComponentStory<typeof Slide> = (args) => {
 };
 
 export const Basic = Template.bind({});
+Basic.args = {
+  style: {
+    maxWidth: 400,
+    background: 'skyblue',
+    padding: 30,
+  },
+};
+
+export const BottomPlacement = Template.bind({});
+BottomPlacement.args = {
+  style: {
+    background: 'skyblue',
+    padding: 30,
+  },
+  direction: 'bottom',
+};
