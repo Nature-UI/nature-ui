@@ -65,3 +65,6 @@ export const ariaAttr = (condition?: boolean) => (condition ? true : undefined);
 
 export const getOwnerDocument = (node?: HTMLElement) =>
   node?.ownerDocument || document;
+
+export const cx = (...classNames: any[]) =>
+  classNames.filter(Boolean).join(' ');

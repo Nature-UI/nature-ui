@@ -1,3 +1,4 @@
+import { Button } from '@nature-ui/button';
 import { useBoolean } from '@nature-ui/hooks';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Slide } from '../src';
@@ -17,8 +18,17 @@ const Template: ComponentStory<typeof Slide> = (args) => {
   const [open, { toggle }] = useBoolean(false);
   return (
     <>
-      <button onClick={toggle}>Toggle Slide</button>
-      <Slide {...args} in={open}>
+      <Button onClick={toggle}>Toggle Slide</Button>
+      <Slide
+        style={{
+          maxWidth: 400,
+          background: 'skyblue',
+          padding: 30,
+          ...args.style,
+        }}
+        {...args}
+        in={open}
+      >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -34,19 +44,11 @@ const Template: ComponentStory<typeof Slide> = (args) => {
 };
 
 export const Basic = Template.bind({});
-Basic.args = {
-  style: {
-    maxWidth: 400,
-    background: 'skyblue',
-    padding: 30,
-  },
-};
 
 export const BottomPlacement = Template.bind({});
 BottomPlacement.args = {
   style: {
-    background: 'skyblue',
-    padding: 30,
+    maxWidth: 'unset',
   },
   direction: 'bottom',
 };

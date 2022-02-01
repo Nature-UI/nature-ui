@@ -1,7 +1,8 @@
 import merge from 'deepmerge';
+import { Dict, Omit } from './types';
 
-import { Omit, Dict } from './types';
-
+export { default as mergeWith } from 'lodash.mergewith';
+export { merge };
 export const omit = <T extends Dict, K extends keyof T>(
   object: T,
   keys: K[],
@@ -86,8 +87,6 @@ export const get = (
 export const getWithDefault = (path: any, scale: any) => {
   return get(scale, path, path);
 };
-
-export { merge };
 
 export const filterUndefined = (object: Dict) => {
   const result = { ...object };

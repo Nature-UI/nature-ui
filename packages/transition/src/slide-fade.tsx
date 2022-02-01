@@ -1,50 +1,121 @@
-import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
-import { Transition, TransitionProps } from './transition';
+import { cx, __DEV__ } from '@nature-ui/utils';
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  motion,
+  Variants as _Variants,
+} from 'framer-motion';
+import * as React from 'react';
+import {
+  TransitionDefaults,
+  Variants,
+  withDelay,
+  WithTransitionConfig,
+} from './transition-utils';
 
-export interface SlideFadeProps
-  extends Omit<TransitionProps, 'styles' | 'timeout'> {
+interface SlideFadeOptions {
   /**
-   * The initial offset to slide from
+   * The offset on the horizontal or `x` axis
+   * @default 0
    */
-  initialOffset?: string;
+  offsetX?: string | number;
   /**
-   * The transition timeout
+   * The offset on the vertical or `y` axis
+   * @default 8
    */
-  timeout?: StringOrNumber;
+  offsetY?: string | number;
+  /**
+   * If `true`, the element will be transitioned back to the offset when it leaves.
+   * Otherwise, it'll only fade out
+   * @default true
+   */
+  reverse?: boolean;
 }
 
-const getTransitionStyles = (initialOffset: string) => ({
-  init: {
+const variants: Variants<SlideFadeOptions> = {
+  initial: ({ offsetX, offsetY, transition, transitionEnd, delay }) => ({
     opacity: 0,
-    transform: `translateY(${initialOffset})`,
-  },
-  entered: {
+    x: offsetX,
+    y: offsetY,
+    transition:
+      transition?.exit ?? withDelay.exit(TransitionDefaults.exit, delay),
+    transitionEnd: transitionEnd?.exit,
+  }),
+  enter: ({ transition, transitionEnd, delay }) => ({
     opacity: 1,
-    transform: 'translateY(0px)',
+    x: 0,
+    y: 0,
+    transition:
+      transition?.enter ?? withDelay.enter(TransitionDefaults.enter, delay),
+    transitionEnd: transitionEnd?.enter,
+  }),
+  exit: ({ offsetY, offsetX, transition, transitionEnd, reverse, delay }) => {
+    const offset = { x: offsetX, y: offsetY };
+    return {
+      opacity: 0,
+      transition:
+        transition?.exit ?? withDelay.exit(TransitionDefaults.exit, delay),
+      ...(reverse
+        ? { ...offset, transitionEnd: transitionEnd?.exit }
+        : { transitionEnd: { ...offset, ...transitionEnd?.exit } }),
+    };
   },
-  exiting: {
-    opacity: 0,
-    transform: `translateY(${initialOffset})`,
-  },
-});
-
-export const SlideFade = (props: SlideFadeProps) => {
-  const { initialOffset = '20px', timeout = 150, ...rest } = props;
-
-  const styles = getTransitionStyles(initialOffset);
-
-  return (
-    <Transition
-      styles={styles}
-      transition={`all ${timeout}ms cubic-bezier(0.4, 0.14, 0.3, 1)`}
-      timeout={{
-        enter: 0,
-        exit: Number(timeout),
-      }}
-      {...rest}
-    />
-  );
 };
+
+export const slideFadeConfig: HTMLMotionProps<'div'> = {
+  initial: 'initial',
+  animate: 'enter',
+  exit: 'exit',
+  variants: variants as _Variants,
+};
+
+export interface SlideFadeProps
+  extends SlideFadeOptions,
+    WithTransitionConfig<HTMLMotionProps<'div'>> {}
+
+export const SlideFade = React.forwardRef<HTMLDivElement, SlideFadeProps>(
+  (props, ref) => {
+    const {
+      unmountOnExit,
+      in: isOpen,
+      reverse = true,
+      className,
+      offsetX = 0,
+      offsetY = 8,
+      transition,
+      transitionEnd,
+      delay,
+      ...rest
+    } = props;
+
+    const show = unmountOnExit ? isOpen && unmountOnExit : true;
+    const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
+
+    const custom = {
+      offsetX,
+      offsetY,
+      reverse,
+      transition,
+      transitionEnd,
+      delay,
+    };
+
+    return (
+      <AnimatePresence custom={custom}>
+        {show && (
+          <motion.div
+            ref={ref}
+            className={cx(className)}
+            custom={custom}
+            {...slideFadeConfig}
+            animate={animate}
+            {...rest}
+          />
+        )}
+      </AnimatePresence>
+    );
+  },
+);
 
 if (__DEV__) {
   SlideFade.displayName = 'SlideFade';

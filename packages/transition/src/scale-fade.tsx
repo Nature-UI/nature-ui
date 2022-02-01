@@ -1,48 +1,94 @@
-import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
-import { Transition, TransitionProps } from './transition';
+import { cx, __DEV__ } from '@nature-ui/utils';
+import {
+  AnimatePresence,
+  HTMLMotionProps,
+  motion,
+  Variants as _Variants,
+} from 'framer-motion';
+import * as React from 'react';
+import {
+  TransitionDefaults,
+  Variants,
+  withDelay,
+  WithTransitionConfig,
+} from './transition-utils';
 
-const getTransitionStyles = (initialScale: number) => ({
-  init: {
+interface ScaleFadeOptions {
+  /**
+   * The initial scale of the element
+   * @default 0.95
+   */
+  initialScale?: number;
+  /**
+   * If `true`, the element will transition back to exit state
+   */
+  reverse?: boolean;
+}
+
+const variants: Variants<ScaleFadeOptions> = {
+  exit: ({ reverse, initialScale, transition, transitionEnd, delay }) => ({
     opacity: 0,
-    transform: `scale(${initialScale})`,
-  },
-  entered: {
+    ...(reverse
+      ? { scale: initialScale, transitionEnd: transitionEnd?.exit }
+      : { transitionEnd: { scale: initialScale, ...transitionEnd?.exit } }),
+    transition:
+      transition?.exit ?? withDelay.exit(TransitionDefaults.exit, delay),
+  }),
+  enter: ({ transitionEnd, transition, delay }) => ({
     opacity: 1,
-    transform: 'scale(1)',
-  },
-  exiting: {
-    opacity: 0,
-    transform: `scale(${initialScale})`,
-  },
-});
-
-export type ScaleFadeProps = Omit<TransitionProps, 'styles' | 'timeout'> & {
-  /**
-   * The initial scale to animate from
-   */
-  initialScale?: StringOrNumber;
-  /**
-   * The transition timeout
-   */
-  timeout?: StringOrNumber;
+    scale: 1,
+    transition:
+      transition?.enter ?? withDelay.enter(TransitionDefaults.enter, delay),
+    transitionEnd: transitionEnd?.enter,
+  }),
 };
 
-export const ScaleFade = (props: ScaleFadeProps) => {
-  const { initialScale = 0.9, timeout = 150, ...rest } = props;
-  const styles = getTransitionStyles(Number(initialScale));
-
-  console.log({ styles, initialScale, timeout });
-
-  return (
-    <Transition
-      styles={styles}
-      transition={`all ${timeout}ms cubic-bezier(0.45, 0, 0.40, 1)`}
-      timeout={{ enter: 0, exit: Number(timeout) }}
-      unmountOnExit
-      {...rest}
-    />
-  );
+export const scaleFadeConfig: HTMLMotionProps<'div'> = {
+  initial: 'exit',
+  animate: 'enter',
+  exit: 'exit',
+  variants: variants as _Variants,
 };
+
+export interface ScaleFadeProps
+  extends ScaleFadeOptions,
+    WithTransitionConfig<HTMLMotionProps<'div'>> {}
+
+export const ScaleFade = React.forwardRef<HTMLDivElement, ScaleFadeProps>(
+  (props, ref) => {
+    const {
+      unmountOnExit,
+      in: isOpen,
+      reverse = true,
+      initialScale = 0.95,
+      className,
+      transition,
+      transitionEnd,
+      delay,
+      ...rest
+    } = props;
+
+    const show = unmountOnExit ? isOpen && unmountOnExit : true;
+    const animate = isOpen || unmountOnExit ? 'enter' : 'exit';
+
+    const custom = { initialScale, reverse, transition, transitionEnd, delay };
+
+    return (
+      <AnimatePresence custom={custom}>
+        {show && (
+          <motion.div
+            ref={ref}
+            className={cx(className)}
+            {...scaleFadeConfig}
+            animate={animate}
+            custom={custom}
+            {...rest}
+          />
+        )}
+      </AnimatePresence>
+    );
+  },
+);
 
 if (__DEV__) {
   ScaleFade.displayName = 'ScaleFade';

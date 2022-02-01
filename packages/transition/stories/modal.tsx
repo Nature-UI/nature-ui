@@ -1,19 +1,14 @@
 import * as React from 'react';
 
 export const modalStyles: React.CSSProperties = {
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  width: '50%',
   maxWidth: '630px',
   minWidth: '320px',
   background: 'skyblue',
   minHeight: 300,
   height: 'auto',
-  backfaceVisibility: 'hidden',
   padding: '1rem',
-  transform: `translateX(-50%) translateY(-50%)`,
   borderRadius: '5px',
+  margin: '1rem',
 };
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -25,6 +20,7 @@ export const Modal = (props: DivProps) => (
       ...modalStyles,
       ...props.style,
     }}
+    className='bg-red-500'
   >
     <h1 className='text-lg font-bold'>Animate Me</h1>
     <p className='mt-6'>

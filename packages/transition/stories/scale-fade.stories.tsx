@@ -1,54 +1,32 @@
+import { Button } from '@nature-ui/button';
+import { useBoolean } from '@nature-ui/hooks';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
-import { Meta } from '@storybook/react';
-
-import { ScaleFade } from '../src';
-
-import { Modal, modalStyles } from './modal';
+import { ScaleFade, ScaleFadeProps } from '../src';
 
 export default {
   title: 'Transition/ScaleFade',
   component: ScaleFade,
 } as Meta;
 
-export const Basic = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
+export const Basic: Story<ScaleFadeProps> = (args) => {
+  const [isOpen, { toggle }] = useBoolean();
 
   return (
     <>
-      <button onClick={() => setIsOpen((p) => !p)}>Click Me</button>
-      <ScaleFade in={isOpen}>
-        {(styles) => (
-          <Modal
-            style={{
-              ...styles,
-              transform: styles.transform
-                ? `${modalStyles.transform} ${styles.transform}`
-                : `${modalStyles.transform}`,
-            }}
-          />
-        )}
-      </ScaleFade>
-    </>
-  );
-};
-
-export const ScaleFadeWithTimeout = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
-
-  return (
-    <>
-      <button onClick={() => setIsOpen((p) => !p)}>Click Me</button>
-      <ScaleFade timeout={500} in={isOpen}>
-        {(styles) => (
-          <Modal
-            style={{
-              ...styles,
-              transform: styles.transform
-                ? `${modalStyles.transform} ${styles.transform}`
-                : `${modalStyles.transform}`,
-            }}
-          />
-        )}
+      <Button onClick={toggle}>Click Me</Button>
+      <ScaleFade
+        {...args}
+        in={isOpen}
+        style={{
+          maxWidth: 400,
+          background: 'red',
+          padding: 30,
+          ...args.style,
+        }}
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.
       </ScaleFade>
     </>
   );

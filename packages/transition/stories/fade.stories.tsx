@@ -1,8 +1,8 @@
+import { Button } from '@nature-ui/button';
+import { useBoolean } from '@nature-ui/hooks';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
-import { Meta } from '@storybook/react';
-
-import { Fade } from '../src';
-
+import { Fade, FadeProps } from '../src';
 import { Modal } from './modal';
 
 export default {
@@ -10,26 +10,19 @@ export default {
   component: Fade,
 } as Meta;
 
-export const Basic = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
-
+const Template: Story<FadeProps> = (args) => {
+  const [open, { toggle }] = useBoolean(false);
   return (
     <>
-      <button onClick={() => setIsOpen((p) => !p)}>Toggle Modal</button>
-      <Fade in={isOpen}>{(styles) => <Modal style={styles} />}</Fade>
-    </>
-  );
-};
-
-export const WithTimeout = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
-
-  return (
-    <>
-      <button onClick={() => setIsOpen((p) => !p)}>Toggle Modal</button>
-      <Fade timeout={700} in={isOpen}>
-        {(styles) => <Modal style={styles} />}
+      <Button onClick={toggle}>Toggle Slide</Button>
+      <Fade in={open} {...args}>
+        <Modal>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </Modal>
       </Fade>
     </>
   );
 };
+
+export const Basic = Template.bind({});

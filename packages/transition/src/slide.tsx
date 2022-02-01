@@ -1,5 +1,4 @@
-import { clsx } from '@nature-ui/system';
-import { __DEV__ } from '@nature-ui/utils';
+import { cx, __DEV__ } from '@nature-ui/utils';
 import {
   AnimatePresence,
   HTMLMotionProps,
@@ -15,7 +14,7 @@ import {
   Variants,
   withDelay,
   WithTransitionConfig,
-} from './transition-utiils';
+} from './transition-utils';
 
 export type { SlideDirection };
 
@@ -94,7 +93,7 @@ export const Slide = React.forwardRef<HTMLDivElement, SlideProps>(
           <motion.div
             ref={ref}
             initial='exit'
-            className={clsx('', className)}
+            className={cx('', className)}
             animate={animate}
             exit='exit'
             custom={custom}
