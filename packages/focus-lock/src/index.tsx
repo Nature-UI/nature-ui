@@ -1,18 +1,22 @@
+import {
+  focus,
+  FocusableElement,
+  getAllFocusable,
+  __DEV__,
+} from '@nature-ui/utils';
 import * as React from 'react';
-
-import { getAllFocusable, __DEV__ } from '@nature-ui/utils';
 import ReactFocusLock from 'react-focus-lock';
 
 export interface FocusLockProps {
   /**
    * `ref` of the element to receive focus initially
    */
-  initialFocusRef?: React.RefObject<HTMLElement>;
+  initialFocusRef?: React.RefObject<FocusableElement>;
   /**
    * `ref` of the element to return focus to when `FocusLock`
    * unmounts
    */
-  finalFocusRef?: React.RefObject<HTMLElement>;
+  finalFocusRef?: React.RefObject<FocusableElement>;
   /**
    * The `ref` of the wrapper for which the focus-lock wraps
    */
@@ -35,6 +39,17 @@ export interface FocusLockProps {
    * will ne auto-focused once `FocusLock` mounts
    */
   autoFocus?: boolean;
+  /**
+   * If `true`, disables text selections inside, and outside focus lock.
+   * @default `false`
+   */
+  persistentFocus?: boolean;
+  /**
+   * Enables aggressive focus capturing within iframes.
+   * - If `true`: keep focus in the lock, no matter where lock is active
+   * - If `false`:  allows focus to move outside of iframe
+   */
+  lockFocusAcrossFrames?: boolean;
 }
 
 /**
@@ -49,7 +64,9 @@ export const FocusLock = (props: FocusLockProps) => {
     restoreFocus,
     children,
     isDisabled,
-    autoFocus = true,
+    autoFocus,
+    persistentFocus,
+    lockFocusAcrossFrames,
   } = props;
 
   const onActivation = React.useCallback(() => {
@@ -59,7 +76,7 @@ export const FocusLock = (props: FocusLockProps) => {
       const focusable = getAllFocusable(contentRef.current);
 
       if (focusable.length === 0) {
-        contentRef?.current?.focus();
+        focus(contentRef.current, { nextTick: true });
       }
     }
   }, [initialFocusRef, contentRef]);
@@ -72,6 +89,8 @@ export const FocusLock = (props: FocusLockProps) => {
 
   return (
     <ReactFocusLock
+      crossFrame={lockFocusAcrossFrames}
+      persistentFocus={persistentFocus}
       autoFocus={autoFocus}
       disabled={isDisabled}
       onActivation={onActivation}
