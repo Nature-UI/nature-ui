@@ -1,19 +1,16 @@
-import * as React from 'react';
-import { createContext, __DEV__ } from '@nature-ui/utils';
-import { useSafeLayoutEffect, useForceUpdate } from '@nature-ui/hooks';
+import { createContext } from '@nature-ui/react-utils';
+import { __DEV__ } from '@nature-ui/utils';
+import React from 'react';
 
 interface PortalManagerContext {
-  node: HTMLElement;
   zIndex?: number;
 }
 
-const [
-  PortalManagerContextProvider,
-  usePortalManager,
-] = createContext<PortalManagerContext>({
-  strict: false,
-  name: 'PortalManagerContext',
-});
+const [PortalManagerContextProvider, usePortalManager] =
+  createContext<PortalManagerContext | null>({
+    strict: false,
+    name: 'PortalManagerContext',
+  });
 
 export { usePortalManager };
 
@@ -42,35 +39,9 @@ export interface PortalManagerProps {
  */
 export const PortalManager = (props: PortalManagerProps) => {
   const { children, zIndex } = props;
-
-  /**
-   * The element that wraps the stacked layers
-   */
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  const forceUpdate = useForceUpdate();
-
-  /**
-   * force an update on mount so the Provider works correctly
-   */
-  useSafeLayoutEffect(() => {
-    forceUpdate();
-  }, []);
-
-  /**
-   * let's detect if use has mutiple instances of this component
-   */
-  const parentManager = usePortalManager();
-
-  const context = {
-    node: parentManager?.node || ref.current,
-    zIndex,
-  };
-
   return (
-    <PortalManagerContextProvider value={context}>
+    <PortalManagerContextProvider value={{ zIndex }}>
       {children}
-      <div ref={ref} />
     </PortalManagerContextProvider>
   );
 };
