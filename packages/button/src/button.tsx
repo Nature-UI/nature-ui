@@ -199,7 +199,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
   }
 
   const DEFAULT_CLASS =
-    'focus:shadow-outline focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
+    'focus:ring focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
   const STYLES = {
     solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
     outline: `bg-transparent text-${color ?? text} border border-${
