@@ -1,8 +1,7 @@
 import { useIds } from '@nature-ui/hooks';
 import { callAllHandler, Dict, mergeRefs } from '@nature-ui/utils';
-import { Undo, hideOthers } from 'aria-hidden';
-import * as React from 'react';
-
+import { hideOthers, Undo } from 'aria-hidden';
+import React from 'react';
 import { manager, useModalManager } from './modal-manager';
 
 export interface UseModalProps {

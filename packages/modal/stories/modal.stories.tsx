@@ -1,21 +1,20 @@
+import { Button } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
 import { PortalManager } from '@nature-ui/portal';
-import { nature, PropsOf } from '@nature-ui/system';
 import * as React from 'react';
-
 import {
   Modal,
   ModalBody,
+  ModalCloseButton,
   ModalContent,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  ModalCloseButton,
 } from '../src';
 
 export default {
   title: 'Modal',
-
+  component: Modal,
   decorators: [
     (StoryFn: Function) => (
       <PortalManager>
@@ -23,17 +22,6 @@ export default {
       </PortalManager>
     ),
   ],
-};
-
-const Button = (props: PropsOf<typeof nature.button>) => {
-  const { className, ...rest } = props;
-
-  return (
-    <button
-      {...rest}
-      className={`px-4 py-2 font-semibold rounded border-none outline-none focus:shadow-outline ${className}`}
-    />
-  );
 };
 
 export const BasicUsage = () => {
@@ -86,15 +74,10 @@ export const BasicUsage = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button
-                onClick={onClose}
-                className='bg-gray-200 hover:bg-gray-300 transition duration-200'
-              >
+              <Button onClick={onClose} className='mr-3'>
                 Cancel
               </Button>
-              <Button className='bg-blue-600 text-white hover:bg-blue-500 ml-3'>
-                Save
-              </Button>
+              <Button color='red-500'>Save</Button>
             </ModalFooter>
           </ModalContent>
         </ModalOverlay>
@@ -134,35 +117,13 @@ export const WithSize = () => {
               ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
               aute id consequat veniam incididunt duis in sint irure nisi.
               Mollit officia cillum Lorem ullamco minim nostrud elit officia
-              tempor esse quis. Sit nulla est ex deserunt exercitation anim
-              occaecat. Nostrud ullamco deserunt aute id consequat veniam
-              incididunt duis in sint irure nisi. Mollit officia cillum Lorem
-              ullamco minim nostrud elit officia tempor esse quis. Sit nulla est
-              ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
-              aute id consequat veniam incididunt duis in sint irure nisi.
-              Mollit officia cillum Lorem ullamco minim nostrud elit officia
-              tempor esse quis. Mollit officia cillum Lorem ullamco minim
-              nostrud elit officia tempor esse quis. Sit nulla est ex deserunt
-              exercitation anim occaecat. Nostrud ullamco deserunt aute id
-              consequat veniam incididunt duis in sint irure nisi. Mollit
-              officia cillum Lorem ullamco minim nostrud elit officia tempor
-              esse quis. Mollit officia cillum Lorem ullamco minim nostrud elit
-              officia tempor esse quis. Sit nulla est ex deserunt exercitation
-              anim occaecat. Nostrud ullamco deserunt aute id consequat veniam
-              incididunt duis in sint irure nisi. Mollit officia cillum Lorem
-              ullamco minim nostrud elit officia tempor esse quis.
             </ModalBody>
 
             <ModalFooter>
-              <Button
-                onClick={onClose}
-                className='bg-gray-200 hover:bg-gray-300 transition duration-200'
-              >
+              <Button onClick={onClose} className='mr-3'>
                 Cancel
               </Button>
-              <Button className='bg-blue-600 text-white hover:bg-blue-500 ml-3'>
-                Save
-              </Button>
+              <Button color='red-500'>Save</Button>
             </ModalFooter>
           </ModalContent>
         </ModalOverlay>
@@ -204,7 +165,9 @@ export const ReturnFocus = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button onClick={onClose}>Close</Button>
+              <Button color='red-600' onClick={onClose} className='mr-3'>
+                Close
+              </Button>
               <Button variant='ghost'>Secondary Action</Button>
             </ModalFooter>
           </ModalContent>

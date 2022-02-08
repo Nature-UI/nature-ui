@@ -48,10 +48,13 @@
   "dependencies": {
     "@nature-ui/close-button": "^1.1.2",
     "@nature-ui/focus-lock": "^1.1.1",
+    "@nature-ui/react-utils": "^1.1.0",
     "@nature-ui/hooks": "^1.1.1",
     "@nature-ui/portal": "^1.1.1",
     "@nature-ui/utils": "^1.1.1",
+    "@nature-ui/transition": "^1.1.1",
     "aria-hidden": "^1.1.1",
+    "framer-motion": "^6.2.3",
     "react-remove-scroll": "^2.4.1"
   },
   "devDependencies": {

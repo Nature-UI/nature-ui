@@ -1,9 +1,8 @@
-/** ** */
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { FocusLock } from '@nature-ui/focus-lock';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
 import { Portal, PortalProps } from '@nature-ui/portal';
-import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { clsx, forwardRef, HTMLNatureProps, nature } from '@nature-ui/system';
 import {
   callAllHandler,
   createContext,
@@ -19,11 +18,6 @@ type ModalContext = UseModalReturn &
     variant?: StringOrNumber;
     size?: StringOrNumber;
   };
-
-const FooterTag = nature('footer');
-const SectionTag = nature('section');
-const DivTag = nature('div');
-const HeaderTag = nature('header');
 
 const [ModalContextProvider, useModalContext] = createContext<ModalContext>({
   strict: true,
@@ -160,10 +154,6 @@ if (__DEV__) {
   Modal.displayName = 'Modal';
 }
 
-type ContentOptions = Pick<ModalProps, 'scrollBehavior'>;
-
-export type ModalContentProps = PropsOf<typeof SectionTag> & ContentOptions;
-
 const _SIZES = {
   xs: '20rem !important',
   sm: '24rem !important',
@@ -173,14 +163,18 @@ const _SIZES = {
   full: '100% !important',
 };
 
+export interface ModalContentProps
+  extends HTMLNatureProps<'section'>,
+    Pick<ModalProps, 'scrollBehavior'> {}
+
 /**
  * ModalContent
  *
  * React component used to group modal's content. It has all the
  * necessary `aria-*` properties to indicate that it's a modal modal
  */
-export const ModalContent = React.forwardRef(
-  (props: ModalContentProps, ref: React.Ref<any>) => {
+export const ModalContent = forwardRef<ModalContentProps, 'section'>(
+  (props, ref) => {
     const { className, ...rest } = props;
     const { getContentProps, size = 'xs', scrollBehavior } = useModalContext();
 
@@ -209,7 +203,9 @@ export const ModalContent = React.forwardRef(
       maxHeight: scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : 'none',
     };
 
-    return <SectionTag className={_className} {...contentProps} css={css} />;
+    return (
+      <nature.section className={_className} {...contentProps} css={css} />
+    );
   },
 );
 
@@ -217,9 +213,9 @@ if (__DEV__) {
   ModalContent.displayName = 'ModalContent';
 }
 
-type OverlayOptions = Pick<ModalProps, 'isCentered' | 'scrollBehavior'>;
-
-export type ModalOverlayProps = PropsOf<typeof DivTag> & OverlayOptions;
+export interface ModalOverlayProps
+  extends Pick<ModalProps, 'isCentered' | 'scrollBehavior'>,
+    HTMLNatureProps<'div'> {}
 
 /**
  * ModalOverlay
@@ -228,8 +224,8 @@ export type ModalOverlayProps = PropsOf<typeof DivTag> & OverlayOptions;
  * also used as a wrapper for the modal content for better positioning.
  *
  */
-export const ModalOverlay = React.forwardRef(
-  (props: ModalOverlayProps, ref: React.Ref<any>) => {
+export const ModalOverlay = forwardRef<ModalOverlayProps, 'div'>(
+  (props, ref) => {
     const { className, ...rest } = props;
     const { getOverlayProps, scrollBehavior, isCentered, variant, size } =
       useModalContext();
@@ -261,7 +257,7 @@ export const ModalOverlay = React.forwardRef(
       className,
     );
 
-    return <DivTag className={_className} {...theming} {...overlayProps} />;
+    return <nature.div className={_className} {...theming} {...overlayProps} />;
   },
 );
 
@@ -269,34 +265,7 @@ if (__DEV__) {
   ModalOverlay.displayName = 'ModalOverlay';
 }
 
-export type ModalHeaderProps = PropsOf<typeof StyledHeader>;
-
-/**
- * ModalHeader - Theming
- *
- * To style the modal header globally, change the styles in
- * `theme.components.Modal` under the `Header` key
- */
-const StyledHeader = React.forwardRef(
-  (props: PropsOf<typeof nature.header>, ref: React.Ref<any>) => {
-    const { ...rest } = props;
-
-    return (
-      <HeaderTag
-        {...rest}
-        css={{
-          flex: 0,
-        }}
-        ref={ref}
-      />
-    );
-  },
-);
-
-if (__DEV__) {
-  StyledHeader.displayName = 'StyledHeader'; // FIXME: Remove this
-}
-
+export interface ModalHeaderProps extends HTMLNatureProps<'header'> {}
 /**
  * ModalHeader
  *
@@ -321,13 +290,18 @@ export const ModalHeader = React.forwardRef(
     }, []);
 
     const _className = clsx(
-      'nature-modal__header',
-      'p-4 font-bold text-xl',
+      'nature-modal__header p-4 font-bold text-xl',
       className,
     );
 
     return (
-      <StyledHeader ref={ref} className={_className} id={headerId} {...rest} />
+      <nature.header
+        {...rest}
+        ref={ref}
+        className={_className}
+        id={headerId}
+        css={{ flex: 0 }}
+      />
     );
   },
 );
@@ -336,30 +310,9 @@ if (__DEV__) {
   ModalHeader.displayName = 'ModalHeader';
 }
 
-export type ModalBodyProps = PropsOf<typeof StyledBody>;
-
-type StyledBodyProps = PropsOf<typeof DivTag> &
-  Pick<ModalProps, 'scrollBehavior'>;
-
-/**
- * ModalBody - Theming
- *
- * To style the modal body globally, change the styles in
- * `theme.components.Modal` under the `Body` key
- */
-const StyledBody = (props: StyledBodyProps) => {
-  const { className = '', scrollBehavior, ...rest } = props;
-
-  const _className = clsx(
-    'flex-1',
-    {
-      'overflow-auto': scrollBehavior === 'inside',
-    },
-    className,
-  );
-
-  return <DivTag {...rest} className={_className} />;
-};
+export interface ModalBodyProps
+  extends HTMLNatureProps<'div'>,
+    Pick<ModalProps, 'scrollBehavior'> {}
 
 /**
  * ModalBody
@@ -368,34 +321,38 @@ const StyledBody = (props: StyledBodyProps) => {
  *
  * @see Docs https://nature-ui.com/components/modal
  */
-export const ModalBody = forwardRef(
-  (props: ModalBodyProps, ref: React.Ref<any>) => {
-    const { className, ...rest } = props;
-    const { bodyId, setBodyMounted, scrollBehavior } = useModalContext();
+export const ModalBody = forwardRef<ModalBodyProps, 'div'>((props, ref) => {
+  const { className, ...rest } = props;
+  const { bodyId, setBodyMounted, scrollBehavior } = useModalContext();
 
-    /**
-     * Notify us if this component was rendered or used
-     * so we can append `aria-describedby` automatically
-     */
-    useSafeLayoutEffect(() => {
-      setBodyMounted(true);
+  /**
+   * Notify us if this component was rendered or used
+   * so we can append `aria-describedby` automatically
+   */
+  useSafeLayoutEffect(() => {
+    setBodyMounted(true);
 
-      return () => setBodyMounted(false);
-    }, []);
+    return () => setBodyMounted(false);
+  }, []);
 
-    const _className = clsx('nature-modal__body', 'py-2 px-4', className);
+  const _className = clsx(
+    'nature-modal__body flex-1 py-2 px-4',
+    {
+      'overflow-auto': scrollBehavior === 'inside',
+    },
+    className,
+  );
 
-    return (
-      <StyledBody
-        ref={ref}
-        scrollBehavior={scrollBehavior}
-        className={_className}
-        id={bodyId}
-        {...rest}
-      />
-    );
-  },
-);
+  return (
+    <nature.div
+      ref={ref}
+      scrollBehavior={scrollBehavior}
+      className={_className}
+      id={bodyId}
+      {...rest}
+    />
+  );
+});
 
 if (__DEV__) {
   ModalBody.displayName = 'ModalBody';
@@ -408,12 +365,12 @@ if (__DEV__) {
  *
  * @see Docs https://nature-ui.com/components/modal
  */
-export const ModalFooter = (props: PropsOf<typeof FooterTag>) => {
+export const ModalFooter = (props: HTMLNatureProps<'footer'>) => {
   const { className = '', ...rest } = props;
 
   const _className = clsx('flex items-center justify-end p-4', className);
 
-  return <FooterTag className={_className} css={{ flex: 0 }} {...rest} />;
+  return <nature.footer className={_className} css={{ flex: 0 }} {...rest} />;
 };
 
 if (__DEV__) {
