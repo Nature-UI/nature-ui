@@ -1,6 +1,7 @@
 import { useIds } from '@nature-ui/hooks';
-import { callAllHandler, Dict, mergeRefs } from '@nature-ui/utils';
-import { hideOthers, Undo } from 'aria-hidden';
+import { PropGetter } from '@nature-ui/react-utils';
+import { callAllHandler, mergeRefs } from '@nature-ui/utils';
+import { hideOthers } from 'aria-hidden';
 import React from 'react';
 import { manager, useModalManager } from './modal-manager';
 
@@ -59,20 +60,13 @@ export const useAriaHidden = (
   ref: React.RefObject<HTMLElement>,
   shouldHide: boolean,
 ) => {
+  const currentElement = ref.current;
+
   React.useEffect(() => {
-    if (!ref.current) return;
-    let undo: Undo | null = null;
+    if (!ref.current || !shouldHide) return undefined;
 
-    if (shouldHide && ref.current) {
-      undo = hideOthers(ref.current);
-    }
-
-    return () => {
-      if (shouldHide) {
-        undo?.();
-      }
-    };
-  }, [shouldHide, ref]);
+    return hideOthers(ref.current);
+  }, [shouldHide, ref, currentElement]);
 };
 
 /**
@@ -93,8 +87,8 @@ export const useModal = (props: UseModalProps) => {
     onEsc,
   } = props;
 
-  const dialogRef = React.useRef<any>(null);
-  const overlayRef = React.useRef<any>(null);
+  const dialogRef = React.useRef<HTMLElement>(null);
+  const overlayRef = React.useRef<HTMLElement>(null);
 
   const [dialogId, headerId, bodyId] = useIds(
     id,
@@ -154,19 +148,47 @@ export const useModal = (props: UseModalProps) => {
       /**
        * When you click on the overlay, we want to remove only the topmost modal
        */
-      if (manager.isTopModal(dialogRef)) {
-        if (closeOnOverlayClick) {
-          onClose?.();
-        }
+      if (!manager.isTopModal(dialogRef)) return;
 
-        onOverlayClickProp?.();
+      if (closeOnOverlayClick) {
+        onClose?.();
       }
+
+      onOverlayClickProp?.();
     },
     [onClose, closeOnOverlayClick, onOverlayClickProp],
   );
 
   const [headerMounted, setHeaderMounted] = React.useState(false);
   const [bodyMounted, setBodyMounted] = React.useState(false);
+
+  const getDialogProps: PropGetter = React.useCallback(
+    (props = {}, ref = null) => ({
+      role: 'dialog',
+      ...props,
+      ref: mergeRefs(ref, dialogRef),
+      id: dialogId,
+      tabIndex: -1,
+      'aria-modal': true,
+      'aria-labelledby': headerMounted ? headerId : undefined,
+      'aria-describedby': bodyMounted ? bodyId : undefined,
+      onClick: callAllHandler(props.onClick, (event: React.MouseEvent) =>
+        event.stopPropagation(),
+      ),
+    }),
+    [bodyId, bodyMounted, dialogId, headerId, headerMounted],
+  );
+
+  const getDialogContainerProps: PropGetter = React.useCallback(
+    (props = {}, ref = null) => ({
+      ...props,
+      ref: mergeRefs(ref, overlayRef),
+      onClick: callAllHandler(props.onClick, onOverlayClick),
+      onKeyDown: callAllHandler(props.onKeyDown, onKeyDown),
+      onMouseDown: callAllHandler(props.onMouseDown, onMouseDown),
+    }),
+    [onKeyDown, onMouseDown, onOverlayClick],
+  );
 
   return {
     isOpen,
@@ -176,26 +198,9 @@ export const useModal = (props: UseModalProps) => {
     setBodyMounted,
     setHeaderMounted,
     dialogRef,
-    getContentProps: (_props: Dict = {}) => ({
-      ..._props,
-      ref: mergeRefs(_props.ref, dialogRef),
-      id: dialogId,
-      role: _props.role || 'dialog',
-      tabIndex: -1,
-      'aria-modal': true,
-      'aria-labelledby': headerMounted ? headerId : undefined,
-      'aria-describedby': bodyMounted ? bodyId : undefined,
-      onClick: callAllHandler(_props.onClick, (event: React.MouseEvent) =>
-        event.stopPropagation(),
-      ),
-    }),
-    getOverlayProps: (_props: Dict = {}) => ({
-      ..._props,
-      ref: mergeRefs(_props.ref, overlayRef),
-      onClick: callAllHandler(_props.onClick, onOverlayClick),
-      onKeyDown: callAllHandler(_props.onKeyDown, onKeyDown),
-      onMouseDown: callAllHandler(_props.onMouseDown, onMouseDown),
-    }),
+    overlayRef,
+    getDialogProps,
+    getDialogContainerProps,
   };
 };
 
