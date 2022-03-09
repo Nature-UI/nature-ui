@@ -59,7 +59,7 @@ export const Fade = React.forwardRef<HTMLDivElement, FadeProps>(
         {show && (
           <motion.div
             ref={ref}
-            className={cx('chakra-fade', className)}
+            className={cx('nature-fade', className)}
             custom={custom}
             {...fadeConfig}
             animate={animate}

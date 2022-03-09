@@ -15,8 +15,7 @@
   "license": "MIT",
   "main": "src/index.ts",
   "directories": {
-    "lib": "src",
-    "test": "__tests__"
+    "lib": "src"
   },
   "files": [
     "src"

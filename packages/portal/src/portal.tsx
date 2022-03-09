@@ -64,7 +64,7 @@ const DefaultPortal: React.FC<{ appendToParentPortal?: boolean }> = (props) => {
         host.removeChild(portalNode);
       }
     };
-  }, [parentPortal, appendToParentPortal]);
+  }, []);
 
   const _children = manager?.zIndex ? (
     <Container zIndex={manager.zIndex}>{children}</Container>
@@ -107,15 +107,15 @@ const ContainerPortal: React.FC<ContainerPortalProps> = (props) => {
 
   useSafeLayoutEffect(() => {
     forceUpdate();
-  }, [appendToParentPortal]);
+  }, []);
 
   useSafeLayoutEffect(() => {
     if (!portal || !host) return;
     host.appendChild(portal);
     return () => {
-      if (host.contains(portal)) host.removeChild(portal);
+      host.removeChild(portal);
     };
-  }, [host, portal, appendToParentPortal]);
+  }, [portal, host]);
 
   if (host && portal) {
     return createPortal(
