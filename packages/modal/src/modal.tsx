@@ -3,6 +3,7 @@ import { FocusLock, FocusLockProps } from '@nature-ui/focus-lock';
 import { Portal, PortalProps } from '@nature-ui/portal';
 import { createContext } from '@nature-ui/react-utils';
 import {
+  clsx,
   forwardRef,
   HTMLNatureProps,
   nature,
@@ -148,12 +149,14 @@ export const Modal: React.FC<ModalProps> = (props) => {
     lockFocusAcrossFrames,
     size,
     variant,
+    scrollBehavior,
   } = props;
 
   const modal = useModal(props);
 
   const context = {
     ...modal,
+    scrollBehavior,
     autoFocus,
     trapFocus,
     initialFocusRef,
@@ -218,7 +221,6 @@ export const ModalFocusScope = (props: ModalFocusScopeProps) => {
   React.useEffect(() => {
     if (!isPresent) {
       setTimeout(() => safeToRemove(), 0);
-      // setTimeout(() => safeToRemove);
     }
   }, [isPresent, safeToRemove]);
 
@@ -247,6 +249,7 @@ export const ModalFocusScope = (props: ModalFocusScopeProps) => {
 if (__DEV__) {
   ModalFocusScope.displayName = 'ModalFocusScope';
 }
+
 const _SIZES = {
   xs: '20rem !important',
   sm: '24rem !important',
@@ -270,16 +273,24 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
     const {
       getDialogProps,
       getDialogContainerProps,
+      scrollBehavior,
       size = 'md',
     } = useModalContext();
+
+    console.log({ scrollBehavior });
 
     const dialogProps = getDialogProps(rest, ref) as any;
     const containerProps = getDialogContainerProps(rootProps);
 
     const { motionPreset } = useModalContext();
-    const dialogContainerClassnames = cx(
+    const dialogContainerClassnames = clsx(
       'nature-modal__content-container',
-      'min-h-screen w-screen h-screen flex fixed left-0 top-0 z-50 justify-center items-start my-14 overflow-auto',
+      'min-h-screen w-screen h-screen flex fixed left-0 top-0 z-50 justify-center items-start',
+      // `${scrollBehavior === 'inside' ? 'overflow-hidden' : 'overflow-auto'}`,
+      {
+        ['overflow-auto']: scrollBehavior === 'outside',
+        ['overflow-hidden']: scrollBehavior === 'inside',
+      },
     );
     let _size;
 
@@ -290,12 +301,14 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
     }
     const dialogClassnames = cx(
       'nature-modal__content',
-      'flex flex-col relative w-full outline-none bg-white rounded',
+      'flex flex-col relative w-full outline-none bg-white rounded my-14',
       className,
     );
 
     const css = {
       maxWidth: _size,
+      maxHeight:
+        scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : undefined,
     };
 
     return (
@@ -431,7 +444,11 @@ export const ModalBody = forwardRef<ModalBodyProps, 'div'>((props, ref) => {
     return () => setBodyMounted(false);
   }, [setBodyMounted]);
 
-  const _className = cx('nature-modal__body', 'flex-1 py-2 px-4', className);
+  const _className = cx(
+    'nature-modal__body',
+    'flex-1 py-2 px-4 overflow-auto',
+    className,
+  );
   return <nature.div ref={ref} className={_className} id={bodyId} {...rest} />;
 });
 

@@ -1,18 +1,10 @@
+import { Button } from '@nature-ui/button';
 import * as React from 'react';
-import { PortalManager } from '@nature-ui/portal';
-
 import { Drawer, DrawerContent, DrawerOverlay } from '../src';
 
 export default {
   title: 'Drawer',
   component: Drawer,
-  decorators: [
-    (StoryFn: Function) => (
-      <PortalManager>
-        <StoryFn />
-      </PortalManager>
-    ),
-  ],
 };
 
 export const Basic = () => {
@@ -20,12 +12,12 @@ export const Basic = () => {
 
   return (
     <>
-      <button onClick={() => setOpen(!open)}>Open</button>
-      <Drawer isOpen={open} onClose={() => setOpen(false)}>
+      <Button onClick={() => setOpen(!open)}>Open</Button>
+      <Drawer isOpen={true} onClose={() => setOpen(false)}>
         <DrawerOverlay>
           <DrawerContent>
             <div>This is the drawer content</div>
-            <button>This is a button</button>
+            <Button>This is a Button</Button>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
@@ -38,7 +30,7 @@ export const RightPlacement = () => {
 
   return (
     <>
-      <button onClick={() => setOpen(!open)}>Open</button>
+      <Button onClick={() => setOpen(!open)}>Open</Button>
       <Drawer
         size='lg'
         placement='right'
@@ -48,7 +40,7 @@ export const RightPlacement = () => {
         <DrawerOverlay>
           <DrawerContent>
             <div>This is the drawer content</div>
-            <button>This is a button</button>
+            <Button>This is a Button</Button>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>

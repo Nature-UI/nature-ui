@@ -2,6 +2,7 @@ import { Button } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
 import { nature } from '@nature-ui/system';
 import * as React from 'react';
+import Lorem from 'react-lorem-component';
 import {
   Modal,
   ModalBody,
@@ -146,6 +147,7 @@ export function NestedModal() {
     </>
   );
 }
+
 export const ReturnFocus = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef<any>();
@@ -165,17 +167,13 @@ export const ReturnFocus = () => {
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
-        // size='500px'
       >
         <ModalOverlay>
           <ModalContent>
             <ModalHeader>Modal Title</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-              ullamco deserunt aute id consequat veniam incididunt duis in sint
-              irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-              officia tempor esse quis.
+              <Lorem size={5} />
             </ModalBody>
 
             <ModalFooter>
@@ -186,6 +184,28 @@ export const ReturnFocus = () => {
             </ModalFooter>
           </ModalContent>
         </ModalOverlay>
+      </Modal>
+    </>
+  );
+};
+
+export const InsideScroll = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  return (
+    <>
+      <Button onClick={onOpen}>Open</Button>
+      <Modal onClose={onClose} isOpen={isOpen} scrollBehavior='inside'>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Lorem size={5} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
       </Modal>
     </>
   );

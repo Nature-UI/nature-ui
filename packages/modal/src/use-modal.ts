@@ -45,6 +45,7 @@ export interface UseModalProps {
    *  @default true
    */
   useInert?: boolean;
+  scrollBehavior?: 'inside' | 'outside';
 }
 
 /**
@@ -85,6 +86,7 @@ export const useModal = (props: UseModalProps) => {
     useInert = true,
     onOverlayClick: onOverlayClickProp,
     onEsc,
+    scrollBehavior,
   } = props;
 
   const dialogRef = React.useRef<HTMLElement>(null);
@@ -201,6 +203,7 @@ export const useModal = (props: UseModalProps) => {
     overlayRef,
     getDialogProps,
     getDialogContainerProps,
+    scrollBehavior,
   };
 };
 
