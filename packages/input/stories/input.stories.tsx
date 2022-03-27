@@ -25,7 +25,7 @@ Basic.args = {
 
 export const WithSizes = () => {
   return (
-    <Stack spacing='1rem'>
+    <Stack spacing='1rem' col>
       {['sm', 'md', 'lg'].map((size) => (
         <Input
           size={size as any}
@@ -55,7 +55,7 @@ export const Controlled = () => {
 };
 
 export const WithStates = () => (
-  <Stack>
+  <Stack col>
     <Input placeholder='Idle' />
     <Input isInvalid placeholder='isInvalid' />
     <Input isDisabled placeholder='isDisabled' />
@@ -64,7 +64,7 @@ export const WithStates = () => (
 );
 
 export const WithVariants = () => (
-  <Stack spacing='2rem'>
+  <Stack spacing='2rem' col>
     <Input variant='outline' placeholder='Outline' />
     <Input variant='filled' placeholder='Filled' />
     <Input variant='flushed' placeholder='Flushed' />
@@ -73,7 +73,7 @@ export const WithVariants = () => (
 );
 
 export const WithInputAddon = () => (
-  <Stack spacing='2rem'>
+  <Stack spacing='2rem' col>
     <Input
       placeholder='your-website'
       defaultValue='divinehycenth'
