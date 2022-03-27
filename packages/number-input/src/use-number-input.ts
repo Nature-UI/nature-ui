@@ -3,7 +3,7 @@ import {
   useBoolean,
   useCallbackRef,
   useEventListener,
-  useSafeLayoutEffect,
+  useSafeLayoutEffect
 } from '@nature-ui/hooks';
 import { EventKeyMap } from '@nature-ui/react-utils';
 import {
@@ -16,14 +16,14 @@ import {
   mergeRefs,
   minSafeInteger,
   normalizeEventKey,
-  StringOrNumber,
+  StringOrNumber
 } from '@nature-ui/utils';
 import React, { useCallback, useMemo } from 'react';
 import { PropGetter } from './../../react-utils/src/types';
 import { useSpinner } from './use-spinner';
 import {
   isFloatingPointNumericCharacter,
-  isValidNumericKeyboardEvent,
+  isValidNumericKeyboardEvent
 } from './utils';
 
 export interface UseNumberInputProps extends UseCounterProps {
@@ -366,33 +366,37 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
     { passive: false },
   );
 
-  const getIncrementButtonProps: PropGetter = useCallback(
-    (props = {}, ref = null) => {
-      const disabled = isDisabled || (keepWithinRange && counter.isAtMax);
-      return {
-        ...props,
-        ref,
-        role: 'button',
-        tabIndex: -1,
-        [pointerDown]: callAllHandler(props[pointerDown], spinUp),
-        onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
-        onMouseLeave: callAllHandler(props.onMouseUp, spinner.stop),
-        onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
-        disabled,
-        'aria-disabled': ariaAttr(disabled),
-      };
-    },
-    [
-      pointerDown,
-      counter.isAtMax,
-      keepWithinRange,
-      spinUp,
-      spinner.stop,
-      isDisabled,
-    ],
-  );
+  const getIncrementButtonProps: PropGetter<HTMLDivElement, { disabled?: boolean }> =
+    useCallback(
+      (props = {}, ref = null) => {
+        const disabled = isDisabled || (keepWithinRange && counter.isAtMax);
+        return {
+          ...props,
+          ref,
+          role: 'button',
+          tabIndex: -1,
+          [pointerDown]: callAllHandler(props[pointerDown], spinUp),
+          onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
+          onMouseLeave: callAllHandler(props.onMouseUp, spinner.stop),
+          onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
+          disabled,
+          'aria-disabled': ariaAttr(disabled),
+        };
+      },
+      [
+        pointerDown,
+        counter.isAtMax,
+        keepWithinRange,
+        spinUp,
+        spinner.stop,
+        isDisabled,
+      ],
+    );
 
-  const getDecrementButtonProps: PropGetter = useCallback(
+  const getDecrementButtonProps: PropGetter<
+    HTMLDivElement,
+    { disabled?: boolean }
+  > = useCallback(
     (props = {}, ref = null) => {
       const disabled = isDisabled || (keepWithinRange && counter.isAtMin);
 

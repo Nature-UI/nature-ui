@@ -105,9 +105,13 @@ export const NumberInputStepper = forwardRef<NumberInputStepperProps, 'div'>(
       <nature.div
         {...props}
         className={clsx(
-          'flex flex-col absolute top-0 m-1 h-full z-10',
+          'flex flex-col absolute top-0 right-0 mr-1 w-6 z-10',
           props.className,
         )}
+        css={{
+          marginRight: '1px',
+          height: 'calc(100% - 2px);',
+        }}
         aria-hidden
         ref={ref}
       />
@@ -148,6 +152,19 @@ if (__DEV__) {
 
 export interface NumberDecrementStepperProps extends HTMLNatureProps<'div'> {}
 
+const stepperStyles = {
+  borderInlineStart: '1px solid',
+  borderInlineStartColor: 'inherit',
+  color: 'inherit',
+  fontSize: 'calc(1rem * 0.75)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flex: 1,
+  userSelect: 'none',
+  lineHeight: 'normal',
+  cursor: 'pointer',
+};
 /**
  * NumberDecrementStepper
  *
@@ -163,7 +180,16 @@ export const NumberDecrementStepper = forwardRef<
   const decrement = getDecrementButtonProps(props, ref);
 
   return (
-    <nature.div {...decrement}>
+    <nature.div
+      {...decrement}
+      css={{ ...stepperStyles, ...(decrement.css as any) }}
+      className={clsx(
+        {
+          ['cursor-not-allowed opacity-40']: decrement.disabled,
+        },
+        decrement.className,
+      )}
+    >
       {props.children ?? <TriangleDownIcon />}
     </nature.div>
   );
@@ -190,7 +216,16 @@ export const NumberIncrementStepper = forwardRef<
   const increment = getIncrementButtonProps(props, ref);
 
   return (
-    <nature.div {...increment}>
+    <nature.div
+      {...increment}
+      css={{ ...stepperStyles, ...(increment.css as any) }}
+      className={clsx(
+        {
+          ['cursor-not-allowed opacity-40']: increment.disabled,
+        },
+        increment.className,
+      )}
+    >
       {props.children ?? <TriangleUpIcon />}
     </nature.div>
   );
