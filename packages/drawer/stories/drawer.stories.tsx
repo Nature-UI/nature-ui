@@ -13,36 +13,29 @@ export const Basic = () => {
   return (
     <>
       <Button onClick={() => setOpen(!open)}>Open</Button>
-      <Drawer isOpen={true} onClose={() => setOpen(false)}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <div>This is the drawer content</div>
-            <Button>This is a Button</Button>
-          </DrawerContent>
-        </DrawerOverlay>
+      <Drawer isOpen={open} onClose={() => setOpen(false)}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <div>This is the drawer content</div>
+          <Button>This is a Button</Button>
+        </DrawerContent>
       </Drawer>
     </>
   );
 };
 
-export const RightPlacement = () => {
+export const LeftPlacement = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
     <>
       <Button onClick={() => setOpen(!open)}>Open</Button>
-      <Drawer
-        size='lg'
-        placement='right'
-        isOpen={open}
-        onClose={() => setOpen(false)}
-      >
-        <DrawerOverlay>
-          <DrawerContent>
-            <div>This is the drawer content</div>
-            <Button>This is a Button</Button>
-          </DrawerContent>
-        </DrawerOverlay>
+      <Drawer placement='left' isOpen={open} onClose={() => setOpen(false)}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <div>This is the drawer content</div>
+          <Button>This is a Button</Button>
+        </DrawerContent>
       </Drawer>
     </>
   );

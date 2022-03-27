@@ -1,34 +1,24 @@
-/** ** */
 import {
-  Modal,
+  Modal as AlertDialog,
   ModalBody as AlertDialogBody,
   ModalCloseButton as AlertDialogCloseButton,
-  ModalContent,
-  ModalContentProps,
+  ModalContent as AlertDialogContent,
+  ModalContentProps as AlertDialogContentProps,
   ModalFooter as AlertDialogFooter,
   ModalHeader as AlertDialogHeader,
   ModalOverlay as AlertDialogOverlay,
-  ModalProps,
+  ModalProps as AlertDialogProps,
 } from '@nature-ui/modal';
-import { forwardRef } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-
-export interface AlertDialogProps extends Omit<ModalProps, 'initialFocusRef'> {
-  leastDestructiveRef: ModalProps['initialFocusRef'];
-}
-
-export const AlertDialog = (props: AlertDialogProps) => {
-  const { leastDestructiveRef, ...rest } = props;
-
-  return <Modal initialFocusRef={leastDestructiveRef} {...rest} />;
-};
-
-export const AlertDialogContent = forwardRef<ModalContentProps, 'div'>(
-  (props, ref) => <ModalContent ref={ref} role='alertdialog' {...props} />,
-);
 
 if (__DEV__) {
   AlertDialogContent.displayName = 'AlertDialogContent';
+  AlertDialog.displayName = 'AlertDialog';
+  AlertDialogBody.displayName = 'AlertDialogBody';
+  AlertDialogCloseButton.displayName = 'AlertDialogCloseButton';
+  AlertDialogFooter.displayName = 'AlertDialogFooter';
+  AlertDialogHeader.displayName = 'AlertDialogHeader';
+  AlertDialogOverlay.displayName = 'AlertDialogOverlay';
 }
 
 export {
@@ -37,4 +27,8 @@ export {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogOverlay,
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogContentProps,
+  AlertDialogProps,
 };
