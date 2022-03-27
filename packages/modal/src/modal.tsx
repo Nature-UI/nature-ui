@@ -14,7 +14,6 @@ import {
   callAllHandler,
   cx,
   FocusableElement,
-  StringOrNumber,
   __DEV__,
 } from '@nature-ui/utils';
 import {
@@ -82,7 +81,7 @@ interface ModalOptions extends Pick<FocusLockProps, 'lockFocusAcrossFrames'> {
   /**
    * The size(width) of the modal
    */
-  size?: StringOrNumber;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | number;
   /**
    * variant of the modal
    * @default "blur"
@@ -93,7 +92,10 @@ interface ModalOptions extends Pick<FocusLockProps, 'lockFocusAcrossFrames'> {
 type ScrollBehavior = 'inside' | 'outside';
 type MotionPreset = 'slideInBottom' | 'slideInRight' | 'scale' | 'none';
 
-export interface ModalProps extends UseModalProps, ModalOptions, NatureProps {
+export interface NatureModalProps
+  extends UseModalProps,
+    ModalOptions,
+    NatureProps {
   /**
    *  If `true`, the modal will be centered on screen.
    * @default false
@@ -133,7 +135,7 @@ const [ModalContextProvider, useModalContext] = createContext<ModalContext>({
 
 export { ModalContextProvider, useModalContext };
 
-export const Modal: React.FC<ModalProps> = (props) => {
+export const NatureModal: React.FC<NatureModalProps> = (props) => {
   const {
     portalProps,
     children,
@@ -180,10 +182,10 @@ export const Modal: React.FC<ModalProps> = (props) => {
   );
 };
 
-Modal.defaultProps = {
+NatureModal.defaultProps = {
   lockFocusAcrossFrames: true,
   returnFocusOnClose: true,
-  scrollBehavior: 'inside',
+  scrollBehavior: 'outside',
   trapFocus: true,
   autoFocus: true,
   blockScrollOnMount: true,
@@ -192,7 +194,7 @@ Modal.defaultProps = {
 };
 
 if (__DEV__) {
-  Modal.displayName = 'Modal';
+  NatureModal.displayName = 'Modal';
 }
 
 interface ModalFocusScopeProps {
@@ -220,7 +222,7 @@ export const ModalFocusScope = (props: ModalFocusScopeProps) => {
 
   React.useEffect(() => {
     if (!isPresent) {
-      setTimeout(() => safeToRemove(), 0);
+      setTimeout(() => safeToRemove?.(), 0);
     }
   }, [isPresent, safeToRemove]);
 
@@ -251,12 +253,12 @@ if (__DEV__) {
 }
 
 const _SIZES = {
-  xs: '20rem !important',
-  sm: '24rem !important',
-  md: '28rem !important',
-  lg: '32rem !important',
-  xl: '36rem !important',
-  full: '100% !important',
+  full: { maxW: 'max-w-screen', maxH: 'max-h-screen h-screen' },
+  lg: { maxW: 'max-w-2xl' },
+  md: { maxW: 'max-w-lg' },
+  sm: { maxW: 'max-w-md' },
+  xl: { maxW: 'max-w-4xl' },
+  xs: { maxW: 'max-w-xs' },
 };
 
 export interface ModalContentProps extends HTMLNatureProps<'section'> {
@@ -277,8 +279,6 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
       size = 'md',
     } = useModalContext();
 
-    console.log({ scrollBehavior });
-
     const dialogProps = getDialogProps(rest, ref) as any;
     const containerProps = getDialogContainerProps(rootProps);
 
@@ -286,29 +286,28 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
     const dialogContainerClassnames = clsx(
       'nature-modal__content-container',
       'min-h-screen w-screen h-screen flex fixed left-0 top-0 z-50 justify-center items-start',
-      // `${scrollBehavior === 'inside' ? 'overflow-hidden' : 'overflow-auto'}`,
       {
         ['overflow-auto']: scrollBehavior === 'outside',
-        ['overflow-hidden']: scrollBehavior === 'inside',
+        ['overflow-hidden']: scrollBehavior === 'inside' || size === 'full',
       },
     );
-    let _size;
 
-    if (size in _SIZES) {
-      _size = _SIZES[size];
-    } else {
-      _size = size;
-    }
-    const dialogClassnames = cx(
+    const dialogClassnames = clsx(
       'nature-modal__content',
-      'flex flex-col relative w-full outline-none bg-white rounded my-14',
+      'flex flex-col relative w-full outline-none bg-white',
       className,
+      {
+        [_SIZES[size].maxH]: size in _SIZES && size === 'full',
+        [_SIZES[size].maxW]: size in _SIZES,
+        ['my-14 rounded']: size != 'full',
+      },
     );
 
     const css = {
-      maxWidth: _size,
       maxHeight:
-        scrollBehavior === 'inside' ? 'calc(100vh - 7.5rem)' : undefined,
+        scrollBehavior === 'inside' && size !== 'full'
+          ? 'calc(100vh - 7.5rem)'
+          : undefined,
     };
 
     return (
@@ -331,10 +330,6 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
     );
   },
 );
-
-if (__DEV__) {
-  ModalContent.displayName = 'ModalContent';
-}
 
 export interface ModalOverlayProps
   extends Omit<HTMLMotionProps<'div'>, 'color' | 'transition'>,
@@ -520,3 +515,43 @@ export const ModalCloseButton = forwardRef<
 if (__DEV__) {
   ModalCloseButton.displayName = 'ModalCloseButton';
 }
+
+export interface ModalProps extends NatureModalProps {
+  overlayProps?: ModalOverlayProps;
+  headerProps?: ModalHeaderProps;
+  bodyProps?: ModalBodyProps;
+  footerProps?: ModalFooterProps;
+  closeButtonProps?: Partial<HTMLButtonElement>;
+  contentProps?: ModalContentProps;
+  hideCloseButton?: boolean;
+  title?: React.ReactNode;
+  children?: React.ReactNode;
+  footer?: React.ReactNode;
+}
+
+export const Modal: React.FC<ModalProps> = (props) => {
+  const {
+    overlayProps,
+    contentProps,
+    headerProps,
+    bodyProps,
+    footerProps,
+    closeButtonProps,
+    hideCloseButton,
+    title,
+    children,
+    footer,
+    ...rest
+  } = props;
+  return (
+    <NatureModal {...rest}>
+      <ModalOverlay {...overlayProps} />
+      <ModalContent {...contentProps}>
+        <ModalHeader {...headerProps}>{title}</ModalHeader>
+        {!hideCloseButton && <ModalCloseButton {...closeButtonProps} />}
+        <ModalBody {...contentProps}>{children}</ModalBody>
+        <ModalFooter {...footerProps}>{footer}</ModalFooter>
+      </ModalContent>
+    </NatureModal>
+  );
+};

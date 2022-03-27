@@ -11,11 +11,12 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  NatureModal,
 } from '../src';
 
 export default {
   title: 'Modal',
-  component: Modal,
+  component: NatureModal,
 };
 
 export const BasicUsage = () => {
@@ -27,30 +28,23 @@ export const BasicUsage = () => {
 
       <Modal
         variant='blur'
-        // scrollBehavior='outside'
         isOpen={isOpen}
         onClose={onClose}
+        title={'Welcome Home'}
         isCentered
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalCloseButton />
-          <ModalHeader>Welcome Home</ModalHeader>
-
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            suscipit, ligula sit amet pharetra accumsan, nulla augue fermentum
-            dui, eget finibus diam sapien eget nisi. Fusce posuere tempus
-            cursus. Nulla cursus dapibus ligula, sit amet facilisis libero
-          </ModalBody>
-
-          <ModalFooter>
+        footer={
+          <>
             <Button onClick={onClose} className='mr-3'>
               Cancel
             </Button>
             <Button color='red-500'>Save</Button>
-          </ModalFooter>
-        </ModalContent>
+          </>
+        }
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit,
+        ligula sit amet pharetra accumsan, nulla augue fermentum dui, eget
+        finibus diam sapien eget nisi. Fusce posuere tempus cursus. Nulla cursus
+        dapibus ligula, sit amet facilisis libero
       </Modal>
     </>
   );
@@ -63,41 +57,40 @@ export const WithSize = () => {
     <>
       <Button onClick={onOpen}>Open</Button>
 
-      <Modal
+      <NatureModal
         variant='blur'
         scrollBehavior='outside'
         isOpen={isOpen}
-        size='600px'
+        // size='600px'
         onClose={onClose}
       >
-        <ModalOverlay>
-          <ModalContent>
-            <ModalCloseButton />
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
 
-            <ModalHeader>Welcome Home</ModalHeader>
+          <ModalHeader>Welcome Home</ModalHeader>
 
-            <ModalBody>
-              Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
-              ullamco deserunt aute id consequat veniam incididunt duis in sint
-              irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
-              officia tempor esse quis. Sit nulla est ex deserunt exercitation
-              anim occaecat. Nostrud ullamco deserunt aute id consequat veniam
-              incididunt duis in sint irure nisi. Mollit officia cillum Lorem
-              ullamco minim nostrud elit officia tempor esse quis. Sit nulla est
-              ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
-              aute id consequat veniam incididunt duis in sint irure nisi.
-              Mollit officia cillum Lorem ullamco minim nostrud elit officia
-            </ModalBody>
+          <ModalBody>
+            Sit nulla est ex deserunt exercitation anim occaecat. Nostrud
+            ullamco deserunt aute id consequat veniam incididunt duis in sint
+            irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit
+            officia tempor esse quis. Sit nulla est ex deserunt exercitation
+            anim occaecat. Nostrud ullamco deserunt aute id consequat veniam
+            incididunt duis in sint irure nisi. Mollit officia cillum Lorem
+            ullamco minim nostrud elit officia tempor esse quis. Sit nulla est
+            ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
+            aute id consequat veniam incididunt duis in sint irure nisi. Mollit
+            officia cillum Lorem ullamco minim nostrud elit officia
+          </ModalBody>
 
-            <ModalFooter>
-              <Button onClick={onClose} className='mr-3'>
-                Cancel
-              </Button>
-              <Button color='red-500'>Save</Button>
-            </ModalFooter>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>
+          <ModalFooter>
+            <Button onClick={onClose} className='mr-3'>
+              Cancel
+            </Button>
+            <Button color='red-500'>Save</Button>
+          </ModalFooter>
+        </ModalContent>
+      </NatureModal>
     </>
   );
 };
@@ -109,7 +102,7 @@ export function NestedModal() {
   return (
     <>
       <button onClick={first.onOpen}>Open</button>
-      <Modal isOpen={first.isOpen} onClose={first.onClose}>
+      <NatureModal isOpen={first.isOpen} onClose={first.onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
@@ -125,7 +118,7 @@ export function NestedModal() {
             <Button onClick={second.onOpen}>Open Nested</Button>
           </ModalFooter>
 
-          <Modal isOpen={second.isOpen} onClose={second.onClose}>
+          <NatureModal isOpen={second.isOpen} onClose={second.onClose}>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader>Modal 2 Title</ModalHeader>
@@ -134,16 +127,16 @@ export function NestedModal() {
                 <Button onClick={third.onOpen}>Open Nested 2</Button>
               </ModalFooter>
 
-              <Modal isOpen={third.isOpen} onClose={third.onClose}>
+              <NatureModal isOpen={third.isOpen} onClose={third.onClose}>
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader tabIndex={0}>Modal 3 Title</ModalHeader>
                 </ModalContent>
-              </Modal>
+              </NatureModal>
             </ModalContent>
-          </Modal>
+          </NatureModal>
         </ModalContent>
-      </Modal>
+      </NatureModal>
     </>
   );
 }
@@ -162,29 +155,28 @@ export const ReturnFocus = () => {
         Open Modal
       </Button>
 
-      <Modal
+      <NatureModal
         variant='normal'
         finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
       >
-        <ModalOverlay>
-          <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Lorem size={5} />
-            </ModalBody>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Lorem size={5} />
+          </ModalBody>
 
-            <ModalFooter>
-              <Button color='red-600' onClick={onClose} className='mr-3'>
-                Close
-              </Button>
-              <Button variant='ghost'>Secondary Action</Button>
-            </ModalFooter>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>
+          <ModalFooter>
+            <Button color='red-600' onClick={onClose} className='mr-3'>
+              Close
+            </Button>
+            <Button variant='ghost'>Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </NatureModal>
     </>
   );
 };
@@ -194,7 +186,7 @@ export const InsideScroll = () => {
   return (
     <>
       <Button onClick={onOpen}>Open</Button>
-      <Modal onClose={onClose} isOpen={isOpen} scrollBehavior='inside'>
+      <NatureModal onClose={onClose} isOpen={isOpen} scrollBehavior='inside'>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
@@ -206,7 +198,33 @@ export const InsideScroll = () => {
             <Button onClick={onClose}>Close</Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </NatureModal>
+    </>
+  );
+};
+
+export const FullScreen = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  return (
+    <>
+      <Button onClick={onOpen}>Open</Button>
+      <NatureModal onClose={onClose} isOpen={isOpen} size='full'>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Lorem size={5} />
+            <Lorem size={5} />
+            <Lorem size={5} />
+            <Lorem size={5} />
+            <Lorem size={5} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </NatureModal>
     </>
   );
 };
