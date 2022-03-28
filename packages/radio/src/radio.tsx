@@ -108,7 +108,7 @@ export const Radio = React.forwardRef(
       _css,
       {
         [`bg-${color} border-${color}`]: _checked && !_invalid,
-        'shadow-outline': _focus,
+        ring: _focus,
         'border-red-600': _invalid,
         [`bg-${dark} border-${dark}`]: _hover && _checked && !_invalid,
         'bg-gray-300 text-gray-300': _disabled,
@@ -119,7 +119,7 @@ export const Radio = React.forwardRef(
     return (
       <nature.label
         className={clsx(
-          'nature-radio inline-flex items-center align-top',
+          'nature-radio inline-flex items-center align-top cursor-pointer',
           {
             'opacity-50': _disabled,
           },

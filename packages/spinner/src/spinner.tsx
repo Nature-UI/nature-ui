@@ -1,9 +1,24 @@
-import { clsx, css, keyframes, nature, PropsOf } from '@nature-ui/system';
+import {
+  clsx,
+  forwardRef,
+  HTMLNatureProps,
+  keyframes,
+  nature,
+} from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import VisuallyHidden from '@nature-ui/visually-hidden';
-import * as React from 'react';
+
+const spin = keyframes({
+  '0%': {
+    transform: 'rotate(0deg)',
+  },
+  '100%': {
+    transform: 'rotate(360deg)',
+  },
+});
 
 interface SpinnerOptions {
+  emptyColor?: string;
   /**
    * The color of the spinner
    */
@@ -16,75 +31,54 @@ interface SpinnerOptions {
    * ```
    */
   thickness?: string;
-  size?: number | 'xs' | 'sm' | 'md' | 'lg';
+  size?: string;
   label?: string;
+  speed?: string;
 }
 
-const SIZES = {
-  xs: 4,
-  sm: 6,
-  md: 8,
-  lg: 12,
-};
+export interface SpinnerProps
+  extends Omit<HTMLNatureProps<'div'>, keyof SpinnerOptions>,
+    SpinnerOptions {}
 
-const SpinnerComp = nature('span');
+export const Spinner = forwardRef<SpinnerProps, 'div'>((props, ref) => {
+  const {
+    className,
+    thickness = '2px',
+    speed = '0.45s',
+    emptyColor = 'transparent',
+    color = 'blue-500',
+    size = '1.5rem',
+    label = 'Loading...',
+    ...rest
+  } = props;
 
-export type SpinnerType = PropsOf<typeof SpinnerComp>;
+  const spinnerStyles = {
+    animation: `${spin} ${speed} linear infinite`,
+    borderWidth: thickness,
+    width: size,
+    height: size,
+    borderBottomColor: emptyColor,
+    borderLeftColor: emptyColor,
+    ...(props.css as any),
+  };
 
-export const Spinner = React.forwardRef(
-  (props: SpinnerType & SpinnerOptions, ref: React.Ref<HTMLDivElement>) => {
-    const {
-      className = '',
-      thickness = '2px',
-      color = 'blue-500',
-      size = 'xs',
-      label = 'Loading...',
-      ...rest
-    } = props;
-
-    const _css = css`
-      border-radius: 100%;
-
-      animation: spin 0.5s infinite linear;
-    `;
-
-    const spin = keyframes`
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    `;
-
-    const _size = typeof size === 'string' ? SIZES[size] : size;
-    const DEFAULTS = `inline-block overflow-hidden border-2 border-transparent border-t-2 align-middle w-${_size} h-${_size}`;
-
-    const _classNames = clsx(
-      _css,
-      spin,
-      DEFAULTS,
-      {
-        [`text-${color}`]: color,
-      },
-      className,
-    );
-
-    return (
-      <SpinnerComp
-        className={_classNames}
-        style={{
-          borderTop: `${thickness} solid currentColor`,
-          borderLeft: `${thickness} solid currentColor`,
-        }}
-        ref={ref}
-        {...rest}
-      >
-        {label && <VisuallyHidden>{label}</VisuallyHidden>}
-      </SpinnerComp>
-    );
-  },
-);
+  return (
+    <nature.div
+      className={clsx(
+        `inline-block border-current border-solid rounded-full`,
+        {
+          [`text-${color}`]: color,
+        },
+        className,
+      )}
+      css={spinnerStyles}
+      ref={ref}
+      {...rest}
+    >
+      {label && <VisuallyHidden>{label}</VisuallyHidden>}
+    </nature.div>
+  );
+});
 
 if (__DEV__) {
   Spinner.displayName = 'Spinner';
