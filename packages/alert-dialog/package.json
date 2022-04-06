@@ -42,7 +42,7 @@
     "@nature-ui/modal": "^1.1.3"
   },
   "devDependencies": {
-    "@nature-ui/system": "^2.0.1",
+    "@nature-ui/system": "^2.1.0-beta",
     "@nature-ui/utils": "^1.1.1",
     "react": "^17.0.2"
   },

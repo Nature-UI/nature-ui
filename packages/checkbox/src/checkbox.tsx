@@ -33,7 +33,7 @@ const StyledControl = forwardRef<
     [`border-none`]: (!_invalid && _checked) || _indeterminate,
     ['ring']: _focus,
     [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
-    [`bg-${_darken}`]: _hover && _checked && !_disabled,
+    [`bg-${_darken.color}-${_darken.shade}`]: _hover && _checked && !_disabled,
     ['bg-gray-300']: _disabled,
     ['border-red-500']: _invalid,
   });

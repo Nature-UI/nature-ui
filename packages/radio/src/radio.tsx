@@ -110,7 +110,8 @@ export const Radio = React.forwardRef(
         [`bg-${color} border-${color}`]: _checked && !_invalid,
         ring: _focus,
         'border-red-600': _invalid,
-        [`bg-${dark} border-${dark}`]: _hover && _checked && !_invalid,
+        [`bg-${dark.color}-${dark.shade} border-${dark}`]:
+          _hover && _checked && !_invalid,
         'bg-gray-300 text-gray-300': _disabled,
         'text-gray-500': _disabled && _checked,
       },

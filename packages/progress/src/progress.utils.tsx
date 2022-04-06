@@ -1,5 +1,5 @@
-import { isFunction, isUndefined, valueToPercent } from '@nature-ui/utils';
 import { keyframes } from '@nature-ui/system';
+import { isFunction, isUndefined, valueToPercent } from '@nature-ui/utils';
 
 /**
  * CSS Animation for progress spin effect
@@ -32,7 +32,6 @@ export const rotate = keyframes`
 /**
  * CSS Animation for progress indeterminate effect
  */
-
 export const progress = keyframes`
   0% { left: -40% }
   100% { left: 100% }

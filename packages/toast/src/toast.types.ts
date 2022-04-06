@@ -58,6 +58,15 @@ export interface ToastOptions {
    * Callback function to run side effects after the toast has closed.
    */
   onCloseComplete?(): void;
+  /**
+   * Internally used to queue closing a toast. Should probably not be used by
+   * anyone else, but documented regardless.
+   */
+  requestClose?: boolean;
+  /**
+   * Optional style overrides for the toast component.
+   */
+  containerStyle?: React.CSSProperties;
 }
 
 export type ToastState = { [K in ToastPosition]: ToastOptions[] };
@@ -65,3 +74,7 @@ export type ToastState = { [K in ToastPosition]: ToastOptions[] };
 export type Status = 'default' | 'success' | 'error' | 'warning' | 'info';
 
 export type UpdateFn = (val: ToastState) => void;
+
+export type CloseAllToastsOptions = {
+  positions?: ToastPosition[];
+};

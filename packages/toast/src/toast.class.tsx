@@ -1,7 +1,12 @@
 import { isBrowser } from '@nature-ui/utils';
 import { render } from 'react-dom';
 import { Methods, ToastManager } from './toast-manager';
-import { ToastId, ToastMessage, ToastOptions } from './toast.types';
+import {
+  CloseAllToastsOptions,
+  ToastId,
+  ToastMessage,
+  ToastOptions,
+} from './toast.types';
 
 const portalId = 'nature-toast-portal';
 
@@ -24,7 +29,6 @@ class Toaster {
     if (!isBrowser) return;
 
     let portal: HTMLElement;
-
     const existingPortal = document.getElementById(portalId);
 
     if (existingPortal) {
@@ -55,14 +59,12 @@ class Toaster {
     this.closeToast?.(id);
   };
 
-  closeAll = () => {
-    this.removeAll?.();
+  closeAll = (options?: CloseAllToastsOptions) => {
+    this.removeAll?.(options);
   };
 
   update = (id: ToastId, options: Partial<ToastOptions> = {}) => {
     this.updateToast?.(id, options);
-    window.scrollBy({ top: 10 });
-    window.scrollBy({ top: -10 });
   };
 
   isActive = (id: ToastId) => {

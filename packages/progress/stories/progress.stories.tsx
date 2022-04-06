@@ -1,6 +1,4 @@
-import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
-
 import { Progress, ProgressProps } from '../src';
 
 export default {
@@ -26,7 +24,7 @@ export const withColorScheme: ProgressType = Template.bind({});
 withColorScheme.args = {
   value: 30,
   size: 'sm',
-  colorScheme: 'purple-400',
+  colorScheme: 'blue-500',
 };
 
 /**

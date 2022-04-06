@@ -44,7 +44,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^2.0.1",
+    "@nature-ui/system": "^2.1.0-beta",
     "@nature-ui/utils": "^1.1.1"
   },
   "peerDependencies": {

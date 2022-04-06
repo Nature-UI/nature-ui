@@ -1,13 +1,12 @@
 /** ** */
-import { clsx, nature, PropsOf, css } from '@nature-ui/system';
 import { generateStripe } from '@nature-ui/color';
-import { __DEV__, isUndefined } from '@nature-ui/utils';
+import { clsx, css, nature, PropsOf } from '@nature-ui/system';
+import { isUndefined, __DEV__ } from '@nature-ui/utils';
 import React from 'react';
-
 import {
   getProgressProps,
-  progress,
   GetProgressPropsOptions,
+  progress,
   stripe,
 } from './progress.utils';
 
@@ -158,7 +157,7 @@ export const Progress = React.forwardRef(
       isAnimated,
       children,
       size = 'md',
-      colorScheme = 'blue-400',
+      colorScheme = 'blue-500',
       showPercent = false,
       label,
       ...rest

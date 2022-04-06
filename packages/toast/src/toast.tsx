@@ -1,19 +1,46 @@
+import { useTimeout, useUpdateEffect } from '@nature-ui/hooks';
 import { isFunction, __DEV__ } from '@nature-ui/utils';
-import { Transition } from '@nature-ui/transition';
-import { useTimeout } from '@nature-ui/hooks';
 import ReachAlert from '@reach/alert';
-import { useRect } from '@reach/rect';
+import { motion, useIsPresent, Variants } from 'framer-motion';
 import * as React from 'react';
-import { nature } from '@nature-ui/system';
-
 import { ToastOptions } from './toast.types';
 import { getToastStyle } from './toast.utils';
 
-export interface ToastProps extends ToastOptions {
-  requestClose?: boolean;
-}
+export interface ToastProps extends ToastOptions {}
 
-const DivTag = nature('div');
+const toastMotionVariants: Variants = {
+  initial: (props) => {
+    const { position } = props;
+
+    const dir = ['top', 'bottom'].includes(position) ? 'y' : 'x';
+
+    let factor = ['top-right', 'bottom-right'].includes(position) ? 1 : -1;
+    if (position === 'bottom') factor = 1;
+
+    return {
+      opacity: 0,
+      [dir]: factor * 24,
+    };
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.85,
+    transition: {
+      duration: 0.2,
+      ease: [0.4, 0, 1, 1],
+    },
+  },
+};
 
 export const Toast = (props: ToastProps) => {
   const {
@@ -24,114 +51,67 @@ export const Toast = (props: ToastProps) => {
     requestClose = false,
     position = 'bottom',
     duration = 5000,
+    containerStyle = {},
   } = props;
 
-  const ref = React.useRef<HTMLDivElement>(null);
   const [delay, setDelay] = React.useState(duration);
-  const [show, setShow] = React.useState(true);
 
-  React.useEffect(() => {
+  const isPresent = useIsPresent();
+
+  useUpdateEffect(() => {
+    if (!isPresent) {
+      onCloseComplete?.();
+    }
+  }, [isPresent]);
+
+  useUpdateEffect(() => {
     setDelay(duration);
   }, [duration]);
 
-  const onMouseEnter = () => {
-    setDelay(null);
-  };
+  const onMouseEnter = () => setDelay(null);
 
-  const onMouseLeave = () => {
-    setDelay(duration);
-  };
-
-  const onExited = () => {
-    if (!show) {
-      onRequestRemove();
-    }
-
-    onCloseComplete?.();
-  };
+  const onMouseLeave = () => setDelay(duration);
 
   const close = () => {
-    setShow(false);
+    if (isPresent) onRequestRemove();
   };
 
   React.useEffect(() => {
-    if (requestClose) {
-      setShow(false);
+    if (isPresent && requestClose) {
+      onRequestRemove();
     }
-  }, [requestClose]);
+  }, [isPresent, requestClose, onRequestRemove]);
 
   useTimeout(close, delay);
 
   const style = React.useMemo(() => getToastStyle(position), [position]);
 
-  const rect = useRect(ref);
-  const height = rect?.height ?? 0;
-
-  const isTop = position.includes('top');
-
-  const y = isTop ? `-${height}px` : 0;
-
-  const styles = {
-    init: {
-      opacity: 0,
-      height: 0,
-      transform: `translateY(${y}) scale(1)`,
-    },
-    entered: {
-      opacity: 1,
-      height,
-      transform: 'translateY(0) scale(1)',
-    },
-    exiting: {
-      opacity: 0,
-      height: 0,
-      transform: 'translateY(0) scale(0.9)',
-    },
-  };
-
   return (
-    <Transition
-      styles={styles}
-      transition='all 0.3s cubic-bezier(0.23, 1, 0.32, 1)'
-      in={show}
-      timeout={{
-        enter: 0,
-        exit: 150,
-      }}
-      onExited={onExited}
+    <motion.li
+      layout
+      className='nature-toast'
+      variants={toastMotionVariants}
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      onHoverStart={onMouseEnter}
+      onHoverEnd={onMouseLeave}
+      custom={{ position }}
+      style={style}
     >
-      {(_styles) => (
-        <DivTag
-          data-toast=''
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          style={{
-            willChange: 'transform, height, opacity',
-            ...style,
-            ..._styles,
-          }}
-        >
-          <DivTag
-            ref={ref}
-            data-toast-inner=''
-            style={{
-              pointerEvents: 'auto',
-              maxWidth: 560,
-              minWidth: 300,
-            }}
-          >
-            <ReachAlert>
-              {isFunction(message)
-                ? message({
-                    id,
-                    onClose: close,
-                  })
-                : message}
-            </ReachAlert>
-          </DivTag>
-        </DivTag>
-      )}
-    </Transition>
+      <ReachAlert
+        className='nature-toast__inner'
+        style={{
+          pointerEvents: 'auto',
+          maxWidth: 560,
+          minWidth: 300,
+          margin: '0.5rem',
+          ...containerStyle,
+        }}
+      >
+        {isFunction(message) ? message({ id, onClose: close }) : message}
+      </ReachAlert>
+    </motion.li>
   );
 };
 

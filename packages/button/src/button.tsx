@@ -138,7 +138,7 @@ export const ButtonSpinner = (
 
   return (
     <span className={_className} {...rest}>
-      {spinner || <Spinner size='xs' color='currentColor' />}
+      {spinner || <Spinner size='1rem' color='currentColor' />}
       {label && <span className='ml-2'>{label}</span>}
     </span>
   );
@@ -151,7 +151,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     size = 'md',
     children,
     text: _text,
-    className = '',
+    className,
     isDisabled = false,
     disabled = false,
     isLoading = false,
@@ -200,12 +200,20 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
 
   const DEFAULT_CLASS =
     'focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
+
+  const darkVariant = darken(color);
+
+  const lightOutline = lighten(color ?? text);
+  const lightGhost = lighten(text);
+
   const STYLES = {
-    solid: `bg-${color} text-${text} hover:bg-${darken(color)}`,
+    solid: `bg-${color} text-${text} hover:bg-${darkVariant.color}-${darkVariant.shade}`,
     outline: `bg-transparent text-${color ?? text} border border-${
       color ?? text
-    } focus:border-transparent hover:bg-${lighten(color ?? text)}`,
-    ghost: `hover:bg-${lighten(text)} text-${text}`,
+    } focus:border-transparent hover:bg-${lightOutline.color}-${
+      lightGhost.shade
+    }`,
+    ghost: `hover:bg-${lightGhost.color}-${lightGhost.shade} text-${text}`,
     link: `hover:underline text-${color}`,
     disabled: 'opacity-50 cursor-not-allowed',
   };

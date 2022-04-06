@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@nature-ui/form-control": "^1.2.0",
-    "@nature-ui/system": "^2.1.0",
+    "@nature-ui/system": "^2.1.0-beta",
     "@nature-ui/utils": "^1.2.0"
   },
   "devDependencies": {

@@ -164,7 +164,7 @@ export type AlertIconProps = SvgIconProps;
 export const AlertIcon = (props: AlertIconProps) => {
   const { className = '', size = 20, ...rest } = props;
 
-  const { variant = 'subtle', status = 'success' } = useAlertContext();
+  const { variant = 'subtle', status = 'info' } = useAlertContext();
 
   // const Component = 'div';
   const { iconColor, icon, variant: Variant } = ALERT_STATUSES[status];

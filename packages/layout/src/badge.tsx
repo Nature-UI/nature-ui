@@ -22,9 +22,10 @@ export const Badge = forwardRef<BadgeType, 'span'>((props, ref) => {
   const DEFAULTS =
     'rounded-sm px-1 py-0.5 text-xs uppercase font-semibold inline-block align-middle';
 
+  const darkShade = darken(color, 500);
   const VARIANTS = {
     solid: `text-white bg-${color}`,
-    subtle: `text-${darken(color, 500)} bg-${color}`,
+    subtle: `text-${darkShade.color}-${darkShade.shade} bg-${color}`,
     outline: `border border-${color} text-${color}`,
   };
 

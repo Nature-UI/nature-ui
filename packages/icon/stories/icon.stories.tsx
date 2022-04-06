@@ -1,7 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import * as React from 'react';
-import { Md } from '@nature-ui/icons';
-
+import { MdAccessible, MdAcUnit } from 'react-icons/md';
 import { Icon, SvgIconProps } from '../src';
 
 export default {
@@ -26,16 +24,16 @@ export const Default = (props: IconType) => {
 };
 
 export const UsingReactIcon = (props: IconType) => (
-  <Icon as={Md.MdAcUnit} color='teal' size='lg' {...props} />
+  <Icon as={MdAcUnit} color='teal' size='lg' {...props} />
 );
 
 export const WithCustomColor = (props: IconType) => (
-  <Icon as={Md.MdAccessible} className='text-blue-500' size='lg' {...props} />
+  <Icon as={MdAccessible} className='text-blue-500' size='lg' {...props} />
 );
 
 export const BoxSize = (props: IconType) => (
   <Icon
-    as={Md.MdAccessible}
+    as={MdAccessible}
     boxSize='50px'
     className='text-blue-500'
     size='lg'

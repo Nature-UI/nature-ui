@@ -14,7 +14,7 @@ test('Spinner renders correctly', () => {
             description: "We've created your account for you.",
             status: 'success',
             duration: 9000,
-            isCloseable: true,
+            isClosable: true,
           })
         }
       >

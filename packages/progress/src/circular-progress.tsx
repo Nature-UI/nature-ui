@@ -207,8 +207,8 @@ export const CircularProgress = React.forwardRef(
       capIsRound,
       children,
       thickness = '10px',
-      colorScheme = 'blue-400',
-      trackColor = 'gray-200',
+      colorScheme = 'blue-500',
+      trackColor = 'gray-300',
       showPercent,
       ...rest
     } = props;

@@ -1,17 +1,22 @@
+import { Interpolation, Theme } from '@emotion/react';
+import { nature } from '@nature-ui/system';
 import { objectKeys } from '@nature-ui/utils';
+import { AnimatePresence } from 'framer-motion';
 import * as React from 'react';
 import { Toast } from './toast';
 import {
+  CloseAllToastsOptions,
   ToastId,
   ToastMessage,
   ToastOptions,
   ToastPosition,
+  ToastState,
 } from './toast.types';
 import { findToast, getToastPosition } from './toast.utils';
 
 export interface Methods {
   notify: (message: ToastMessage, options: CreateToastOptions) => ToastId;
-  closeAll: () => void;
+  closeAll: (options?: CloseAllToastsOptions) => void;
   close: (id: ToastId) => void;
   update: (id: ToastId, options: CreateToastOptions) => void;
   isActive: (id: ToastId) => boolean;
@@ -26,7 +31,12 @@ type State = { [K in ToastPosition]: ToastOptions[] };
 type CreateToastOptions = Partial<
   Pick<
     ToastOptions,
-    'status' | 'duration' | 'position' | 'id' | 'onCloseComplete'
+    | 'status'
+    | 'duration'
+    | 'position'
+    | 'id'
+    | 'onCloseComplete'
+    | 'containerStyle'
   >
 >;
 
@@ -41,20 +51,21 @@ export class ToastManager extends React.Component<Props, State> {
    */
   static counter = 0;
 
+  state: ToastState = {
+    top: [],
+    'top-left': [],
+    'top-right': [],
+    'bottom-left': [],
+    bottom: [],
+    'bottom-right': [],
+  };
+
   constructor(props: Props) {
     super(props);
 
     /**
      * State to track all the toast across all positions
      */
-    this.state = {
-      top: [],
-      'top-left': [],
-      'top-right': [],
-      'bottom-left': [],
-      bottom: [],
-      'bottom-right': [],
-    } as State;
     const methods = {
       notify: this.notify,
       closeAll: this.closeAll,
@@ -118,12 +129,27 @@ export class ToastManager extends React.Component<Props, State> {
   /**
    * Close all toasts at once
    */
-  closeAll = () => {
-    objectKeys(this.state).forEach((position) => {
-      const _positions = this.state;
-      _positions[position].forEach((toast) => {
-        this.closeToast(toast.id);
-      });
+  closeAll = ({ positions }: CloseAllToastsOptions = {}) => {
+    this.setState((prevState) => {
+      const allPositions: ToastPosition[] = [
+        'top',
+        'bottom',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+      ];
+
+      const positionsToClose = positions ?? allPositions;
+
+      return positionsToClose.reduce((acc, position) => {
+        acc[position] = prevState[position].map((toast) => ({
+          ...toast,
+          requestClose: true,
+        }));
+
+        return acc;
+      }, {});
     });
   };
 
@@ -143,6 +169,8 @@ export class ToastManager extends React.Component<Props, State> {
       onCloseComplete: options.onCloseComplete,
       onRequestRemove: () => this.removeToast(String(id), position),
       status: options.status,
+      requestClose: false,
+      containerStyle: options.containerStyle,
     };
   };
 
@@ -157,10 +185,15 @@ export class ToastManager extends React.Component<Props, State> {
 
       return {
         ...prevState,
-        [position]: prevState[position].map((toast) => ({
-          ...toast,
-          requestClose: String(toast.id) === String(id),
-        })),
+        [position]: prevState[position].map((toast) => {
+          if (toast.id === id) {
+            return {
+              ...toast,
+              requestClose: true,
+            };
+          }
+          return toast;
+        }),
       };
     });
   };
@@ -187,34 +220,35 @@ export class ToastManager extends React.Component<Props, State> {
   /**
    * Compute the style of a toast based on it's position
    */
-  getStyle = (position: ToastPosition) => {
-    const style: React.CSSProperties = {
+  getStyle = (position: ToastPosition): Interpolation<Theme> => {
+    const isTopOrBottom = position === 'top' || position === 'bottom';
+    const margin = isTopOrBottom ? '0 auto' : undefined;
+
+    const top = position.includes('top')
+      ? 'env(safe-area-inset-top, 0px)'
+      : undefined;
+    const bottom = position.includes('bottom')
+      ? 'env(safe-area-inset-bottom, 0px)'
+      : undefined;
+    const right = !position.includes('left')
+      ? 'env(safe-area-inset-right, 0px)'
+      : undefined;
+    const left = !position.includes('right')
+      ? 'env(safe-area-inset-left, 0px)'
+      : undefined;
+
+    return {
       position: 'fixed',
+      zIndex: 5500,
       pointerEvents: 'none',
+      display: 'flex',
+      flexDirection: 'column',
+      margin,
+      top,
+      bottom,
+      right,
+      left,
     };
-
-    if (position === 'top' || position === 'bottom') {
-      style.margin = '0 auto';
-      style.textAlign = 'center';
-    }
-
-    if (position.includes('top')) {
-      style.top = 0;
-    }
-
-    if (position.includes('bottom')) {
-      style.bottom = 0;
-    }
-
-    if (!position.includes('left')) {
-      style.right = 0;
-    }
-
-    if (!position.includes('right')) {
-      style.left = 0;
-    }
-
-    return style;
   };
 
   render() {
@@ -222,15 +256,17 @@ export class ToastManager extends React.Component<Props, State> {
       const { state } = this;
       const toasts = state[position];
       return (
-        <span
+        <nature.ul
           key={position}
           id={`nature-toast-manager-${position}`}
-          style={this.getStyle(position)}
+          css={this.getStyle(position)}
         >
-          {toasts.map((toast) => (
-            <Toast key={toast.id} {...toast} />
-          ))}
-        </span>
+          <AnimatePresence initial={false}>
+            {toasts.map((toast) => (
+              <Toast key={toast.id} {...toast} />
+            ))}
+          </AnimatePresence>
+        </nature.ul>
       );
     });
   }
