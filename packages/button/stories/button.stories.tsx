@@ -13,6 +13,7 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  color: 'sky-500',
   children: 'Click me',
 };
 

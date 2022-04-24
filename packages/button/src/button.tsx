@@ -250,6 +250,8 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     'data-loading': dataAttr(isLoading),
   };
 
+  console.log({ BTNClass });
+
   return (
     <nature.button
       css={{

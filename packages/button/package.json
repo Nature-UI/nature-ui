@@ -41,7 +41,8 @@
   },
   "dependencies": {
     "@nature-ui/spinner": "^1.1.2",
-    "@nature-ui/system": "^2.1.0-beta"
+    "@nature-ui/system": "^2.1.0-beta",
+    "postcss": "8.1.11"
   },
   "peerDependencies": {
     "react": "^17.x"
