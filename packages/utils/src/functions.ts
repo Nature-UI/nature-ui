@@ -2,6 +2,12 @@ import memoizeOne from 'memoize-one';
 import { isFunction } from './assertions';
 import { FunctionArguments } from './types';
 
+export const noop = () => {};
+
+export type MaybeFunction<T, Args extends unknown[] = []> =
+  | T
+  | ((...args: Args) => T);
+
 export const runIfFn = <T, U>(
   valueOrFn: T | ((...args: U[]) => T),
   ...args: U[]

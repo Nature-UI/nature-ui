@@ -1,14 +1,4 @@
-/**
- * List of available toast positions
- */
-export type ToastPosition =
-  | 'top'
-  | 'top-right'
-  | 'top-left'
-  | 'bottom'
-  | 'bottom-right'
-  | 'bottom-left';
-
+import type { ToastPosition } from './toast.placement';
 export type ToastId = string | number;
 
 export interface RenderProps {

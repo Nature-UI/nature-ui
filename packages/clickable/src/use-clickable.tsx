@@ -1,5 +1,5 @@
+import { dataAttr, mergeRefs } from '@nature-ui/utils';
 import * as React from 'react';
-import { mergeRefs, dataAttr } from '@nature-ui/utils';
 
 interface DOMAttrs {
   onMouseDown?: React.MouseEventHandler;
@@ -75,7 +75,7 @@ export const useClickable = (props: UseClickableProps = {}) => {
   /**
    * The ref callback that fires as soon as the dom node is ready
    */
-  const refCallback = React.useCallback((node) => {
+  const refCallback = React.useCallback((node: any) => {
     if (node?.tagName !== 'BUTTON') {
       setIsButton(false);
     }

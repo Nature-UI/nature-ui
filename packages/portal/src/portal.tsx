@@ -15,7 +15,11 @@ const [PortalContextProvider, usePortalContext] = createContext<PortalContext>({
 const PORTAL_CLASSNAME = 'nature-portal';
 const PORTAL_SELECTOR = `.${PORTAL_CLASSNAME}`;
 
-const Container: React.FC<{ zIndex: number }> = (props) => (
+interface IContainerProps {
+  zIndex: number;
+  children: React.ReactNode;
+}
+const Container: React.FC<IContainerProps> = (props) => (
   <div
     className='nature-portal-zIndex'
     style={{
@@ -30,10 +34,14 @@ const Container: React.FC<{ zIndex: number }> = (props) => (
   </div>
 );
 
+interface IDefaultPortalProps {
+  children: React.ReactNode;
+  appendToParentPortal?: boolean;
+}
 /**
  * Portal that uses `document.body` as container
  */
-const DefaultPortal: React.FC<{ appendToParentPortal?: boolean }> = (props) => {
+const DefaultPortal: React.FC<IDefaultPortalProps> = (props) => {
   const { appendToParentPortal, children } = props;
 
   const tempNode = React.useRef<HTMLDivElement | null>(null);
@@ -87,6 +95,7 @@ const DefaultPortal: React.FC<{ appendToParentPortal?: boolean }> = (props) => {
 interface ContainerPortalProps {
   containerRef: React.RefObject<HTMLElement | null>;
   appendToParentPortal?: boolean;
+  children: React.ReactNode;
 }
 
 /**

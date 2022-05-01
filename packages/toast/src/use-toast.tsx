@@ -1,19 +1,11 @@
-import {
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  AlertWrapper,
-  ALERT_STATUSES,
-} from '@nature-ui/alert';
-import { CloseButton } from '@nature-ui/close-button';
+import { ALERT_STATUSES } from '@nature-ui/alert';
 import { useLatestRef } from '@nature-ui/hooks';
-import { clsx, nature } from '@nature-ui/system';
-import { isFunction } from '@nature-ui/utils';
+import { MaybeFunction, runIfFn } from '@nature-ui/utils';
 import * as React from 'react';
-import { getToastPlacement, WithoutLogicalPosition } from './toast-placement';
-import { toast } from './toast.class';
+import { createRenderToast } from './toast';
+import { getToastPlacement } from './toast.placement';
+import { useToastManager } from './toast.provider';
 import { RenderProps, ToastId, ToastOptions } from './toast.types';
-
 export interface UseToastOptions {
   /**
    * The placement of the toast
@@ -48,7 +40,8 @@ export interface UseToastOptions {
   /**
    * The alert component `variant` to use
    */
-  variant?: 'subtle' | 'solid' | 'left-accent' | 'top-accent' | (string & {});
+  variant?: 'subtle' | 'solid' | 'left-accent' | 'top-accent';
+  // variant?: 'subtle' | 'solid' | 'left-accent' | 'top-accent' | (string & {});
   /**
    * The status of the toast.
    */
@@ -70,129 +63,87 @@ export interface UseToastOptions {
   containerStyle?: React.CSSProperties;
   direction?: 'ltr' | 'rtl';
 }
-
-type UseToastOptionsNormalized = WithoutLogicalPosition<UseToastOptions>;
-export type IToast = UseToastOptions;
-
-const Toast: React.FC<any> = (props) => {
-  const {
-    status = 'info',
-    variant,
-    id,
-    title,
-    isClosable,
-    onClose,
-    description,
-    className,
-    ...rest
-  } = props;
-
-  const alertTitleId =
-    typeof id !== 'undefined' ? `toast-${id}-title` : undefined;
-
-  return (
-    <AlertWrapper
-      status={status}
-      variant={variant}
-      id={id}
-      className={clsx(className, 'w-auto shadow-lg rounded-md p-4')}
-      css={{
-        textAlign: 'start',
-        alignItems: 'start',
-      }}
-      aria-labelledby={alertTitleId}
-      {...rest}
-    >
-      <AlertIcon />
-      <nature.div className='max-w-full flex-1'>
-        {title && <AlertTitle id={alertTitleId}>{title}</AlertTitle>}
-        {description && (
-          <AlertDescription className='block'>{description}</AlertDescription>
-        )}
-      </nature.div>
-      {isClosable && (
-        <CloseButton
-          size='sm'
-          onClick={onClose}
-          className='absolute right-0 top-0 mr-2 mt-2'
-        />
-      )}
-    </AlertWrapper>
-  );
-};
-
-const defaults = {
-  duration: 5000,
-  position: 'bottom',
-  variant: 'subtle',
-} as const;
+type UseToastPromiseOption = Omit<UseToastOptions, 'status'>;
 
 export type CreateStandaloneToastParam = Partial<{
   defaultOptions: UseToastOptions;
 }>;
 
-export const defaultStandaloneParam: Required<CreateStandaloneToastParam> = {
-  defaultOptions: defaults,
-};
-
-export function createStandaloneToast({
-  defaultOptions = defaultStandaloneParam.defaultOptions,
-}: CreateStandaloneToastParam = defaultStandaloneParam) {
-  const renderWithProviders = (
-    props: React.PropsWithChildren<RenderProps>,
-    options: UseToastOptionsNormalized,
-  ) => (
-    <>
-      {isFunction(options.render) ? (
-        options.render(props)
-      ) : (
-        <Toast {...props} {...options} />
-      )}
-    </>
-  );
-
-  const toastImpl = (options?: UseToastOptions) => {
-    const opts = { ...defaultOptions, ...options } as UseToastOptionsNormalized;
-    opts.position = getToastPlacement(opts.position, 'ltr');
-
-    const Message: React.FC<RenderProps> = (props) =>
-      renderWithProviders(props, opts);
-
-    return toast.notify(Message, opts);
-  };
-
-  toastImpl.close = toast.close;
-  toastImpl.closeAll = toast.closeAll;
-
-  toastImpl.update = (id: ToastId, options: Omit<UseToastOptions, 'id'>) => {
-    if (!id) return;
-
-    const opts = { ...defaultOptions, ...options } as UseToastOptionsNormalized;
-    opts.position = getToastPlacement(opts.position, 'ltr');
-
-    toast.update(id, {
-      ...opts,
-      message: (props) => renderWithProviders(props, opts),
-    });
-  };
-
-  toastImpl.isActive = toast.isActive;
-
-  return toastImpl;
-}
-
 /**
  * React hook used to create a function that can be used
  * to show toasts in an application.
  */
-export const useToast = (options?: UseToastOptions) => {
-  const toastOptions = useLatestRef(options);
+export const useToast = (defaultOptions?: UseToastOptions) => {
+  const toastContext = useToastManager();
+  const latestToastContextRef = useLatestRef(toastContext);
 
-  return React.useMemo(
-    () =>
-      createStandaloneToast({
-        defaultOptions: toastOptions.current,
-      }),
-    [toastOptions],
-  );
+  return React.useMemo(() => {
+    const normalizeToastOptions = (options?: UseToastOptions) => ({
+      ...defaultOptions,
+      ...options,
+      position: getToastPlacement(options?.position, 'ltr'),
+    });
+
+    const toast = (options?: UseToastOptions) => {
+      const normalizedToastOptions = normalizeToastOptions(options);
+      const Message = createRenderToast(normalizedToastOptions);
+      return latestToastContextRef.current.notify(
+        Message,
+        normalizedToastOptions,
+      );
+    };
+
+    toast.close = latestToastContextRef.current.close;
+    toast.closeAll = latestToastContextRef.current.closeAll;
+
+    /**
+     * Toasts can only be updated if they have a valid id
+     */
+    toast.update = (id: ToastId, options: Omit<UseToastOptions, 'id'>) => {
+      if (!id) return;
+
+      const normalizedToastOptions = normalizeToastOptions(options);
+      const Message = createRenderToast(normalizedToastOptions);
+
+      latestToastContextRef.current.update(id, {
+        ...normalizedToastOptions,
+        message: Message,
+      });
+    };
+
+    toast.promise = <Result extends any, Err extends Error = Error>(
+      promise: Promise<Result>,
+      options: {
+        success: MaybeFunction<UseToastPromiseOption, [Result]>;
+        error: MaybeFunction<UseToastPromiseOption, [Err]>;
+        loading: UseToastPromiseOption;
+      },
+    ) => {
+      const id = toast({
+        ...options.success,
+        status: 'success',
+        duration: null,
+      });
+
+      promise
+        .then((data) =>
+          toast.update(id, {
+            status: 'success',
+            duration: 5_000,
+            ...runIfFn(options.success, data),
+          }),
+        )
+        .catch((error) =>
+          toast.update(id, {
+            status: 'error',
+            duration: 5_000,
+            ...runIfFn(options.error, error),
+          }),
+        );
+    };
+
+    toast.isActive = latestToastContextRef.current.isActive;
+
+    return toast;
+  }, [defaultOptions, latestToastContextRef, 'ltr']);
 };
