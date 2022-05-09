@@ -7,29 +7,11 @@ import {
   HTMLNatureProps,
   nature,
 } from '@nature-ui/system';
-import {
-  darken,
-  dataAttr,
-  lighten,
-  StringOrNumber,
-  __DEV__,
-} from '@nature-ui/utils';
+import { dataAttr, StringOrNumber, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
 import { rippleEffect } from './button-effects';
 
 interface ButtonOptions {
-  /**
-   * The text color of the button. Use a color key passed in theme.colors.
-   */
-  text?: string;
-  /**
-   * The background color of the button. Use a color key passed in theme.colors.
-   */
-  color?: string;
-  /**
-   * The variant of the button style to use.
-   */
-  variant?: 'outline' | 'ghost' | 'link' | 'solid' | 'none';
   /**
    * If true, the button will be disabled.
    */
@@ -46,7 +28,7 @@ interface ButtonOptions {
    * The label to show in the button when isLoading is true. If no text is passed, it only shows the spinner
    */
   loadingText?: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | number;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | [string, string];
   /**
    * If added, the button will show an icon before the button's label.
    * @type React.ReactElement
@@ -146,11 +128,8 @@ export const ButtonSpinner = (
 
 export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
   const {
-    variant = 'solid',
-    color = 'gray-200',
     size = 'md',
     children,
-    text: _text,
     className,
     isDisabled = false,
     disabled = false,
@@ -164,82 +143,39 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     ...rest
   } = props;
 
-  const textColor = (): string => {
-    const split = color.split('-');
-    const amount = Number(split[split.length - 1]);
-    if (amount >= 300) {
-      return 'white';
-    }
-    if (!amount) {
-      return 'white';
-    }
-    return 'gray-600';
-  };
-
-  let text = _text || textColor();
-
-  const _size = typeof size === 'string' ? _SIZES[size].size : `${size}px`;
-  const _font = _SIZES[size].font ?? '1rem';
-  const _padding = _SIZES[size].padding ?? '0.8rem';
+  const isSizeString = typeof size === 'string';
+  const _size = isSizeString ? _SIZES[size].size : size[0];
+  const _font = isSizeString ? _SIZES[size].font : '1rem';
+  const _padding = isSizeString ? _SIZES[size].padding : '';
   const _disabled = isDisabled || disabled || isLoading;
-
-  const _link = variant === 'link';
 
   const _sizes = css({
     height: _size,
     minWidth: _size,
   });
 
-  if (Number(color.split('-')[1]) <= 400) {
-    text = 'gray-700';
-  }
-
-  if (variant === 'ghost') {
-    text = _text || 'gray-700';
-  }
+  const arrayPadding =
+    Array.isArray(size) &&
+    css({
+      paddingLeft: size[1],
+      paddingRight: size[1],
+    });
 
   const DEFAULT_CLASS =
-    'focus:outline-none rounded font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
+    'focus:ring rounded ease-in-out duration-150 transition-colors font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
 
-  const darkVariant = darken(color);
-
-  const lightOutline = lighten(color ?? text);
-  const lightGhost = lighten(text);
-
-  const STYLES = {
-    solid: `bg-${color} text-${text} hover:bg-${darkVariant.color}-${darkVariant.shade}`,
-    outline: `bg-transparent text-${color ?? text} border border-${
-      color ?? text
-    } focus:border-transparent hover:bg-${lightOutline.color}-${
-      lightGhost.shade
-    }`,
-    ghost: `hover:bg-${lightGhost.color}-${lightGhost.shade} text-${text}`,
-    link: `hover:underline text-${color}`,
-    disabled: 'opacity-50 cursor-not-allowed',
-  };
-
-  let BTNClass: string;
-
-  if (variant === 'none') {
-    BTNClass = clsx(
-      {
-        [STYLES.disabled]: _disabled,
-      },
-      className,
-    );
-  } else {
-    BTNClass = clsx(
-      rippleEffect,
-      DEFAULT_CLASS,
-      {
-        [_sizes]: !_link,
-        [STYLES[variant]]: variant,
-        [STYLES.disabled]: _disabled,
-        [_padding]: !isIconButton && !_link,
-      },
-      className,
-    );
-  }
+  const disabledStyles = 'opacity-50 cursor-not-allowed';
+  const BTNClass = clsx(
+    rippleEffect,
+    DEFAULT_CLASS,
+    _sizes,
+    arrayPadding,
+    {
+      [_padding]: !isIconButton,
+      [disabledStyles]: _disabled,
+    },
+    className,
+  );
 
   const defaults = {
     className: BTNClass,
@@ -249,8 +185,6 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     'data-active': dataAttr(isActive),
     'data-loading': dataAttr(isLoading),
   };
-
-  console.log({ BTNClass });
 
   return (
     <nature.button

@@ -49,52 +49,37 @@ export const once = (fn?: Function | null): any => {
  * @example `blue-400`, `blue-200` is a valid color
  * things like `bg-red-500`, `text-gray-100`... are invalid values.
  */
-export const darken = (
-  value: string,
-  amount?: number,
-): {
-  color: string;
-  shade: number;
-} => {
+export const darken = (value: string, amount?: number): string => {
   const splitStr = value.split('-');
 
-  if (splitStr.length > 2) {
-    throw new Error(`${value} is an invalid type`);
+  let shade = Number(splitStr.at(-1));
+
+  if (isNaN(shade)) {
+    return value;
   }
 
-  let result = {
-    color: splitStr[0],
-    shade: Number(splitStr[1]),
-  };
-
-  if (result.shade >= 800) {
-    result.shade = result.shade - (amount || 200);
+  if (shade >= 800) {
+    shade = shade - (amount || 200);
   } else {
-    result.shade = result.shade + (amount || 200);
+    shade = shade + (amount || 200);
   }
 
-  return result;
+  return `bg-${splitStr[1]}-${shade}`;
 };
 
-export const lighten = (
-  value: string,
-  amount?: number,
-): {
-  color: string;
-  shade: number;
-} => {
+export const lighten = (value: string, amount?: number): string => {
   const splitStr = value.split('-');
 
-  let result = {
-    color: splitStr[0],
-    shade: Number(splitStr[1]),
-  };
-
-  if (result.shade <= 200) {
-    result.shade = 100;
-  } else {
-    result.shade = result.shade - (amount || 200);
+  let shade = Number(splitStr.at(-1));
+  if (isNaN(shade)) {
+    return value;
   }
 
-  return result;
+  if (shade <= 200) {
+    shade = 100;
+  } else {
+    shade = shade - (amount || 200);
+  }
+
+  return `${splitStr[1]}-${shade}`;
 };

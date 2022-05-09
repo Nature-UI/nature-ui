@@ -48,6 +48,6 @@
     "react": "^17.0.1"
   },
   "devDependencies": {
-    "react": "^18.1.0"
+    "react": "^17.0.2"
   }
 }
