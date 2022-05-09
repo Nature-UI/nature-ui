@@ -1,4 +1,4 @@
-import { Button } from '@nature-ui/button';
+import { Button, ButtonProps } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
 import { PortalManager } from '@nature-ui/portal';
 import * as React from 'react';
@@ -16,6 +16,13 @@ export default {
   ],
 };
 
+const StyledButton = (args: ButtonProps) => (
+  <Button
+    {...args}
+    className={`bg-blue-500 hover:bg-blue-700 text-white ${args.className}`}
+  />
+);
+
 export const BasicUsage = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const onOpen = () => setIsOpen(true);
@@ -23,7 +30,7 @@ export const BasicUsage = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Delete something</Button>
+      <StyledButton onClick={onOpen}>Delete something</StyledButton>
 
       <AlertDialog
         variant='blur'
@@ -33,10 +40,15 @@ export const BasicUsage = () => {
         isCentered
         footer={
           <>
-            <Button onClick={onClose} className='mr-3'>
+            <StyledButton
+              onClick={onClose}
+              className='mr-3 bg-gray-200 text-gray-700 hover:bg-gray-300'
+            >
               Nevermind
-            </Button>
-            <Button color='red-500'>Yes, delete</Button>
+            </StyledButton>
+            <StyledButton className='hover:bg-red-600 bg-red-500'>
+              Yes, delete
+            </StyledButton>
           </>
         }
       >
@@ -53,7 +65,7 @@ export function TransitionExample() {
 
   return (
     <>
-      <Button onClick={onOpen}>Discard</Button>
+      <StyledButton onClick={onOpen}>Discard</StyledButton>
 
       <AlertDialog
         variant='blur'
@@ -63,10 +75,15 @@ export function TransitionExample() {
         isCentered
         footer={
           <>
-            <Button onClick={onClose} className='mr-3'>
+            <StyledButton
+              onClick={onClose}
+              className='mr-3 bg-gray-200 text-gray-700 hover:bg-gray-300'
+            >
               Cancel
-            </Button>
-            <Button color='red-500'>Save</Button>
+            </StyledButton>
+            <StyledButton className='hover:bg-red-600 bg-red-500'>
+              Save
+            </StyledButton>
           </>
         }
       >
