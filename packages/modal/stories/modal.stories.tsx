@@ -24,7 +24,9 @@ export const BasicUsage = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Open</Button>
+      <Button onClick={onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
 
       <Modal
         variant='blur'
@@ -34,10 +36,12 @@ export const BasicUsage = () => {
         isCentered
         footer={
           <>
-            <Button onClick={onClose} className='mr-3'>
+            <Button onClick={onClose} className='mr-3 bg-purple-500 text-white'>
               Cancel
             </Button>
-            <Button color='red-500'>Save</Button>
+            <Button className='text-purple-500 hover:bg-purple-100'>
+              Save
+            </Button>
           </>
         }
       >
@@ -55,7 +59,9 @@ export const WithSize = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Open</Button>
+      <Button onClick={onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
 
       <NatureModal
         variant='blur'
@@ -84,7 +90,7 @@ export const WithSize = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button onClick={onClose} className='mr-3'>
+            <Button onClick={onClose} className='mr-3 bg-purple-500 text-white'>
               Cancel
             </Button>
             <Button color='red-500'>Save</Button>
@@ -101,7 +107,9 @@ export function NestedModal() {
   const third = useDisclosure();
   return (
     <>
-      <button onClick={first.onOpen}>Open</button>
+      <Button onClick={first.onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
       <NatureModal isOpen={first.isOpen} onClose={first.onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -151,7 +159,7 @@ export const ReturnFocus = () => {
         Some other content that&apos;ll receive focus on close.
       </div>
 
-      <Button mt={4} onClick={onOpen}>
+      <Button onClick={onOpen} className='bg-purple-500 text-white mt-4'>
         Open Modal
       </Button>
 
@@ -185,7 +193,9 @@ export const InsideScroll = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen}>Open</Button>
+      <Button onClick={onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
       <NatureModal onClose={onClose} isOpen={isOpen} scrollBehavior='inside'>
         <ModalOverlay />
         <ModalContent>
@@ -207,7 +217,9 @@ export const FullScreen = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen}>Open</Button>
+      <Button onClick={onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
       <NatureModal onClose={onClose} isOpen={isOpen} size='full'>
         <ModalOverlay />
         <ModalContent>
