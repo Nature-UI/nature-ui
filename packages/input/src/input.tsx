@@ -13,12 +13,6 @@ import { InputLeftAddon, InputRightAddon } from './input-addon';
 
 interface InputOptions {
   /**
-   * The border color when the input is focused. Use color keys in `theme.colors`
-   * @example
-   * focusBorderColor = "blue-600"
-   */
-  focusBorderColor?: string;
-  /**
    * The border color when the input is invalid. Use color keys in `theme.colors`
    * @example
    * errorBorderColor = "red-500"
@@ -96,7 +90,6 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     variant = 'outline',
     addonLeft,
     addonRight,
-    focusBorderColor,
     errorBorderColor,
     ...rest
   } = props;
@@ -117,15 +110,8 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
       height: ${size}px;
     `;
 
-  const _border = css`
-    &:focus {
-      border-width: 2px;
-    }
-  `;
-
-  const _focusBorderColor = focusBorderColor || 'blue-600';
-  const _errorBorderColor = errorBorderColor || 'red-500';
-  const _invalid = `focus:border-${_errorBorderColor} border-${_errorBorderColor} border-2`;
+  const _errorBorderColor = errorBorderColor || 'border-red-500';
+  const _invalid = `focus:${_errorBorderColor} ${_errorBorderColor} border-2`;
 
   const _outline = variant === 'outline';
   const _filled = variant === 'filled';
@@ -133,19 +119,16 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   const _unstyled = variant === 'unstyled';
 
   const _className = clsx(
-    'w-full outline-none transition-all duration-150',
+    'w-full outline-none transition-color duration-75',
     {
-      [_invalid]: isInvalid,
-      border: !isInvalid && _outline,
-      [_border]: !isReadOnly && (_outline || _filled),
-      'cursor-not-allowed opacity-50': isDisabled,
-      'border-solid border-gray-200': _outline,
-      [`focus:border-${_focusBorderColor}`]:
-        !isInvalid && (_outline || _filled),
+      [`border`]: !isInvalid && _outline,
+      [`border-gray-200 border-solid focus:border-2 focus:border-blue-500`]:
+        !isReadOnly && !isInvalid && (_outline || _filled),
       'hover:bg-gray-300 bg-gray-200 focus:bg-transparent': _filled,
+      'cursor-not-allowed opacity-50': isDisabled,
+      [_invalid]: isInvalid,
       [`${String(_padding)} rounded`]: _filled || _outline,
-      [`border-b-2 border-gray-200 focus:border-${_focusBorderColor}`]:
-        _flushed,
+      [`border-b-2 border-gray-200 focus:border-blue-500`]: _flushed,
       [(String(_height), String(_css))]: !_unstyled,
     },
     className,
