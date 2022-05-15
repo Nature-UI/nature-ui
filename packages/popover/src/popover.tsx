@@ -1,7 +1,7 @@
 /** ** */
 import { CloseButton, CloseButtonProps } from '@nature-ui/close-button';
 import { useSafeLayoutEffect } from '@nature-ui/hooks';
-import { clsx, nature, PropsOf } from '@nature-ui/system';
+import { clsx, HTMLNatureProps, nature } from '@nature-ui/system';
 import {
   createContext,
   isFunction,
@@ -16,13 +16,13 @@ const [PopoverContextProvider, usePopoverContext] =
     name: 'PopoverContext',
   });
 
-export type PopoverProps = UsePopoverProps & {
+export interface PopoverProps extends UsePopoverProps {
   /**
    * The content of the popover. It's usually the `PopoverTrigger`,
    * and `PopoverContent`
    */
   children?: ReactNodeOrRenderProp<{ isOpen: boolean; onClose(): void }>;
-};
+}
 
 /**
  * Popover
@@ -73,15 +73,7 @@ if (__DEV__) {
   PopoverTrigger.displayName = 'PopoverTrigger';
 }
 
-/**
- * Theming
- *
- * To change the global styles of Popover Content,
- * go to `theme.components.Popover` under the `Content` key
- */
-const SectionTag = nature('section');
-
-export type PopoverContentProps = PropsOf<typeof SectionTag>;
+export interface PopoverContentProps extends HTMLNatureProps<'section'> {}
 
 /**
  * PopoverContent
@@ -107,9 +99,9 @@ export const PopoverContent = React.forwardRef(
     return (
       <>
         {!_hidden && (
-          <SectionTag
+          <nature.section
             className={clsx(
-              'relative flex flex-col max-w-xs bg-white border shadow-md border-solid rounded focus:shadow-outline outline-none z-50',
+              'relative flex flex-col max-w-xs border shadow-md border-solid rounded focus:shadow-outline outline-none z-50',
               className,
             )}
             css={{
@@ -128,15 +120,7 @@ if (__DEV__) {
   PopoverContent.displayName = 'PopoverContent';
 }
 
-/**
- * Theming
- *
- * To change the global styles of Popover Header,
- * go to `theme.components.Popover` under the `Header` key
- */
-const HeaderTag = nature('header');
-
-export type PopoverHeaderProps = PropsOf<typeof HeaderTag>;
+export interface PopoverHeaderProps extends HTMLNatureProps<'header'> {}
 
 /**
  * Popover Header
@@ -156,9 +140,9 @@ export const PopoverHeader = React.forwardRef(
     }, []);
 
     return (
-      <HeaderTag
+      <nature.header
         className={clsx(
-          'nature-popover__header px-3 py-2 border-solid border border-t-0 border-r-0 border-l-0',
+          'nature-popover__header px-3 py-2 border-solid border-b border-gray-200',
           className,
         )}
         {...props}
@@ -173,15 +157,7 @@ if (__DEV__) {
   PopoverHeader.displayName = 'PopoverHeader';
 }
 
-export type PopoverBodyProps = PropsOf<typeof DivTag>;
-
-/**
- * Theming
- *
- * To change the global styles of Popover Body,
- * go to `theme.components.Popover` under the `Body` key
- */
-const DivTag = nature('div');
+export interface PopoverBodyProps extends HTMLNatureProps<'div'> {}
 
 /**
  * PopoverBody
@@ -200,7 +176,7 @@ export const PopoverBody = React.forwardRef(
     }, []);
 
     return (
-      <HeaderTag
+      <nature.div
         className={clsx('nature-popover__body px-3 py-2', className)}
         {...props}
         id={bodyId}
@@ -214,14 +190,12 @@ if (__DEV__) {
   PopoverBody.displayName = 'PopoverBody';
 }
 
-const FooterTag = nature('footer');
-
 export const PopoverFooter = ({
   className,
   ...props
-}: PropsOf<typeof FooterTag>) => {
+}: HTMLNatureProps<'footer'>) => {
   return (
-    <FooterTag
+    <nature.footer
       className={clsx(
         'px-3 py-2 border-solid border border-b-0 border-r-0 border-l-0',
         className,
@@ -235,7 +209,7 @@ if (__DEV__) {
   PopoverFooter.displayName = 'PopoverFooter';
 }
 
-export type PopoverCloseButtonProps = CloseButtonProps;
+export interface PopoverCloseButtonProps extends CloseButtonProps {}
 
 /**
  * PopoverCloseButton
@@ -265,13 +239,16 @@ if (__DEV__) {
   PopoverCloseButton.displayName = 'PopoverCloseButton';
 }
 
-export type PopoverArrowProps = PropsOf<typeof DivTag>;
+export interface PopoverArrowProps extends HTMLNatureProps<'div'> {}
 
 export const PopoverArrow = ({ className, ...props }: PopoverArrowProps) => {
   const { getArrowProps } = usePopoverContext();
 
   return (
-    <DivTag className={clsx('bg-white', className)} {...getArrowProps(props)} />
+    <nature.div
+      className={clsx('bg-white', className)}
+      {...getArrowProps(props)}
+    />
   );
 };
 
