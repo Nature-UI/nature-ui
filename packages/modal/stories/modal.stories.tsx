@@ -123,7 +123,12 @@ export function NestedModal() {
           <ModalFooter>
             <nature.div css={{ flex: 1 }} />
             <Button>Button 2</Button>
-            <Button onClick={second.onOpen}>Open Nested</Button>
+            <Button
+              onClick={second.onOpen}
+              className='bg-purple-500 text-white'
+            >
+              Open Nested
+            </Button>
           </ModalFooter>
 
           <NatureModal isOpen={second.isOpen} onClose={second.onClose}>
@@ -205,7 +210,9 @@ export const InsideScroll = () => {
             <Lorem size={5} />
           </ModalBody>
           <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
+            <Button onClick={onClose} className='bg-purple-500 text-white'>
+              Close
+            </Button>
           </ModalFooter>
         </ModalContent>
       </NatureModal>
@@ -233,7 +240,9 @@ export const FullScreen = () => {
             <Lorem size={5} />
           </ModalBody>
           <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
+            <Button onClick={onClose} className='bg-purple-500 text-white'>
+              Close
+            </Button>
           </ModalFooter>
         </ModalContent>
       </NatureModal>
