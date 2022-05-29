@@ -1,11 +1,12 @@
 import { Button } from '@nature-ui/button';
 import { Stack } from '@nature-ui/layout';
+import { Meta } from '@storybook/react';
 import { Toast, useToast } from '../src';
 
 export default {
   title: 'Toast',
   component: Toast,
-};
+} as Meta;
 
 export function ToastExample() {
   const toast = useToast();

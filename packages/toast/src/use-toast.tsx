@@ -73,7 +73,7 @@ export type CreateStandaloneToastParam = Partial<{
  * React hook used to create a function that can be used
  * to show toasts in an application.
  */
-export const useToast = (defaultOptions?: UseToastOptions) => {
+export function useToast(defaultOptions?: UseToastOptions) {
   const toastContext = useToastManager();
   const latestToastContextRef = useLatestRef(toastContext);
 
@@ -146,4 +146,6 @@ export const useToast = (defaultOptions?: UseToastOptions) => {
 
     return toast;
   }, [defaultOptions, latestToastContextRef, 'ltr']);
-};
+}
+
+export default useToast;

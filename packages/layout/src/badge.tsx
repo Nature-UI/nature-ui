@@ -1,5 +1,5 @@
 import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
-import { darken, __DEV__ } from '@nature-ui/utils';
+import { __DEV__ } from '@nature-ui/utils';
 
 export type BadgeProps = PropsOf<typeof nature.span>;
 
@@ -10,32 +10,12 @@ export type BadgeType = BadgeProps & {
 };
 
 export const Badge = forwardRef<BadgeType, 'span'>((props, ref) => {
-  const {
-    children,
-    className = '',
-    color = 'gray-200',
-    variant = 'subtle',
-    css,
-    ...rest
-  } = props;
+  const { children, className, css, ...rest } = props;
 
   const DEFAULTS =
     'rounded-sm px-1 py-0.5 text-xs uppercase font-semibold inline-block align-middle';
 
-  const darkShade = darken(color, 500);
-  const VARIANTS = {
-    solid: `text-white bg-${color}`,
-    subtle: `text-${darkShade.color}-${darkShade.shade} bg-${color}`,
-    outline: `border border-${color} text-${color}`,
-  };
-
-  const _classNames = clsx(
-    DEFAULTS,
-    {
-      [VARIANTS[variant]]: variant,
-    },
-    className,
-  );
+  const _classNames = clsx(DEFAULTS, className);
 
   const values = {
     ref,

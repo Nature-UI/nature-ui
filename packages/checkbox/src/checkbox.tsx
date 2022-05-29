@@ -7,16 +7,16 @@ import {
   nature,
   PropsOf,
 } from '@nature-ui/system';
-import { darken, __DEV__ } from '@nature-ui/utils';
+import { __DEV__ } from '@nature-ui/utils';
 import React from 'react';
 import { useCheckboxGroupContext } from './checkbox-group';
 import { CheckboxIcon } from './checkbox-icon';
 import { useCheckbox, UseCheckboxProps } from './use-checkbox';
 
 const StyledControl = forwardRef<
-  HTMLNatureProps<'div'> & { color?: string },
+  HTMLNatureProps<'div'> & { darkBgColor?: string },
   'div'
->(({ color = 'red-500', ...props }, ref) => {
+>(({ darkBgColor = 'bg-red-700', ...props }, ref) => {
   const _checked = typeof props['data-checked'] !== 'undefined';
   const _focus = typeof props['data-focus'] !== 'undefined';
   const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
@@ -24,16 +24,14 @@ const StyledControl = forwardRef<
   const _invalid = typeof props['data-invalid'] !== 'undefined';
   const _hover = typeof props['data-hover'] !== 'undefined';
 
-  const _darken = darken(color, 100);
-
   const DEFAULTS =
     'box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white rounded w-4 h-4 p-0 transition-all duration-300 ease-in-out border-2';
 
   const _className = clsx(DEFAULTS, {
     [`border-none`]: (!_invalid && _checked) || _indeterminate,
     ['ring']: _focus,
-    [`bg-${color}`]: (_checked && !_disabled) || _indeterminate,
-    [`bg-${_darken.color}-${_darken.shade}`]: _hover && _checked && !_disabled,
+    [`bg-${darkBgColor}`]: (_checked && !_disabled) || _indeterminate,
+    [darkBgColor]: _hover && _checked && !_disabled,
     ['bg-gray-300']: _disabled,
     ['border-red-500']: _invalid,
   });
@@ -121,7 +119,7 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
     spacing = '0.5rem',
     iconColor,
     children,
-    color = group?.color,
+    color = group?.darkBgColor,
     iconSize,
     ...rest
   } = props;

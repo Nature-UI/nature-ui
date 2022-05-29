@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { PropsOf, forwardRef, nature, clsx } from '@nature-ui/system';
+import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { createContext, __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 
 import {
   useRadioGroup,
@@ -13,16 +13,17 @@ export type RadioGroupContext = Pick<
   'onChange' | 'value' | 'name'
 > & {
   size?: 'sm' | 'md' | 'lg' | number;
-  color?: string;
+  darkBg?: string;
+  bg?: string;
+  borderBg?: string;
+  darkBorderBg?: string;
 };
 
-const [
-  RadioGroupContextProvider,
-  useRadioGroupContext,
-] = createContext<RadioGroupContext>({
-  name: 'RadioGroupContext',
-  strict: false,
-});
+const [RadioGroupContextProvider, useRadioGroupContext] =
+  createContext<RadioGroupContext>({
+    name: 'RadioGroupContext',
+    strict: false,
+  });
 
 export { useRadioGroupContext };
 
@@ -42,21 +43,30 @@ export type RadioGroupProps = UseRadioGroupProps &
  */
 export const RadioGroup = forwardRef(
   (props: RadioGroupProps, ref: React.Ref<any>) => {
-    const { size = 'md', children, className, color, ...hookProps } = props;
+    const {
+      size = 'md',
+      children,
+      className,
+      darkBg = 'bg-blue-700',
+      bg = 'bg-blue-500',
+      borderBg = 'border-blue-500',
+      darkBorderBg = 'border-blue-700',
+      ...hookProps
+    } = props;
 
-    const { value, onChange, getRootProps, name, htmlProps } = useRadioGroup(
-      hookProps,
-    );
+    const { value, onChange, getRootProps, name, htmlProps } =
+      useRadioGroup(hookProps);
 
     const group = React.useMemo(
       () => ({
         name,
         size,
         onChange,
-        color,
+        darkColor: darkBg,
+        color: bg,
         value,
       }),
-      [size, name, onChange, value],
+      [name, size, onChange, darkBg, bg, borderBg, darkBorderBg, value],
     );
 
     const groupProps = getRootProps({

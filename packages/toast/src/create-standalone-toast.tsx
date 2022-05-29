@@ -31,10 +31,10 @@ export const defaultStandaloneParam: CreateStandAloneToastParam &
 };
 
 export function createStandaloneToast({
-  defaultOptions = defaultStandaloneParam.defaultOptions,
   motionVariants,
   toastSpacing,
   component,
+  defaultOptions = defaultStandaloneParam.defaultOptions,
 }: CreateStandAloneToastParam = defaultStandaloneParam) {
   const ref = React.createRef<CallableToastMethods>();
 

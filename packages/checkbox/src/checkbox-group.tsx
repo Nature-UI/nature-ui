@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { createContext, __DEV__ } from '@nature-ui/utils';
+import * as React from 'react';
 
 import {
   useCheckboxGroup,
@@ -10,7 +10,7 @@ import {
 export interface CheckboxGroupProps extends UseCheckboxGroupProps {
   children?: React.ReactNode;
   size?: string | undefined;
-  color?: string | undefined;
+  darkBgColor?: string | undefined;
 }
 
 export type CheckboxGroupContext = Pick<
@@ -18,16 +18,14 @@ export type CheckboxGroupContext = Pick<
   'onChange' | 'value'
 > & {
   size?: string | undefined;
-  color?: string | undefined;
+  darkBgColor?: string | undefined;
 };
 
-const [
-  CheckboxGroupContextProvider,
-  useCheckboxGroupContext,
-] = createContext<CheckboxGroupContext>({
-  name: 'CheckboxGroupContext',
-  strict: false,
-});
+const [CheckboxGroupContextProvider, useCheckboxGroupContext] =
+  createContext<CheckboxGroupContext>({
+    name: 'CheckboxGroupContext',
+    strict: false,
+  });
 
 export { useCheckboxGroupContext };
 
@@ -37,14 +35,14 @@ export { useCheckboxGroupContext };
  *
  */
 export const CheckboxGroup = (props: CheckboxGroupProps) => {
-  const { children, color, size } = props;
+  const { children, darkBgColor, size } = props;
   const { value, onChange } = useCheckboxGroup(props);
 
   const group = React.useMemo(
     () => ({
       onChange,
       value,
-      color,
+      color: darkBgColor,
       size,
     }),
     [onChange, value],

@@ -1,11 +1,12 @@
+import { ToastProvider } from '@nature-ui/toast';
 import React from 'react';
 import 'tailwindcss/tailwind.css';
 
 const withNature: React.FC<Function> = (StoryFn) => {
   return (
-    <div id='story-wrapper'>
+    <ToastProvider>
       <StoryFn />
-    </div>
+    </ToastProvider>
   );
 };
 
