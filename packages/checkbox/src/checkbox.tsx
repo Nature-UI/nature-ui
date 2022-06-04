@@ -13,10 +13,18 @@ import { useCheckboxGroupContext } from './checkbox-group';
 import { CheckboxIcon } from './checkbox-icon';
 import { useCheckbox, UseCheckboxProps } from './use-checkbox';
 
-const StyledControl = forwardRef<
-  HTMLNatureProps<'div'> & { darkBgColor?: string },
-  'div'
->(({ darkBgColor = 'bg-red-700', ...props }, ref) => {
+interface ControlProps extends HTMLNatureProps<'div'> {
+  hoverColor?: string;
+  color?: string;
+  /**
+   * The size of the check icon
+   * @default sm
+   */
+  size?: IconProps['size'];
+}
+
+const StyledControl = forwardRef<ControlProps, 'div'>((props, ref) => {
+  const { hoverColor = 'bg-blue-700', color = 'bg-blue-500' } = props;
   const _checked = typeof props['data-checked'] !== 'undefined';
   const _focus = typeof props['data-focus'] !== 'undefined';
   const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
@@ -30,8 +38,8 @@ const StyledControl = forwardRef<
   const _className = clsx(DEFAULTS, {
     [`border-none`]: (!_invalid && _checked) || _indeterminate,
     ['ring']: _focus,
-    [`bg-${darkBgColor}`]: (_checked && !_disabled) || _indeterminate,
-    [darkBgColor]: _hover && _checked && !_disabled,
+    [`${color}`]: (_checked && !_disabled) || _indeterminate,
+    [hoverColor]: _hover && _checked && !_disabled,
     ['bg-gray-300']: _disabled,
     ['border-red-500']: _invalid,
   });
@@ -39,34 +47,25 @@ const StyledControl = forwardRef<
   return <nature.div className={_className} ref={ref} {...props} />;
 });
 
-const StyledLabel = forwardRef<HTMLNatureProps<'div'>, 'div'>(
-  (
-    {
-      spacing,
-      ...props
-    }: PropsOf<typeof nature.div> & { spacing?: number | string },
-    ref: React.Ref<HTMLDivElement>,
-  ) => {
-    const _disabled = typeof props['data-disabled'] !== 'undefined';
+const StyledLabel = forwardRef<
+  HTMLNatureProps<'span'> & { spacing?: number | string },
+  'span'
+>(({ spacing, ...props }, ref: React.Ref<HTMLSpanElement>) => {
+  const _disabled = typeof props['data-disabled'] !== 'undefined';
 
-    const styles = css`
-      margin-left: ${spacing};
-    `;
+  const styles = css`
+    margin-left: ${spacing};
+  `;
 
-    const _className = clsx(`select-none ${styles}`, {
-      'text-gray-400': _disabled,
-    });
+  const _className = clsx(`select-none ${styles}`, {
+    'text-gray-400': _disabled,
+  });
 
-    return <nature.div className={_className} ref={ref} {...props} />;
-  },
-);
+  return <nature.span className={_className} ref={ref} {...props} />;
+});
 
-const Label = nature('label');
-const StyledWrapper = forwardRef<HTMLNatureProps<'div'>, 'div'>(
-  (
-    { className = '', ...props }: PropsOf<typeof Label>,
-    ref: React.Ref<HTMLLabelElement>,
-  ) => {
+const StyledWrapper = forwardRef<HTMLNatureProps<'label'>, 'label'>(
+  ({ className = '', ...props }, ref: React.Ref<HTMLLabelElement>) => {
     const _className = clsx(
       'cursor-pointer inline-flex items-center align-top relative',
       {
@@ -74,34 +73,29 @@ const StyledWrapper = forwardRef<HTMLNatureProps<'div'>, 'div'>(
       },
     );
 
-    return <Label className={_className} ref={ref} {...props} />;
+    return <nature.label className={_className} ref={ref} {...props} />;
   },
 );
 
-type BaseControlProps = Omit<
-  PropsOf<typeof StyledControl>,
-  'onChange' | 'defaultChecked'
->;
-
 type Omitted = 'checked' | 'defaultChecked';
 
-export type CheckboxProps = BaseControlProps &
+export type CheckboxProps = Omit<ControlProps, 'onChange' | 'defaultChecked'> &
   Omit<PropsOf<'input'>, Omitted> &
   UseCheckboxProps & {
     /**
      * The color of the check icon
      */
     iconColor?: IconProps['color'];
-    /**
-     * The size of the check icon
-     * @default sm
-     */
-    iconSize?: IconProps['size'];
     spacing?: number | string;
     /**
      * If `true`, the checkbox should take up the full width of the parent.
      */
     isFullWidth?: boolean;
+    /**
+     * The size of the check icon
+     * @default sm
+     */
+    size?: IconProps['size'];
   };
 
 /**
@@ -119,10 +113,12 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
     spacing = '0.5rem',
     iconColor,
     children,
-    color = group?.darkBgColor,
-    iconSize,
+    color = props.color ?? group?.color,
+    hoverColor = props.hoverColor ?? group?.hoverColor,
+    size,
     ...rest
   } = props;
+  console.log({ props, group });
 
   const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 
@@ -148,11 +144,15 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
   return (
     <StyledWrapper className={className} {...htmlProps}>
       <input {...getInputProps({ ref })} />
-      <StyledControl color={color} {...getCheckboxProps()}>
+      <StyledControl
+        hoverColor={hoverColor}
+        color={color}
+        {...getCheckboxProps()}
+      >
         <CheckboxIcon
           isChecked={state.isChecked}
           isIndeterminate={state.isIndeterminate}
-          size={iconSize}
+          size={size}
           className={`inline-block flex-shrink-0 leading-4 align-middle transition-all duration-300 ease-in-out text-${
             iconColor || 'current'
           }`}

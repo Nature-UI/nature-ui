@@ -27,6 +27,8 @@ Disabled.args = {
 export const Readonly: CheckboxType = Template.bind({});
 Readonly.args = {
   children: 'Readonly',
+  color: 'bg-red-500',
+  hoverColor: 'bg-red-800',
   isReadOnly: true,
 };
 
@@ -95,7 +97,8 @@ export const CheckboxGroupExample = () => {
   return (
     <CheckboxGroup
       defaultValue={['one', 'two']}
-      color='green-500'
+      color='bg-green-500'
+      hoverColor='bg-green-700'
       onChange={(value) => console.log(value)}
     >
       <Stack spacing={'24px'} row>
