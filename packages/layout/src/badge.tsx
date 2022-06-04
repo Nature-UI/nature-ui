@@ -4,7 +4,6 @@ import { __DEV__ } from '@nature-ui/utils';
 export type BadgeProps = PropsOf<typeof nature.span>;
 
 export type BadgeType = BadgeProps & {
-  color?: string;
   variant?: 'solid' | 'subtle' | 'outline';
   css?: any;
 };

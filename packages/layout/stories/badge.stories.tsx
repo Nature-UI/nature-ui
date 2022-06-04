@@ -4,7 +4,7 @@ export default {
   title: 'Badge',
 };
 
-export const Default = () => <Badge>default</Badge>;
+export const Default = () => <Badge className='bg-gray-200'>default</Badge>;
 
 export const WithColor = () => {
   return (
