@@ -107,7 +107,7 @@ export const ToastProvider = React.forwardRef<ToastMethods, ToastProviderProps>(
           role='region'
           aria-live='polite'
           key={position}
-          id={`chakra-toast-manager-${position}`}
+          id={`nature-toast-manager-${position}`}
           style={getStyle(position)}
         >
           <AnimatePresence initial={false}>
