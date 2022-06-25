@@ -1,8 +1,16 @@
-export * from './test-utils';
-export * from './press';
-export * from '@testing-library/react';
+export { act, fireEvent, screen, waitFor } from '@testing-library/react';
 export type {
   RenderHookOptions,
   RenderHookResult,
 } from '@testing-library/react-hooks';
-export * from 'jest-axe';
+export * from './accessibility';
+export { blur, focus } from './focus';
+export * from './hooks';
+export * from './press';
+export { render } from './render';
+export * from './test-utils';
+import { mockImage } from './mock-image';
+
+export const mocks = {
+  image: mockImage,
+};
