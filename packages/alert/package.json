@@ -41,7 +41,7 @@
     "@nature-ui/utils": "^1.1.1"
   },
   "peerDependencies": {
-    "react": "^17.x",
+    "react": ">=18",
     "react-dom": "^17.x"
   },
   "bugs": {
@@ -49,7 +49,7 @@
   },
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "devDependencies": {
-    "react": "^17.0.2",
+    "react": "^18.0.0",
     "react-dom": "^17.0.2"
   }
 }

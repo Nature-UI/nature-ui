@@ -53,13 +53,13 @@
   "devDependencies": {
     "@nature-ui/system": "^2.1.0-beta",
     "framer-motion": "^6.3.3",
-    "react": "^17.0.2",
+    "react": "^18.0.0",
     "react-dom": "^17.0.2"
   },
   "peerDependencies": {
     "@nature-ui/system": "^2.1.0",
     "framer-motion": ">=4.0.0",
-    "react": "^17.x",
+    "react": ">=18",
     "react-dom": "^17.x"
   }
 }

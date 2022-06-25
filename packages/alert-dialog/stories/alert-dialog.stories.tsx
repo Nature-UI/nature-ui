@@ -1,19 +1,11 @@
 import { Button, ButtonProps } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
-import { PortalManager } from '@nature-ui/portal';
 import * as React from 'react';
 import { AlertDialog } from '../src';
 
 export default {
   title: 'AlertDialog',
   component: AlertDialog,
-  decorators: [
-    (StoryFn: Function) => (
-      <PortalManager>
-        <StoryFn />
-      </PortalManager>
-    ),
-  ],
 };
 
 const StyledButton = (args: ButtonProps) => (

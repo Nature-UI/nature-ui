@@ -45,10 +45,10 @@
     "postcss": "8.1.11"
   },
   "peerDependencies": {
-    "react": "^17.x"
+    "react": ">=18"
   },
   "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d",
   "devDependencies": {
-    "react": "^17.0.2"
+    "react": "^18.0.0"
   }
 }
