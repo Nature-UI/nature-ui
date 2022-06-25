@@ -78,11 +78,13 @@ export function useToast(defaultOptions?: UseToastOptions) {
   const latestToastContextRef = useLatestRef(toastContext);
 
   return React.useMemo(() => {
-    const normalizeToastOptions = (options?: UseToastOptions) => ({
-      ...defaultOptions,
-      ...options,
-      position: getToastPlacement(options?.position, 'ltr'),
-    });
+    const normalizeToastOptions = (options?: UseToastOptions) => {
+      return {
+        ...defaultOptions,
+        ...options,
+        position: getToastPlacement(options?.position, 'ltr'),
+      };
+    };
 
     const toast = (options?: UseToastOptions) => {
       const normalizedToastOptions = normalizeToastOptions(options);
@@ -95,7 +97,6 @@ export function useToast(defaultOptions?: UseToastOptions) {
 
     toast.close = latestToastContextRef.current.close;
     toast.closeAll = latestToastContextRef.current.closeAll;
-
     /**
      * Toasts can only be updated if they have a valid id
      */
@@ -120,8 +121,8 @@ export function useToast(defaultOptions?: UseToastOptions) {
       },
     ) => {
       const id = toast({
-        ...options.success,
-        status: 'success',
+        ...options.loading,
+        status: 'info',
         duration: null,
       });
 

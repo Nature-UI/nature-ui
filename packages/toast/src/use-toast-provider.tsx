@@ -106,10 +106,12 @@ export function useToastProvider(
 
         return positionsToClose.reduce(
           (acc, position) => {
-            acc[position] = prev[position].map((toast) => ({
-              ...toast,
-              requestClose: true,
-            }));
+            acc[position] = prev[position].map((toast) => {
+              return {
+                ...toast,
+                requestClose: true,
+              };
+            });
 
             return acc;
           },
@@ -133,7 +135,7 @@ export function useToastProvider(
       const removeToast = (id: ToastId, position: ToastPosition) => {
         setAreas((prevState) => ({
           ...prevState,
-          [position]: prevState[position].filter((toast) => toast.id !== id),
+          [position]: prevState[position].filter((toast) => toast.id != id),
         }));
       };
 
@@ -143,7 +145,7 @@ export function useToastProvider(
         position,
         duration: options.duration,
         onCloseComplete: options.onCloseComplete,
-        onRequestClose: () => removeToast(String(id), position),
+        onRequestRemove: () => removeToast(String(id), position),
         status: options.status,
         requestClose: false,
         containerStyle: options.containerStyle,

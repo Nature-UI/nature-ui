@@ -17,9 +17,9 @@ const PORTAL_SELECTOR = `.${PORTAL_CLASSNAME}`;
 
 interface IContainerProps {
   zIndex: number;
-  children: React.ReactNode;
 }
-const Container: React.FC<IContainerProps> = (props) => (
+
+const Container = (props: React.PropsWithChildren<IContainerProps>) => (
   <div
     className='nature-portal-zIndex'
     style={{
@@ -35,13 +35,12 @@ const Container: React.FC<IContainerProps> = (props) => (
 );
 
 interface IDefaultPortalProps {
-  children: React.ReactNode;
   appendToParentPortal?: boolean;
 }
 /**
  * Portal that uses `document.body` as container
  */
-const DefaultPortal: React.FC<IDefaultPortalProps> = (props) => {
+const DefaultPortal = (props: React.PropsWithChildren<IDefaultPortalProps>) => {
   const { appendToParentPortal, children } = props;
 
   const tempNode = React.useRef<HTMLDivElement | null>(null);

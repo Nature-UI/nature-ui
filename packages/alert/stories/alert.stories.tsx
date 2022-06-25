@@ -40,8 +40,8 @@ export const Info = () => {
 
 export const Warning = () => {
   return (
-    <Alert status='warning' alertTitle='Warning alert'>
-      This is warning
+    <Alert status='warning' alertTitle='Outdated'>
+      This is warning.
     </Alert>
   );
 };

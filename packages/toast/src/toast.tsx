@@ -1,9 +1,9 @@
 import {
-  Alert,
   AlertDescription,
   AlertIcon,
   AlertProps,
   AlertTitle,
+  AlertWrapper,
 } from '@nature-ui/alert';
 import { CloseButton } from '@nature-ui/close-button';
 import { nature } from '@nature-ui/system';
@@ -26,35 +26,31 @@ export const Toast: React.FC<ToastProps> = (props) => {
     typeof id !== 'undefined' ? `toast-${id}-title` : undefined;
 
   return (
-    <Alert
+    <AlertWrapper
       status={status}
       variant={variant}
       id={String(id)}
-      alignItems='start'
-      borderRadius='md'
-      boxShadow='lg'
-      paddingEnd={8}
-      textAlign='start'
-      width='auto'
       aria-labelledby={alertTitleId}
+      className='rounded'
+      css={{
+        alignItems: 'flex-start',
+      }}
     >
       <AlertIcon />
-      <nature.div flex='1' maxWidth='100%'>
+      <nature.div className='flex-1 max-w-full'>
         {title && <AlertTitle id={alertTitleId}>{title}</AlertTitle>}
         {description && (
-          <AlertDescription display='block'>{description}</AlertDescription>
+          <AlertDescription className='block'>{description}</AlertDescription>
         )}
       </nature.div>
       {isClosable && (
         <CloseButton
           size='sm'
           onClick={onClose}
-          position='absolute'
-          insetEnd={1}
-          top={1}
+          className='absolute top-1 right-1'
         />
       )}
-    </Alert>
+    </AlertWrapper>
   );
 };
 

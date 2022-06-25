@@ -118,7 +118,6 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
     size,
     ...rest
   } = props;
-  console.log({ props, group });
 
   const SPACING = typeof spacing === 'string' ? spacing : `${spacing}px`;
 

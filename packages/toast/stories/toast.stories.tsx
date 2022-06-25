@@ -1,17 +1,15 @@
 import { Button } from '@nature-ui/button';
-import { useLatestRef } from '@nature-ui/hooks';
-import { Stack } from '@nature-ui/layout';
 import { nature } from '@nature-ui/system';
 import { Meta } from '@storybook/react';
-import React from 'react';
-import { Toast, ToastId, useToast } from '../src';
+import { Toast, ToastProvider, useToast } from '../src';
 
 export default {
   title: 'Toast',
   component: Toast,
+  decorators: [(storyFn: any) => <ToastProvider>{storyFn()}</ToastProvider>],
 } as Meta;
 
-export const ToastExample = () => {
+const ToastExample = () => {
   const toast = useToast();
   const id = 'login-error-toast';
 
@@ -24,7 +22,7 @@ export const ToastExample = () => {
             id,
             title: 'Error Connecting...',
             description: 'You do not have permissions to perform this action.',
-            status: 'error',
+            status: 'info',
             duration: null,
             isClosable: true,
             onCloseComplete: () => {
@@ -59,7 +57,9 @@ export const ToastExample = () => {
   );
 };
 
-export function CustomRender() {
+export const TExample = () => <ToastExample />;
+
+function CR() {
   const toast = useToast();
   return (
     <>
@@ -94,12 +94,14 @@ export function CustomRender() {
     </>
   );
 }
+export const CustomRender = () => <CR />;
 
-export function SuccessToast() {
+function ST() {
   const toast = useToast();
   return (
     <Button
-      onClick={() =>
+      className='mt-24'
+      onClick={() => {
         toast({
           position: 'bottom',
           title: 'Account created.',
@@ -110,15 +112,17 @@ export function SuccessToast() {
           onCloseComplete: () => {
             console.log('close');
           },
-        })
-      }
+        });
+      }}
     >
       Show Success Toast
     </Button>
   );
 }
 
-export function InfoToast() {
+export const SuccessToast = () => <ST />;
+
+function IT() {
   const toast = useToast();
   return (
     <Button
@@ -137,7 +141,9 @@ export function InfoToast() {
   );
 }
 
-export function WarningToast() {
+export const InfoToast = () => <IT />;
+
+function WT() {
   const toast = useToast();
   return (
     <Button
@@ -156,7 +162,9 @@ export function WarningToast() {
   );
 }
 
-export function ErrorToast() {
+export const WarningToast = () => <WT />;
+
+function ET() {
   const toast = useToast();
   return (
     <Button
@@ -167,6 +175,7 @@ export function ErrorToast() {
           status: 'error',
           duration: 9000,
           isClosable: true,
+          // position: 'bottom',
         })
       }
     >
@@ -175,7 +184,9 @@ export function ErrorToast() {
   );
 }
 
-export const AllSides = () => {
+export const ErrorToast = () => <ET />;
+
+const AS = () => {
   const toast = useToast();
 
   const positions = [
@@ -206,7 +217,9 @@ export const AllSides = () => {
   );
 };
 
-export const CloseAllTopLeftToasts = () => {
+export const Positions = () => <AS />;
+
+const DATT = () => {
   const toast = useToast();
 
   const positions = [
@@ -239,7 +252,9 @@ export const CloseAllTopLeftToasts = () => {
   );
 };
 
-export const UseToastWithDefaults = () => {
+export const DeleteAllTopToasts = () => <DATT />;
+
+const UTWD = () => {
   const toast = useToast({
     position: 'top-right',
     title: 'asdf',
@@ -247,8 +262,9 @@ export const UseToastWithDefaults = () => {
 
   return <Button onClick={() => toast()}>toast</Button>;
 };
+export const UseToastWithDefaults = () => <UTWD />;
 
-export const UseToastWithCustomContainerStyle = () => {
+const UTWCCS = () => {
   const toast = useToast({
     position: 'top',
     title: 'Container style is updated',
@@ -261,43 +277,4 @@ export const UseToastWithCustomContainerStyle = () => {
 
   return <Button onClick={() => toast()}>toast</Button>;
 };
-
-export const useToastCustomRenderUpdate = () => {
-  const [id, setId] = React.useState<ToastId | null>(null);
-  const toast = useToast();
-  const latestToastRef = useLatestRef(toast);
-
-  React.useEffect(() => {
-    if (id) {
-      const timeout = setTimeout(() => {
-        latestToastRef.current.update(id, {
-          render: () => (
-            <Stack row>
-              <Button variant='outline'>outline button after update</Button>
-              <Button variant='ghost'>ghost button after update</Button>
-              <Button variant='link'>link button after update</Button>
-            </Stack>
-          ),
-        });
-
-        setId(null);
-      }, 2000);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [id, latestToastRef]);
-
-  return (
-    <Button
-      onClick={() => {
-        const id = toast({
-          render: () => <Button variant='solid'>solid button initially</Button>,
-        });
-
-        setId(id ?? null);
-      }}
-    >
-      toast
-    </Button>
-  );
-};
+export const UseToastWithCustomContainerStyle = () => <UTWCCS />;

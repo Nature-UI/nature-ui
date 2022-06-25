@@ -1,12 +1,15 @@
-import { ToastProvider } from '@nature-ui/toast';
 import React from 'react';
 import 'tailwindcss/tailwind.css';
 
 const withNature: React.FC<Function> = (StoryFn) => {
   return (
-    <ToastProvider>
-      <StoryFn />
-    </ToastProvider>
+    <React.StrictMode>
+      {/* <ToastProvider> */}
+      <div className='min-h-screen'>
+        <StoryFn />
+      </div>
+      {/* </ToastProvider> */}
+    </React.StrictMode>
   );
 };
 

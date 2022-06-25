@@ -89,7 +89,7 @@ export const ToastComponent = React.memo((props: ToastComponentProps) => {
 
   const containerStyles = React.useMemo(
     () => ({
-      PointerEvent: 'auto',
+      pointerEvents: 'auto',
       maxWidth: 560,
       minWidth: 300,
       margin: toastSpacing,
@@ -117,7 +117,7 @@ export const ToastComponent = React.memo((props: ToastComponentProps) => {
         role='status'
         aria-atomic='true'
         className='nature-toast__inner'
-        __css={containerStyles}
+        css={containerStyles as any}
       >
         {runIfFn(message, { id, onClose: close })}
       </nature.div>
