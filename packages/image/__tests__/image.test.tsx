@@ -1,73 +1,33 @@
-import { render } from '@nature-ui/test-utils';
+import { render, screen, testA11y } from '@nature-ui/test-utils';
 import { Image, ImageProps } from '../src';
 
 const src = 'https://image.xyz/source';
 const fallbackSrc = 'https://image.xyz/placeholder';
 
-// let imageOnload: any = null;
-
-/**
- * Override Image global to save onload
- * setting here so that I can trigger it manually in my test
- */
-/*
- * const trackImageOnload = () => {
- *   Object.defineProperty(window.Image.prototype, 'onload', {
- *     // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
- *     get() {
- *       return this._onload;
- *     },
- *     // eslint-disable-next-line get-off-my-lawn/prefer-arrow-functions
- *     set(fn) {
- *       imageOnload = fn;
- *       this._onload = fn;
- *     },
- *   });
- * };
- */
-
-const renderComponent = (props?: ImageProps) => {
-  return render(
-    <Image data-testid='img' src={src} fallbackSrc={fallbackSrc} {...props} />,
-  );
+const setup = (props?: ImageProps) => {
+  return render(<Image src={src} fallbackSrc={fallbackSrc} {...props} />);
 };
 
 describe('@nature-ui/image', () => {
   test('creates an instance of Image when mounted', () => {
-    const tools = renderComponent();
-    const image = tools.getByTestId('img');
+    const { getByRole } = setup();
 
-    expect(image).toBeInstanceOf(HTMLImageElement);
+    expect(getByRole('img')).toBeInstanceOf(HTMLImageElement);
   });
 
-  test('should render placeholder first, before image load', async () => {
-    const tools = renderComponent();
-    const image = tools.getByTestId('img');
-
-    expect(image).toHaveAttribute('src', fallbackSrc);
+  it('passes a11y test', async () => {
+    await testA11y(<Image alt='img' src={src} fallbackSrc={fallbackSrc} />);
   });
 
-  /*
-   * test('should fires onload', () => {
-   *   trackImageOnload();
-   */
+  it('renders placeholder first, before image load', async () => {
+    setup();
 
-  /*
-   *   const onLoad = jest.fn();
-   *   const tools = renderComponent({ onLoad });
-   */
+    expect(screen.getByRole('img')).toHaveAttribute('src', fallbackSrc);
+  });
 
-  //   const image = tools.getByTestId('img');
+  it('renders image if there is no fallback behavior defined', async () => {
+    render(<Image src={src} />);
 
-  /*
-   *   act(() => {
-   *     imageOnload();
-   *   });
-   */
-
-  /*
-   *   expect(image).toHaveAttribute('src', src);
-   *   expect(onLoad).toHaveBeenCalledWith(expect.anything());
-   * });
-   */
+    expect(screen.getByRole('img')).toHaveAttribute('src', src);
+  });
 });
