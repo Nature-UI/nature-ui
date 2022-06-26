@@ -24,7 +24,7 @@ interface ControlProps extends HTMLNatureProps<'div'> {
 }
 
 const StyledControl = forwardRef<ControlProps, 'div'>((props, ref) => {
-  const { hoverColor = 'bg-blue-700', color = 'bg-blue-500' } = props;
+  const { hoverColor = 'bg-blue-700', color = 'bg-blue-500', ...rest } = props;
   const _checked = typeof props['data-checked'] !== 'undefined';
   const _focus = typeof props['data-focus'] !== 'undefined';
   const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
@@ -44,7 +44,7 @@ const StyledControl = forwardRef<ControlProps, 'div'>((props, ref) => {
     ['border-red-500']: _invalid,
   });
 
-  return <nature.div className={_className} ref={ref} {...props} />;
+  return <nature.div className={_className} ref={ref} {...rest} />;
 });
 
 const StyledLabel = forwardRef<
