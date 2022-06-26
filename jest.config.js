@@ -1,14 +1,22 @@
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  collectCoverageFrom: ['__tests__/**/*.{ts,tsx}'],
-  transform: { '.(ts|tsx)$': 'ts-jest/dist' },
+  testEnvironment: 'jsdom',
+  collectCoverageFrom: ['packages/**/*.{ts,tsx}'],
+  moduleFileExtensions: [ 'ts', 'tsx', 'js', 'jsx'],
+  transform: {
+    "^.+\\.(ts|tsx|js|jsx)?$": "@swc-node/jest",
+  },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  verbose: true,
+  setupFilesAfterEnv: [
+    "@testing-library/jest-dom/extend-expect",
+    "./scripts/setup-test.ts",
+  ],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',
     },
   },
+  watchPlugins: [
+    "jest-watch-typeahead/filename",
+    "jest-watch-typeahead/testname",
+  ],
 };
