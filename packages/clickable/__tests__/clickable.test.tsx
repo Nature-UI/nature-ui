@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { render, userEvent, fireEvent } from '@nature-ui/test-utils';
 import { nature } from '@nature-ui/system';
+import { fireEvent, render, screen } from '@nature-ui/test-utils';
+import * as React from 'react';
 
 import { useClickable } from '../src';
 import { ClickableProps } from '../stories/use-clickable.stories';
@@ -50,11 +50,11 @@ describe('@nature-ui/clickable', () => {
 
   test('should click correctly', () => {
     const fn = jest.fn();
-    const tools = render(<Clickable onClick={fn}>clickable</Clickable>);
-    const clickable = tools.getByText('clickable');
+    render(<Clickable onClick={fn}>clickable</Clickable>);
+    const clickable = screen.getByText('clickable');
 
     expect(fn).toHaveBeenCalledTimes(0);
-    userEvent.click(clickable);
+    fireEvent.click(clickable);
     expect(fn).toHaveBeenCalledTimes(1);
   });
 
@@ -69,7 +69,7 @@ describe('@nature-ui/clickable', () => {
 
     const clickable = tools.getByText('clickable');
 
-    userEvent.click(clickable);
+    fireEvent.click(clickable);
     expect(fn).toHaveBeenCalledTimes(0);
   });
 
