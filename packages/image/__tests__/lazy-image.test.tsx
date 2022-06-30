@@ -1,12 +1,17 @@
-import { render, screen } from '@nature-ui/test-utils';
+import { render, screen, testA11y } from '@nature-ui/test-utils';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 import { LazyImage } from '../src';
 
-describe('Lazy Image', () => {
-  test('should render src because element is not intersecting', () => {
-    const src = 'https://cutt.ly/HlcgdCt';
-    const fallback = 'https://cutt.ly/dlcgDQG';
+const src = 'https://cutt.ly/HlcgdCt';
+const fallback = 'https://cutt.ly/dlcgDQG';
 
+describe('Lazy Image', () => {
+  it('passes a11y test', async () => {
+    await testA11y(
+      <LazyImage src={src} fallbackSrc={fallback} alt='lazy-image' />,
+    );
+  });
+  test('should render src because element is not intersecting', () => {
     render(
       <LazyImage src={src} fallbackSrc={fallback} data-testid='lazy-image' />,
     );
@@ -18,9 +23,6 @@ describe('Lazy Image', () => {
   });
 
   test('should render fallbackSrc because element is intersecting', () => {
-    const src = 'https://cutt.ly/HlcgdCt';
-    const fallback = 'https://cutt.ly/dlcgDQG';
-
     render(<LazyImage src={src} fallbackSrc={fallback} alt='lazy-image' />);
 
     const image = screen.getByAltText('lazy-image');
