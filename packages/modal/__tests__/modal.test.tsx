@@ -1,6 +1,4 @@
-import { PortalManager } from '@nature-ui/portal';
-import { fireEvent, press, render, testA11y } from '@nature-ui/test-utils';
-import * as React from 'react';
+import { fireEvent, render, screen, testA11y } from '@nature-ui/test-utils';
 
 import {
   Modal,
@@ -10,36 +8,39 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  NatureModal,
 } from '../src';
-
-const renderWithPortal = (ui: React.ReactElement) =>
-  render(<PortalManager>{ui}</PortalManager>);
 
 describe('@nature-ui/modal', () => {
   test('should have no accessibility violations', async () => {
     const { container } = render(
-      <Modal isOpen onClose={jest.fn()}>
+      <NatureModal isOpen onClose={jest.fn()}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>
           <ModalFooter>Modal footer</ModalFooter>
         </ModalContent>
-      </Modal>,
+      </NatureModal>,
     );
 
     await testA11y(container);
+    await testA11y(
+      <Modal isOpen onClose={jest.fn()} footer={'Modal Footer'}>
+        Modal Body
+      </Modal>,
+    );
   });
 
   test("should have the proper 'aria' attributes", () => {
-    const tools = renderWithPortal(
-      <Modal isOpen onClose={jest.fn()}>
+    const tools = render(
+      <NatureModal isOpen onClose={jest.fn()}>
         <ModalOverlay />
         <ModalContent data-testid='modal'>
           <ModalHeader>Modal header</ModalHeader>
           <ModalBody>Modal body</ModalBody>
         </ModalContent>
-      </Modal>,
+      </NatureModal>,
     );
 
     const dialog = tools.getByTestId('modal');
@@ -68,7 +69,7 @@ describe('@nature-ui/modal', () => {
   test("should fire 'onClose' callback when close button is clicked", () => {
     const onClose = jest.fn();
 
-    const tools = renderWithPortal(
+    const tools = render(
       <Modal isOpen onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -85,25 +86,41 @@ describe('@nature-ui/modal', () => {
 
     expect(onClose).toHaveBeenCalled();
   });
+});
 
-  test('clicking overlay or pressing "esc" calls the onClose callback', () => {
+describe('closing the modal', () => {
+  test('clicking overlay calls the onClose callback', async () => {
     const onClose = jest.fn();
-    const tools = renderWithPortal(
-      <Modal isOpen onClose={onClose}>
-        <ModalOverlay data-testid='overlay'>
-          <ModalContent>
-            <ModalHeader>Modal header</ModalHeader>
-            <ModalBody>Modal body</ModalBody>
-          </ModalContent>
-        </ModalOverlay>
+    render(
+      <NatureModal isOpen onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalBody>Modal body</ModalBody>
+        </ModalContent>
+      </NatureModal>,
+    );
+
+    const dialog = await screen.findByRole('dialog');
+    const overlay = dialog.parentElement;
+
+    if (overlay) {
+      // an extra mousedown is required to get onOverlayClick function in `useModal` to work
+      fireEvent.mouseDown(overlay);
+      fireEvent.click(overlay);
+      expect(onClose).toHaveBeenCalled();
+    }
+  });
+
+  test('pressing escape key calls the onClose callback', async () => {
+    const onClose = jest.fn();
+    const { user } = render(
+      <Modal isOpen onClose={onClose} footer={'Modal Footer'}>
+        Modal Body
       </Modal>,
     );
 
-    const overlay = tools.getByTestId('overlay');
-
-    // FIXME: Get rid of the linting error when internet comes up.
-    // eslint-disable-next-line new-cap
-    press.Escape(overlay);
-    expect(onClose).toHaveBeenCalledWith();
+    user.press.Escape(document.activeElement!);
+    expect(onClose).toHaveBeenCalled();
   });
 });
