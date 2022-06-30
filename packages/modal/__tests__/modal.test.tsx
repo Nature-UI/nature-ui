@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { render, axe, fireEvent, press } from '@nature-ui/test-utils';
 import { PortalManager } from '@nature-ui/portal';
+import { fireEvent, press, render, testA11y } from '@nature-ui/test-utils';
+import * as React from 'react';
 
 import {
   Modal,
@@ -16,51 +16,29 @@ const renderWithPortal = (ui: React.ReactElement) =>
   render(<PortalManager>{ui}</PortalManager>);
 
 describe('@nature-ui/modal', () => {
-  test('should render correctly', () => {
-    const tools = renderWithPortal(
-      <Modal isOpen onClose={jest.fn()}>
-        <ModalOverlay>
-          <ModalContent>
-            <ModalHeader>Modal header</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>Modal body</ModalBody>
-            <ModalFooter>Modal footer</ModalFooter>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>,
-    );
-
-    expect(tools.asFragment()).toMatchSnapshot();
-  });
-
   test('should have no accessibility violations', async () => {
-    const tools = renderWithPortal(
+    const { container } = render(
       <Modal isOpen onClose={jest.fn()}>
-        <ModalOverlay>
-          <ModalContent>
-            <ModalHeader>Modal header</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>Modal body</ModalBody>
-            <ModalFooter>Modal footer</ModalFooter>
-          </ModalContent>
-        </ModalOverlay>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalBody>Modal body</ModalBody>
+          <ModalFooter>Modal footer</ModalFooter>
+        </ModalContent>
       </Modal>,
     );
 
-    const result = await axe(tools.container);
-
-    expect(result).toHaveNoViolations();
+    await testA11y(container);
   });
 
   test("should have the proper 'aria' attributes", () => {
     const tools = renderWithPortal(
       <Modal isOpen onClose={jest.fn()}>
-        <ModalOverlay>
-          <ModalContent data-testid='modal'>
-            <ModalHeader>Modal header</ModalHeader>
-            <ModalBody>Modal body</ModalBody>
-          </ModalContent>
-        </ModalOverlay>
+        <ModalOverlay />
+        <ModalContent data-testid='modal'>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalBody>Modal body</ModalBody>
+        </ModalContent>
       </Modal>,
     );
 
@@ -92,12 +70,11 @@ describe('@nature-ui/modal', () => {
 
     const tools = renderWithPortal(
       <Modal isOpen onClose={onClose}>
-        <ModalOverlay>
-          <ModalContent>
-            <ModalHeader>Modal header</ModalHeader>
-            <ModalCloseButton data-testid='close' />
-          </ModalContent>
-        </ModalOverlay>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal header</ModalHeader>
+          <ModalCloseButton data-testid='close' />
+        </ModalContent>
       </Modal>,
     );
 
@@ -106,7 +83,7 @@ describe('@nature-ui/modal', () => {
      */
     fireEvent.click(tools.getByTestId('close'));
 
-    expect(onClose).toHaveBeenCalledWith(expect.anything());
+    expect(onClose).toHaveBeenCalled();
   });
 
   test('clicking overlay or pressing "esc" calls the onClose callback', () => {
