@@ -451,7 +451,7 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
       'aria-valuenow': Number.isNaN(counter.valueAsNumber)
         ? undefined
         : counter.valueAsNumber,
-      'arai-invalid': ariaAttr(isInvalid ?? counter.isOutOfRange),
+      'aria-invalid': ariaAttr(isInvalid ?? counter.isOutOfRange),
       'aria-valuetext': ariaValueText,
       autoComplete: 'off',
       autoCorrect: 'off',

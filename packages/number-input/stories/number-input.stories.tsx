@@ -33,6 +33,21 @@ export default {
 
 const Template: Story<NumberInputProps> = (args) => <NumberInput {...args} />;
 
+export const Empty = () => {
+  return (
+    <>
+      <label htmlFor='input'>Select number:</label>
+      <NumberInputWrapper id='input' data-testid='root'>
+        <NumberInputField data-testid='input' />
+        <NumberInputStepper data-testid='group'>
+          <NumberIncrementStepper children='+' data-testid='up-btn' />
+          <NumberDecrementStepper children='-' data-testid='down-btn' />
+        </NumberInputStepper>
+      </NumberInputWrapper>
+    </>
+  );
+};
+
 export const Basic = Template.bind({});
 Basic.args = {
   max: 50,
