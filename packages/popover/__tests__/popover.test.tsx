@@ -1,6 +1,7 @@
-import { render, waitFor } from '@nature-ui/test-utils';
+import { render } from '@nature-ui/test-utils';
 import { usePopover } from '../src';
 
+// TODO: Test this component
 const Component = () => {
   const { getTriggerProps, getPopoverProps, onClose } = usePopover();
 
@@ -16,10 +17,8 @@ const Component = () => {
 
 describe('@nature-ui/popover', () => {
   test('Popover renders correctly', async () => {
-    const { asFragment, container } = render(<Component />);
-    await waitFor(() => expect(container).toBeInTheDocument());
-
-    expect(asFragment()).toMatchSnapshot();
+    const { getByText } = render(<Component />);
+    expect(getByText('Open')).toBeInTheDocument();
   });
 
   // test('has proper aria attributes', async () => {
