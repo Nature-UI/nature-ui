@@ -13,7 +13,6 @@ const Template: ProgressType = (args) => <Progress {...args} />;
 export const Basic: ProgressType = Template.bind({});
 Basic.args = {
   value: 50,
-  size: 'lg',
 };
 
 /**
@@ -24,7 +23,7 @@ export const withColorScheme: ProgressType = Template.bind({});
 withColorScheme.args = {
   value: 30,
   size: 'sm',
-  colorScheme: 'blue-500',
+  indicatorClassName: 'bg-teal-500',
 };
 
 /**
@@ -39,21 +38,11 @@ Indeterminate.args = {
 /**
  * Pass the `label` prop as `string` to display some text
  */
-export const WithLabel: ProgressType = Template.bind({});
-WithLabel.args = {
+export const WithValueText: ProgressType = Template.bind({});
+WithValueText.args = {
   value: 60,
-  label: 'Divine Nature',
+  valueText: 'Divine Nature',
   size: 20,
-};
-
-/**
- * Pass the `showPercent` prop as to display the value as a percentage text
- */
-export const ShowPercent: ProgressType = Template.bind({});
-ShowPercent.args = {
-  value: 60,
-  showPercent: true,
-  size: 16,
 };
 
 /**
@@ -63,7 +52,6 @@ export const withStripe: ProgressType = Template.bind({});
 withStripe.args = {
   value: 60,
   hasStripe: true,
-  colorScheme: 'blue-500',
 };
 
 /**
@@ -72,11 +60,11 @@ withStripe.args = {
  */
 export const withSizes = () => (
   <div>
-    <Progress colorScheme='green-500' size='sm' value={20} />
+    <Progress size='sm' value={20} />
     <br />
-    <Progress colorScheme='green-500' size='md' value={20} />
+    <Progress size='md' value={20} />
     <br />
-    <Progress colorScheme='green-500' size='lg' value={20} />
+    <Progress size='lg' value={20} />
   </div>
 );
 
@@ -88,6 +76,6 @@ export const WithAnimation: ProgressType = Template.bind({});
 WithAnimation.args = {
   value: 50,
   hasStripe: true,
-  colorScheme: 'blue-500',
+  indicatorClassName: 'bg-teal-500',
   isAnimated: true,
 };

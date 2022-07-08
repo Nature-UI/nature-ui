@@ -1,5 +1,5 @@
 import { keyframes } from '@nature-ui/system';
-import { isFunction, isUndefined, valueToPercent } from '@nature-ui/utils';
+import { isFunction, valueToPercent } from '@nature-ui/utils';
 
 /**
  * CSS Animation for progress spin effect
@@ -51,6 +51,7 @@ export interface GetProgressPropsOptions {
   max: number;
   valueText?: string;
   getValueText?(value?: number, percent?: number): string;
+  isIndeterminate?: boolean;
 }
 
 /**
@@ -58,26 +59,34 @@ export interface GetProgressPropsOptions {
  * progress components
  */
 export const getProgressProps = (options: GetProgressPropsOptions) => {
-  const percent = options.value
-    ? valueToPercent(options.value, options.min, options.max)
-    : undefined;
+  const {
+    value = 0,
+    min,
+    max,
+    valueText,
+    getValueText,
+    isIndeterminate,
+  } = options;
 
-  // A progressbar is indeterminate when the `value` is undefined
-  const isIndeterminate = isUndefined(options.value);
+  const percent = valueToPercent(value, min, max);
+
+  const getAriaValueText = () => {
+    if (value == null) return undefined;
+    return isFunction(getValueText) ? getValueText(value, percent) : valueText;
+  };
 
   const bind = {
     'data-indeterminate': isIndeterminate ? '' : undefined,
-    'aria-valuemax': options.max,
-    'aria-valuemin': options.min,
-    'aria-valuenow': isIndeterminate ? undefined : options.value,
-    'aria-valuetext': isFunction(options.getValueText)
-      ? options.getValueText(options.value, percent)
-      : options.valueText,
+    'aria-valuemax': max,
+    'aria-valuemin': min,
+    'aria-valuenow': isIndeterminate ? undefined : value,
+    'aria-valuetext': getAriaValueText(),
     role: 'progressbar',
   };
 
   return {
     bind,
     percent,
+    value,
   };
 };
