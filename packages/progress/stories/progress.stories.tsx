@@ -33,6 +33,7 @@ withColorScheme.args = {
 export const Indeterminate: ProgressType = Template.bind({});
 Indeterminate.args = {
   size: 5,
+  isIndeterminate: true,
 };
 
 /**

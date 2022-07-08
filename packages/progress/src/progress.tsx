@@ -1,7 +1,7 @@
 /** ** */
 import { generateStripe } from '@nature-ui/color';
 import { clsx, css, HTMLNatureProps, nature } from '@nature-ui/system';
-import { isUndefined, __DEV__ } from '@nature-ui/utils';
+import { __DEV__ } from '@nature-ui/utils';
 import React from 'react';
 import {
   getProgressProps,
@@ -111,7 +111,11 @@ interface ProgressOptions {
    * defaults to `md`
    */
   size?: 'sm' | 'md' | 'lg' | number;
-  trackClassName?: string;
+  /**
+   * If `true`, the progress will be indeterminate and the `value`
+   * prop will be ignored
+   */
+  isIndeterminate?: boolean;
   indicatorClassName?: string;
   /**
    * If `true`, will show the percentage of progress bar
@@ -153,6 +157,7 @@ export const Progress = (props: ProgressProps) => {
     valueText,
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
+    isIndeterminate,
     className,
     ...rest
   } = props;
@@ -164,7 +169,6 @@ export const Progress = (props: ProgressProps) => {
    */
   const stripeStyle = generateStripe();
 
-  const isIndeterminate = isUndefined(value);
   const stripAnimation = css`
     animation: ${stripe} 1s linear infinite;
   `;
@@ -206,6 +210,7 @@ export const Progress = (props: ProgressProps) => {
       <ProgressTrack
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
+        isIndeterminate={isIndeterminate}
         value={value}
         valueText={valueText}
         min={min}
