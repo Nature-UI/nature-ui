@@ -41,7 +41,7 @@
     "@nature-ui/utils": "^1.1.1"
   },
   "peerDependencies": {
-    "react": "17.x"
+    "react": ">=18"
   },
   "devDependencies": {
     "react": "^18.0.0"

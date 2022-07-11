@@ -1848,7 +1848,7 @@
     "@emotion/weak-memoize" "^0.2.5"
     stylis "4.0.13"
 
-"@emotion/css@^11.1.3", "@emotion/css@^11.9.0":
+"@emotion/css@^11.9.0":
   version "11.9.0"
   resolved "https://registry.yarnpkg.com/@emotion/css/-/css-11.9.0.tgz#d5aeaca5ed19fc61cbdc9e032ad0b32fa6e366be"
   integrity sha512-S9UjCxSrxEHawOLnWw4upTwfYKb0gVQdatHejn3W9kPyXxmKv3HmjVfJ84kDLmdX8jR20OuDQwaJ4Um24qD9vA==
@@ -1881,7 +1881,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.5.tgz#2c40f81449a4e554e9fc6396910ed4843ec2be50"
   integrity sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==
 
-"@emotion/react@^11.1.5", "@emotion/react@^11.9.0":
+"@emotion/react@^11.9.0":
   version "11.9.0"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.9.0.tgz#b6d42b1db3bd7511e7a7c4151dc8bc82e14593b8"
   integrity sha512-lBVSF5d0ceKtfKCDQJveNAtkC7ayxpVlgOohLgXqRwqWr9bOf4TZAFFyIcNngnV6xK6X4x2ZeXq7vliHkoVkxQ==
@@ -3016,87 +3016,6 @@
   dependencies:
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
-
-"@nature-ui/close-button@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/close-button/-/close-button-1.2.0.tgz#45746b010f6e4a24c4351ad42773ea142ccac1fa"
-  integrity sha512-+SUNWrqXuEL5ahYzAk+xDzY22/iSAU8ge5K38BrhY+rIh6oCLW5OonLjIrJKqiLlP18KfqwtvQcnxKgf986Gzg==
-  dependencies:
-    "@nature-ui/icon" "^1.2.0"
-    "@nature-ui/system" "^2.1.0"
-    "@nature-ui/utils" "^1.3.0"
-
-"@nature-ui/focus-lock@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/focus-lock/-/focus-lock-1.2.0.tgz#4595425da406b99938aceac458b29ee0a4cbdde8"
-  integrity sha512-5yL45CjeteIYUC9+XHjgEBjHRiilDZBalZ7FmuhyJGtTNakH/BA4EnpOfYPWhM6TAs3ldFPwFrmSFElDrKqAaw==
-  dependencies:
-    "@nature-ui/utils" "^1.3.0"
-    react-focus-lock "^2.4.1"
-
-"@nature-ui/hooks@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/hooks/-/hooks-1.3.0.tgz#3779dc784afa6898f4bfa49a79eb0a229792950e"
-  integrity sha512-2gOpSuZG+x/klnhcuzNksdV2wnxoHOB8fQYe9DNlf1DLUqJugDyCRvY4XeN7Xh7GNOVWlEUHkQxDTHZJb3bOow==
-  dependencies:
-    "@nature-ui/utils" "^1.3.0"
-    "@reach/auto-id" "^0.11.0"
-    copy-to-clipboard "^3.3.1"
-
-"@nature-ui/icon@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/icon/-/icon-1.2.0.tgz#f339458ac848ba888bb1de2f91e9b5c9b9c38ed2"
-  integrity sha512-sQKXnuXjfGFeI/QuznfVh9CfxNa7fyu3oNd157sJEh0yKEHgXpTDzmYm1LsL/ojpdu4Lj7xBLfhTNtX0epkj6w==
-  dependencies:
-    "@nature-ui/system" "^2.1.0"
-    "@nature-ui/utils" "^1.3.0"
-
-"@nature-ui/portal@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/portal/-/portal-1.2.0.tgz#fe4435bb0e72223010c04ddf648e88aaa694aaf5"
-  integrity sha512-n9F0jt/OjfqlLFZINPnWzLcoiPJsSeQ97erRtuVy1CxmpUb70jbV6Wravf1xYlQQ+82fV0sFngupAKDBULyn4A==
-  dependencies:
-    "@nature-ui/hooks" "^1.3.0"
-    "@nature-ui/react-utils" "^1.2.0"
-    "@nature-ui/utils" "^1.3.0"
-
-"@nature-ui/react-utils@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/react-utils/-/react-utils-1.2.0.tgz#0e0929b6a0c5281c7065a8d1469f2106bd8a6dd3"
-  integrity sha512-n0N5AaVRmIp3D4LfQsWpr65+Mq+7NHuIa5gI9VSpBXmulLXNO+r6TwpAQD26J++u7RZZaKpIOzhBTuN1x7qhkg==
-  dependencies:
-    "@nature-ui/utils" "^1.3.0"
-
-"@nature-ui/system@^2.1.0", "@nature-ui/system@~2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/system/-/system-2.1.0.tgz#8c1e032531f671d457ab89163bea26bde8dfac23"
-  integrity sha512-qtli6zv2ISc0M3QVllYvmX6woFNVwukLmGoM/6RkBUKyu/9PrnKPL7ysHg+aeQWpidFmSsiCXbjt3BgjCm2OvQ==
-  dependencies:
-    "@emotion/css" "^11.1.3"
-    "@emotion/react" "^11.1.5"
-    "@nature-ui/utils" "^1.2.0"
-    clsx "^1.1.1"
-    hoist-non-react-statics "^3.3.2"
-
-"@nature-ui/transition@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/transition/-/transition-1.2.0.tgz#8063011c18a625534cd5f4f9d69f744db3304ec8"
-  integrity sha512-IXcDA6+2+qqtKLF9bQUAjpVqYAR1Q485TjihkaLRIYfjtQul97BF+wYK+OiNjy35a4WYUG+hCIwhWA7Uj2M47w==
-  dependencies:
-    "@nature-ui/system" "~2.1.0"
-    "@nature-ui/utils" "^1.3.0"
-    framer-motion "^6.2.3"
-
-"@nature-ui/utils@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@nature-ui/utils/-/utils-1.3.0.tgz#ecd3eb406264b15a30e6e5e03f281bb16311bd9d"
-  integrity sha512-1pe4TuPIxKuemhftdSqJPw68RXn7EZtA3D92hvHMcLScadPLLgTQKtSmQ4z4sTVpEhLLzA+8P/77ey9WOfsZIA==
-  dependencies:
-    "@types/lodash.mergewith" "^4.6.6"
-    css-box-model "^1.2.1"
-    deepmerge "^4.2.2"
-    lodash.mergewith "^4.6.2"
-    memoize-one "^5.1.1"
 
 "@node-rs/xxhash-android-arm-eabi@1.2.1":
   version "1.2.1"
@@ -7429,7 +7348,7 @@ colord@^2.9.1:
   resolved "https://registry.yarnpkg.com/colord/-/colord-2.9.2.tgz#25e2bacbbaa65991422c07ea209e2089428effb1"
   integrity sha512-Uqbg+J445nc1TKn4FoDPS6ZZqAvEDnwrH42yo8B40JSOgSLxMZ/gt3h4nmCtPLQeXhjJJkqBx7SCY35WnIixaQ==
 
-colorette@^1.2.1, colorette@^1.2.2:
+colorette@^1.2.2:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
   integrity sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g==
@@ -9887,7 +9806,7 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^6.2.3, framer-motion@^6.3.2, framer-motion@^6.3.3:
+framer-motion@^6.3.3:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-6.3.3.tgz#58978fe6955d13000351ea4c134c9bc052638967"
   integrity sha512-wo0dCnoq5vn4L8YVOPO9W54dliH78vDaX0Lj+bSPUys6Nt5QaehrS3uaYa0q5eVeikUgtTjz070UhQ94thI5Sw==
@@ -13518,15 +13437,15 @@ nan@^2.12.1, nan@^2.13.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
-nanoid@^3.1.20, nanoid@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.3.tgz#fd8e8b7aa761fe807dba2d1b98fb7241bb724a25"
-  integrity sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==
-
 nanoid@^3.3.1, nanoid@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
+
+nanoid@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.3.tgz#fd8e8b7aa761fe807dba2d1b98fb7241bb724a25"
+  integrity sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -15335,16 +15254,6 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.1.0, postcss-value-parser@^
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@8.1.11:
-  version "8.1.11"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.11.tgz#e3bc521cc268107e7be768c76a2f479a08284914"
-  integrity sha512-KxaNGWQHUQLtgobmCKOsKoMX0x2nyQXAH2KYhL0xi4Ygl3y1ETq3exmsyCK84HHhEfvtNk1k3Pq32G3sVtYdTQ==
-  dependencies:
-    colorette "^1.2.1"
-    nanoid "^3.1.20"
-    source-map "^0.6.1"
-    vfile-location "^3.2.0"
-
 postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.36, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.39"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
@@ -15851,14 +15760,6 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-dom@^18.2.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
-  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
-  dependencies:
-    loose-envify "^1.1.0"
-    scheduler "^0.23.0"
-
 react-element-to-jsx-string@^14.3.4:
   version "14.3.4"
   resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-14.3.4.tgz#709125bc72f06800b68f9f4db485f2c7d31218a8"
@@ -16022,7 +15923,7 @@ react-test-renderer@^18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react@^18.0.0, react@^18.2.0:
+react@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
