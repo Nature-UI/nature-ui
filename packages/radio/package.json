@@ -39,8 +39,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^1.1.1",
     "@nature-ui/form-control": "^1.2.0",
+    "@nature-ui/hooks": "^1.1.1",
     "@nature-ui/utils": "^1.1.1",
     "@nature-ui/visually-hidden": "^1.1.3"
   },
