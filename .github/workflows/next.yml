@@ -5,6 +5,7 @@ on:
     paths:
       - '.changeset/**'
       - 'packages/**'
+      - '.github/workflows/next.yml'
     branches:
       - next
 
