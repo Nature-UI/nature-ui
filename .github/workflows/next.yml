@@ -54,14 +54,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Build packages
+        run: yarn build
+
       - name: Test packages
         run: yarn test && yarn lint
 
       - name: Lint packages
         run: yarn test && yarn lint
-
-      - name: Build packages
-        run: yarn build
 
       - name: Create release Pull Request or publish to NPM
         id: changesets
