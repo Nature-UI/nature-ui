@@ -1,16 +1,10 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@1.4.0/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "nature-ui/nature-ui" }
-  ],
+  "$schema": "https://unpkg.com/@changesets/config@1.6.1/schema.json",
+  "changelog": "@changesets/cli/changelog",
   "commit": false,
   "linked": [],
-  "access": "public",
-  "baseBranch": "master",
+  "access": "restricted",
+  "baseBranch": "develop",
   "updateInternalDependencies": "patch",
-  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
-    "onlyUpdatePeerDependentsWhenOutOfRange": true
-  },
   "ignore": []
 }
