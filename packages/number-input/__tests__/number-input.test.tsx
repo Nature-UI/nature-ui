@@ -9,6 +9,7 @@ import {
   render,
   screen,
   testA11y,
+  waitFor,
 } from '@nature-ui/test-utils';
 import {
   NumberDecrementStepper,
@@ -151,7 +152,7 @@ test('should behave properly with precision value', async () => {
 
   // on blur, value is clamped using precision
   await user.type(input, '1234');
-  expect(input).toHaveValue('1.301234');
+  await waitFor(() => expect(input).toHaveValue('1.301234'));
   fireEvent.blur(input);
   expect(input).toHaveValue('1.30');
 });
