@@ -1,5 +1,11 @@
 # @nature-ui/popper
 
+## 1.2.0
+
+### Minor Changes
+
+- 2e4797e: Preparing for v2 release
+
 ## 1.1.1
 
 ### Patch Changes

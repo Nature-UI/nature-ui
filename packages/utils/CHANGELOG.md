@@ -1,5 +1,11 @@
 # @nature-ui/utils
 
+## 1.3.0
+
+### Minor Changes
+
+- 2e4797e: Preparing for v2 release
+
 ## 1.2.0
 
 ### Minor Changes
