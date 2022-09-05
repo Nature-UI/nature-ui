@@ -1,5 +1,13 @@
 # @nature-ui/container
 
+## 1.2.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/system@2.1.1
+
 ## 1.2.0
 
 ### Minor Changes

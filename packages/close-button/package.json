@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/close-button",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A React and Nature UI close button component.",
   "keywords": [
     "close-button",
@@ -39,9 +39,9 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/icon": "^1.2.0",
-    "@nature-ui/system": "^2.1.0",
-    "@nature-ui/utils": "^1.3.0"
+    "@nature-ui/icon": "^1.2.1",
+    "@nature-ui/system": "^2.1.1",
+    "@nature-ui/utils": "^1.3.1"
   },
   "peerDependencies": {
     "react": ">=18"

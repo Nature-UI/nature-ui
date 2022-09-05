@@ -1,5 +1,14 @@
 # @nature-ui/drawer
 
+## 1.2.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/modal@1.2.1
+  - @nature-ui/transition@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes

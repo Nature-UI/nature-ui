@@ -1,5 +1,16 @@
 # @nature-ui/avatar
 
+## 1.3.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/color@1.2.1
+  - @nature-ui/image@1.4.1
+  - @nature-ui/system@2.1.1
+  - @nature-ui/utils@1.3.1
+
 ## 1.3.0
 
 ### Minor Changes

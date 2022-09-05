@@ -1,5 +1,19 @@
 # @nature-ui/modal
 
+## 1.2.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/close-button@1.2.1
+  - @nature-ui/focus-lock@1.2.1
+  - @nature-ui/hooks@1.3.1
+  - @nature-ui/portal@1.2.1
+  - @nature-ui/react-utils@1.2.1
+  - @nature-ui/transition@1.2.1
+  - @nature-ui/utils@1.3.1
+
 ## 1.2.0
 
 ### Minor Changes

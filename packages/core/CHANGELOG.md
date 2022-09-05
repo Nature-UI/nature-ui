@@ -1,5 +1,39 @@
 # @nature-ui/core
 
+## 1.4.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/alert@1.2.1
+  - @nature-ui/alert-dialog@1.2.1
+  - @nature-ui/avatar@1.3.1
+  - @nature-ui/breadcrumb@1.2.1
+  - @nature-ui/button@1.3.1
+  - @nature-ui/checkbox@1.2.1
+  - @nature-ui/close-button@1.2.1
+  - @nature-ui/container@1.2.1
+  - @nature-ui/counter@1.2.1
+  - @nature-ui/drawer@1.2.1
+  - @nature-ui/form-control@1.3.1
+  - @nature-ui/hooks@1.3.1
+  - @nature-ui/icon@1.2.1
+  - @nature-ui/image@1.4.1
+  - @nature-ui/input@1.3.1
+  - @nature-ui/layout@1.2.1
+  - @nature-ui/modal@1.2.1
+  - @nature-ui/popover@1.2.1
+  - @nature-ui/popper@1.2.1
+  - @nature-ui/portal@1.2.1
+  - @nature-ui/progress@1.2.1
+  - @nature-ui/radio@1.2.1
+  - @nature-ui/spinner@1.2.1
+  - @nature-ui/system@2.1.1
+  - @nature-ui/toast@1.2.1
+  - @nature-ui/transition@1.2.1
+  - @nature-ui/visually-hidden@1.2.1
+
 ## 1.4.0
 
 ### Minor Changes

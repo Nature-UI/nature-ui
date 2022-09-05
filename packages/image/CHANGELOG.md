@@ -1,5 +1,15 @@
 # @nature-ui/image
 
+## 1.4.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/hooks@1.3.1
+  - @nature-ui/system@2.1.1
+  - @nature-ui/utils@1.3.1
+
 ## 1.4.0
 
 ### Minor Changes
