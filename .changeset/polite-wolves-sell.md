@@ -1,0 +1,41 @@
+---
+'@nature-ui/alert': major
+'@nature-ui/alert-dialog': major
+'@nature-ui/avatar': major
+'@nature-ui/breadcrumb': major
+'@nature-ui/button': major
+'@nature-ui/checkbox': major
+'@nature-ui/clickable': major
+'@nature-ui/close-button': major
+'@nature-ui/color': major
+'@nature-ui/container': major
+'@nature-ui/core': major
+'@nature-ui/counter': major
+'@nature-ui/descendant': major
+'@nature-ui/drawer': major
+'@nature-ui/focus-lock': major
+'@nature-ui/form-control': major
+'@nature-ui/hooks': major
+'@nature-ui/icon': major
+'@nature-ui/icons': major
+'@nature-ui/image': major
+'@nature-ui/input': major
+'@nature-ui/layout': major
+'@nature-ui/modal': major
+'@nature-ui/number-input': major
+'@nature-ui/popover': major
+'@nature-ui/popper': major
+'@nature-ui/portal': major
+'@nature-ui/progress': major
+'@nature-ui/radio': major
+'@nature-ui/react-utils': major
+'@nature-ui/spinner': major
+'@nature-ui/system': major
+'@nature-ui/test-utils': major
+'@nature-ui/toast': major
+'@nature-ui/transition': major
+'@nature-ui/utils': major
+'@nature-ui/visually-hidden': major
+---
+
+V2 release
