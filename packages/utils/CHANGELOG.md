@@ -1,5 +1,11 @@
 # @nature-ui/utils
 
+## 2.0.0
+
+### Major Changes
+
+- b0cda95: V2 release
+
 ## 1.3.1
 
 ### Patch Changes
