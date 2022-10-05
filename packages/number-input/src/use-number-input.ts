@@ -5,7 +5,7 @@ import {
   useEventListener,
   useSafeLayoutEffect,
 } from '@nature-ui/hooks';
-import { EventKeyMap } from '@nature-ui/react-utils';
+import { EventKeyMap, PropGetter } from '@nature-ui/react-utils';
 import {
   ariaAttr,
   callAllHandler,
@@ -19,7 +19,6 @@ import {
   StringOrNumber,
 } from '@nature-ui/utils';
 import React, { useCallback, useMemo } from 'react';
-import { PropGetter } from './../../react-utils/src/types';
 import { useSpinner } from './use-spinner';
 import {
   isFloatingPointNumericCharacter,

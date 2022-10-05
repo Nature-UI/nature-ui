@@ -1,6 +1,5 @@
-import { useUnmountEffect } from '@nature-ui/hooks';
+import { useInterval, useUnmountEffect } from '@nature-ui/hooks';
 import { useCallback, useRef, useState } from 'react';
-import { useInterval } from './../../hooks/src/use-interval';
 
 /**
  * When click and hold on a button - the speed of auto changing the value

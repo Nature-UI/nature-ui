@@ -11,6 +11,7 @@ import {
   testA11y,
   waitFor,
 } from '@nature-ui/test-utils';
+import React from 'react';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,
@@ -21,7 +22,7 @@ import {
   useNumberInput,
 } from '../src';
 
-function renderComponent(props: NumberInputProps = {}) {
+const RenderComponent = (props: NumberInputProps = {}) => {
   return render(
     <>
       <label htmlFor='input'>Select number:</label>
@@ -34,7 +35,7 @@ function renderComponent(props: NumberInputProps = {}) {
       </NumberInputWrapper>
     </>,
   );
-}
+};
 
 /**
  * Get some inspiration here
@@ -43,7 +44,7 @@ function renderComponent(props: NumberInputProps = {}) {
  */
 
 test('passes a11y test', async () => {
-  const { container } = renderComponent();
+  const { container } = RenderComponent();
   await testA11y(container);
 });
 
@@ -53,7 +54,7 @@ test('should start with empty string', () => {
 });
 
 test('should increment on press increment button', async () => {
-  const { getByTestId } = renderComponent();
+  const { getByTestId } = RenderComponent();
 
   const upBtn = getByTestId('up-btn');
   const input = getByTestId('input');
@@ -69,7 +70,7 @@ test('should increment on press increment button', async () => {
 });
 
 test('should increase/decrease with keyboard', async () => {
-  const { getByTestId, user } = renderComponent();
+  const { getByTestId, user } = RenderComponent();
 
   const input = getByTestId('input');
 
@@ -94,7 +95,7 @@ test('should increase/decrease with keyboard', async () => {
 });
 
 test('should increase/decrease by 10*step on shift+Arrow', async () => {
-  const { getByTestId, user } = renderComponent({ defaultValue: 0 });
+  const { getByTestId, user } = RenderComponent({ defaultValue: 0 });
 
   const input = getByTestId('input');
 
@@ -110,7 +111,7 @@ test('should increase/decrease by 10*step on shift+Arrow', async () => {
 });
 
 test('should increase/decrease by 0.1*step on ctrl+Arrow', async () => {
-  const { getByTestId, user } = renderComponent({
+  const { getByTestId, user } = RenderComponent({
     defaultValue: 0,
     step: 0.1,
     precision: 2,
@@ -130,7 +131,7 @@ test('should increase/decrease by 0.1*step on ctrl+Arrow', async () => {
 });
 
 test('should behave properly with precision value', async () => {
-  const { getByTestId, user } = renderComponent({
+  const { getByTestId, user } = RenderComponent({
     defaultValue: 0,
     step: 0.65,
     precision: 2,
@@ -159,7 +160,7 @@ test('should behave properly with precision value', async () => {
 
 test('should call onChange on value change', async () => {
   const onChange = jest.fn();
-  const { getByTestId, user } = renderComponent({ onChange });
+  const { getByTestId, user } = RenderComponent({ onChange });
 
   const upBtn = getByTestId('up-btn');
 
@@ -170,7 +171,7 @@ test('should call onChange on value change', async () => {
 });
 
 test('should constrain value onBlur', async () => {
-  const { getByTestId, user } = renderComponent({ max: 30, precision: 2 });
+  const { getByTestId, user } = RenderComponent({ max: 30, precision: 2 });
 
   const input = getByTestId('input');
 
@@ -182,7 +183,7 @@ test('should constrain value onBlur', async () => {
 });
 
 test('should focus input on spin', () => {
-  const { getByTestId } = renderComponent();
+  const { getByTestId } = RenderComponent();
 
   const input = getByTestId('input');
   const upBtn = getByTestId('up-btn');
@@ -237,7 +238,7 @@ test('should derive values from surrounding FormControl', () => {
 });
 
 test('should fallback to min if `e` is typed', async () => {
-  const { getByTestId, user } = renderComponent({ max: 30, min: 1 });
+  const { getByTestId, user } = RenderComponent({ max: 30, min: 1 });
   const input = getByTestId('input');
   await user.type(input, 'e');
   // value is beyond max, so it should reset to `max`
