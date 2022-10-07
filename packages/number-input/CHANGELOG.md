@@ -1,5 +1,22 @@
 # @nature-ui/number-input
 
+## 2.0.0
+
+### Major Changes
+
+- b0cda95: V2 release
+
+### Patch Changes
+
+- Updated dependencies [b0cda95]
+  - @nature-ui/counter@2.0.0
+  - @nature-ui/form-control@2.0.0
+  - @nature-ui/hooks@2.0.0
+  - @nature-ui/input@2.0.0
+  - @nature-ui/react-utils@2.0.0
+  - @nature-ui/system@3.0.0
+  - @nature-ui/utils@2.0.0
+
 ## 1.2.1
 
 ### Patch Changes

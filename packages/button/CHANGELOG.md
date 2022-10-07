@@ -1,5 +1,17 @@
 # @nature-ui/button
 
+## 2.0.0
+
+### Major Changes
+
+- b0cda95: V2 release
+
+### Patch Changes
+
+- Updated dependencies [b0cda95]
+  - @nature-ui/spinner@2.0.0
+  - @nature-ui/system@3.0.0
+
 ## 1.3.1
 
 ### Patch Changes
