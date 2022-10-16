@@ -12,9 +12,7 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "airbnb-typescript",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
   "env": {
     "es6": true,
@@ -70,7 +68,8 @@
     "react-hooks/exhaustive-deps": 0,
     "import/no-cycle": 0,
     "react/destructuring-assignment": 0,
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    "import/no-named-as-default": 0
   },
   "overrides": [
     {

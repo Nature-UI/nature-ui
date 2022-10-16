@@ -45,10 +45,10 @@
   },
   "dependencies": {
     "@nature-ui/modal": "^2.0.1",
-    "@nature-ui/transition": "^2.0.1",
+    "@nature-ui/react-utils": "^2.0.1",
     "@nature-ui/system": "^3.0.1",
-    "@nature-ui/utils": "^2.0.1",
-    "@nature-ui/react-utils": "^2.0.1"
+    "@nature-ui/transition": "^2.0.1",
+    "@nature-ui/utils": "^2.0.1"
   },
   "devDependencies": {
     "react": "^18.0.0"

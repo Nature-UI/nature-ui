@@ -47,9 +47,9 @@
     "@nature-ui/alert": "^2.0.1",
     "@nature-ui/close-button": "^2.0.1",
     "@nature-ui/hooks": "^2.0.1",
-    "@nature-ui/system": "^3.0.1",
-    "@nature-ui/react-utils": "^2.0.1",
     "@nature-ui/portal": "^2.0.1",
+    "@nature-ui/react-utils": "^2.0.1",
+    "@nature-ui/system": "^3.0.1",
     "@nature-ui/transition": "^2.0.1",
     "@nature-ui/utils": "^2.0.1",
     "@reach/alert": "^0.11.2"
