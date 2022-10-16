@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/popper",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A React component and hooks wrapper for popper.js",
   "keywords": [
     "react",
@@ -46,9 +46,9 @@
     "@popperjs/core": "^2.5.4"
   },
   "peerDependencies": {
-    "react": "17.x"
+    "react": ">=18"
   },
   "devDependencies": {
-    "react": "^17.0.2"
+    "react": "^18.0.0"
   }
 }

@@ -1,17 +1,11 @@
-import {
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  AlertWrapper,
-  ALERT_STATUSES,
-} from '@nature-ui/alert';
-import { CloseButton } from '@nature-ui/close-button';
-import { clsx, nature } from '@nature-ui/system';
-import { isFunction, merge } from '@nature-ui/utils';
+import { ALERT_STATUSES } from '@nature-ui/alert';
+import { useLatestRef } from '@nature-ui/hooks';
+import { MaybeFunction, runIfFn } from '@nature-ui/utils';
 import * as React from 'react';
-import { toast } from './toast.class';
+import { createRenderToast } from './toast';
+import { getToastPlacement } from './toast.placement';
+import { useToastManager } from './toast.provider';
 import { RenderProps, ToastId, ToastOptions } from './toast.types';
-
 export interface UseToastOptions {
   /**
    * The placement of the toast
@@ -42,11 +36,12 @@ export interface UseToastOptions {
   /**
    * If `true`, toast will show a close button
    */
-  isCloseable?: boolean;
+  isClosable?: boolean;
   /**
    * The alert component `variant` to use
    */
-  variant?: string;
+  variant?: 'subtle' | 'solid' | 'left-accent' | 'top-accent';
+  // variant?: 'subtle' | 'solid' | 'left-accent' | 'top-accent' | (string & {});
   /**
    * The status of the toast.
    */
@@ -62,113 +57,96 @@ export interface UseToastOptions {
    * Callback function to run side effects after the toast has closed.
    */
   onCloseComplete?: () => void;
+  /**
+   * Optional style overrides for the container wrapping the toast
+   */
+  containerStyle?: React.CSSProperties;
+  direction?: 'ltr' | 'rtl';
 }
+type UseToastPromiseOption = Omit<UseToastOptions, 'status'>;
 
-export type IToast = UseToastOptions;
-
-const DivTag = nature('div');
-const Toast = (props: any) => {
-  const {
-    status = 'success',
-    variant,
-    id,
-    title,
-    isCloseable,
-    onClose,
-    description,
-    className = '',
-    onCloseComplete,
-    ...rest
-  } = props;
-
-  return (
-    <AlertWrapper
-      status={status}
-      variant={variant}
-      id={id}
-      className={clsx('text-left shadow-lg rounded-md m-2 p-4', className)}
-      style={{
-        alignItems: 'start',
-      }}
-      {...rest}
-    >
-      <AlertIcon />
-      <DivTag className='flex-1'>
-        {title && <AlertTitle>{title}</AlertTitle>}
-        {description && <AlertDescription>{description}</AlertDescription>}
-      </DivTag>
-      {isCloseable && (
-        <CloseButton
-          size='sm'
-          onClick={onClose}
-          className='absolute right-0 top-0 mr-2 mt-2'
-        />
-      )}
-    </AlertWrapper>
-  );
-};
-
-const defaults = {
-  duration: 5000,
-  position: 'bottom',
-  variant: 'solid',
-} as const;
+export type CreateStandaloneToastParam = Partial<{
+  defaultOptions: UseToastOptions;
+}>;
 
 /**
  * React hook used to create a function that can be used
  * to show toasts in an application.
  */
-export const useToast = () => {
-  const toastImpl = (options: UseToastOptions) => {
-    const { render } = options;
+export function useToast(defaultOptions?: UseToastOptions) {
+  const toastContext = useToastManager();
+  const latestToastContextRef = useLatestRef(toastContext);
 
-    const opts = merge(defaults, options);
-    const Message = (props: RenderProps) => (
-      <>
-        {isFunction(render) ? (
-          render(props)
-        ) : (
-          <Toast
-            {...{
-              ...props,
-              ...opts,
-            }}
-          />
-        )}
-      </>
-    );
+  return React.useMemo(() => {
+    const normalizeToastOptions = (options?: UseToastOptions) => {
+      return {
+        ...defaultOptions,
+        ...options,
+        position: getToastPlacement(options?.position, 'ltr'),
+      };
+    };
 
-    return toast.notify(Message, opts);
-  };
+    const toast = (options?: UseToastOptions) => {
+      const normalizedToastOptions = normalizeToastOptions(options);
+      const Message = createRenderToast(normalizedToastOptions);
+      return latestToastContextRef.current.notify(
+        Message,
+        normalizedToastOptions,
+      );
+    };
 
-  toastImpl.close = toast.close;
-  toastImpl.closeAll = toast.closeAll;
+    toast.close = latestToastContextRef.current.close;
+    toast.closeAll = latestToastContextRef.current.closeAll;
+    /**
+     * Toasts can only be updated if they have a valid id
+     */
+    toast.update = (id: ToastId, options: Omit<UseToastOptions, 'id'>) => {
+      if (!id) return;
 
-  toastImpl.update = (id: ToastId, options: Omit<UseToastOptions, 'id'>) => {
-    const { render, ...rest } = options;
+      const normalizedToastOptions = normalizeToastOptions(options);
+      const Message = createRenderToast(normalizedToastOptions);
 
-    const opts = merge(defaults, rest) as any;
+      latestToastContextRef.current.update(id, {
+        ...normalizedToastOptions,
+        message: Message,
+      });
+    };
 
-    toast.update(id, {
-      ...opts,
-      message: (props) => (
-        <>
-          {isFunction(render) ? (
-            render(props)
-          ) : (
-            <Toast
-              {...{
-                ...props,
-                ...opts,
-              }}
-            />
-          )}
-        </>
-      ),
-    });
-  };
+    toast.promise = <Result extends any, Err extends Error = Error>(
+      promise: Promise<Result>,
+      options: {
+        success: MaybeFunction<UseToastPromiseOption, [Result]>;
+        error: MaybeFunction<UseToastPromiseOption, [Err]>;
+        loading: UseToastPromiseOption;
+      },
+    ) => {
+      const id = toast({
+        ...options.loading,
+        status: 'info',
+        duration: null,
+      });
 
-  toastImpl.isActive = toast.isActive;
+      promise
+        .then((data) =>
+          toast.update(id, {
+            status: 'success',
+            duration: 5_000,
+            ...runIfFn(options.success, data),
+          }),
+        )
+        .catch((error) =>
+          toast.update(id, {
+            status: 'error',
+            duration: 5_000,
+            ...runIfFn(options.error, error),
+          }),
+        );
+    };
 
-  return toastImpl;
-};
+    toast.isActive = latestToastContextRef.current.isActive;
+
+    return toast;
+  }, [defaultOptions, latestToastContextRef, 'ltr']);
+}
+
+export default useToast;

@@ -1,5 +1,41 @@
 # @nature-ui/image
 
+## 2.0.0
+
+### Major Changes
+
+- b0cda95: V2 release
+
+### Patch Changes
+
+- Updated dependencies [b0cda95]
+  - @nature-ui/hooks@2.0.0
+  - @nature-ui/system@3.0.0
+  - @nature-ui/utils@2.0.0
+
+## 1.4.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/hooks@1.3.1
+  - @nature-ui/system@2.1.1
+  - @nature-ui/utils@1.3.1
+
+## 1.4.0
+
+### Minor Changes
+
+- 2e4797e: Preparing for v2 release
+
+### Patch Changes
+
+- Updated dependencies [2e4797e]
+  - @nature-ui/hooks@1.3.0
+  - @nature-ui/system@2.1.0
+  - @nature-ui/utils@1.3.0
+
 ## 1.3.0
 
 ### Minor Changes

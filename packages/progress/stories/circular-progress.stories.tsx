@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import { CircularProgress, CircularProgressProps } from '../src';
@@ -44,15 +43,8 @@ showPercent.args = {
   size: 50,
 };
 
-export const WithLabel: ProgressType = Template.bind({});
-WithLabel.args = {
-  value: 65,
-  label: '65%',
-  size: 50,
-};
-
 export const inDeterminate: ProgressType = Template.bind({});
 inDeterminate.args = {
   size: 50,
-  value: undefined,
+  isIndeterminate: true,
 };

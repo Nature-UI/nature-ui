@@ -1,18 +1,18 @@
-import { Input } from '@nature-ui/input';
 import { Button } from '@nature-ui/button';
+import { Input } from '@nature-ui/input';
 import { Box, Stack } from '@nature-ui/layout';
 import * as React from 'react';
 
 import {
-  usePopover,
   Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
   PopoverArrow,
+  PopoverBody,
   PopoverCloseButton,
+  PopoverContent,
   PopoverFooter,
+  PopoverHeader,
+  PopoverTrigger,
+  usePopover,
 } from '../src';
 
 export default {
@@ -53,11 +53,9 @@ export const PopoverExample = () => {
 export const simple = () => (
   <Popover>
     <PopoverTrigger>
-      <Button variant='solid' className=''>
-        Trigger
-      </Button>
+      <Button className='bg-purple-300 text-purple-700'>Trigger</Button>
     </PopoverTrigger>
-    <PopoverContent>
+    <PopoverContent className='bg-white'>
       <PopoverArrow />
       <PopoverCloseButton />
       <PopoverHeader>Confirmation!</PopoverHeader>
@@ -70,9 +68,9 @@ export const basic = () => (
   <>
     <Popover placement='top'>
       <PopoverTrigger>
-        <Button>Welcome home</Button>
+        <Button className='bg-purple-300 text-purple-700'>Welcome home</Button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent className='bg-white'>
         <PopoverArrow />
         <PopoverHeader>Submit now</PopoverHeader>
         <PopoverBody>
@@ -84,9 +82,11 @@ export const basic = () => (
 
     <Popover placement='bottom'>
       <PopoverTrigger>
-        <Button className='ml-4'>Welcome home</Button>
+        <Button className='ml-4 border border-solid border-purple-500 text-purple-500'>
+          Welcome home
+        </Button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent className='bg-white'>
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverHeader>Submit now</PopoverHeader>
@@ -110,7 +110,7 @@ export function WalkthroughPopover() {
       closeOnBlur={false}
     >
       <PopoverTrigger>
-        <Button className='ml-12  '>Trigger</Button>
+        <Button className='ml-12 bg-purple-300 text-purple-700'>Trigger</Button>
       </PopoverTrigger>
       <PopoverContent className='w-full px-3 bg-blue-800 text-white border-blue-800'>
         <PopoverHeader className='pt-4 font-bold border-none'>
@@ -125,10 +125,14 @@ export function WalkthroughPopover() {
         <PopoverFooter className='flex pb-4 border-none justify-between items-center'>
           <Box className='text-sm'>Step 2 of 4</Box>
           <Stack row spacing='1rem'>
-            <Button size='sm' className='block' color='green-500'>
+            <Button size='sm' className='block bg-blue-500'>
               Setup Email
             </Button>
-            <Button size='sm' color='blue-500' ref={initialFocusRef}>
+            <Button
+              size='sm'
+              className='border-blue-500 border border-solid'
+              ref={initialFocusRef}
+            >
               Next
             </Button>
           </Stack>

@@ -5,7 +5,7 @@ import {
   useEventListener,
   useSafeLayoutEffect,
 } from '@nature-ui/hooks';
-import { EventKeyMap } from '@nature-ui/react-utils';
+import { EventKeyMap, PropGetter } from '@nature-ui/react-utils';
 import {
   ariaAttr,
   callAllHandler,
@@ -19,7 +19,6 @@ import {
   StringOrNumber,
 } from '@nature-ui/utils';
 import React, { useCallback, useMemo } from 'react';
-import { PropGetter } from './../../react-utils/src/types';
 import { useSpinner } from './use-spinner';
 import {
   isFloatingPointNumericCharacter,
@@ -366,58 +365,60 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
     { passive: false },
   );
 
-  const getIncrementButtonProps: PropGetter = useCallback(
-    (props = {}, ref = null) => {
-      const disabled = isDisabled || (keepWithinRange && counter.isAtMax);
-      return {
-        ...props,
-        ref,
-        role: 'button',
-        tabIndex: -1,
-        [pointerDown]: callAllHandler(props[pointerDown], spinUp),
-        onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
-        onMouseLeave: callAllHandler(props.onMouseUp, spinner.stop),
-        onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
-        disabled,
-        'aria-disabled': ariaAttr(disabled),
-      };
-    },
-    [
-      pointerDown,
-      counter.isAtMax,
-      keepWithinRange,
-      spinUp,
-      spinner.stop,
-      isDisabled,
-    ],
-  );
+  const getIncrementButtonProps: PropGetter<any, { disabled?: boolean }> =
+    useCallback(
+      (props = {}, ref = null) => {
+        const disabled = isDisabled || (keepWithinRange && counter.isAtMax);
+        return {
+          ...props,
+          ref,
+          role: 'button',
+          tabIndex: -1,
+          [pointerDown]: callAllHandler(props[pointerDown], spinUp),
+          onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
+          onMouseLeave: callAllHandler(props.onMouseUp, spinner.stop),
+          onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
+          disabled,
+          'aria-disabled': ariaAttr(disabled),
+        };
+      },
+      [
+        pointerDown,
+        counter.isAtMax,
+        keepWithinRange,
+        spinUp,
+        spinner.stop,
+        isDisabled,
+      ],
+    );
 
-  const getDecrementButtonProps: PropGetter = useCallback(
-    (props = {}, ref = null) => {
-      const disabled = isDisabled || (keepWithinRange && counter.isAtMin);
+  const getDecrementButtonProps: PropGetter<any, { disabled?: boolean }> =
+    useCallback(
+      (props = {}, ref = null) => {
+        const disabled = isDisabled || (keepWithinRange && counter.isAtMin);
 
-      return {
-        ...props,
-        ref,
-        rol: 'button',
-        tabIndex: -1,
-        [pointerDown]: callAllHandler(props[pointerDown], spinDown),
-        onMouseLeave: callAllHandler(props.onMouseLeave, spinner.stop),
-        onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
-        onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
-        disabled,
-        'aria-disabled': ariaAttr(disabled),
-      };
-    },
-    [
-      pointerDown,
-      counter.isAtMin,
-      keepWithinRange,
-      spinDown,
-      spinner.stop,
-      isDisabled,
-    ],
-  );
+        return {
+          ...props,
+          ref,
+          role: 'button',
+          tabIndex: -1,
+          [pointerDown]: callAllHandler(props[pointerDown], spinDown),
+          onMouseLeave: callAllHandler(props.onMouseLeave, spinner.stop),
+          onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
+          onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
+          disabled,
+          'aria-disabled': ariaAttr(disabled),
+        };
+      },
+      [
+        pointerDown,
+        counter.isAtMin,
+        keepWithinRange,
+        spinDown,
+        spinner.stop,
+        isDisabled,
+      ],
+    );
 
   const getInputProps: PropGetter<
     HTMLInputElement,
@@ -449,7 +450,7 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
       'aria-valuenow': Number.isNaN(counter.valueAsNumber)
         ? undefined
         : counter.valueAsNumber,
-      'arai-invalid': ariaAttr(isInvalid ?? counter.isOutOfRange),
+      'aria-invalid': ariaAttr(isInvalid ?? counter.isOutOfRange),
       'aria-valuetext': ariaValueText,
       autoComplete: 'off',
       autoCorrect: 'off',

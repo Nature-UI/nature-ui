@@ -96,16 +96,17 @@ export const useImage = (props: UseImageProps) => {
     if (sizes) img.sizes = sizes;
     if (loading) img.loading = loading;
 
-    img.addEventListener('load', (event) => {
+    img.onload = (event) => {
       flush();
       setStatus('loaded');
       onLoad?.(event as unknown as ImageEvent);
-    });
-    img.addEventListener('error', (error) => {
+    };
+
+    img.onerror = (error) => {
       flush();
       setStatus('failed');
       onError?.(error as any);
-    });
+    };
 
     imageRef.current = img;
   }, [src, crossOrigin, srcSet, sizes, onLoad, onError, loading]);

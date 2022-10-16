@@ -10,7 +10,6 @@ import { Stack } from '@nature-ui/layout';
 import { nature } from '@nature-ui/system';
 import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
-import { useForm } from 'react-hook-form';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,
@@ -33,6 +32,21 @@ export default {
 } as Meta;
 
 const Template: Story<NumberInputProps> = (args) => <NumberInput {...args} />;
+
+export const Empty = () => {
+  return (
+    <>
+      <label htmlFor='input'>Select number:</label>
+      <NumberInputWrapper id='input' data-testid='root'>
+        <NumberInputField data-testid='input' />
+        <NumberInputStepper data-testid='group'>
+          <NumberIncrementStepper children='+' data-testid='up-btn' />
+          <NumberDecrementStepper children='-' data-testid='down-btn' />
+        </NumberInputStepper>
+      </NumberInputWrapper>
+    </>
+  );
+};
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -106,45 +120,6 @@ export const CustomWithInputSizes = () => (
   </Stack>
 );
 
-export const WithReactHookForm = () => {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      sales: 12,
-    },
-  });
-
-  const onSubmit = (data: any) => console.log(data);
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <NumberInputWrapper
-        name='sales'
-        onBlur={() => {
-          console.log('blurred');
-        }}
-      >
-        <NumberInputField ref={register} />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
-      </NumberInputWrapper>
-    </form>
-  );
-  // return (
-  //   <form onSubmit={handleSubmit(onSubmit)}>
-  //     <NumberInput
-  //       name='sales'
-  //       onBlur={() => {
-  //         console.log('blurred');
-  //       }}
-  //       ref={register}
-  //       // {...register('sales')}
-  //     />
-  //   </form>
-  // );
-};
-
 function FormError(props: any) {
   return (
     <FormErrorMessage
@@ -209,11 +184,21 @@ export const HookUsage = () => {
   return (
     <>
       <div>current: {valueAsNumber}</div>
-      <nature.div className='flex'>
-        <Button {...getIncrementButtonProps()}>+</Button>
+      <Stack row>
+        <Button
+          className='hover:bg-gray-200 text-gray-700 bg-gray-100'
+          {...getIncrementButtonProps()}
+        >
+          +
+        </Button>
         <Input {...getInputProps()} />
-        <Button {...getDecrementButtonProps()}>-</Button>
-      </nature.div>
+        <Button
+          className='hover:bg-gray-200 text-gray-700 bg-gray-100'
+          {...getDecrementButtonProps()}
+        >
+          -
+        </Button>
+      </Stack>
     </>
   );
 };

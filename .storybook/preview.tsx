@@ -3,9 +3,13 @@ import 'tailwindcss/tailwind.css';
 
 const withNature: React.FC<Function> = (StoryFn) => {
   return (
-    <div id='story-wrapper'>
-      <StoryFn />
-    </div>
+    <React.StrictMode>
+      {/* <ToastProvider> */}
+      <div className='min-h-screen'>
+        <StoryFn />
+      </div>
+      {/* </ToastProvider> */}
+    </React.StrictMode>
   );
 };
 

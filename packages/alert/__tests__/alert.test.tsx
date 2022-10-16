@@ -1,6 +1,4 @@
-import '@testing-library/jest-dom/extend-expect';
-
-import { render, axe } from '@nature-ui/test-utils';
+import { render, screen, testA11y } from '@nature-ui/test-utils';
 
 import {
   Alert,
@@ -12,7 +10,7 @@ import {
 
 describe('@nature-ui/alert ', () => {
   test('should have no accessibility issue', async () => {
-    const tools = render(
+    await testA11y(
       <AlertWrapper>
         <AlertIcon />
         <AlertTitle>Alert title</AlertTitle>
@@ -20,13 +18,17 @@ describe('@nature-ui/alert ', () => {
       </AlertWrapper>,
     );
 
-    const result = await axe(tools.container);
-
-    expect(result).toHaveNoViolations();
+    await testA11y(<Alert title='Alert title'>Alert description</Alert>);
   });
 
-  test('should render correctly', () => {
-    const tools = render(
+  test('should have role="alert"', async () => {
+    render(<Alert title='Alert title'>Alert description</Alert>);
+
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+  });
+
+  test('should have role="alert"', () => {
+    render(
       <AlertWrapper>
         <AlertIcon />
         <AlertTitle>Alert title</AlertTitle>
@@ -34,33 +36,6 @@ describe('@nature-ui/alert ', () => {
       </AlertWrapper>,
     );
 
-    expect(tools.asFragment()).toMatchSnapshot();
-  });
-
-  test('should also have no accessibility issue', async () => {
-    const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>,
-    );
-
-    const result = await axe(tools.container);
-
-    expect(result).toHaveNoViolations();
-  });
-
-  test('should also render correctly', async () => {
-    const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>,
-    );
-
-    expect(tools.asFragment()).toMatchSnapshot();
-  });
-
-  test("should have role='alert'", () => {
-    const tools = render(
-      <Alert alertTitle='Alert title'>Alert description</Alert>,
-    );
-    const alert = tools.getByRole('alert');
-
-    expect(alert).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toBeInTheDocument();
   });
 });

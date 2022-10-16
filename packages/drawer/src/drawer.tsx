@@ -1,125 +1,136 @@
 import {
-  Modal,
   ModalBody,
   ModalCloseButton,
-  ModalContent,
   ModalContentProps,
+  ModalFocusScope,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  ModalOverlayProps,
-  ModalProps,
+  NatureModal,
+  NatureModalProps,
+  useModalContext,
 } from '@nature-ui/modal';
-import { clsx, css, forwardRef } from '@nature-ui/system';
-import { Fade, Slide, SlideProps } from '@nature-ui/transition';
-import { __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import { createContext } from '@nature-ui/react-utils';
+import { css, forwardRef, HTMLNatureProps, nature } from '@nature-ui/system';
+import { Slide, SlideOptions } from '@nature-ui/transition';
+import { cx, __DEV__ } from '@nature-ui/utils';
 
-interface TransitionStyles {
-  content: React.CSSProperties;
-  overlay: React.CSSProperties;
-}
+const [DrawerContextProvider, useDrawerContext] =
+  createContext<DrawerOptions>();
 
-const TransitionContext = React.createContext<TransitionStyles>({
-  content: {},
-  overlay: {},
-});
-
-if (__DEV__) {
-  TransitionContext.displayName = 'TransitionContext';
-}
-
-const useTransitionContext = () => React.useContext(TransitionContext);
-
-interface DrawerTrasitionProps {
-  in: boolean;
-  children: (styles: TransitionStyles) => React.ReactNode;
-  placement: SlideProps['placement'];
-}
-
-const DrawerTransition = (props: DrawerTrasitionProps) => {
-  const { in: inProp, children, placement } = props;
-
-  return (
-    <Slide in={inProp} placement={placement}>
-      {(contentStyle) => (
-        <Fade in={inProp}>
-          {(overlayStyle) =>
-            children({
-              content: contentStyle,
-              overlay: overlayStyle,
-            })
-          }
-        </Fade>
-      )}
-    </Slide>
-  );
-};
-
-if (__DEV__) {
-  DrawerTransition.displayName = 'DrawerTransition';
-}
-
-export interface DrawerProps extends ModalProps {
-  placement?: SlideProps['placement'];
+interface DrawerOptions {
+  /**
+   * The placement of the drawer
+   */
+  placement?: SlideOptions['direction'];
+  /**
+   * If `true` and drawer's placement is `top` or `bottom`,
+   * the drawer will occupy the viewport height (100vh)
+   */
   isFullHeight?: boolean;
 }
 
+export interface DrawerProps
+  extends Omit<
+      NatureModalProps,
+      'scrollBehavior' | 'motionPreset' | 'isCentered'
+    >,
+    DrawerOptions,
+    HTMLNatureProps<'span'> {}
+
 export const Drawer = (props: DrawerProps) => {
-  const { isOpen, onClose, placement = 'left', children, ...rest } = props;
+  const { placement = 'right', children, className, ...rest } = props;
 
   return (
-    <DrawerTransition in={isOpen} placement={placement}>
-      {(styles) => (
-        <TransitionContext.Provider value={styles}>
-          <Modal isOpen onClose={onClose} {...rest}>
-            {children}
-          </Modal>
-        </TransitionContext.Provider>
-      )}
-    </DrawerTransition>
+    <DrawerContextProvider value={{ placement }}>
+      <NatureModal {...rest}>{children}</NatureModal>
+    </DrawerContextProvider>
   );
 };
 
+const sizes = {
+  full: { maxW: 'max-w-screen' },
+  lg: { maxW: 'max-w-2xl' },
+  md: { maxW: 'max-w-lg' },
+  sm: { maxW: 'max-w-md' },
+  xl: { maxW: 'max-w-4xl' },
+  xs: { maxW: 'max-w-xs' },
+};
+
+const StyledSlide = nature(Slide);
+export interface DrawerContentProps extends ModalContentProps {}
+
+export const DrawerContent = forwardRef<DrawerContentProps, 'section'>(
+  (props, ref) => {
+    const { className, children, ...rest } = props;
+
+    const {
+      getDialogProps,
+      getDialogContainerProps,
+      size = 'xs',
+      isOpen,
+    } = useModalContext();
+
+    const dialogProps = getDialogProps(rest, ref) as any;
+    const containerProps = getDialogContainerProps();
+
+    const dialogStyles = css({
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      width: '100%',
+      outline: 0,
+    });
+
+    const dialogContainerStyles = css({
+      display: 'flex',
+      width: '100vw',
+      height: '100vh',
+      position: 'fixed',
+      left: 0,
+      top: 0,
+    });
+
+    const { placement } = useDrawerContext();
+
+    return (
+      <nature.div
+        {...containerProps}
+        className={cx(
+          'nature-modal__content-container z-50',
+          dialogContainerStyles,
+        )}
+      >
+        <ModalFocusScope>
+          <StyledSlide
+            direction={placement}
+            in={isOpen}
+            {...dialogProps}
+            className={cx(
+              'nature-modal__content',
+              'z-50 bg-white',
+              sizes[size].maxW,
+              dialogStyles,
+              className,
+            )}
+          >
+            {children}
+          </StyledSlide>
+        </ModalFocusScope>
+      </nature.div>
+    );
+  },
+);
+
 if (__DEV__) {
   Drawer.displayName = 'Drawer';
-}
-
-export const DrawerContent = forwardRef<ModalContentProps, 'div'>(
-  (props, ref) => {
-    const { content: styles } = useTransitionContext();
-    const { className = '', ...rest } = props;
-
-    const _css = css(styles as any);
-    const _className = clsx(_css, 'fixed mt-0 mb-0 rounded-none', className);
-
-    return <ModalContent ref={ref} className={_className} {...rest} />;
-  },
-);
-
-if (__DEV__) {
   DrawerContent.displayName = 'DrawerContent';
-}
-
-export const DrawerOverlay = forwardRef<ModalOverlayProps, 'div'>(
-  (props, ref) => {
-    const { overlay: styles } = useTransitionContext();
-    const { className = '', ...rest } = props;
-
-    const _css = css(styles as any);
-    const _className = clsx(_css, 'transition-all duration-200', className);
-
-    return <ModalOverlay className={_className} ref={ref} {...rest} />;
-  },
-);
-
-if (__DEV__) {
-  DrawerOverlay.displayName = 'DrawerOverlay';
 }
 
 export {
   ModalBody as DrawerBody,
-  ModalHeader as DrawerHeader,
-  ModalFooter as DrawerFooter,
   ModalCloseButton as DrawerCloseButton,
+  ModalFooter as DrawerFooter,
+  ModalHeader as DrawerHeader,
+  ModalOverlay as DrawerOverlay,
 };

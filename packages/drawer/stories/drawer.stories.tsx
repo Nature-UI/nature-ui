@@ -1,56 +1,47 @@
-import * as React from 'react';
-import { PortalManager } from '@nature-ui/portal';
-
+import { Button, ButtonProps } from '@nature-ui/button';
+import React from 'react';
 import { Drawer, DrawerContent, DrawerOverlay } from '../src';
 
 export default {
   title: 'Drawer',
   component: Drawer,
-  decorators: [
-    (StoryFn: Function) => (
-      <PortalManager>
-        <StoryFn />
-      </PortalManager>
-    ),
-  ],
 };
 
+const StyledButton = (args: ButtonProps) => (
+  <Button
+    {...args}
+    className={`bg-gray-200 hover:bg-gray-300 text-gray-700 ${args.className}`}
+  />
+);
 export const Basic = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
     <>
-      <button onClick={() => setOpen(!open)}>Open</button>
+      <StyledButton onClick={() => setOpen(!open)}>Open</StyledButton>
       <Drawer isOpen={open} onClose={() => setOpen(false)}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <div>This is the drawer content</div>
-            <button>This is a button</button>
-          </DrawerContent>
-        </DrawerOverlay>
+        <DrawerOverlay />
+        <DrawerContent>
+          <div>This is the drawer content</div>
+          <StyledButton>This is a Button</StyledButton>
+        </DrawerContent>
       </Drawer>
     </>
   );
 };
 
-export const RightPlacement = () => {
+export const LeftPlacement = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
     <>
-      <button onClick={() => setOpen(!open)}>Open</button>
-      <Drawer
-        size='lg'
-        placement='right'
-        isOpen={open}
-        onClose={() => setOpen(false)}
-      >
-        <DrawerOverlay>
-          <DrawerContent>
-            <div>This is the drawer content</div>
-            <button>This is a button</button>
-          </DrawerContent>
-        </DrawerOverlay>
+      <StyledButton onClick={() => setOpen(!open)}>Open</StyledButton>
+      <Drawer placement='left' isOpen={open} onClose={() => setOpen(false)}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <div>This is the drawer content</div>
+          <StyledButton>This is a Button</StyledButton>
+        </DrawerContent>
       </Drawer>
     </>
   );

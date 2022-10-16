@@ -1,5 +1,118 @@
 # @nature-ui/core
 
+## 2.0.0
+
+### Major Changes
+
+- b0cda95: V2 release
+
+### Patch Changes
+
+- Updated dependencies [b0cda95]
+  - @nature-ui/alert@2.0.0
+  - @nature-ui/alert-dialog@2.0.0
+  - @nature-ui/avatar@2.0.0
+  - @nature-ui/breadcrumb@2.0.0
+  - @nature-ui/button@2.0.0
+  - @nature-ui/checkbox@2.0.0
+  - @nature-ui/clickable@2.0.0
+  - @nature-ui/close-button@2.0.0
+  - @nature-ui/color@2.0.0
+  - @nature-ui/container@2.0.0
+  - @nature-ui/counter@2.0.0
+  - @nature-ui/descendant@2.0.0
+  - @nature-ui/drawer@2.0.0
+  - @nature-ui/focus-lock@2.0.0
+  - @nature-ui/form-control@2.0.0
+  - @nature-ui/hooks@2.0.0
+  - @nature-ui/icon@2.0.0
+  - @nature-ui/image@2.0.0
+  - @nature-ui/input@2.0.0
+  - @nature-ui/layout@2.0.0
+  - @nature-ui/modal@2.0.0
+  - @nature-ui/number-input@2.0.0
+  - @nature-ui/popover@2.0.0
+  - @nature-ui/popper@2.0.0
+  - @nature-ui/portal@2.0.0
+  - @nature-ui/progress@2.0.0
+  - @nature-ui/radio@2.0.0
+  - @nature-ui/spinner@2.0.0
+  - @nature-ui/system@3.0.0
+  - @nature-ui/toast@2.0.0
+  - @nature-ui/transition@2.0.0
+  - @nature-ui/visually-hidden@2.0.0
+
+## 1.4.1
+
+### Patch Changes
+
+- 67da165: preparing for release
+- Updated dependencies [67da165]
+  - @nature-ui/alert@1.2.1
+  - @nature-ui/alert-dialog@1.2.1
+  - @nature-ui/avatar@1.3.1
+  - @nature-ui/breadcrumb@1.2.1
+  - @nature-ui/button@1.3.1
+  - @nature-ui/checkbox@1.2.1
+  - @nature-ui/close-button@1.2.1
+  - @nature-ui/container@1.2.1
+  - @nature-ui/counter@1.2.1
+  - @nature-ui/drawer@1.2.1
+  - @nature-ui/form-control@1.3.1
+  - @nature-ui/hooks@1.3.1
+  - @nature-ui/icon@1.2.1
+  - @nature-ui/image@1.4.1
+  - @nature-ui/input@1.3.1
+  - @nature-ui/layout@1.2.1
+  - @nature-ui/modal@1.2.1
+  - @nature-ui/popover@1.2.1
+  - @nature-ui/popper@1.2.1
+  - @nature-ui/portal@1.2.1
+  - @nature-ui/progress@1.2.1
+  - @nature-ui/radio@1.2.1
+  - @nature-ui/spinner@1.2.1
+  - @nature-ui/system@2.1.1
+  - @nature-ui/toast@1.2.1
+  - @nature-ui/transition@1.2.1
+  - @nature-ui/visually-hidden@1.2.1
+
+## 1.4.0
+
+### Minor Changes
+
+- 2e4797e: Preparing for v2 release
+
+### Patch Changes
+
+- Updated dependencies [2e4797e]
+  - @nature-ui/alert@1.2.0
+  - @nature-ui/alert-dialog@1.2.0
+  - @nature-ui/avatar@1.3.0
+  - @nature-ui/breadcrumb@1.2.0
+  - @nature-ui/button@1.3.0
+  - @nature-ui/checkbox@1.2.0
+  - @nature-ui/close-button@1.2.0
+  - @nature-ui/container@1.2.0
+  - @nature-ui/counter@1.2.0
+  - @nature-ui/drawer@1.2.0
+  - @nature-ui/form-control@1.3.0
+  - @nature-ui/hooks@1.3.0
+  - @nature-ui/icon@1.2.0
+  - @nature-ui/image@1.4.0
+  - @nature-ui/input@1.3.0
+  - @nature-ui/layout@1.2.0
+  - @nature-ui/modal@1.2.0
+  - @nature-ui/popover@1.2.0
+  - @nature-ui/popper@1.2.0
+  - @nature-ui/portal@1.2.0
+  - @nature-ui/progress@1.2.0
+  - @nature-ui/radio@1.2.0
+  - @nature-ui/spinner@1.2.0
+  - @nature-ui/system@2.1.0
+  - @nature-ui/toast@1.2.0
+  - @nature-ui/transition@1.2.0
+  - @nature-ui/visually-hidden@1.2.0
+
 ## 1.3.0
 
 ### Minor Changes

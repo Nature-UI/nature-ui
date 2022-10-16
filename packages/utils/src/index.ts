@@ -1,6 +1,7 @@
 export * from 'css-box-model';
 export * from './array';
 export * from './assertions';
+export * from './color';
 export * from './dom';
 export * from './dom-query';
 export * from './focus';

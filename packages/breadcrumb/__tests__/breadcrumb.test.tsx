@@ -2,24 +2,6 @@ import { render } from '@nature-ui/test-utils';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '../src';
 
 describe('@nature-ui/breadcrumb', () => {
-  test('Breadcrumb renders correctly', () => {
-    const { asFragment } = render(
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <BreadcrumbLink href='#'>Link 1</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <BreadcrumbLink href='#'>Link 2</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem isCurrent>
-          <BreadcrumbLink>Link 3</BreadcrumbLink>
-        </BreadcrumbItem>
-      </Breadcrumb>,
-    );
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
   test('has the proper aria-attributes', () => {
     const { getByText, getAllByRole, getByLabelText } = render(
       <Breadcrumb>

@@ -45,10 +45,13 @@ export const createComponent = <T extends As>(component: T) => {
         delete computedProps.css;
       }
 
-      return jsx(element, {
-        ref,
-        ...computedProps,
-      });
+      return jsx(
+        {
+          ref,
+          ...computedProps,
+        },
+        element,
+      );
     });
 
     // Compute the display name of the final component

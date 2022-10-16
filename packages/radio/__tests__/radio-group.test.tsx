@@ -2,28 +2,6 @@ import { fireEvent, render } from '@nature-ui/test-utils';
 import { Radio, useRadioGroup, UseRadioGroupProps } from '../src';
 
 describe('@nature-ui/radio', () => {
-  test('RadioGroup renders correctly', () => {
-    const Component = () => {
-      const { getRootProps, getRadioProps } = useRadioGroup({ isNative: true });
-
-      return (
-        <div {...getRootProps()}>
-          <label>
-            <input type='radio' {...getRadioProps({ value: 'a' })} />
-            <span>a</span>
-          </label>
-          <label>
-            <input type='radio' {...getRadioProps({ value: 'b' })} />
-            <span>b</span>
-          </label>
-        </div>
-      );
-    };
-    const { asFragment } = render(<Component />);
-
-    expect(asFragment()).toMatchSnapshot();
-  });
-
   test('works with Radio component', () => {
     const Component = (props: UseRadioGroupProps = {}) => {
       const { getRootProps, getRadioProps } = useRadioGroup(props);

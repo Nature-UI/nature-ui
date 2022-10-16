@@ -1,3 +1,5 @@
+import { Button } from '@nature-ui/button';
+import { useDisclosure } from '@nature-ui/hooks';
 import {
   Popover,
   PopoverBody,
@@ -38,13 +40,17 @@ export const WithinFrame = () => (
 
 export const WithMountRef = () => {
   const ref = React.useRef<HTMLDivElement>(null);
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <>
       <p>Welcome</p>
-      <Portal containerRef={ref}>
-        <span>This text has been portaled</span>
-      </Portal>
+      <Button onClick={onToggle}>Toggle portal</Button>
+      {isOpen && (
+        <Portal containerRef={ref}>
+          <span>This text has been portaled</span>
+        </Portal>
+      )}
       <div id='iframe' ref={ref}>
         Portal Div
       </div>

@@ -112,7 +112,7 @@ describe('@nature-ui/form-control', () => {
   });
 
   test('has the proper aria attributes', async () => {
-    const { rerender, container } = render(
+    const { rerender } = render(
       <FormControl id='name'>
         <FormLabel>Name</FormLabel>
         <Input placeholder='Name' />
@@ -147,7 +147,6 @@ describe('@nature-ui/form-control', () => {
       'aria-describedby',
       'name-feedback name-helptext',
     );
-    console.log({ util: container.innerHTML });
     expect(indicator).toHaveAttribute('aria-hidden');
     expect(errorMessage).toHaveAttribute('aria-live', 'polite');
   });

@@ -141,7 +141,7 @@ export const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>(
           <motion.div
             ref={ref}
             {...rest}
-            className={cx(className)}
+            className={cx('nature-collapse', className)}
             style={{
               overflow: 'hidden',
               display: 'block',

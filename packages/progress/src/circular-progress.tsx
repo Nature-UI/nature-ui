@@ -1,12 +1,10 @@
 /** ** */
-import { clsx, css, nature, PropsOf } from '@nature-ui/system';
+import { clsx, css, HTMLNatureProps, nature } from '@nature-ui/system';
 import { isUndefined, StringOrNumber, __DEV__ } from '@nature-ui/utils';
 import React from 'react';
 import { getProgressProps, rotate, spin } from './progress.utils';
 
-const CircleTag = nature('circle');
-
-type CircleProps = PropsOf<typeof CircleTag> & {
+type CircleProps = HTMLNatureProps<'circle'> & {
   /**
    * The color name of the progress track.
    */
@@ -29,19 +27,22 @@ const Circle = (props: CircleProps) => {
     className = '',
     trackColor,
     colorScheme,
-    _animation = '',
-    _transition = '',
+    _animation,
+    _transition,
     ...rest
   } = props;
 
-  const _className = clsx(`stroke-current text-${trackColor || colorScheme}`, {
-    [className]: className,
-    [_transition]: _transition,
-    [_animation]: _animation,
-  });
+  const _className = clsx(
+    `stroke-current text-${trackColor || colorScheme}`,
+    {
+      [className]: className,
+    },
+    _animation,
+    _transition,
+  );
 
   return (
-    <CircleTag
+    <nature.circle
       className={_className}
       cx={50}
       cy={50}
@@ -56,11 +57,10 @@ if (__DEV__) {
   Circle.displayName = 'Circle';
 }
 
-const SVGTag = nature('svg');
-
-type ShapeProps = PropsOf<typeof SVGTag> & {
+type ShapeProps = HTMLNatureProps<'svg'> & {
   size?: StringOrNumber;
   isIndeterminate?: boolean;
+  children?: React.ReactNode;
 };
 
 /**
@@ -69,17 +69,19 @@ type ShapeProps = PropsOf<typeof SVGTag> & {
  * SVG wrapper element for the component's circular shape
  */
 const Shape = (props: ShapeProps) => {
-  const { size, isIndeterminate, className = '', ...rest } = props;
+  const { size, isIndeterminate, className, ...rest } = props;
 
-  const _className = clsx({
-    [css`
-      animation: ${rotate} 2s linear infinite;
-    `]: isIndeterminate,
-    [className]: className,
-  });
+  const _className = clsx(
+    {
+      [css`
+        animation: ${rotate} 2s linear infinite;
+      `]: isIndeterminate,
+    },
+    className,
+  );
 
   return (
-    <SVGTag
+    <nature.svg
       className={_className}
       width={size}
       height={size}
@@ -133,7 +135,7 @@ interface CircularProgressOptions {
   /**
    * The desired valueText to use in place of the value and also displayed within the circular-progress
    */
-  label?: string;
+  valueText?: string;
   /**
    * If `true`, will show the percentage of progress bar
    */
@@ -142,22 +144,14 @@ interface CircularProgressOptions {
    * A function that returns the desired valueText to use in place of the value
    */
   getValueText?(value?: number, percent?: number): string;
+  /**
+   * If `true`, the progress will be indeterminate and the `value`
+   * prop will be ignored
+   */
+  isIndeterminate?: boolean;
 }
 
-const ProgressTag = nature('div');
-
-const StyledProgress = React.forwardRef(
-  (props: PropsOf<typeof ProgressTag>, ref: React.Ref<HTMLDivElement>) => {
-    const { className = '', ...rest } = props;
-    const _className = clsx('inline-block relative align-middle', {
-      [className]: className,
-    });
-
-    return <ProgressTag className={_className} {...rest} ref={ref} />;
-  },
-);
-
-export type CircularProgressProps = PropsOf<typeof ProgressTag> &
+export type CircularProgressProps = HTMLNatureProps<'div'> &
   CircularProgressOptions;
 
 /**
@@ -167,7 +161,7 @@ export type CircularProgressProps = PropsOf<typeof ProgressTag> &
  * of the circular progress component's value
  */
 export const CircularProgressLabel = (
-  props: PropsOf<typeof ProgressTag> & {
+  props: HTMLNatureProps<'div'> & {
     fontSize?: StringOrNumber;
   },
 ) => {
@@ -187,7 +181,7 @@ export const CircularProgressLabel = (
     [className]: className,
   });
 
-  return <ProgressTag className={_className} {...rest} />;
+  return <nature.div className={_className} {...rest} />;
 };
 
 /**
@@ -195,91 +189,94 @@ export const CircularProgressLabel = (
  *
  * It's built using `svg` and `circle` components.
  */
-export const CircularProgress = React.forwardRef(
-  (props: CircularProgressProps, ref: React.Ref<any>) => {
-    const {
-      size = '32px',
-      max = 100,
-      min = 0,
-      label,
-      getValueText,
-      value,
-      capIsRound,
-      children,
-      thickness = '10px',
-      colorScheme = 'blue-400',
-      trackColor = 'gray-200',
-      showPercent,
-      ...rest
-    } = props;
+export const CircularProgress: React.FC<CircularProgressProps> = (props) => {
+  const {
+    size = '32px',
+    max = 100,
+    min = 0,
+    valueText,
+    getValueText,
+    value,
+    capIsRound,
+    children,
+    thickness = '10px',
+    colorScheme = 'blue-500',
+    trackColor = 'gray-300',
+    showPercent,
+    isIndeterminate,
+    className,
+    ...rest
+  } = props;
 
-    const progress = getProgressProps({
-      min,
-      max,
-      value,
-      valueText: label,
-      getValueText,
-    });
+  const progress = getProgressProps({
+    min,
+    max,
+    value,
+    valueText,
+    getValueText,
+    isIndeterminate,
+  });
 
-    const _size = typeof size === 'string' ? size : `${size}px`;
+  const _size = typeof size === 'string' ? size : `${size}px`;
 
-    const isIndeterminate = isUndefined(progress.percent);
+  const determinant = isIndeterminate
+    ? undefined
+    : (progress.percent ?? 0) * 2.64;
 
-    const determinant = isUndefined(progress.percent)
-      ? undefined
-      : progress.percent * 2.64;
+  const strokeDasharray = isUndefined(determinant)
+    ? undefined
+    : `${determinant} ${264 - determinant}`;
 
-    const strokeDasharray = isUndefined(determinant)
-      ? undefined
-      : `${determinant} ${264 - determinant}`;
+  const _animation = css`
+    animation: ${spin} 1.5s linear infinite;
+  `;
 
-    const _animation = css`
-      animation: ${spin} 1.5s linear infinite;
-    `;
+  const _transition = css`
+    transition: stroke-dasharray 0.6s ease 0s, stroke 0.6s ease;
+  `;
 
-    const _transition = css`
-      transition: stroke-dasharray 0.6s ease 0s, stroke 0.6s ease;
-    `;
+  const indicatorProps = isIndeterminate
+    ? {
+        _animation,
+      }
+    : {
+        strokeDashoffset: 66,
+        strokeDasharray,
+        _transition,
+      };
 
-    const indicatorProps = isIndeterminate
-      ? {
-          _animation,
-        }
-      : {
-          strokeDashoffset: 66,
-          strokeDasharray,
-          _transition,
-        };
+  const _fontSize = `${(20 / 100) * parseFloat(_size)}px`;
 
-    const _fontSize = `${(20 / 100) * parseFloat(_size)}px`;
+  return (
+    <nature.div
+      className={clsx('inline-block relative align-middle', className)}
+      {...progress.bind}
+      {...rest}
+    >
+      <Shape size={_size} isIndeterminate={isIndeterminate}>
+        <Circle trackColor={trackColor} strokeWidth={thickness} />
 
-    return (
-      <StyledProgress {...progress.bind} {...rest} ref={ref}>
-        <Shape size={_size} isIndeterminate={isIndeterminate}>
-          <Circle trackColor={trackColor} strokeWidth={thickness} />
-
-          <Circle
-            colorScheme={colorScheme}
-            strokeWidth={thickness}
-            strokeLinecap={capIsRound ? 'round' : undefined}
-            {...indicatorProps}
-          />
-        </Shape>
-        {showPercent && !label ? (
-          <CircularProgressLabel fontSize={_fontSize}>
-            {value}%
-          </CircularProgressLabel>
-        ) : label ? (
-          <CircularProgressLabel fontSize={_fontSize}>
-            {label}
-          </CircularProgressLabel>
-        ) : (
-          children
-        )}
-      </StyledProgress>
-    );
-  },
-);
+        <Circle
+          colorScheme={colorScheme}
+          strokeWidth={thickness}
+          strokeLinecap={capIsRound ? 'round' : undefined}
+          {...indicatorProps}
+        />
+      </Shape>
+      {showPercent && !valueText ? (
+        <CircularProgressLabel fontSize={_fontSize}>
+          {value}%
+        </CircularProgressLabel>
+      ) : valueText ? (
+        <CircularProgressLabel fontSize={_fontSize}>
+          {valueText}
+        </CircularProgressLabel>
+      ) : (
+        children
+      )}
+    </nature.div>
+  );
+};
 
 if (__DEV__) {
   CircularProgress.displayName = 'CircularProgress';

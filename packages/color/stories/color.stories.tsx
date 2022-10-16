@@ -1,16 +1,14 @@
-import * as React from 'react';
 import { Stack } from '@nature-ui/layout';
-
 import {
-  lighten,
-  darken,
-  randomColor,
-  transparentize,
   blacken,
-  whiten,
-  randomColorFromString,
+  darken,
+  lighten,
+  randomColor,
   randomColorFromList,
+  randomColorFromString,
   randomFromList,
+  transparentize,
+  whiten,
 } from '../src';
 
 export default {
@@ -140,3 +138,38 @@ export const Transparentize = () => (
     />
   </Stack>
 );
+
+export const TailwindColors = () => {
+  const Box = (p: any) => (
+    <div style={{ width: '100px', height: '100px' }} {...p} />
+  );
+
+  return (
+    <Stack col>
+      <Stack row>
+        <Box className='bg-blue-50' />
+        <Box className='bg-blue-100' />
+        <Box className='bg-blue-200' />
+        <Box className='bg-blue-300' />
+        <Box className='bg-blue-400' />
+        <Box className='bg-blue-500' />
+        <Box className='bg-blue-600' />
+        <Box className='bg-blue-700' />
+        <Box className='bg-blue-800' />
+        <Box className='bg-blue-900' />
+      </Stack>
+      <Stack row>
+        <Box className='bg-red-50' />
+        <Box className='bg-red-100' />
+        <Box className='bg-red-200' />
+        <Box className='bg-red-300' />
+        <Box className='bg-red-400' />
+        <Box className='bg-red-500' />
+        <Box className='bg-red-600' />
+        <Box className='bg-red-700' />
+        <Box className='bg-red-800' />
+        <Box className='bg-red-900' />
+      </Stack>
+    </Stack>
+  );
+};

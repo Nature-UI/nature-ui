@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { useControllableProp } from '@nature-ui/hooks';
 import {
-  isInputEvent,
   addItem,
+  Dict,
+  isInputEvent,
   removeItem,
   StringOrNumber,
-  Dict,
 } from '@nature-ui/utils';
+import * as React from 'react';
 
 type EventOrValue = React.ChangeEvent<HTMLInputElement> | StringOrNumber;
 
@@ -30,6 +30,9 @@ export interface UseCheckboxGroupProps {
    * This assumes, you're using native radio inputs
    */
   isNative?: boolean;
+  size?: string;
+  color?: string;
+  hoverColor?: string;
 }
 
 export const useCheckboxGroup = (props: UseCheckboxGroupProps) => {
@@ -38,6 +41,7 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps) => {
     value: valueProp,
     onChange: onChangeProp,
     isNative,
+    ...rest
   } = props;
 
   const [valueState, setValue] = React.useState(defaultValue || []);
@@ -76,6 +80,7 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps) => {
   );
 
   return {
+    ...rest,
     value,
     onChange,
     setValue: updateValue,

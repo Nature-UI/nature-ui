@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Interpolation, jsx as emotion, Theme } from '@emotion/react';
 import { Dict } from '@nature-ui/utils';
-import { jsx as emotion, Interpolation, Theme } from '@emotion/react';
+import * as React from 'react';
 
 export const jsx = (
-  type: React.ElementType = 'div',
   props: Dict,
+  type: React.ElementType = 'div',
   ...children: React.ReactNode[]
 ) => {
   if (props.as) {

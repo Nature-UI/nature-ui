@@ -98,6 +98,7 @@ export const AvatarGroup = forwardRef<AvatarGroupProps, 'div'>((props, ref) => {
   });
 
   const groupExcess = clsx(
+    'nature-avatar__excess',
     STYLES,
     defaults,
     'bg-gray-300',
@@ -109,7 +110,7 @@ export const AvatarGroup = forwardRef<AvatarGroupProps, 'div'>((props, ref) => {
   return (
     <nature.div
       className={clsx(
-        'flex items-center justify-end flex-row-reverse',
+        'nature-avatar__group flex items-center justify-end flex-row-reverse',
         className,
       )}
       ref={ref}

@@ -15,7 +15,11 @@ const [PortalContextProvider, usePortalContext] = createContext<PortalContext>({
 const PORTAL_CLASSNAME = 'nature-portal';
 const PORTAL_SELECTOR = `.${PORTAL_CLASSNAME}`;
 
-const Container: React.FC<{ zIndex: number }> = (props) => (
+interface IContainerProps {
+  zIndex: number;
+}
+
+const Container = (props: React.PropsWithChildren<IContainerProps>) => (
   <div
     className='nature-portal-zIndex'
     style={{
@@ -30,10 +34,13 @@ const Container: React.FC<{ zIndex: number }> = (props) => (
   </div>
 );
 
+interface IDefaultPortalProps {
+  appendToParentPortal?: boolean;
+}
 /**
  * Portal that uses `document.body` as container
  */
-const DefaultPortal: React.FC<{ appendToParentPortal?: boolean }> = (props) => {
+const DefaultPortal = (props: React.PropsWithChildren<IDefaultPortalProps>) => {
   const { appendToParentPortal, children } = props;
 
   const tempNode = React.useRef<HTMLDivElement | null>(null);
@@ -64,7 +71,7 @@ const DefaultPortal: React.FC<{ appendToParentPortal?: boolean }> = (props) => {
         host.removeChild(portalNode);
       }
     };
-  }, [parentPortal, appendToParentPortal]);
+  }, []);
 
   const _children = manager?.zIndex ? (
     <Container zIndex={manager.zIndex}>{children}</Container>
@@ -87,6 +94,7 @@ const DefaultPortal: React.FC<{ appendToParentPortal?: boolean }> = (props) => {
 interface ContainerPortalProps {
   containerRef: React.RefObject<HTMLElement | null>;
   appendToParentPortal?: boolean;
+  children: React.ReactNode;
 }
 
 /**
@@ -107,15 +115,15 @@ const ContainerPortal: React.FC<ContainerPortalProps> = (props) => {
 
   useSafeLayoutEffect(() => {
     forceUpdate();
-  }, [appendToParentPortal]);
+  }, []);
 
   useSafeLayoutEffect(() => {
     if (!portal || !host) return;
     host.appendChild(portal);
     return () => {
-      if (host.contains(portal)) host.removeChild(portal);
+      host.removeChild(portal);
     };
-  }, [host, portal, appendToParentPortal]);
+  }, [portal, host]);
 
   if (host && portal) {
     return createPortal(

@@ -1,4 +1,4 @@
-import { fireEvent, render, renderHook } from '@nature-ui/test-utils';
+import { fireEvent, render, renderHook, testA11y } from '@nature-ui/test-utils';
 import * as React from 'react';
 import {
   Checkbox,
@@ -9,22 +9,14 @@ import {
 } from '../src';
 
 describe('@nature-ui/checkbox', () => {
-  test('Checkbox renders correctly', () => {
-    const tools = render(<Checkbox />);
-
-    expect(tools.asFragment()).toMatchSnapshot();
+  it('passes a11y test', async () => {
+    await testA11y(<Checkbox>label</Checkbox>);
   });
 
   test('useCheckbox should return object', () => {
     const { result } = renderHook(() => useCheckbox());
 
     expect(typeof result.current).toBe('object');
-  });
-
-  test('Checkbox renders correctly with child elements', () => {
-    const tools = render(<Checkbox>This is custom checkbox</Checkbox>);
-
-    expect(tools.asFragment()).toMatchSnapshot();
   });
 
   test('Uncontrolled - should check and uncheck', () => {

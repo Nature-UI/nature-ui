@@ -2,6 +2,12 @@ import memoizeOne from 'memoize-one';
 import { isFunction } from './assertions';
 import { FunctionArguments } from './types';
 
+export const noop = () => {};
+
+export type MaybeFunction<T, Args extends unknown[] = []> =
+  | T
+  | ((...args: Args) => T);
+
 export const runIfFn = <T, U>(
   valueOrFn: T | ((...args: U[]) => T),
   ...args: U[]
@@ -43,25 +49,37 @@ export const once = (fn?: Function | null): any => {
  * @example `blue-400`, `blue-200` is a valid color
  * things like `bg-red-500`, `text-gray-100`... are invalid values.
  */
-export const darken = (value: string, amount = 100): string => {
+export const darken = (value: string, amount?: number): string => {
   const splitStr = value.split('-');
 
-  if (splitStr.length > 2) {
-    throw new Error(`${value} is an invalid type`);
+  let shade = Number(splitStr.at(-1));
+
+  if (isNaN(shade)) {
+    return value;
   }
 
-  const dept = Number(splitStr[1]);
-  const color = splitStr[0];
-
-  if (dept >= 800) {
-    return `${color}-${dept - amount ?? 200}`;
+  if (shade >= 800) {
+    shade = shade - (amount || 200);
+  } else {
+    shade = shade + (amount || 200);
   }
 
-  return `${color}-${dept + amount ?? 200}`;
+  return `bg-${splitStr[1]}-${shade}`;
 };
 
-export const lighten = (value: string, amount = 100): string => {
-  const color = value.split('-')[0];
+export const lighten = (value: string, amount?: number): string => {
+  const splitStr = value.split('-');
 
-  return `${color}-${amount}`;
+  let shade = Number(splitStr.at(-1));
+  if (isNaN(shade)) {
+    return value;
+  }
+
+  if (shade <= 200) {
+    shade = 100;
+  } else {
+    shade = shade - (amount || 200);
+  }
+
+  return `${splitStr[1]}-${shade}`;
 };

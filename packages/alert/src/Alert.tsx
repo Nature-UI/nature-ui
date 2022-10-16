@@ -1,13 +1,8 @@
 import { Icon, SvgIconProps } from '@nature-ui/icon';
-import { clsx, nature, PropsOf } from '@nature-ui/system';
+import { clsx, HTMLNatureProps, nature } from '@nature-ui/system';
 import { createContext, __DEV__ } from '@nature-ui/utils';
 import * as React from 'react';
-import {
-  FiAlertCircle,
-  FiAlertTriangle,
-  FiCheckCircle,
-  FiInfo,
-} from 'react-icons/fi';
+import { CheckIcon, InfoIcon, WarningIcon } from './icons';
 
 const SUBTLE_TEXT = 'text-gray-800';
 
@@ -15,7 +10,7 @@ export const ALERT_STATUSES = {
   error: {
     bg: 'bg-red-200',
     iconColor: 'text-red-600 mr-3',
-    icon: FiAlertCircle,
+    icon: WarningIcon,
     variant: {
       solid: 'bg-red-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -24,7 +19,7 @@ export const ALERT_STATUSES = {
   info: {
     bg: 'bg-blue-200',
     iconColor: 'text-blue-600 mr-3',
-    icon: FiInfo,
+    icon: InfoIcon,
     variant: {
       solid: 'bg-blue-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -33,7 +28,7 @@ export const ALERT_STATUSES = {
   success: {
     bg: 'bg-green-200',
     iconColor: 'text-green-600 mr-3',
-    icon: FiCheckCircle,
+    icon: CheckIcon,
     variant: {
       solid: 'bg-green-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -42,7 +37,7 @@ export const ALERT_STATUSES = {
   warning: {
     bg: 'bg-orange-200',
     iconColor: 'text-orange-600 mr-3',
-    icon: FiAlertTriangle,
+    icon: WarningIcon,
     variant: {
       solid: 'bg-orange-600 text-white',
       subtle: SUBTLE_TEXT,
@@ -54,6 +49,8 @@ type AlertContext = Required<Pick<AlertOptions, 'status' | 'variant'>>;
 
 const [AlertProvider, useAlertContext] = createContext<AlertContext>({
   name: 'AlertContext',
+  errorMessage:
+    'useAlertContext: `context` is undefined, seems you forgot to wrap alert components in <AlertProvider>',
 });
 
 interface AlertOptions {
@@ -74,12 +71,7 @@ interface AlertOptions {
   alertTitle?: React.ReactNode;
 }
 
-const DivTag = nature('div');
-const SpanTag = nature('span');
-const PTag = nature('p');
-const H3 = nature('p');
-
-export type AlertProps = AlertOptions & PropsOf<typeof DivTag>;
+export type AlertProps = AlertOptions & HTMLNatureProps<'div'>;
 
 const BASE_STYLE =
   'px-4 py-3 flex items-center w-full relative overflow-hidden';
@@ -89,7 +81,7 @@ export const AlertWrapper = (props: AlertProps) => {
     className = '',
     status = 'success',
     variant = 'subtle',
-    component: Component = DivTag,
+    component: Component = nature.div,
     role = 'alert',
     children,
     ...rest
@@ -119,7 +111,7 @@ export const AlertWrapper = (props: AlertProps) => {
     <AlertProvider value={context}>
       <Component className={componentClass} {...rest} role={role}>
         {hasIcon && (
-          <SpanTag
+          <nature.span
             className={clsx('absolute top-0 left-0 mr-2', {
               'h-full w-1 ': variant === 'left-accent',
               'w-full h-1 ': variant === 'top-accent',
@@ -137,22 +129,22 @@ if (__DEV__) {
   AlertWrapper.displayName = 'Alert';
 }
 
-export type AlertTitleProps = PropsOf<typeof DivTag>;
+export type AlertTitleProps = HTMLNatureProps<'h3'>;
 
 export const AlertTitle = (props: AlertTitleProps) => {
   const { className = '', ...rest } = props;
 
-  return <H3 className={clsx('font-bold', className)} {...rest} />;
+  return <nature.h3 className={clsx('font-bold', className)} {...rest} />;
 };
 
 if (__DEV__) {
   AlertTitle.displayName = 'AlertTitle';
 }
 
-export type AlertDescriptionProps = PropsOf<typeof PTag>;
+export type AlertDescriptionProps = HTMLNatureProps<'p'>;
 
 export const AlertDescription = (props: AlertDescriptionProps) => {
-  return <PTag {...props} />;
+  return <nature.p {...props} />;
 };
 
 if (__DEV__) {
@@ -164,7 +156,7 @@ export type AlertIconProps = SvgIconProps;
 export const AlertIcon = (props: AlertIconProps) => {
   const { className = '', size = 20, ...rest } = props;
 
-  const { variant = 'subtle', status = 'success' } = useAlertContext();
+  const { variant = 'subtle', status = 'info' } = useAlertContext();
 
   // const Component = 'div';
   const { iconColor, icon, variant: Variant } = ALERT_STATUSES[status];

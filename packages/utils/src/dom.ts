@@ -5,6 +5,14 @@ import { Booleanish } from './types';
 // eslint-disable-next-line import/no-mutable-exports
 let _window: Window | undefined;
 
+export function isElement(el: any): el is Element {
+  return (
+    el != null &&
+    typeof el == 'object' &&
+    'nodeType' in el &&
+    el.nodeType === Node.ELEMENT_NODE
+  );
+}
 /*
  * Note: Accessing "window" in IE11 is somewhat expensive, and calling "typeof window"
  * hits a memory leak, whereas aliasing it and calling "typeof _window" does not.
@@ -42,6 +50,15 @@ const checkIsBrowser = (): boolean => {
 
 export const isBrowser = checkIsBrowser();
 
+export const getOwnerDocument = (node?: Element | null): Document => {
+  return isElement(node) ? node.ownerDocument ?? document : document;
+};
+
+export const getActiveElement = (node?: HTMLElement) => {
+  const doc = getOwnerDocument(node);
+  return doc?.activeElement as HTMLElement;
+};
+
 /**
  * Get the normalized event key across all browsers
  * @param event keyboard event
@@ -62,9 +79,6 @@ export const dataAttr = (condition?: boolean) =>
   (condition ? '' : undefined) as Booleanish;
 
 export const ariaAttr = (condition?: boolean) => (condition ? true : undefined);
-
-export const getOwnerDocument = (node?: HTMLElement) =>
-  node?.ownerDocument || document;
 
 export const cx = (...classNames: any[]) =>
   classNames.filter(Boolean).join(' ');

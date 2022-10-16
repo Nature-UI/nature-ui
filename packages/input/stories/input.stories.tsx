@@ -21,11 +21,12 @@ const Template: Story<InputProps> = (args) => <Input {...args} />;
 export const Basic = Template.bind({});
 Basic.args = {
   placeholder: 'Basic input',
+  className: 'focus:border-blue-500',
 };
 
 export const WithSizes = () => {
   return (
-    <Stack spacing='1rem'>
+    <Stack spacing='1rem' col>
       {['sm', 'md', 'lg'].map((size) => (
         <Input
           size={size as any}
@@ -55,25 +56,29 @@ export const Controlled = () => {
 };
 
 export const WithStates = () => (
-  <Stack>
+  <Stack col>
     <Input placeholder='Idle' />
-    <Input isInvalid placeholder='isInvalid' />
+    <Input isInvalid placeholder='isInvalid' className='' />
     <Input isDisabled placeholder='isDisabled' />
     <Input isReadOnly placeholder='isReadonly' />
   </Stack>
 );
 
 export const WithVariants = () => (
-  <Stack spacing='2rem'>
+  <Stack spacing='2rem' col>
     <Input variant='outline' placeholder='Outline' />
     <Input variant='filled' placeholder='Filled' />
-    <Input variant='flushed' placeholder='Flushed' />
+    <Input
+      variant='flushed'
+      placeholder='Flushed'
+      className='focus:border-purple-400'
+    />
     <Input variant='unstyled' placeholder='Unstyled' />
   </Stack>
 );
 
 export const WithInputAddon = () => (
-  <Stack spacing='2rem'>
+  <Stack spacing='2rem' col>
     <Input
       placeholder='your-website'
       defaultValue='divinehycenth'

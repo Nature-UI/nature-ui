@@ -1,6 +1,6 @@
 import { SearchIcon } from '@nature-ui/icons';
 import { Stack } from '@nature-ui/layout';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react';
 import { IoLogoGithub } from 'react-icons/io';
 import { Button, ButtonProps, ButtonSpinner } from '../src';
 
@@ -9,49 +9,34 @@ export default {
   component: Button,
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Click me',
-};
-
-export const Outlined = Template.bind({});
-Outlined.args = {
-  color: 'blue-500',
-  variant: 'outline',
-  children: 'Click me!',
-};
-
-export const Ghost = Template.bind({});
-Ghost.args = {
-  text: 'blue-500',
-  variant: 'ghost',
-  children: 'Hover me!',
-};
-
-export const Link = Template.bind({});
-Link.args = {
-  color: 'blue-500',
-  variant: 'link',
-  children: 'Click me!',
+const Template: Story<ButtonProps> = (args) => (
+  <Button
+    {...args}
+    className={`bg-blue-500 hover:bg-blue-700 text-white ${args.className}`}
+  />
+);
+export const Defaults = () => {
+  return (
+    <Stack row>
+      <Template>Button</Template>
+      <Button className='outline-blue-500 hover:bg-blue-100 text-blue-500 border border-blue-500'>
+        Button
+      </Button>
+      <Button className='hover:bg-blue-100 text-blue-500'>Button</Button>
+      <Button className='bg-purple-300 text-purple-700'>Button</Button>
+    </Stack>
+  );
 };
 
 export const Sizes = () => {
   return (
     <Stack row>
-      <Button size='xs' color='blue-500' variant='solid'>
-        Button
-      </Button>
-      <Button size='sm' color='blue-500' variant='solid'>
-        Button
-      </Button>
-      <Button size='md' color='blue-500' variant='solid'>
-        Button
-      </Button>
-      <Button size='lg' color='blue-500' variant='solid'>
-        Button
-      </Button>
+      {['xs', 'sm', 'md', 'lg'].map((size: any) => (
+        <Template size={size} key={size}>
+          Button
+        </Template>
+      ))}
+      <Template size={['50px', '2rem']}>Button</Template>
     </Stack>
   );
 };
@@ -66,40 +51,21 @@ IsDisabled.args = {
 export const IsLoading = () => {
   return (
     <>
-      <Button
-        color='blue-500'
-        variant='outline'
-        isLoading
-        loadingText='Submitting...'
-        size='md'
-      >
+      <Template isLoading loadingText='Submitting...' size='md'>
         Button
-      </Button>
-      <Button
-        color='blue-500'
-        variant='solid'
-        isLoading
-        loadingText='loading...'
-        size='md'
-        className='ml-4'
-      >
+      </Template>
+      <Template isLoading loadingText='loading...' className='ml-4 ' size='md'>
         Button
-      </Button>
-      <Button color='blue-500' variant='solid' isLoading className='ml-4'>
+      </Template>
+      <Button
+        className='ml-4 outline-blue-500  text-blue-500 border border-blue-500'
+        isLoading
+      >
         Email
       </Button>
     </>
   );
 };
-
-export const Red = () => {
-  return (
-    <Button color='red-500' variant='solid'>
-      Button
-    </Button>
-  );
-};
-
 export const buttonSpinner = () => {
   return <ButtonSpinner />;
 };
@@ -107,12 +73,13 @@ export const buttonSpinner = () => {
 export const WithIcon = () => {
   return (
     <Stack row>
-      <Button leftIcon={<SearchIcon />} variant='solid'>
+      <Button
+        className='ml-4 outline-blue-500  text-blue-500 border border-blue-500'
+        leftIcon={<SearchIcon />}
+      >
         Search
       </Button>
-      <Button rightIcon={<IoLogoGithub />} variant='ghost' text='teal-600'>
-        Github
-      </Button>
+      <Template rightIcon={<IoLogoGithub />}>Github</Template>
     </Stack>
   );
 };
