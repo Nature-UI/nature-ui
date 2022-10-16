@@ -9,10 +9,11 @@
     "ui",
     "nature-ui"
   ],
-  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/nature-ui-icons.cjs.js",
+  "module": "dist/nature-ui-icons.esm.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"

@@ -2,10 +2,11 @@
   "name": "@nature-ui/core",
   "version": "2.0.1",
   "description": "Modular and accessible React UI components built with React, Tailwindcss, and Emotion",
-  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/nature-ui-core.cjs.js",
+  "module": "dist/nature-ui-core.esm.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"

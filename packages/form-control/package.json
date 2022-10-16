@@ -13,10 +13,11 @@
     "react",
     "nature ui"
   ],
-  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/nature-ui-form-control.cjs.js",
+  "module": "dist/nature-ui-form-control.esm.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"

@@ -10,10 +10,11 @@
     "component",
     "nature ui"
   ],
-  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/nature-ui-radio.cjs.js",
+  "module": "dist/nature-ui-radio.esm.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -42,10 +43,10 @@
     "@nature-ui/form-control": "^2.0.1",
     "@nature-ui/hooks": "^2.0.1",
     "@nature-ui/utils": "^2.0.1",
+    "@nature-ui/system": "^3.0.1",
     "@nature-ui/visually-hidden": "^2.0.1"
   },
   "devDependencies": {
-    "@nature-ui/system": "^3.0.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {

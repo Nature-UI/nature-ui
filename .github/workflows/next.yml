@@ -44,7 +44,7 @@ jobs:
 
       - name: Setup git user (for changelog step)
         run: |
-          git config --global user.email "divinehycenth@outlook.com"
+          git config --global user.email "divinehycenth8@gmail.com"
           git config --global user.name "Divine Hycenth"
 
       - name: Configure npm

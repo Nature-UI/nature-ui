@@ -10,7 +10,7 @@
     "testing library",
     "react testing library"
   ],
-  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
   "main": "src/index.ts",
@@ -26,12 +26,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DNature/nature-ui.git"
-  },
-  "scripts": {
-    "test": "jest --env=jsdom --passWithNoTests",
-    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
-    "lint:types": "tsc --noEmit",
-    "lint": "concurrently yarn:lint:*"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

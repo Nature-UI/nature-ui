@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "react",
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "outDir": "dist",
     "target": "es5",
     "module": "ESNext",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": true,
     "removeComments": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -33,5 +32,13 @@
     ]
   },
   "exclude": ["node_modules", "build", "acceptance-tests", "webpack", "jest"],
-  "include": ["packages", "*.config.js"]
+  "include": ["packages", "*.config.js", "tooling", "storybook-addon"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "resolveJsonModule": true,
+      "noImplicitAny": false
+    },
+    "swc": true
+  }
 }

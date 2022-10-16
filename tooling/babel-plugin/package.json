@@ -1,0 +1,50 @@
+{
+  "name": "@nature-ui/babel-plugin",
+  "version": "1.0.0",
+  "description": "Mark custom forwardRef and memo as pure for tree shaking",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "prepublish": "yarn build",
+    "lint": "eslint --ext .js src",
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Nature-UI/nature-ui.git"
+  },
+  "keywords": [
+    "nature-ui",
+    "babel-plugin"
+  ],
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nature-UI/nature-ui/issues"
+  },
+  "homepage": "https://github.com/Nature-UI/nature-ui#readme",
+  "dependencies": {
+    "@babel/helper-annotate-as-pure": "^7.18.6",
+    "@babel/helper-plugin-utils": "^7.19.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.19.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testRegex": "/test/.*\\.test\\.js$",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/log.js"
+    ]
+  }
+}

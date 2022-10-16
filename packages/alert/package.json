@@ -11,9 +11,10 @@
     "ui"
   ],
   "sideEffects": false,
-  "author": "Divine Hycenth <divinehycenth@outlook.com>",
+  "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/nature-ui-alert.cjs.js",
+  "module": "dist/nature-ui-alert.esm.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
