@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/visually-hidden",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A React component that visually hides it's content",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -44,8 +44,8 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^3.0.0",
-    "@nature-ui/utils": "^2.0.0"
+    "@nature-ui/system": "^3.0.1",
+    "@nature-ui/utils": "^2.0.1"
   },
   "peerDependencies": {
     "react": ">=18"

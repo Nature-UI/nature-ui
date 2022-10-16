@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/hooks",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Nature UI system primitives",
   "author": "Divine Hycenth <divinehycenth@outlook.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -31,7 +31,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/utils": "^2.0.0",
+    "@nature-ui/utils": "^2.0.1",
     "@reach/auto-id": "^0.11.0",
     "copy-to-clipboard": "^3.3.1"
   },
