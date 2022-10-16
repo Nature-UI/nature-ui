@@ -85,6 +85,7 @@ const ButtonIcon = forwardRef<HTMLNatureProps<'span'>, 'span'>((props, ref) => {
 
   const _children = React.isValidElement(children)
     ? React.cloneElement(children, {
+        // @ts-ignore
         'aria-hidden': true,
         focusable: false,
       })

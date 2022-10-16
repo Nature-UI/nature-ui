@@ -1,7 +1,7 @@
 import { Button } from '@nature-ui/button';
 import { Input } from '@nature-ui/input';
 import { Box, Stack } from '@nature-ui/layout';
-import * as React from 'react';
+import React from 'react';
 
 import {
   Popover,
@@ -131,6 +131,7 @@ export function WalkthroughPopover() {
             <Button
               size='sm'
               className='border-blue-500 border border-solid'
+              // @ts-ignore
               ref={initialFocusRef}
             >
               Next

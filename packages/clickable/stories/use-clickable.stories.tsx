@@ -1,6 +1,7 @@
 import { nature, PropsOf } from '@nature-ui/system';
 import { SafeMerge } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
+
 import { useClickable, UseClickableProps } from '../src';
 
 export type ClickableProps = SafeMerge<

@@ -1,6 +1,7 @@
 import { Stack } from '@nature-ui/layout';
 import { Story } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
+
 import { Checkbox, CheckboxGroup, CheckboxProps } from '../src';
 
 export default {

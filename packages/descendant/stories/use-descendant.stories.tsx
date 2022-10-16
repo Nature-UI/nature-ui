@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { createContext } from '@nature-ui/utils';
+import React from 'react';
 
-import { useDescendant, useDescendants, DescendantContext } from '../src';
+import { DescendantContext, useDescendant, useDescendants } from '../src';
 
 export default {
   title: 'Descendants',

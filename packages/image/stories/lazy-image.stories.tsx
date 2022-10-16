@@ -1,7 +1,6 @@
 import { Container } from '@nature-ui/container';
 import { Stack } from '@nature-ui/layout';
 import { Meta } from '@storybook/react';
-import React from 'react';
 import { LazyImage } from '../src';
 
 export default {

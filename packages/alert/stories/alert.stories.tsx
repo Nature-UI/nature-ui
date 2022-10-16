@@ -1,5 +1,4 @@
 import { Stack } from '@nature-ui/layout';
-import React from 'react';
 import {
   Alert,
   AlertDescription,

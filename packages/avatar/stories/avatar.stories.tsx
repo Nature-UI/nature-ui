@@ -1,5 +1,5 @@
 import { Stack } from '@nature-ui/layout';
-import * as React from 'react';
+
 import { AiOutlineUser } from 'react-icons/ai';
 import { Avatar, AvatarBadge, AvatarGroup } from '../src';
 
@@ -67,14 +67,14 @@ export const DifferentSizes = () => (
 
 export const WithBadge = () => (
   <Stack row>
-    {Avatars.map(({ name, url }) => (
+    {Avatars.map(({ name, url }, index) => (
       <Avatar
         size='md'
         {...{
           name,
           src: url,
         }}
-        key={name + 1}
+        key={index}
       >
         <AvatarBadge size='1.25em' className='bg-green-500' />
       </Avatar>
@@ -93,14 +93,14 @@ export const WithBadge = () => (
 
 export const avatarGroup = () => (
   <AvatarGroup size='md' max={3}>
-    {Avatars.map(({ name, url }) => (
+    {Avatars.map(({ name, url }, i) => (
       <Avatar
         size='md'
         {...{
           name,
           src: url,
         }}
-        key={name + 1}
+        key={i}
       />
     ))}
   </AvatarGroup>

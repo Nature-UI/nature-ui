@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Divider, Stack } from '../src';
 
 export default {

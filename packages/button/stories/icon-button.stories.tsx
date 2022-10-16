@@ -1,7 +1,7 @@
 import { PhoneIcon, SearchIcon } from '@nature-ui/icons';
 import { Stack } from '@nature-ui/layout';
 import { Meta, Story } from '@storybook/react';
-import * as React from 'react';
+
 import { HiHeart } from 'react-icons/hi';
 import { IconButton, IconButtonProps } from '../src';
 

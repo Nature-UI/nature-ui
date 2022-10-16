@@ -11,7 +11,6 @@ import {
   testA11y,
   waitFor,
 } from '@nature-ui/test-utils';
-import React from 'react';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,

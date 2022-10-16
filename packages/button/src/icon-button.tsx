@@ -47,6 +47,7 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
     const element = icon || children;
     const _children = React.isValidElement(element)
       ? React.cloneElement(element, {
+          // @ts-ignore
           'aria-hidden': true,
           focusable: false,
         })

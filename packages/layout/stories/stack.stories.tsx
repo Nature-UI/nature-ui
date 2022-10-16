@@ -1,5 +1,5 @@
 import { Button } from '@nature-ui/button';
-import * as React from 'react';
+
 import { Box, Stack } from '../src';
 
 export default {

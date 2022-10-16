@@ -1,5 +1,4 @@
 import { useDisclosure } from '@nature-ui/hooks';
-import * as React from 'react';
 
 import { usePopper } from '../src';
 
