@@ -1,5 +1,19 @@
 # @nature-ui/number-input
 
+## 2.0.1
+
+### Patch Changes
+
+- Removed sourcemaps
+- Updated dependencies
+  - @nature-ui/counter@2.0.1
+  - @nature-ui/form-control@2.0.1
+  - @nature-ui/hooks@2.0.1
+  - @nature-ui/input@2.0.1
+  - @nature-ui/react-utils@2.0.1
+  - @nature-ui/system@3.0.1
+  - @nature-ui/utils@2.0.1
+
 ## 2.0.0
 
 ### Major Changes

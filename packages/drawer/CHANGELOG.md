@@ -1,5 +1,14 @@
 # @nature-ui/drawer
 
+## 2.0.1
+
+### Patch Changes
+
+- Removed sourcemaps
+- Updated dependencies
+  - @nature-ui/modal@2.0.1
+  - @nature-ui/transition@2.0.1
+
 ## 2.0.0
 
 ### Major Changes

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/descendant",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Register child nodes of a react element for better accessibility",
   "keywords": [
     "dom",
@@ -41,7 +41,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/hooks": "^2.0.0"
+    "@nature-ui/hooks": "^2.0.1"
   },
   "peerDependencies": {
     "react": ">=18"

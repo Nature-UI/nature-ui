@@ -1,5 +1,15 @@
 # @nature-ui/spinner
 
+## 2.0.1
+
+### Patch Changes
+
+- Removed sourcemaps
+- Updated dependencies
+  - @nature-ui/system@3.0.1
+  - @nature-ui/utils@2.0.1
+  - @nature-ui/visually-hidden@2.0.1
+
 ## 2.0.0
 
 ### Major Changes

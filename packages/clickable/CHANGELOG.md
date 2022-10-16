@@ -1,5 +1,13 @@
 # @nature-ui/clickable
 
+## 2.0.1
+
+### Patch Changes
+
+- Removed sourcemaps
+- Updated dependencies
+  - @nature-ui/utils@2.0.1
+
 ## 2.0.0
 
 ### Major Changes

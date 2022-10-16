@@ -7,9 +7,8 @@
     "resolveJsonModule": true,
     "outDir": "dist",
     "target": "es5",
-    "module": "CommonJS",
+    "module": "ESNext",
     "lib": ["dom", "esnext"],
-    "sourceMap": true,
     "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
@@ -23,9 +22,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true, // FIXME: => false
     "skipLibCheck": true,
-    "noEmit": false,
     "types": [
       "jest",
       "node",

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/number-input",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A React hook for managing counters",
   "keywords": [
     "counter",
@@ -42,19 +42,19 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/counter": "^2.0.0",
-    "@nature-ui/form-control": "^2.0.0",
-    "@nature-ui/hooks": "^2.0.0",
-    "@nature-ui/input": "^2.0.0",
-    "@nature-ui/react-utils": "^2.0.0",
-    "@nature-ui/utils": "^2.0.0"
+    "@nature-ui/counter": "^2.0.1",
+    "@nature-ui/form-control": "^2.0.1",
+    "@nature-ui/hooks": "^2.0.1",
+    "@nature-ui/input": "^2.0.1",
+    "@nature-ui/react-utils": "^2.0.1",
+    "@nature-ui/utils": "^2.0.1"
   },
   "peerDependencies": {
-    "@nature-ui/system": ">=3.0.0",
+    "@nature-ui/system": ">=3.0.1",
     "react": ">=18"
   },
   "devDependencies": {
-    "@nature-ui/system": "^3.0.0",
+    "@nature-ui/system": "^3.0.1",
     "react": "^18.0.0"
   }
 }
