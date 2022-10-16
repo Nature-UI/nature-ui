@@ -33,6 +33,7 @@
     "prestart": "yarn && yarn bootstrap",
     "boot": "yarn prestart && yarn build",
     "start": "yarn build && yarn storybook",
+    "lint:eslint": "eslint packages/**/src/ --ext .ts,.tsx --config .eslintrc",
     "lint": "lerna run lint --no-private --stream",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "test": "jest --maxWorkers=50%",
