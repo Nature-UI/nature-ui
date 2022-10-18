@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert-dialog",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "React component used to render children outside the DOM hierarchy of the parent component",
   "keywords": [
     "react",

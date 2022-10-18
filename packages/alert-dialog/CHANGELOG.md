@@ -1,5 +1,11 @@
 # @nature-ui/alert-dialog
 
+## 2.0.3
+
+### Patch Changes
+
+- Remove props export
+
 ## 2.0.2
 
 ### Patch Changes
