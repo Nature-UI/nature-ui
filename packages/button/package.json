@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/button",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A React component that is a base button.",
   "keywords": [
     "button",
@@ -41,9 +41,9 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/spinner": "^2.0.1",
-    "@nature-ui/system": "^3.0.1",
-    "@nature-ui/utils": "^2.0.1",
+    "@nature-ui/spinner": "^2.0.2",
+    "@nature-ui/system": "^3.0.2",
+    "@nature-ui/utils": "^2.0.2",
     "postcss": "^8.4.18"
   },
   "peerDependencies": {

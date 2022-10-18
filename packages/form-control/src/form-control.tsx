@@ -1,10 +1,9 @@
 /** ** */
 import { useBoolean, useId } from '@nature-ui/hooks';
 import { PropGetter, PropGetterV2 } from '@nature-ui/react-utils';
-import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
+import { clsx, forwardRef, nature } from '@nature-ui/system';
 import { createContext, dataAttr, mergeRefs, __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
-const DivTag = nature('div');
+import { useCallback } from 'react';
 
 export interface FormControlOptions {
   /**
@@ -104,7 +103,7 @@ const useFormControlProvider = (props: FormControlContext) => {
   // Lets keep track of when we focus the form element (e.g `input`)
   const [isFocused, setFocus] = useBoolean();
 
-  const getHelpTextProps = React.useCallback<PropGetter>(
+  const getHelpTextProps = useCallback<PropGetter>(
     (props = {}, forwardedRef = null) => ({
       id: helpTextId,
       ...props,
@@ -120,7 +119,7 @@ const useFormControlProvider = (props: FormControlContext) => {
     [helpTextId],
   );
 
-  const getLabelProps = React.useCallback<PropGetterV2<'label'>>(
+  const getLabelProps = useCallback<PropGetterV2<'label'>>(
     (props = {}, forwardedRef = null) => ({
       ...props,
       ref: forwardedRef,
@@ -134,7 +133,7 @@ const useFormControlProvider = (props: FormControlContext) => {
     [id, labelId, isFocused, isDisabled, isInvalid, isReadOnly],
   );
 
-  const getErrorMessageProps = React.useCallback<PropGetter>(
+  const getErrorMessageProps = useCallback<PropGetter>(
     (props = {}, forwardedRef = null) => ({
       ...props,
       id: feedbackId,
@@ -151,7 +150,7 @@ const useFormControlProvider = (props: FormControlContext) => {
     [feedbackId],
   );
 
-  const getRootProps = React.useCallback<PropGetterV2<'div'>>(
+  const getRootProps = useCallback<PropGetterV2<'div'>>(
     (props = {}, forwardedRef = null) => ({
       ...props,
       ...htmlProps,
@@ -161,7 +160,7 @@ const useFormControlProvider = (props: FormControlContext) => {
     [htmlProps],
   );
 
-  const getRequiredIndicatorProps = React.useCallback<PropGetter>(
+  const getRequiredIndicatorProps = useCallback<PropGetter>(
     (props = {}, forwardedRef = null) => ({
       ...props,
       ref: forwardedRef,
@@ -197,15 +196,7 @@ const useFormControlProvider = (props: FormControlContext) => {
   };
 };
 
-const StyledFormControl = (props: PropsOf<typeof DivTag>) => {
-  const { className = '', ...rest } = props;
-
-  const _className = clsx('w-full relative', className);
-
-  return <DivTag role='group' className={_className} {...rest} />;
-};
-
-export type FormControlProps = FormControlContext & {};
+export interface FormControlProps extends FormControlContext {}
 
 /**
  * FormControl
@@ -218,9 +209,16 @@ export type FormControlProps = FormControlContext & {};
 export const FormControl = forwardRef<FormControlProps, 'div'>((props, ref) => {
   const { htmlProps, ...context } = useFormControlProvider(props);
 
+  const _className = clsx('w-full relative', props.className);
+
   return (
     <FormControlContextProvider value={context}>
-      <StyledFormControl ref={ref} {...htmlProps} />
+      <nature.div
+        role='group'
+        ref={ref}
+        className={_className}
+        {...htmlProps}
+      />
     </FormControlContextProvider>
   );
 });

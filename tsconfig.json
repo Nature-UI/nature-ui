@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "downlevelIteration": true,
+    "incremental": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "target": "es5",
-    "module": "ESNext",
+    "module": "esnext",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "declaration": true,

@@ -1,5 +1,44 @@
 # @nature-ui/core
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix webpack console warnings
+- Updated dependencies
+  - @nature-ui/alert@2.0.2
+  - @nature-ui/alert-dialog@2.0.2
+  - @nature-ui/avatar@2.0.2
+  - @nature-ui/breadcrumb@2.0.2
+  - @nature-ui/button@2.0.2
+  - @nature-ui/checkbox@2.0.2
+  - @nature-ui/clickable@2.0.2
+  - @nature-ui/close-button@2.0.2
+  - @nature-ui/color@2.0.2
+  - @nature-ui/container@2.0.2
+  - @nature-ui/counter@2.0.2
+  - @nature-ui/descendant@2.0.2
+  - @nature-ui/drawer@2.0.2
+  - @nature-ui/focus-lock@2.0.2
+  - @nature-ui/form-control@2.0.2
+  - @nature-ui/hooks@2.0.2
+  - @nature-ui/icon@2.0.2
+  - @nature-ui/image@2.0.2
+  - @nature-ui/input@2.0.2
+  - @nature-ui/layout@2.0.2
+  - @nature-ui/modal@2.0.2
+  - @nature-ui/number-input@2.0.2
+  - @nature-ui/popover@2.0.2
+  - @nature-ui/popper@2.0.2
+  - @nature-ui/portal@2.0.2
+  - @nature-ui/progress@2.0.2
+  - @nature-ui/radio@2.0.2
+  - @nature-ui/spinner@2.0.2
+  - @nature-ui/system@3.0.2
+  - @nature-ui/toast@2.0.2
+  - @nature-ui/transition@2.0.2
+  - @nature-ui/visually-hidden@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

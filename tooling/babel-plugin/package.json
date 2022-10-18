@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/babel-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mark custom forwardRef and memo as pure for tree shaking",
   "main": "dist/index.js",
   "publishConfig": {

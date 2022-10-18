@@ -1,5 +1,13 @@
 # @nature-ui/system
 
+## 3.0.2
+
+### Patch Changes
+
+- Fix webpack console warnings
+- Updated dependencies
+  - @nature-ui/utils@2.0.2
+
 ## 3.0.1
 
 ### Patch Changes

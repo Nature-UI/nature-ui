@@ -1,5 +1,17 @@
 # @nature-ui/checkbox
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix webpack console warnings
+- Updated dependencies
+  - @nature-ui/hooks@2.0.2
+  - @nature-ui/icon@2.0.2
+  - @nature-ui/system@3.0.2
+  - @nature-ui/utils@2.0.2
+  - @nature-ui/visually-hidden@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @nature-ui/popover
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix webpack console warnings
+- Updated dependencies
+  - @nature-ui/close-button@2.0.2
+  - @nature-ui/hooks@2.0.2
+  - @nature-ui/popper@2.0.2
+  - @nature-ui/portal@2.0.2
+  - @nature-ui/system@3.0.2
+  - @nature-ui/utils@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes

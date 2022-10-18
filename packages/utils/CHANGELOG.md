@@ -1,5 +1,11 @@
 # @nature-ui/utils
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix webpack console warnings
+
 ## 2.0.1
 
 ### Patch Changes
