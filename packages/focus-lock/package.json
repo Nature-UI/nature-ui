@@ -29,11 +29,12 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc",
-    "lint:src": "eslint --fix --ext=ts,tsx src -c ../../.eslintrc",
-    "lint:types": "tsc --noEmit",
-    "lint": "concurrently yarn:lint:*",
-    "test": "jest --env=jsdom"
+    "build": "JSX=1 tsup src/index.ts --dts",
+    "build:fast": "JSX=1 tsup src/index.ts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

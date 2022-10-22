@@ -7,7 +7,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "target": "es5",
+    "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
@@ -23,18 +23,10 @@
     "noUnusedParameters": true,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "types": [
-      "jest",
-      "node",
-      "react",
-      "react-dom",
-      "@testing-library/jest-dom",
-      "@emotion/react"
-    ]
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "build", "acceptance-tests", "webpack", "jest"],
-  "include": ["packages", "*.config.js", "tooling", "storybook-addon"],
+  "include": ["packages", "tooling", "storybook-addon", "react-shim.js"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS",

@@ -3,29 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=14"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "tooling/*"
-    ],
-    "nohoist": [
-      "packages/apps/**/webpack-dev-server",
-      "@emotion/core/types",
-      "**/@emotion/core/types"
-    ]
-  },
-  "resolutions": {
-    "@types/react": "18.0.0",
-    "@types/react-dom": "18.0.0",
-    "**/react": "18.0.0",
-    "**/react-dom": "18.0.0",
-    "@popperjs/core": "2.5.4"
+    "node": ">=16",
+    "pnpm": "7"
   },
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "update:check": "ncu",
     "update": "ncu -u",
     "prepare": "husky install .config/husky",
@@ -61,7 +45,9 @@
     "docs": "yarn workspace @nature-ui/docs",
     "docs:build": "yarn docs build",
     "docs:dev": "yarn docs dev",
-    "docs:start": "yarn docs start"
+    "docs:start": "yarn docs start",
+    "format:check": "prettier --check packages/**/**/src",
+    "format:write": "prettier --write packages/**/**/src"
   },
   "dependencies": {
     "@babel/cli": "^7.19.3",
@@ -153,6 +139,9 @@
     "tailwindcss": "^3.1.8",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
+    "tsup": "^6.3.0",
+    "turbo": "^1.6.1",
+    "find-up": "^6.3.0",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0"
   },
@@ -176,7 +165,14 @@
       "packages/*"
     ]
   },
+  "pnpm": {
+    "overrides": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    }
+  },
   "publishConfig": {
     "registry": "http://localhost:4873/"
-  }
+  },
+  "packageManager": "pnpm@7.13.6"
 }
