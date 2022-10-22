@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/container",
-  "version": "2.0.3-alpha.0",
+  "version": "2.0.3-alpha.1",
   "description": "Container, nature-ui, component, Nature-UI container",
   "keywords": [
     "Container",
@@ -43,8 +43,8 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0"
+    "@nature-ui/system": "^3.0.3-alpha.1",
+    "@nature-ui/utils": "^2.0.3-alpha.1"
   },
   "devDependencies": {
     "react": "^18.0.0"
