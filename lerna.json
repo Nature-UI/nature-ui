@@ -1,9 +1,9 @@
 {
-  "packages": ["packages/*", "src/*", "website/*"],
+  "packages": ["packages/*", "tooling/*"],
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspace": true,
-  "registry": "https://registry.npmjs.org/",
+  "registry": "http://localhost:4873",
   "command": {
     "publish": {
       "conventionalCommit": true,
