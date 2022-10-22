@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/toast",
-  "version": "2.0.2",
+  "version": "2.0.3-alpha.0",
   "description": "A React component and hooks wrapper for popper.js",
   "keywords": [
     "react",
@@ -44,14 +44,14 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/alert": "^2.0.2",
-    "@nature-ui/close-button": "^2.0.2",
-    "@nature-ui/hooks": "^2.0.2",
-    "@nature-ui/portal": "^2.0.2",
-    "@nature-ui/react-utils": "^2.0.2",
-    "@nature-ui/system": "^3.0.2",
-    "@nature-ui/transition": "^2.0.2",
-    "@nature-ui/utils": "^2.0.2",
+    "@nature-ui/alert": "^2.0.3-alpha.0",
+    "@nature-ui/close-button": "^2.0.3-alpha.0",
+    "@nature-ui/hooks": "^2.0.3-alpha.0",
+    "@nature-ui/portal": "^2.0.3-alpha.0",
+    "@nature-ui/react-utils": "^2.0.3-alpha.0",
+    "@nature-ui/system": "^3.0.3-alpha.0",
+    "@nature-ui/transition": "^2.0.3-alpha.0",
+    "@nature-ui/utils": "^2.0.3-alpha.0",
     "@reach/alert": "^0.11.2"
   },
   "devDependencies": {

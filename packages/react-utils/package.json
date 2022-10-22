@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/react-utils",
-  "version": "2.0.2",
+  "version": "2.0.3-alpha.0",
   "description": "React utilities and helpers for Nature UI",
   "keywords": [
     "theme",
@@ -41,7 +41,7 @@
     "test": "jest --env=jsdom --passWithNoTests"
   },
   "dependencies": {
-    "@nature-ui/utils": "^2.0.2"
+    "@nature-ui/utils": "^2.0.3-alpha.0"
   },
   "peerDependencies": {
     "react": ">=16.8.6"
