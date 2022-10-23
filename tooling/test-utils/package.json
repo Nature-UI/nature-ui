@@ -38,6 +38,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest-axe": "^3.5.4",
+    "clean-package": "^2.1.1",
     "jest-axe": "^6.0.0",
     "react-test-renderer": "^18.2.0"
   },

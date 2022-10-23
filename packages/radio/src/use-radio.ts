@@ -4,6 +4,7 @@ import { PropGetter } from '@nature-ui/react-utils';
 import { ariaAttr, callAllHandler, dataAttr, Dict } from '@nature-ui/utils';
 import { visuallyHiddenStyle } from '@nature-ui/visually-hidden';
 import * as React from 'react';
+import { InputDOMAttributes } from './../../react-utils/src/types';
 import { useRadioGroupContext } from './radio-group';
 
 /**
@@ -193,52 +194,53 @@ export const useRadio = (props: UseRadioProps = {}) => {
     ],
   );
 
-  const getInputProps: PropGetter<HTMLInputElement> = React.useCallback(
-    (props: Dict = {}, ref = null) => {
-      const trulyDisabled = isDisabled && !isFocusable;
-      return {
-        ...props,
-        ref,
-        type: 'radio',
+  const getInputProps: PropGetter<InputDOMAttributes, InputDOMAttributes> =
+    React.useCallback(
+      (props: Dict = {}, ref = null) => {
+        const trulyDisabled = isDisabled && !isFocusable;
+        return {
+          ...props,
+          ref,
+          type: 'radio',
+          name,
+          value,
+          id,
+          onChange: callAllHandler(props.onChange, handleChange),
+          onBlur: callAllHandler(props.onBlur, setFocused.off),
+          onFocus: callAllHandler(props.onFocus, setFocused.on),
+          onKeyDown: callAllHandler(props.onKeyDown, onKeyDown),
+          onKeyUp: callAllHandler(props.onKeyUp, onKeyUp),
+          checked: isChecked,
+          disabled: trulyDisabled,
+          readOnly: isReadOnly,
+          required: isRequired,
+          'aria-invalid': ariaAttr(isInvalid),
+          'aria-required': ariaAttr(isRequired),
+          'aria-disabled': ariaAttr(trulyDisabled),
+          'data-readonly': dataAttr(isReadOnly),
+          'aria-describedby': ariaDescribedBy,
+          style: visuallyHiddenStyle,
+        };
+      },
+      [
+        isDisabled,
+        isFocusable,
+        id,
         name,
         value,
-        id,
-        onChange: callAllHandler(props.onChange, handleChange),
-        onBlur: callAllHandler(props.onBlur, setFocused.off),
-        onFocus: callAllHandler(props.onFocus, setFocused.on),
-        onKeyDown: callAllHandler(props.onKeyDown, onKeyDown),
-        onKeyUp: callAllHandler(props.onKeyUp, onKeyUp),
-        checked: isChecked,
-        disabled: trulyDisabled,
-        readOnly: isReadOnly,
-        required: isRequired,
-        'aria-invalid': ariaAttr(isInvalid),
-        'aria-required': ariaAttr(isRequired),
-        'aria-disabled': ariaAttr(trulyDisabled),
-        'data-readonly': dataAttr(isReadOnly),
-        'aria-describedby': ariaDescribedBy,
-        style: visuallyHiddenStyle,
-      };
-    },
-    [
-      isDisabled,
-      isFocusable,
-      id,
-      name,
-      value,
-      handleChange,
-      onBlur,
-      setFocused,
-      onFocus,
-      onKeyDown,
-      onKeyUp,
-      isChecked,
-      isReadOnly,
-      isRequired,
-      isInvalid,
-      ariaDescribedBy,
-    ],
-  );
+        handleChange,
+        onBlur,
+        setFocused,
+        onFocus,
+        onKeyDown,
+        onKeyUp,
+        isChecked,
+        isReadOnly,
+        isRequired,
+        isInvalid,
+        ariaDescribedBy,
+      ],
+    );
 
   const getLabelProps: PropGetter = (props: Dict = {}, ref = null) => {
     return {

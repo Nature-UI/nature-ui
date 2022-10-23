@@ -30,7 +30,7 @@
     "type": "git",
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
-    "scripts": {
+  "scripts": {
     "build": "JSX=1 tsup src/index.ts --dts",
     "build:fast": "JSX=1 tsup src/index.ts",
     "dev": "pnpm build:fast -- --watch",
@@ -44,7 +44,8 @@
   "dependencies": {
     "@nature-ui/color": "^2.0.3-alpha.0",
     "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0"
+    "@nature-ui/utils": "^2.0.3-alpha.0",
+    "clean-package": "^2.1.1"
   },
   "peerDependencies": {
     "react": ">=18"

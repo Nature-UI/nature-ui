@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@nature-ui/utils": "^2.0.3-alpha.0",
+    "clean-package": "^2.1.1",
     "react-focus-lock": "^2.4.1"
   },
   "peerDependencies": {

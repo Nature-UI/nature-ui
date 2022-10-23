@@ -23,5 +23,9 @@ export const useBoolean = (initialState: InitialState = false) => {
     setValue((prev) => !prev);
   }, []);
 
-  return [value, { on, off, toggle }] as const;
+  const setState = useCallback((specificValue: boolean) => {
+    setValue(specificValue);
+  }, []);
+
+  return [value, { on, off, toggle, setState }] as const;
 };

@@ -6,7 +6,7 @@ import {
   nature,
 } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-import VisuallyHidden from '@nature-ui/visually-hidden';
+import { VisuallyHidden } from '@nature-ui/visually-hidden';
 
 const spin = keyframes({
   '0%': {

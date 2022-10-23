@@ -1,5 +1,16 @@
+const fs = require("fs")
+
+// [Workaround] This logic means `"../packages/*/stories/*.stories.tsx"` but it's much faster.
+function getStories(pkg) {
+  const scope = pkg ? [pkg] : fs.readdirSync("packages")
+  return scope
+    .map((package) => `packages/${package}/stories`)
+    .filter((storyDir) => fs.existsSync(storyDir))
+    .map((storyDir) => `../${storyDir}/*.stories.tsx`)
+}
+
 module.exports = {
-  stories: ['../packages/**/*.stories.@(ts|tsx|mdx)'],
+  stories: getStories(),
   addons: ['@storybook/addon-links', '@storybook/addon-essentials', {
     name: '@storybook/addon-postcss',
     options: {
@@ -15,6 +26,7 @@ module.exports = {
     reactDocgen: false
   },
   core: {
-    builder: "webpack5"
+    builder: "webpack5",
+    // disableTelemetry: true
   }
 };

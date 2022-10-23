@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
-    "downlevelIteration": true,
-    "incremental": true,
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
     "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "esnext"],
-    "moduleResolution": "node",
     "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": false,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
     "removeComments": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
@@ -22,17 +23,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true
+    "noFallthroughCasesInSwitch": true
   },
-  "exclude": ["node_modules", "build", "acceptance-tests", "webpack", "jest"],
-  "include": ["packages", "tooling", "storybook-addon", "react-shim.js"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS",
-      "resolveJsonModule": true,
-      "noImplicitAny": false
-    },
-    "swc": true
-  }
+  "exclude": ["**/node_modules"],
+  "include": ["packages", "tooling", "scripts", "react-shim.js"]
 }

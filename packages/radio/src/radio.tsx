@@ -1,5 +1,4 @@
-import { clsx, css, nature, PropsOf } from '@nature-ui/system';
-import * as React from 'react';
+import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { useRadioGroupContext } from './radio-group';
 import { useRadio, UseRadioProps } from './use-radio';
 
@@ -24,6 +23,7 @@ export type RadioProps = UseRadioProps &
     borderBg?: string;
     darkBorderBg?: string;
     wrapperClass?: string;
+    inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
   };
 
 const _SIZES = {
@@ -40,123 +40,122 @@ const _SIZES = {
  *
  * @see Docs https://nature-ui.com/components/radio
  */
-export const Radio = React.forwardRef(
-  (props: RadioProps, ref: React.Ref<any>) => {
-    const group = useRadioGroupContext();
+export const Radio = forwardRef<RadioProps, 'input'>((props, ref) => {
+  const group = useRadioGroupContext();
 
-    const {
-      spacing = '0.5rem',
-      size = group?.size || 'md',
-      children,
-      isFullWidth,
-      darkBg = group?.darkBg || 'bg-blue-700',
-      bg = group?.bg || 'bg-blue-500',
-      borderBg = group?.borderBg || 'border-blue-500',
-      darkBorderBg = group?.darkBorderBg || 'border-blue-700',
-      ...radioProps
-    } = props;
+  const {
+    spacing = '0.5rem',
+    size = group?.size || 'md',
+    children,
+    isFullWidth,
+    darkBg = group?.darkBg || 'bg-blue-700',
+    bg = group?.bg || 'bg-blue-500',
+    borderBg = group?.borderBg || 'border-blue-500',
+    darkBorderBg = group?.darkBorderBg || 'border-blue-700',
+    inputProps: htmlInputProps,
+    ...radioProps
+  } = props;
 
-    let { isChecked } = props;
+  let { isChecked } = props;
 
-    if (group?.value && props.value) {
-      isChecked = group.value === props.value;
+  if (group?.value && props.value) {
+    isChecked = group.value === props.value;
+  }
+
+  let { onChange } = props;
+
+  if (props.value && group?.onChange) {
+    onChange = group.onChange;
+  }
+
+  const name = group?.name || props?.name;
+  const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
+
+  const {
+    getInputProps,
+    getCheckboxProps,
+    getLabelProps,
+    htmlProps: rest,
+  } = useRadio({
+    ...radioProps,
+    isChecked,
+    onChange,
+    name,
+  });
+
+  const { style, ...inputProps } = getInputProps(htmlInputProps, ref);
+  const checkboxProps = getCheckboxProps(rest);
+
+  const { className, ..._rest } = checkboxProps as any;
+
+  const _css = css`
+    &::before {
+      content: '';
+      display: inline-block;
+      position: relative;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background: currentColor;
     }
+  `;
 
-    let { onChange } = props;
+  const _focus = typeof checkboxProps['data-focus'] !== 'undefined';
+  const _checked = typeof checkboxProps['data-checked'] !== 'undefined';
+  const _invalid = typeof checkboxProps['data-invalid'] !== 'undefined';
+  const _hover = typeof checkboxProps['data-hover'] !== 'undefined';
+  const _disabled = typeof checkboxProps['data-disabled'] !== 'undefined';
 
-    if (props.value && group?.onChange) {
-      onChange = group.onChange;
-    }
+  const _className = clsx(
+    'nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-2 border-solid rounded-full text-white transition-all duration-150',
+    _css,
+    {
+      [`${borderBg} ${bg}`]: _checked && !_invalid,
+      [`ring`]: _focus,
+      'border-red-600': _invalid,
+      [`${darkBg} ${darkBorderBg}`]: _hover && _checked && !_invalid,
+      'bg-gray-300 text-gray-300': _disabled,
+      'text-gray-500': _disabled && _checked,
+    },
+  );
 
-    const name = group?.name || props?.name;
-    const _size = typeof size === 'string' ? _SIZES[size] : `${size}px`;
-
-    const {
-      getInputProps,
-      getCheckboxProps,
-      getLabelProps,
-      htmlProps: rest,
-    } = useRadio({
-      ...radioProps,
-      isChecked,
-      onChange,
-      name,
-    });
-
-    const { style, ...inputProps } = getInputProps({ ref });
-    const checkboxProps = getCheckboxProps(rest);
-
-    const { className, ..._rest } = checkboxProps as any;
-
-    const _css = css`
-      &::before {
-        content: '';
-        display: inline-block;
-        position: relative;
-        width: 50%;
-        height: 50%;
-        border-radius: 50%;
-        background: currentColor;
-      }
-    `;
-
-    const _focus = typeof checkboxProps['data-focus'] !== 'undefined';
-    const _checked = typeof checkboxProps['data-checked'] !== 'undefined';
-    const _invalid = typeof checkboxProps['data-invalid'] !== 'undefined';
-    const _hover = typeof checkboxProps['data-hover'] !== 'undefined';
-    const _disabled = typeof checkboxProps['data-disabled'] !== 'undefined';
-
-    const _className = clsx(
-      'nature-radio__control inline-flex items-center justify-center flex-shrink-0 border-2 border-solid rounded-full text-white transition-all duration-150',
-      _css,
-      {
-        [`${borderBg} ${bg}`]: _checked && !_invalid,
-        [`ring`]: _focus,
-        'border-red-600': _invalid,
-        [`${darkBg} ${darkBorderBg}`]: _hover && _checked && !_invalid,
-        'bg-gray-300 text-gray-300': _disabled,
-        'text-gray-500': _disabled && _checked,
-      },
-    );
-
-    return (
-      <nature.label
-        className={clsx(
-          'nature-radio inline-flex items-center align-top cursor-pointer',
-          {
-            'opacity-50': _disabled,
-          },
-          className,
-        )}
+  return (
+    <nature.label
+      className={clsx(
+        'nature-radio inline-flex items-center align-top cursor-pointer',
+        {
+          'opacity-50': _disabled,
+        },
+        className,
+      )}
+      css={{
+        width: isFullWidth ? 'full' : undefined,
+      }}
+    >
+      <input
+        className='nature-radio__input'
+        style={style as any}
+        {...inputProps}
+      />
+      <nature.div
         css={{
-          width: isFullWidth ? 'full' : undefined,
+          width: _size,
+          height: _size,
         }}
-      >
-        <input
-          className='nature-radio__input'
-          style={style as any}
-          {...inputProps}
-        />
+        {..._rest}
+        className={_className}
+      />
+      {children && (
         <nature.div
+          className='nature-radio__label select-none'
           css={{
-            width: _size,
-            height: _size,
+            marginLeft: spacing,
           }}
-          {..._rest}
-          className={_className}
-        />
-        {children && (
-          <nature.div
-            className='nature-radio__label select-none'
-            css={{
-              marginLeft: spacing,
-            }}
-            {...getLabelProps()}
-          >
-            {children}
-          </nature.div>
-        )}
-      </nature.label>
-    );
-  },
-);
+          {...getLabelProps()}
+        >
+          {children}
+        </nature.div>
+      )}
+    </nature.label>
+  );
+});

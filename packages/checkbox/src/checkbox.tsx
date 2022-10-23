@@ -11,7 +11,8 @@ import { __DEV__ } from '@nature-ui/utils';
 import React from 'react';
 import { useCheckboxGroupContext } from './checkbox-group';
 import { CheckboxIcon } from './checkbox-icon';
-import { useCheckbox, UseCheckboxProps } from './use-checkbox';
+import type { UseCheckboxProps } from './checkbox-types';
+import { useCheckbox } from './use-checkbox';
 
 interface ControlProps extends HTMLNatureProps<'div'> {
   hoverColor?: string;

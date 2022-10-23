@@ -19,6 +19,7 @@ import {
   StringOrNumber,
 } from '@nature-ui/utils';
 import React, { useCallback, useMemo } from 'react';
+import { InputDOMAttributes } from './../../react-utils/src/types';
 import { useSpinner } from './use-spinner';
 import {
   isFloatingPointNumericCharacter,
@@ -365,126 +366,119 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
     { passive: false },
   );
 
-  const getIncrementButtonProps: PropGetter<any, { disabled?: boolean }> =
-    useCallback(
-      (props = {}, ref = null) => {
-        const disabled = isDisabled || (keepWithinRange && counter.isAtMax);
-        return {
-          ...props,
-          ref,
-          role: 'button',
-          tabIndex: -1,
-          [pointerDown]: callAllHandler(props[pointerDown], spinUp),
-          onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
-          onMouseLeave: callAllHandler(props.onMouseUp, spinner.stop),
-          onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
-          disabled,
-          'aria-disabled': ariaAttr(disabled),
-        };
-      },
-      [
-        pointerDown,
-        counter.isAtMax,
-        keepWithinRange,
-        spinUp,
-        spinner.stop,
-        isDisabled,
-      ],
-    );
-
-  const getDecrementButtonProps: PropGetter<any, { disabled?: boolean }> =
-    useCallback(
-      (props = {}, ref = null) => {
-        const disabled = isDisabled || (keepWithinRange && counter.isAtMin);
-
-        return {
-          ...props,
-          ref,
-          role: 'button',
-          tabIndex: -1,
-          [pointerDown]: callAllHandler(props[pointerDown], spinDown),
-          onMouseLeave: callAllHandler(props.onMouseLeave, spinner.stop),
-          onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
-          onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
-          disabled,
-          'aria-disabled': ariaAttr(disabled),
-        };
-      },
-      [
-        pointerDown,
-        counter.isAtMin,
-        keepWithinRange,
-        spinDown,
-        spinner.stop,
-        isDisabled,
-      ],
-    );
-
-  const getInputProps: PropGetter<
-    HTMLInputElement,
-    Pick<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      'disabled' | 'required' | 'readOnly'
-    >
-  > = useCallback(
-    (props = {}, ref = null) => ({
-      name,
-      inputMode,
-      type: 'text',
-      pattern,
-      'aria-labelledby': ariaLabelledBy,
-      'aria-label': ariaLabel,
-      'aria-describedby': ariaDescBy,
-      id,
-      disabled: isDisabled,
-      ...props,
-      readOnly: props.readOnly ?? isReadOnly,
-      'aria-readonly': props.readOnly ?? isReadOnly,
-      'aria-required': props.required ?? isRequired,
-      required: props.required ?? isRequired,
-      ref: mergeRefs(inputRef, ref),
-      value: counter.value,
-      role: 'spinbutton',
-      'aria-valuemin': min,
-      'aria-valuemax': max,
-      'aria-valuenow': Number.isNaN(counter.valueAsNumber)
-        ? undefined
-        : counter.valueAsNumber,
-      'aria-invalid': ariaAttr(isInvalid ?? counter.isOutOfRange),
-      'aria-valuetext': ariaValueText,
-      autoComplete: 'off',
-      autoCorrect: 'off',
-      onChange: callAllHandler(props.onChange, onChange),
-      onKeyDown: callAllHandler(props.onKeyDown, onKeyDown),
-      onFocus: callAllHandler(props.onFocus, onFocusProp, setFocused.on),
-      onBlur: callAllHandler(props.onBlur, onBlurProp, onInputBlur),
-    }),
+  const getIncrementButtonProps: PropGetter = useCallback(
+    (props = {}, ref = null) => {
+      const disabled = isDisabled || (keepWithinRange && counter.isAtMax);
+      return {
+        ...props,
+        ref,
+        role: 'button',
+        tabIndex: -1,
+        [pointerDown]: callAllHandler(props[pointerDown], spinUp),
+        onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
+        onMouseLeave: callAllHandler(props.onMouseUp, spinner.stop),
+        onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
+        disabled,
+        'aria-disabled': ariaAttr(disabled),
+      };
+    },
     [
-      name,
-      inputMode,
-      pattern,
-      ariaLabelledBy,
-      ariaLabel,
-      ariaDescBy,
-      id,
+      pointerDown,
+      counter.isAtMax,
+      keepWithinRange,
+      spinUp,
+      spinner.stop,
       isDisabled,
-      isRequired,
-      isReadOnly,
-      isInvalid,
-      counter.value,
-      counter.valueAsNumber,
-      counter.isOutOfRange,
-      min,
-      max,
-      ariaValueText,
-      onChange,
-      onKeyDown,
-      onFocusProp,
-      setFocused.on,
-      onBlurProp,
-      onInputBlur,
     ],
   );
+
+  const getDecrementButtonProps: PropGetter = useCallback(
+    (props = {}, ref = null) => {
+      const disabled = isDisabled || (keepWithinRange && counter.isAtMin);
+
+      return {
+        ...props,
+        ref,
+        role: 'button',
+        tabIndex: -1,
+        [pointerDown]: callAllHandler(props[pointerDown], spinDown),
+        onMouseLeave: callAllHandler(props.onMouseLeave, spinner.stop),
+        onMouseUp: callAllHandler(props.onMouseUp, spinner.stop),
+        onTouchEnd: callAllHandler(props.onTouchEnd, spinner.stop),
+        disabled,
+        'aria-disabled': ariaAttr(disabled),
+      };
+    },
+    [
+      pointerDown,
+      counter.isAtMin,
+      keepWithinRange,
+      spinDown,
+      spinner.stop,
+      isDisabled,
+    ],
+  );
+
+  const getInputProps: PropGetter<InputDOMAttributes, InputDOMAttributes> =
+    useCallback(
+      (props = {}, ref = null) => ({
+        name,
+        inputMode,
+        type: 'text',
+        pattern,
+        'aria-labelledby': ariaLabelledBy,
+        'aria-label': ariaLabel,
+        'aria-describedby': ariaDescBy,
+        id,
+        disabled: isDisabled,
+        ...props,
+        readOnly: props.readOnly ?? isReadOnly,
+        'aria-readonly': props.readOnly ?? isReadOnly,
+        'aria-required': props.required ?? isRequired,
+        required: props.required ?? isRequired,
+        ref: mergeRefs(inputRef, ref),
+        value: counter.value,
+        role: 'spinbutton',
+        'aria-valuemin': min,
+        'aria-valuemax': max,
+        'aria-valuenow': Number.isNaN(counter.valueAsNumber)
+          ? undefined
+          : counter.valueAsNumber,
+        'aria-invalid': ariaAttr(isInvalid ?? counter.isOutOfRange),
+        'aria-valuetext': ariaValueText,
+        autoComplete: 'off',
+        autoCorrect: 'off',
+        onChange: callAllHandler(props.onChange, onChange),
+        onKeyDown: callAllHandler(props.onKeyDown, onKeyDown),
+        onFocus: callAllHandler(props.onFocus, onFocusProp, setFocused.on),
+        onBlur: callAllHandler(props.onBlur, onBlurProp, onInputBlur),
+      }),
+      [
+        name,
+        inputMode,
+        pattern,
+        ariaLabelledBy,
+        ariaLabel,
+        ariaDescBy,
+        id,
+        isDisabled,
+        isRequired,
+        isReadOnly,
+        isInvalid,
+        counter.value,
+        counter.valueAsNumber,
+        counter.isOutOfRange,
+        min,
+        max,
+        ariaValueText,
+        onChange,
+        onKeyDown,
+        onFocusProp,
+        setFocused.on,
+        onBlurProp,
+        onInputBlur,
+      ],
+    );
 
   return {
     value: counter.value,

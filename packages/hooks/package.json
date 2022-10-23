@@ -35,6 +35,7 @@
   "dependencies": {
     "@nature-ui/utils": "^2.0.3-alpha.0",
     "@reach/auto-id": "^0.11.0",
+    "clean-package": "^2.1.1",
     "copy-to-clipboard": "^3.3.1"
   },
   "peerDependencies": {

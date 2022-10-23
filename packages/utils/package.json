@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@types/lodash.mergewith": "^4.6.6",
+    "clean-package": "^2.1.1",
     "css-box-model": "^1.2.1",
     "deepmerge": "^4.2.2",
     "lodash.mergewith": "^4.6.2",
