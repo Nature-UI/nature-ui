@@ -31,15 +31,16 @@
   "homepage": "https://github.com/Nature-UI/nature-ui#readme",
   "dependencies": {
     "@babel/helper-annotate-as-pure": "^7.18.6",
-    "@babel/helper-plugin-utils": "^7.19.0",
-    "clean-package": "^2.1.1"
+    "@babel/helper-plugin-utils": "^7.19.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.19.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@babel/eslint-parser": "^7.19.1"
+    "@babel/eslint-parser": "^7.19.1",
+    "@nature-ui/system": "workspace:*",
+    "clean-package": "^2.1.1"
   },
   "jest": {
     "testEnvironment": "node",

@@ -1,5 +1,6 @@
 import { Icon, SvgIconProps } from '@nature-ui/icon';
 import { Meta, Story } from '@storybook/react';
+import * as React from 'react';
 import { MdAccessible } from 'react-icons/md';
 import { AddIcon } from '../src';
 

@@ -36,13 +36,13 @@
   "dependencies": {
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
-    "clean-package": "^2.1.1",
     "clsx": "^1.2.1",
     "hoist-non-react-statics": "^3.3.2"
   },
   "devDependencies": {
     "@types/hoist-non-react-statics": "^3.3.1",
+    "@nature-ui/utils": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {

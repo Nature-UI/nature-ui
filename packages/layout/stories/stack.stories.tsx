@@ -1,5 +1,3 @@
-import { Button } from '@nature-ui/button';
-
 import { Box, Stack } from '../src';
 
 export default {
@@ -38,13 +36,13 @@ export const Column = () => (
   </Stack>
 );
 
-export const WithButtons = () => (
+export const Withbuttons = () => (
   <Stack row spacing='1.5rem'>
-    <Button variant='solid'>Hi world</Button>
-    <Button variant='solid'>Hi world</Button>
-    <Button variant='solid'>Hi world</Button>
-    <Button variant='solid'>Hi world</Button>
-    <Button variant='solid'>Hi world</Button>
-    <Button variant='solid'>Hi world</Button>
+    <button>Hi world</button>
+    <button>Hi world</button>
+    <button>Hi world</button>
+    <button>Hi world</button>
+    <button>Hi world</button>
+    <button>Hi world</button>
   </Stack>
 );

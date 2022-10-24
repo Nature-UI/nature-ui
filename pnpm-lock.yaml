@@ -202,42 +202,49 @@ importers:
 
   packages/alert:
     specifiers:
-      '@nature-ui/icon': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@nature-ui/icon': link:../icon
+    devDependencies:
+      '@nature-ui/layout': link:../layout
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
       react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
 
   packages/alert-dialog:
     specifiers:
-      '@nature-ui/modal': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/modal': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/modal': link:../modal
+    devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/hooks': link:../hooks
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/avatar:
     specifiers:
-      '@nature-ui/color': ^2.0.3-alpha.0
-      '@nature-ui/image': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/color': workspace:*
+      '@nature-ui/image': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       '@types/tinycolor2': ^1.4.2
       clean-package: ^2.1.1
       react: ^18.2.0
@@ -245,57 +252,62 @@ importers:
     dependencies:
       '@nature-ui/color': link:../color
       '@nature-ui/image': link:../image
-      '@nature-ui/system': link:../system
-      '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       tinycolor2: registry.npmjs.org/tinycolor2/1.4.2
     devDependencies:
+      '@nature-ui/layout': link:../layout
+      '@nature-ui/system': link:../system
+      '@nature-ui/utils': link:../utils
       '@types/tinycolor2': registry.npmjs.org/@types/tinycolor2/1.4.3
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/breadcrumb:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       '@types/tinycolor2': ^1.4.2
       clean-package: ^2.1.1
       react: ^18.2.0
       tinycolor2: ^1.4.1
-    dependencies:
+    devDependencies:
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       '@types/tinycolor2': registry.npmjs.org/@types/tinycolor2/1.4.3
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
       tinycolor2: registry.npmjs.org/tinycolor2/1.4.2
 
   packages/button:
     specifiers:
-      '@nature-ui/spinner': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/icons': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/spinner': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       postcss: ^8.4.18
       react: ^18.2.0
     dependencies:
       '@nature-ui/spinner': link:../spinner
+      postcss: registry.npmjs.org/postcss/8.4.18
+    devDependencies:
+      '@nature-ui/icons': link:../icons
+      '@nature-ui/layout': link:../layout
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-      postcss: registry.npmjs.org/postcss/8.4.18
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/checkbox:
     specifiers:
       '@nature-ui/form-control': 2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/icon': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
-      '@nature-ui/visually-hidden': ^2.0.3-alpha.0
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
+      '@nature-ui/visually-hidden': workspace:*
       '@zag-js/focus-visible': ^0.1.6
       clean-package: ^2.1.1
       react: ^18.2.0
@@ -304,104 +316,109 @@ importers:
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/icon': link:../icon
       '@nature-ui/react-utils': link:../react-utils
-      '@nature-ui/system': link:../system
-      '@nature-ui/utils': link:../utils
       '@nature-ui/visually-hidden': link:../visually-hidden
       '@zag-js/focus-visible': registry.npmjs.org/@zag-js/focus-visible/0.1.6
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/layout': link:../layout
+      '@nature-ui/system': link:../system
+      '@nature-ui/utils': link:../utils
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/clickable:
     specifiers:
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/close-button:
     specifiers:
-      '@nature-ui/icon': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/icon': link:../icon
+    devDependencies:
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/color:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       '@types/tinycolor2': ^1.4.2
       clean-package: ^2.1.1
       react: ^18.2.0
       tinycolor2: ^1.4.1
     dependencies:
-      '@nature-ui/system': link:../system
-      '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       tinycolor2: registry.npmjs.org/tinycolor2/1.4.2
     devDependencies:
+      '@nature-ui/layout': link:../layout
+      '@nature-ui/system': link:../system
+      '@nature-ui/utils': link:../utils
       '@types/tinycolor2': registry.npmjs.org/@types/tinycolor2/1.4.3
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/container:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
-      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/core:
     specifiers:
-      '@nature-ui/alert': ^2.0.3-alpha.0
-      '@nature-ui/alert-dialog': ^2.0.4-alpha.0
-      '@nature-ui/avatar': ^2.0.3-alpha.0
-      '@nature-ui/breadcrumb': ^2.0.3-alpha.0
-      '@nature-ui/button': ^2.0.3-alpha.0
-      '@nature-ui/checkbox': ^2.0.3-alpha.0
-      '@nature-ui/clickable': ^2.0.3-alpha.0
-      '@nature-ui/close-button': ^2.0.3-alpha.0
-      '@nature-ui/color': ^2.0.3-alpha.0
-      '@nature-ui/container': ^2.0.3-alpha.0
-      '@nature-ui/counter': ^2.0.3-alpha.0
-      '@nature-ui/descendant': ^2.0.3-alpha.0
-      '@nature-ui/drawer': ^2.0.3-alpha.0
-      '@nature-ui/focus-lock': ^2.0.3-alpha.0
-      '@nature-ui/form-control': ^2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/icon': ^2.0.3-alpha.0
-      '@nature-ui/image': ^2.0.3-alpha.0
-      '@nature-ui/input': ^2.0.3-alpha.0
-      '@nature-ui/layout': ^2.0.3-alpha.0
-      '@nature-ui/modal': ^2.0.3-alpha.0
-      '@nature-ui/number-input': ^2.0.3-alpha.0
-      '@nature-ui/popover': ^2.0.3-alpha.0
-      '@nature-ui/popper': ^2.0.3-alpha.0
-      '@nature-ui/portal': ^2.0.3-alpha.0
-      '@nature-ui/progress': ^2.0.3-alpha.0
-      '@nature-ui/radio': ^2.0.3-alpha.0
-      '@nature-ui/spinner': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/toast': ^2.0.3-alpha.0
-      '@nature-ui/transition': ^2.0.3-alpha.0
-      '@nature-ui/visually-hidden': ^2.0.3-alpha.0
+      '@nature-ui/alert': workspace:*
+      '@nature-ui/alert-dialog': workspace:*
+      '@nature-ui/avatar': workspace:*
+      '@nature-ui/breadcrumb': workspace:*
+      '@nature-ui/button': workspace:*
+      '@nature-ui/checkbox': workspace:*
+      '@nature-ui/clickable': workspace:*
+      '@nature-ui/close-button': workspace:*
+      '@nature-ui/color': workspace:*
+      '@nature-ui/container': workspace:*
+      '@nature-ui/counter': workspace:*
+      '@nature-ui/descendant': workspace:*
+      '@nature-ui/drawer': workspace:*
+      '@nature-ui/focus-lock': workspace:*
+      '@nature-ui/form-control': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/image': workspace:*
+      '@nature-ui/input': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/modal': workspace:*
+      '@nature-ui/number-input': workspace:*
+      '@nature-ui/popover': workspace:*
+      '@nature-ui/popper': workspace:*
+      '@nature-ui/portal': workspace:*
+      '@nature-ui/progress': workspace:*
+      '@nature-ui/radio': workspace:*
+      '@nature-ui/spinner': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/toast': workspace:*
+      '@nature-ui/transition': workspace:*
+      '@nature-ui/visually-hidden': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
@@ -437,88 +454,99 @@ importers:
       '@nature-ui/toast': link:../toast
       '@nature-ui/transition': link:../transition
       '@nature-ui/visually-hidden': link:../visually-hidden
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/counter:
     specifiers:
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/hooks': link:../hooks
+    devDependencies:
+      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/descendant:
     specifiers:
-      '@nature-ui/hooks': ^2.0.3-alpha.0
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/hooks': link:../hooks
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      '@nature-ui/utils': link:../utils
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/drawer:
     specifiers:
-      '@nature-ui/modal': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/transition': ^2.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/modal': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/transition': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/modal': link:../modal
       '@nature-ui/react-utils': link:../react-utils
-      '@nature-ui/system': link:../system
       '@nature-ui/transition': link:../transition
+    devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/focus-lock:
     specifiers:
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
       react-focus-lock: ^2.4.1
     dependencies:
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       react-focus-lock: registry.npmjs.org/react-focus-lock/2.9.0_react@18.2.0
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/form-control:
     specifiers:
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/icon': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/icon': link:../icon
       '@nature-ui/react-utils': link:../react-utils
+    devDependencies:
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/hooks:
     specifiers:
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       '@reach/auto-id': ^0.11.0
       clean-package: ^2.1.1
       copy-to-clipboard: ^3.3.1
@@ -526,90 +554,100 @@ importers:
     dependencies:
       '@nature-ui/utils': link:../utils
       '@reach/auto-id': registry.npmjs.org/@reach/auto-id/0.11.2_react@18.2.0
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       copy-to-clipboard: registry.npmjs.org/copy-to-clipboard/3.3.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/icon:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
-    dependencies:
+    devDependencies:
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/icons:
     specifiers:
-      '@nature-ui/icon': ^2.0.3-alpha.0
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/system': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/icon': link:../icon
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/image:
     specifiers:
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/container': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
       react-intersection-observer: ^8.31.0
     dependencies:
       '@nature-ui/hooks': link:../hooks
+      react-intersection-observer: registry.npmjs.org/react-intersection-observer/8.34.0_react@18.2.0
+    devDependencies:
+      '@nature-ui/container': link:../container
+      '@nature-ui/layout': link:../layout
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-      react-intersection-observer: registry.npmjs.org/react-intersection-observer/8.34.0_react@18.2.0
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/input:
     specifiers:
-      '@nature-ui/form-control': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/form-control': workspace:*
+      '@nature-ui/icons': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/form-control': link:../form-control
+    devDependencies:
+      '@nature-ui/icons': link:../icons
+      '@nature-ui/layout': link:../layout
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/layout:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
-    dependencies:
+    devDependencies:
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/modal:
     specifiers:
-      '@nature-ui/close-button': ^2.0.3-alpha.0
-      '@nature-ui/focus-lock': ^2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/portal': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/transition': ^2.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/close-button': workspace:*
+      '@nature-ui/focus-lock': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/portal': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/transition': workspace:*
+      '@nature-ui/utils': workspace:*
       aria-hidden: ^1.1.3
       clean-package: ^2.1.1
       framer-motion: ^6.3.3
@@ -621,26 +659,29 @@ importers:
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/portal': link:../portal
       '@nature-ui/react-utils': link:../react-utils
-      '@nature-ui/system': link:../system
       '@nature-ui/transition': link:../transition
       '@nature-ui/utils': link:../utils
       aria-hidden: registry.npmjs.org/aria-hidden/1.1.3
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       framer-motion: registry.npmjs.org/framer-motion/6.3.3_react@18.2.0
       react-remove-scroll: registry.npmjs.org/react-remove-scroll/2.5.3_react@18.2.0
     devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/number-input:
     specifiers:
-      '@nature-ui/counter': ^2.0.3-alpha.0
-      '@nature-ui/form-control': ^2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/icon': ^2.0.3-alpha.0
-      '@nature-ui/input': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/counter': workspace:*
+      '@nature-ui/form-control': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/icon': workspace:*
+      '@nature-ui/input': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
@@ -651,19 +692,24 @@ importers:
       '@nature-ui/input': link:../input
       '@nature-ui/react-utils': link:../react-utils
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/layout': link:../layout
       '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/popover:
     specifiers:
-      '@nature-ui/close-button': ^2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/popper': ^2.0.3-alpha.0
-      '@nature-ui/portal': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/close-button': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/input': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/popper': workspace:*
+      '@nature-ui/portal': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
@@ -671,28 +717,37 @@ importers:
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/popper': link:../popper
       '@nature-ui/portal': link:../portal
+    devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/input': link:../input
+      '@nature-ui/layout': link:../layout
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       react: registry.npmjs.org/react/18.2.0
 
   packages/popper:
     specifiers:
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/system': workspace:*
       '@popperjs/core': ^2.5.4
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@popperjs/core': registry.npmjs.org/@popperjs/core/2.11.5
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/hooks': link:../hooks
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/portal:
     specifiers:
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       '@types/react-frame-component': ^4.1.3
       clean-package: ^2.1.1
       react: ^18.2.0
@@ -701,81 +756,87 @@ importers:
     dependencies:
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/react-utils': link:../react-utils
-      '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/system': link:../system
+      '@nature-ui/utils': link:../utils
       '@types/react-frame-component': registry.npmjs.org/@types/react-frame-component/4.1.3
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
       react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
       react-frame-component: registry.npmjs.org/react-frame-component/5.2.1_biqbaboplfbrettd7655fr4n2y
 
   packages/progress:
     specifiers:
-      '@nature-ui/color': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/color': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/color': link:../color
-      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/radio:
     specifiers:
-      '@nature-ui/form-control': ^2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
-      '@nature-ui/visually-hidden': ^2.0.3-alpha.0
+      '@nature-ui/form-control': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/layout': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
+      '@nature-ui/visually-hidden': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/form-control': link:../form-control
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/react-utils': link:../react-utils
-      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       '@nature-ui/visually-hidden': link:../visually-hidden
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/layout': link:../layout
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/react-utils:
     specifiers:
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/spinner:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
-      '@nature-ui/visually-hidden': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
+      '@nature-ui/visually-hidden': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
-      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       '@nature-ui/visually-hidden': link:../visually-hidden
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/system:
     specifiers:
       '@emotion/css': ^11.9.0
       '@emotion/react': ^11.9.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/utils': workspace:*
       '@types/hoist-non-react-statics': ^3.3.1
       clean-package: ^2.1.1
       clsx: ^1.2.1
@@ -784,24 +845,25 @@ importers:
     dependencies:
       '@emotion/css': registry.npmjs.org/@emotion/css/11.9.0
       '@emotion/react': registry.npmjs.org/@emotion/react/11.9.0_react@18.2.0
-      '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       clsx: registry.npmjs.org/clsx/1.2.1
       hoist-non-react-statics: registry.npmjs.org/hoist-non-react-statics/3.3.2
     devDependencies:
+      '@nature-ui/utils': link:../utils
       '@types/hoist-non-react-statics': registry.npmjs.org/@types/hoist-non-react-statics/3.3.1
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/toast:
     specifiers:
-      '@nature-ui/alert': ^2.0.3-alpha.0
-      '@nature-ui/close-button': ^2.0.3-alpha.0
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/portal': ^2.0.3-alpha.0
-      '@nature-ui/react-utils': ^2.0.3-alpha.0
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/transition': ^2.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/alert': workspace:*
+      '@nature-ui/button': workspace:*
+      '@nature-ui/close-button': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/portal': workspace:*
+      '@nature-ui/react-utils': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/transition': workspace:*
+      '@nature-ui/utils': workspace:*
       '@reach/alert': ^0.11.2
       clean-package: ^2.1.1
       framer-motion: ^6.3.3
@@ -813,28 +875,32 @@ importers:
       '@nature-ui/hooks': link:../hooks
       '@nature-ui/portal': link:../portal
       '@nature-ui/react-utils': link:../react-utils
-      '@nature-ui/system': link:../system
       '@nature-ui/transition': link:../transition
-      '@nature-ui/utils': link:../utils
       '@reach/alert': registry.npmjs.org/@reach/alert/0.11.2_biqbaboplfbrettd7655fr4n2y
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/system': link:../system
+      '@nature-ui/utils': link:../utils
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       framer-motion: registry.npmjs.org/framer-motion/6.3.3_biqbaboplfbrettd7655fr4n2y
       react: registry.npmjs.org/react/18.2.0
       react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
 
   packages/transition:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/button': workspace:*
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       framer-motion: ^6.3.3
       react: ^18.2.0
-    dependencies:
+    devDependencies:
+      '@nature-ui/button': link:../button
+      '@nature-ui/hooks': link:../hooks
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
-    devDependencies:
       framer-motion: registry.npmjs.org/framer-motion/6.3.3_react@18.2.0
       react: registry.npmjs.org/react/18.2.0
 
@@ -849,25 +915,25 @@ importers:
       react: ^18.2.0
     dependencies:
       '@types/lodash.mergewith': registry.npmjs.org/@types/lodash.mergewith/4.6.7
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       css-box-model: registry.npmjs.org/css-box-model/1.2.1
       deepmerge: registry.npmjs.org/deepmerge/4.2.2
       lodash.mergewith: registry.npmjs.org/lodash.mergewith/4.6.2
       memoize-one: registry.npmjs.org/memoize-one/5.2.1
     devDependencies:
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   packages/visually-hidden:
     specifiers:
-      '@nature-ui/system': ^3.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
     dependencies:
-      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
+      '@nature-ui/system': link:../system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
   tooling/babel-plugin:
@@ -876,19 +942,22 @@ importers:
       '@babel/eslint-parser': ^7.19.1
       '@babel/helper-annotate-as-pure': ^7.18.6
       '@babel/helper-plugin-utils': ^7.19.0
+      '@nature-ui/system': workspace:*
       clean-package: ^2.1.1
     dependencies:
       '@babel/helper-annotate-as-pure': registry.npmjs.org/@babel/helper-annotate-as-pure/7.18.6
       '@babel/helper-plugin-utils': registry.npmjs.org/@babel/helper-plugin-utils/7.19.0
-      clean-package: registry.npmjs.org/clean-package/2.1.1
     devDependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.19.3
       '@babel/eslint-parser': registry.npmjs.org/@babel/eslint-parser/7.19.1_@babel+core@7.19.3
+      '@nature-ui/system': link:../../packages/system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
 
   tooling/test-utils:
     specifiers:
-      '@nature-ui/hooks': ^2.0.3-alpha.0
-      '@nature-ui/utils': ^2.0.3-alpha.0
+      '@nature-ui/hooks': workspace:*
+      '@nature-ui/system': workspace:*
+      '@nature-ui/utils': workspace:*
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react': ^13.4.0
       '@testing-library/react-hooks': ^8.0.1
@@ -906,10 +975,11 @@ importers:
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/8.0.1_5jrsmvi4nbqxjmafejzgczzghm
       '@testing-library/user-event': registry.npmjs.org/@testing-library/user-event/14.4.3
       '@types/jest-axe': registry.npmjs.org/@types/jest-axe/3.5.4
-      clean-package: registry.npmjs.org/clean-package/2.1.1
       jest-axe: registry.npmjs.org/jest-axe/6.0.0
       react-test-renderer: registry.npmjs.org/react-test-renderer/18.2.0_react@18.2.0
     devDependencies:
+      '@nature-ui/system': link:../../packages/system
+      clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
 
 packages:
@@ -10003,7 +10073,6 @@ packages:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz}
     name: balanced-match
     version: 1.0.2
-    dev: false
 
   registry.npmjs.org/base/0.11.2:
     resolution: {integrity: sha512-5T6P4xPgpp0YDFvSWwEZ4NoE3aM4QBQXDzmVbraCkFj8zHM+mba8SyqB5DbZWyR7mYHo6Y7BdQo3MoA4m0TeQg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/base/-/base-0.11.2.tgz}
@@ -10214,7 +10283,6 @@ packages:
     dependencies:
       balanced-match: registry.npmjs.org/balanced-match/1.0.2
       concat-map: registry.npmjs.org/concat-map/0.0.1
-    dev: false
 
   registry.npmjs.org/brace-expansion/2.0.1:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz}
@@ -10989,7 +11057,7 @@ packages:
     hasBin: true
     dependencies:
       dot-object: registry.npmjs.org/dot-object/2.1.4
-    dev: false
+    dev: true
 
   registry.npmjs.org/clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/clean-stack/-/clean-stack-2.2.0.tgz}
@@ -11279,7 +11347,6 @@ packages:
     name: commander
     version: 4.1.1
     engines: {node: '>= 6'}
-    dev: false
 
   registry.npmjs.org/commander/6.2.1:
     resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/commander/-/commander-6.2.1.tgz}
@@ -11422,7 +11489,6 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz}
     name: concat-map
     version: 0.0.1
-    dev: false
 
   registry.npmjs.org/concat-stream/1.6.2:
     resolution: {integrity: sha512-27HBghJxjiZtIk3Ycvn/4kbJk/1uZuJFfuPEns6LaEvpvG1f0hTea8lilrouyo9mVc2GWdcEZ8OLoGmSADlrCw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/concat-stream/-/concat-stream-1.6.2.tgz}
@@ -12876,7 +12942,7 @@ packages:
     dependencies:
       commander: registry.npmjs.org/commander/4.1.1
       glob: registry.npmjs.org/glob/7.2.3
-    dev: false
+    dev: true
 
   registry.npmjs.org/dot-prop/5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/dot-prop/-/dot-prop-5.3.0.tgz}
@@ -14983,7 +15049,6 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz}
     name: fs.realpath
     version: 1.0.0
-    dev: false
 
   registry.npmjs.org/fsevents/1.2.13:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/fsevents/-/fsevents-1.2.13.tgz}
@@ -15364,7 +15429,6 @@ packages:
       minimatch: registry.npmjs.org/minimatch/3.1.2
       once: registry.npmjs.org/once/1.4.0
       path-is-absolute: registry.npmjs.org/path-is-absolute/1.0.1
-    dev: false
 
   registry.npmjs.org/glob/8.0.1:
     resolution: {integrity: sha512-cF7FYZZ47YzmCu7dDy50xSRRfO3ErRfrXuLZcNIuyiJEco0XSrGtuilG19L5xp3NcwTx7Gn+X6Tv3fmsUPTbow==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/glob/-/glob-8.0.1.tgz}
@@ -16268,7 +16332,6 @@ packages:
     dependencies:
       once: registry.npmjs.org/once/1.4.0
       wrappy: registry.npmjs.org/wrappy/1.0.2
-    dev: false
 
   registry.npmjs.org/inherits/2.0.1:
     resolution: {integrity: sha512-8nWq2nLTAwd02jTqJExUYFSD/fKq6VH9Y/oG2accc/kdI0V98Bag8d5a4gi3XHz73rDWa2PvTtvcWYquKqSENA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz}
@@ -16286,7 +16349,6 @@ packages:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz}
     name: inherits
     version: 2.0.4
-    dev: false
 
   registry.npmjs.org/ini/1.3.8:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/ini/-/ini-1.3.8.tgz}
@@ -19273,7 +19335,6 @@ packages:
     version: 3.1.2
     dependencies:
       brace-expansion: registry.npmjs.org/brace-expansion/1.1.11
-    dev: false
 
   registry.npmjs.org/minimatch/5.1.0:
     resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/minimatch/-/minimatch-5.1.0.tgz}
@@ -20273,7 +20334,6 @@ packages:
     version: 1.4.0
     dependencies:
       wrappy: registry.npmjs.org/wrappy/1.0.2
-    dev: false
 
   registry.npmjs.org/onetime/5.1.2:
     resolution: {integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/onetime/-/onetime-5.1.2.tgz}
@@ -20891,7 +20951,6 @@ packages:
     name: path-is-absolute
     version: 1.0.1
     engines: {node: '>=0.10.0'}
-    dev: false
 
   registry.npmjs.org/path-key/2.0.1:
     resolution: {integrity: sha512-fEHGKCSmUSDPv4uoj8AlD+joPlq3peND+HRYyxFz4KPw4z926S/b8rIuFs2FYJg3BwsxJf6A9/3eIdLaYC+9Dw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/path-key/-/path-key-2.0.1.tgz}
@@ -27243,7 +27302,6 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz}
     name: wrappy
     version: 1.0.2
-    dev: false
 
   registry.npmjs.org/write-file-atomic/2.4.3:
     resolution: {integrity: sha512-GaETH5wwsX+GcnzhPgKcKjJ6M2Cq3/iZp1WyY/X1CSqrW+jVNM9Y7D8EC2sM4ZG/V8wZlSniJnCKWPmBYAucRQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/write-file-atomic/-/write-file-atomic-2.4.3.tgz}

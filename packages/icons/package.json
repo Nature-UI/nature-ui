@@ -40,13 +40,14 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/icon": "^2.0.3-alpha.0",
-    "clean-package": "^2.1.1"
+    "@nature-ui/icon": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
+    "@nature-ui/system": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   }
 }

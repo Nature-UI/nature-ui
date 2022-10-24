@@ -40,16 +40,17 @@
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
-  "dependencies": {
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
-    "clean-package": "^2.1.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "framer-motion": ">=4",
     "react": ">=18"
   },
   "devDependencies": {
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
+    "@nature-ui/hooks": "workspace:*",
+    "@nature-ui/button": "workspace:*",
+    "clean-package": "^2.1.1",
     "framer-motion": "^6.3.3",
     "react": "^18.0.0"
   }

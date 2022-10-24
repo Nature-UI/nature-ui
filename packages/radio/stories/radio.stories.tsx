@@ -1,5 +1,6 @@
 import { Stack } from '@nature-ui/layout';
 import { Story } from '@storybook/react';
+import React from 'react';
 
 import { Radio, RadioGroup, RadioProps, useRadioGroup } from '../src';
 

@@ -1,4 +1,3 @@
-/** ** */
 import {
   clsx,
   forwardRef,

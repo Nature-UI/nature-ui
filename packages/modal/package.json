@@ -48,20 +48,21 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/close-button": "^2.0.3-alpha.0",
-    "@nature-ui/focus-lock": "^2.0.3-alpha.0",
-    "@nature-ui/hooks": "^2.0.3-alpha.0",
-    "@nature-ui/portal": "^2.0.3-alpha.0",
-    "@nature-ui/react-utils": "^2.0.3-alpha.0",
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/transition": "^2.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
+    "@nature-ui/close-button": "workspace:*",
+    "@nature-ui/focus-lock": "workspace:*",
+    "@nature-ui/hooks": "workspace:*",
+    "@nature-ui/portal": "workspace:*",
+    "@nature-ui/react-utils": "workspace:*",
+    "@nature-ui/transition": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
     "aria-hidden": "^1.1.3",
-    "clean-package": "^2.1.1",
     "framer-motion": "^6.3.3",
     "react-remove-scroll": "^2.5.3"
   },
   "devDependencies": {
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/button": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {

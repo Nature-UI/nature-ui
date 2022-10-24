@@ -47,19 +47,20 @@
   },
   "dependencies": {
     "@nature-ui/form-control": "2.0.3-alpha.0",
-    "@nature-ui/hooks": "^2.0.3-alpha.0",
-    "@nature-ui/icon": "^2.0.3-alpha.0",
-    "@nature-ui/react-utils": "^2.0.3-alpha.0",
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
-    "@nature-ui/visually-hidden": "^2.0.3-alpha.0",
-    "@zag-js/focus-visible": "^0.1.6",
-    "clean-package": "^2.1.1"
+    "@nature-ui/hooks": "workspace:*",
+    "@nature-ui/icon": "workspace:*",
+    "@nature-ui/react-utils": "workspace:*",
+    "@nature-ui/visually-hidden": "workspace:*",
+    "@zag-js/focus-visible": "^0.1.6"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
+    "@nature-ui/layout": "workspace:*",
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   }
 }

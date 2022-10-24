@@ -1,11 +1,11 @@
 import { Button } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
-import {
-  Popover,
-  PopoverBody,
-  PopoverContent,
-  PopoverTrigger,
-} from '@nature-ui/popover';
+// import {
+//   Popover,
+//   PopoverBody,
+//   PopoverContent,
+//   PopoverTrigger,
+// } from '@nature-ui/popover';
 import * as React from 'react';
 import Frame from 'react-frame-component';
 import { Portal, PortalManager } from '../src';
@@ -96,20 +96,20 @@ export const NestedPortals = () => (
   </Portal>
 );
 
-export const WithZIndexPopover = () => (
-  <PortalManager zIndex={20}>
-    <Popover isOpen>
-      <PopoverTrigger>
-        <p>Popover</p>
-      </PopoverTrigger>
-      <Portal>
-        <PopoverContent>
-          <PopoverBody>I am a popover</PopoverBody>
-        </PopoverContent>
-      </Portal>
-    </Popover>
-  </PortalManager>
-);
+// export const WithZIndexPopover = () => (
+//   <PortalManager zIndex={20}>
+//     <Popover isOpen>
+//       <PopoverTrigger>
+//         <p>Popover</p>
+//       </PopoverTrigger>
+//       <Portal>
+//         <PopoverContent>
+//           <PopoverBody>I am a popover</PopoverBody>
+//         </PopoverContent>
+//       </Portal>
+//     </Popover>
+//   </PortalManager>
+// );
 
 export const WithCustomContainer = () => {
   const ref = React.useRef<HTMLDivElement>(null);

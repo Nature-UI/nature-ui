@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-
+import React from 'react';
 import { CircularProgress, CircularProgressProps } from '../src';
 
 export default {

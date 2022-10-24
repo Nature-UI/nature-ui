@@ -1,6 +1,7 @@
 import { Button } from '@nature-ui/button';
 import { useBoolean } from '@nature-ui/hooks';
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 
 import { ScaleFade, ScaleFadeProps } from '../src';
 

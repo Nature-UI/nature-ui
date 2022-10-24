@@ -42,12 +42,14 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/form-control": "^2.0.3-alpha.0",
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
-    "clean-package": "^2.1.1"
+    "@nature-ui/form-control": "workspace:*"
   },
   "devDependencies": {
+    "@nature-ui/icons": "workspace:*",
+    "@nature-ui/layout": "workspace:*",
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {

@@ -1,6 +1,7 @@
 import { Button } from '@nature-ui/button';
 import { nature } from '@nature-ui/system';
 import { Meta } from '@storybook/react';
+import React from 'react';
 import { Toast, ToastProvider, useToast } from '../src';
 
 export default {

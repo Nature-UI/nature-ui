@@ -45,13 +45,15 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@popperjs/core": "^2.5.4",
-    "clean-package": "^2.1.1"
+    "@popperjs/core": "^2.5.4"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/hooks": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   }
 }

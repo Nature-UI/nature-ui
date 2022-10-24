@@ -39,13 +39,14 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
-    "clean-package": "^2.1.1",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
+    "@nature-ui/layout": "workspace:*",
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
     "@types/tinycolor2": "^1.4.2",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {

@@ -42,10 +42,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/spinner": "^2.0.3-alpha.0",
-    "@nature-ui/system": "^3.0.3-alpha.0",
-    "@nature-ui/utils": "^2.0.3-alpha.0",
-    "clean-package": "^2.1.1",
+    "@nature-ui/spinner": "workspace:*",
     "postcss": "^8.4.18"
   },
   "peerDependencies": {
@@ -53,6 +50,11 @@
   },
   "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d",
   "devDependencies": {
+    "@nature-ui/icons": "workspace:*",
+    "@nature-ui/layout": "workspace:*",
+    "@nature-ui/system": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
+    "clean-package": "^2.1.1",
     "react": "^18.0.0"
   }
 }
