@@ -16,7 +16,8 @@
     "pkg": "manypkg run",
     "check:pkgs": "manypkg check",
     "fix:pkgs": "manypkg fix",
-    "version:pkgs": "changeset version",
+    "version": "changeset version",
+    "release": "changeset publish",
     "clean:emotion-types": "rimraf node_modules/@emotion/core/types",
     "postinstall": "pnpm clean:emotion-types",
     "build": "turbo run build",
@@ -32,7 +33,9 @@
     "clean": "pnpm -r --parallel exec rimraf dist .turbo *.log *.backup",
     "contributors:add": "all-contributors add",
     "contributors:gen": "all-contributors generate",
-    "members:gen": "ts-node scripts/all-members.ts"
+    "members:gen": "ts-node scripts/all-members.ts",
+    "version:dev": "changeset version --snapshot dev",
+    "release:dev": "changeset publish --tag dev"
   },
   "dependencies": {
     "@nature-ui/core": "workspace:*",

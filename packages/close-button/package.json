@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/close-button",
-  "version": "2.0.3-alpha.0",
+  "version": "2.0.3-alpha.1",
   "description": "A React and Nature UI close button component.",
   "keywords": [
     "close-button",
@@ -51,5 +51,6 @@
     "@nature-ui/utils": "workspace:*",
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
-  }
+  },
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/transition",
-  "version": "2.0.3-alpha.0",
+  "version": "2.0.3-alpha.1",
   "description": "Common transition components for Nature UI",
   "keywords": [
     "transition",
@@ -40,18 +40,18 @@
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
-  "dependencies": {},
   "peerDependencies": {
     "framer-motion": ">=4",
     "react": ">=18"
   },
   "devDependencies": {
+    "@nature-ui/button": "workspace:*",
+    "@nature-ui/hooks": "workspace:*",
     "@nature-ui/system": "workspace:*",
     "@nature-ui/utils": "workspace:*",
-    "@nature-ui/hooks": "workspace:*",
-    "@nature-ui/button": "workspace:*",
     "clean-package": "^2.1.1",
     "framer-motion": "^6.3.3",
     "react": "^18.0.0"
-  }
+  },
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
 }

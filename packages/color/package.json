@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/color",
-  "version": "2.0.3-alpha.0",
+  "version": "2.0.3-alpha.1",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -51,5 +51,6 @@
   },
   "peerDependencies": {
     "react": ">=18"
-  }
+  },
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
 }

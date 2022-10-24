@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "2.0.3-alpha.0",
+  "version": "2.0.3-alpha.1",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",
@@ -60,13 +60,13 @@
     "react-remove-scroll": "^2.5.3"
   },
   "devDependencies": {
-    "@nature-ui/system": "workspace:*",
     "@nature-ui/button": "workspace:*",
+    "@nature-ui/system": "workspace:*",
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {
     "react": ">=18"
   },
-  "gitHead": "97ec99cb6e84c1feed8685a57529a1738d11a23d"
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
 }

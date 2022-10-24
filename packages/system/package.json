@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/system",
-  "version": "3.0.3-alpha.0",
+  "version": "3.0.3-alpha.1",
   "description": "Nature UI system primitives",
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
@@ -40,12 +40,13 @@
     "hoist-non-react-statics": "^3.3.2"
   },
   "devDependencies": {
-    "@types/hoist-non-react-statics": "^3.3.1",
     "@nature-ui/utils": "workspace:*",
+    "@types/hoist-non-react-statics": "^3.3.1",
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
   "peerDependencies": {
     "react": ">=16.8.6"
-  }
+  },
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
 }
