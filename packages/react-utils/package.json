@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/react-utils",
-  "version": "2.0.3-alpha.1",
+  "version": "0.0.0-dev-20221025084126",
   "description": "React utilities and helpers for Nature UI",
   "keywords": [
     "theme",
@@ -12,8 +12,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/nature-ui/nature-ui#readme",
   "license": "MIT",
-  "main": "dist/nature-ui-react-utils.cjs.js",
-  "module": "dist/nature-ui-react-utils.esm.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"

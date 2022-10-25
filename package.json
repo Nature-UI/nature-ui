@@ -18,8 +18,6 @@
     "fix:pkgs": "manypkg fix",
     "version": "changeset version",
     "release": "changeset publish",
-    "clean:emotion-types": "rimraf node_modules/@emotion/core/types",
-    "postinstall": "pnpm clean:emotion-types",
     "build": "turbo run build",
     "build:fast": "turbo run build:fast",
     "typecheck": "tsc --noEmit",

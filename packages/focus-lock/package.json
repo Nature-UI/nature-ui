@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/focus-lock",
-  "version": "2.0.3-alpha.1",
+  "version": "0.0.0-dev-20221025084126",
   "description": "React focus lock for all Nature UI components",
   "keywords": [
     "react focus lock",
@@ -12,8 +12,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/nature-ui-focus-lock.cjs.js",
-  "module": "dist/nature-ui-focus-lock.esm.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"

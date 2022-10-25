@@ -78,7 +78,7 @@ jobs:
       - name: Release to @next-dev tag
         if: steps.changesets.outputs.published != 'true'
         run: |
-          git checkout develop
+          git checkout main
           yarn changeset version --snapshot next-dev
           yarn changeset publish --tag next-dev
         env:

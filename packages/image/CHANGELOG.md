@@ -1,5 +1,13 @@
 # @nature-ui/image
 
+## 0.0.0-dev-20221025084126
+
+### Patch Changes
+
+- Implemented PNPM, Turborepo, tsup and clean.
+- Updated dependencies
+  - @nature-ui/hooks@0.0.0-dev-20221025084126
+
 ## 2.0.2
 
 ### Patch Changes

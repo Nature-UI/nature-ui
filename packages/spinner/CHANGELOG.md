@@ -1,5 +1,14 @@
 # @nature-ui/spinner
 
+## 0.0.0-dev-20221025084126
+
+### Patch Changes
+
+- Implemented PNPM, Turborepo, tsup and clean.
+- Updated dependencies
+  - @nature-ui/utils@0.0.0-dev-20221025084126
+  - @nature-ui/visually-hidden@0.0.0-dev-20221025084126
+
 ## 2.0.2
 
 ### Patch Changes
