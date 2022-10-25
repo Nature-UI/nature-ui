@@ -1,4 +1,3 @@
-/** ** */
 import { FormControlOptions, useFormControl } from '@nature-ui/form-control';
 import {
   clsx,

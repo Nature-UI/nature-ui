@@ -1,4 +1,3 @@
-import memoizeOne from 'memoize-one';
 import { isFunction } from './assertions';
 import { FunctionArguments } from './types';
 
@@ -26,8 +25,6 @@ export const callAllHandler = <T extends (event: any) => void>(
     });
   };
 };
-
-export { memoizeOne };
 
 export const once = (fn?: Function | null): any => {
   let result: any;

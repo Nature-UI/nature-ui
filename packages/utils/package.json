@@ -1,11 +1,11 @@
 {
   "name": "@nature-ui/utils",
-  "version": "0.0.0-dev-20221025084126",
+  "version": "0.0.0-dev-20221025095017",
   "description": "Utility functions",
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.cjs.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -32,11 +32,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@types/lodash.mergewith": "^4.6.6",
-    "css-box-model": "^1.2.1",
-    "deepmerge": "^4.2.2",
-    "lodash.mergewith": "^4.6.2",
-    "memoize-one": "^5.1.1"
+    "css-box-model": "^1.2.1"
   },
   "peerDependencies": {
     "react": ">=18"
@@ -45,5 +41,14 @@
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
-  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./package.json": "./package.json"
+  }
 }

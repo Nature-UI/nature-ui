@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/toast",
-  "version": "0.0.0-dev-20221025084126",
+  "version": "0.0.0-dev-20221025095017",
   "description": "A React component and hooks wrapper for popper.js",
   "keywords": [
     "react",
@@ -17,7 +17,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.cjs.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -66,5 +66,14 @@
     "react": ">=18",
     "react-dom": "^>=18"
   },
-  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./package.json": "./package.json"
+  }
 }

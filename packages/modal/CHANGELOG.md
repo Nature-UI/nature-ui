@@ -1,5 +1,19 @@
 # @nature-ui/modal
 
+## 0.0.0-dev-20221025095017
+
+### Patch Changes
+
+- Removed old "main" and "module" paths and replaced with correct ones
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20221025095017
+  - @nature-ui/focus-lock@0.0.0-dev-20221025095017
+  - @nature-ui/hooks@0.0.0-dev-20221025095017
+  - @nature-ui/portal@0.0.0-dev-20221025095017
+  - @nature-ui/react-utils@0.0.0-dev-20221025095017
+  - @nature-ui/transition@0.0.0-dev-20221025095017
+  - @nature-ui/utils@0.0.0-dev-20221025095017
+
 ## 0.0.0-dev-20221025084126
 
 ### Patch Changes

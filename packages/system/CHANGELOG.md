@@ -1,5 +1,11 @@
 # @nature-ui/system
 
+## 0.0.0-dev-20221025095017
+
+### Patch Changes
+
+- Removed old "main" and "module" paths and replaced with correct ones
+
 ## 0.0.0-dev-20221025084126
 
 ### Patch Changes
