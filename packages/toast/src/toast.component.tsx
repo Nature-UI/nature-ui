@@ -2,7 +2,7 @@ import { useTimeout, useUpdateEffect } from '@nature-ui/hooks';
 import { nature } from '@nature-ui/system';
 import { runIfFn, __DEV__ } from '@nature-ui/utils';
 import { motion, useIsPresent, Variants } from 'framer-motion';
-import * as React from 'react';
+import React from 'react';
 import { ToastProviderProps } from './toast.provider';
 import type { ToastOptions } from './toast.types';
 import { getToastStyle } from './toast.utils';

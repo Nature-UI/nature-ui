@@ -1,5 +1,5 @@
 import { As, Omit } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 export interface NatureProps {
   children?: React.ReactNode;

@@ -8,7 +8,7 @@ import {
   nature,
 } from '@nature-ui/system';
 import { dataAttr, StringOrNumber, __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { rippleEffect } from './button-effects';
 
 interface ButtonOptions {

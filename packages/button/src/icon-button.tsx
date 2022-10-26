@@ -1,6 +1,6 @@
 import { clsx, forwardRef } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { Button, ButtonProps } from './button';
 
 type Omitted =

@@ -1,5 +1,5 @@
 import { dataAttr, mergeRefs } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 interface DOMAttrs {
   onMouseDown?: React.MouseEventHandler;

@@ -3,7 +3,7 @@ import { createContext } from '@nature-ui/react-utils';
 import { objectKeys } from '@nature-ui/utils';
 import { AnimatePresence, Variants } from 'framer-motion';
 import type { CSSProperties } from 'react';
-import * as React from 'react';
+import React from 'react';
 import { ToastComponent, ToastComponentProps } from './toast.component';
 import type {
   CloseAllToastsOptions,

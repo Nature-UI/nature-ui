@@ -1,6 +1,6 @@
 /** ** */
 import { nature, PropsOf, clsx as clx } from '@nature-ui/system';
-import * as React from 'react';
+import React from 'react';
 import { StringOrNumber, __DEV__ } from '@nature-ui/utils';
 
 const fallbackIcon = {

@@ -1,7 +1,7 @@
 import { Button } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
 import { nature } from '@nature-ui/system';
-import * as React from 'react';
+import React from 'react';
 
 import Lorem from 'react-lorem-component';
 import {

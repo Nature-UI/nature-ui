@@ -7,7 +7,7 @@ import {
   nature,
 } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { InputLeftAddon, InputRightAddon } from './input-addon';
 
 interface InputOptions {

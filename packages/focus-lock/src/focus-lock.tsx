@@ -4,7 +4,7 @@ import {
   getAllFocusable,
   __DEV__,
 } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import ReactFocusLock from 'react-focus-lock';
 
 export interface FocusLockProps {

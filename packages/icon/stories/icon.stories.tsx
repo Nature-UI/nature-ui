@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 import { MdAccessible, MdAcUnit } from 'react-icons/md';
 import { Icon, SvgIconProps } from '../src';
 

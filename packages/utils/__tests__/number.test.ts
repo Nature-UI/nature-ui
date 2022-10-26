@@ -1,8 +1,6 @@
 import {
   clampValue,
   countDecimalPlaces,
-  percentToValue,
-  roundValueToStep,
   toPrecision,
   valueToPercent,
 } from '../src';
@@ -18,14 +16,6 @@ describe('Number test', () => {
 
   test('should return percent of value in a specific range', () => {
     expect(valueToPercent(5, 0, 10)).toStrictEqual(50);
-  });
-
-  test('should return value of percent in a specific range', () => {
-    expect(percentToValue(50, 0, 10)).toStrictEqual(500);
-  });
-
-  test('should get next value of value after specified step', () => {
-    expect(roundValueToStep(5, 2)).toStrictEqual('6');
   });
 
   test('should clamp value to specified minimum', () => {

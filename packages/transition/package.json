@@ -63,6 +63,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@types/lodash.mergewith": "^4.6.7",
     "lodash.mergewith": "^4.6.2"
   }
 }

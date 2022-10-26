@@ -1,5 +1,5 @@
 import { Stack } from '@nature-ui/layout';
-import * as React from 'react';
+import React from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Avatar, AvatarBadge, AvatarGroup } from '../src';
 

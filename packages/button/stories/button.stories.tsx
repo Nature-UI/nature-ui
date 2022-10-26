@@ -1,7 +1,7 @@
 import { SearchIcon } from '@nature-ui/icons';
 import { Stack } from '@nature-ui/layout';
 import { Meta, Story } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 import { IoLogoGithub } from 'react-icons/io';
 import { Button, ButtonProps, ButtonSpinner } from '../src';
 

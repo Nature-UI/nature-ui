@@ -1,5 +1,5 @@
 import { callAllHandler } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 import { useControllableProp } from './use-controllable';
 import { useId } from './use-id';

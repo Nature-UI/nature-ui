@@ -3,7 +3,7 @@ import { useBoolean, useControllableProp, useId } from '@nature-ui/hooks';
 import { PropGetter } from '@nature-ui/react-utils';
 import { ariaAttr, callAllHandler, dataAttr, Dict } from '@nature-ui/utils';
 import { visuallyHiddenStyle } from '@nature-ui/visually-hidden';
-import * as React from 'react';
+import React from 'react';
 import { InputDOMAttributes } from './../../react-utils/src/types';
 import { useRadioGroupContext } from './radio-group';
 

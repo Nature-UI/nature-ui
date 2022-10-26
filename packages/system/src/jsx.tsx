@@ -1,6 +1,6 @@
 import { Interpolation, jsx as emotion, Theme } from '@emotion/react';
 import { Dict } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 export const jsx = (
   props: Dict,

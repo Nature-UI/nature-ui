@@ -1,5 +1,4 @@
-import { noop } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { createRenderToast } from './toast';
 import { getToastPlacement } from './toast.placement';
 import {
@@ -10,6 +9,7 @@ import {
 } from './toast.provider';
 import { ToastId, ToastMessage } from './toast.types';
 import { UseToastOptions } from './use-toast';
+const noop = () => {};
 
 const defaults: UseToastOptions = {
   duration: 5000,

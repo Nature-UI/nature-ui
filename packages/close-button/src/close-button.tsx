@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { clsx, nature, PropsOf } from '@nature-ui/system';
 import { __DEV__ } from '@nature-ui/utils';
 import { Icon, SvgIconProps } from '@nature-ui/icon';

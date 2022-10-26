@@ -1,7 +1,7 @@
 import { useBoolean, useDisclosure, useIds } from '@nature-ui/hooks';
 import { Placement, usePopper, UsePopperProps } from '@nature-ui/popper';
 import { callAllHandler, Dict, mergeRefs } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 import {
   useBlurOutside,

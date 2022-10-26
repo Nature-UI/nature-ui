@@ -1,7 +1,7 @@
 import { ALERT_STATUSES } from '@nature-ui/alert';
 import { useLatestRef } from '@nature-ui/hooks';
 import { MaybeFunction, runIfFn } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { createRenderToast } from './toast';
 import { getToastPlacement } from './toast.placement';
 import { useToastManager } from './toast.provider';

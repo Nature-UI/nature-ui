@@ -1,7 +1,7 @@
 import { Icon, SvgIconProps } from '@nature-ui/icon';
 import { clsx, HTMLNatureProps, nature } from '@nature-ui/system';
 import { createContext, __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { CheckIcon, InfoIcon, WarningIcon } from './icons';
 
 const SUBTLE_TEXT = 'text-gray-800';

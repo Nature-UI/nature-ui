@@ -1,5 +1,5 @@
 import { Icon, IconProps } from '@nature-ui/icon';
-import * as React from 'react';
+import React from 'react';
 
 export const CheckIcon: React.FC<IconProps> = (props) => (
   <Icon viewBox='0 0 24 24' {...props}>

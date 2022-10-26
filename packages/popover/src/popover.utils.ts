@@ -1,6 +1,6 @@
 import { useEventListener, useUpdateEffect } from '@nature-ui/hooks';
 import { focus, getFirstTabbableIn, isFocusable } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 /**
  * Check if the event target is within the popover ref.

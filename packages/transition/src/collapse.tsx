@@ -6,7 +6,7 @@ import {
   Variants as _Variants,
 } from 'framer-motion';
 import mergeWith from 'lodash.mergewith';
-import * as React from 'react';
+import React from 'react';
 import {
   TransitionEasings,
   Variants,

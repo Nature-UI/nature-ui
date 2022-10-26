@@ -8,7 +8,7 @@ import {
   runIfFn,
 } from '@nature-ui/utils';
 import hoist from 'hoist-non-react-statics';
-import * as React from 'react';
+import React from 'react';
 import { jsx } from './jsx';
 import { NatureComponent } from './system.types';
 import { getDisplayName } from './system.utils';

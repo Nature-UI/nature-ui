@@ -1,7 +1,7 @@
 /** ** */
 import { clsx, css, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { getValidChildren, __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 const Span = nature('span');
 const Link = nature('a');
