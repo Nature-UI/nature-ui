@@ -68,7 +68,7 @@ export const WithSize = () => {
         variant='blur'
         scrollBehavior='outside'
         isOpen={isOpen}
-        // size='600px'
+        size={'full'}
         onClose={onClose}
       >
         <ModalOverlay />
@@ -158,6 +158,7 @@ export function NestedModal() {
 export const ReturnFocus = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef<any>();
+  console.log({ finalRef });
 
   return (
     <>

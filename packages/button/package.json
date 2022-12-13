@@ -14,7 +14,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/index.cjs.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -56,8 +56,7 @@
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+ 
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",

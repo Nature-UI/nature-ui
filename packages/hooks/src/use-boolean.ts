@@ -7,7 +7,6 @@ type InitialState = boolean | (() => boolean);
  *
  * @param initialState the initial boolean state value
  */
-
 export const useBoolean = (initialState: InitialState = false) => {
   const [value, setValue] = useState(initialState);
 

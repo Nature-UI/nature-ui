@@ -1,6 +1,6 @@
-import tinyColor from 'tinycolor2';
-import { isEmptyObject } from '@nature-ui/utils';
 import { css } from '@nature-ui/system';
+import { isEmptyObject } from '@nature-ui/utils';
+import tinyColor from 'tinycolor2';
 
 /**
  * Determines if the tone of a given color is `light` or `dark`
@@ -17,73 +17,6 @@ export const tone = (color: string) => {
  * @param color - the color in hex, rgb, or hsl
  */
 export const isDark = (color: string) => tone(color) === 'dark';
-
-/**
- * Determines if a color tone is "dark"
- * @param color - the color in hex, rgb, or hsl
- */
-export const isLight = (color: string) => tone(color) === 'light';
-
-/**
- * Make a color transparent
- * @param color - the color in hex, rgb, or hsl
- * @param opacity - the amount white to add
- */
-export const transparentize = (color: string, opacity: number) =>
-  tinyColor(color).setAlpha(opacity).toRgbString();
-
-/**
- * Add white to a color
- * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount white to add (0-1)
- */
-export const whiten = (color: string, amount: number) =>
-  tinyColor.mix(color, '#fff', amount).toHexString();
-
-/**
- * Add black to a color
- * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount white to add (0-1)
- */
-export const blacken = (color: string, amount: number) =>
-  tinyColor.mix(color, '#000', amount).toHexString();
-
-/**
- * Darken a specified color
- * @param color - the color in hex, rgb, or hsl
- * @param amount - the amount white to add (0-1)
- */
-export const darken = (color: string, amount: number) =>
-  tinyColor(color).darken(amount).toHexString();
-
-export const lighten = (color: string, amount: number) =>
-  tinyColor(color).lighten(amount).toHexString();
-
-/**
- * Checks the contract ratio of between 2 colors,
- * based on the Web Content Accessibility Guidelines (Version 2.0).
- *
- * @param fg - the foreground or text color
- * @param bg - the background color
- */
-export const contrast = (fg: string, bg: string) =>
-  tinyColor.readability(bg, fg);
-
-/**
- * Checks if a color meets the Web Content Accessibility
- * Guidelines (Version 2.0) for constract ratio.
- *
- * @param fg - the foreground or text color
- * @param bg - the background color
- */
-export const isAccessible = (
-  textColor: string,
-  bgColor: string,
-  options?: tinyColor.WCAG2Options,
-) => tinyColor.isReadable(bgColor, textColor, options);
-
-export const complementary = (color: string) =>
-  tinyColor(color).complement().toHexString();
 
 export const generateStripe = (
   size = '1rem',
