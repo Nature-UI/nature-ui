@@ -49,18 +49,33 @@ export const Warning = () => {
 export const Solids = () => {
   return (
     <Stack col>
-      <Alert status='success' alertTitle='Success alert' variant='solid'>
-        This is a solid variant!
-      </Alert>
-      <Alert status='info' alertTitle='Info alert' variant='solid'>
-        This is a solid variant!
-      </Alert>
-      <Alert status='warning' alertTitle='Warning alert' variant='solid'>
-        This is a solid variant!
-      </Alert>
-      <Alert status='error' alertTitle='Error alert' variant='solid'>
-        This is a solid variant!
-      </Alert>
+      {['success', 'info', 'warning', 'error'].map((status, idx) => (
+        <Alert
+          key={idx}
+          status={status}
+          alertTitle='Success alert'
+          variant='solid'
+        >
+          This is a solid variant!
+        </Alert>
+      ))}
+    </Stack>
+  );
+};
+
+export const Subtles = () => {
+  return (
+    <Stack col>
+      {['success', 'info', 'warning', 'error'].map((status, idx) => (
+        <Alert
+          key={idx}
+          status={status}
+          alertTitle='Success alert'
+          variant='subtle'
+        >
+          This is a subtle variant!
+        </Alert>
+      ))}
     </Stack>
   );
 };
