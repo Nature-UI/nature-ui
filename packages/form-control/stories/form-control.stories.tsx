@@ -7,7 +7,7 @@ import {
 } from '@nature-ui/system';
 import { StringOrNumber } from '@nature-ui/utils';
 import { Meta } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 
 import {
   FormControl,

@@ -1,11 +1,12 @@
-import { cx, mergeWith, warn, __DEV__ } from '@nature-ui/utils';
+import { cx, warn, __DEV__ } from '@nature-ui/utils';
 import {
   AnimatePresence,
   HTMLMotionProps,
   motion,
   Variants as _Variants,
 } from 'framer-motion';
-import * as React from 'react';
+import mergeWith from 'lodash.mergewith';
+import React from 'react';
 import {
   TransitionEasings,
   Variants,

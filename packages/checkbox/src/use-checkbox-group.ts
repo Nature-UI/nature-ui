@@ -6,7 +6,7 @@ import {
   removeItem,
   StringOrNumber,
 } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 type EventOrValue = React.ChangeEvent<HTMLInputElement> | StringOrNumber;
 

@@ -300,7 +300,7 @@ importers:
 
   packages/checkbox:
     specifiers:
-      '@nature-ui/form-control': 2.0.3-alpha.0
+      '@nature-ui/form-control': 0.0.0-dev-20221025084126
       '@nature-ui/hooks': workspace:*
       '@nature-ui/icon': workspace:*
       '@nature-ui/layout': workspace:*
@@ -841,12 +841,14 @@ importers:
       clean-package: ^2.1.1
       clsx: ^1.2.1
       hoist-non-react-statics: ^3.3.2
+      memoize-one: ^6.0.0
       react: ^18.2.0
     dependencies:
       '@emotion/css': registry.npmjs.org/@emotion/css/11.9.0
       '@emotion/react': registry.npmjs.org/@emotion/react/11.9.0_react@18.2.0
       clsx: registry.npmjs.org/clsx/1.2.1
       hoist-non-react-statics: registry.npmjs.org/hoist-non-react-statics/3.3.2
+      memoize-one: registry.npmjs.org/memoize-one/6.0.0
     devDependencies:
       '@nature-ui/utils': link:../utils
       '@types/hoist-non-react-statics': registry.npmjs.org/@types/hoist-non-react-statics/3.3.1
@@ -892,9 +894,14 @@ importers:
       '@nature-ui/hooks': workspace:*
       '@nature-ui/system': workspace:*
       '@nature-ui/utils': workspace:*
+      '@types/lodash.mergewith': ^4.6.7
       clean-package: ^2.1.1
       framer-motion: ^6.3.3
+      lodash.mergewith: ^4.6.2
       react: ^18.2.0
+    dependencies:
+      '@types/lodash.mergewith': registry.npmjs.org/@types/lodash.mergewith/4.6.7
+      lodash.mergewith: registry.npmjs.org/lodash.mergewith/4.6.2
     devDependencies:
       '@nature-ui/button': link:../button
       '@nature-ui/hooks': link:../hooks
@@ -906,19 +913,11 @@ importers:
 
   packages/utils:
     specifiers:
-      '@types/lodash.mergewith': ^4.6.6
       clean-package: ^2.1.1
       css-box-model: ^1.2.1
-      deepmerge: ^4.2.2
-      lodash.mergewith: ^4.6.2
-      memoize-one: ^5.1.1
       react: ^18.2.0
     dependencies:
-      '@types/lodash.mergewith': registry.npmjs.org/@types/lodash.mergewith/4.6.7
       css-box-model: registry.npmjs.org/css-box-model/1.2.1
-      deepmerge: registry.npmjs.org/deepmerge/4.2.2
-      lodash.mergewith: registry.npmjs.org/lodash.mergewith/4.6.2
-      memoize-one: registry.npmjs.org/memoize-one/5.2.1
     devDependencies:
       clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0
@@ -19021,10 +19020,10 @@ packages:
       fs-monkey: registry.npmjs.org/fs-monkey/1.0.3
     dev: false
 
-  registry.npmjs.org/memoize-one/5.2.1:
-    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/memoize-one/-/memoize-one-5.2.1.tgz}
+  registry.npmjs.org/memoize-one/6.0.0:
+    resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/memoize-one/-/memoize-one-6.0.0.tgz}
     name: memoize-one
-    version: 5.2.1
+    version: 6.0.0
     dev: false
 
   registry.npmjs.org/memoizerific/1.11.3:

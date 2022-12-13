@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/clickable",
-  "version": "2.0.3-alpha.1",
+  "version": "0.0.0-dev-20221025095017",
   "description": "React hook and component that implements native button interactions",
   "keywords": [
     "nature ui",
@@ -12,8 +12,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/nature-ui-clickable.cjs.js",
-  "module": "dist/nature-ui-clickable.esm.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -50,5 +49,13 @@
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
-  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
+ 
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./package.json": "./package.json"
+  }
 }

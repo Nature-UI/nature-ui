@@ -1,6 +1,6 @@
 import { forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { omit, __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { useImage, UseImageProps } from './use-image';
 
 interface NativeImageOptions {

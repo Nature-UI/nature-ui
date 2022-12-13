@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Instance, createPopper, Modifier, Placement } from '@popperjs/core';
 
 import { getArrowStyles } from './popper.utils';

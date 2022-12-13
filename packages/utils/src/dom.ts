@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { EventKeys } from '.';
 import { Booleanish } from './types';
 
@@ -37,7 +37,6 @@ export const getWindow = (node?: HTMLElement | null): Window | undefined =>
 /**
  * Check if we can use the DOM. Useful for SSR purposes
  */
-
 const checkIsBrowser = (): boolean => {
   const __window = getWindow();
 

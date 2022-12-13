@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '../src';
 

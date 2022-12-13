@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render as rtlRender } from '@testing-library/react';
 import { toHaveNoViolations } from 'jest-axe';
-import * as React from 'react';
+import React from 'react';
 import { userEvent } from './user-event';
 
 expect.extend(toHaveNoViolations);

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 type ReactRef<T> = React.Ref<T> | React.MutableRefObject<T>;
 

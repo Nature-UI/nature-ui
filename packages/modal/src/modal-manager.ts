@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 /**
  * Proper state management for nested modals.

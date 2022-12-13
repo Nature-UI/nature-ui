@@ -1,5 +1,5 @@
 import { render, screen, testA11y } from '@nature-ui/test-utils';
-import * as React from 'react';
+import React from 'react';
 import {
   Drawer,
   DrawerBody,

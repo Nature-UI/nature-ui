@@ -8,7 +8,7 @@ import {
 import { CloseButton } from '@nature-ui/close-button';
 import { nature } from '@nature-ui/system';
 import { isFunction } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import type { RenderProps } from './toast.types';
 import type { UseToastOptions } from './use-toast';
 

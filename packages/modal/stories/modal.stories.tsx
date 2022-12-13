@@ -1,7 +1,7 @@
 import { Button } from '@nature-ui/button';
 import { useDisclosure } from '@nature-ui/hooks';
 import { nature } from '@nature-ui/system';
-import * as React from 'react';
+import React from 'react';
 
 import Lorem from 'react-lorem-component';
 import {
@@ -68,7 +68,7 @@ export const WithSize = () => {
         variant='blur'
         scrollBehavior='outside'
         isOpen={isOpen}
-        // size='600px'
+        size={'full'}
         onClose={onClose}
       >
         <ModalOverlay />
@@ -158,6 +158,7 @@ export function NestedModal() {
 export const ReturnFocus = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef<any>();
+  console.log({ finalRef });
 
   return (
     <>

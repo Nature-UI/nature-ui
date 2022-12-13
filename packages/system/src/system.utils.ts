@@ -1,7 +1,6 @@
 import { isString, UnionStringArray, __DEV__ } from '@nature-ui/utils';
 import { As } from '@nature-ui/utils/src/types';
-import * as React from 'react';
-import { pseudoSelectors } from './pseudo';
+import React from 'react';
 import { ComponentWithAs, PropsOf, RightJoinProps } from './system.types';
 
 /**
@@ -93,23 +92,6 @@ export const domElements = [
 ] as const;
 
 export type DOMElements = UnionStringArray<typeof domElements>;
-
-export const pseudoProps = (props: any) => {
-  let result = {};
-
-  Object.keys(props).forEach((prop) => {
-    if (prop in pseudoSelectors) {
-      const style = { [prop]: props[prop] };
-
-      result = {
-        ...result,
-        ...style,
-      };
-    }
-  });
-
-  return result;
-};
 
 export const isTag = (target: any) => {
   return isString(target) && __DEV__

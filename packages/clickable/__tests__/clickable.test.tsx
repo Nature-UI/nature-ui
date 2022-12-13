@@ -1,6 +1,6 @@
 import { nature } from '@nature-ui/system';
 import { fireEvent, render, screen } from '@nature-ui/test-utils';
-import * as React from 'react';
+import React from 'react';
 
 import { useClickable } from '../src';
 import { ClickableProps } from '../stories/use-clickable.stories';

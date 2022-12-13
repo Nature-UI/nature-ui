@@ -1,6 +1,6 @@
 import { clsx, forwardRef, nature, PropsOf } from '@nature-ui/system';
 import { createContext, __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 import {
   useRadioGroup,

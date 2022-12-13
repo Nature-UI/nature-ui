@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/transition",
-  "version": "2.0.3-alpha.1",
+  "version": "0.0.0-dev-20221025095017",
   "description": "Common transition components for Nature UI",
   "keywords": [
     "transition",
@@ -13,8 +13,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/nature-ui-transition.cjs.js",
-  "module": "dist/nature-ui-transition.esm.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -53,5 +52,17 @@
     "framer-motion": "^6.3.3",
     "react": "^18.0.0"
   },
-  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f"
+  "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
+ 
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@types/lodash.mergewith": "^4.6.7",
+    "lodash.mergewith": "^4.6.2"
+  }
 }

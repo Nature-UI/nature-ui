@@ -9,7 +9,7 @@ import { Input } from '@nature-ui/input';
 import { Stack } from '@nature-ui/layout';
 import { nature } from '@nature-ui/system';
 import { Meta, Story } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,

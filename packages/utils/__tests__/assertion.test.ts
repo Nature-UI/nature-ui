@@ -1,7 +1,5 @@
 import {
   isArray,
-  isDefined,
-  isEmpty,
   isEmptyArray,
   isEmptyObject,
   isFunction,
@@ -10,7 +8,6 @@ import {
   isNotNumber,
   isNull,
   isNumber,
-  isNumeric,
   isObject,
   isString,
   isUndefined,
@@ -22,28 +19,9 @@ describe('Assertion test: ', () => {
     expect(isNumber('20')).toBe(false);
   });
 
-  test('is integer', () => {
-    expect(isNumeric('1.03')).toBe(true);
-    expect(isNumeric('2.1232')).toBe(true);
-
-    expect(isNumeric('2.03.34')).toBe(false);
-    expect(isNumeric('dfd')).toBe(false);
-  });
-
   test('is object', () => {
     expect(isObject([])).toBe(false);
     expect(isObject({})).toBe(true);
-  });
-
-  test('is empty', () => {
-    expect(isEmpty([])).toBe(true);
-    expect(isEmpty({})).toBe(true);
-    expect(isEmpty('')).toBe(true);
-    expect(isEmpty(null)).toBe(true);
-
-    expect(isEmpty([1, 2])).toBe(false);
-    expect(isEmpty({ a: 2 })).toBe(false);
-    expect(isEmpty('df')).toBe(false);
   });
 
   test('is empty object', () => {
@@ -66,10 +44,6 @@ describe('Assertion test: ', () => {
 
   test('is function', () => {
     expect(isFunction(() => {})).toBe(true);
-  });
-
-  test('is defined', () => {
-    expect(isDefined('1')).toBe(true);
   });
 
   test('is undefined', () => {

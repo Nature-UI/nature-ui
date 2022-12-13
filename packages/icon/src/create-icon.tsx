@@ -1,5 +1,5 @@
 import { __DEV__ } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 import { Icon, IconProps, SvgIconProps } from './icon';
 

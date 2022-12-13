@@ -13,28 +13,12 @@ export const isNumber = (value: any): value is number => {
 export const isNotNumber = (value: any): boolean =>
   typeof value !== 'number' || Number.isNaN(value) || !Number.isFinite(value);
 
-export const toNumber = (value: any): number => {
-  if (isNumber(value)) {
-    return value;
-  }
-
-  return Number.parseFloat(value);
-};
-
-export const isNumeric = (value: any): boolean => {
-  return value !== null && value - value + 1 >= 0;
-};
-
 export const isArray = <T>(value: any): value is Array<T> => {
   return Array.isArray(value);
 };
 
 export const isEmptyArray = (value: any): boolean =>
   isArray(value) && value.length === 0;
-
-export const isDefined = (value: any): boolean =>
-  typeof value !== 'undefined' || value === undefined;
-
 export const isUndefined = (value: any): value is undefined =>
   typeof value === 'undefined' || value === undefined;
 
@@ -61,15 +45,5 @@ export const isString = (value: any): value is string =>
 
 export const isInputEvent = (value: any): value is ChangeEvent =>
   value && isObject(value) && isObject(value.target);
-
-export const isEmpty = (value: any): boolean => {
-  if (isArray(value)) return isEmptyArray(value);
-
-  if (isObject(value)) return isEmptyObject(value);
-
-  if (value === null || !value || value.trim === '') return true;
-
-  return false;
-};
 
 export const __DEV__ = process.env.NODE_ENV !== 'production';

@@ -1,5 +1,5 @@
 import { runIfFn, warn } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 
 export const useControllableProp = <T>(
   prop: T | undefined,

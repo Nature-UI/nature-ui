@@ -1,5 +1,21 @@
 # @nature-ui/alert-dialog
 
+## 0.0.0-dev-20221025095017
+
+### Patch Changes
+
+- Removed old "main" and "module" paths and replaced with correct ones
+- Updated dependencies
+  - @nature-ui/modal@0.0.0-dev-20221025095017
+
+## 0.0.0-dev-20221025084126
+
+### Patch Changes
+
+- Implemented PNPM, Turborepo, tsup and clean.
+- Updated dependencies
+  - @nature-ui/modal@0.0.0-dev-20221025084126
+
 ## 2.0.3
 
 ### Patch Changes

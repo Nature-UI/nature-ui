@@ -6,7 +6,7 @@ import { useDisclosure } from '@nature-ui/hooks';
 //   PopoverContent,
 //   PopoverTrigger,
 // } from '@nature-ui/popover';
-import * as React from 'react';
+import React from 'react';
 import Frame from 'react-frame-component';
 import { Portal, PortalManager } from '../src';
 

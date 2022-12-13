@@ -8,7 +8,7 @@ import {
   ReactNodeOrRenderProp,
   __DEV__,
 } from '@nature-ui/utils';
-import * as React from 'react';
+import React from 'react';
 import { usePopover, UsePopoverProps, UsePopoverReturn } from './use-popover';
 
 const [PopoverContextProvider, usePopoverContext] =

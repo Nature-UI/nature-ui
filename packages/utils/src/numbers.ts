@@ -8,7 +8,6 @@ export const maxSafeInteger = Number.MAX_SAFE_INTEGER || 9007199254740991;
  * Convert a value to number
  * @param value the value to convert
  */
-
 const toNumber = (value: any) => {
   const num = parseFloat(value);
 
@@ -23,7 +22,6 @@ const toNumber = (value: any) => {
  * @param value the value to convert
  * @param precision the precision or decimal points
  */
-
 export const toPrecision = (value: number, precision?: number) => {
   let nextValue: string | number = toNumber(value);
   const _pres = precision ?? 10;
@@ -50,8 +48,6 @@ export const countDecimalPlaces = (value: number) => {
     p++;
   }
 
-  // value.toString().split('.')[1].length;
-
   return p;
 };
 
@@ -62,34 +58,8 @@ export const countDecimalPlaces = (value: number) => {
  * @param min the minimum value
  * @param max the maximum value
  */
-
 export const valueToPercent = (value: number, min: number, max: number) =>
   ((value - min) * 100) / (max - min);
-
-/**
- * Calculate the value based on percentage, lower and upper bound values
- *
- * @param percent the percent value in decimals (e.g 0.6, 0.3)
- * @param min the minimum value
- * @param max the maximum value
- */
-
-export const percentToValue = (percent: number, min: number, max: number) =>
-  (max - min) * percent + min;
-
-/**
- * Rounds a specific value to the next or previous step
- *
- * @param value the value to round
- * @param step the specified step
- */
-
-export const roundValueToStep = (value: number, step: number) => {
-  const nextValue = Math.round(value / step) * step;
-  const precision = countDecimalPlaces(step);
-
-  return toPrecision(nextValue, precision);
-};
 
 /**
  * Clamps a value to ensure it stays within the min and max range.
@@ -98,7 +68,6 @@ export const roundValueToStep = (value: number, step: number) => {
  * @param min the minimum value
  * @param max the maximum value
  */
-
 export const clampValue = (value: number, min: number, max: number) => {
   if (value === null) return value;
 
