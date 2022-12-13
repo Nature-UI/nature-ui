@@ -166,6 +166,7 @@ const useFormControlProvider = (props: FormControlContext) => {
       ref: forwardedRef,
       role: 'presentation',
       'aria-hidden': true,
+      className: clsx('text-red-500', props.className),
       children: props.children ?? '*',
     }),
     [],

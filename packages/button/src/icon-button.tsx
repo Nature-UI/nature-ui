@@ -36,8 +36,6 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
       isRound,
       'aria-label': ariaLabel,
       className = '',
-      color = 'gray-200',
-      as, // FIXME: if this is included it breaks the code
       ...rest
     } = props;
 
@@ -60,7 +58,6 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
     return (
       <Button
         ref={ref}
-        color={color}
         aria-label={ariaLabel}
         className={_className}
         isIconButton

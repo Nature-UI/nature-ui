@@ -15,13 +15,18 @@ export const iconButton: Story<IconButtonProps> = (args) => (
     <IconButton aria-label='Search database' icon={<SearchIcon />} {...args} />
 
     <IconButton
-      color='orange-500'
+      className='bg-orange-600 text-white'
       aria-label='Search database'
       icon={<HiHeart />}
       {...args}
     />
 
-    <IconButton color='gray-400' aria-label='Call Segun' size='lg' {...args}>
+    <IconButton
+      className='bg-gray-200 text-gray-700'
+      aria-label='Call Segun'
+      size='lg'
+      {...args}
+    >
       <PhoneIcon />
     </IconButton>
   </Stack>

@@ -16,7 +16,6 @@ import {
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  RequiredIndicator,
   useFormControl,
 } from '../src';
 
@@ -60,7 +59,6 @@ const Input = forwardRef<InputProps, 'input'>((props, ref) => {
 export const InputExample = () => (
   <FormControl id='first-name' isRequired isInvalid>
     <FormLabel>First name</FormLabel>
-    <RequiredIndicator data-testid='indicator' />
     <Input placeholder='First Name' />
     <FormHelperText>Keep it very short and sweet!</FormHelperText>
     <FormErrorMessage>Your First name is invalid</FormErrorMessage>
