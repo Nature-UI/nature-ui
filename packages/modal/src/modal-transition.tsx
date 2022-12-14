@@ -9,13 +9,17 @@ export interface ModalTransitionProps
 }
 
 const transition = {
-  slideInButton: {
+  slideInBottom: {
     ...slideFadeConfig,
     custom: { offsetY: 16, reverse: true },
   },
   slideInRight: {
     ...slideFadeConfig,
     custom: { offsetX: 16, reverse: true },
+  },
+  slideInLeft: {
+    ...slideFadeConfig,
+    custom: { offsetX: -16, reverse: true },
   },
   scale: {
     ...scaleFadeConfig,
@@ -30,6 +34,7 @@ export const ModalTransition = React.forwardRef(
   (props: ModalTransitionProps, ref: React.Ref<any>) => {
     const { preset, ...rest } = props;
     const motionProps = transition[preset];
+    console.log({ preset, motionProps });
     return <Motion ref={ref} {...(motionProps as NatureProps)} {...rest} />;
   },
 );
