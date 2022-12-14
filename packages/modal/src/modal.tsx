@@ -97,11 +97,6 @@ export interface NatureModalProps
     ModalOptions,
     NatureProps {
   /**
-   *  If `true`, the modal will be centered on screen.
-   * @default false
-   */
-  isCentered?: boolean;
-  /**
    * Where scroll behavior should originate.
    * - If set to `inside`, scroll only occurs within the `ModalBody`.
    * - If set to `outside`, the entire `ModalContent` will scroll within the viewport.
@@ -277,6 +272,7 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
       getDialogContainerProps,
       scrollBehavior,
       size = 'md',
+      isCentered,
     } = useModalContext();
 
     const dialogProps = getDialogProps(rest, ref) as any;
@@ -285,10 +281,12 @@ export const ModalContent = forwardRef<ModalContentProps, 'section'>(
     const { motionPreset } = useModalContext();
     const dialogContainerClassnames = clsx(
       'nature-modal__content-container',
-      'min-h-screen w-screen h-screen flex fixed left-0 top-0 z-50 justify-center items-start',
+      'min-h-screen w-screen h-screen flex fixed left-0 top-0 z-50 justify-center',
       {
         ['overflow-auto']: scrollBehavior === 'outside',
         ['overflow-hidden']: scrollBehavior === 'inside' || size === 'full',
+        ['items-center']: isCentered,
+        ['items-start']: !isCentered,
       },
     );
 

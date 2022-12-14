@@ -109,12 +109,12 @@ export const avatarGroup = () => (
 export const CustomFallbackAvatar = () => (
   <>
     <AvatarGroup spacing='1rem'>
-      <Avatar color='red-500' icon={<AiOutlineUser size='20px' />} />
-      <Avatar color='teal-500' className='mb-6' />
+      <Avatar color='bg-orange-500' icon={<AiOutlineUser size='20px' />} />
+      <Avatar color='bg-teal-500' className='mb-6' />
     </AvatarGroup>
     <AvatarGroup>
-      <Avatar color='red-500' icon={<AiOutlineUser />} />
-      <Avatar color='teal-500' />
+      <Avatar color='bg-red-500' icon={<AiOutlineUser />} />
+      <Avatar color='bg-teal-500' />
     </AvatarGroup>
   </>
 );

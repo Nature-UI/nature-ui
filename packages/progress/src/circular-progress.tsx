@@ -24,7 +24,7 @@ type CircleProps = HTMLNatureProps<'circle'> & {
  */
 const Circle = (props: CircleProps) => {
   const {
-    className = '',
+    className,
     trackColor,
     colorScheme,
     _animation,
@@ -33,10 +33,10 @@ const Circle = (props: CircleProps) => {
   } = props;
 
   const _className = clsx(
-    `stroke-current text-${trackColor || colorScheme}`,
-    {
-      [className]: className,
-    },
+    `stroke-current`,
+    className,
+    colorScheme,
+    trackColor,
     _animation,
     _transition,
   );
@@ -200,8 +200,8 @@ export const CircularProgress: React.FC<CircularProgressProps> = (props) => {
     capIsRound,
     children,
     thickness = '10px',
-    colorScheme = 'blue-500',
-    trackColor = 'gray-300',
+    colorScheme = 'text-blue-500',
+    trackColor = 'text-gray-300',
     showPercent,
     isIndeterminate,
     className,

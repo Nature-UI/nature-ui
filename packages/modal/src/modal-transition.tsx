@@ -9,13 +9,17 @@ export interface ModalTransitionProps
 }
 
 const transition = {
-  slideInButton: {
+  slideInBottom: {
     ...slideFadeConfig,
     custom: { offsetY: 16, reverse: true },
   },
   slideInRight: {
     ...slideFadeConfig,
     custom: { offsetX: 16, reverse: true },
+  },
+  slideInLeft: {
+    ...slideFadeConfig,
+    custom: { offsetX: -16, reverse: true },
   },
   scale: {
     ...scaleFadeConfig,

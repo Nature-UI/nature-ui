@@ -37,6 +37,10 @@ interface AvatarOptions {
    */
   srcSet?: string;
   /**
+   * The background color
+   */
+  color?: string;
+  /**
    * The border color of the avatar
    */
   borderColor?: string;
@@ -170,7 +174,7 @@ export const Avatar = forwardRef<AvatarProps, 'span'>((props, ref) => {
     onError,
     getInitials = initials,
     icon = <DefaultIcon />,
-    className = '',
+    className,
     size = 'md',
     color: bgColor,
     borderColor: bdColor,
@@ -232,11 +236,11 @@ export const Avatar = forwardRef<AvatarProps, 'span'>((props, ref) => {
           className={clsx(
             baseStyle,
             {
-              [`bg-${bgColor}`]: bgColor,
               [`border-${bdColor}`]: bdColor,
               [_borderColor]: !bdColor,
               [_bg]: !bgColor,
             },
+            bgColor,
             STYLES,
           )}
         />
@@ -244,8 +248,7 @@ export const Avatar = forwardRef<AvatarProps, 'span'>((props, ref) => {
         React.cloneElement(icon, {
           ..._rest,
           role: 'img',
-          className: clsx(baseStyle, cn, {
-            [`bg-${bgColor}`]: bgColor,
+          className: clsx(baseStyle, cn, bgColor, {
             [`border-${bdColor}`]: bdColor,
             [_borderColor]: !bdColor,
             [_bg]: !bgColor,
@@ -264,11 +267,11 @@ export const Avatar = forwardRef<AvatarProps, 'span'>((props, ref) => {
       className={clsx(
         baseStyle,
         {
-          [`bg-${bgColor}`]: bgColor,
           [`border-${bdColor}`]: bdColor,
           [_borderColor]: !bdColor,
           [_bg]: !bgColor,
         },
+        bgColor,
         STYLES,
         className,
       )}

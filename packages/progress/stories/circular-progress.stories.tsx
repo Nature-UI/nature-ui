@@ -32,7 +32,7 @@ WithThickness.args = {
 export const withColorScheme: ProgressType = Template.bind({});
 withColorScheme.args = {
   value: 25,
-  colorScheme: 'blue-400',
+  colorScheme: 'text-purple-400',
   size: 50,
 };
 

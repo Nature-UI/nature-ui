@@ -46,6 +46,11 @@ export interface UseModalProps {
    */
   useInert?: boolean;
   scrollBehavior?: 'inside' | 'outside';
+  /**
+   *  If `true`, the modal will be centered on screen.
+   * @default false
+   */
+  isCentered?: boolean;
 }
 
 /**
@@ -87,6 +92,7 @@ export const useModal = (props: UseModalProps) => {
     onOverlayClick: onOverlayClickProp,
     onEsc,
     scrollBehavior,
+    isCentered,
   } = props;
 
   const dialogRef = React.useRef<HTMLElement>(null);
@@ -204,6 +210,7 @@ export const useModal = (props: UseModalProps) => {
     getDialogProps,
     getDialogContainerProps,
     scrollBehavior,
+    isCentered,
   };
 };
 

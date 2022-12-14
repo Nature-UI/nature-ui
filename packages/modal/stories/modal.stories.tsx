@@ -34,7 +34,6 @@ export const BasicUsage = () => {
         isOpen={isOpen}
         onClose={onClose}
         title={'Welcome Home'}
-        isCentered
         footer={
           <>
             <Button onClick={onClose} className='mr-3 bg-purple-500 text-white'>
@@ -248,6 +247,78 @@ export const FullScreen = () => {
           </ModalFooter>
         </ModalContent>
       </NatureModal>
+    </>
+  );
+};
+
+export const IsCentered = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
+
+      <Modal
+        variant='blur'
+        isOpen={isOpen}
+        onClose={onClose}
+        title='Welcome Home'
+        motionPreset='slideInBottom'
+        isCentered
+        footer={
+          <>
+            <Button onClick={onClose} className='mr-3 bg-purple-500 text-white'>
+              Cancel
+            </Button>
+            <Button className='text-purple-500 hover:bg-purple-100'>
+              Save
+            </Button>
+          </>
+        }
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit,
+        ligula sit amet pharetra accumsan, nulla augue fermentum dui, eget
+        finibus diam sapien eget nisi. Fusce posuere tempus cursus. Nulla cursus
+        dapibus ligula, sit amet facilisis libero
+      </Modal>
+    </>
+  );
+};
+
+export const WithTransitionDirections = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onOpen} className='bg-purple-500 text-white'>
+        Open
+      </Button>
+
+      <Modal
+        variant='blur'
+        isOpen={isOpen}
+        onClose={onClose}
+        title='Welcome Home'
+        motionPreset='slideInBottom'
+        isCentered
+        footer={
+          <>
+            <Button onClick={onClose} className='mr-3 bg-purple-500 text-white'>
+              Cancel
+            </Button>
+            <Button className='text-purple-500 hover:bg-purple-100'>
+              Save
+            </Button>
+          </>
+        }
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit,
+        ligula sit amet pharetra accumsan, nulla augue fermentum dui, eget
+        finibus diam sapien eget nisi. Fusce posuere tempus cursus. Nulla cursus
+        dapibus ligula, sit amet facilisis libero
+      </Modal>
     </>
   );
 };
