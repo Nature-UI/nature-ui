@@ -20,10 +20,6 @@ const spin = keyframes({
 interface SpinnerOptions {
   emptyColor?: string;
   /**
-   * The color of the spinner
-   */
-  color?: string;
-  /**
    * The thickness of the spinner
    * @example
    * ```jsx
@@ -46,7 +42,6 @@ export const Spinner = forwardRef<SpinnerProps, 'div'>((props, ref) => {
     thickness = '2px',
     speed = '0.45s',
     emptyColor = 'transparent',
-    color = 'blue-500',
     size = '1.5rem',
     label = 'Loading...',
     ...rest
@@ -66,9 +61,6 @@ export const Spinner = forwardRef<SpinnerProps, 'div'>((props, ref) => {
     <nature.div
       className={clsx(
         `inline-block border-current border-solid rounded-full`,
-        {
-          [`text-${color}`]: color,
-        },
         className,
       )}
       css={spinnerStyles}
