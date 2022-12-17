@@ -45,7 +45,7 @@
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "dependencies": {
-    "@nature-ui/form-control": "0.0.0-dev-20221025095017",
+    "@nature-ui/form-control": "workspace:*",
     "@nature-ui/hooks": "workspace:*",
     "@nature-ui/icon": "workspace:*",
     "@nature-ui/react-utils": "workspace:*",
@@ -53,6 +53,7 @@
     "@zag-js/focus-visible": "^0.1.6"
   },
   "peerDependencies": {
+    "@nature-ui/system": ">=2",
     "react": ">=18"
   },
   "devDependencies": {
@@ -63,7 +64,6 @@
     "react": "^18.0.0"
   },
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
- 
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
