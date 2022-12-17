@@ -1,5 +1,4 @@
 export * from '@nature-ui/alert';
-export * from '@nature-ui/alert-dialog';
 export * from '@nature-ui/avatar';
 export * from '@nature-ui/breadcrumb';
 export * from '@nature-ui/button';

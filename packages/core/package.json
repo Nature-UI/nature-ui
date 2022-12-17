@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@nature-ui/alert": "workspace:*",
-    "@nature-ui/alert-dialog": "workspace:*",
     "@nature-ui/avatar": "workspace:*",
     "@nature-ui/breadcrumb": "workspace:*",
     "@nature-ui/button": "workspace:*",
@@ -73,7 +72,6 @@
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
- 
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
