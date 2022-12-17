@@ -3,7 +3,6 @@ export * from './use-callback-ref';
 export * from './use-clipboard';
 export * from './use-const';
 export * from './use-controllable';
-export * from './use-dimensions';
 export * from './use-disclosure';
 export * from './use-event-callback';
 export * from './use-event-listener';
