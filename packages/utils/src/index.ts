@@ -1,4 +1,3 @@
-export * from 'css-box-model';
 export * from './array';
 export * from './assertions';
 export * from './dom';

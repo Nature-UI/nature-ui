@@ -74,7 +74,7 @@ export type AvatarBadgeComp = PropsOf<typeof nature.div> & {
 
 export const AvatarBadge = ({
   size = '1em',
-  className = '',
+  className,
   ...rest
 }: AvatarBadgeComp) => {
   const style = css`
