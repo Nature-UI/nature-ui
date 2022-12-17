@@ -40,23 +40,20 @@
     "@nature-ui/icon": "workspace:*"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": "^>=18"
+    "@nature-ui/system": "workspace:*",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@nature-ui/layout": "workspace:*",
+    "@nature-ui/utils": "workspace:*",
+    "clean-package": "^2.1.1",
+    "react": "^18.0.0"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
   },
   "homepage": "https://github.com/DNature/nature-ui#readme",
-  "devDependencies": {
-    "@nature-ui/layout": "workspace:*",
-    "@nature-ui/system": "workspace:*",
-    "@nature-ui/utils": "workspace:*",
-    "clean-package": "^2.1.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
- 
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
