@@ -1,5 +1,17 @@
 # @nature-ui/system
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+
+## 0.0.0-dev-20221217095502
+
+### Patch Changes
+
+- Optimization and fixes
+
 ## 0.0.0-dev-20221025095017
 
 ### Patch Changes

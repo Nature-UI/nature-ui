@@ -1,5 +1,34 @@
 # @nature-ui/modal
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20221217102739
+  - @nature-ui/focus-lock@0.0.0-dev-20221217102739
+  - @nature-ui/hooks@0.0.0-dev-20221217102739
+  - @nature-ui/portal@0.0.0-dev-20221217102739
+  - @nature-ui/react-utils@0.0.0-dev-20221217102739
+  - @nature-ui/system@0.0.0-dev-20221217102739
+  - @nature-ui/transition@0.0.0-dev-20221217102739
+  - @nature-ui/utils@0.0.0-dev-20221217102739
+
+## 0.0.0-dev-20221217095502
+
+### Patch Changes
+
+- Optimization and fixes
+- Updated dependencies
+  - @nature-ui/system@0.0.0-dev-20221217095502
+  - @nature-ui/transition@0.0.0-dev-20221217095502
+  - @nature-ui/close-button@0.0.0-dev-20221025095017
+  - @nature-ui/focus-lock@0.0.0-dev-20221025095017
+  - @nature-ui/hooks@0.0.0-dev-20221025095017
+  - @nature-ui/portal@0.0.0-dev-20221217095502
+  - @nature-ui/react-utils@0.0.0-dev-20221025095017
+
 ## 0.0.0-dev-20221025095017
 
 ### Patch Changes

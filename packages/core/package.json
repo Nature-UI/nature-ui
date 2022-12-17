@@ -1,11 +1,11 @@
 {
   "name": "@nature-ui/core",
-  "version": "0.0.0-dev-20221025095017",
+  "version": "0.0.0-dev-20221217102739",
   "description": "Modular and accessible React UI components built with React, Tailwindcss, and Emotion",
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.cjs.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@nature-ui/alert": "workspace:*",
-    "@nature-ui/alert-dialog": "workspace:*",
     "@nature-ui/avatar": "workspace:*",
     "@nature-ui/breadcrumb": "workspace:*",
     "@nature-ui/button": "workspace:*",
@@ -73,12 +72,13 @@
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
- 
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js"
     },
     "./package.json": "./package.json"
-  }
+  },
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts"
 }

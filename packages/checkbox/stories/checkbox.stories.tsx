@@ -28,8 +28,6 @@ Disabled.args = {
 export const Readonly: CheckboxType = Template.bind({});
 Readonly.args = {
   children: 'Readonly',
-  color: 'bg-red-500',
-  hoverColor: 'bg-red-800',
   isReadOnly: true,
 };
 
@@ -37,13 +35,14 @@ export const ReadonlyChecked: CheckboxType = Template.bind({});
 ReadonlyChecked.args = {
   children: 'Readonly Checked',
   defaultIsChecked: true,
+  color: 'bg-red-500 hover:bg-red-800',
   isReadOnly: true,
 };
 
 export const Invalid: CheckboxType = Template.bind({});
 Invalid.args = {
   children: 'Invalid',
-  color: 'blue-400',
+  color: 'bg-blue-400',
   isInvalid: true,
 };
 
@@ -55,7 +54,11 @@ export const Controlled = () => {
   };
 
   return (
-    <Checkbox isChecked={value} onChange={handleChange}>
+    <Checkbox
+      isChecked={value}
+      onChange={handleChange}
+      color='bg-teal-500 hover:bg-teal-800'
+    >
       Controlled
     </Checkbox>
   );

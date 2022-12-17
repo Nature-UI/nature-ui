@@ -1,5 +1,24 @@
 # @nature-ui/drawer
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+- Updated dependencies
+  - @nature-ui/modal@0.0.0-dev-20221217102739
+  - @nature-ui/react-utils@0.0.0-dev-20221217102739
+  - @nature-ui/transition@0.0.0-dev-20221217102739
+
+## 0.0.0-dev-20221217095502
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/modal@0.0.0-dev-20221217095502
+  - @nature-ui/transition@0.0.0-dev-20221217095502
+  - @nature-ui/react-utils@0.0.0-dev-20221025095017
+
 ## 0.0.0-dev-20221025095017
 
 ### Patch Changes
