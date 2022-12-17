@@ -5,15 +5,15 @@ import React from 'react';
 import { CheckIcon, InfoIcon, WarningIcon } from './icons';
 
 const SUBTLE_TEXT = 'text-gray-800';
+const SOLID_TEXT = 'text-white';
 
 export const ALERT_STATUSES = {
   error: {
-    bg: 'bg-red-200',
     iconColor: 'text-red-600 mr-3',
     icon: WarningIcon,
     variant: {
-      solid: 'bg-red-600 text-white',
-      subtle: SUBTLE_TEXT,
+      solid: `bg-red-600 ${SOLID_TEXT}`,
+      subtle: `bg-red-200 ${SUBTLE_TEXT}`,
     },
   },
   info: {
@@ -21,26 +21,24 @@ export const ALERT_STATUSES = {
     iconColor: 'text-blue-600 mr-3',
     icon: InfoIcon,
     variant: {
-      solid: 'bg-blue-600 text-white',
-      subtle: SUBTLE_TEXT,
+      solid: `bg-blue-600 ${SOLID_TEXT}`,
+      subtle: `bg-blue-200 ${SUBTLE_TEXT}`,
     },
   },
   success: {
-    bg: 'bg-green-200',
     iconColor: 'text-green-600 mr-3',
     icon: CheckIcon,
     variant: {
-      solid: 'bg-green-600 text-white',
-      subtle: SUBTLE_TEXT,
+      solid: `bg-green-600 ${SOLID_TEXT}`,
+      subtle: `bg-green-200 ${SUBTLE_TEXT}`,
     },
   },
   warning: {
-    bg: 'bg-orange-200',
     iconColor: 'text-orange-600 mr-3',
     icon: WarningIcon,
     variant: {
-      solid: 'bg-orange-600 text-white',
-      subtle: SUBTLE_TEXT,
+      subtle: `bg-orange-200 ${SUBTLE_TEXT}`,
+      solid: `bg-orange-600 ${SOLID_TEXT}`,
     },
   },
 };
@@ -89,14 +87,13 @@ export const AlertWrapper = (props: AlertProps) => {
 
   // const Component = 'div';
 
-  const { variant: Variant, bg } = ALERT_STATUSES[status];
-  const VARIANT: string = Variant[variant];
+  const { variant: _variant } = ALERT_STATUSES[status];
+  const color: string = _variant[variant] ?? _variant.subtle;
 
   const componentClass = clsx(
     BASE_STYLE,
     {
-      [bg]: status,
-      [VARIANT]: variant,
+      [color]: variant,
     },
     className,
   );
@@ -158,15 +155,10 @@ export const AlertIcon = (props: AlertIconProps) => {
 
   const { variant = 'subtle', status = 'info' } = useAlertContext();
 
-  // const Component = 'div';
-  const { iconColor, icon, variant: Variant } = ALERT_STATUSES[status];
-  const VARIANT = Variant[variant];
-
-  // const Icon = ALERT_STATUSES[status];
+  const { iconColor, icon } = ALERT_STATUSES[status];
 
   const iconClasses = clsx(
     {
-      [VARIANT]: variant,
       'mr-3': variant,
       [iconColor]: variant !== 'solid',
     },
