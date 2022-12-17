@@ -10,7 +10,7 @@ import {
   ModalHeader as AlertDialogHeader,
   ModalOverlay as AlertDialogOverlay,
   ModalProps,
-} from '.';
+} from './index';
 
 export interface AlertDialogProps extends Omit<ModalProps, 'initialFocusRef'> {
   leastDestructiveRef: NonNullable<ModalProps['initialFocusRef']>;

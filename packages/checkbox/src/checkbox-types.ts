@@ -1,4 +1,5 @@
 export interface UseCheckboxProps {
+  className?: string;
   /**
    * If `true`, the checkbox will be checked.
    * You'll need to pass `onChange` to update it's value (since it's now controlled)

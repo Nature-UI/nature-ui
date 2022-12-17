@@ -15,8 +15,6 @@ import type { UseCheckboxProps } from './checkbox-types';
 import { useCheckbox } from './use-checkbox';
 
 interface ControlProps extends HTMLNatureProps<'div'> {
-  hoverColor?: string;
-  color?: string;
   /**
    * The size of the check icon
    * @default sm
@@ -24,8 +22,21 @@ interface ControlProps extends HTMLNatureProps<'div'> {
   size?: IconProps['size'];
 }
 
+function getBgAndHover(defaultClassName: string, className?: string) {
+  let _className = `${className} ${defaultClassName}`;
+  const hoverRegex = /hover:bg-\w+(-\d+)?/i;
+  const bgRegex = /bg-\w+(-\d+)?/i;
+
+  let baseHoverColor = _className.match(hoverRegex)?.[0] ?? '';
+  _className = _className?.replace(hoverRegex, '');
+
+  let baseBg = _className.match(bgRegex)?.[0] ?? '';
+
+  return [baseHoverColor, baseBg];
+}
+
 const StyledControl = forwardRef<ControlProps, 'div'>((props, ref) => {
-  const { hoverColor = 'bg-blue-700', color = 'bg-blue-500', ...rest } = props;
+  const { color, ...rest } = props;
   const _checked = typeof props['data-checked'] !== 'undefined';
   const _focus = typeof props['data-focus'] !== 'undefined';
   const _indeterminate = typeof props['data-indeterminate'] !== 'undefined';
@@ -35,11 +46,13 @@ const StyledControl = forwardRef<ControlProps, 'div'>((props, ref) => {
 
   const DEFAULTS =
     'box-border inline-flex items-center justify-center align-top select-none flex-shrink-0 text-white rounded w-4 h-4 p-0 transition-all duration-300 ease-in-out border-2';
+  const defaultColor = 'bg-blue-500 hover:bg-blue-700';
+  const [hoverColor, bg] = getBgAndHover(defaultColor, color);
 
   const _className = clsx(DEFAULTS, {
     [`border-none`]: (!_invalid && _checked) || _indeterminate,
     ['ring']: _focus,
-    [`${color}`]: (_checked && !_disabled) || _indeterminate,
+    [bg]: (_checked && !_disabled) || _indeterminate,
     [hoverColor]: _hover && _checked && !_disabled,
     ['bg-gray-300']: _disabled,
     ['border-red-500']: _invalid,
@@ -110,12 +123,11 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
   const group = useCheckboxGroupContext();
 
   const {
-    className = '',
+    className,
     spacing = '0.5rem',
     iconColor,
     children,
-    color = props.color ?? group?.color,
-    hoverColor = props.hoverColor ?? group?.hoverColor,
+    color,
     size,
     ...rest
   } = props;
@@ -144,11 +156,7 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
   return (
     <StyledWrapper className={className} {...htmlProps}>
       <input {...getInputProps({ ref })} />
-      <StyledControl
-        hoverColor={hoverColor}
-        color={color}
-        {...getCheckboxProps()}
-      >
+      <StyledControl color={color} {...getCheckboxProps()}>
         <CheckboxIcon
           isChecked={state.isChecked}
           isIndeterminate={state.isIndeterminate}
