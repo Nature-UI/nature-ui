@@ -55,16 +55,18 @@
     "@nature-ui/transition": "workspace:*",
     "@nature-ui/utils": "workspace:*",
     "aria-hidden": "^1.2.2",
-    "framer-motion": "^7.10.2",
     "react-remove-scroll": "^2.5.5"
   },
   "devDependencies": {
+    "framer-motion": "^7.10.2",
     "@nature-ui/button": "workspace:*",
     "@nature-ui/system": "workspace:*",
     "clean-package": "^2.2.0",
     "react": "^18.0.0"
   },
   "peerDependencies": {
+    "@nature-ui/system": ">=2.0.0",
+    "framer-motion": ">=6.0.0",
     "react": ">=18"
   },
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",

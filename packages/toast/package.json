@@ -49,25 +49,23 @@
     "@nature-ui/hooks": "workspace:*",
     "@nature-ui/portal": "workspace:*",
     "@nature-ui/react-utils": "workspace:*",
-    "@nature-ui/transition": "workspace:*",
-    "@reach/alert": "^0.11.2"
+    "@nature-ui/transition": "workspace:*"
   },
   "devDependencies": {
     "@nature-ui/button": "workspace:*",
     "@nature-ui/system": "workspace:*",
     "@nature-ui/utils": "workspace:*",
     "clean-package": "^2.1.1",
-    "framer-motion": "^6.3.3",
+    "framer-motion": "^7.10.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "peerDependencies": {
-    "framer-motion": ">=4.0.0",
+    "framer-motion": ">=6.0.0",
     "react": ">=18",
     "react-dom": "^>=18"
   },
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
- 
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
