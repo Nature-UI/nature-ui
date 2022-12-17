@@ -1,5 +1,11 @@
 # @nature-ui/babel-plugin
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+
 ## 0.0.0-dev-20221025084126
 
 ### Patch Changes

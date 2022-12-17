@@ -1,5 +1,13 @@
 # @nature-ui/hooks
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+- Updated dependencies
+  - @nature-ui/utils@0.0.0-dev-20221217102739
+
 ## 0.0.0-dev-20221025095017
 
 ### Patch Changes

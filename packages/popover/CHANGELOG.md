@@ -1,5 +1,25 @@
 # @nature-ui/popover
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20221217102739
+  - @nature-ui/hooks@0.0.0-dev-20221217102739
+  - @nature-ui/popper@0.0.0-dev-20221217102739
+  - @nature-ui/portal@0.0.0-dev-20221217102739
+
+## 0.0.0-dev-20221217095502
+
+### Patch Changes
+
+- @nature-ui/close-button@0.0.0-dev-20221025095017
+- @nature-ui/hooks@0.0.0-dev-20221025095017
+- @nature-ui/popper@0.0.0-dev-20221025095017
+- @nature-ui/portal@0.0.0-dev-20221217095502
+
 ## 0.0.0-dev-20221025095017
 
 ### Patch Changes

@@ -1,5 +1,31 @@
 # @nature-ui/checkbox
 
+## 0.0.0-dev-20221217102739
+
+### Patch Changes
+
+- Optimization
+- Updated dependencies
+  - @nature-ui/form-control@0.0.0-dev-20221217102739
+  - @nature-ui/hooks@0.0.0-dev-20221217102739
+  - @nature-ui/react-utils@0.0.0-dev-20221217102739
+  - @nature-ui/system@0.0.0-dev-20221217102739
+  - @nature-ui/visually-hidden@0.0.0-dev-20221217102739
+  - @nature-ui/icon@0.0.0-dev-20221217102739
+
+## 0.0.0-dev-20221217095502
+
+### Patch Changes
+
+- Optimization and fixes
+- Updated dependencies
+  - @nature-ui/system@0.0.0-dev-20221217095502
+  - @nature-ui/form-control@0.0.0-dev-20221025095017
+  - @nature-ui/hooks@0.0.0-dev-20221025095017
+  - @nature-ui/icon@0.0.0-dev-20221025095017
+  - @nature-ui/react-utils@0.0.0-dev-20221025095017
+  - @nature-ui/visually-hidden@0.0.0-dev-20221025095017
+
 ## 0.0.0-dev-20221025095017
 
 ### Patch Changes
