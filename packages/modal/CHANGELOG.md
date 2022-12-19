@@ -1,5 +1,20 @@
 # @nature-ui/modal
 
+## 0.0.0-dev-20221218114655
+
+### Patch Changes
+
+- Fix alert background color
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20221218114655
+  - @nature-ui/focus-lock@0.0.0-dev-20221218114655
+  - @nature-ui/hooks@0.0.0-dev-20221218114655
+  - @nature-ui/portal@0.0.0-dev-20221218114655
+  - @nature-ui/react-utils@0.0.0-dev-20221218114655
+  - @nature-ui/system@0.0.0-dev-20221218114655
+  - @nature-ui/transition@0.0.0-dev-20221218114655
+  - @nature-ui/utils@0.0.0-dev-20221218114655
+
 ## 0.0.0-dev-20221217102739
 
 ### Patch Changes

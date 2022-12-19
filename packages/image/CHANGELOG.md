@@ -1,5 +1,13 @@
 # @nature-ui/image
 
+## 0.0.0-dev-20221218114655
+
+### Patch Changes
+
+- Fix alert background color
+- Updated dependencies
+  - @nature-ui/hooks@0.0.0-dev-20221218114655
+
 ## 0.0.0-dev-20221217102739
 
 ### Patch Changes

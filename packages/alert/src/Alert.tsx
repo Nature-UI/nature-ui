@@ -14,6 +14,7 @@ export const ALERT_STATUSES = {
     variant: {
       solid: `bg-red-600 ${SOLID_TEXT}`,
       subtle: `bg-red-200 ${SUBTLE_TEXT}`,
+      border: 'border-red-600',
     },
   },
   info: {
@@ -23,6 +24,7 @@ export const ALERT_STATUSES = {
     variant: {
       solid: `bg-blue-600 ${SOLID_TEXT}`,
       subtle: `bg-blue-200 ${SUBTLE_TEXT}`,
+      border: 'border-blue-600',
     },
   },
   success: {
@@ -31,6 +33,7 @@ export const ALERT_STATUSES = {
     variant: {
       solid: `bg-green-600 ${SOLID_TEXT}`,
       subtle: `bg-green-200 ${SUBTLE_TEXT}`,
+      border: 'border-green-600',
     },
   },
   warning: {
@@ -39,6 +42,7 @@ export const ALERT_STATUSES = {
     variant: {
       subtle: `bg-orange-200 ${SUBTLE_TEXT}`,
       solid: `bg-orange-600 ${SOLID_TEXT}`,
+      border: 'border-orange-600',
     },
   },
 };
@@ -94,6 +98,9 @@ export const AlertWrapper = (props: AlertProps) => {
     BASE_STYLE,
     {
       [color]: variant,
+      ['border-l-4']: variant === 'left-accent',
+      ['border-t-4']: variant === 'top-accent',
+      [ALERT_STATUSES[status].variant.border]: status,
     },
     className,
   );
@@ -102,20 +109,10 @@ export const AlertWrapper = (props: AlertProps) => {
     status,
     variant,
   };
-  const hasIcon = variant.includes('accent');
 
   return (
     <AlertProvider value={context}>
       <Component className={componentClass} {...rest} role={role}>
-        {hasIcon && (
-          <nature.span
-            className={clsx('absolute top-0 left-0 mr-2', {
-              'h-full w-1 ': variant === 'left-accent',
-              'w-full h-1 ': variant === 'top-accent',
-              [ALERT_STATUSES[status].variant.solid]: status,
-            })}
-          />
-        )}
         {children}
       </Component>
     </AlertProvider>
