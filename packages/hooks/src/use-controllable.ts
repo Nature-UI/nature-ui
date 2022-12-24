@@ -56,7 +56,6 @@ const defaultPropsMap = {
  * React hook for using controlling component state.
  * @param props
  */
-
 export const useControllableState = <T>(
   props: UseControllableStateProps<T>,
 ): [T, React.Dispatch<React.SetStateAction<T>>] => {

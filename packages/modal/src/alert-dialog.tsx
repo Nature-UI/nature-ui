@@ -1,4 +1,4 @@
-import { forwardRef } from '@nature-ui/system';
+import React from 'react';
 import {
   Modal,
   ModalBody as AlertDialogBody,
@@ -25,8 +25,10 @@ const AlertDialog = (props: AlertDialogProps) => {
   return <Modal {...rest} initialFocusRef={leastDestructiveRef} />;
 };
 
-export const AlertDialogContent = forwardRef<ModalContentProps, 'section'>(
-  (props, ref) => <ModalContent ref={ref} role='alertdialog' {...props} />,
+export const AlertDialogContent = React.forwardRef(
+  (props: ModalContentProps, ref: React.Ref<any>) => (
+    <ModalContent {...props} ref={ref} role='alertdialog' />
+  ),
 );
 
 export {
