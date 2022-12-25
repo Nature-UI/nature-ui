@@ -204,6 +204,7 @@ importers:
     specifiers:
       '@nature-ui/icon': workspace:*
       '@nature-ui/layout': workspace:*
+      '@nature-ui/system': workspace:*
       '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
@@ -211,6 +212,7 @@ importers:
       '@nature-ui/icon': link:../icon
     devDependencies:
       '@nature-ui/layout': link:../layout
+      '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
       react: registry.npmjs.org/react/18.2.0

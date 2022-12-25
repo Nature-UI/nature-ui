@@ -40,11 +40,11 @@
     "@nature-ui/icon": "workspace:*"
   },
   "peerDependencies": {
-    "@nature-ui/system": "workspace:*",
     "react": ">=18"
   },
   "devDependencies": {
     "@nature-ui/layout": "workspace:*",
+    "@nature-ui/system": "workspace:*",
     "@nature-ui/utils": "workspace:*",
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
