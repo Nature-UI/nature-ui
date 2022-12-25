@@ -6,7 +6,6 @@ import React from 'react';
  *
  * @param value the value or function to persist
  */
-
 export const useLatestRef = <T>(value: T) => {
   const ref = React.useRef(value);
 

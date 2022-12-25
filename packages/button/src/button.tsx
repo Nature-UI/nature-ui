@@ -163,7 +163,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     });
 
   const DEFAULT_CLASS =
-    'focus:ring rounded ease-in-out duration-150 transition-colors font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
+    'rounded ease-in-out duration-150 transition-colors font-semibold relative overflow-hidden align-middle inline-flex justify-center items-center leading-normal';
 
   const disabledStyles = 'opacity-50 cursor-not-allowed';
   const BTNClass = clsx(

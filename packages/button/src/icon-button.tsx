@@ -19,10 +19,6 @@ export interface IconButtonProps extends BaseButtonProps {
    */
   icon?: React.ReactElement;
   /**
-   * If `true`, the button will be perfectly round. Else, it'll be slightly round
-   */
-  isRound?: boolean;
-  /**
    * A11y: A label that describes the button
    */
   'aria-label'?: string;
@@ -33,9 +29,9 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
     const {
       icon,
       children,
-      isRound,
       'aria-label': ariaLabel,
       className = '',
+      as,
       ...rest
     } = props;
 
@@ -50,18 +46,15 @@ export const IconButton = forwardRef<IconButtonProps, 'button'>(
           focusable: false,
         })
       : null;
-    const _className = clsx(className, {
-      'rounded-full': isRound,
-      'rounded-md': !isRound,
-    });
+    const _className = clsx('rounded-md', className);
 
     return (
       <Button
+        {...rest}
         ref={ref}
         aria-label={ariaLabel}
         className={_className}
         isIconButton
-        {...rest}
       >
         {_children}
       </Button>

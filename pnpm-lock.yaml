@@ -208,31 +208,10 @@ importers:
       '@nature-ui/utils': workspace:*
       clean-package: ^2.1.1
       react: ^18.2.0
-      react-dom: ^18.2.0
     dependencies:
       '@nature-ui/icon': link:../icon
     devDependencies:
       '@nature-ui/layout': link:../layout
-      '@nature-ui/system': link:../system
-      '@nature-ui/utils': link:../utils
-      clean-package: registry.npmjs.org/clean-package/2.1.1
-      react: registry.npmjs.org/react/18.2.0
-      react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
-
-  packages/alert-dialog:
-    specifiers:
-      '@nature-ui/button': workspace:*
-      '@nature-ui/hooks': workspace:*
-      '@nature-ui/modal': workspace:*
-      '@nature-ui/system': workspace:*
-      '@nature-ui/utils': workspace:*
-      clean-package: ^2.1.1
-      react: ^18.2.0
-    dependencies:
-      '@nature-ui/modal': link:../modal
-    devDependencies:
-      '@nature-ui/button': link:../button
-      '@nature-ui/hooks': link:../hooks
       '@nature-ui/system': link:../system
       '@nature-ui/utils': link:../utils
       clean-package: registry.npmjs.org/clean-package/2.1.1
@@ -300,7 +279,7 @@ importers:
 
   packages/checkbox:
     specifiers:
-      '@nature-ui/form-control': 0.0.0-dev-20221025095017
+      '@nature-ui/form-control': workspace:*
       '@nature-ui/hooks': workspace:*
       '@nature-ui/icon': workspace:*
       '@nature-ui/layout': workspace:*
@@ -388,7 +367,6 @@ importers:
   packages/core:
     specifiers:
       '@nature-ui/alert': workspace:*
-      '@nature-ui/alert-dialog': workspace:*
       '@nature-ui/avatar': workspace:*
       '@nature-ui/breadcrumb': workspace:*
       '@nature-ui/button': workspace:*
@@ -423,7 +401,6 @@ importers:
       react: ^18.2.0
     dependencies:
       '@nature-ui/alert': link:../alert
-      '@nature-ui/alert-dialog': link:../alert-dialog
       '@nature-ui/avatar': link:../avatar
       '@nature-ui/breadcrumb': link:../breadcrumb
       '@nature-ui/button': link:../button
@@ -662,12 +639,12 @@ importers:
       '@nature-ui/transition': link:../transition
       '@nature-ui/utils': link:../utils
       aria-hidden: registry.npmjs.org/aria-hidden/1.2.2_react@18.2.0
-      framer-motion: registry.npmjs.org/framer-motion/7.10.2_react@18.2.0
       react-remove-scroll: registry.npmjs.org/react-remove-scroll/2.5.5_react@18.2.0
     devDependencies:
       '@nature-ui/button': link:../button
       '@nature-ui/system': link:../system
       clean-package: registry.npmjs.org/clean-package/2.2.0
+      framer-motion: registry.npmjs.org/framer-motion/7.10.2_react@18.2.0
       react: registry.npmjs.org/react/18.2.0
 
   packages/number-input:
@@ -864,7 +841,6 @@ importers:
       '@nature-ui/system': workspace:*
       '@nature-ui/transition': workspace:*
       '@nature-ui/utils': workspace:*
-      '@reach/alert': ^0.11.2
       clean-package: ^2.1.1
       framer-motion: ^7.10.2
       react: ^18.2.0
@@ -876,7 +852,6 @@ importers:
       '@nature-ui/portal': link:../portal
       '@nature-ui/react-utils': link:../react-utils
       '@nature-ui/transition': link:../transition
-      '@reach/alert': registry.npmjs.org/@reach/alert/0.11.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@nature-ui/button': link:../button
       '@nature-ui/system': link:../system
@@ -3596,12 +3571,14 @@ packages:
     requiresBuild: true
     dependencies:
       '@emotion/memoize': registry.npmjs.org/@emotion/memoize/0.7.4
+    dev: true
     optional: true
 
   registry.npmjs.org/@emotion/memoize/0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.4.tgz}
     name: '@emotion/memoize'
     version: 0.7.4
+    dev: true
     optional: true
 
   registry.npmjs.org/@emotion/memoize/0.7.5:
@@ -5061,6 +5038,7 @@ packages:
       '@motionone/types': registry.npmjs.org/@motionone/types/10.15.1
       '@motionone/utils': registry.npmjs.org/@motionone/utils/10.15.1
       tslib: registry.npmjs.org/tslib/2.4.0
+    dev: true
 
   registry.npmjs.org/@motionone/dom/10.15.3:
     resolution: {integrity: sha512-FQ7a2zMBXc1UeU8CG9G3yDpst55fbb0+C9A0VGfwOITitBCzigKZnXRgsRSWWR+FW57GSc13eGQxtYB0lKG0Ng==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@motionone/dom/-/dom-10.15.3.tgz}
@@ -5073,6 +5051,7 @@ packages:
       '@motionone/utils': registry.npmjs.org/@motionone/utils/10.15.1
       hey-listen: registry.npmjs.org/hey-listen/1.0.8
       tslib: registry.npmjs.org/tslib/2.4.0
+    dev: true
 
   registry.npmjs.org/@motionone/easing/10.15.1:
     resolution: {integrity: sha512-6hIHBSV+ZVehf9dcKZLT7p5PEKHGhDwky2k8RKkmOvUoYP3S+dXsKupyZpqx5apjd9f+php4vXk4LuS+ADsrWw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@motionone/easing/-/easing-10.15.1.tgz}
@@ -5081,6 +5060,7 @@ packages:
     dependencies:
       '@motionone/utils': registry.npmjs.org/@motionone/utils/10.15.1
       tslib: registry.npmjs.org/tslib/2.4.0
+    dev: true
 
   registry.npmjs.org/@motionone/generators/10.15.1:
     resolution: {integrity: sha512-67HLsvHJbw6cIbLA/o+gsm7h+6D4Sn7AUrB/GPxvujse1cGZ38F5H7DzoH7PhX+sjvtDnt2IhFYF2Zp1QTMKWQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@motionone/generators/-/generators-10.15.1.tgz}
@@ -5090,11 +5070,13 @@ packages:
       '@motionone/types': registry.npmjs.org/@motionone/types/10.15.1
       '@motionone/utils': registry.npmjs.org/@motionone/utils/10.15.1
       tslib: registry.npmjs.org/tslib/2.4.0
+    dev: true
 
   registry.npmjs.org/@motionone/types/10.15.1:
     resolution: {integrity: sha512-iIUd/EgUsRZGrvW0jqdst8st7zKTzS9EsKkP+6c6n4MPZoQHwiHuVtTQLD6Kp0bsBLhNzKIBlHXponn/SDT4hA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@motionone/types/-/types-10.15.1.tgz}
     name: '@motionone/types'
     version: 10.15.1
+    dev: true
 
   registry.npmjs.org/@motionone/utils/10.15.1:
     resolution: {integrity: sha512-p0YncgU+iklvYr/Dq4NobTRdAPv9PveRDUXabPEeOjBLSO/1FNB2phNTZxOxpi1/GZwYpAoECEa0Wam+nsmhSw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@motionone/utils/-/utils-10.15.1.tgz}
@@ -5104,6 +5086,7 @@ packages:
       '@motionone/types': registry.npmjs.org/@motionone/types/10.15.1
       hey-listen: registry.npmjs.org/hey-listen/1.0.8
       tslib: registry.npmjs.org/tslib/2.4.0
+    dev: true
 
   registry.npmjs.org/@mrmlnc/readdir-enhanced/2.2.1:
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz}
@@ -5802,23 +5785,6 @@ packages:
     version: 2.11.5
     dev: false
 
-  registry.npmjs.org/@reach/alert/0.11.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-udMiJ+MR97ZcPxwc4CNSs6FvXfjiS/Q1mL61fbONSPSkN4GFSWkYy2WvXH5pZfg1DbEscRNGa7E8bgJfGiVo1g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@reach/alert/-/alert-0.11.2.tgz}
-    id: registry.npmjs.org/@reach/alert/0.11.2
-    name: '@reach/alert'
-    version: 0.11.2
-    peerDependencies:
-      react: ^16.8.0
-      react-dom: ^16.8.0
-    dependencies:
-      '@reach/utils': registry.npmjs.org/@reach/utils/0.11.2_biqbaboplfbrettd7655fr4n2y
-      '@reach/visually-hidden': registry.npmjs.org/@reach/visually-hidden/0.11.1_biqbaboplfbrettd7655fr4n2y
-      prop-types: registry.npmjs.org/prop-types/15.8.1
-      react: registry.npmjs.org/react/18.2.0
-      react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
-      tslib: registry.npmjs.org/tslib/2.4.0
-    dev: false
-
   registry.npmjs.org/@reach/auto-id/0.11.2_react@18.2.0:
     resolution: {integrity: sha512-YZ21b0Kb88wJ0t7QjSznWOYskARQMnmXY9Y2XZ5RyYcZ2krT4s3+ghghpfaPs6BKcrZDonZCrU65OFDJPa1jAw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@reach/auto-id/-/auto-id-0.11.2.tgz}
     id: registry.npmjs.org/@reach/auto-id/0.11.2
@@ -5831,22 +5797,6 @@ packages:
       '@reach/utils': registry.npmjs.org/@reach/utils/0.11.2_react@18.2.0
       react: registry.npmjs.org/react/18.2.0
       tslib: registry.npmjs.org/tslib/2.4.0
-    dev: false
-
-  registry.npmjs.org/@reach/utils/0.11.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-fBTolYj+rKTROXmf0zHO0rCWSvw7J0ALmYj5QxW4DmITMOH5uyRuWDWOfqohIGFbOtF/sum50WTB3tvx76d+Aw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@reach/utils/-/utils-0.11.2.tgz}
-    id: registry.npmjs.org/@reach/utils/0.11.2
-    name: '@reach/utils'
-    version: 0.11.2
-    peerDependencies:
-      react: ^16.8.0
-      react-dom: ^16.8.0
-    dependencies:
-      '@types/warning': registry.npmjs.org/@types/warning/3.0.0
-      react: registry.npmjs.org/react/18.2.0
-      react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
-      tslib: registry.npmjs.org/tslib/2.4.0
-      warning: registry.npmjs.org/warning/4.0.3
     dev: false
 
   registry.npmjs.org/@reach/utils/0.11.2_react@18.2.0:
@@ -5862,20 +5812,6 @@ packages:
       react: registry.npmjs.org/react/18.2.0
       tslib: registry.npmjs.org/tslib/2.4.0
       warning: registry.npmjs.org/warning/4.0.3
-    dev: false
-
-  registry.npmjs.org/@reach/visually-hidden/0.11.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-TZZNSttor2jG6ZPGI35s/8G0FNSz49QrJIhAZbnUqHyPf3+jtNqAC0dOWW8Nuk+mApDDDVYd2KZ9P2vnzllNnQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@reach/visually-hidden/-/visually-hidden-0.11.1.tgz}
-    id: registry.npmjs.org/@reach/visually-hidden/0.11.1
-    name: '@reach/visually-hidden'
-    version: 0.11.1
-    peerDependencies:
-      react: ^16.8.0
-      react-dom: ^16.8.0
-    dependencies:
-      react: registry.npmjs.org/react/18.2.0
-      react-dom: registry.npmjs.org/react-dom/18.2.0_react@18.2.0
-      tslib: registry.npmjs.org/tslib/2.4.0
     dev: false
 
   registry.npmjs.org/@remix-run/router/1.0.2:
@@ -14977,6 +14913,7 @@ packages:
       tslib: registry.npmjs.org/tslib/2.4.0
     optionalDependencies:
       '@emotion/is-prop-valid': registry.npmjs.org/@emotion/is-prop-valid/0.8.8
+    dev: true
 
   registry.npmjs.org/fresh/0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz}
@@ -15923,6 +15860,7 @@ packages:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/hey-listen/-/hey-listen-1.0.8.tgz}
     name: hey-listen
     version: 1.0.8
+    dev: true
 
   registry.npmjs.org/hmac-drbg/1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/hmac-drbg/-/hmac-drbg-1.0.1.tgz}
