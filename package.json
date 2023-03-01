@@ -16,7 +16,7 @@
     "pkg": "manypkg run",
     "check:pkgs": "manypkg check",
     "fix:pkgs": "manypkg fix",
-    "version": "changeset version",
+    "version:pkgs": "changeset version",
     "release": "changeset publish",
     "build": "turbo run build",
     "build:fast": "turbo run build:fast",

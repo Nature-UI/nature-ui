@@ -1,5 +1,95 @@
 # @nature-ui/number-input
 
+## 4.0.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/counter@2.2.0
+  - @nature-ui/form-control@2.2.0
+  - @nature-ui/hooks@2.2.0
+  - @nature-ui/icon@2.2.0
+  - @nature-ui/input@2.2.0
+  - @nature-ui/react-utils@2.2.0
+  - @nature-ui/system@2.2.0
+  - @nature-ui/utils@2.2.0
+
+## 3.0.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/counter@2.1.0
+  - @nature-ui/form-control@2.1.0
+  - @nature-ui/hooks@2.1.0
+  - @nature-ui/icon@2.1.0
+  - @nature-ui/input@2.1.0
+  - @nature-ui/react-utils@2.1.0
+  - @nature-ui/system@2.1.0
+  - @nature-ui/utils@2.1.0
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/counter@2.0.0
+  - @nature-ui/form-control@2.0.0
+  - @nature-ui/hooks@2.0.0
+  - @nature-ui/icon@2.0.0
+  - @nature-ui/input@2.0.0
+  - @nature-ui/react-utils@2.0.0
+  - @nature-ui/system@2.0.0
+  - @nature-ui/utils@2.0.0
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/counter@1.0.0
+  - @nature-ui/form-control@1.0.0
+  - @nature-ui/hooks@1.0.0
+  - @nature-ui/icon@1.0.0
+  - @nature-ui/input@1.0.0
+  - @nature-ui/react-utils@1.0.0
+  - @nature-ui/system@1.0.0
+  - @nature-ui/utils@1.0.0
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/counter@0.0.0
+  - @nature-ui/form-control@0.0.0
+  - @nature-ui/hooks@0.0.0
+  - @nature-ui/icon@0.0.0
+  - @nature-ui/input@0.0.0
+  - @nature-ui/react-utils@0.0.0
+  - @nature-ui/system@0.0.0
+  - @nature-ui/utils@0.0.0
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

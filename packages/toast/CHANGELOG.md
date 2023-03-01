@@ -1,5 +1,85 @@
 # @nature-ui/toast
 
+## 2.2.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@2.2.0
+  - @nature-ui/close-button@2.2.0
+  - @nature-ui/hooks@2.2.0
+  - @nature-ui/portal@4.0.0
+  - @nature-ui/react-utils@2.2.0
+  - @nature-ui/transition@2.2.0
+
+## 2.1.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@2.1.0
+  - @nature-ui/close-button@2.1.0
+  - @nature-ui/hooks@2.1.0
+  - @nature-ui/portal@3.0.0
+  - @nature-ui/react-utils@2.1.0
+  - @nature-ui/transition@2.1.0
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@2.0.0
+  - @nature-ui/close-button@2.0.0
+  - @nature-ui/hooks@2.0.0
+  - @nature-ui/portal@2.0.0
+  - @nature-ui/react-utils@2.0.0
+  - @nature-ui/transition@2.0.0
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@1.0.0
+  - @nature-ui/close-button@1.0.0
+  - @nature-ui/hooks@1.0.0
+  - @nature-ui/portal@1.0.0
+  - @nature-ui/react-utils@1.0.0
+  - @nature-ui/transition@1.0.0
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@0.0.0
+  - @nature-ui/close-button@0.0.0
+  - @nature-ui/hooks@0.0.0
+  - @nature-ui/portal@0.0.0
+  - @nature-ui/react-utils@0.0.0
+  - @nature-ui/transition@0.0.0
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

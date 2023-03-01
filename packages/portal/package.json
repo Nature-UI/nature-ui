@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/portal",
-  "version": "0.0.0-dev-20230301133840",
+  "version": "4.0.0",
   "description": "React component used to render children outside the DOM hierarchy of the parent component",
   "keywords": [
     "react",

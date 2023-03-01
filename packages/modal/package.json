@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "0.0.0-dev-20230301133840",
+  "version": "4.0.0",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",
@@ -65,7 +65,7 @@
     "react": "^18.0.0"
   },
   "peerDependencies": {
-    "@nature-ui/system": "0.0.0-dev-20230301133840",
+    "@nature-ui/system": "2.2.0",
     "framer-motion": ">=6.0.0",
     "react": ">=18"
   },

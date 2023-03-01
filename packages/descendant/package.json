@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/descendant",
-  "version": "0.0.0-dev-20230301133840",
+  "version": "2.2.0",
   "description": "Register child nodes of a react element for better accessibility",
   "keywords": [
     "dom",

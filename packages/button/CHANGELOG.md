@@ -1,5 +1,60 @@
 # @nature-ui/button
 
+## 2.2.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/spinner@2.2.0
+
+## 2.1.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/spinner@2.1.0
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/spinner@2.0.0
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/spinner@1.0.0
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/spinner@0.0.0
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

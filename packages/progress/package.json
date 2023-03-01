@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/progress",
-  "version": "0.0.0-dev-20230301133840",
+  "version": "2.2.0",
   "description": "Progress bar component for Nature UI",
   "keywords": [
     "theme",

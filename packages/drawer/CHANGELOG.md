@@ -1,5 +1,70 @@
 # @nature-ui/drawer
 
+## 2.2.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/modal@4.0.0
+  - @nature-ui/react-utils@2.2.0
+  - @nature-ui/transition@2.2.0
+
+## 2.1.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/modal@3.0.0
+  - @nature-ui/react-utils@2.1.0
+  - @nature-ui/transition@2.1.0
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/modal@2.0.0
+  - @nature-ui/react-utils@2.0.0
+  - @nature-ui/transition@2.0.0
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/modal@1.0.0
+  - @nature-ui/react-utils@1.0.0
+  - @nature-ui/transition@1.0.0
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/modal@0.0.0
+  - @nature-ui/react-utils@0.0.0
+  - @nature-ui/transition@0.0.0
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

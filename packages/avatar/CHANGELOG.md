@@ -1,5 +1,65 @@
 # @nature-ui/avatar
 
+## 2.2.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/color@2.2.0
+  - @nature-ui/image@2.2.0
+
+## 2.1.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/color@2.1.0
+  - @nature-ui/image@2.1.0
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/color@2.0.0
+  - @nature-ui/image@2.0.0
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/color@1.0.0
+  - @nature-ui/image@1.0.0
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/color@0.0.0
+  - @nature-ui/image@0.0.0
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

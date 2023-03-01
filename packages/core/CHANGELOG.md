@@ -1,5 +1,210 @@
 # @nature-ui/core
 
+## 2.2.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@2.2.0
+  - @nature-ui/avatar@2.2.0
+  - @nature-ui/breadcrumb@2.2.0
+  - @nature-ui/button@2.2.0
+  - @nature-ui/checkbox@4.0.0
+  - @nature-ui/clickable@2.2.0
+  - @nature-ui/close-button@2.2.0
+  - @nature-ui/color@2.2.0
+  - @nature-ui/container@2.2.0
+  - @nature-ui/counter@2.2.0
+  - @nature-ui/descendant@2.2.0
+  - @nature-ui/drawer@2.2.0
+  - @nature-ui/focus-lock@2.2.0
+  - @nature-ui/form-control@2.2.0
+  - @nature-ui/hooks@2.2.0
+  - @nature-ui/icon@2.2.0
+  - @nature-ui/image@2.2.0
+  - @nature-ui/input@2.2.0
+  - @nature-ui/layout@2.2.0
+  - @nature-ui/modal@4.0.0
+  - @nature-ui/number-input@4.0.0
+  - @nature-ui/popover@2.2.0
+  - @nature-ui/popper@2.2.0
+  - @nature-ui/portal@4.0.0
+  - @nature-ui/progress@2.2.0
+  - @nature-ui/radio@2.2.0
+  - @nature-ui/spinner@2.2.0
+  - @nature-ui/system@2.2.0
+  - @nature-ui/toast@2.2.0
+  - @nature-ui/transition@2.2.0
+  - @nature-ui/visually-hidden@2.2.0
+
+## 2.1.0
+
+### Minor Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@2.1.0
+  - @nature-ui/avatar@2.1.0
+  - @nature-ui/breadcrumb@2.1.0
+  - @nature-ui/button@2.1.0
+  - @nature-ui/checkbox@3.0.0
+  - @nature-ui/clickable@2.1.0
+  - @nature-ui/close-button@2.1.0
+  - @nature-ui/color@2.1.0
+  - @nature-ui/container@2.1.0
+  - @nature-ui/counter@2.1.0
+  - @nature-ui/descendant@2.1.0
+  - @nature-ui/drawer@2.1.0
+  - @nature-ui/focus-lock@2.1.0
+  - @nature-ui/form-control@2.1.0
+  - @nature-ui/hooks@2.1.0
+  - @nature-ui/icon@2.1.0
+  - @nature-ui/image@2.1.0
+  - @nature-ui/input@2.1.0
+  - @nature-ui/layout@2.1.0
+  - @nature-ui/modal@3.0.0
+  - @nature-ui/number-input@3.0.0
+  - @nature-ui/popover@2.1.0
+  - @nature-ui/popper@2.1.0
+  - @nature-ui/portal@3.0.0
+  - @nature-ui/progress@2.1.0
+  - @nature-ui/radio@2.1.0
+  - @nature-ui/spinner@2.1.0
+  - @nature-ui/system@2.1.0
+  - @nature-ui/toast@2.1.0
+  - @nature-ui/transition@2.1.0
+  - @nature-ui/visually-hidden@2.1.0
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@2.0.0
+  - @nature-ui/avatar@2.0.0
+  - @nature-ui/breadcrumb@2.0.0
+  - @nature-ui/button@2.0.0
+  - @nature-ui/checkbox@2.0.0
+  - @nature-ui/clickable@2.0.0
+  - @nature-ui/close-button@2.0.0
+  - @nature-ui/color@2.0.0
+  - @nature-ui/container@2.0.0
+  - @nature-ui/counter@2.0.0
+  - @nature-ui/descendant@2.0.0
+  - @nature-ui/drawer@2.0.0
+  - @nature-ui/focus-lock@2.0.0
+  - @nature-ui/form-control@2.0.0
+  - @nature-ui/hooks@2.0.0
+  - @nature-ui/icon@2.0.0
+  - @nature-ui/image@2.0.0
+  - @nature-ui/input@2.0.0
+  - @nature-ui/layout@2.0.0
+  - @nature-ui/modal@2.0.0
+  - @nature-ui/number-input@2.0.0
+  - @nature-ui/popover@2.0.0
+  - @nature-ui/popper@2.0.0
+  - @nature-ui/portal@2.0.0
+  - @nature-ui/progress@2.0.0
+  - @nature-ui/radio@2.0.0
+  - @nature-ui/spinner@2.0.0
+  - @nature-ui/system@2.0.0
+  - @nature-ui/toast@2.0.0
+  - @nature-ui/transition@2.0.0
+  - @nature-ui/visually-hidden@2.0.0
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@1.0.0
+  - @nature-ui/avatar@1.0.0
+  - @nature-ui/breadcrumb@1.0.0
+  - @nature-ui/button@1.0.0
+  - @nature-ui/checkbox@1.0.0
+  - @nature-ui/clickable@1.0.0
+  - @nature-ui/close-button@1.0.0
+  - @nature-ui/color@1.0.0
+  - @nature-ui/container@1.0.0
+  - @nature-ui/counter@1.0.0
+  - @nature-ui/descendant@1.0.0
+  - @nature-ui/drawer@1.0.0
+  - @nature-ui/focus-lock@1.0.0
+  - @nature-ui/form-control@1.0.0
+  - @nature-ui/hooks@1.0.0
+  - @nature-ui/icon@1.0.0
+  - @nature-ui/image@1.0.0
+  - @nature-ui/input@1.0.0
+  - @nature-ui/layout@1.0.0
+  - @nature-ui/modal@1.0.0
+  - @nature-ui/number-input@1.0.0
+  - @nature-ui/popover@1.0.0
+  - @nature-ui/popper@1.0.0
+  - @nature-ui/portal@1.0.0
+  - @nature-ui/progress@1.0.0
+  - @nature-ui/radio@1.0.0
+  - @nature-ui/spinner@1.0.0
+  - @nature-ui/system@1.0.0
+  - @nature-ui/toast@1.0.0
+  - @nature-ui/transition@1.0.0
+  - @nature-ui/visually-hidden@1.0.0
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
+### Patch Changes
+
+- Updated dependencies
+  - @nature-ui/alert@0.0.0
+  - @nature-ui/avatar@0.0.0
+  - @nature-ui/breadcrumb@0.0.0
+  - @nature-ui/button@0.0.0
+  - @nature-ui/checkbox@0.0.0
+  - @nature-ui/clickable@0.0.0
+  - @nature-ui/close-button@0.0.0
+  - @nature-ui/color@0.0.0
+  - @nature-ui/container@0.0.0
+  - @nature-ui/counter@0.0.0
+  - @nature-ui/descendant@0.0.0
+  - @nature-ui/drawer@0.0.0
+  - @nature-ui/focus-lock@0.0.0
+  - @nature-ui/form-control@0.0.0
+  - @nature-ui/hooks@0.0.0
+  - @nature-ui/icon@0.0.0
+  - @nature-ui/image@0.0.0
+  - @nature-ui/input@0.0.0
+  - @nature-ui/layout@0.0.0
+  - @nature-ui/modal@0.0.0
+  - @nature-ui/number-input@0.0.0
+  - @nature-ui/popover@0.0.0
+  - @nature-ui/popper@0.0.0
+  - @nature-ui/portal@0.0.0
+  - @nature-ui/progress@0.0.0
+  - @nature-ui/radio@0.0.0
+  - @nature-ui/spinner@0.0.0
+  - @nature-ui/system@0.0.0
+  - @nature-ui/toast@0.0.0
+  - @nature-ui/transition@0.0.0
+  - @nature-ui/visually-hidden@0.0.0
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

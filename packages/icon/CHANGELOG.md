@@ -1,5 +1,35 @@
 # @nature-ui/icon
 
+## 2.2.0
+
+### Minor Changes
+
+- v2
+
+## 2.1.0
+
+### Minor Changes
+
+- v2
+
+## 2.0.0
+
+### Major Changes
+
+- v2
+
+## 1.0.0
+
+### Major Changes
+
+- v2
+
+## 0.0.0
+
+### Major Changes
+
+- Releasing v2
+
 ## 0.0.0-dev-20230301133840
 
 ### Patch Changes

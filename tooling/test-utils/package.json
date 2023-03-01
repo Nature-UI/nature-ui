@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/test-utils",
-  "version": "0.0.0-dev-20230301133840",
+  "version": "2.2.0",
   "description": "Testing utilities for Nature UI UI's components",
   "keywords": [
     "nature ui",
