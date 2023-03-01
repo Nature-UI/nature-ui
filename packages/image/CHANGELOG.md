@@ -1,5 +1,13 @@
 # @nature-ui/image
 
+## 0.0.0-dev-20230301133840
+
+### Patch Changes
+
+- update react version
+- Updated dependencies
+  - @nature-ui/hooks@0.0.0-dev-20230301133840
+
 ## 0.0.0-dev-20230301120121
 
 ### Patch Changes

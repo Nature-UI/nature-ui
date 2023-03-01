@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/clickable",
-  "version": "0.0.0-dev-20230301120121",
+  "version": "0.0.0-dev-20230301133840",
   "description": "React hook and component that implements native button interactions",
   "keywords": [
     "nature ui",

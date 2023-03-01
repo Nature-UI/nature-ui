@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/popover",
-  "version": "0.0.0-dev-20230301120121",
+  "version": "0.0.0-dev-20230301133840",
   "description": "A React component to render that renders it's content in a popover",
   "keywords": [
     "popover",

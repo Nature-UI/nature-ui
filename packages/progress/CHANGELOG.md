@@ -1,5 +1,14 @@
 # @nature-ui/progress
 
+## 0.0.0-dev-20230301133840
+
+### Patch Changes
+
+- update react version
+- Updated dependencies
+  - @nature-ui/color@0.0.0-dev-20230301133840
+  - @nature-ui/utils@0.0.0-dev-20230301133840
+
 ## 0.0.0-dev-20230301120121
 
 ### Patch Changes

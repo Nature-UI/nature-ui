@@ -1,5 +1,11 @@
 # @nature-ui/babel-plugin
 
+## 0.0.0-dev-20230301133840
+
+### Patch Changes
+
+- update react version
+
 ## 0.0.0-dev-20230301120121
 
 ### Patch Changes

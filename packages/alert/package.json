@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert",
-  "version": "0.0.0-dev-20230301120121",
+  "version": "0.0.0-dev-20230301133840",
   "description": "A React component used to alert users of a particular screen area that needs user action",
   "keywords": [
     "alert",

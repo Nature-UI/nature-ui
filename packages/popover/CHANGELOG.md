@@ -1,5 +1,16 @@
 # @nature-ui/popover
 
+## 0.0.0-dev-20230301133840
+
+### Patch Changes
+
+- update react version
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20230301133840
+  - @nature-ui/hooks@0.0.0-dev-20230301133840
+  - @nature-ui/popper@0.0.0-dev-20230301133840
+  - @nature-ui/portal@0.0.0-dev-20230301133840
+
 ## 0.0.0-dev-20230301120121
 
 ### Patch Changes

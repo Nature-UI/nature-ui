@@ -1,5 +1,18 @@
 # @nature-ui/checkbox
 
+## 0.0.0-dev-20230301133840
+
+### Patch Changes
+
+- update react version
+- Updated dependencies
+  - @nature-ui/system@0.0.0-dev-20230301133840
+  - @nature-ui/form-control@0.0.0-dev-20230301133840
+  - @nature-ui/hooks@0.0.0-dev-20230301133840
+  - @nature-ui/icon@0.0.0-dev-20230301133840
+  - @nature-ui/react-utils@0.0.0-dev-20230301133840
+  - @nature-ui/visually-hidden@0.0.0-dev-20230301133840
+
 ## 0.0.0-dev-20230301120121
 
 ### Patch Changes
