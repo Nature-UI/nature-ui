@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/layout",
-  "version": "0.0.0-dev-20221217102739",
+  "version": "0.0.0-dev-20230301120121",
   "description": "A React component for displaying spinners and loaders",
   "keywords": [
     "spinner",

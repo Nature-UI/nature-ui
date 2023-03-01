@@ -1,5 +1,18 @@
 # @nature-ui/toast
 
+## 0.0.0-dev-20230301120121
+
+### Patch Changes
+
+- dev
+- Updated dependencies
+  - @nature-ui/alert@0.0.0-dev-20230301120121
+  - @nature-ui/close-button@0.0.0-dev-20230301120121
+  - @nature-ui/hooks@0.0.0-dev-20230301120121
+  - @nature-ui/portal@0.0.0-dev-20230301120121
+  - @nature-ui/react-utils@0.0.0-dev-20230301120121
+  - @nature-ui/transition@0.0.0-dev-20230301120121
+
 ## 0.0.0-dev-20221217102739
 
 ### Patch Changes
