@@ -45,6 +45,7 @@
     "react": "^18.0.0"
   },
   "peerDependencies": {
+    "@emotion/react": ">=11",
     "react": ">=18"
   },
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",

@@ -1,38 +1,55 @@
-import { runIfFn } from '@nature-ui/utils';
+import { isFunction } from '@nature-ui/utils';
 import { useEffect } from 'react';
 import { useCallbackRef } from './use-callback-ref';
 
 type DocumentOrElement = Document | HTMLElement | null;
 export type EventListenerEnv = (() => DocumentOrElement) | DocumentOrElement;
 
-/**
- * React hook to manage browser event listeners
- *
- * @param event the event name
- * @param handler the event handler function to execute
- * @param doc the dom environment to execute against (defaults to `document`)
- * @param options the event listener options
- */
-export const useEventListener = <K extends keyof DocumentEventMap>(
-  event: K | (string & {}),
-  handler: (event: DocumentEventMap[K]) => void,
-  env?: EventListenerEnv,
-  options?: boolean | AddEventListenerOptions,
-) => {
-  const listener = useCallbackRef(handler) as EventListener;
+type Target = EventTarget | null | (() => EventTarget | null);
+type Options = boolean | AddEventListenerOptions;
+
+export function useEventListener<K extends keyof DocumentEventMap>(
+  target: Target,
+  event: K,
+  handler?: (event: DocumentEventMap[K]) => void,
+  options?: Options,
+): VoidFunction;
+export function useEventListener<K extends keyof WindowEventMap>(
+  target: Target,
+  event: K,
+  handler?: (event: WindowEventMap[K]) => void,
+  options?: Options,
+): VoidFunction;
+export function useEventListener<K extends keyof GlobalEventHandlersEventMap>(
+  target: Target,
+  event: K,
+  handler?: (event: GlobalEventHandlersEventMap[K]) => void,
+  options?: Options,
+): VoidFunction;
+
+export function useEventListener(
+  target: Target,
+  event: string,
+  handler: ((event: Event) => void) | undefined,
+  options?: Options,
+) {
+  const listener = useCallbackRef(handler);
 
   useEffect(() => {
-    const node = runIfFn(env) ?? document;
+    // @ts-ignore
+    const node = isFunction(target) ? target() : target ?? document;
+
+    if (!handler || !node) return;
 
     node.addEventListener(event, listener, options);
-
     return () => {
       node.removeEventListener(event, listener, options);
     };
-  }, [event, env, options, listener]);
+  }, [event, target, options, listener, handler]);
 
   return () => {
-    const node = runIfFn(env) ?? document;
-    node.removeEventListener(event, listener, options);
+    // @ts-ignore
+    const node = isFunction(target) ? target() : target ?? document;
+    node?.removeEventListener(event, listener, options);
   };
-};
+}

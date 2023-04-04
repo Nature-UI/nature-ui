@@ -36,8 +36,6 @@
     "release:dev": "changeset publish --tag dev"
   },
   "dependencies": {
-    "@nature-ui/core": "workspace:*",
-    "@nature-ui/test-utils": "workspace:*",
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
@@ -50,6 +48,9 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@manypkg/cli": "^0.19.2",
+    "@nature-ui/core": "workspace:*",
+    "@nature-ui/test-utils": "workspace:*",
+    "@storybook/addon-a11y": "^7.0.2",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
     "@storybook/addon-postcss": "^2.0.0",
@@ -101,7 +102,6 @@
     "jest": "^29.2.0",
     "jest-environment-jsdom": "^29.2.0",
     "jest-watch-typeahead": "^2.2.0",
-    "lerna": "^6.0.1",
     "lint-staged": "^13.0.3",
     "node-sass": "^7.0.3",
     "npm-check-updates": "^16.3.12",

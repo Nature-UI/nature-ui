@@ -1,58 +1,81 @@
 import { Placement } from '@popperjs/core';
 
-const oppositeDirections = {
-  top: 'bottom',
-  bottom: 'top',
-  right: 'left',
-  left: 'right',
+const toVar = (value: string, fallback?: string) => ({
+  var: value,
+  varRef: fallback ? `var(${value}, ${fallback})` : `var(${value})`,
+});
+
+export const cssVars = {
+  arrowShadowColor: toVar('--popper-arrow-shadow-color'),
+  arrowSize: toVar('--popper-arrow-size', '8px'),
+  arrowSizeHalf: toVar('--popper-arrow-size-half'),
+  arrowBg: toVar('--popper-arrow-bg'),
+  transformOrigin: toVar('--popper-transform-origin'),
+  arrowOffset: toVar('--popper-arrow-offset'),
+} as const;
+
+const transforms: Record<string, string> = {
+  top: 'bottom center',
+  'top-start': 'bottom left',
+  'top-end': 'bottom right',
+
+  bottom: 'top center',
+  'bottom-start': 'top left',
+  'bottom-end': 'top right',
+
+  left: 'right center',
+  'left-start': 'right top',
+  'left-end': 'right bottom',
+
+  right: 'left center',
+  'right-start': 'left top',
+  'right-end': 'left bottom',
 };
 
-type Direction = keyof typeof oppositeDirections;
+export const toTransformOrigin = (placement: Placement) =>
+  transforms[placement];
 
-export const getOppositePosition = (position: Direction) =>
-  oppositeDirections[position];
+const defaultEventListeners = {
+  scroll: true,
+  resize: true,
+};
 
-const splitPlacement = (placement: Placement) =>
-  placement.split('-') as Direction[];
+export function getEventListenerOptions(
+  value?: boolean | Partial<typeof defaultEventListeners>,
+) {
+  let eventListeners: {
+    enabled?: boolean;
+    options?: typeof defaultEventListeners;
+  };
 
-export const getBoxShadow = (placement: Placement, color: string) => {
+  if (typeof value === 'object') {
+    eventListeners = {
+      enabled: true,
+      options: { ...defaultEventListeners, ...value },
+    };
+  } else {
+    eventListeners = {
+      enabled: value,
+      options: defaultEventListeners,
+    };
+  }
+  return eventListeners;
+}
+
+export const getBoxShadow = (placement: Placement) => {
   if (placement.includes('top')) {
-    return `2px 2px 2px 0 ${color}`;
+    return `2px 2px 2px 0 var(--popper-arrow-shadow-color)`;
   }
 
   if (placement.includes('bottom')) {
-    return `-1px -1px 1px 0 ${color}`;
+    return `-1px -1px 1px 0 var(--popper-arrow-shadow-color)`;
   }
 
   if (placement.includes('right')) {
-    return `-1px 1px 1px 0 ${color}`;
+    return `-1px 1px 1px 0 var(--popper-arrow-shadow-color)`;
   }
 
   if (placement.includes('left')) {
-    return `1px -1px 1px 0 ${color}`;
+    return `1px -1px 1px 0 var(--popper-arrow-shadow-color)`;
   }
-};
-
-export const getArrowStyles = (
-  placement: Placement | undefined,
-  arrowSize: number,
-  arrowShadowColor?: string,
-): React.CSSProperties => {
-  if (typeof placement !== 'string') return {};
-
-  const [position] = splitPlacement(placement);
-  const oppositePosition = getOppositePosition(position);
-
-  if (!oppositePosition) return {};
-
-  return {
-    [oppositePosition]: `-${arrowSize / 2}px`,
-    width: arrowSize,
-    height: arrowSize,
-    position: 'absolute',
-    transform: 'rotate(45deg)',
-    boxShadow: arrowShadowColor
-      ? getBoxShadow(placement, arrowShadowColor)
-      : undefined,
-  };
 };

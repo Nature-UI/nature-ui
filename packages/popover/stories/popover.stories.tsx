@@ -1,10 +1,16 @@
-import { Button } from '@nature-ui/button';
-import { Input } from '@nature-ui/input';
-import { Box, Stack } from '@nature-ui/layout';
-import React from 'react';
-
+import {
+  Button,
+  Input,
+  Radio,
+  RadioGroup,
+  useBoolean,
+  useInterval,
+} from '@nature-ui/core';
+import { nature } from '@nature-ui/system';
+import { useState } from 'react';
 import {
   Popover,
+  PopoverAnchor,
   PopoverArrow,
   PopoverBody,
   PopoverCloseButton,
@@ -25,15 +31,14 @@ export default {
   ],
 };
 
-export const PopoverExample = () => {
-  const { getTriggerProps, getPopoverProps, onClose } = usePopover({
-    returnFocus: false,
-    autoFocus: false,
-  });
+export function PopoverExample() {
+  const { getTriggerProps, getPopoverProps, onClose } = usePopover();
 
   return (
     <>
-      <button {...getTriggerProps()}>Open</button>
+      <button type='button' {...getTriggerProps()}>
+        Open
+      </button>
       <div
         {...getPopoverProps({
           style: {
@@ -44,22 +49,29 @@ export const PopoverExample = () => {
         })}
       >
         This is the content <br />
-        <button onClick={onClose}>Close</button>
+        <button type='button' onClick={onClose}>
+          Close
+        </button>
       </div>
     </>
   );
-};
+}
 
 export const simple = () => (
-  <Popover>
+  <Popover placement='right-start'>
     <PopoverTrigger>
-      <Button className='bg-purple-300 text-purple-700'>Trigger</Button>
+      <nature.button>Trigger</nature.button>
     </PopoverTrigger>
-    <PopoverContent className='bg-white'>
+    <PopoverContent>
       <PopoverArrow />
       <PopoverCloseButton />
       <PopoverHeader>Confirmation!</PopoverHeader>
-      <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+      <PopoverBody>
+        <p>Are you sure you want to have that milkshake?</p>
+        <br />
+        <button>Yes</button>
+        <button>No</button>
+      </PopoverBody>
     </PopoverContent>
   </Popover>
 );
@@ -68,9 +80,9 @@ export const basic = () => (
   <>
     <Popover placement='top'>
       <PopoverTrigger>
-        <Button className='bg-purple-300 text-purple-700'>Welcome home</Button>
+        <nature.button>Welcome home</nature.button>
       </PopoverTrigger>
-      <PopoverContent className='bg-white'>
+      <PopoverContent>
         <PopoverArrow />
         <PopoverHeader>Submit now</PopoverHeader>
         <PopoverBody>
@@ -82,11 +94,9 @@ export const basic = () => (
 
     <Popover placement='bottom'>
       <PopoverTrigger>
-        <Button className='ml-4 border border-solid border-purple-500 text-purple-500'>
-          Welcome home
-        </Button>
+        <nature.button>Welcome home</nature.button>
       </PopoverTrigger>
-      <PopoverContent className='bg-white'>
+      <PopoverContent>
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverHeader>Submit now</PopoverHeader>
@@ -97,47 +107,152 @@ export const basic = () => (
       </PopoverContent>
     </Popover>
 
-    <Input />
+    <nature.input />
   </>
 );
 
-export function WalkthroughPopover() {
-  const initialFocusRef = React.useRef();
-  return (
-    <Popover
-      initialFocusRef={initialFocusRef}
-      placement='bottom'
-      closeOnBlur={false}
-    >
+export const Arrow = () => (
+  <>
+    <Popover placement='top' arrowSize={40}>
       <PopoverTrigger>
-        <Button className='ml-12 bg-purple-300 text-purple-700'>Trigger</Button>
+        <button>Welcome home</button>
       </PopoverTrigger>
-      <PopoverContent className='w-full px-3 bg-blue-800 text-white border-blue-800'>
-        <PopoverHeader className='pt-4 font-bold border-none'>
-          Manage Your Channels
-        </PopoverHeader>
-        <PopoverArrow />
-        <PopoverCloseButton />
+      <PopoverContent>
+        <PopoverArrow className=' bg-red-600' />
+        <PopoverHeader>Submit now</PopoverHeader>
         <PopoverBody>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </PopoverBody>
-        <PopoverFooter className='flex pb-4 border-none justify-between items-center'>
-          <Box className='text-sm'>Step 2 of 4</Box>
-          <Stack row spacing='1rem'>
-            <Button size='sm' className='block bg-blue-500'>
-              Setup Email
+      </PopoverContent>
+    </Popover>
+  </>
+);
+
+export function ControlledUsage() {
+  const [isOpen, setIsOpen] = useState(false);
+  const open = () => setIsOpen(!isOpen);
+  const close = () => setIsOpen(false);
+  return (
+    <>
+      <Button mr={5} onClick={open}>
+        Trigger
+      </Button>
+      <Popover
+        returnFocusOnClose={false}
+        isOpen={isOpen}
+        onClose={close}
+        placement='right'
+        closeOnBlur={false}
+      >
+        <PopoverTrigger>
+          <Button className='bg-pink-500 text-white'>Popover Target</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverHeader className='font-semibold'>Confirmation</PopoverHeader>
+          <PopoverArrow />
+          <PopoverCloseButton />
+          <PopoverBody>
+            Are you sure you want to continue with your action?
+          </PopoverBody>
+          <PopoverFooter className='flex justify-end'>
+            <Button variant='outline' size='sm'>
+              Cancel
             </Button>
-            <Button
-              size='sm'
-              className='border-blue-500 border border-solid'
-              // @ts-ignore
-              ref={initialFocusRef}
-            >
-              Next
+            <Button className='bg-red-500 ml-3 text-white' size='sm'>
+              Apply
             </Button>
-          </Stack>
-        </PopoverFooter>
+          </PopoverFooter>
+        </PopoverContent>
+      </Popover>
+    </>
+  );
+}
+
+const Interval = () => {
+  const [value, setValue] = useState(0);
+  useInterval(() => setValue((v) => v + 1), 1000);
+  return (
+    <span style={{ fontWeight: 'bold', color: 'tomato', padding: 4 }}>
+      {value}
+    </span>
+  );
+};
+
+export function WithLazyPopover() {
+  return (
+    <Popover isLazy>
+      <PopoverTrigger>
+        <Button className='bg-teal-500'>Popover Target</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverBody>
+          Are you sure you want to continue with your action?
+          <p>
+            Timer: <Interval />
+          </p>
+        </PopoverBody>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+export function WithLazyPopoverMounted() {
+  return (
+    <Popover isLazy lazyBehavior='keepMounted'>
+      <PopoverTrigger>
+        <Button className='bg-teal-500'>Popover Target</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverBody>
+          Are you sure you want to continue with your action?
+          <p>
+            Timer: <Interval />
+          </p>
+        </PopoverBody>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+export function WithPopoverAnchor() {
+  const [isEditing, setIsEditing] = useBoolean();
+  const [color, setColor] = useState('text-red-500');
+
+  return (
+    <Popover
+      isOpen={isEditing}
+      onOpen={setIsEditing.on}
+      onClose={setIsEditing.off}
+      closeOnBlur={false}
+      isLazy
+      lazyBehavior='keepMounted'
+    >
+      <PopoverAnchor>
+        <Input
+          className={`${color} w-auto inline-flex`}
+          isDisabled={!isEditing}
+          defaultValue='Popover Anchor'
+        />
+      </PopoverAnchor>
+
+      <PopoverTrigger>
+        <Button className='bg-teal-200'>{isEditing ? 'Save' : 'Edit'}</Button>
+      </PopoverTrigger>
+
+      <PopoverContent>
+        <PopoverBody>
+          Colors:
+          <RadioGroup
+            value={color}
+            onChange={(newColor: string) => setColor(newColor)}
+          >
+            <Radio value='text-red-500'>red</Radio>
+            <Radio value='text-blue-500'>blue</Radio>
+            <Radio value='text-green-500'>green</Radio>
+            <Radio value='text-purple-500'>purple</Radio>
+          </RadioGroup>
+        </PopoverBody>
       </PopoverContent>
     </Popover>
   );

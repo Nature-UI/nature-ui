@@ -346,6 +346,7 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
       : 'onMouseDown';
 
   useEventListener(
+    inputRef.current,
     'wheel',
     (event: WheelEvent) => {
       const isInputFocused = document.activeElement === inputRef.current;
@@ -362,7 +363,6 @@ export const useNumberInput = (props: UseNumberInputProps = {}) => {
         decrement(stepFactor);
       }
     },
-    inputRef.current,
     { passive: false },
   );
 

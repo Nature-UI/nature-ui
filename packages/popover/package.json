@@ -43,7 +43,9 @@
     "@nature-ui/close-button": "workspace:*",
     "@nature-ui/hooks": "workspace:*",
     "@nature-ui/popper": "workspace:*",
-    "@nature-ui/portal": "workspace:*"
+    "@nature-ui/portal": "workspace:*",
+    "@nature-ui/react-utils": "workspace:*",
+    "framer-motion": "^7.10.2"
   },
   "devDependencies": {
     "@nature-ui/button": "workspace:*",
@@ -51,6 +53,7 @@
     "@nature-ui/layout": "workspace:*",
     "@nature-ui/system": "workspace:*",
     "@nature-ui/utils": "workspace:*",
+    "@nature-ui/react-types": "workspace:*",
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },

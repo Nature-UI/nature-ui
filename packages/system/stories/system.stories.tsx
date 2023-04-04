@@ -1,4 +1,3 @@
-import React from 'react';
 import { css, nature } from '../src';
 
 export default {
