@@ -18,7 +18,7 @@
     "sr-only",
     "screenreader"
   ],
-  "main": "dist/index.cjs.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -39,7 +39,8 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package"
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
@@ -56,13 +57,5 @@
     "clean-package": "^2.1.1",
     "react": "^18.0.0"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts"
+  "clean-package": "../../clean-package.config.json"
 }

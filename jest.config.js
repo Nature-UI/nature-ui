@@ -1,14 +1,14 @@
 module.exports = {
   testEnvironment: 'jsdom',
   collectCoverageFrom: ['packages/**/*.{ts,tsx}'],
-  moduleFileExtensions: [ 'ts', 'tsx', 'js', 'jsx'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)?$": "@swc-node/jest",
+    '^.+\\.(t|j)sx?$': ['@swc-node/jest', {}],
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
   setupFilesAfterEnv: [
-    "@testing-library/jest-dom/extend-expect",
-    "./scripts/setup-test.ts",
+    '@testing-library/jest-dom/extend-expect',
+    './scripts/setup-test.ts',
   ],
   globals: {
     'ts-jest': {
@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   watchPlugins: [
-    "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname",
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
   ],
 };

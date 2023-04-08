@@ -14,6 +14,8 @@ node_modules
 /dist
 tooling/**/dist
 dist
+packages/**/tsconfig.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # misc
 .DS_Store
