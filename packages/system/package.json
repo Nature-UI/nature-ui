@@ -22,8 +22,8 @@
     "directory": "packages/system"
   },
   "scripts": {
-    "build": "JSX=1 tsup src/index.ts --dts",
-    "build:fast": "JSX=1 tsup src/index.ts",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",

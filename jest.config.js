@@ -1,22 +1,19 @@
+const { defaults: tsjPreset } = require('ts-jest/presets');
+
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   collectCoverageFrom: ['packages/**/*.{ts,tsx}'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transform: {
-    '^.+\\.(t|j)sx?$': ['@swc-node/jest', {}],
+    ...tsjPreset.transform,
+    // '^.+\\.tsx?$': [
+    //   'ts-jest',
+    //   {
+    //     isolatedModules: true,
+    //     // ts-jest configuration goes here
+    //   },
+    // ],
   },
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-  setupFilesAfterEnv: [
-    '@testing-library/jest-dom/extend-expect',
-    './scripts/setup-test.ts',
-  ],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
-    },
-  },
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
-  ],
+  setupFilesAfterEnv: ['./scripts/setup-test.ts'],
 };

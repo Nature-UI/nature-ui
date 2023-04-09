@@ -1,80 +1,41 @@
-import { getOppositePosition, getArrowStyles } from '../src/popper.utils';
+import { getBoxShadow, toTransformOrigin } from '../src/popper.utils';
 
 describe('@nature-ui/popper', () => {
-  describe('getOppositePosition', () => {
+  describe('toTransformOrigin', () => {
     test.each`
-      direction   | opposite
-      ${'top'}    | ${'bottom'}
-      ${'bottom'} | ${'top'}
-      ${'right'}  | ${'left'}
-      ${'left'}   | ${'right'}
+      origin            | transform
+      ${'top'}          | ${'bottom center'}
+      ${'top-start'}    | ${'bottom left'}
+      ${'top-end'}      | ${'bottom right'}
+      ${'bottom'}       | ${'top center'}
+      ${'bottom-start'} | ${'top left'}
+      ${'bottom-end'}   | ${'top right'}
+      ${'left'}         | ${'right center'}
+      ${'left-start'}   | ${'right top'}
+      ${'left-end'}     | ${'right bottom'}
+      ${'right'}        | ${'left center'}
+      ${'right-start'}  | ${'left top'}
+      ${'right-end'}    | ${'left bottom'}
     `(
-      `opposite position of $direction is $opposite`,
-      ({ direction, opposite }) => {
-        expect(getOppositePosition(direction)).toBe(opposite);
+      `given position of $origin should return $transform placement`,
+      ({ origin, transform }) => {
+        expect(toTransformOrigin(origin)).toBe(transform);
       },
     );
   });
 
-  describe('getArrowStyles', () => {
-    const arrowSize = 4;
-    const baseExpected = {
-      width: 4,
-      height: 4,
-      position: 'absolute',
-      transform: 'rotate(45deg)',
-    };
-
-    test('Placement: auto', () => {
-      const expected = {};
-
-      expect(getArrowStyles('auto', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('auto-start', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('auto-end', arrowSize)).toEqual(expected);
-    });
-
-    test('Placement: top', () => {
-      const expected = {
-        ...baseExpected,
-        bottom: '-2px',
-      };
-
-      expect(getArrowStyles('top', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('top-start', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('top-end', arrowSize)).toEqual(expected);
-    });
-
-    test('Placement: bottom', () => {
-      const expected = {
-        ...baseExpected,
-        top: '-2px',
-      };
-
-      expect(getArrowStyles('bottom', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('bottom-start', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('bottom-end', arrowSize)).toEqual(expected);
-    });
-
-    test('Placement: right', () => {
-      const expected = {
-        ...baseExpected,
-        left: '-2px',
-      };
-
-      expect(getArrowStyles('right', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('right-start', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('right-end', arrowSize)).toEqual(expected);
-    });
-
-    test('Placement: left', () => {
-      const expected = {
-        ...baseExpected,
-        right: '-2px',
-      };
-
-      expect(getArrowStyles('left', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('left-start', arrowSize)).toEqual(expected);
-      expect(getArrowStyles('left-end', arrowSize)).toEqual(expected);
-    });
+  describe('getBoxShadow', () => {
+    test.each`
+      placement   | boxShadow
+      ${'top'}    | ${'2px 2px 2px 0 var(--popper-arrow-shadow-color)'}
+      ${'bottom'} | ${'-1px -1px 1px 0 var(--popper-arrow-shadow-color)'}
+      ${'right'}  | ${'-1px 1px 1px 0 var(--popper-arrow-shadow-color)'}
+      ${'left'}   | ${'1px -1px 1px 0 var(--popper-arrow-shadow-color)'}
+    `(
+      `given placement of $origin should return $boxShadow`,
+      ({ placement, boxShadow }) => {
+        expect(getBoxShadow(placement)).toBe(boxShadow);
+      },
+    );
   });
 });
