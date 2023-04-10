@@ -157,7 +157,6 @@ export function NestedModal() {
 export const ReturnFocus = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef<any>();
-  console.log({ finalRef });
 
   return (
     <>

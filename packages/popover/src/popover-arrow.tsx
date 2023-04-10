@@ -1,9 +1,5 @@
 import { HTMLNatureProps, clsx, nature } from '@nature-ui/system';
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '../../../tailwind.config.js';
 import { usePopoverContext } from './popover-context';
-
-const fullConfig = resolveConfig(tailwindConfig);
 
 export interface PopoverArrowProps extends HTMLNatureProps<'div'> {}
 
@@ -18,7 +14,7 @@ export function PopoverArrow(props: PopoverArrowProps) {
         className={clsx('nature-popover__arrow bg-white', props.className)}
         {...getArrowInnerProps(props)}
         css={{
-          '--popper-arrow-shadow-color': fullConfig.theme.colors.gray[200],
+          '--popper-arrow-shadow-color': '#e5e7eb',
         }}
       />
     </nature.div>

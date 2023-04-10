@@ -20,6 +20,7 @@ export const PopoverContent = forwardRef<PopoverContentProps, 'section'>(
       usePopoverContext();
 
     const popoverProps = getPopoverProps(contentProps, ref);
+    console.log({ props: getPopoverPositionerProps(rootProps) });
 
     return (
       <nature.div

@@ -1,5 +1,70 @@
 # @nature-ui/toast
 
+## 0.0.0-dev-20230410131720
+
+### Patch Changes
+
+- fix tailwind error
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20230410131720
+  - @nature-ui/react-utils@0.0.0-dev-20230410131720
+  - @nature-ui/transition@0.0.0-dev-20230410131720
+  - @nature-ui/portal@0.0.0-dev-20230410131720
+  - @nature-ui/alert@0.0.0-dev-20230410131720
+  - @nature-ui/hooks@0.0.0-dev-20230410131720
+
+## 0.0.0-dev-20230409203337
+
+### Patch Changes
+
+- prepack
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20230409203337
+  - @nature-ui/react-utils@0.0.0-dev-20230409203337
+  - @nature-ui/transition@0.0.0-dev-20230409203337
+  - @nature-ui/portal@0.0.0-dev-20230409203337
+  - @nature-ui/alert@0.0.0-dev-20230409203337
+  - @nature-ui/hooks@0.0.0-dev-20230409203337
+
+## 0.0.0-dev-20230409203113
+
+### Patch Changes
+
+- fix mjs build
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20230409203113
+  - @nature-ui/react-utils@0.0.0-dev-20230409203113
+  - @nature-ui/transition@0.0.0-dev-20230409203113
+  - @nature-ui/portal@0.0.0-dev-20230409203113
+  - @nature-ui/alert@0.0.0-dev-20230409203113
+  - @nature-ui/hooks@0.0.0-dev-20230409203113
+
+## 0.0.0-dev-20230409201910
+
+### Patch Changes
+
+- configure prepack
+- Updated dependencies
+  - @nature-ui/close-button@0.0.0-dev-20230409201910
+  - @nature-ui/react-utils@0.0.0-dev-20230409201910
+  - @nature-ui/transition@0.0.0-dev-20230409201910
+  - @nature-ui/portal@0.0.0-dev-20230409201910
+  - @nature-ui/alert@0.0.0-dev-20230409201910
+  - @nature-ui/hooks@0.0.0-dev-20230409201910
+
+## 2.2.1
+
+### Patch Changes
+
+- Add popover component
+- Updated dependencies
+  - @nature-ui/close-button@2.2.1
+  - @nature-ui/react-utils@2.2.1
+  - @nature-ui/transition@2.2.1
+  - @nature-ui/portal@4.0.1
+  - @nature-ui/alert@2.2.1
+  - @nature-ui/hooks@2.2.1
+
 ## 2.2.0
 
 ### Minor Changes

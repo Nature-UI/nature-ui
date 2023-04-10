@@ -1,5 +1,35 @@
 # @nature-ui/transition
 
+## 0.0.0-dev-20230410131720
+
+### Patch Changes
+
+- fix tailwind error
+
+## 0.0.0-dev-20230409203337
+
+### Patch Changes
+
+- prepack
+
+## 0.0.0-dev-20230409203113
+
+### Patch Changes
+
+- fix mjs build
+
+## 0.0.0-dev-20230409201910
+
+### Patch Changes
+
+- configure prepack
+
+## 2.2.1
+
+### Patch Changes
+
+- Add popover component
+
 ## 2.2.0
 
 ### Minor Changes
