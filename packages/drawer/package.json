@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/drawer",
-  "version": "0.0.0-dev-20230409203113",
+  "version": "0.0.0",
   "description": "React component the renders a Drawer from the edges of the screen",
   "keywords": [
     "drawer",

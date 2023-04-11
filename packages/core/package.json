@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/core",
-  "version": "0.0.0-dev-20230409203113",
+  "version": "2.2.11",
   "description": "Modular and accessible React UI components built with React, Tailwindcss, and Emotion",
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",

@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/number-input",
-  "version": "0.0.0-dev-20230409203113",
+  "version": "0.0.0",
   "description": "A React hook for managing counters",
   "keywords": [
     "counter",
@@ -53,7 +53,7 @@
     "@nature-ui/utils": "workspace:*"
   },
   "peerDependencies": {
-    "@nature-ui/system": "0.0.0-dev-20230409203113",
+    "@nature-ui/system": "0.0.0",
     "react": ">=18"
   },
   "devDependencies": {

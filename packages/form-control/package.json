@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/form-control",
-  "version": "0.0.0-dev-20230409203113",
+  "version": "0.0.0",
   "description": "React component to provide validation states to form fields",
   "keywords": [
     "field",

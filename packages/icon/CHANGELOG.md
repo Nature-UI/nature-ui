@@ -1,5 +1,23 @@
 # @nature-ui/icon
 
+## 0.0.0
+
+### Patch Changes
+
+- Popover fix
+
+## 0.0.0-dev-20230411071731
+
+### Patch Changes
+
+-
+
+## 0.0.0-dev-20230410162901
+
+### Patch Changes
+
+- popover
+
 ## 0.0.0-dev-20230410131720
 
 ### Patch Changes

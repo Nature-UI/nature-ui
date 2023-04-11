@@ -1,6 +1,5 @@
-/** ** */
 import { clsx, css, forwardRef, nature } from '@nature-ui/system';
-import { getValidChildren, __DEV__ } from '@nature-ui/utils';
+import { __DEV__, getValidChildren } from '@nature-ui/utils';
 import React from 'react';
 
 export type StackProps = {
@@ -25,7 +24,6 @@ export const Stack = forwardRef<StackProps, 'div'>((props, ref) => {
     row,
     col,
     className = '',
-    as,
     ...rest
   } = props;
 

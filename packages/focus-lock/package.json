@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/focus-lock",
-  "version": "0.0.0-dev-20230409203113",
+  "version": "0.0.0",
   "description": "React focus lock for all Nature UI components",
   "keywords": [
     "react focus lock",

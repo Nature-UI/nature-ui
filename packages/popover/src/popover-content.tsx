@@ -20,7 +20,6 @@ export const PopoverContent = forwardRef<PopoverContentProps, 'section'>(
       usePopoverContext();
 
     const popoverProps = getPopoverProps(contentProps, ref);
-    console.log({ props: getPopoverPositionerProps(rootProps) });
 
     return (
       <nature.div
@@ -35,7 +34,7 @@ export const PopoverContent = forwardRef<PopoverContentProps, 'section'>(
             contentProps.onAnimationComplete,
           )}
           className={clsx(
-            'nature-popover__content border-gray-200 relative bg-white border shadow-sm rounded-md max-w-xs break-words',
+            'nature-popover__content border-gray-200 relative bg-white border shadow-sm rounded-md max-w-xs break-words -z-[1]',
             props.className,
           )}
           style={{

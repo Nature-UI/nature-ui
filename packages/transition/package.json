@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/transition",
-  "version": "0.0.0-dev-20230409203113",
+  "version": "0.0.0",
   "description": "Common transition components for Nature UI",
   "keywords": [
     "transition",

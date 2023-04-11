@@ -1,5 +1,29 @@
 # @nature-ui/counter
 
+## 0.0.0
+
+### Patch Changes
+
+- Popover fix
+- Updated dependencies
+  - @nature-ui/hooks@0.0.0
+
+## 0.0.0-dev-20230411071731
+
+### Patch Changes
+
+-
+- Updated dependencies
+  - @nature-ui/hooks@0.0.0-dev-20230411071731
+
+## 0.0.0-dev-20230410162901
+
+### Patch Changes
+
+- popover
+- Updated dependencies
+  - @nature-ui/hooks@0.0.0-dev-20230410162901
+
 ## 0.0.0-dev-20230410131720
 
 ### Patch Changes
