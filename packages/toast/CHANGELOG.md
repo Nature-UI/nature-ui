@@ -1,5 +1,18 @@
 # @nature-ui/toast
 
+## 2.2.13
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+- Updated dependencies
+  - @nature-ui/close-button@2.1.13
+  - @nature-ui/react-utils@2.2.13
+  - @nature-ui/transition@2.2.13
+  - @nature-ui/portal@2.2.13
+  - @nature-ui/alert@2.2.13
+  - @nature-ui/hooks@2.2.13
+
 ## 2.2.12
 
 ### Patch Changes

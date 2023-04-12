@@ -1,5 +1,11 @@
 # @nature-ui/color
 
+## 2.1.13
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+
 ## 2.1.12
 
 ### Patch Changes

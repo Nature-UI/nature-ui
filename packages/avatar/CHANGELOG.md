@@ -1,5 +1,14 @@
 # @nature-ui/avatar
 
+## 2.2.13
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+- Updated dependencies
+  - @nature-ui/color@2.1.13
+  - @nature-ui/image@2.2.13
+
 ## 2.2.12
 
 ### Patch Changes

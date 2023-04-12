@@ -1,5 +1,13 @@
 # @nature-ui/container
 
+## 2.0.13
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+- Updated dependencies
+  - @nature-ui/utils@2.2.13
+
 ## 2.0.12
 
 ### Patch Changes

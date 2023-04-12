@@ -1,5 +1,43 @@
 # @nature-ui/core
 
+## 2.2.15
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+- Updated dependencies
+  - @nature-ui/visually-hidden@2.2.13
+  - @nature-ui/close-button@2.1.13
+  - @nature-ui/form-control@2.2.13
+  - @nature-ui/number-input@2.2.13
+  - @nature-ui/breadcrumb@2.2.13
+  - @nature-ui/descendant@2.2.13
+  - @nature-ui/focus-lock@2.2.13
+  - @nature-ui/transition@2.2.13
+  - @nature-ui/clickable@2.2.13
+  - @nature-ui/container@2.0.13
+  - @nature-ui/checkbox@2.2.13
+  - @nature-ui/progress@2.2.13
+  - @nature-ui/counter@2.2.13
+  - @nature-ui/popover@2.2.13
+  - @nature-ui/spinner@2.2.13
+  - @nature-ui/avatar@2.2.13
+  - @nature-ui/button@2.2.13
+  - @nature-ui/drawer@2.2.13
+  - @nature-ui/layout@2.2.13
+  - @nature-ui/popper@2.2.13
+  - @nature-ui/portal@2.2.13
+  - @nature-ui/system@2.2.13
+  - @nature-ui/alert@2.2.13
+  - @nature-ui/color@2.1.13
+  - @nature-ui/hooks@2.2.13
+  - @nature-ui/image@2.2.13
+  - @nature-ui/input@2.2.13
+  - @nature-ui/modal@2.2.13
+  - @nature-ui/radio@2.2.13
+  - @nature-ui/toast@2.2.13
+  - @nature-ui/icon@2.2.13
+
 ## 2.2.14
 
 ### Patch Changes

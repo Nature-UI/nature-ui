@@ -1,5 +1,11 @@
 # @chakra-ui/react-types
 
+## 0.0.4
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+
 ## 0.0.3
 
 ### Patch Changes

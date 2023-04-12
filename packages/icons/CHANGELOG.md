@@ -1,5 +1,13 @@
 # @nature-ui/icons
 
+## 2.2.13
+
+### Patch Changes
+
+- Fixing release bug on @nature-ui/toast and portal.
+- Updated dependencies
+  - @nature-ui/icon@2.2.13
+
 ## 2.2.12
 
 ### Patch Changes

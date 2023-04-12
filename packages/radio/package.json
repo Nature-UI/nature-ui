@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/radio",
-  "version": "2.2.12",
+  "version": "2.2.13",
   "description": "A React component to render custom Radio input types",
   "keywords": [
     "radio",
@@ -13,7 +13,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -64,5 +64,15 @@
       "cjs",
       "esm"
     ]
+  },
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   }
 }
