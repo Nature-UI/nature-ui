@@ -1,5 +1,32 @@
 # @nature-ui/popper
 
+## 2.2.12
+
+### Patch Changes
+
+- Fix error on @nature-ui/image component
+- Updated dependencies
+  - @nature-ui/react-utils@2.2.12
+  - @nature-ui/utils@2.2.12
+
+## 2.2.11
+
+### Patch Changes
+
+- Fix previous release
+- Updated dependencies
+  - @nature-ui/react-utils@2.2.11
+  - @nature-ui/utils@2.2.11
+
+## 0.0.1
+
+### Patch Changes
+
+- Export module
+- Updated dependencies
+  - @nature-ui/react-utils@0.0.1
+  - @nature-ui/utils@0.0.1
+
 ## 0.0.0
 
 ### Patch Changes

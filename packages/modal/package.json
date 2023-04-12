@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/modal",
-  "version": "0.0.0",
+  "version": "2.2.12",
   "description": "An accessible dialog (modal) component for React & Nature UI",
   "keywords": [
     "react",
@@ -41,8 +41,7 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepack": "clean-package"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"
@@ -66,7 +65,7 @@
     "react": "^18.0.0"
   },
   "peerDependencies": {
-    "@nature-ui/system": "0.0.0",
+    "@nature-ui/system": "workspace:*",
     "framer-motion": ">=6.0.0",
     "react": ">=18"
   },

@@ -1,5 +1,44 @@
 # @nature-ui/checkbox
 
+## 2.2.12
+
+### Patch Changes
+
+- Fix error on @nature-ui/image component
+- Updated dependencies
+  - @nature-ui/visually-hidden@2.2.12
+  - @nature-ui/form-control@2.2.12
+  - @nature-ui/react-utils@2.2.12
+  - @nature-ui/system@2.2.12
+  - @nature-ui/hooks@2.2.12
+  - @nature-ui/icon@2.2.12
+
+## 2.2.11
+
+### Patch Changes
+
+- Fix previous release
+- Updated dependencies
+  - @nature-ui/visually-hidden@2.2.11
+  - @nature-ui/form-control@2.2.11
+  - @nature-ui/react-utils@2.2.11
+  - @nature-ui/system@2.2.11
+  - @nature-ui/hooks@2.2.11
+  - @nature-ui/icon@2.2.11
+
+## 0.0.1
+
+### Patch Changes
+
+- Export module
+- Updated dependencies
+  - @nature-ui/visually-hidden@0.0.1
+  - @nature-ui/form-control@0.0.1
+  - @nature-ui/react-utils@0.0.1
+  - @nature-ui/system@0.0.1
+  - @nature-ui/hooks@0.0.1
+  - @nature-ui/icon@0.0.1
+
 ## 0.0.0
 
 ### Patch Changes

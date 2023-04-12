@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/layout",
-  "version": "0.0.0",
+  "version": "2.2.12",
   "description": "A React component for displaying spinners and loaders",
   "keywords": [
     "spinner",
@@ -33,8 +33,7 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepack": "clean-package"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

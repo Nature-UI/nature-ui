@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/color",
-  "version": "0.0.0",
+  "version": "2.1.12",
   "description": "A base React component for icons",
   "keywords": [
     "react",
@@ -32,8 +32,7 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepack": "clean-package"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

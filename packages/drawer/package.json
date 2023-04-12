@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/drawer",
-  "version": "0.0.0",
+  "version": "2.2.12",
   "description": "React component the renders a Drawer from the edges of the screen",
   "keywords": [
     "drawer",
@@ -38,8 +38,7 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepack": "clean-package"
   },
   "bugs": {
     "url": "https://github.com/DNature/nature-ui/issues"

@@ -1,5 +1,23 @@
 # @chakra-ui/react-types
 
+## 0.0.3
+
+### Patch Changes
+
+- Fix error on @nature-ui/image component
+
+## 0.0.2
+
+### Patch Changes
+
+- Fix previous release
+
+## 0.0.1
+
+### Patch Changes
+
+- Export module
+
 ## 0.0.0
 
 ### Patch Changes

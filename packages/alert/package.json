@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert",
-  "version": "0.0.0",
+  "version": "2.2.12",
   "description": "A React component used to alert users of a particular screen area that needs user action",
   "keywords": [
     "alert",
@@ -34,8 +34,7 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepack": "clean-package"
   },
   "dependencies": {
     "@nature-ui/icon": "workspace:*"

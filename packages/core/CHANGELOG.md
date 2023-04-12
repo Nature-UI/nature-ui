@@ -1,5 +1,119 @@
 # @nature-ui/core
 
+## 2.2.14
+
+### Patch Changes
+
+- Fix error on @nature-ui/image component
+- Updated dependencies
+  - @nature-ui/visually-hidden@2.2.12
+  - @nature-ui/close-button@2.1.12
+  - @nature-ui/form-control@2.2.12
+  - @nature-ui/number-input@2.2.12
+  - @nature-ui/breadcrumb@2.2.12
+  - @nature-ui/descendant@2.2.12
+  - @nature-ui/focus-lock@2.2.12
+  - @nature-ui/transition@2.2.12
+  - @nature-ui/clickable@2.2.12
+  - @nature-ui/container@2.0.12
+  - @nature-ui/checkbox@2.2.12
+  - @nature-ui/progress@2.2.12
+  - @nature-ui/counter@2.2.12
+  - @nature-ui/popover@2.2.12
+  - @nature-ui/spinner@2.2.12
+  - @nature-ui/avatar@2.2.12
+  - @nature-ui/button@2.2.12
+  - @nature-ui/drawer@2.2.12
+  - @nature-ui/layout@2.2.12
+  - @nature-ui/popper@2.2.12
+  - @nature-ui/portal@2.2.12
+  - @nature-ui/system@2.2.12
+  - @nature-ui/alert@2.2.12
+  - @nature-ui/color@2.1.12
+  - @nature-ui/hooks@2.2.12
+  - @nature-ui/image@2.2.12
+  - @nature-ui/input@2.2.12
+  - @nature-ui/modal@2.2.12
+  - @nature-ui/radio@2.2.12
+  - @nature-ui/toast@2.2.12
+  - @nature-ui/icon@2.2.12
+
+## 2.2.13
+
+### Patch Changes
+
+- Fix previous release
+- Updated dependencies
+  - @nature-ui/visually-hidden@2.2.11
+  - @nature-ui/close-button@2.1.11
+  - @nature-ui/form-control@2.2.11
+  - @nature-ui/number-input@2.2.11
+  - @nature-ui/breadcrumb@2.2.11
+  - @nature-ui/descendant@2.2.11
+  - @nature-ui/focus-lock@2.2.11
+  - @nature-ui/transition@2.2.11
+  - @nature-ui/clickable@2.2.11
+  - @nature-ui/container@2.0.11
+  - @nature-ui/checkbox@2.2.11
+  - @nature-ui/progress@2.2.11
+  - @nature-ui/counter@2.2.11
+  - @nature-ui/popover@2.2.11
+  - @nature-ui/spinner@2.2.11
+  - @nature-ui/avatar@2.2.11
+  - @nature-ui/button@2.2.11
+  - @nature-ui/drawer@2.2.11
+  - @nature-ui/layout@2.2.11
+  - @nature-ui/popper@2.2.11
+  - @nature-ui/portal@2.2.11
+  - @nature-ui/system@2.2.11
+  - @nature-ui/alert@2.2.11
+  - @nature-ui/color@2.1.11
+  - @nature-ui/hooks@2.2.11
+  - @nature-ui/image@2.2.11
+  - @nature-ui/input@2.2.11
+  - @nature-ui/modal@2.2.11
+  - @nature-ui/radio@2.2.11
+  - @nature-ui/toast@2.2.11
+  - @nature-ui/icon@2.2.11
+
+## 2.2.12
+
+### Patch Changes
+
+- Export module
+- Updated dependencies
+  - @nature-ui/visually-hidden@0.0.1
+  - @nature-ui/close-button@0.0.1
+  - @nature-ui/form-control@0.0.1
+  - @nature-ui/number-input@0.0.1
+  - @nature-ui/breadcrumb@0.0.1
+  - @nature-ui/descendant@0.0.1
+  - @nature-ui/focus-lock@0.0.1
+  - @nature-ui/transition@0.0.1
+  - @nature-ui/clickable@0.0.1
+  - @nature-ui/container@0.0.1
+  - @nature-ui/checkbox@0.0.1
+  - @nature-ui/progress@0.0.1
+  - @nature-ui/counter@0.0.1
+  - @nature-ui/popover@0.0.1
+  - @nature-ui/spinner@0.0.1
+  - @nature-ui/avatar@0.0.1
+  - @nature-ui/button@0.0.1
+  - @nature-ui/drawer@0.0.1
+  - @nature-ui/layout@0.0.1
+  - @nature-ui/popper@0.0.1
+  - @nature-ui/portal@0.0.1
+  - @nature-ui/system@0.0.1
+  - @nature-ui/alert@0.0.1
+  - @nature-ui/color@0.0.1
+  - @nature-ui/hooks@0.0.1
+  - @nature-ui/image@0.0.1
+  - @nature-ui/input@0.0.1
+  - @nature-ui/modal@0.0.1
+  - @nature-ui/radio@0.0.1
+  - @nature-ui/toast@0.0.1
+  - @nature-ui/icon@0.0.1
+
 ## 0.0.0
 
 ### Patch Changes

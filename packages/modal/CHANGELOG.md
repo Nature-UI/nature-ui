@@ -1,5 +1,50 @@
 # @nature-ui/modal
 
+## 2.2.12
+
+### Patch Changes
+
+- Fix error on @nature-ui/image component
+- Updated dependencies
+  - @nature-ui/close-button@2.1.12
+  - @nature-ui/react-utils@2.2.12
+  - @nature-ui/focus-lock@2.2.12
+  - @nature-ui/transition@2.2.12
+  - @nature-ui/portal@2.2.12
+  - @nature-ui/system@2.2.12
+  - @nature-ui/hooks@2.2.12
+  - @nature-ui/utils@2.2.12
+
+## 2.2.11
+
+### Patch Changes
+
+- Fix previous release
+- Updated dependencies
+  - @nature-ui/close-button@2.1.11
+  - @nature-ui/react-utils@2.2.11
+  - @nature-ui/focus-lock@2.2.11
+  - @nature-ui/transition@2.2.11
+  - @nature-ui/portal@2.2.11
+  - @nature-ui/system@2.2.11
+  - @nature-ui/hooks@2.2.11
+  - @nature-ui/utils@2.2.11
+
+## 0.0.1
+
+### Patch Changes
+
+- Export module
+- Updated dependencies
+  - @nature-ui/close-button@0.0.1
+  - @nature-ui/react-utils@0.0.1
+  - @nature-ui/focus-lock@0.0.1
+  - @nature-ui/transition@0.0.1
+  - @nature-ui/portal@0.0.1
+  - @nature-ui/system@0.0.1
+  - @nature-ui/hooks@0.0.1
+  - @nature-ui/utils@0.0.1
+
 ## 0.0.0
 
 ### Patch Changes

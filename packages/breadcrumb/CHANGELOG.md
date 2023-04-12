@@ -1,5 +1,23 @@
 # @nature-ui/breadcrumb
 
+## 2.2.12
+
+### Patch Changes
+
+- Fix error on @nature-ui/image component
+
+## 2.2.11
+
+### Patch Changes
+
+- Fix previous release
+
+## 0.0.1
+
+### Patch Changes
+
+- Export module
+
 ## 0.0.0
 
 ### Patch Changes

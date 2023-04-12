@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/react-utils",
-  "version": "0.0.0",
+  "version": "2.2.12",
   "description": "React utilities and helpers for Nature UI",
   "keywords": [
     "theme",
@@ -38,8 +38,7 @@
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "prepack": "clean-package"
   },
   "dependencies": {
     "@nature-ui/utils": "workspace:*"
