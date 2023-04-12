@@ -1,5 +1,4 @@
-import { isString, UnionStringArray, __DEV__ } from '@nature-ui/utils';
-import { As } from '@nature-ui/utils/src/types';
+import { As, UnionStringArray, __DEV__, isString } from '@nature-ui/utils';
 import React from 'react';
 import { ComponentWithAs, PropsOf, RightJoinProps } from './system.types';
 

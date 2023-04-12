@@ -4,6 +4,7 @@ export * from './dom';
 export * from './dom-query';
 export * from './focus';
 export * from './functions';
+export * from './lazy';
 export * from './logger';
 export * from './numbers';
 export * from './objects';

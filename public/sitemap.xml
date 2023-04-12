@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://nature-ui.com/</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/getting-started</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/box</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-boolean</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/getting-started/migration</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/getting-started/contributing</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/container</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/stack</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/button</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/checkbox</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/close-button</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/form-control</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/icon-button</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/input</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/number-input</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/radio</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/alert</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/circular-progress</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/progress</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/spinner</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/toast</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/badge</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/divider</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/alert-dialog</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/drawer</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/modal</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/visually-hidden</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/breadcrumb</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/avatar</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/icon</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/image</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/lazy-image</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/portal</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/components/transitions</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-clipboard</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-controllable</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-disclosure</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-checkbox</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-checkbox-group</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://nature-ui.com/docs/hooks/use-radio</loc>
+  <lastmod>2023-03-04T02:53:45+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

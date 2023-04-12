@@ -1,0 +1,44 @@
+{
+  "name": "@nature-ui/react-types",
+  "version": "0.0.4",
+  "description": "",
+  "keywords": [
+    "react",
+    "types",
+    "shared"
+  ],
+  "author": "Segun Adebayo <sage@adebayosegun.com>",
+  "homepage": "https://github.com/nature-ui/nature-ui#readme",
+  "license": "MIT",
+  "types": "src/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nature-ui/nature-ui.git",
+    "directory": "packages/utilities/react-types"
+  },
+  "bugs": {
+    "url": "https://github.com/nature-ui/nature-ui/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "react": "^18.0.0"
+  },
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}

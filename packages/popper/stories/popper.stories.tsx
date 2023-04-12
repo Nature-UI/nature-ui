@@ -1,5 +1,5 @@
 import { useDisclosure } from '@nature-ui/hooks';
-import React from 'react';
+import { motion, Variants } from 'framer-motion';
 import { usePopper } from '../src';
 
 export default {
@@ -8,83 +8,124 @@ export default {
 };
 
 export const Basic = () => {
-  const disclosure = useDisclosure({ defaultIsOpen: true });
+  const { isOpen, onToggle } = useDisclosure();
 
-  const { popper, reference, arrow } = usePopper({
-    placement: 'left',
-    forceUpdate: disclosure.isOpen,
+  const { referenceRef, popperRef } = usePopper({
+    placement: 'bottom-start',
+    matchWidth: true,
   });
 
   return (
     <>
-      <button
-        onClick={disclosure.onToggle}
-        style={{ float: 'right' }}
-        {...reference}
-      >
-        Reference
+      <button ref={referenceRef} style={{ margin: 400 }} onClick={onToggle}>
+        Reference Tooltip Trigger
       </button>
-      <div
-        hidden={!disclosure.isOpen}
-        {...popper}
-        style={{
-          ...popper.style,
-          background: 'tomato',
-          padding: 15,
-        }}
-      >
+
+      {isOpen && (
         <div
-          {...arrow}
+          ref={popperRef}
+          className='bg-red-500 w-[250px] p-[15px] rounded-[6px]'
+          data-popper-arrow-styles='bg-red-500'
           style={{
-            ...arrow.style,
-            background: 'inherit',
+            ['--popper-arrow-bg' as string]: 'red',
+            borderRadius: 6,
           }}
-        />
-        Popper
+        >
+          Popper
+          <div data-popper-arrow=''>
+            <div data-popper-arrow-inner='' className='bg-red-500' />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export const WithTransition = () => {
+  const { isOpen, onToggle } = useDisclosure();
+
+  const { referenceRef, popperRef } = usePopper({
+    placement: 'bottom-start',
+  });
+
+  const slide: Variants = {
+    exit: { y: -2, opacity: 0 },
+    enter: { y: 0, opacity: 1 },
+  };
+
+  return (
+    <>
+      <button ref={referenceRef} onClick={onToggle}>
+        Toggle
+      </button>
+      <div ref={popperRef} style={{ ['--popper-arrow-bg' as string]: 'red' }}>
+        <motion.div
+          transition={{
+            duration: 0.15,
+            easings: 'easeInOut',
+          }}
+          variants={slide}
+          initial={false}
+          animate={isOpen ? 'enter' : 'exit'}
+          className='bg-red-500 w-[200px] rounded-[4px]'
+          style={{
+            transformOrigin: 'var(--popper-transform-origin)',
+          }}
+        >
+          Testing
+          <div data-popper-arrow=''>
+            <div data-popper-arrow-inner='' />
+            <div data-popper-arrow-inner='' className='bg-red-500' />
+          </div>
+        </motion.div>
       </div>
     </>
   );
 };
 
-export const Conditional = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export const WithMatchWidth = () => {
+  const { onToggle } = useDisclosure();
 
-  const { popper, reference, arrow } = usePopper({
+  const { getPopperProps, getReferenceProps } = usePopper({
     placement: 'bottom-start',
-    forceUpdate: isOpen,
+    matchWidth: true,
   });
+
+  const popperProps = getPopperProps();
 
   return (
     <>
       <button
-        onMouseOver={onOpen}
-        onMouseLeave={onClose}
-        style={{ marginTop: 100 }}
-        onFocus={onOpen} // This is just to get rid of some es-lint errors
-        {...reference}
+        {...getReferenceProps()}
+        onClick={onToggle}
+        style={{ width: '400px', margin: 400 }}
       >
-        Reference
+        Toggle
       </button>
-      {isOpen && (
-        <div
-          {...popper}
-          style={{
-            ...popper.style,
-            background: 'red',
-            padding: 15,
-            minWidth: 200,
-          }}
-        >
-          <div
-            {...arrow}
-            style={{
-              ...arrow.style,
-              background: 'inherit',
-            }}
-          />
-          Popper
+      <div
+        {...popperProps}
+        style={{
+          ...popperProps,
+          background: 'red',
+        }}
+      >
+        <div style={{ width: '100%' }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
+          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.
         </div>
-      )}
+      </div>
     </>
   );
 };

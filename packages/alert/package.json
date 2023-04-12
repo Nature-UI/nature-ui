@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/alert",
-  "version": "0.0.0-dev-20221217102739",
+  "version": "2.2.12",
   "description": "A React component used to alert users of a particular screen area that needs user action",
   "keywords": [
     "alert",
@@ -13,7 +13,7 @@
   "sideEffects": false,
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "license": "MIT",
-  "main": "dist/index.cjs.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -29,8 +29,8 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "JSX=1 tsup src/index.ts --dts",
-    "build:fast": "JSX=1 tsup src/index.ts",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
@@ -54,13 +54,13 @@
   },
   "homepage": "https://github.com/DNature/nature-ui#readme",
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts"
+  "clean-package": "../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
 }

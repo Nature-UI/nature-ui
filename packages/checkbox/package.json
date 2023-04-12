@@ -1,6 +1,6 @@
 {
   "name": "@nature-ui/checkbox",
-  "version": "0.0.0-dev-20221217102739",
+  "version": "2.2.12",
   "description": "A React Checkbox component for use in forms",
   "keywords": [
     "react",
@@ -18,7 +18,7 @@
   "author": "Divine Hycenth <divinehycenth8@gmail.com>",
   "homepage": "https://github.com/DNature/nature-ui",
   "license": "MIT",
-  "main": "dist/index.cjs.js",
+  "main": "src/index.ts",
   "directories": {
     "lib": "dist",
     "test": "__tests__"
@@ -34,8 +34,8 @@
     "url": "git+https://github.com/DNature/nature-ui.git"
   },
   "scripts": {
-    "build": "JSX=1 tsup src/index.ts --dts",
-    "build:fast": "JSX=1 tsup src/index.ts",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
@@ -53,7 +53,7 @@
     "@zag-js/focus-visible": "^0.1.6"
   },
   "peerDependencies": {
-    "@nature-ui/system": "0.0.0-dev-20221217102739",
+    "@nature-ui/system": "workspace:*",
     "react": ">=18"
   },
   "devDependencies": {
@@ -64,13 +64,13 @@
     "react": "^18.0.0"
   },
   "gitHead": "cafae1d72b2a7027028454c22d4bbaebfdafba5f",
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts"
+  "clean-package": "../../clean-package.config.json",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
 }

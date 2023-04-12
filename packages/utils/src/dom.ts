@@ -81,3 +81,7 @@ export const ariaAttr = (condition?: boolean) => (condition ? true : undefined);
 
 export const cx = (...classNames: any[]) =>
   classNames.filter(Boolean).join(' ');
+
+export function getOwnerWindow(node?: Element | null): typeof globalThis {
+  return getOwnerDocument(node)?.defaultView ?? window;
+}

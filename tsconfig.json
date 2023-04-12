@@ -18,7 +18,8 @@
     "noImplicitAny": false,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true
+    // "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "exclude": ["**/node_modules"],
-  "include": ["packages", "tooling", "scripts", "react-shim.js"]
+  "include": ["@types", "packages", "tooling", "scripts", "react-shim.js"]
 }
