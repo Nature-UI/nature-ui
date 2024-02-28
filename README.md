@@ -1,3 +1,5 @@
+> Notice: Nature UI has been discontinued and we recommend using [Daisy UI](https://daisyui.com/) or [Shadcn/UI](https://ui.shadcn.com/)
+
 <p align="center">
   <a href="https://github.com/nature-ui/nature-ui">
     <img src="https://github.com/nature-ui/nature-ui/blob/develop/public/full-logo.png?raw=true" alt="nature logo" width="300" />
